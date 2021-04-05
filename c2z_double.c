@@ -1,134 +1,981 @@
 /* ***************************************************
 *  c2z : c2_double.c :                               *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2018                    *
+*  Copyright TCCS (c) 2015 - 2020                    *
 **************************************************** */
 
-/* *************************************************** 
+/* ***************************************************
 *  Scan test for DOUBLE                              *
 **************************************************** */
-void c2_double()
-	{
-		if(trace_flag == 1)
-			{
-				strcpy(trace_1, "c2_double");
-				trace_rec_1();
-			}
+void c2_double() 
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_double.c 2 c2_double START");
+    trace_rec_1();
+  }
 
-		int I = 0;
-		int s = 0;
-		int size = 0;
-		int pi;
-		int pi2;
-		
-		char ch;
-		char *p, *p1, *p2;
-		char tfield1[VAR_LGTH];
-		char tfield1a[VAR_LGTH];
-				
-		p1 = strstr(p_string,"print");
-		p2 = strstr(p_string,"main");
-		p = strstr(p_string,"double");		
+  char ch, *p, *p1, *p2;
+  char tfield1[VAR_LGTH];
+  char tfield2[VAR_LGTH];
+  char tfield2a[VAR_LGTH];
+  char tfield3[VAR_LGTH];
+  char tfield3a[VAR_LGTH];
 
-		if((p) && (!p1) && (!p2))
-			{	
-				tot_double++;
-				pi = 0;
-				s = strlen(p_string);	
-				ch = p_string[pi];
-				pi++;
-						
-				while((ch == ' ') || (ch == '\t'))		
-					{
-						ch = p_string[pi];
-						pi++;	
-					}
+  int s = 0;
+  int v = 0;
+  int z3 = 0;
+  int x3 = 0;
+  int x10 = 0;
+  int x11 = 0;
+  int fd3_type = 0;
+  int size = 0;
+  int pi;
+  int pi2;
+  int ret = 0;
+  int I = 0;
+  int ret1 = 0;
 
-				while(ch != ' ')
-					{
-						ch = p_string[pi];
-						pi++;
-					}	
+  tfield2a[0] = '\0';
 
-				skip = 0;
-				pi2 = 0;
-				ch = p_string[pi];
-				for(I=pi; I < s; I++)
-					{
-						if((ch != ';') && (ch != ' ') && (skip != 1))
-							{
-								tfield1[pi2] = ch;
-								pi2++;
-								pi++;
-								ch = p_string[pi];
-							}
-						else
-							{
-								skip = 1;
-							}
-					}
-				tfield1[pi2] = '\0';
+  tot_malloc++;
 
-				if(ch != ';')
-					skip = 1;
+  x10 = 0;
+  s = strlen(p_string);
+  for (I = 0; I < s; I++) 
+  {
+    ch = p_string[I];
+    if (ch == ';') 
+    {
+      break;
+    }
+    if (ch == ',') 
+    {
+      x10++;
+    }
+    if (isdigit(ch) == 1) 
+    {
+      x11++;
+    }
+  }
 
-				if(skip == 1)
-					{
-						for(I=pi; I < s; I++)
-							{
-								if(ch != '=')
-									{
-										pi++;
-										ch = p_string[pi];
-									}
-							}
-										
-						for(I=pi; I < s; I++)
-							{
-								if(ch == ' ')
-									{
-										pi++;
-										ch = p_string[pi];
-									}
-							}
-										
-						pi++;
-						ch = p_string[pi];
-						while(ch != ';')
-							{
-								pi++;
-								ch = p_string[pi];
-							}
-					}
-					
-					c_name++;
-					snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-					strcpy(c_wkname, "C37F");
-					strcat(c_wkname, wk_strg);
-					s = strlen(c_wkname);
-					c_wkname[s] = '\0';
-					strcpy(tfield1a,c_wkname);
-					
-					if(gv_ct == 0)
-						{
-							size = 1;
-							gw_variable = malloc(size * sizeof(struct variables));
-						}
-					else
-						{
-							size = gv_ct + 1;
-							gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-						}
+  /*    if(x11 == 0)
+     {
+        convert = 1;
+        return;
+     }
+  */
 
-					gw_variable[gv_ct].gv_rct = rct;	
-					strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
-			       	strcpy(gw_variable[gv_ct].gv_name, tfield1);  	             
-					strcpy(gw_variable[gv_ct].gv_type, "D");
-					gw_variable[gv_ct].gv_lgth = 0;
-					gw_variable[gv_ct].gv_dec = 0;
-					gv_ct++;
+  pi = 0;
+  ch = p_string[pi];
+  while ((ch == ' ') || (ch == '\t') || (ch == '{')) 
+  {
+    pi++;
+    ch = p_string[pi];
+  }
 
-					convert = 1;
-				}	
-	}
-	
+  pi2 = 0;
+  ch = p_string[pi];
+  while (ch != ' ') 
+  {
+    tfield1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  tfield1[pi2] = '\0';
+
+  p = strstr(p_string, "=");
+  p1 = strstr(p_string, "*");
+
+  if ((!p) && (!p1)) 
+  {
+    if (traceflg == 1) 
+    {
+      strcpy(trace_1, "c2z_double.c 2 c2_double subroutine #1 START");
+      trace_rec_1();
+    }
+
+    pi2 = 0;
+    pi++;
+    ch = p_string[pi];
+    if (x10 == 0) {
+      while (ch != ';') 
+      {
+        if (ch != '*') 
+        {
+          tfield2[pi2] = ch;
+          pi2++;
+        }
+        pi++;
+        ch = p_string[pi];
+      }
+      tfield2[pi2] = '\0';
+    }
+
+    if (x10 == 1) 
+    {
+      while (ch != ',') 
+      {
+        if (ch != '*') 
+        {
+          tfield2[pi2] = ch;
+          pi2++;
+        }
+        pi++;
+        ch = p_string[pi];
+      }
+      tfield2[pi2] = '\0';
+
+      pi++;
+      ch = p_string[pi];
+      pi2 = 0;
+      while (ch != ';') 
+      {
+        if (ch != '*') 
+        {
+          if (ch != ' ') 
+          {
+            tfield3[pi2] = ch;
+            pi2++;
+          }
+        }
+        pi++;
+        ch = p_string[pi];
+      }
+      tfield3[pi2] = '\0';
+    }
+
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+    strcpy(tfield2a, c_wkname);
+
+    if (global_st == 0) /*				global variable	*/
+    {
+      z3 = 0;
+      for (v = 0; v < gv_ct; v++) 
+      {
+        ret = strcmp(tfield2, gw_variable[v].gv_name);
+        if (ret == 0) 
+        {
+          z3 = 1;
+        }
+      }
+
+      if (z3 == 0) 
+      {
+        if (gv_ct == 0) 
+        {
+          size = 1;
+          gw_variable = malloc(size * sizeof(struct variables));
+        } 
+        else 
+        {
+          size = gv_ct + 1;
+          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+        }
+
+        gw_variable[gv_ct].gv_rct = rct;
+        strcpy(gw_variable[gv_ct].gv_cname, tfield2a);
+        strcpy(gw_variable[gv_ct].gv_name, tfield2);
+        strcpy(gw_variable[gv_ct].gv_type, "I");
+        gw_variable[gv_ct].gv_lgth = 0;
+        gw_variable[gv_ct].gv_current_lgth = 0;
+        strcpy(gw_variable[gv_ct].gv_value, null_field);
+        gw_variable[gv_ct].gv_init = 0;
+        strcpy(gw_variable[gv_ct].gv_literal, null_field);
+        gw_variable[gv_ct].gv_use_ct = 0;
+        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+        gw_variable[gv_ct].gv_row = 0;
+        gw_variable[gv_ct].gv_column = 0;
+        strcpy(gw_variable[gv_ct].gv_label, null_field);
+        strcpy(gw_variable[gv_ct].gv_table, null_field);
+        strcpy(gw_variable[gv_ct].gv_aname, null_field);
+        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        gw_variable[gv_ct].gv_flag = 0;
+        gw_variable[gv_ct].gv_dec = 0;
+        gw_variable[gv_ct].gv_id = 0;
+        gv_ct++;
+
+
+      }
+    }		 /* global_st == 0   */
+
+    if (global_st == 1) 			/*	local variable	*/
+    {
+      x3 = 0;
+      if (lv_ct > 0) 
+      {
+        for (I = 0; I < lv_ct; I++) 
+        {
+          ret = strcmp(tfield2, lw_variable[I].lv_name);
+          ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+          if ((ret == 0) && (ret1 == 0)) 
+          {
+            strcpy(tfield2a, lw_variable[I].lv_cname);
+            lw_variable[I].lv_use_ct++;
+            x3 = 1;
+          }
+        }
+      }
+
+      if (x3 == 0) 
+      {
+        if (lv_ct == 0) 
+        {
+          size = 1;
+          lw_variable = malloc(size * sizeof(struct var));
+        } 
+        else 
+        {
+          size = lv_ct + 1;
+          lw_variable = realloc(lw_variable, size * sizeof(struct var));
+        }
+
+        lw_variable[lv_ct].lv_rct = rct;
+        strcpy(lw_variable[lv_ct].lv_cname, tfield2a);
+        strcpy(lw_variable[lv_ct].lv_name, tfield2);
+        strcpy(lw_variable[lv_ct].lv_type, "I");
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
+        lw_variable[lv_ct].lv_lgth = 0;
+        strcpy(lw_variable[lv_ct].lv_value, "0");
+        lw_variable[lv_ct].lv_current_lgth = 0;
+        lw_variable[lv_ct].lv_init = 0;
+        strcpy(lw_variable[lv_ct].lv_literal, null_field);
+        lw_variable[lv_ct].lv_use_ct = 0;
+        lw_variable[lv_ct].lv_dec = 0;
+        lv_ct++;
+      }
+    } 			/* global_st == 1 */
+
+    if (x10 == 1) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z_double.c 2 c2_double subroutine #2 START");
+        trace_rec_1();
+      }
+
+      c_name++;
+      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+      strcpy(c_wkname, "C37F");
+      strcat(c_wkname, wk_strg);
+      s = strlen(c_wkname);
+      c_wkname[s] = '\0';
+      strcpy(tfield3a, c_wkname);
+
+      if (global_st == 0) 				/*	global variable	*/
+      {
+        z3 = 0;
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(tfield3, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            z3 = 1;
+          }
+        }
+
+        if (z3 == 0) 
+        {
+          if (gv_ct == 0) 
+          {
+            size = 1;
+            gw_variable = malloc(size * sizeof(struct variables));
+          } 
+          else 
+          {
+            size = gv_ct + 1;
+            gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+          }
+
+          gw_variable[gv_ct].gv_rct = rct;
+          strcpy(gw_variable[gv_ct].gv_cname, tfield3a);
+          strcpy(gw_variable[gv_ct].gv_name, tfield3);
+          strcpy(gw_variable[gv_ct].gv_type, "I");
+          gw_variable[gv_ct].gv_lgth = 0;
+          gw_variable[gv_ct].gv_current_lgth = 0;
+          strcpy(gw_variable[gv_ct].gv_value, null_field);
+          gw_variable[gv_ct].gv_init = 0;
+          strcpy(gw_variable[gv_ct].gv_literal, null_field);
+          gw_variable[gv_ct].gv_use_ct = 0;
+          strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+          gw_variable[gv_ct].gv_row = 0;
+          gw_variable[gv_ct].gv_column = 0;
+          strcpy(gw_variable[gv_ct].gv_label, null_field);
+          strcpy(gw_variable[gv_ct].gv_table, null_field);
+          strcpy(gw_variable[gv_ct].gv_aname, null_field);
+          strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+          strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+          strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+          gw_variable[gv_ct].gv_flag = 0;
+          gw_variable[gv_ct].gv_dec = 0;
+          gw_variable[gv_ct].gv_id = 0;
+        }
+      } 			/* global_st == 0   */
+
+      if (global_st == 1) 			/*	local variable	*/
+      {
+        x3 = 0;
+        if (lv_ct > 0) 
+        {
+          for (I = 0; I < lv_ct; I++) 
+          {
+            ret = strcmp(tfield3, lw_variable[I].lv_name);
+            ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+            if ((ret == 0) && (ret1 == 0)) 
+            {
+              strcpy(tfield3a, lw_variable[I].lv_cname);
+              lw_variable[I].lv_use_ct++;
+              x3 = 1;
+            }
+          }
+        }
+
+        if (x3 == 0) 
+        {
+          if (lv_ct == 0) 
+          {
+            size = 1;
+            lw_variable = malloc(size * sizeof(struct var));
+          } 
+          else 
+          {
+            size = lv_ct + 1;
+            lw_variable = realloc(lw_variable, size * sizeof(struct var));
+          }
+
+          lw_variable[lv_ct].lv_rct = rct;
+          strcpy(lw_variable[lv_ct].lv_cname, tfield3a);
+          strcpy(lw_variable[lv_ct].lv_name, tfield3);
+          strcpy(lw_variable[lv_ct].lv_type, "I");
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
+          lw_variable[lv_ct].lv_lgth = 0;
+          strcpy(lw_variable[lv_ct].lv_value, "0");
+          lw_variable[lv_ct].lv_current_lgth = 0;
+          lw_variable[lv_ct].lv_init = 0;
+          strcpy(lw_variable[lv_ct].lv_literal, null_field);
+          lw_variable[lv_ct].lv_use_ct = 0;
+          lw_variable[lv_ct].lv_dec = 0;
+          lv_ct++;
+        }
+      } 				/* global_st == 1 */
+    }
+
+    convert = 1;
+    return;
+  }
+
+  if (p1) 				/* double array */
+  {
+    if (traceflg == 1) 
+    {
+      strcpy(trace_1, "c2z_double.c 2 c2_double subroutine #3 START");
+      trace_rec_1();
+    }
+
+    pi2 = 0;
+    pi++;
+    ch = p_string[pi];
+    while (ch != ';') 
+    {
+      if (ch != '*') 
+      {
+        tfield2[pi2] = ch;
+        pi2++;
+      }
+      pi++;
+      ch = p_string[pi];
+    }
+    tfield2[pi2] = '\0';
+
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+    strcpy(tfield2a, c_wkname);
+
+    if (global_st == 0) 			/*	global variable	*/
+    {
+      z3 = 0;
+      for (v = 0; v < gv_ct; v++) 
+      {
+        ret = strcmp(tfield2, gw_variable[v].gv_name);
+        if (ret == 0) 
+        {
+          z3 = 1;
+        }
+      }
+
+      if (z3 == 0) 
+      {
+        if (gv_ct == 0) 
+        {
+          size = 1;
+          gw_variable = malloc(size * sizeof(struct variables));
+        } 
+        else 
+        {
+          size = gv_ct + 1;
+          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+        }
+
+        gw_variable[gv_ct].gv_rct = rct;
+        strcpy(gw_variable[gv_ct].gv_cname, tfield2a);
+        strcpy(gw_variable[gv_ct].gv_name, tfield2);
+        strcpy(gw_variable[gv_ct].gv_type, "G");
+        gw_variable[gv_ct].gv_init = 0;
+        gw_variable[gv_ct].gv_use_ct = 0;
+        gw_variable[gv_ct].gv_dec = 0;
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "T");
+        strcpy(gw_variable[gv_ct].gv_table, wk_string);
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "N");
+        strcpy(gw_variable[gv_ct].gv_dsect, wk_string);
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "L");
+        strcpy(gw_variable[gv_ct].gv_label, wk_string);
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "R");
+        strcpy(gw_variable[gv_ct].gv_sv_reg, wk_string);
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "X");
+        strcpy(gw_variable[gv_ct].gv_wk_reg, wk_string);
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "W");
+        strcpy(gw_variable[gv_ct].gv_wk_strg, wk_string);
+
+        /* number of rows in the **array		*/
+        gw_variable[gv_ct].gv_row = 250;
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "A");
+        strcpy(gw_variable[gv_ct].gv_aname, wk_string);
+
+        gv_ct++;
+
+        c_name++;
+        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+        strcpy(c_wkname, "C37F");
+        strcat(c_wkname, wk_strg);
+        s = strlen(c_wkname);
+        c_wkname[s] = '\0';
+
+        if (gv_ct == 0) 
+        {
+          size = 1;
+          gw_variable = malloc(size * sizeof(struct variables));
+        } 
+        else 
+        {
+          size = gv_ct + 1;
+          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+        }
+
+        gw_variable[gv_ct].gv_rct = rct;
+        strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
+        strcpy(gw_variable[gv_ct].gv_name, wk_string);
+        strcpy(gw_variable[gv_ct].gv_type, "B");
+        gw_variable[gv_ct].gv_lgth = 0;
+        strcpy(gw_variable[gv_ct].gv_value, null_field);
+        strcpy(gw_variable[gv_ct].gv_literal, null_field);
+        gw_variable[gv_ct].gv_init = 0;
+        gw_variable[gv_ct].gv_use_ct = 0;
+        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+        gw_variable[gv_ct].gv_row = 0;
+        gw_variable[gv_ct].gv_column = 0;
+        strcpy(gw_variable[gv_ct].gv_label, null_field);
+        strcpy(gw_variable[gv_ct].gv_table, null_field);
+        strcpy(gw_variable[gv_ct].gv_aname, null_field);
+        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        gw_variable[gv_ct].gv_dec = 0;
+        gv_ct++;
+
+        c_name++;
+        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+        strcpy(c_wkname, "C37F");
+        strcat(c_wkname, wk_strg);
+        s = strlen(c_wkname);
+        c_wkname[s] = '\0';
+
+        if (gv_ct == 0) 
+        {
+          size = 1;
+          gw_variable = malloc(size * sizeof(struct variables));
+        } 
+        else 
+        {
+          size = gv_ct + 1;
+          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+        }
+        snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
+        strcpy(wk_string, "A37");
+        strcat(wk_string, wk_strg);
+        strcat(wk_string, "W");
+
+        gw_variable[gv_ct].gv_rct = rct;
+        strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
+        strcpy(gw_variable[gv_ct].gv_name, wk_string);
+        strcpy(gw_variable[gv_ct].gv_type, "I");
+        gw_variable[gv_ct].gv_lgth = 0;
+        strcpy(gw_variable[gv_ct].gv_value, null_field);
+        strcpy(gw_variable[gv_ct].gv_literal, null_field);
+        gw_variable[gv_ct].gv_init = 0;
+        gw_variable[gv_ct].gv_use_ct = 0;
+        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+        gw_variable[gv_ct].gv_row = 0;
+        gw_variable[gv_ct].gv_column = 0;
+        strcpy(gw_variable[gv_ct].gv_label, null_field);
+        strcpy(gw_variable[gv_ct].gv_table, null_field);
+        strcpy(gw_variable[gv_ct].gv_aname, null_field);
+        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        gw_variable[gv_ct].gv_dec = 0;
+        gv_ct++;
+
+        convert = 1;
+      }
+    }
+  }
+
+  if (p)			 /* Equal Sign */
+  {
+    if (traceflg == 1) 
+    {
+      strcpy(trace_1, "c2z_double.c 2 c2_double subroutine #4 START");
+      trace_rec_1();
+    }
+
+    p2 = strstr(p_string, "(double)");
+    if (p2) 
+    {
+      pi++;
+      ch = p_string[pi];
+      while (ch != ')') 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+
+      pi2 = 0;
+      x3 = 0;
+      fd3_type = 0;
+      pi++;
+      ch = p_string[pi];
+      while (ch != ';') 
+      {
+        if ((isdigit(ch)) && (x3 == 0)) 
+        {
+          fd3_type = 2;
+          x3 = 1;
+        }
+        if ((isalpha(ch)) && (x3 == 0)) 
+        {
+          fd3_type = 1;
+          x3 = 1;
+        }
+        tfield3[pi2] = ch;
+        pi2++;
+        pi++;
+        ch = p_string[pi];
+      }
+      tfield3[pi2] = '\0';
+
+      convert = 1;
+      return;
+    }
+
+    pi2 = 0;
+    pi++;
+    ch = p_string[pi];
+    while (ch != '=') 
+    {
+      if (ch != ' ') 
+      {
+        if (ch != '*') 
+        {
+          tfield2[pi2] = ch;
+          pi2++;
+        }
+      }
+      pi++;
+      ch = p_string[pi];
+    }
+    tfield2[pi2] = '\0';
+
+    pi2 = 0;
+    x3 = 0;
+    fd3_type = 0;
+    pi++;
+    ch = p_string[pi];
+    while (ch != ';') 
+    {
+      if ((isdigit(ch)) && (x3 == 0)) 
+      {
+        fd3_type = 2;
+        x3 = 1;
+      }
+      if ((isalpha(ch)) && (x3 == 0)) 
+      {
+        fd3_type = 1;
+        x3 = 1;
+      }
+      tfield3[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    tfield3[pi2] = '\0';
+
+    if (fd3_type == 0) 
+    {
+      printf("c2z_double.c c2_double fd3_type == 0 NOT CODED\n");
+    }
+
+    if (fd3_type == 1) 
+    {
+      printf("c2z_double.c c2_double fd3_type == 1 NOT CODED\n");
+    }
+
+    if (fd3_type == 2) 
+    {
+      c_name++;
+      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+      strcpy(c_wkname, "C37F");
+      strcat(c_wkname, wk_strg);
+      s = strlen(c_wkname);
+      c_wkname[s] = '\0';
+      strcpy(tfield2a, c_wkname);
+
+      if (global_st == 0) 			/*	global variable	*/
+      {
+        z3 = 0;
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(tfield1, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            z3 = 1;
+          }
+        }
+
+        if (z3 == 0) 
+        {
+          if (gv_ct == 0) 
+          {
+            size = 1;
+            gw_variable = malloc(size * sizeof(struct variables));
+          } 
+          else 
+          {
+            size = gv_ct + 1;
+            gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+          }
+
+          gw_variable[gv_ct].gv_rct = rct;
+          strcpy(gw_variable[gv_ct].gv_cname, tfield2a);
+          strcpy(gw_variable[gv_ct].gv_name, tfield2);
+          strcpy(gw_variable[gv_ct].gv_type, "I");
+          gw_variable[gv_ct].gv_lgth = 0;
+          gw_variable[gv_ct].gv_current_lgth = 0;
+          strcpy(gw_variable[gv_ct].gv_value, null_field);
+          gw_variable[gv_ct].gv_init = 0;
+          strcpy(gw_variable[gv_ct].gv_literal, null_field);
+          gw_variable[gv_ct].gv_use_ct = 0;
+          strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+          gw_variable[gv_ct].gv_row = 0;
+          gw_variable[gv_ct].gv_column = 0;
+          strcpy(gw_variable[gv_ct].gv_label, null_field);
+          strcpy(gw_variable[gv_ct].gv_table, null_field);
+          strcpy(gw_variable[gv_ct].gv_aname, null_field);
+          strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+          strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+          strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+          gw_variable[gv_ct].gv_flag = 0;
+          gw_variable[gv_ct].gv_dec = 0;
+          gw_variable[gv_ct].gv_id = 0;
+        }
+      } 			/* global_st == 0   */
+
+      if (global_st == 1) 		/*	local variable	*/
+      {
+        x3 = 0;
+        if (lv_ct > 0) 
+        {
+          for (I = 0; I < lv_ct; I++) 
+          {
+            ret = strcmp(tfield2, lw_variable[I].lv_name);
+            ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+            if ((ret == 0) && (ret1 == 0)) 
+            {
+              strcpy(tfield2a, lw_variable[I].lv_cname);
+              lw_variable[I].lv_use_ct++;
+              x3 = 1;
+            }
+          }
+        }
+
+        if (x3 == 0) 
+        {
+          if (lv_ct == 0) 
+          {
+            size = 1;
+            lw_variable = malloc(size * sizeof(struct var));
+          } 
+          else 
+          {
+            size = lv_ct + 1;
+            lw_variable = realloc(lw_variable, size * sizeof(struct var));
+          }
+
+          lw_variable[lv_ct].lv_rct = rct;
+          strcpy(lw_variable[lv_ct].lv_cname, tfield2a);
+          strcpy(lw_variable[lv_ct].lv_name, tfield2);
+          strcpy(lw_variable[lv_ct].lv_type, "I");
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
+          lw_variable[lv_ct].lv_lgth = 0;
+          strcpy(lw_variable[lv_ct].lv_value, "0");
+          lw_variable[lv_ct].lv_current_lgth = 0;
+          lw_variable[lv_ct].lv_init = 0;
+          strcpy(lw_variable[lv_ct].lv_literal, null_field);
+          lw_variable[lv_ct].lv_use_ct = 0;
+          lw_variable[lv_ct].lv_dec = 0;
+          lv_ct++;
+        }
+      } 			/* global_st == 1 */
+    }
+
+/*
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+
+    if (math_lit_ct == 0) 
+    {
+      size = 1;
+      w_mathlit = malloc(size * sizeof(struct math_lit));
+    } 
+    else 
+    {
+      size = math_lit_ct + 1;
+      w_mathlit = realloc(w_mathlit, size * sizeof(struct math_lit));
+    }
+
+    w_mathlit[math_lit_ct].lit_rct = rct;
+    w_mathlit[math_lit_ct].lit_use_rct = rct;
+    strcpy(w_mathlit[math_lit_ct].lit_name, null_field);
+    strcpy(w_mathlit[math_lit_ct].lit_cname, c_wkname);
+    strcpy(w_mathlit[math_lit_ct].lit_value, tfield3);
+    strcpy(w_mathlit[math_lit_ct].lit_use_cname, c_wkname);
+    w_mathlit[math_lit_ct].lit_uct = 1;
+    w_mathlit[math_lit_ct].lit_dec = 0;
+    w_mathlit[math_lit_ct].lit_type = 1;
+    math_lit_ct++;
+*/
+    convert = 1;
+    return;
+  }
+}
+
+void c2_pass_2_double() 
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_doublec 2 c2_pass_2_double START");
+    trace_rec_1();
+  }
+
+  char ch;
+  char field2[VAR_LGTH];
+
+  int pi = 0;
+  int pi2 = 0;
+
+  ch = p_string[pi];
+  while ((ch == ' ') || (ch == '\t') || (ch == '{')) 
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  while (ch != ' ') 
+  {
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  while (ch != '(') 
+  {
+    if (ch != ' ') 
+    {
+      field2[pi2] = ch;
+      pi2++;
+    }
+    pi++;
+    ch = p_string[pi];
+  }
+  field2[pi2] = '\0';
+  strcpy(sv_func, field2);
+
+  convert = 1;
+}
+
+void c2_double_punch() 
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_double.c c2_double_punch START");
+    trace_rec_1();
+  }
+
+  int pi;
+  int pi2;
+  int x3;
+  int I;
+  int ret;
+  int x2;
+
+  char ch, *p;
+  char field1[VAR_LGTH];
+  char field1a[VAR_LGTH];
+
+  pi = 0;
+  ch = p_string[pi];
+  while((ch == ' ') || (ch == '\t') || (ch == '{'))
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  while(ch != ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ' ')
+  {
+    if(ch == ';')
+    {
+      break;   
+    }
+    field1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field1[pi2] = '\0';
+
+  p = strstr(field1, "*");
+  if(p)
+  {
+    convert = 1;
+    return;
+  }
+
+  p = strstr(field1, "=");
+  if(p)
+  {
+    convert = 0;
+    return;
+  }
+
+  x3 = 0;
+  for (I = 0; I < lv_ct; I++) 
+  {
+    ret = strcmp(field1, lw_variable[I].lv_name);
+    x2 = strcmp(sv_func, lw_variable[I].lv_func);
+    if ((ret == 0) && (x2 == 0)) 
+    {
+      x3 = 1;
+      strcpy(field1a, lw_variable[I].lv_cname);
+      lw_variable[I].lv_use_ct++;
+      break;
+    }
+  }
+
+  if (x3 == 0) 
+  {
+    for (I = 0; I < gv_ct; I++) 
+    {
+      ret = strcmp(field1, gw_variable[I].gv_name);
+      if (ret == 0) 
+      {
+        x3 = 1;
+        strcpy(field1a, gw_variable[I].gv_cname);
+        gw_variable[I].gv_use_ct++;
+        break;
+      }
+    }
+  }
+
+  strcpy(a_string, "         LARL  R9,");
+  strcat(a_string, field1a);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field1);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_double.c c2_double_punch #1");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_double.c c2_double_punch #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_double.c c2_double_punch #3");
+    trace_rec_3();
+  }
+}
+
+
