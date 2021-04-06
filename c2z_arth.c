@@ -1,3 +1,7 @@
+/* *************************************************************
+*  c2z.arth Math Parser                                        *
+*  Copyright TCCS (c) 2015 - 2021                              *
+* ************************************************************ */
 
 int c2z_math_start()
 {
@@ -498,9 +502,6 @@ int c2z_math_start()
     ch = p_string[pi];
   }
 
-
-printf("c2z.arth.c  #0  rct = %d p_string = %s\n",rct,p_string);
-
   pi = 0;
   ch = p_string[pi];
     while((ch == ' ') || (ch == '\t') || (ch == '{'))
@@ -519,7 +520,6 @@ printf("c2z.arth.c  #0  rct = %d p_string = %s\n",rct,p_string);
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
-printf("c2z_arth.c #1  rct = %d field1 = %s\n",rct,field1);
 
     while(ch == ' ')
     {
@@ -562,7 +562,6 @@ printf("c2z_arth.c #1  rct = %d field1 = %s\n",rct,field1);
       ch = p_string[pi];
     }
     field2[pi2] = '\0';
-printf("c2z_arth.c #2  rct = %d fd2_type = %d field2 = %s\n",rct,fd2_type,field2);
 
     while(ch == ' ')
     {
@@ -580,7 +579,6 @@ printf("c2z_arth.c #2  rct = %d fd2_type = %d field2 = %s\n",rct,fd2_type,field2
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
-printf("c2z_arth.c #3  rct = %d field3 = %s\n",rct,field3);
 
     while(ch == ' ')
     {
@@ -616,7 +614,6 @@ printf("c2z_arth.c #3  rct = %d field3 = %s\n",rct,field3);
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
-printf("c2z_arth.c #4  rct = %d fd4_type = %d field4 = %s\n",rct,fd4_type,field4);
 
     if(eol1 == 1)
     {
@@ -639,7 +636,6 @@ printf("c2z_arth.c #4  rct = %d fd4_type = %d field4 = %s\n",rct,fd4_type,field4
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
-printf("c2z_arth.c #5  rct = %d field5 = %s\n",rct,field5);
 
     while(ch == ' ')
     {
@@ -676,30 +672,12 @@ printf("c2z_arth.c #5  rct = %d field5 = %s\n",rct,field5);
       ch = p_string[pi];
     }
     field6[pi2] = '\0';
-printf("c2z_arth.c #6  rct = %d fd6_type = %d field6 = %s\n",rct,fd6_type,field6);
-
     if(eol2 == 1)
     {
        goto eolmath_1;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     eolmath_1:
-printf("c2z_arth.c #99 rct = %d eol1 = %d\n",rct,eol1);
-printf("c2z_arth.c #99 rct = %d eol2 = %d\n",rct,eol2);
 
     while(ch == ' ')
     {
@@ -792,40 +770,6 @@ printf("c2z_arth.c #99 rct = %d eol2 = %d\n",rct,eol2);
         return;
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   convert = 1;
   return;

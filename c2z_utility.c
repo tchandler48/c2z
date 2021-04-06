@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_utility.c :                             *
 *                                                    *
-*  Copyright (c) 2015 - 2019                         *
+*  Copyright (c) 2015 - 2021                         *
 **************************************************** */
 
 void write_remark() 
@@ -93,6 +93,7 @@ void write_remark()
 
   strcat(a_string, "\n");
   fputs(a_string, cc370);
+  fflush(cc370);
 }
 
 void src_line() 
@@ -165,6 +166,7 @@ void src_line()
 
   strcat(a_string, "\n");
   fputs(a_string, cc370);
+  fflush(cc370);
 }
 
 void write_variable() 
@@ -184,6 +186,7 @@ void write_variable()
   strcat(a_string, "/* ");
   strcat(a_string, wk_remark);
   fputs(a_string, cc370);
+  fflush(cc370);
 }
 
 void write_short() 
@@ -269,6 +272,7 @@ void write_short()
 
   strcat(a_string, "\n");
   fputs(a_string, cc370);
+  fflush(cc370);
 }
 
 void check_blank(void) 
@@ -398,6 +402,7 @@ void trace_rec_1()
   }
   strcat(t_string, p_string);
   fprintf(c_src, "%s", t_string);
+  fflush(c_src);
 }
 
 void trace_rec_2() 
@@ -428,6 +433,7 @@ void trace_rec_2()
   strcat(t_string, p_string);
 
   fprintf(c_src, "%s", t_string);
+  fflush(c_src);
 }
 
 void trace_rec_3() 
@@ -457,6 +463,7 @@ void trace_rec_3()
   strcat(t_string, a_string);
 
   fprintf(c_src, "%s", t_string);
+  fflush(c_src);
 }
 
 void c2_white() 
@@ -476,7 +483,6 @@ void c2_white()
 void c2_error() 
 {
   printf("rct = %d p_string = %s", rct, p_string);
-  fflush(stdout);
   c2_debug();
   exit(1);
 }
@@ -566,6 +572,7 @@ void pgm_label()
   strcpy(a_string, "*  ");
   strcat(a_string, wk_string);
   fputs(a_string, cc370);
+  fflush(cc370);
 }
 
 

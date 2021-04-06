@@ -1,6 +1,6 @@
 /* *************************************************************
 *  c2z.c Parser                                                *
-*  Copyright TCCS (c) 2015 - 2020                              *
+*  Copyright TCCS (c) 2015 - 2021                              *
 * ************************************************************ */
 
 /* *************************************************************
@@ -751,7 +751,7 @@ char output_file[24];
  int for_opr = 0;
  int for_parm = 0;
  int console_flag = 0;
- int fprintf_flag = 0;
+ int fprtf_flag = 0;
  int non_process = 0;
  int open_ct = 0, end_input = 0;
  int use_atoi = 0, use_mult = 0, localtime_usect = 0;
@@ -978,6 +978,7 @@ struct bad_rec
 struct bad_rec *w_bad_rec;
 
 
+
 /* ----- includes ---------------- */
 
 #include "c2z_arth.c"
@@ -1190,8 +1191,8 @@ int main(int argc, char *argv[])
   
   printf("***********************************************\n");
   printf("*  c2z Starting Execution                     *\n");
-  printf("*  Version 0.0.24 - 08/01/2018                *\n");
-  printf("*  Copyright (C) TCCS 2015 - 2018             *\n");
+  printf("*  Version 0.0.25 - 04/05/2021                *\n");
+  printf("*  Copyright (C) TCCS 2015 - 2021             *\n");
   printf("*  c2z Z390 Pass 1 Started                    *\n");
 
   pgm = fopen(filename, "rb");
@@ -1384,10 +1385,10 @@ int main(int argc, char *argv[])
       rct++;
     }  
 
-printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); 
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
 
     convert = 0;
-    fprintf_flag = 0;
+    fprtf_flag = 0;
 
     skip_read = 0;
 
@@ -1404,9 +1405,7 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
     convert = 0;
     skip_read = 0;
 
-    /* **********************************************************
-    *  Scan for { }                                             *
-    * ********************************************************* */
+    /* Scan for { }  */
 
     if (debug_lv >= 2) 
     {
@@ -2748,7 +2747,7 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
 
-      fprintf_flag = 1;
+      fprtf_flag = 1;
       convert = 1;
     }
 
@@ -3376,6 +3375,12 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
       v_convert = 1;
     }
 
+    p = strstr(p_string, "goto");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
     p1 = strstr(p_string, "_if");
     p = strstr(p_string, "if");
     if ((p) && (!p1) && (v_convert == 0))
@@ -3590,6 +3595,17 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
     if ((p) && (v_convert == 0))
     {
       v_convert = 1;
+    }
+
+    /* test for goto label */
+    x = 0;
+    s = strlen(p_string);
+    for(x = 0; x < s; x++)
+    {
+      if(p_string[x] == ':')
+      {
+        v_convert = 1;
+      }
     }
 
     if (v_convert == 0) 
@@ -5433,6 +5449,64 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
       convert = 1;
     }
 
+
+    /* **********************************************************
+    *  Scan for GOTO                                            *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for goto\n", rct);
+    }
+
+    p = strstr(p_string, "goto");
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 2 scan goto");
+        trace_rec_1();
+      }
+
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 2 rct = %d c2_goto #100\n", rct);
+      }
+
+      /* c2_pass2_sizeof(); */
+      convert = 1;
+    }
+
+
+    /* **********************************************************
+    *  Scan for goto label                                      *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for goto label\n", rct);
+    }
+
+    x = 0;
+    s = strlen(p_string);
+    for(x = 0; x < s; x++)
+    {
+      if(p_string[x] == ':')
+      {
+         convert = 1;
+         break;
+      }
+    }
+
+
     /* **********************************************************
     *  Scan for clock                                           *
     * ********************************************************* */
@@ -5606,7 +5680,7 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
     bracket_convert = 0;
     fprintf_lit = 0;
     math_convert = 0;
-    fprintf_flag = 0;
+    fprtf_flag = 0;
     convert_ignore = 0;
     fgets(p_string, BUFSIZE, pgm);
     rct++;
@@ -7035,7 +7109,7 @@ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);
     p = strstr(p_string, "printf");
     p1 = strstr(p_string, "snprintf");
     printf_convert = 0;
-    if ((p) && (!p1) && (fprintf_flag != 1)) 
+    if ((p) && (!p1) && (fprtf_flag != 1)) 
     {
       if (debug_lv >= 2) 
       {

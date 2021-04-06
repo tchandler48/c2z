@@ -2,7 +2,7 @@
 *  c2z : c2z_while.c :                               *
 *                                                    *
 *  next error while-187                              *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -12542,7 +12542,6 @@ void c2_while_14() 				/* user function		*/
   char tfield7a[VAR_LGTH];
   char tfield8[VAR_LGTH];
   char tfield8a[VAR_LGTH];
-  char tfield9[VAR_LGTH];
   char tfield10[VAR_LGTH];
   char tfield10a[VAR_LGTH];
   char tfield11[VAR_LGTH];
@@ -12559,7 +12558,6 @@ void c2_while_14() 				/* user function		*/
   int ret = 0;
   int ret1 = 0;
   int ret2 = 0;
-  int fd1_type = 0;
   int fd2_type = 0;
   int fd3_type = 0;
   int fd4_type = 0;
@@ -13023,13 +13021,11 @@ void c2_while_14() 				/* user function		*/
         {
           if (isdigit(ch)) 
           {
-            fd1_type = 1;
-            x2 = 1;
+             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd1_type = 2;
-            x2 = 1;
+             x2 = 1;
           }
         }
         if (ch != '(') 
@@ -13719,13 +13715,11 @@ void c2_while_14() 				/* user function		*/
         {
           if (isdigit(ch)) 
           {
-            fd1_type = 1;
-            x2 = 1;
+             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd1_type = 2;
-            x2 = 1;
+             x2 = 1;
           }
         }
         if (ch != '(') 

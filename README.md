@@ -1,4 +1,11 @@
+********  NOTICE  *************
+If you downloaded this code before 4/05/21, You will need to redownload.
+I made a mistake and put up old code.  The code now listed
+is correct.
 
+Sorry for the mistake.
+
+*************************************************
 
 ****** NOTICE **************
 c2z is being overhauled with a lot of changes/fixes/updates.  MAYBE UNSTABLE

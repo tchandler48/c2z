@@ -2,7 +2,7 @@
 *  c2z  : c2z_unsigned.c                             *
 *                                                    *
 *  next error - unsigned-005                         *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -530,7 +530,6 @@ void c2_unsigned_punch()
 
   char ch;
   char *p;
-  char *p1;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];

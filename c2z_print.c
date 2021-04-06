@@ -2,7 +2,7 @@
 *  c2z : c2z_print.c :                               *
 *                                                    *
 *  next error = print = 21                           *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -699,7 +699,7 @@ void c2_fprintf()
       trace_rec_3();
     }
 
-    fprintf_flag = 1;
+    fprtf_flag = 1;
   }
 }
 
@@ -749,7 +749,7 @@ void c2_printf()
     }
   }
 
-  if (fprintf_flag != 1) 
+  if (fprtf_flag != 1) 
   {
     p1 = strstr(p_string, "%s");
     p2 = strstr(p_string, "%d");

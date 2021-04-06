@@ -2,7 +2,7 @@
 *  c2z : c2z_strcpy.c :                              *
 *                                                    *
 *  next error - strcpy-062                           *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -6964,7 +6964,6 @@ void c2_str_10() 	/*  strcpy(strArry[inx].elem[offset], temp)   */
    int x20;
    int x21;
    int x22;
-   int pi;
 
   char ch;
 
@@ -7006,21 +7005,7 @@ printf("c2z_strcpy.c rct = %d x20 = %d x21 = %d x22 = %d\n",rct,x20,x21,x22);
 
 
 
-
-
-
-
-
-
-
-
-
-
   }
-
-
-
-
 
   convert = 1;
   return;
