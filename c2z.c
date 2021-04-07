@@ -711,9 +711,13 @@ char output_file[24];
  int while_level = 0;
  int wh_ct = 0;
 
- int tot_sizeof = 0, char_malloc = 0, tot_malloc = 0;
+ int tot_sizeof = 0;
+ int char_malloc = 0;
+ int tot_malloc = 0;
 
- int left_parm = 0, right_parm = 0, op_code = 0;
+ int left_parm = 0;
+ int right_parm = 0;
+ int op_code = 0;
  int equal_found = 0;
 
  int fclose_ct = 0;
@@ -722,13 +726,16 @@ char output_file[24];
 
  int if_case = 0;
  int inside_fn = 0;
- int if_ct = 0, c_name = 0;
+ int if_ct = 0;
+ int c_name = 0;
  int if_opr = 0;
  int if_active = 0;
  int else_active = 0;
  int if_else_ct = 0;
  int else_flag = 0;
- int void_ct = 0, math_case = 0, comma_found = 0;
+ int void_ct = 0;
+ int math_case = 0;
+ int comma_found = 0;
  int inside_void = 0;
  int fprintf_lit = 0;
  int math_convert = 0;
@@ -736,7 +743,8 @@ char output_file[24];
  int atoi_pass = 0;
  int branch_done = 0;
  int sv_if_else_rec = 0;
- int sv_else_ct = 0, end_strg = 0;
+ int sv_else_ct = 0;
+ int end_strg = 0;
  int ab_code = 0;
 
  int inside_while = 0;
@@ -753,9 +761,13 @@ char output_file[24];
  int console_flag = 0;
  int fprtf_flag = 0;
  int non_process = 0;
- int open_ct = 0, end_input = 0;
- int use_atoi = 0, use_mult = 0, localtime_usect = 0;
- int loop_strcmp = 0, i_ct = 0;
+ int open_ct = 0;
+ int end_input = 0;
+ int use_atoi = 0;
+ int use_mult = 0;
+ int localtime_usect = 0;
+ int loop_strcmp = 0;
+ int i_ct = 0;
 
  int use_strchr = 0;
  int skip_read = 0;
@@ -976,8 +988,6 @@ struct bad_rec
   char bad_string[BUFSIZE];
 };
 struct bad_rec *w_bad_rec;
-
-
 
 /* ----- includes ---------------- */
 
@@ -1385,7 +1395,7 @@ int main(int argc, char *argv[])
       rct++;
     }  
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); 
 
     convert = 0;
     fprtf_flag = 0;
@@ -1458,9 +1468,10 @@ int main(int argc, char *argv[])
        goto pass2_skip;
     }
 
-    /* **********************************************************
-    *  Scan for MAIN in C program and set sv_func               *
-    * ********************************************************* */
+
+/* here good */
+
+/* Scan for MAIN in C program and set sv_func  */
 
     if (debug_lv >= 2) 
     {
@@ -1498,9 +1509,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for malloc                                          *
-    * ********************************************************* */
+/* Scan for malloc   */
 
     if (convert == 1) 
     {
@@ -1521,30 +1530,28 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for realloc                                         *
-    * ********************************************************* */
+/* Scan for realloc  */
 
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
-    if (debug_lv >= 2) {
+    if (debug_lv >= 2) 
+    {
       printf("c2z.c Pass 2 rct = %d Scan for realloc\n", rct);
     }
 
     p = strstr(p_string, "realloc");
     p1 = strstr(p_string, "#include");
 
-    if ((p) && (!p1)) {
+    if ((p) && (!p1))
+    {
       /* c2_scan_realloc();  */
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for struct                                          *
-    * ********************************************************* */
+/* Scan for struct  */
 
     if (convert == 1) 
     {
@@ -1584,9 +1591,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for prototypes                                      *
-    * ********************************************************* */
+/* Scan for prototypes  */
 
     if (convert == 1) 
     {
@@ -1668,7 +1673,9 @@ int main(int argc, char *argv[])
     }
 
     if (convert == 1)
+    {
       goto pass2_skip;
+    }
 
     if ((x1 == 2) && (p1) && (p5) && (p6) && (!p8) && (convert == 0)) 
     {
@@ -1682,7 +1689,9 @@ int main(int argc, char *argv[])
     }
 
     if (convert == 1)
+    {
       goto pass2_skip;
+    }
 
     if ((x1 == 3) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
@@ -1723,9 +1732,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for subroutines                                     *
-    * ********************************************************* */
+/* Scan for subroutines  */
 
     if (convert == 1) 
     {
@@ -1892,9 +1899,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for INT (NOT MAIN)                                  *
-    * ********************************************************* */
+/* Scan for INT (NOT MAIN)  */
 
     if (convert == 1) 
     {
@@ -1987,9 +1992,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for size_t                                          *
-    * ********************************************************* */
+/* Scan for size_t  */
 
     if (convert == 1) 
     {
@@ -2008,9 +2011,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for time_t                                         *
-    * ********************************************************* */
+/* Scan for time_t  */
 
     if (convert == 1) 
     {
@@ -2035,9 +2036,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for u_short                                         *
-    * ********************************************************* */
+/* Scan for u_short  */
 
     if (convert == 1) 
     {
@@ -2057,9 +2056,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for while                                           *
-    * ********************************************************* */
+/* Scan for while  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2293,9 +2290,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for switch                                          *
-    * ********************************************************* */
+/* Scan for switch  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2526,9 +2521,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for fprintf                                         *
-    * ********************************************************* */
+/* Scan for fprintf  */
 
     if (convert == 1) 
     {
@@ -2614,9 +2607,7 @@ int main(int argc, char *argv[])
         pi++;
       }
 
-      /* ********************************************************
-      *  copy from strstart to strstop into storage             *
-      * ******************************************************* */
+/* copy from strstart to strstop into storage  */
 
       s = 0;
       x4 = 0;
@@ -2627,12 +2618,6 @@ int main(int argc, char *argv[])
         for (indx = strstart; indx < strstop; indx++) 
         {
           ch = p_string[indx];
-          /* *******************************************************************
-          *  Test of c format charater '\' if, found do not copy and then      *
-          *  skip the next character.  ex (print\n). Drop the \n as it is      *
-          *  c formating string.                                               *
-          * ****************************************************************** */
-
           if (ch == '%') 
           {
             indx++;
@@ -2655,9 +2640,7 @@ int main(int argc, char *argv[])
         strtmp[s] = '\0';
       }
 
-      /* ********************************************************
-      *  Optimize LXX table                                     *
-      * ******************************************************* */
+/* Optimize LXX table  */
 
       x3 = 0;
       if (gv_ct != 0) 
@@ -2698,7 +2681,7 @@ int main(int argc, char *argv[])
           }
         }
 
-        if (x2 != 1) 			/* literals don't match const_current & const_use same */
+        if (x2 != 1) 			
         {
           if (v_const == 0) 
           {
@@ -2721,9 +2704,7 @@ int main(int argc, char *argv[])
         }
       }
 
-      /* ********************************************************
-      *  update the struct with literal                         *
-      * ******************************************************* */
+/* update the struct with literal  */
 
       if (gv_ct == 0) 
       {
@@ -2751,9 +2732,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for printf                                          *
-    * ********************************************************* */
+/* Scan for printf  */
 
     if (convert == 1) 
     {
@@ -2799,9 +2778,7 @@ int main(int argc, char *argv[])
         pi++;
       }
 
-      /* ********************************************************
-      *  copy from strstart to strstop into storage             *
-      * ******************************************************* */
+/* copy from strstart to strstop into storage  */
 
       y0 = 0;
       x4 = 0;
@@ -2837,9 +2814,7 @@ int main(int argc, char *argv[])
 
       y0 = 0;
 
-      /* ********************************************************
-      *  Optimize LXX table                                     *
-      * ******************************************************* */
+/* Optimize LXX table  */
 
       x3 = 0;
       x1 = 0;
@@ -2885,7 +2860,7 @@ int main(int argc, char *argv[])
           }
         }
 
-        if (x1 == 0) 		/*  literal not equal use const_current & const_use as same */
+        if (x1 == 0) 		
         {
           if (v_const == 0) 
           {
@@ -2936,9 +2911,7 @@ int main(int argc, char *argv[])
         }
       }
 
-      /* ********************************************************
-      *  update the struct with literal                         *
-      * ******************************************************* */
+/* update the struct with literal  */
 
       if (x2 != 1) 
       {
@@ -2990,9 +2963,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for free                                            *
-    * ********************************************************* */
+/* Scan for free */
 
     if (convert == 1) 
     {
@@ -3015,9 +2986,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for #define                                         *
-    * ********************************************************* */
+/* Scan for #define  */
 
     if (convert == 1) 
     {
@@ -3044,9 +3013,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for #ifndef                                         *
-    * ********************************************************* */
+/* Scan for #ifndef  */
 
     if (convert == 1) 
     {
@@ -3075,9 +3042,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for #endif                                          *
-    * ********************************************************* */
+/* Scan for #endif  */
 
     if (convert == 1) 
     {
@@ -3316,6 +3281,12 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "fclose");
     p1 = strstr(p_string, "_fclose");
     if ((p) && (!p1) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "fflush");
+    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
@@ -3902,6 +3873,27 @@ int main(int argc, char *argv[])
       c2_pass2_for();
       convert = 1;
     }
+
+    /* **********************************************************
+    *  Scan for fflush                                          *
+    * ********************************************************* */
+
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for fflush\n", rct);
+    }
+
+    p8 = strstr(p_string, "fflush");
+    if(p8)
+    {
+      convert = 1;
+    }
+
 
     /* **********************************************************
     *  Scan for if                                              *
@@ -5821,6 +5813,21 @@ int main(int argc, char *argv[])
 
        convert = 1; 
       }
+    }
+
+
+   /* **********************************************************
+    *  Test for fflush                                         *
+    * ******************************************************** */
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Test fflush\n", rct);
+    }
+
+    p = strstr(p_string, "fflush");
+    if(p)
+    {
+      convert = 1;
     }
 
 

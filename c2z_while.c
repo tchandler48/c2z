@@ -320,8 +320,7 @@ void c2_while_1() 					/* == */
   int ret = 0;
   int ret1 = 0;
   int ret2 = 0;
-  int fd4_type = 0;
-
+ 
   char ch, *p, *p1;
   char tfield1[VAR_LGTH];
   char tfield1a[VAR_LGTH];
@@ -329,7 +328,6 @@ void c2_while_1() 					/* == */
   char tfield2a[VAR_LGTH];
   char tfield3[VAR_LGTH];
   char tfield3a[VAR_LGTH];
-  char tfield4[VAR_LGTH];
   char tfield5[VAR_LGTH];
   char tfield5a[VAR_LGTH];
   char tfield11[VAR_LGTH];
@@ -450,7 +448,6 @@ void c2_while_1() 					/* == */
     tfield3[pi2] = '\0';
 
     x2 = 0;
-    fd4_type = 0;
     pi2 = 0;
     while (ch != ')') 
     {
@@ -460,25 +457,21 @@ void c2_while_1() 					/* == */
         {
           if (isdigit(ch)) 
           {
-            fd4_type = 1;
             x2 = 1;
           }
 
           if (isalpha(ch)) 
           {
-            fd4_type = 2;
             x2 = 1;
           }
         }
 
-        tfield4[pi2] = ch;
         pi2++;
       }
       pi++;
       ch = p_string[pi];
     }
-    tfield4[pi2] = '\0';
-    
+     
     x3 = 0;
     fd1_type = 0;
     if (lv_ct > 0) 
@@ -3426,7 +3419,12 @@ void c2_while_4()			 /* < */
       }
 
 printf("FIX FIX  while_4 HERE\n");
-printf("rct = %d p_string = %s",rct,p_string);
+printf("c2z_while.c while_4 rct = %d p_string = %s",rct,p_string);
+printf("c2z_while.c while_4 tfield1 = %s\n",tfield1);
+printf("c2z_while.c while_4 tfield2 = %s\n",tfield2);
+printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
+
+
 
 
 
@@ -12561,9 +12559,7 @@ void c2_while_14() 				/* user function		*/
   int fd2_type = 0;
   int fd3_type = 0;
   int fd4_type = 0;
-  int fd5_type = 0;
   int fd7_type = 0;
-  int fd8_type = 0;
   int fd10_type = 0;
   int fd1t = 0;
   int fd3t = 0;
@@ -12582,7 +12578,6 @@ void c2_while_14() 				/* user function		*/
   int x2 = 0;
   int x101 = 0;
   int x102 = 0;
-  int x103 = 0;
 
   p = strstr(p_string, "&&");
   if (p) 
@@ -13117,12 +13112,10 @@ void c2_while_14() 				/* user function		*/
         {
           if (isdigit(ch)) 
           {
-            fd5_type = 1;
             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd5_type = 2;
             x2 = 1;
           }
         }
@@ -13811,12 +13804,10 @@ void c2_while_14() 				/* user function		*/
         {
           if (isdigit(ch)) 
           {
-            fd5_type = 1;
             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd5_type = 2;
             x2 = 1;
           }
         }
@@ -13893,7 +13884,6 @@ void c2_while_14() 				/* user function		*/
 
       x2 = 0;
       pi2 = 0;
-      fd8_type = 0;
       pi++;
       ch = p_string[pi];
       while (ch != ' ') 
@@ -13902,12 +13892,10 @@ void c2_while_14() 				/* user function		*/
         {
           if (isdigit(ch)) 
           {
-            fd8_type = 1;
             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd8_type = 2;
             x2 = 1;
           }
         }
@@ -14348,7 +14336,6 @@ void c2_while_14() 				/* user function		*/
            if((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 3)) 
            {
              strcpy(tfield10a, w_charlit[I].clit_cname);
-             x103 = w_charlit[I].clit_lgth;
              wh_3 = 1;
              break;
            }

@@ -2,7 +2,7 @@
 *  c2z : c2z_int.c :                                 *
 *                                                    *
 *  next error - int-004                              *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -993,7 +993,6 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
   int ret = 0;
   int fd2_type = 0;
   int fd4_type = 0;
-  int fd6_type = 0;
 
   int no_parameters = 0;
   int comma_ct = 0;
@@ -1088,8 +1087,8 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
     }
 
     int rp = 0;
-    char field4[VAR_LGTH];
-    char field5[VAR_LGTH];
+  /*  char field4[VAR_LGTH]; */
+  /*  char field5[VAR_LGTH]; */
 
     pi = 0;
     ch = p_string[pi];
@@ -2128,21 +2127,21 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
     }
     field7[pi2] = '\0';
 
-    fd6_type = 0;
+   /* fd6_type = 0; */
     p = strstr(field6, "char");
     if(p)
     {
-      fd6_type = 1;
+   /*   fd6_type = 1; */
     }
     p = strstr(field6, "int");
     if(p)
     {
-      fd6_type = 2;
+   /*   fd6_type = 2; */
     }
     p = strstr(field6, "dou");
     if(p)
     {
-      fd6_type = 4;
+   /*   fd6_type = 4; */
     }
 
     for (I = 0; I < fn_ct; I++) 

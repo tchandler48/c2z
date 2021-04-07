@@ -2,7 +2,7 @@
 *  c2z  : c2z_ctime.c :                              *
 *                                                    *
 *  next error - ctime-004                            *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -248,10 +248,6 @@ MTIME    DC    C' ',X'2120',C':',X'2020',C':',X'2020',C':',X'2020'
 */
 
 
-
-
-
-
 void c2_time_t()
 {
   if (traceflg == 1) 
@@ -264,7 +260,7 @@ void c2_time_t()
   int pi2;
 
   char ch;
-  char field1[VAR_LGTH];
+ /* char field1[VAR_LGTH]; */
 
   pi = 0;
   ch = p_string[pi];
@@ -277,22 +273,12 @@ void c2_time_t()
   pi2 = 0;
   while(ch != ' ')
   {
-    field1[pi2] = ch;
+ /*   field1[pi2] = ch; */
     pi2++;
     pi++;
     ch = p_string[pi];
   }
-  field1[pi2] = '\0';
-
-
-
-
-
-
-
-
-
-
+/*  field1[pi2] = '\0'; */
 
   convert = 1;
 
@@ -307,10 +293,7 @@ void c2_time_t_punch()
     strcpy(trace_1, "c2z_ctime.c c2_time_t_punch");
     trace_rec_1();
   }
-
-
   convert = 1;
-
 }
 
 

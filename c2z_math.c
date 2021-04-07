@@ -2,7 +2,7 @@
 *  c2z : c2z_math.c :                                *
 *                                                    *
 *  next error math-139                               *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ****************************************************************************
@@ -13146,32 +13146,6 @@ void c2_math_99()
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   s = strlen(p_string);
   s--;
   s--;
@@ -18672,10 +18646,10 @@ void c2_math_52()
   char tfield2a[VAR_LGTH];
   char tfield3[VAR_LGTH];
   char tfield3a[VAR_LGTH];
-  char tfield4[VAR_LGTH];
   char tfield5[VAR_LGTH];
   char tfield5a[VAR_LGTH];
   char tfield6a[VAR_LGTH];
+
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
@@ -18824,7 +18798,7 @@ void c2_math_52()
     field2[pi2] = '\0';
 
     if (m5fd2_type == 2)
-    
+    {    
       m5_3 = 0;
       for (I = 0; I < lv_ct; I++) 
       {
@@ -18846,31 +18820,32 @@ void c2_math_52()
           }
         }
       }
+    }
 
-      if (m5_3 == 0) 
+    if (m5_3 == 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
       {
-        for (I = 0; I < gv_ct; I++) 
+        m5_6 = strcmp(field2, gw_variable[I].gv_name);
+        if (m5_6 == 0) 
         {
-          m5_6 = strcmp(field2, gw_variable[I].gv_name);
-          if (m5_6 == 0) 
-          {
-            m5_3 = 1;
-            strcpy(field2a, gw_variable[I].gv_cname);
-            gw_variable[I].gv_use_ct++;
-            m5_7 = strcmp(gw_variable[I].gv_type, "I");
-          }
+          m5_3 = 1;
+          strcpy(field2a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          m5_7 = strcmp(gw_variable[I].gv_type, "I");
         }
       }
-
-      if (m5_3 == 0) 
-      {
-        printf("\nc2z_math.c c2_math_52 math-133 field2 Not Found = %s\n", field2);
-        printf("c2z_math.c c2_math_52 rct = %d p_string = %s", rct, p_string);
-        erct++;
-        convert = 1;
-        return;
-      }
     }
+
+    if (m5_3 == 0) 
+    {
+      printf("\nc2z_math.c c2_math_52 math-133 field2 Not Found = %s\n", field2);
+      printf("c2z_math.c c2_math_52 rct = %d p_string = %s", rct, p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+  }
 
     while (ch != '=') 
     {
@@ -20054,14 +20029,12 @@ printf("rct = %d p_string = %s",rct,p_string);
     {
       if (ch != '.') 
       {
-        tfield4[pi2] = ch;
         pi2++;
       }
       pi++;
       ch = p_string[pi];
     }
-    tfield4[pi2] = '\0';
-
+ 
     x87 = 0;
     p1 = strstr(p_string, "\'");
     if(p1)

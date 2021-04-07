@@ -2,7 +2,7 @@
 *  c2z : c2z_pass_2.c :                              *
 *                                                    *
 *  next error - pass2-062                            *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 void scan_func_name_3() 
@@ -5798,17 +5798,12 @@ void c2_pass2_if_13()
   char field5[VAR_LGTH];
   char field6[VAR_LGTH];
   char field6a[VAR_LGTH];
-  char field7[VAR_LGTH];
-  char field8[VAR_LGTH];
   char field9[VAR_LGTH];
-  char field9a[VAR_LGTH];
   char field10[VAR_LGTH];
   char field11[VAR_LGTH];
 
   int fd3_type = 0;
   int fd6_type = 0;
-  int fd7_type = 0;
-  int fd9_type = 0;
   int fd10_type = 0;
   int fd11_type = 0;
   int pi;
@@ -6909,25 +6904,22 @@ void c2_pass2_if_13()
       {
         if (isalpha(ch)) 
         {
-          fd7_type = 1;
-          x2 = 1;
+           x2 = 1;
         }
 
         if (isdigit(ch)) 
         {
-          fd7_type = 2;
-          x2 = 1;
+           x2 = 1;
         }
       }
       if(ch != '*')
       {
-        field7[pi2] = ch;
         pi2++;
       }
       pi++;
       ch = p_string[pi];
     }
-    field7[pi2] = '\0';
+ 
 
     pi++;
     ch = p_string[pi];
@@ -6940,12 +6932,10 @@ void c2_pass2_if_13()
     pi2 = 0;
     while (ch != ' ') 
     {
-      field8[pi2] = ch;
       pi2++;
       pi++;
       ch = p_string[pi];
     }
-    field8[pi2] = '\0';
 
     pi2 = 0;
     x2 = 0;
@@ -6957,13 +6947,11 @@ void c2_pass2_if_13()
       {
         if (isalpha(ch)) 
         {
-          fd9_type = 1;
           x2 = 1;
         }
 
         if (isdigit(ch)) 
         {
-          fd9_type = 2;
           x2 = 1;
         }
       }
