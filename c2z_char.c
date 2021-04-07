@@ -2,7 +2,7 @@
 *  c2z  : c2z_char.c :                               *
 *                                                    *
 *  next error - char-004                             *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -2674,10 +2674,7 @@ void c2_char_punch()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_char.c c2_char_punch #1");
@@ -2825,10 +2822,7 @@ void c2_char_punch()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_char.c c2_char_punch #7");
@@ -2936,10 +2930,7 @@ void c2_char_punch()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_char.c c2_char_punch #11");

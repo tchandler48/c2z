@@ -3,17 +3,15 @@
 *  Copyright TCCS (c) 2015 - 2021                              *
 * ************************************************************ */
 
-int c2z_math_start()
+void c2z_math_start()
 {
   int pi;
-  int pi1 = 0;
   int s = 0;
   int I = 0;
   int pi2 = 0;
   int x2 = 0;
   int x3 = 0;
   int x30 = 0;
-  int x31 = 0;
   int v;
   int eol = 0;
   int x70 = 0;
@@ -22,20 +20,11 @@ int c2z_math_start()
   int ret = 0;
   int ret1 = 0;
   int fd1_type = 0;
-  int fd2_type = 0;
+/*  int fd2_type = 0; */
   int fd3_type = 0;
   int fd4_type = 0;
   int fd5_type = 0;
   int fd6_type = 0;
-  int fd7_type = 0;
-  int fd9_type = 0;
-  int fd11_type = 0;
-  int fd13_type = 0;
-  int operand_1 = 0;
-  int operand_2 = 0;
-  int operand_3 = 0;
-  int operand_4 = 0;
-  int operand_5 = 0;
   int eol1 = 0;
   int eol2 = 0;
 
@@ -43,48 +32,13 @@ int c2z_math_start()
   char *p15,*p16;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
-  char field1b[VAR_LGTH];
-  char field1m[VAR_LGTH];
   char field2[VAR_LGTH];
-  char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
-  char field3b[VAR_LGTH];
-  char field3m[VAR_LGTH];
   char field4[VAR_LGTH];
   char field5[VAR_LGTH];
-  char field5a[VAR_LGTH];
-  char field5b[VAR_LGTH];
-  char field5m[VAR_LGTH];
   char field6[VAR_LGTH];
-  char field6a[VAR_LGTH];
-  char field7[VAR_LGTH];
-  char field7a[VAR_LGTH];
-  char field8[VAR_LGTH];
-  char field8a[VAR_LGTH];
-  char field9[VAR_LGTH];
-  char field9a[VAR_LGTH];
-  char field10[VAR_LGTH];
-  char field10a[VAR_LGTH];
-  char field11[VAR_LGTH];
-  char field11a[VAR_LGTH];
-  char field12[VAR_LGTH];
-  char field12a[VAR_LGTH];
-  char field13[VAR_LGTH];
-  char field13a[VAR_LGTH];
-  char field14[VAR_LGTH];
-  char field14a[VAR_LGTH];
-
-  char ar_field5[VAR_LGTH];
-  char ar_field6[VAR_LGTH];
-  char ar_field7[VAR_LGTH];
-  char ar_field8[VAR_LGTH];
-  char ar_field9[VAR_LGTH];
-  char ar_field10[VAR_LGTH];
-
-  char wk_sv_func[VAR_LGTH];
-
-  char *p, *p1;
+  char *p;
 
   p = strstr(p_string, "char");
   if (p) 
@@ -543,19 +497,6 @@ int c2z_math_start()
     pi2 = 0;
     while(ch != ' ')
     {
-      if (x2 == 0) 
-      {
-        if (isalpha(ch)) 
-        {
-          fd2_type = 2;
-          x2 = 1;
-        }
-        if (isdigit(ch)) 
-        {
-          fd2_type = 1;
-          x2 = 1;
-        }
-      }
       field2[pi2] = ch;
       pi2++;
       pi++;

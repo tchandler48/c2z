@@ -6956,8 +6956,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field5[VAR_LGTH];
-/*  char field6[VAR_LGTH]; */
   char field11[VAR_LGTH];
 
   int pi;
@@ -6980,9 +6978,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
   int y3 = 0;
   int y4 = 0;
   int y5 = 0;
-  int x51 = 0;
-  int x52 = 0;
-  int x99 = 0;
 
   char tfield1[VAR_LGTH];
   char tfield2[VAR_LGTH];
@@ -7136,14 +7131,12 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
       {
         if(ch != '\'')
         {
-          field5[pi2] = ch;
-          pi2++;
+           pi2++;
         }
         pi++;
         ch = p_string[pi];
       }
-      field5[pi2] = '\0';
-
+ 
       if (gv_ct > 0) 
       {
         for (I = 0; I < gv_ct; I++) 
@@ -7159,7 +7152,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
             strcpy(tfield10, gw_variable[I].gv_wk_reg);
             strcpy(tfield11, gw_variable[I].gv_wk_strg);
             gw_variable[I].gv_flag = 0;
-            x99 = gw_variable[I].gv_lgth; 
             x3 = 1;
           }
         }
@@ -14682,13 +14674,6 @@ void if_case_40()
 
   int pi;
   int pi2;
-  int x2 = 0;
-  int fd1_type = 0;
-  int fd2_type = 0;
-  int fd4_type = 0;
-  int fd6_type = 0;
-  int fd7_type = 0;
-  int fd9_type = 0;
   int I = 0;
   int ret = 0;
   int ret1 = 0;
@@ -14705,7 +14690,6 @@ void if_case_40()
   char field3[VAR_LGTH];
   char field4[VAR_LGTH];
   char field4a[VAR_LGTH];
-  char field5[VAR_LGTH];
   char field6[VAR_LGTH];
   char field6a[VAR_LGTH];
   char field7[VAR_LGTH];
@@ -14731,27 +14715,11 @@ void if_case_40()
   }
 
   pi2 = 0;
-  x2 = 0;
   pi++;
   pi++;
   ch = p_string[pi];
   while(ch != '[')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd1_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd1_type = 2;
-         x2 = 1;
-       }
-    }
-
     field1[pi2] = ch;
     pi2++;
     pi++;
@@ -14760,26 +14728,10 @@ void if_case_40()
   field1[pi2] = '\0';
 
   pi2 = 0;
-  x2 = 0;
   pi++;
   ch = p_string[pi];
   while(ch != ']')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd2_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd2_type = 2;
-         x2 = 1;
-       }
-    }
-
     field2[pi2] = ch;
     pi2++;
     pi++;
@@ -14812,24 +14764,8 @@ void if_case_40()
   }
 
   pi2 = 0;
-  x2 = 0;
   while(ch != ')')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd4_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd4_type = 2;
-         x2 = 1;
-       }
-    }
-
     field4[pi2] = ch;
     pi2++;
     pi++;
@@ -14848,12 +14784,10 @@ void if_case_40()
   pi2 = 0;
   while(ch != ' ')
   {
-    field5[pi2] = ch;
     pi2++;
     pi++;
     ch = p_string[pi];
   }
-  field5[pi2] = '\0';
 
   while(ch != '(')
   {
@@ -14862,26 +14796,10 @@ void if_case_40()
   }
 
   pi2 = 0;
-  x2 = 0;
   pi++;
   ch = p_string[pi];
   while(ch != '[')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd6_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd6_type = 2;
-         x2 = 1;
-       }
-    }
-
     field6[pi2] = ch;
     pi2++;
     pi++;
@@ -14890,26 +14808,10 @@ void if_case_40()
   field6[pi2] = '\0';
 
   pi2 = 0;
-  x2 = 0;
   pi++;
   ch = p_string[pi];
   while(ch != ']')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd7_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd7_type = 2;
-         x2 = 1;
-       }
-    }
-
     field7[pi2] = ch;
     pi2++;
     pi++;
@@ -14936,32 +14838,16 @@ void if_case_40()
   field8[pi2] = '\0';
 
   pi2 = 0;
-  x2 = 0;
   pi++;
   ch = p_string[pi];
   while(ch != ')')
   {
     if(ch != ' ')
     {
-      if (x2 == 0) 
-      {
-         if (isdigit(ch)) 
-         {
-           fd9_type = 1;
-           x2 = 1;
-         }
-
-         if (isalpha(ch)) 
-         {
-           fd9_type = 2;
-           x2 = 1;
-         }
-      }
-    
-    field9[pi2] = ch;
-    pi2++;
-    pi++;
-    ch = p_string[pi];
+      field9[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
     }
   }
   field9[pi2] = '\0';
@@ -15794,10 +15680,6 @@ void if_case_41()
    int ret;
    int ret1;
    int I;
-   int fd1_type;
-   int fd3_type;
-   int fd4_type;
-   int fd5_type;
    int fd7_type;
    int operand_1;
    int operand_2;
@@ -15839,20 +15721,6 @@ void if_case_41()
   ch = p_string[pi];
   while(ch != ' ')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd1_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd1_type = 2;
-         x2 = 1;
-       }
-    }
     field1[pi2] = ch;
     pi2++;
     pi++;
@@ -15881,24 +15749,9 @@ void if_case_41()
     ch = p_string[pi];
   }
 
-  fd3_type = 0;
   pi2 = 0;
   while(ch != ')')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd3_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd3_type = 2;
-         x2 = 1;
-       }
-    }
     field3[pi2] = ch;
     pi2++;
     pi++;
@@ -15914,26 +15767,11 @@ void if_case_41()
     ch = p_string[pi];
   }
 
-  fd4_type = 0;
   pi2 = 0;
   pi++;
   ch = p_string[pi];
   while(ch != '[')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd4_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd4_type = 2;
-         x2 = 1;
-       }
-    }
     field4[pi2] = ch;
     pi2++;
     pi++;
@@ -15947,20 +15785,6 @@ void if_case_41()
   ch = p_string[pi];
   while(ch != ']')
   {
-    if (x2 == 0) 
-    {
-       if (isdigit(ch)) 
-       {
-         fd5_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd5_type = 2;
-         x2 = 1;
-       }
-    }
     field5[pi2] = ch;
     pi2++;
     pi++;
@@ -16587,7 +16411,6 @@ void if_case_41()
           }
         }
     }
-
 
   convert = 1;
   return;

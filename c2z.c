@@ -25,7 +25,7 @@
 #define VAR_LGTH 33
 
 /*            c2z_arth.c           */
-       int c2z_math_start(void);
+       void c2z_math_start(void);
 
 
 /* 	       c2z_atof.c		*/
@@ -1395,7 +1395,7 @@ int main(int argc, char *argv[])
       rct++;
     }  
 
- printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); 
+ /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */ 
 
     convert = 0;
     fprtf_flag = 0;
@@ -1467,9 +1467,6 @@ int main(int argc, char *argv[])
     {
        goto pass2_skip;
     }
-
-
-/* here good */
 
 /* Scan for MAIN in C program and set sv_func  */
 
@@ -2070,7 +2067,8 @@ int main(int argc, char *argv[])
     while_convert = 0;
 
     p = strstr(p_string, "while");
-    if (p) 
+    p1 = strstr(p_string, "\"while");
+    if ((p) && (!p1)) 
     {
       if (traceflg == 1) 
       {
@@ -3071,9 +3069,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for user VOID FUNCTION code                         *
-    * ********************************************************* */
+/* Scan for user VOID FUNCTION code  */
 
     if (convert == 1) 
     {
@@ -3590,9 +3586,7 @@ int main(int argc, char *argv[])
 
   vf_convert:
 
-    /* **********************************************************
-    *  Scan for enum                                            *
-    * ********************************************************* */
+/* Scan for enum  */
 
     if (convert == 1) 
     {
@@ -3605,19 +3599,14 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "enum");
-    if (p) 
+    if(p)
     {
-      if (debug_lv >= 2) 
-      {
-        printf("c2z.c Pass 2 rct = %d c2_enum_scan #100\n", rct);
-      }
-      c2_enum_scan();
+ 
+      c2_enum_scan(); 
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for for                                             *
-    * ********************************************************* */
+/* Scan for for   */
 
     if (convert == 1) 
     {
@@ -3874,9 +3863,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for fflush                                          *
-    * ********************************************************* */
+/* Scan for fflush  */
 
     if (convert == 1) 
     {
@@ -3895,9 +3882,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for if                                              *
-    * ********************************************************* */
+/*  Scan for if  */
 
     if (convert == 1) 
     {
@@ -4150,9 +4135,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for malloc  (skip)                                  *
-    * ********************************************************* */
+/*  Scan for malloc  (skip)  */
 
     if (convert == 1) 
     {
@@ -4174,9 +4157,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for remove                                          *
-    * ********************************************************* */
+/*  Scan for remove  */
 
     if (convert == 1) 
     {
@@ -4206,9 +4187,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for break                                           *
-    * ********************************************************* */
+/*  Scan for break  */
 
     if (convert == 1) 
     {
@@ -4231,9 +4210,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for return                                          *
-    * ********************************************************* */
+/*  Scan for return  */
 
     if (convert == 1) 
     {
@@ -4263,9 +4240,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for exit                                            *
-    * ********************************************************* */
+/*  Scan for exit  */
 
     if (convert == 1) 
     {
@@ -4288,9 +4263,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for ++                                              *
-    * ********************************************************* */
+/*  Scan for ++  */
 
     if (convert == 1) 
     {
@@ -4312,9 +4285,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for --                                              *
-    * ********************************************************* */
+/*  Scan for --  */
 
     if (convert == 1) 
     {
@@ -4337,9 +4308,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for strcpy                                          *
-    * ********************************************************* */
+/*  Scan for strcpy  */
 
     if (convert == 1) 
     {
@@ -4370,9 +4339,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for strcat                                          *
-    * ********************************************************* */
+/*  Scan for strcat  */
 
     if (convert == 1) 
     {
@@ -4403,9 +4370,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for strstr                                          *
-    * ********************************************************* */
+/*  Scan for strstr  */
 
     if (convert == 1) 
     {
@@ -4418,6 +4383,7 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "strstr");
+       
     if (p) 
     {
       convert = 1;
@@ -4430,9 +4396,8 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for FILE                                            *
-    * ********************************************************* */
+  
+/*  Scan for FILE  */
 
     if (convert == 1) 
     {
@@ -4463,9 +4428,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for fopen                                           *
-    * ********************************************************* */
+/*  Scan for fopen  */
 
     if (convert == 1) 
     {
@@ -4497,9 +4460,9 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for fclose                                          *
-    * ********************************************************* */
+ 
+
+/*  Scan for fclose  */
 
     if (convert == 1) 
     {
@@ -4610,9 +4573,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for fgetc                                           *
-    * ********************************************************* */
+/*  Scan for fgetc  */
 
     if (convert == 1) 
     {
@@ -4642,9 +4603,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for fgets                                           *
-    * ********************************************************* */
+/*  Scan for fgets  */
 
     if (convert == 1) 
     {
@@ -4674,9 +4633,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for fputs                                           *
-    * ********************************************************* */
+/*  Scan for fputs  */
 
     if (convert == 1) 
     {
@@ -4689,7 +4646,8 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "fputs");
-    if (p) {
+    if (p) 
+    {
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass 2 scan fputs");
@@ -4705,9 +4663,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for getchar                                         *
-    * ********************************************************* */
+/*  Scan for getchar  */
 
     if (convert == 1) 
     {
@@ -4737,9 +4693,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for int main                                        *
-    * ********************************************************* */
+/*  Scan for int main  */
 
     if (convert == 1) 
     {
@@ -4765,9 +4719,7 @@ int main(int argc, char *argv[])
       global_st = 1;
     }
 
-    /* **********************************************************
-    *  Scan for double                                          *
-    * ********************************************************* */
+/*  Scan for double  */
 
     if (convert == 1) 
     {
@@ -4809,9 +4761,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for float                                           *
-    * ********************************************************* */
+/*  Scan for float  */
 
     if (convert == 1) 
     {
@@ -4840,9 +4790,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-   /* ***********************************************************
-    *  Scan for long                                            *
-    * ********************************************************* */
+/*  Scan for long  */
 
     if (convert == 1) 
     {
@@ -4872,9 +4820,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for cos                                             *
-    * ********************************************************* */
+/*  Scan for cos  */
 
     if (convert == 1) 
     {
@@ -4903,9 +4849,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for rand                                            *
-    * ********************************************************* */
+/*  Scan for rand  */
 
     if (convert == 1) 
     {
@@ -4934,9 +4878,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for pow                                             *
-    * ********************************************************* */
+/*  Scan for pow  */
 
     if (convert == 1) 
     {
@@ -4965,9 +4907,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for sin                                             *
-    * ********************************************************* */
+/*  Scan for sin  */
 
     if (convert == 1) 
     {
@@ -4996,9 +4936,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for sqrt                                            *
-    * ********************************************************* */
+/*  Scan for sqrt  */
 
     if (convert == 1) 
     {
@@ -5027,9 +4965,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for tan                                             *
-    * ********************************************************* */
+/*  Scan for tan  */
 
     if (convert == 1) 
     {
@@ -5058,9 +4994,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for unsigned                                        *
-    * ********************************************************* */
+/*  Scan for unsigned  */
 
     if (convert == 1) 
     {
@@ -5084,9 +5018,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for atof                                            *
-    * ********************************************************* */
+/*  Scan for atof  */
 
     if (convert == 1) 
     {
@@ -5109,9 +5041,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for case                                            *
-    * ********************************************************* */
+/*  Scan for case  */
 
     if (convert == 1) 
     {
@@ -5136,9 +5066,8 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for strcmp                                          *
-    * ********************************************************* */
+  
+/*  Scan for strcmp  */
 
     if (convert == 1) 
     {
@@ -5184,9 +5113,7 @@ int main(int argc, char *argv[])
         }
         a_string[pi2] = '\0';
 
-        /* ******************************************************
-        *  update the struct with literal                       *
-        * ***************************************************** */
+/*  update the struct with literal  */
 
         if (gv_ct == 0) 
         {
@@ -5215,9 +5142,7 @@ int main(int argc, char *argv[])
       }
     }
 
-    /* **********************************************************
-    *  Scan for feof                                            *
-    * ********************************************************* */
+/*  Scan for feof  */
 
     if (convert == 1) 
     {
@@ -5248,9 +5173,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for pid_t                                           *
-    * ********************************************************* */
+/*  Scan for pid_t  */
 
     if (convert == 1) 
     {
@@ -5280,9 +5203,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for accept                                          *
-    * ********************************************************* */
+/*  Scan for accept  */
 
     if (convert == 1) 
     {
@@ -5313,9 +5234,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for send                                            *
-    * ********************************************************* */
+/*  Scan for send  */
 
     if (convert == 1) 
     {
@@ -5346,9 +5265,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for pthread_create                                  *
-    * ********************************************************* */
+/*  Scan for pthread_create  */
 
     if (convert == 1) 
     {
@@ -5379,9 +5296,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for strlen                                          *
-    * ********************************************************* */
+/*  Scan for strlen  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5410,9 +5325,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *  Scan for sizeof                                          *
-    * ********************************************************* */
+/*  Scan for sizeof  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5442,9 +5355,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for GOTO                                            *
-    * ********************************************************* */
+/*  Scan for GOTO  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5474,9 +5385,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for goto label                                      *
-    * ********************************************************* */
+/*  Scan for goto label  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5499,9 +5408,7 @@ int main(int argc, char *argv[])
     }
 
 
-    /* **********************************************************
-    *  Scan for clock                                           *
-    * ********************************************************* */
+/*  Scan for clock  */
 
     if (convert == 1) 
     {
@@ -5525,9 +5432,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* **********************************************************
-    *      Math literal  = MUST BE LAST CALL IN PARSER          *
-    * ********************************************************* */
+/*  Math literal  = MUST BE LAST CALL IN PARSER  */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5568,9 +5473,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-  /* ************************************************************
-  *  End of while loop for PASS 2                               *
-  * *********************************************************** */
+/* End of while loop for PASS 2  */
 
     pass2_skip:
     ch = '\0';
@@ -5579,17 +5482,13 @@ int main(int argc, char *argv[])
 
 
 
-  /* ************************************************************
-  *  Test for balanced fopen & fclose                           *
-  * *********************************************************** */
+/* Test for balanced fopen & fclose  */
 
-/*
-  if (open_ct != 0) 
-  {
-    printf("Unbalanced fopen and fclose statements\n");
-    printf("      Error at Line # - %d\n", rct);
-   }
-*/
+/*   if (open_ct != 0) */ 
+/*   {  */
+/*     printf("Unbalanced fopen and fclose statements\n"); */
+/*     printf("      Error at Line # - %d\n", rct); */
+/*   }  */
 
   fclose(pgm);
 
@@ -5617,15 +5516,13 @@ int main(int argc, char *argv[])
   gw_variable[gv_ct].gv_id = 1;
   gv_ct++;
 
-  /* ************************************************************
-  *  End of Pass 2 - scan parser                                *
-  * *********************************************************** */
+/* End of Pass 2 - scan parser  */
 
   if(erct != 0)
   {
     printf("\nPass 2 Failed with %d errors.\n",erct);
-/*    c2_debug();
-    exit(1);  */
+/*    c2_debug();  */
+/*    exit(1);  */
   }
 
   /* ************************************************************
@@ -6605,10 +6502,7 @@ int main(int argc, char *argv[])
       {
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, sv_for_incr);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, sv_for_incr);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z.c FOR/End Loop #1");
@@ -6616,8 +6510,7 @@ int main(int argc, char *argv[])
         }
 
         strcpy(a_string, "         LARL  R8,C370ONE");
-        strcpy(wk_remark, " C370ONE */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z.c FOR/End Loop #2");
@@ -6661,8 +6554,7 @@ int main(int argc, char *argv[])
         }
 
         strcpy(a_string, "         LARL  R8,C370ZERO");
-        strcpy(wk_remark, " C370ONE */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z.c FOR/End Loop #7");
@@ -7468,8 +7360,7 @@ int main(int argc, char *argv[])
           strcat(a_string, wk_strg);
           check_length();
           strcat(a_string, "DS    0H");
-          strcpy(wk_remark, " if end   */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "Pass3 c2.c IF End Label #1");
@@ -7500,8 +7391,7 @@ int main(int argc, char *argv[])
           strcat(a_string, wk_strg);
           check_length();
           strcat(a_string, "DS    0H");
-          strcpy(wk_remark, " else     */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "Pass3 c2.c IF End Label #3");
@@ -7521,8 +7411,7 @@ int main(int argc, char *argv[])
           strcat(a_string, wk_strg);
           check_length();
           strcat(a_string, "DS    0H");
-          strcpy(wk_remark, " if end   */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "Pass3 c2.c IF End Label #4");
@@ -7582,8 +7471,7 @@ int main(int argc, char *argv[])
           snprintf(wk_strg, sizeof(wk_strg), "%d", w_while_table[v].wh_rct);
           strcpy(o_string, wk_strg);
           strcat(a_string, wk_strg);
-          strcpy(wk_remark, " while br */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z.c while end label #2");
@@ -7595,8 +7483,7 @@ int main(int argc, char *argv[])
           strcat(a_string, "E");
           check_length();
           strcat(a_string, "DS    0H");
-          strcpy(wk_remark, " end wh   */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z.c while end label #3");

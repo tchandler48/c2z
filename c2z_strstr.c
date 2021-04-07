@@ -2,7 +2,7 @@
 *  c2z : c2z_strstr.c :                              *
 *                                                    *
 *  next error - strstr-006                           *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -533,6 +533,7 @@ void c2_strstr()
 
 void c2_strstr_scan() 
 {
+printf("c2z_strstr_scan START\n");
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_strstr.c c2_strstr_scan START");
@@ -558,22 +559,29 @@ void c2_strstr_scan()
   int x3 = 0;
   int x21 = 0;
   int x80 = 0;
+  int x81 = 0;
   int I = 0;
   int ret = 0;
   int s = 0;
   int size = 0;
 
+  x80 = 999;
   s = strlen(p_string);
   for (I = 0; I < s; I++) 
   {
     ch = p_string[I];
+    if(ch == ',')
+    {
+      x81 = I;
+    }
     if (ch == '[') 
     {
-      x80++;
+      x80 = I;
     }
   }
 
-  if (x80 == 0) 
+ /* if (x80 == 0) */
+  if(x81 < x80)
   {
     if (traceflg == 1) 
     {
@@ -744,7 +752,7 @@ void c2_strstr_scan()
     char_ct++;
   }
 
-  if (x80 > 0) 
+  if(x80 < x81)
   {
     if (traceflg == 1) 
     {
@@ -772,6 +780,8 @@ void c2_strstr_scan()
       }
     }
     tfield1[pi2] = '\0';
+printf("c2z_strstr.c c2z_strstr_scan rct = %d p_string = %s",rct,p_string);
+printf("c2z_strstr.c c2z_strstr_scan tfield1 = %s\n",tfield1);
 
     while (ch != '(') 
     {
@@ -793,6 +803,7 @@ void c2_strstr_scan()
       }
     }
     tfield2[pi2] = '\0';
+printf("c2z_strstr.c c2z_strstr_scan tfield2 = %s\n",tfield2);
 
     pi2 = 0;
     pi++;
@@ -808,6 +819,7 @@ void c2_strstr_scan()
       }
     }
     tfield3[pi2] = '\0';
+printf("c2z_strstr.c c2z_strstr_scan tfield3 = %s\n",tfield3);
 
     printf("\nc2z_strstr.c c2_strstr_scan strstr-005 NEED TO FINISH\n");
     printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);

@@ -5814,6 +5814,7 @@ void c2_pass2_if_13()
   int x4 = 0;
   int x80 = 0;
   int x85 = 0;
+  int x90;
   int s = 0;
   int size = 0;
   int spec_char = 0;
@@ -5907,12 +5908,18 @@ void c2_pass2_if_13()
     ch = p_string[pi];
     while (ch != ' ') 
     {
+      if(ch == ')')
+      {
+        pi++;
+        break;
+      }
       field1[pi2] = ch;
       pi2++;
       pi++;
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
+printf("\nc2z_pass_2_if_13 field1 = %s\n",field1);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -5932,11 +5939,30 @@ void c2_pass2_if_13()
     }
     field2[pi2] = '\0';
 
+    x90 = 0;
+    p = strstr(field2, "&&");
+    if(p)
+    {
+       x90 = 1;
+    }
+
+    p = strstr(field2, "||");
+    if(p)
+    {
+       x90 = 1;
+    }
+printf("c2z_pass_2_if_13 x90 = %d field2 = %s\n",x90, field2);
+
     ch = p_string[pi];
     while (ch == ' ') 
     {
       pi++;
       ch = p_string[pi];
+    }
+
+    if(x90 == 1)
+    {
+       goto if_13_skip1;
     }
 
     x2 = 0;
@@ -5964,7 +5990,10 @@ void c2_pass2_if_13()
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
+printf("c2z_pass_2_if_13 field3 = %s\n",field3);
 
+
+if_13_skip1:
     ch = p_string[pi];
     while (ch != '(') 
     {
@@ -5983,6 +6012,7 @@ void c2_pass2_if_13()
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
+printf("c2z_pass_2_if_13 field4 = %s\n",field4);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -6001,6 +6031,7 @@ void c2_pass2_if_13()
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
+printf("c2z_pass_2_if_13 field5 = %s\n",field5);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -6037,6 +6068,8 @@ void c2_pass2_if_13()
       ch = p_string[pi];
     }
     field6[pi2] = '\0';
+printf("c2z_pass_2_if_13 field6 = %s\n",field6);
+
 
     operand_1 = 0;
     if (operand_1 == 0) 

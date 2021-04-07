@@ -3421,7 +3421,6 @@ void c2_while_4()			 /* < */
 printf("FIX FIX  while_4 HERE\n");
 printf("c2z_while.c while_4 rct = %d p_string = %s",rct,p_string);
 printf("c2z_while.c while_4 tfield1 = %s\n",tfield1);
-printf("c2z_while.c while_4 tfield2 = %s\n",tfield2);
 printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
 
 

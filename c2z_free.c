@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_free.c :                                *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -179,10 +179,7 @@ void c2_free()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free char #1");
@@ -208,10 +205,7 @@ void c2_free()
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free char #5");
@@ -348,10 +342,7 @@ void c2_free()
 
       strcpy(a_string, "         LARL  R6,");
       strcat(a_string, ar_field7);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free array_char #3");
@@ -546,9 +537,7 @@ void c2_free()
       strcat(a_string, wk_strg);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, "free */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free array_num #4");
@@ -557,10 +546,7 @@ void c2_free()
 
       strcpy(a_string, "         LARL  R6,");
       strcat(a_string, ar_field7);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free array_num #5");
@@ -668,10 +654,7 @@ void c2_free()
 
       strcpy(a_string, "         LARL  R6,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free Struc #1");
