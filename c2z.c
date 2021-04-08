@@ -1468,8 +1468,10 @@ int main(int argc, char *argv[])
        goto pass2_skip;
     }
 
-/* Scan for MAIN in C program and set sv_func  */
 
+    /* ***************************************************************
+    * Scan for MAIN in C program and set sv_funcTest for int or char *
+    * ************************************************************** */
     if (debug_lv >= 2) 
     {
       printf("c2z.c Pass 2 rct = %d Scan for Main\n", rct);
@@ -5596,6 +5598,8 @@ int main(int argc, char *argv[])
       goto end_pass3;
     }
 
+    pgm_label(); 
+
     strcpy(o_string, p_string);
     if (feof(pgm)) 
     {
@@ -5618,8 +5622,6 @@ int main(int argc, char *argv[])
       bracket_convert = 1;
     }
 
-
-
     /* **********************************************************
     *  Test for MAIN in C program and if found punch to to ASM  *
     * ********************************************************* */
@@ -5640,8 +5642,6 @@ int main(int argc, char *argv[])
           strcpy(trace_1, "c2z.c pass 3 punch MAIN");
           trace_rec_1();
         }
-
-     /*   pgm_label(); */
 
         inside_main = 1;
         strcpy(sv_func, "main");
@@ -5674,7 +5674,7 @@ int main(int argc, char *argv[])
           trace_rec_3();
         }
 */
-
+printf("c2z.c #1 pass 3 main gv_ct %d\n",gv_ct);
         for (I = 0; I < gv_ct; I++) 
         {  
            x = strcmp("G", gw_variable[I].gv_type);
@@ -5707,6 +5707,7 @@ int main(int argc, char *argv[])
             c2_free();
           }
        }
+printf("c2z.c #2 pass 3 main gv_ct %d\n",gv_ct);
 
        convert = 1; 
       }
@@ -5916,7 +5917,6 @@ int main(int argc, char *argv[])
       }
       c2_func_sub();
       convert = 1;
- 
     }
 
     p = strstr(p_string, "double");
@@ -6011,7 +6011,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch #ifndef  (skip)                                    *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6040,7 +6039,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch #endif  (skip)                                     *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6069,7 +6067,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch #include  (skip)                                   *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6094,7 +6091,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch FILE  (skip)                                       * 
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6115,12 +6111,9 @@ int main(int argc, char *argv[])
       }
     }
 
-
-
     /* **********************************************************
     * Punch struct                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6146,7 +6139,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     * Punch remove                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6172,7 +6164,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch malloc                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6198,10 +6189,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Test for realloc                                         *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6223,14 +6214,13 @@ int main(int argc, char *argv[])
         strcpy(trace_1, "c2z.c pass 3 test realloc");
         trace_rec_1();
       }
-
       convert = 1;
     }
+
 
     /* **********************************************************
     * Test for int or char                                      *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6378,7 +6368,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch case                                               *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6406,10 +6395,10 @@ int main(int argc, char *argv[])
       }
     }
 
+
     /* **********************************************************
     *  Punch case default                                       *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6443,10 +6432,10 @@ int main(int argc, char *argv[])
       }
     }
 
+
     /* **********************************************************
     *  Punch break                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6473,12 +6462,12 @@ int main(int argc, char *argv[])
       }
     }
 
+
     /* **********************************************************
     *  FOR loop END                                             * 
     *  If inside_for == 1 & for_parm == 0, end if loop of the C *
     *  for loop has been reached.  Punch out branch   equ label *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6500,8 +6489,7 @@ int main(int argc, char *argv[])
     {
       if (rct == w_for_table[v].for_eof1) 
       {
-printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
-        strcpy(a_string, "         LARL  R9,");
+      strcpy(a_string, "         LARL  R9,");
         strcat(a_string, sv_for_incr);
         src_line();
         if (puncde == 1) 
@@ -6577,7 +6565,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch for                                                *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6664,10 +6651,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  test for { & }                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6698,8 +6685,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
         }
       }
 
-
-
       if ((x1 > 0) || (x2 > 0)) 
       {
         if (inside_void == 2) 
@@ -6711,7 +6696,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
             strcpy(trace_1, "c2z.c pass 3 test function_ct ");
             trace_rec_1();
           }
-
          
           s = strlen(p_string);
           for (I = 0; I < s; I++) 
@@ -6836,7 +6820,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch IF statement                                       *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6851,8 +6834,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     p1 = strstr(p_string, "pthread_create");
     if((p) && (p1))
     {
-
-
       convert = 1;
     }
 
@@ -6860,7 +6841,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     {
       goto end_pass3;
     }
-
 
     p = strstr(p_string, "if");
     p3 = strstr(p_string, "strcmp");
@@ -6961,10 +6941,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
 
     skip_for_99:
 
+
     /* **********************************************************
     *  Punch fprintf                                            *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6992,10 +6972,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch printf                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7024,10 +7004,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch snprintf                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7054,10 +7034,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch scanf                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7090,7 +7070,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch return                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7119,10 +7098,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       c2_return();
     }
 
+
     /* **********************************************************
     *  Punch switch                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7155,10 +7134,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch fclose                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7191,7 +7170,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch close                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7217,7 +7195,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch free                                               *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7249,7 +7226,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* ***********************************************************
     *  Punch pthread                                             *
     * ********************************************************** */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7287,7 +7263,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       goto end_pass3;
     }
     
-
     if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
     {
       inside_main = 0;
@@ -7317,10 +7292,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* ***********************************************************
     *  test rct against wif_table eof1 & eof2                    *
     * ********************************************************** */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7555,7 +7530,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *   Switch label punch out                                  *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7590,9 +7564,8 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
 
 
     /* **********************************************************
-    *  Punch B back from function                               *
+    *  Punch back from function                                 *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7616,10 +7589,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       inside_void = 0;
     }
 
+
     /* **********************************************************
     *  Punch user VOID FUNCTION code                            *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7652,10 +7625,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* ***********************************************************
     *  Punch float                                               *
     * ********************************************************** */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7676,7 +7649,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* ***********************************************************
     *  Punch u_short                                             *
     * ********************************************************** */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7694,11 +7666,9 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     }
 
 
-
     /* **********************************************************
     *  Punch cos                                                *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7716,10 +7686,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch pow                                                *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7737,10 +7707,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch rand                                               *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7759,10 +7729,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch sin                                                *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7780,10 +7750,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch sqrt                                               *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7801,10 +7771,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch tan                                                *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7822,10 +7792,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch long                                               *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7842,10 +7812,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch unsigned                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7867,7 +7837,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch strcat                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7895,10 +7864,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch strlen                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7925,10 +7894,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch strstr                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7955,10 +7924,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch memcpy                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7986,10 +7955,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch memmove                                            *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8017,10 +7986,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch strcpy                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8047,10 +8016,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch while                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8079,10 +8048,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch strchr                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8110,10 +8079,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch strcmp                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8141,10 +8110,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch sizeof                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8176,7 +8145,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch ++ statement                                       *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8204,10 +8172,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch -- statement                                       *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8242,10 +8210,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out goto statement                                 *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8294,10 +8262,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out goto label statement                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8341,10 +8309,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
 
     skip_goto:
 
+
     /* **********************************************************
     *  Punch out feof                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8370,10 +8338,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out fopen                                          *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8401,10 +8369,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out fgetc                                          *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8431,10 +8399,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out fgets                                          *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8462,10 +8430,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out fputs                                          *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8493,10 +8461,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out getchar                                        *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8523,10 +8491,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out atoi                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8554,10 +8522,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out atof                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8585,10 +8553,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out atol                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8614,10 +8582,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out double                                         *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8658,10 +8626,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out strncpy                                        *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8688,10 +8656,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out strset                                         *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8718,10 +8686,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch strrev                                             *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8744,10 +8712,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch out LOCALTIME     MUST BEFORE TIME                 *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8775,10 +8743,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out CTIME                                          *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8810,7 +8778,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch out time_t                                         *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8841,7 +8808,6 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
     /* **********************************************************
     *  Punch out TIME                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8869,10 +8835,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch clock                                              *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8890,10 +8856,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch out exit                                           *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8935,10 +8901,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *  Punch out function start                                 *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8963,10 +8929,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       /* convert = 1; */
     }
 
+
     /* **********************************************************
     *  Punch out function call                                  *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -8996,11 +8962,11 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
     }
 
+
     /* **********************************************************
     *      Math functions ( =, +, -, *, / ) MUST BE LAST CALL   * 
     *              	         IN PARSER EXECPT FOR REMARK CHECK *
     * ********************************************************* */
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -9059,8 +9025,10 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
         {
           printf("c2z.c Pass 3 rct = %d c2_math #100\n", rct);
         }
-       /* c2_math();   */
-        c2z_math_start(); 
+/* printf("c2z.c pass 3 before c2z_math\n"); */
+          c2_math();   
+/* printf("c2z.c pass 3 beforre c2z_math_start\n"); */
+    /*    c2z_math_start(); */
         convert = 1;
         if (return_on == 1) 
         {
@@ -9083,6 +9051,7 @@ printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
       }
 
     }
+
 
   /* ************************************************************
   *      end of while loop for Pass 3, punching out ASM code    *

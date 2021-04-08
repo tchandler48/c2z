@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_main.c :                                *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -29,6 +29,12 @@ void c2_main()
   int ret = 0;
   int size = 0;
 
+  p1 = strstr(p_string, "()");
+  if(p1)
+  {
+     convert = 1;
+     return;
+  }
   pi = 0;
   ch = p_string[pi];
   while (ch != '(') 
@@ -51,7 +57,8 @@ void c2_main()
 
   underline = 0;
   p1 = strstr(field1, "int");
-  if (p1) {
+  if (p1)
+  {
     pi2 = 0;
     pi++;
     ch = p_string[pi];

@@ -383,13 +383,21 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
     field1[pi2] = '\0';
   }
 
-  c_name++;
-  snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-  strcpy(c_wkname, "C37F");
-  strcat(c_wkname, wk_strg);
-  s = strlen(c_wkname);
-  c_wkname[s] = '\0';
-  strcpy(field1a, c_wkname);
+  s = strlen(field1);
+  if(s > 8)
+  {
+     c_name++;
+     snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+     strcpy(c_wkname, "C37F");
+     strcat(c_wkname, wk_strg);
+     s = strlen(c_wkname);
+     c_wkname[s] = '\0';
+     strcpy(field1a, c_wkname);
+  }
+  else
+  {
+     strcpy(field1a, field1);
+  }
 
   x3 = 0;
   for (v = 0; v < lv_ct; v++) 
@@ -3425,7 +3433,7 @@ void c2_int_punch()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_int.c c2_int_punch START\n");
+    strcpy(trace_1, "c2z_int.c c2_int_punch START");
     trace_rec_1();
   }
 
@@ -3664,7 +3672,7 @@ void c2_int_punch_1()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_int.c c2_int_punch_1 START\n");
+    strcpy(trace_1, "c2z_int.c c2_int_punch_1 START");
     trace_rec_1();
   }
 

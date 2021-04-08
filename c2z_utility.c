@@ -549,7 +549,6 @@ void c2_count_paren()
 
 void pgm_label() 
 {
-  int x3 = 0;
   int v = 0;
 
   char ch;
@@ -557,7 +556,6 @@ void pgm_label()
   o_string[0] = '\0';
   wk_string[0] = '\0';
   strcpy(o_string,p_string);
-  x3 = strlen(o_string);
   v = 0;
   ch = o_string[v];
   while ((ch == ' ') || (o_string[v] == '\t'))
@@ -565,9 +563,8 @@ void pgm_label()
      v++;
      ch = o_string[v];
   } 
-  strncpy(wk_string,o_string+v,x3-1);
-  x3 = strlen(wk_string);
-  wk_string[x3+1] = '\0';
+
+  strcpy(wk_string, o_string);
 
   strcpy(a_string, "*  ");
   strcat(a_string, wk_string);

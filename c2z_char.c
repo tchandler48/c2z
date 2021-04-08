@@ -12,7 +12,7 @@ void c2_char()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char rct = %d START\n", rct);
+    printf("c2z_char.c c2_char rct = %d START", rct);
   }
 
   if (traceflg == 1) 
@@ -397,7 +397,7 @@ void c2_char_1()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_1 rct = %d START\n", rct);
+    printf("c2z_char.c c2_char_1 rct = %d START", rct);
   }
 
   if (traceflg == 1) 
@@ -1379,7 +1379,7 @@ void c2_char_2()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_2 START\n");
+    printf("c2z_char.c c2_char_2 START");
   }
 
   if (traceflg == 1) 
@@ -1524,7 +1524,7 @@ void c2_char_3()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_3 rct = %d START\n", rct);
+    printf("c2z_char.c c2_char_3 rct = %d START", rct);
   }
 
   if (traceflg == 1) 
@@ -1734,7 +1734,7 @@ void c2_char_4()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_4 START\n");
+    printf("c2z_char.c c2_char_4 START");
   }
 
   if (traceflg == 1) 
@@ -1927,7 +1927,7 @@ void c2_char_5()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_35rct = %d START\n", rct);
+    printf("c2z_char.c c2_char_35rct = %d START", rct);
   }
 
   if (traceflg == 1) 
@@ -1944,7 +1944,7 @@ void c2_char_6()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_6 rct = %d START\n", rct);
+    printf("c2z_char.c c2_char_6 rct = %d START", rct);
   }
 
   if (traceflg == 1)   
@@ -2544,12 +2544,12 @@ void c2_char_punch()
 {
   if (debug_lv >= 3) 
   {
-    printf("c2z_char.c c2_char_punch rct = %d START\n", rct);
+    printf("c2z_char.c c2_char_punch rct = %d START", rct);
   }
 
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_char.c c2_char_punch START\n");
+    strcpy(trace_1, "c2z_char.c c2_char_punch START");
     trace_rec_1();
   }
 

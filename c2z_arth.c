@@ -5,6 +5,7 @@
 
 void c2z_math_start()
 {
+printf("\nc2z_math_start rct = %d p_string = %s\n",rct,p_string);
   int pi;
   int s = 0;
   int I = 0;
@@ -423,7 +424,7 @@ void c2z_math_start()
 
 /*  extract field names and eol count                           */
 
-
+printf("c2z_arth.c HERE #1\n");
   s = strlen(p_string);
   s--;
   s--;
@@ -451,14 +452,14 @@ void c2z_math_start()
     {
       x30 = 1;
     }
-
     pi++;
     ch = p_string[pi];
   }
+printf("c2z_arth.c HERE #2\n");
 
   pi = 0;
   ch = p_string[pi];
-    while((ch == ' ') || (ch == '\t') || (ch == '{'))
+    while((ch == ' ') || (ch == '{'))
     {
       pi++;
       ch = p_string[pi];
@@ -474,6 +475,7 @@ void c2z_math_start()
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
+printf("c2z_arth.c field1 %s\n",field1);
 
     while(ch == ' ')
     {
@@ -503,6 +505,7 @@ void c2z_math_start()
       ch = p_string[pi];
     }
     field2[pi2] = '\0';
+printf("c2z_arth.c field2 = %s\n");
 
     while(ch == ' ')
     {
@@ -520,6 +523,7 @@ void c2z_math_start()
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
+printf("c2z_arth.c field3 = %s\n",field3);
 
     while(ch == ' ')
     {
@@ -555,6 +559,7 @@ void c2z_math_start()
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
+printf("c2z_arth.c field4 = %s fd4_type = %d\n",field4,fd4_type);
 
     if(eol1 == 1)
     {
