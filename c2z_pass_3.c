@@ -2,7 +2,7 @@
 *  c2z : c2z_pass_3.c :                              *
 *                                                    *
 *  next error - pass3 = 1                            *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 void c2_pass_3() 
@@ -545,8 +545,7 @@ void c2_pass_3()
   }
 
   strcpy(a_string, "         JLU   START");
-  strcpy(wk_remark, " R5 parm lg */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z.c pass 3 Generated #57");
@@ -610,8 +609,7 @@ void c2_pass_3()
           strcat(a_string, ",(OUTPUT))");
         }
 
-        strcpy(wk_remark, " open     */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z.c pass 3 fopen #2");
@@ -716,8 +714,7 @@ void c2_pass_3()
           strcat(a_string, ",(OUTPUT))");
         }
 
-        strcpy(wk_remark, " open     */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z.c pass 3 fopen #9");
@@ -800,8 +797,7 @@ void c2_pass_3()
       strcpy(tfield1a, w_file[I].f_cname);
       strcpy(a_string, "         CLOSE ");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " fclose   */ ");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z.c fclose #2");

@@ -16,7 +16,7 @@ void c2_while(void)
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   char ch;
   char *p;
@@ -658,8 +658,7 @@ void c2_while_1() 					/* == */
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while-2 */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #100");
@@ -669,10 +668,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield5);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #101");
@@ -681,10 +677,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #101");
@@ -701,10 +694,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R15,");
     strcat(a_string, tfield1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #103");
@@ -766,10 +756,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield11a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield11);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #104");
@@ -1002,8 +989,7 @@ void c2_while_1() 					/* == */
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while-1 */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #800");
@@ -1034,10 +1020,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #801");
@@ -1058,10 +1041,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield3a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield3);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #802");
@@ -1172,8 +1152,7 @@ void c2_while_1() 					/* == */
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while-1 */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #400");
@@ -1226,10 +1205,7 @@ void c2_while_1() 					/* == */
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #401");
@@ -1576,8 +1552,7 @@ void c2_while_1() 					/* == */
   strcat(a_string, wk_strg);
   check_length();
   strcat(a_string, "DS    0H");
-  strcpy(wk_remark, " while-2 */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_1 #1");
@@ -1587,10 +1562,7 @@ void c2_while_1() 					/* == */
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield1a);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, tfield1);
-  strcat(wk_remark, " */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_1 #2");
@@ -1645,10 +1617,7 @@ void c2_while_1() 					/* == */
   {
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield3a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield3);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_1 #8");
@@ -1914,8 +1883,7 @@ void c2_while_2()
       strcat(a_string, wk_strg);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while-2 */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 #250");
@@ -1925,10 +1893,7 @@ void c2_while_2()
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 #251");
@@ -1998,8 +1963,7 @@ void c2_while_2()
       strcat(a_string, wk_strg);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while-2 */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 #50");
@@ -2009,10 +1973,7 @@ void c2_while_2()
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 #51");
@@ -2256,8 +2217,7 @@ void c2_while_2()
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while-2 */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_2 simple #1");
@@ -2314,10 +2274,7 @@ void c2_while_2()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 simple #6");
@@ -2339,10 +2296,7 @@ void c2_while_2()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 simple #9");
@@ -2351,10 +2305,7 @@ void c2_while_2()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield3a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield3);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 simple #9");
@@ -2376,10 +2327,7 @@ void c2_while_2()
       {
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, tfield1a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, tfield1);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         var_ci_err1 = 1;
         if (puncde == 1) 
         {
@@ -3034,8 +2982,7 @@ void c2_while_2()
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while-2*/");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_2 complex = 1 #1");
@@ -3046,10 +2993,7 @@ void c2_while_2()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_2 complex = 1 #2");
@@ -3356,8 +3300,7 @@ void c2_while_4()			 /* < */
       strcpy(while_tag, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_4 #10");
@@ -3408,10 +3351,7 @@ void c2_while_4()			 /* < */
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_4 #11");
@@ -3503,10 +3443,7 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_4 #14");
@@ -3557,10 +3494,7 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield3a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield3);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_4 #15");
@@ -3702,8 +3636,7 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
       strcpy(while_tag, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_4 #1");
@@ -3712,10 +3645,7 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_4 #2");
@@ -3724,12 +3654,9 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield3a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield3);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
-     {
+      {
         strcpy(trace_1, "c2z_while.c c2_while_4 #3");
         trace_rec_3();
       }
@@ -3932,8 +3859,7 @@ void c2_while_5() 				/* >= */
     strcpy(while_tag, a_string);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_5 #1");
@@ -3942,10 +3868,7 @@ void c2_while_5() 				/* >= */
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_5 #2 ");
@@ -4305,23 +4228,18 @@ void c2_while_7() 					/* isdigit */
     printf("\nc2z_while.c while_7  2 Complex statement ADD CODE\n");
     printf("c2z_while.c while_7 rct = %d p_string = %s\n",rct,p_string);
 
-
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcpy(a_string, "L");
     strcat(a_string, wk_strg);
     strcpy(while_tag, a_string);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_7 #1");
       trace_rec_3();
     }
-
-
-
 
     convert = 1;
     return;
@@ -4398,8 +4316,7 @@ void c2_while_7() 					/* isdigit */
       strcpy(while_tag, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_7 #1");
@@ -4461,8 +4378,7 @@ void c2_while_7() 					/* isdigit */
         }
 
         strcpy(a_string, "         MVC   0(1,R9),0(R8)");
-        strcpy(wk_remark, " isdigit  */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_7 #4");
@@ -4607,10 +4523,7 @@ void c2_while_7() 					/* isdigit */
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, field3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field3);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_7 #301");
@@ -4844,8 +4757,7 @@ void c2_while_7() 					/* isdigit */
       strcpy(while_tag, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_7 Short #1");
@@ -4862,10 +4774,7 @@ void c2_while_7() 					/* isdigit */
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field2);
-      strcat(wk_remark, " */ ");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_7 Short #3");
@@ -5457,8 +5366,7 @@ void c2_while_7() 					/* isdigit */
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_7 #200");
@@ -5475,10 +5383,7 @@ void c2_while_7() 					/* isdigit */
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_7 #202");
@@ -5567,10 +5472,7 @@ void c2_while_7() 					/* isdigit */
 
     strcpy(a_string, "*         LARL  R9,");
     strcat(a_string, field5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field5);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_7 #210");
@@ -5598,9 +5500,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field7a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field7);
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_7 #211");
@@ -5613,10 +5513,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     {
       strcpy(a_string, "*         LARL  R8,");
       strcat(a_string, field7a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field7);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_7 #212");
@@ -6444,8 +6341,7 @@ void c2_while_8() 			/* isalpha */
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_8 #30");
@@ -6536,10 +6432,7 @@ void c2_while_8() 			/* isalpha */
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field5);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_8 #39");
@@ -6548,10 +6441,7 @@ void c2_while_8() 			/* isalpha */
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field7a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field7);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_8 #40");
@@ -6723,8 +6613,7 @@ void c2_while_8() 			/* isalpha */
   strcat(a_string, wk_strg);
   check_length();
   strcat(a_string, "DS    0H");
-  strcpy(wk_remark, " while    */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_85 #1");
@@ -6771,10 +6660,7 @@ void c2_while_8() 			/* isalpha */
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, field1a);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, field1);
-  strcat(wk_remark, " */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_85 #2");
@@ -6819,10 +6705,7 @@ void c2_while_8() 			/* isalpha */
 
   strcpy(a_string, "         LARL  R8,");
   strcat(a_string, field3a);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, field3);
-  strcat(wk_remark, " */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_8 (5) #3");
@@ -7144,8 +7027,7 @@ void c2_while_9()
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_9 #1");
@@ -7466,8 +7348,7 @@ void c2_while_10()
       strcat(a_string, wk_strg);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_10 simple = 0 #1");
@@ -7484,10 +7365,7 @@ void c2_while_10()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_10 simple = 0 #3");
@@ -7609,8 +7487,7 @@ void c2_while_10()
       strcat(a_string, wk_strg);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_10 simple #1");
@@ -7627,10 +7504,7 @@ void c2_while_10()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_10 simple #3");
@@ -8178,8 +8052,7 @@ void c2_while_10()
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_10 complex = 1 #1");
@@ -8269,10 +8142,7 @@ void c2_while_10()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field5);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_10 complex = 1 #10");
@@ -8281,10 +8151,7 @@ void c2_while_10()
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field7a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field7);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_10 complex = 1 #11");
@@ -8441,8 +8308,7 @@ void c2_while_11() 			/* isspace	*/
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_11 complex = 0 #1");
@@ -8695,8 +8561,7 @@ void c2_while_12() 					/* ISALNUM	*/
     strcat(a_string, wk_strg);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c while_12 complex = 0 #1");
@@ -8713,10 +8578,7 @@ void c2_while_12() 					/* ISALNUM	*/
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c while_12 complex = 0 #3");
@@ -9811,10 +9673,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LAEY  R6,");
         strcat(a_string, field2a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field2);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #903");
@@ -9827,8 +9686,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #904");
@@ -9837,10 +9695,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field3);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #905");
@@ -9926,8 +9781,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #914");
@@ -9936,9 +9790,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field1a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field1);
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #915");
@@ -9966,10 +9818,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field8a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field8);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #918");
@@ -9978,10 +9827,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, field10a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field10);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #919");
@@ -10627,10 +10473,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R6,");
         strcat(a_string, ar_field7);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field1);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #903");
@@ -10643,8 +10486,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #904");
@@ -10653,10 +10495,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field2a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field2);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #905");
@@ -10665,10 +10504,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, field9a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field9);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #906");
@@ -10701,8 +10537,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #909");
@@ -10711,9 +10546,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field3);
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #910");
@@ -11420,10 +11253,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R6,");
         strcat(a_string, ar_field7);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field1);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #303");
@@ -11447,8 +11277,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #305");
@@ -11457,10 +11286,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field2a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field2);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #306");
@@ -11535,8 +11361,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #314");
@@ -11545,9 +11370,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field3);
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #315");
@@ -11676,10 +11499,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         {
           strcpy(a_string, "         LARL  R9,");
           strcat(a_string, field6a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, field6);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_while.c c2_while_13 #318");
@@ -11688,10 +11508,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
           strcpy(a_string, "         LARL  R8,");
           strcat(a_string, field8a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, field8);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_while.c c2_while_13 #319");
@@ -12158,10 +11975,7 @@ printf("rct = %d p_string = %s",rct,p_string);
       {
         strcpy(a_string, "         LAEY  R6,");
         strcat(a_string, ar_field7);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, ar_field7);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #200");
@@ -12175,8 +11989,7 @@ printf("rct = %d p_string = %s",rct,p_string);
       strcpy(while_tag, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_13 #201");
@@ -12185,10 +11998,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_13 #202");
@@ -12197,10 +12007,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field3a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field3);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_13 #203");
@@ -12398,8 +12205,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #211");
@@ -12441,10 +12247,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field8a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field8);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #212");
@@ -12501,8 +12304,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         strcpy(start_while, a_string);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " while    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c c2_while_13 #218");
@@ -12757,8 +12559,7 @@ void c2_while_14() 				/* user function		*/
     strcpy(start_while, a_string);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_14 #4");
@@ -12769,9 +12570,7 @@ void c2_while_14() 				/* user function		*/
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield4a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #5");
@@ -12780,9 +12579,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #6");
@@ -13561,8 +13358,7 @@ void c2_while_14() 				/* user function		*/
       strcpy(start_while, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_15 #199");
@@ -13571,10 +13367,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #200");
@@ -13583,10 +13376,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield3a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield3);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #201");
@@ -13621,10 +13411,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield5a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield5);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #204");
@@ -13633,10 +13420,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield7a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield7);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #205");
@@ -14612,8 +14396,7 @@ void c2_while_14() 				/* user function		*/
       strcpy(start_while, a_string);
       check_length();
       strcat(a_string, "DS    0H");
-      strcpy(wk_remark, " while    */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_15 #200");
@@ -14622,10 +14405,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #201");
@@ -14634,10 +14414,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield3a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield3);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #202");
@@ -14740,10 +14517,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield5a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield5);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #206");
@@ -14752,10 +14526,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield7a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield7);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #207");
@@ -14859,10 +14630,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield8a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield8);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #209");
@@ -14871,10 +14639,7 @@ void c2_while_14() 				/* user function		*/
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield10a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield10);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c c2_while_14 #210");
@@ -15548,8 +15313,7 @@ void c2_while_15() 					/* complex non function		*/
   strcpy(start_while, a_string);
   check_length();
   strcat(a_string, "DS    0H");
-  strcpy(wk_remark, " while    */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_15 #1");
@@ -15558,10 +15322,7 @@ void c2_while_15() 					/* complex non function		*/
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield1a);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, tfield1);
-  strcat(wk_remark, " */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_15 #2");
@@ -15572,10 +15333,7 @@ void c2_while_15() 					/* complex non function		*/
   {
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield3a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield3);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_15 #3");
@@ -15728,10 +15486,7 @@ printf("rct = %d p_string = %s",rct,p_string);
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield5a);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, tfield5);
-  strcat(wk_remark, " */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_15 #10");
@@ -15742,10 +15497,7 @@ printf("rct = %d p_string = %s",rct,p_string);
   {
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield7a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield7);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_15 #11");
@@ -16613,8 +16365,7 @@ void c2_while_16() 				/* complex non function with 2 groups of &&		*/
   strcpy(start_while, a_string);
   check_length();
   strcat(a_string, "DS    0H");
-  strcpy(wk_remark, " while    */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_16 #1");
@@ -16623,10 +16374,7 @@ void c2_while_16() 				/* complex non function with 2 groups of &&		*/
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield1a);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, tfield1);
-  strcat(wk_remark, " */");
-  write_remark();
+  src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_16 #2");
@@ -16637,10 +16385,7 @@ void c2_while_16() 				/* complex non function with 2 groups of &&		*/
   {
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield3a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield3);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_16 #3");

@@ -5919,7 +5919,6 @@ void c2_pass2_if_13()
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
-printf("\nc2z_pass_2_if_13 field1 = %s\n",field1);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -5951,7 +5950,6 @@ printf("\nc2z_pass_2_if_13 field1 = %s\n",field1);
     {
        x90 = 1;
     }
-printf("c2z_pass_2_if_13 x90 = %d field2 = %s\n",x90, field2);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -5990,10 +5988,9 @@ printf("c2z_pass_2_if_13 x90 = %d field2 = %s\n",x90, field2);
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
-printf("c2z_pass_2_if_13 field3 = %s\n",field3);
-
 
 if_13_skip1:
+
     ch = p_string[pi];
     while (ch != '(') 
     {
@@ -6012,7 +6009,6 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
-printf("c2z_pass_2_if_13 field4 = %s\n",field4);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -6031,7 +6027,6 @@ printf("c2z_pass_2_if_13 field4 = %s\n",field4);
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
-printf("c2z_pass_2_if_13 field5 = %s\n",field5);
 
     ch = p_string[pi];
     while (ch == ' ') 
@@ -6068,8 +6063,6 @@ printf("c2z_pass_2_if_13 field5 = %s\n",field5);
       ch = p_string[pi];
     }
     field6[pi2] = '\0';
-printf("c2z_pass_2_if_13 field6 = %s\n",field6);
-
 
     operand_1 = 0;
     if (operand_1 == 0) 

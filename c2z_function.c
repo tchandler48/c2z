@@ -2,7 +2,7 @@
 *  c2z : c2z_function.c                              *
 *                                                    *
 *  next error - function-007                         *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -58,8 +58,7 @@ void c2_func_end()
   if (return_on == 0) 
   {
     strcpy(a_string, "         PR");
-    strcpy(wk_remark, " sub rtn  */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_end #20");
@@ -71,10 +70,7 @@ void c2_func_end()
   {
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield5a);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_end #21");
@@ -111,10 +107,7 @@ void c2_func_end()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1a);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_end #25");
@@ -155,10 +148,7 @@ void c2_func_end()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield5a);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_end #29");
@@ -214,10 +204,7 @@ void c2_func_end()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield5a);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_end #36");
@@ -242,8 +229,7 @@ void c2_func_end()
     }
 
     strcpy(a_string, "         BR    C370LNK");
-    strcpy(wk_remark, " sub rtn  */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_end #39");
@@ -610,10 +596,7 @@ void c2_func_call()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field7a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field7);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #1");
@@ -622,10 +605,7 @@ void c2_func_call()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field2);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #2");
@@ -645,10 +625,7 @@ void c2_func_call()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field7a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field7);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #4");
@@ -657,10 +634,7 @@ void c2_func_call()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field2);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #5");
@@ -680,10 +654,7 @@ void c2_func_call()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field8a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field8);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #7");
@@ -692,21 +663,15 @@ void c2_func_call()
     
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field3a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field3);
-      strcpy(wk_remark, " */");
-      write_remark();
-       if (puncde == 1) 
+      src_line();
+      if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #8");
         trace_rec_3();
       }
 
       strcpy(a_string, "         MVC   0(R9),(R8)");
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field8);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #9");
@@ -718,10 +683,7 @@ void c2_func_call()
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field8a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field8);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #10");
@@ -730,10 +692,7 @@ void c2_func_call()
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field3a);
-      strcpy(wk_remark, " ");
-      strcpy(wk_remark, field3);
-      strcpy(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #11");
@@ -834,10 +793,7 @@ void c2_func_call()
 
       strcpy(a_string, "         LARL  R15,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #8a");
@@ -1037,10 +993,7 @@ void c2_func_call()
 
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field3);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_function.c c2_func_call #14");
@@ -1173,10 +1126,7 @@ void c2_func_call()
         {
           strcpy(a_string, "         LARL  R9,");
           strcat(a_string, field4a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, field4);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_function.c c2_func_call #18");
@@ -1185,10 +1135,7 @@ void c2_func_call()
 
           strcpy(a_string, "         LARL  R8,");
           strcat(a_string, field2a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, field2);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_function.c c2_func_call #19");
@@ -1208,10 +1155,7 @@ void c2_func_call()
         {
           strcpy(a_string, "         LARL  R9,");
           strcat(a_string, field4a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, field4);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_function.c c2_func_call #21");
@@ -1220,10 +1164,7 @@ void c2_func_call()
 
           strcpy(a_string, "         LARL  R8,");
           strcat(a_string, field2a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, field2);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_function.c c2_func_call #22");
@@ -1268,10 +1209,7 @@ void c2_func_call()
   {
       strcpy(a_string, "         LARL  R15,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #8a");
@@ -1309,7 +1247,7 @@ void c2_func_sub()
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   int comma_ct = 0;
   int I = 0;
@@ -1412,10 +1350,7 @@ void c2_func_sub()
     strcpy(a_string, field2a);
     check_length();
     strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_sub #2");

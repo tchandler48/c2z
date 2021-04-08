@@ -2,7 +2,7 @@
 *  c2z : c2z_incr.c :                                *
 *                                                    *
 *  next error - incr-002                             *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -16,13 +16,12 @@ void c2_plus()
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   char *p, *p1, *p2, *p3;
   char ch;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
-  char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field6[VAR_LGTH];
   char field7[VAR_LGTH];
@@ -121,10 +120,7 @@ void c2_plus()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_incr.c c2_plus #1");
@@ -132,8 +128,7 @@ void c2_plus()
     }
 
     strcpy(a_string, "         LARL  R8,C370ONE");
-    strcpy(wk_remark, " C370ONE */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_incr.c c2_plus #2");
@@ -142,8 +137,7 @@ void c2_plus()
     work_use_ct[33]++;
 
     strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
-    strcpy(wk_remark, " ++       */ ");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_incr.c c2_plus #3");
@@ -314,10 +308,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     {
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field2);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_incr.c c2_plus_array #8");

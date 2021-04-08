@@ -3425,11 +3425,11 @@ void c2_int_punch()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_int.c c2_int_punch START");
+    strcpy(trace_1, "c2z_int.c c2_int_punch START\n");
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   int x = 0;
   int pi;
@@ -3664,7 +3664,7 @@ void c2_int_punch_1()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_int.c c2_int_punch_1 START");
+    strcpy(trace_1, "c2z_int.c c2_int_punch_1 START\n");
     trace_rec_1();
   }
 

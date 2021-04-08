@@ -2549,7 +2549,7 @@ void c2_char_punch()
 
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_char.c c2_char_punch START");
+    strcpy(trace_1, "c2z_char.c c2_char_punch START\n");
     trace_rec_1();
   }
 
@@ -2569,7 +2569,7 @@ void c2_char_punch()
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
 
-  pgm_label();
+ /* pgm_label(); */
 
   x3 = 0;
   v = strlen(p_string);

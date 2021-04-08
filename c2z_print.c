@@ -864,7 +864,7 @@ void c2_printf_literal()
     trace_rec_1();
   }
 
-  pgm_label();
+ /*  pgm_label(); */
 
   int x3 = 0;
   int x4 = 0;

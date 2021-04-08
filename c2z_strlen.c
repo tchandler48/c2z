@@ -2,7 +2,7 @@
 *  c2z : c2z_strlen.c :                              *
 *                                                    *
 *  next error - strlen-011                           *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -16,7 +16,7 @@ void c2_strlen()
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   char ch;
   char tfield1[VAR_LGTH];

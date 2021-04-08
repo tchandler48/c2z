@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2Z_for.c :                                 *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -15,7 +15,7 @@ void c2_for(void)
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   char ch;
   char *p, *p6;
@@ -232,9 +232,7 @@ void c2_for(void)
       strcpy(trace_1, "c2z_for.c c2_for #4");
       trace_rec_3();
     }
-    strcpy(sv_for_incr, tfield6a);
-
-
+ 
     if (fd2_type == 1) 
     {
       if (traceflg == 1) 
@@ -304,7 +302,10 @@ void c2_for(void)
       strcpy(trace_1, "c2z_for.c c2_for #8");
       trace_rec_3();
     }
+    strcpy(sv_for_incr, tfield1a);
+    printf("c2z_for.c sv_for_incr = %s tfield1a = %s\n",sv_for_incr,tfield1a);
 
+ 
     strcpy(a_string, "         LARL  R9,C370NWK3");
     src_line();
     if (puncde == 1) 
@@ -790,7 +791,7 @@ skip_for_2:
       ch = p_string[pi];
     }
   }
-  strcpy(sv_for_incr, tfield6a);
+ /* strcpy(sv_for_incr, tfield6a); */
 
   if (for_opr == 1) 
   {

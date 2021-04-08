@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_case.c :                                *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -22,7 +22,7 @@ void c2_case(void)
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   char ch;
   char *p1;
@@ -126,10 +126,7 @@ void c2_case(void)
     {
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_case.c c2_case #2");
@@ -319,7 +316,7 @@ void c2_case(void)
 
     strcpy(a_string, "         CLC   ");
     strcat(a_string, "0(1,R8),0(R9)");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #33");

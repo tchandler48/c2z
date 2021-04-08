@@ -299,10 +299,7 @@ void c2_strcpy(void)
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c #50");
@@ -635,10 +632,7 @@ void c2_str_1(int str1, int str4)
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #101");
@@ -832,10 +826,7 @@ void c2_str_1(int str1, int str4)
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #100");
@@ -875,10 +866,7 @@ void c2_str_1(int str1, int str4)
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #104");
@@ -1043,10 +1031,7 @@ void c2_str_1(int str1, int str4)
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #118");
@@ -1212,10 +1197,7 @@ void c2_str_1(int str1, int str4)
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_1 #1");
@@ -1241,10 +1223,7 @@ void c2_str_1(int str1, int str4)
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_1 #5");
@@ -1253,9 +1232,7 @@ void c2_str_1(int str1, int str4)
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_1 #6");
@@ -1276,10 +1253,7 @@ void c2_str_1(int str1, int str4)
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_1 #8");
@@ -1403,10 +1377,7 @@ void c2_str_1(int str1, int str4)
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2z_strcpy.c c2_str_1 #300");
@@ -1634,10 +1605,7 @@ void c2_str_1(int str1, int str4)
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #906");
@@ -1692,10 +1660,7 @@ void c2_str_1(int str1, int str4)
     strcpy(a_string, "         LA    R6,");
     strcat(a_string, field6);
     strcat(a_string, "(R0,R6)");
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, field6);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #912");
@@ -2119,10 +2084,7 @@ void c2_str_2(int str1,int str2) 		/* strcpy(p_string, arrary1{line_ndx]")	*/
 
       strcpy(a_string, "         LAEY  R6,");
       strcat(a_string, field7);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field2);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_2 #5");
@@ -2154,10 +2116,7 @@ void c2_str_2(int str1,int str2) 		/* strcpy(p_string, arrary1{line_ndx]")	*/
       {
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, field3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field3);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_strcpy.c c2_str_2 #8");
@@ -2298,10 +2257,7 @@ void c2_str_2(int str1,int str2) 		/* strcpy(p_string, arrary1{line_ndx]")	*/
 
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field1a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field1);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_2 #17");
@@ -2525,8 +2481,7 @@ void c2_str_3(int str1, int str2)
           strcat(a_string, "=CL");
           strcat(a_string, wk_strg);
           strcat(a_string, "' '");
-          strcpy(wk_remark, " strcpy   */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_strcpy.c c2_str_3 #1");
@@ -2614,8 +2569,7 @@ void c2_str_3(int str1, int str2)
           strcat(a_string, "=CL");
           strcat(a_string, wk_strg);
           strcat(a_string, "' '");
-          strcpy(wk_remark, " strcpy   */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_strcpy.c c2_str_3 #3");
@@ -2946,10 +2900,7 @@ void c2_str_3(int str1, int str2)
 
         strcpy(a_string, "         LAEY  R6,");
         strcat(a_string, tfield7);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, tfield1);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_strcpy.c c2_str_3 #9");
@@ -2962,8 +2913,7 @@ void c2_str_3(int str1, int str2)
         strcat(a_string, "B");
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " str_3    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_strcpy.c c2_str_3 #10");
@@ -2993,10 +2943,7 @@ void c2_str_3(int str1, int str2)
         {
           strcpy(a_string, "         LARL  R8,");
           strcat(a_string, tfield2a);
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, tfield2);
-          strcat(wk_remark, " */");
-          write_remark();
+          src_line();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_strcpy.c c2_str_3 #12b");
@@ -3076,8 +3023,7 @@ void c2_str_3(int str1, int str2)
         strcat(a_string, "F");
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " str_3    */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_strcpy.c c2_str_3 #20");
@@ -3086,10 +3032,7 @@ void c2_str_3(int str1, int str2)
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, tfield3a);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, tfield3);
-        strcat(wk_remark, " */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_strcpy.c c2_str_3 #21");
@@ -3626,10 +3569,7 @@ void c2_str_3(int str1, int str2)
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_3 Struc #7");
@@ -3719,10 +3659,7 @@ void c2_str_3(int str1, int str2)
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield5a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield5);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_3 Struc #19");
@@ -3936,10 +3873,7 @@ void c2_str_4()
   if (x10 == 0) {
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield1a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_4 #1");
@@ -3948,10 +3882,7 @@ void c2_str_4()
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_4 #2");
@@ -4347,10 +4278,7 @@ void c2_str_5()
 
     strcpy(a_string, "         LARL  R6,");
     strcat(a_string, ar_field7);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 #2");
@@ -4404,10 +4332,7 @@ void c2_str_5()
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield2a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield2);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 #8");
@@ -4501,10 +4426,7 @@ void c2_str_5()
 
     strcpy(a_string, "         LARL  R5,");
     strcat(a_string, ar1_field7);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield3);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 #19");
@@ -4558,10 +4480,7 @@ void c2_str_5()
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield4a);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield4);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 #25");
       trace_rec_3();
@@ -4851,10 +4770,7 @@ void c2_str_5()
 
     strcpy(a_string, "         LARL  R6,");
     strcat(a_string, ar_field7);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield1);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #4");
@@ -4923,10 +4839,7 @@ void c2_str_5()
     {
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield2);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #7");
@@ -5112,10 +5025,7 @@ void c2_str_5()
 
     strcpy(a_string, "         LARL  R5,");
     strcat(a_string, ar1_field7);
-    strcpy(wk_remark, " ");
-    strcat(wk_remark, tfield4);
-    strcat(wk_remark, " */");
-    write_remark();
+    src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #25");
@@ -5181,10 +5091,7 @@ void c2_str_5()
  
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield5a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield5);
-      strcat(wk_remark, " */");
-      write_remark();
+      src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #23");

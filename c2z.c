@@ -5641,7 +5641,7 @@ int main(int argc, char *argv[])
           trace_rec_1();
         }
 
-        pgm_label();
+     /*   pgm_label(); */
 
         inside_main = 1;
         strcpy(sv_func, "main");
@@ -6500,6 +6500,7 @@ int main(int argc, char *argv[])
     {
       if (rct == w_for_table[v].for_eof1) 
       {
+printf("c2z.c sv_for_incr = %s\n",sv_for_incr);
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, sv_for_incr);
         src_line();

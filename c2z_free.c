@@ -268,7 +268,7 @@ void c2_free()
         trace_rec_1();
       }
 
-      pgm_label();
+     /* pgm_label(); */
 
       fr_3 = 0;
       if (gv_ct > 0) 
@@ -448,7 +448,7 @@ void c2_free()
         trace_rec_1();
       }
 
-      pgm_label();
+    /*  pgm_label(); */
 
       fr_3 = 0;
       if (gv_ct > 0) 

@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_fclose.c :                              *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -15,7 +15,7 @@ void c2_close()
     trace_rec_1();
   }
 
-  pgm_label();
+  /* pgm_label(); */
 
   int pi;
   int y0 = 0;
@@ -49,8 +49,7 @@ void c2_close()
         strcat(a_string, wk_strg);
         check_length();
         strcat(a_string, "DS    0H");
-        strcpy(wk_remark, " fclose   */");
-        write_remark();
+        src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_fclose.c c2_close #1");
