@@ -5588,13 +5588,13 @@ void c2_str_7()
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
-    if (ret == 0) 
+    ret = strcmp(tfield1, w_struc[I].st_wname);
+    if(ret == 0)
     {
        x3 = 1;
-       strcpy(tfield1a, w_struc[I].st_cname);
-       x92 = w_struc[I].st_field_lgth;
-       x96 = w_struc[I].st_disp;
+       strcpy(tfield1a, w_struc[I].st_cwname);
+  /*     x92 = w_struc[I].st_field_lgth;
+       x96 = w_struc[I].st_disp; */
        break;
     }
   }
@@ -5608,6 +5608,31 @@ void c2_str_7()
     convert = 1;
     return;
   }
+
+  x3 = 0;
+  for (I = 0; I < m_struc_ct; I++) 
+  {
+    ret = strcmp(tfield1, w_struc[I].st_wname);
+    ret1 = strcmp(tfield3, w_struc[I].st_field_name);
+    if((ret == 0) && (ret1 == 0))
+    {
+       x3 = 1;
+       x92 = w_struc[I].st_field_lgth;
+       x96 = w_struc[I].st_disp; 
+       break;
+    }
+  }
+
+  if (x3 == 0) 
+  {
+    printf("\nc2z_strcpy.c c2_str_7 strcpy-059 tfield1 Not Found = %s\n", tfield1);
+    printf("c2z_strcpy.c c2_str_7 tfield3 Not Found = %s\n",tfield3);
+    printf("c2z_strcpy.c c2_str_7 rct = %d p_string = %s\n",rct,p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
 
   x3 = 0;
   if (lv_ct > 0) 
@@ -6840,25 +6865,154 @@ void c2_str_8()
   return;
 }
 
+/* copy into array from structure  - LEFT */
+/* strcpy(in_stack[x], gw_variable[gv_ct].gv_name); */
 
-void c2_str_9() 
+void c2_str_9() 	 
 {
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_string.c c2_str_9");
     trace_rec_1(); 
   }
+   int s;
+   int I;
+   int x20;
+   int x21;
+   int x22;
+
+  char ch;
+
+  x20 = 0;
+  x21 = 0;
+  x22 = 0;
+  s = strlen(p_string);
+
+  for(I=0; I < s; I++)
+  {
+    ch = p_string[I];
+    if(ch == '(')
+    {
+      x20++;
+    }
+    if(ch == ')')
+    {
+      x20++;
+    }
+    if(ch == '[')
+    {
+      x21++;
+    }
+    if(ch == ']')
+    {
+      x21++;
+    }
+    if(ch == '.')
+    {
+      x22++;
+    }
+  }
+
+  pi = 0;
+  ch = p_string[pi];
+  while (ch != '(') 
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  pi++;
+  ch = p_string[pi];
+  while (ch != '[') 
+  {
+    tfield1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  tfield1[pi2] = '\0';
+ 
+  x2 = 0;
+  pi2 = 0;
+  pi++;
+  ch = p_string[pi];
+  while (ch != ']') 
+  {
+    if (x2 == 0) 
+    {
+      if ((isdigit(ch)) && (x2 == 0)) 
+      {
+        fd2_type = 2;
+        x2 = 1;
+      }
+
+      if ((isalpha(ch)) && (x2 == 0)) 
+      {
+        fd2_type = 1;
+        x2 = 1;
+      }
+    }
+    tfield2[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  tfield2[pi2] = '\0';
+
+  pi++;
+  ch = p_string[pi];
+ 
+
+
+/*
+  pi2 = 0;
+  pi++;
+  pi++;
+  ch = p_string[pi];
+  while (ch != ',') 
+  {
+    tfield3[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  tfield3[pi2] = '\0';
+
+  pi2 = 0;
+  pi++;
+  ch = p_string[pi];
+  while (ch != ')') 
+  {
+    if(ch != '\"')
+    {
+      if(ch != ' ')
+      {
+        tfield4[pi2] = ch;
+        pi2++;
+      }
+    }
+    pi++;
+    ch = p_string[pi];
+  }
+  tfield4[pi2] = '\0';
+*/
+
+
+
+/* strcpy(in_stack[x], gw_variable[gv_ct].gv_name); */
 
   printf("\nc2z_strcpy.c c2_str_9 rct = %d p_string = %s",rct,p_string);
-  printf("c2z_strcpy.c c2_str_9 NOT CODED\n");
+  printf("c2z_strcpy.c c2_str_9 x20 = %d x21 = %d x22 = %d\n",x20,x21,x22);
   erct++;
 
   convert = 1;
   return;
 }
 
-
-void c2_str_10() 	/*  strcpy(strArry[inx].elem[offset], temp)   */
+/* strcpy(gw_variable[gv_ct].gv_name, in_stack[x]); */
+/* copy into structure from array - RIGHT */
+void c2_str_10() 	
 {
   if (traceflg == 1) 
   {
@@ -6904,7 +7058,7 @@ void c2_str_10() 	/*  strcpy(strArry[inx].elem[offset], temp)   */
     }
   }
 
-printf("c2z_strcpy.c str_10 START rct = %d p_string = %s\n",rct,p_string);
+printf("\nc2z_strcpy.c str_10 START rct = %d p_string = %s\n",rct,p_string);
 printf("c2z_strcpy.c rct = %d x20 = %d x21 = %d x22 = %d\n",rct,x20,x21,x22);
 
   if((x20 == 2) && (x21 == 4) && (x22 == 1))

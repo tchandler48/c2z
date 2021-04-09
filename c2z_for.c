@@ -303,9 +303,7 @@ void c2_for(void)
       trace_rec_3();
     }
     strcpy(sv_for_incr, tfield1a);
-    printf("c2z_for.c sv_for_incr = %s tfield1a = %s\n",sv_for_incr,tfield1a);
-
- 
+  
     strcpy(a_string, "         LARL  R9,C370NWK3");
     src_line();
     if (puncde == 1) 

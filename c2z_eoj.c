@@ -1862,7 +1862,6 @@ void c2_eoj()
     trace_rec_3();
   }
 
-printf("c2z_eoj gv_ct = %d\n",gv_ct);
   for (I = 0; I < gv_ct; I++) 
   {
     convert = 0;

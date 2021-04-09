@@ -1508,8 +1508,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/* Scan for malloc   */
 
+    /* ***************************************************************
+    * Scan for malloc                                                *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1529,8 +1531,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for realloc  */
 
+    /* ***************************************************************
+    * Scan for realloc                                                *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1550,8 +1554,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for struct  */
 
+    /* ***************************************************************
+    * Scan for struct                                                *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1590,8 +1596,9 @@ int main(int argc, char *argv[])
     }
 
 
-/* Scan for prototypes  */
-
+    /* ***************************************************************
+    * Scan for prototypes                                            *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1731,8 +1738,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for subroutines  */
 
+    /* ***************************************************************
+    * Scan for subroutines                                           *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1859,7 +1868,9 @@ int main(int argc, char *argv[])
     }
 
     if (convert == 1)
+    {
       goto pass2_skip;
+    }
 
     if ((x1 == 4) && (!p1) && (p5) && (p6) && (convert == 0)) 
     {
@@ -1879,7 +1890,9 @@ int main(int argc, char *argv[])
     }
 
     if (convert == 1)
+    {
       goto pass2_skip;
+    }
 
     if ((x1 == 5) && (!p1) && (p5) && (p6)) 
     {
@@ -1898,8 +1911,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for INT (NOT MAIN)  */
 
+    /* ***************************************************************
+    * Scan for INT (NOT MAIN)                                        *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1991,8 +2006,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for size_t  */
 
+    /* ***************************************************************
+    * Scan for size_t                                                *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2010,8 +2027,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for time_t  */
 
+    /* ***************************************************************
+    * Scan for time_t                                                *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2035,8 +2054,9 @@ int main(int argc, char *argv[])
     }
 
 
-/* Scan for u_short  */
-
+    /* ***************************************************************
+    * Scan for u_short                                               *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2055,7 +2075,9 @@ int main(int argc, char *argv[])
     }
 
 
-/* Scan for while  */
+    /* ***************************************************************
+    * Scan for while                                                 *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2290,7 +2312,9 @@ int main(int argc, char *argv[])
     }
 
 
-/* Scan for switch  */
+    /* ***************************************************************
+    * Scan for switch                                                *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5674,7 +5698,6 @@ int main(int argc, char *argv[])
           trace_rec_3();
         }
 */
-printf("c2z.c #1 pass 3 main gv_ct %d\n",gv_ct);
         for (I = 0; I < gv_ct; I++) 
         {  
            x = strcmp("G", gw_variable[I].gv_type);
@@ -5707,8 +5730,6 @@ printf("c2z.c #1 pass 3 main gv_ct %d\n",gv_ct);
             c2_free();
           }
        }
-printf("c2z.c #2 pass 3 main gv_ct %d\n",gv_ct);
-
        convert = 1; 
       }
     }

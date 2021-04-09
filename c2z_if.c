@@ -421,6 +421,7 @@ void if_case_1()
   int fd2_type = 0;
   int operand_1 = 0;
 
+  int s = 0;
   int x = 0;
   int x2 = 0;
   int x3 = 0;
@@ -457,6 +458,9 @@ void if_case_1()
 
   if ((if_complex == 0) && (!p6)) 
   {
+
+    s = strlen(p_string);
+printf("if_case_1 s = %d\n",s);
     pi = 0;
     ch = p_string[pi];
     while (ch != '(') 
@@ -475,7 +479,6 @@ void if_case_1()
         pi++;
         ch = p_string[pi];
       }
-
       convert = 1;
       return;
     }
@@ -487,6 +490,10 @@ void if_case_1()
     ch = p_string[pi];
     while (ch != ' ') 
     {
+      if(ch == ')')
+      {
+        break;
+      }
       if ((ch == '_') && (x3 == 0)) 
       {
         x3 = 1;
