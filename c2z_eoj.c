@@ -59,22 +59,6 @@ void c2_eoj()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*         LARL  R1,C370WTOB");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_eoj.c wtoalpha #2");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*         TPUT  (R1),(R0),R");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_eoj.c wtoalpha #2");
-    trace_rec_3();
-  }
-
   strcpy(a_string, "         LARL  R9,C370WTOB");
   src_line();
   if (puncde == 1) 

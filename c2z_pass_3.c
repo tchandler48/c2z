@@ -56,7 +56,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*  Copyright (c) TCCS 2015 - 2018");
+  strcpy(a_string, "*  Copyright (c) TCCS 2015 - 2021");
   src_line();
   if (puncde == 1) 
   {

@@ -117,13 +117,13 @@ void c2_free()
     {
       for (I = 0; I < m_struc_ct; I++) 
       {
-        ret = strcmp(tfield1, w_struc[I].st_cwname);
+        ret = strcmp(tfield1, w_struc[I].st_name);
         if (ret == 0) 
         {
           fr_3 = 1;
           fr_1 = 6;
           strcpy(fr_type,"M");
-         /*  strcpy(tfield2, w_struc[I].st_ */
+          strcpy(tfield1a, w_struc[I].st_cname);
           break;
         }
       }
@@ -637,23 +637,14 @@ void c2_free()
     {
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z_gtrr.c c2_free structure");
+        strcpy(trace_1, "c2z_free.c c2_free structure");
         trace_rec_1();
       }
-
-      strcpy(tfield1a,tfield1);
-      strcat(tfield1a,"T");
-
-      strcpy(a_string, "*");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_free.c c2_free Struc #0");
-        trace_rec_3();
-      }
-
+      /* strcpy(tfield1a,tfield1); */
+      
       strcpy(a_string, "         LARL  R6,");
       strcat(a_string, tfield1a);
+      strcat(a_string, "T");
       src_line();
       if (puncde == 1) 
       {
@@ -684,8 +675,9 @@ void c2_free()
       fr_3 = 0;
       for (I = 0; I < m_struc_ct; I++) 
       {
-        ret = strcmp(tfield1, w_struc[I].st_cwname);
-        ret1 = strcmp(w_struc[I].st_id, "N");
+ 
+        ret = strcmp(tfield1, w_struc[I].st_name);
+        ret1 = strcmp(w_struc[I].st_id, "N"); 
         if ((ret == 0) && (ret1 == 0)) 
         {
           x80 = w_struc[I].st_disp;
@@ -762,9 +754,8 @@ void c2_free()
 
       strcat(tfield4a, "L");
       strcpy(a_string, "         LAEY  R6,");
-      strcpy(tfield1a,tfield1);
-      strcat(tfield1a,"L");
       strcat(a_string, tfield1a);
+      strcat(a_string, "L");
       strcat(a_string, "(R0,R6)");
       src_line();
       if (puncde == 1) 

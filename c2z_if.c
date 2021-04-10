@@ -27,8 +27,8 @@ void c2_if(void)
   int pi;
   int pi2;
   if_convert = 0;
-  int s = 0;
   int I = 0;
+  int s;
   int ret = 0;
   int bracket_ct = 0;
   int if_complex = 0;
@@ -421,7 +421,7 @@ void if_case_1()
   int fd2_type = 0;
   int operand_1 = 0;
 
-  int s = 0;
+ /* int s = 0; */
   int x = 0;
   int x2 = 0;
   int x3 = 0;
@@ -459,8 +459,7 @@ void if_case_1()
   if ((if_complex == 0) && (!p6)) 
   {
 
-    s = strlen(p_string);
-printf("if_case_1 s = %d\n",s);
+    /* s = strlen(p_string); */
     pi = 0;
     ch = p_string[pi];
     while (ch != '(') 

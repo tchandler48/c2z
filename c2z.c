@@ -5718,6 +5718,7 @@ int main(int argc, char *argv[])
            }
         }
 
+/*
         x = 0;
         for (I = 0; I < m_struc_ct; I++) 
         {
@@ -5730,6 +5731,7 @@ int main(int argc, char *argv[])
             c2_free();
           }
        }
+*/
        convert = 1; 
       }
     }

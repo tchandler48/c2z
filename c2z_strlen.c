@@ -201,6 +201,7 @@ void c2_strlen()
 
     strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, tfield2a);
+    strcat(a_string, "T");
     strcpy(wk_remark, " ");
     strcat(wk_remark, tfield2);
     strcat(wk_remark, " */");
@@ -373,7 +374,7 @@ void c2_strlen()
     x3 = 0;
     for (I = 0; I < m_struc_ct; I++) 
     {
-      ret = strcmp(tfield2, w_struc[I].st_wname);
+      ret = strcmp(tfield2, w_struc[I].st_name);
       ret1 = strcmp(tfield4,w_struc[I].st_field_name);
       if ((ret == 0) && (ret1 == 0))
       {
@@ -420,6 +421,22 @@ void c2_strlen()
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strlen.c c2_strlen Struc #18");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LAEY  R4,1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_strlen.c c2_strlen Struc #18a");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         SR    R5,R4");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_strlen.c c2_strlen Struc #18b");
       trace_rec_3();
     }
 
@@ -565,14 +582,14 @@ void c2_strlen()
     }
     work_use_ct[2]++;
 
-    strcpy(a_string, "         LARL  R8,C370EOF");
+    strcpy(a_string, "         LARL  R8,C370B1");
     src_line();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strlen.c c2_strlen Struc #35");
       trace_rec_3();
     }
-    work_use_ct[74]++;
+
    
     strcpy(a_string, "         CLC   0(1,R9),0(R8)");
     src_line();
@@ -583,7 +600,7 @@ void c2_strlen()
     }
 
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcpy(a_string, "         JLE   ");
+    strcpy(a_string, "          JLNE  ");
     strcat(a_string, "L");
     strcat(a_string, wk_strg);
     strcat(a_string, "D");
@@ -661,7 +678,7 @@ void c2_strlen()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         SP    0(6,R9),0(6,R8)");
+    strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
     src_line();
     if (puncde == 1) 
     {
@@ -918,6 +935,14 @@ void c2_strlen()
       return;
     }
 
+    strcpy(a_string, "         LAEY  R4,1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_strlen.c c2_strlen #1");
+      trace_rec_3();
+    }
+
     snprintf(wk_strg, sizeof(wk_strg), "%d", x2);
     strcpy(a_string, "         LAEY  R5,");
     strcat(a_string, wk_strg);
@@ -925,6 +950,14 @@ void c2_strlen()
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strlen.c c2_strlen #2");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         SR    R5,R4");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_strlen.c c2_strlen #2a");
       trace_rec_3();
     }
 
@@ -1067,7 +1100,7 @@ void c2_strlen()
     }
     work_use_ct[2]++;
 
-    strcpy(a_string, "         LARL  R8,C370EOF");
+    strcpy(a_string, "         LARL  R8,C370B1");
     src_line();
     if (puncde == 1) 
     {
@@ -1085,7 +1118,7 @@ void c2_strlen()
     }
 
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcpy(a_string, "         JLE   ");
+    strcpy(a_string, "         JLNE  ");
     strcat(a_string, "L");
     strcat(a_string, wk_strg);
     strcat(a_string, "B");
@@ -1163,7 +1196,7 @@ void c2_strlen()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         SP    0(6,R9),0(6,R8)");
+    strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
     src_line();
     if (puncde == 1) 
     {
