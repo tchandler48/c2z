@@ -159,8 +159,10 @@ void c2z_struct(void)
   gw_variable[gv_ct].gv_row = 0;
   gw_variable[gv_ct].gv_column = 0;
   strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-  strcpy(gw_variable[gv_ct].gv_label, null_field);
-  strcpy(gw_variable[gv_ct].gv_aname, null_field);
+
+  strcpy(gw_variable[gv_ct].gv_table, tfield2a);
+  strcat(gw_variable[gv_ct].gv_table, "T");
+
   strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
   strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
   strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
@@ -168,6 +170,15 @@ void c2z_struct(void)
   gv_ct++;
 
   goto struct_2;
+
+/*
+  char gv_label[VAR_LGTH];
+  char gv_table[VAR_LGTH];
+  char gv_aname[VAR_LGTH];
+  char gv_sv_reg[VAR_LGTH];
+  char gv_wk_reg[VAR_LGTH];
+  char gv_wk_strg[VAR_LGTH];
+*/
 
 /* *********************************************************
 *  parse the following: struct variables    *gw_variables  *
@@ -2083,6 +2094,16 @@ void c2_struct_4()
          strcpy(w_struc[I].st_name, field2);
       }
     }
+
+    for(I = 0; I < gv_ct; I++)
+    {
+      ret = strcmp(field1, gw_variable[I].gv_name);
+      if(ret == 0)
+      {
+         strcpy(gw_variable[I].gv_name, field2);
+      }
+    }
+
     convert = 1;
     return;
   }

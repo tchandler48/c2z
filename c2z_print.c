@@ -1001,8 +1001,7 @@ void c2_printf_numeric()
   char tfield3[VAR_LGTH];
   char tfield3a[VAR_LGTH];
   char tfield6a[VAR_LGTH];
-  char tmp_fd4[3];
-
+ 
   int pi;
   int pi2;
   int x2 = 0;
@@ -1336,47 +1335,8 @@ void c2_printf_numeric()
 
       if(fd3_type == 1)
       {
-
-        strcpy(a_string, "         LARL  R8,C370NWK1");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_print.c c2_printf AR %d #8d");
-          trace_rec_3();
-        }
-
-        strcpy(tmp_fd4, "01");
-
-        strcpy(a_string, "         LARL  R7,");
-        /* strcat(a_string, field3); */
-        strcat(a_string, tmp_fd4);
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_print.c c2_printf AR %d #8d");
-          trace_rec_3();
-        }
-
-    /*    strcpy(a_string, "         ZAP   0(6,R8),0(6,R7)");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_print.c c2_printf AR %d #8f");
-          trace_rec_3();
-        }
-*/
-
-        strcpy(a_string, "         PACK   0(6,R8),0(2,R7)");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_print.c c2_printf AR %d #8f");
-          trace_rec_3();
-        } 
-/*
-        strcpy(tmp_fd4, "1");
         strcpy(a_string, "         LAEY  R5,");
-        strcat(a_string, tmp_fd4); 
+        strcat(a_string, field3); 
         src_line();
         if (puncde == 1) 
         {
@@ -1416,14 +1376,13 @@ void c2_printf_numeric()
           trace_rec_3();
         }
 
-        strcpy(a_string, "         ZAP   0(6,R8),0(6,R7)");
+        strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
         src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_print.c c2_printf AR %d #8f");
           trace_rec_3();
         }
-*/
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, "C370NWK1");
@@ -4784,11 +4743,11 @@ void c2_printf_string()
     x3 = 0;
     for (I = 0; I < m_struc_ct; I++) 
     {
-      ret = strcmp(tfield1, w_struc[I].st_wname);
+      ret = strcmp(tfield1, w_struc[I].st_name);
       if (ret == 0) 
       {
         x3 = 1;
-        strcpy(tfield1a, w_struc[I].st_cwname);
+        strcpy(tfield1a, w_struc[I].st_cname);
         strcpy(tfield6a, w_struc[I].st_cname);
         break;
       }
@@ -4840,7 +4799,7 @@ void c2_printf_string()
     x3 = 0;
     for (I = 0; I < m_struc_ct; I++) 
     {
-      ret = strcmp(tfield1, w_struc[I].st_wname);
+      ret = strcmp(tfield1, w_struc[I].st_name);
       ret1 = strcmp(tfield3, w_struc[I].st_field_name);
       if ((ret == 0) && (ret1 == 0)) 
       {

@@ -12,6 +12,15 @@ c2z is being overhauled with a lot of changes/fixes/updates.  MAYBE UNSTABLE
 from time to time.  Working on it daily.  TC
 *****************************
 
+04/10/01
+
+****** UPDATE ********
+C variables are now passed to the generated z390 code.  Instead of a generated 
+variable name the "C" variable is now used.  HOWEVER, if the "C" variable is greater
+than 8 characters, then it is NOT passed, but a generated variable is used.
+Maybe able to remove this restriction down the road.
+*****************************************
+
 
 c2z is a parser written in "C" that parses "C" source code into "base-register free" z390.mlc
 
