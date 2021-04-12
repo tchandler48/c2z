@@ -9,6 +9,7 @@ void write_remark()
   int x = 0;
   int I = 0;
   int s = 0;
+  int s1 = 0;
 
   char tfield2[VAR_LGTH];
   char tfield2a[VAR_LGTH];
@@ -18,16 +19,20 @@ void write_remark()
   s = strlen(a_string);
   if (s < 40) 
   {
-    x = 40 - s;
+    x = 45 - s;
 
     for (I = 0; I < x; I++) 
     {
       strcat(a_string, " ");
     }
 
-    strcat(a_string, "/* Ln#- ");
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcat(a_string, wk_strg);
+    s1 = strlen(wk_remark);
+    if(s1 > 25)
+    {
+      wk_remark[25] = '\0';
+    }
+
+    strcat(a_string, "/* ");
     strcat(a_string, wk_remark);
   }
 
@@ -550,9 +555,11 @@ void c2_count_paren()
 void pgm_label() 
 {
   int v = 0;
+  int s = 0;
 
   char ch;
-
+  char tmp_rct[6];
+  
   o_string[0] = '\0';
   wk_string[0] = '\0';
   strcpy(o_string,p_string);
@@ -565,9 +572,18 @@ void pgm_label()
   } 
 
   strcpy(wk_string, o_string);
+  snprintf(tmp_rct, sizeof(tmp_rct), "%d", rct);
 
   strcpy(a_string, "*  ");
+  strcat(a_string, tmp_rct);
   strcat(a_string, wk_string);
+  s = strlen(a_string);
+  if(s > 72)
+  {
+    a_string[71] = '\n';
+    a_string[72] = '\0';
+  }
+ 
   fputs(a_string, cc370);
   fflush(cc370);
 }

@@ -12,9 +12,9 @@ printf("\nc2z_math_start rct = %d p_string = %s\n",rct,p_string);
   int pi2 = 0;
   int x2 = 0;
   int x3 = 0;
-  int x30 = 0;
+/*  int x30 = 0; */
   int v;
-  int eol = 0;
+/*  int eol = 0; */
   int x70 = 0;
   int x71 = 0;
 
@@ -25,7 +25,7 @@ printf("\nc2z_math_start rct = %d p_string = %s\n",rct,p_string);
   int fd3_type = 0;
   int fd4_type = 0;
   int fd5_type = 0;
-  int fd6_type = 0;
+/*  int fd6_type = 0; */
   int eol1 = 0;
   int eol2 = 0;
 
@@ -33,12 +33,12 @@ printf("\nc2z_math_start rct = %d p_string = %s\n",rct,p_string);
   char *p15,*p16;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
-  char field2[VAR_LGTH];
+/*  char field2[VAR_LGTH]; */
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field5[VAR_LGTH];
-  char field6[VAR_LGTH];
+/*  char field5[VAR_LGTH]; */
+/*  char field6[VAR_LGTH]; */
   char *p;
 
   p = strstr(p_string, "char");
@@ -435,22 +435,22 @@ printf("c2z_arth.c HERE #1\n");
   {
     if (ch == '+')
     {
-      x30 = 1;
+   /*   x30 = 1; */
     }
  
     if (ch == '-')
     {
-      x30 = 1;
+   /*   x30 = 1; */
     }
 
     if (ch == '*')
     {
-      x30 = 1;
+  /*    x30 = 1; */
     }
 
     if (ch == '/')
     {
-      x30 = 1;
+  /*    x30 = 1; */
     }
     pi++;
     ch = p_string[pi];
@@ -499,13 +499,13 @@ printf("c2z_arth.c field1 %s\n",field1);
     pi2 = 0;
     while(ch != ' ')
     {
-      field2[pi2] = ch;
+ /*     field2[pi2] = ch; */
       pi2++;
       pi++;
       ch = p_string[pi];
     }
-    field2[pi2] = '\0';
-printf("c2z_arth.c field2 = %s\n");
+  /*  field2[pi2] = '\0';
+printf("c2z_arth.c field2 = %s\n"); */
 
     while(ch == ' ')
     {
@@ -576,12 +576,12 @@ printf("c2z_arth.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     pi2 = 0;
     while(ch != ' ')
     {
-      field5[pi2] = ch;
+ /*     field5[pi2] = ch; */
       pi2++;
       pi++;
       ch = p_string[pi];
     }
-    field5[pi2] = '\0';
+/*    field5[pi2] = '\0'; */
 
     while(ch == ' ')
     {
@@ -603,21 +603,21 @@ printf("c2z_arth.c field4 = %s fd4_type = %d\n",field4,fd4_type);
       {
         if (isalpha(ch)) 
         {
-          fd6_type = 2;
+   /*       fd6_type = 2; */
           x2 = 1;
         }
         if (isdigit(ch)) 
         {
-          fd6_type = 1;
+  /*        fd6_type = 1; */
           x2 = 1;
         }
       }
-      field6[pi2] = ch;
+ /*     field6[pi2] = ch; */
       pi2++;
       pi++;
       ch = p_string[pi];
     }
-    field6[pi2] = '\0';
+/*    field6[pi2] = '\0'; */
     if(eol2 == 1)
     {
        goto eolmath_1;
@@ -640,7 +640,7 @@ printf("c2z_arth.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     {
       if(ch == ';')
       {
-        eol = 1;
+       /* eol = 1; */
         break;
       }
       if(pi >= s)
@@ -667,12 +667,12 @@ printf("c2z_arth.c field4 = %s fd4_type = %d\n",field4,fd4_type);
             x2 = 1;
           }
         }
-      field5[pi2] = ch;
+   /*   field5[pi2] = ch; */
       pi2++;
       pi++;
       ch = p_string[pi];
     }
-    field5[pi2] = '\0';
+ /*   field5[pi2] = '\0'; */
 
     p15 = strstr(field1,"[");
     p16 = strstr(field1, "]");

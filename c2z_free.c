@@ -336,7 +336,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #1");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #1");
         trace_rec_3();
       }
 
@@ -345,7 +345,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #3");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #3");
         trace_rec_3();
       }
 
@@ -355,7 +355,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #4");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #4");
         trace_rec_3();
       }
 
@@ -368,7 +368,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #5");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #5");
         trace_rec_3();
       }
 
@@ -376,7 +376,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #6");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #6");
         trace_rec_3();
       }
       work_use_ct[52]++;
@@ -385,7 +385,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #7");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #7");
         trace_rec_3();
       }
 
@@ -397,7 +397,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #8");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #8");
         trace_rec_3();
       }
 
@@ -405,7 +405,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #9");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #9");
         trace_rec_3();
       }
 
@@ -413,7 +413,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #10");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #10");
         trace_rec_3();
       }
 
@@ -423,7 +423,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #11");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #11");
         trace_rec_3();
       }
 
@@ -435,7 +435,7 @@ void c2_free()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_char #12");
+        strcpy(trace_1, "c2z_free.c c2_free arr_char #12");
         trace_rec_3();
       }
     }

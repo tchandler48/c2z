@@ -7314,6 +7314,12 @@ void c2_pass2_while()
     return;
   }
 
+  if ((while_opr == 6) && (while_convert == 0))
+  {
+    convert = 1;
+    return;
+  }
+
   if ((while_math == 4) && (while_convert == 0)) 		
   {
     c2_pass2_while_4();

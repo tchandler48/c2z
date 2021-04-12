@@ -533,7 +533,6 @@ void c2_strstr()
 
 void c2_strstr_scan() 
 {
-printf("c2z_strstr_scan START\n");
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_strstr.c c2_strstr_scan START");

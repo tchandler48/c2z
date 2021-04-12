@@ -447,22 +447,14 @@ void c2_char_1()
     }
     tfield1[pi2] = '\0';
 
-    s = strlen(tfield1);
-    if(s > 8)
-    {
-      c_name++;
-      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-      strcpy(c_wkname, "C37F");
-      strcat(c_wkname, wk_strg);
-      s = strlen(c_wkname);
-      c_wkname[s] = '\0';
-      strcpy(tfield1a, c_wkname);
-    }
-    else
-    {
-      strcpy(tfield1a, tfield1);
-    }
-
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+    strcpy(tfield1a, c_wkname);
+  
     pi++;
     ch = wk_fdwk[pi];
     while (ch != '\'') 
@@ -576,22 +568,14 @@ void c2_char_1()
       }
     }
 
-    if(x3 > 8)
-    {
-      x3 = strlen(tfield2);
-      c_name++;
-      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-      strcpy(c_wkname, "C37F");
-      strcat(c_wkname, wk_strg);
-      s = strlen(c_wkname);
-      c_wkname[s] = '\0';
-      strcpy(tfield1a, c_wkname);
-    }
-    else
-    {
-      strcpy(tfield1a, tfield1);
-    }
-   
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+    strcpy(tfield1a, c_wkname);
+      
     if (char_ct == 0) 
     {
       size = 1;
@@ -661,22 +645,14 @@ void c2_char_1()
 
       if (x3 == 0) 
       {
-        s = strlen(tfield1);
-        if(s > 8)
-        {
-          c_name++;
-          snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-          strcpy(c_wkname, "C37F");
-          strcat(c_wkname, wk_strg);
-          s = strlen(c_wkname);
-          c_wkname[s] = '\0';
-          strcpy(tfield1a, c_wkname);
-        }
-        else
-        {
-          strcpy(tfield1a,tfield1);
-        }
-
+        c_name++;
+        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+        strcpy(c_wkname, "C37F");
+        strcat(c_wkname, wk_strg);
+        s = strlen(c_wkname);
+        c_wkname[s] = '\0';
+        strcpy(tfield1a, c_wkname);
+      
         if (global_st == 0) 
         {
           if (gv_ct == 0) 
@@ -868,22 +844,14 @@ void c2_char_1()
       }
       tfield1[pi2] = '\0';
 
-      s = strlen(tfield1);
-      if(s > 8)
-      {
-        c_name++;
-        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-        strcpy(c_wkname, "C37F");
-        strcat(c_wkname, wk_strg);
-        s = strlen(c_wkname);
-        c_wkname[s] = '\0';
-        strcpy(tfield1a, c_wkname);
-      }
-      else
-      {
-        strcpy(tfield1a, tfield1);
-      }
-
+      c_name++;
+      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+      strcpy(c_wkname, "C37F");
+      strcat(c_wkname, wk_strg);
+      s = strlen(c_wkname);
+      c_wkname[s] = '\0';
+      strcpy(tfield1a, c_wkname);
+   
       skip = 0;
       if (ch == '[') 
       {
@@ -1322,22 +1290,14 @@ void c2_char_1()
 
       if ((fd2_type == 1) && (convert == 0)) 
       {
-        s = strlen(tfield1);
-        if(s > 8)
-        {
-          c_name++;
-          snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-          strcpy(c_wkname, "C37F");
-          strcat(c_wkname, wk_strg);
-          s = strlen(c_wkname);
-          c_wkname[s] = '\0';
-          strcpy(tfield1a, c_wkname);
-        }
-        else
-        {
-           strcpy(tfield1a, tfield1);
-        }
-
+        c_name++;
+        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+        strcpy(c_wkname, "C37F");
+        strcat(c_wkname, wk_strg);
+        s = strlen(c_wkname);
+        c_wkname[s] = '\0';
+        strcpy(tfield1a, c_wkname);
+      
         if (global_st == 0) 
         {
           if (gv_ct == 0) 

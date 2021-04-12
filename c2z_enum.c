@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2_enum.c :                                 *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -75,6 +75,7 @@ void c2_enum_scan()
   int s1 = 0;
   int size = 0;
 
+printf("c2z_enum_scan rct = %d p_string = %s",rct,p_string);
   pi = 0;
   ch = p_string[pi];
   while (ch == ' ') 
@@ -92,6 +93,7 @@ void c2_enum_scan()
     ch = p_string[pi];
   }
   tfield1[pi2] = '\0';
+printf("c2z_enum_scan tfield1 = %s\n",tfield1);
 
   while (ch != '{') 
   {
@@ -116,6 +118,7 @@ void c2_enum_scan()
     ch = p_string[pi];
   }
   tfield2[pi2] = '\0';
+printf("c2z_enum_scan tfield2 = %s\n",tfield2);
 
   if (x2 == 0) 
   {
@@ -143,6 +146,7 @@ void c2_enum_scan()
     tfield3[pi2] = '\0';
     var_ct = atoi(tfield3);
   }
+printf("c2z_enum_scan tfield3 = %s\n",tfield3);
 
   if (global_st == 0) 
   {

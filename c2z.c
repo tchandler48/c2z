@@ -410,6 +410,7 @@
        void c2_str_8(void);
        void c2_str_9(void);
        void c2_str_10(void);
+       void c2_str_11(void);
 	void c2_strcpy_pass2(void);
 	void c2_pass2_strcpy_2(int,int);
 
@@ -499,6 +500,7 @@
 	void c2_while_14(void);
 	void c2_while_15(void);
 	void c2_while_16(void);
+       void c2_while_17(void);
        void c2_while_20(void);
 			
 
@@ -1379,7 +1381,7 @@ int main(int argc, char *argv[])
   fclose(c_tmp);
   rct = 0;
  
-  printf("*  c2z Z390 Pass 2 Started                    *\n");
+  printf("*  c2z Z390  Started                    *\n");
 
   pgm = fopen("srcformat.c", "r");
 
@@ -1395,7 +1397,7 @@ int main(int argc, char *argv[])
       rct++;
     }  
 
- /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */ 
+ printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); 
 
     convert = 0;
     fprtf_flag = 0;
@@ -1725,7 +1727,9 @@ int main(int argc, char *argv[])
     }
 
     if (convert == 1)
+    {
       goto pass2_skip;
+    }
 
     if ((x1 == 5) && (p1) && (p5) && (p6)) 
     {
@@ -2545,7 +2549,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/* Scan for fprintf  */
+
+   /* ***************************************************************
+    * Scan for fprintf                                              *
+    * ************************************************************** */
 
     if (convert == 1) 
     {
@@ -2755,6 +2762,7 @@ int main(int argc, char *argv[])
       fprtf_flag = 1;
       convert = 1;
     }
+
 
 /* Scan for printf  */
 
@@ -3612,25 +3620,6 @@ int main(int argc, char *argv[])
 
   vf_convert:
 
-/* Scan for enum  */
-
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 2 rct = %d Scan for enum\n", rct);
-    }
-
-    p = strstr(p_string, "enum");
-    if(p)
-    {
- 
-      c2_enum_scan(); 
-      convert = 1;
-    }
 
 /* Scan for for   */
 
@@ -3918,6 +3907,17 @@ int main(int argc, char *argv[])
     if (debug_lv >= 2) 
     {
       printf("c2z.c Pass 2 rct = %d Scan for if\n", rct);
+    }
+
+    p8 = strstr(p_string, "if");
+    if(p8)
+    {
+      p = strstr(p_string, "(");
+      if(!p)
+      {
+        convert = 1;
+        goto pass2_skip;
+      }
     }
 
     p8 = strstr(p_string, "if");
@@ -4421,6 +4421,28 @@ int main(int argc, char *argv[])
       c2_strstr_scan();
       convert = 1;
     }
+
+/* Scan for enum  */
+
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for enum\n", rct);
+    }
+
+    p = strstr(p_string, "enum");
+    p1 = strstr(p_string, "()");
+
+    if((p) && (!p1))
+    {
+      c2_enum_scan(); 
+      convert = 1;
+    }
+
 
   
 /*  Scan for FILE  */
@@ -5718,7 +5740,6 @@ int main(int argc, char *argv[])
            }
         }
 
-/*
         x = 0;
         for (I = 0; I < m_struc_ct; I++) 
         {
@@ -5726,12 +5747,12 @@ int main(int argc, char *argv[])
           if(ret == 0)
           {
             strcpy(p_string, "    free(");
-            strcat(p_string, w_struc[I].st_cwname);
+            strcat(p_string, w_struc[I].st_name);
             strcat(p_string, ")\n");
             c2_free();
           }
        }
-*/
+
        convert = 1; 
       }
     }
