@@ -59,6 +59,7 @@
 	void c2_char_5(void);
 	void c2_char_6(void);
 	void c2_char_9(void);
+       void c2_char_41(void);
        void c2_char_punch(void);
 
 
@@ -92,6 +93,7 @@
 	void c2_double(void);
        void c2_pass_2_double(void);
        void c2_double_punch(void);
+       void c2_dbl_41(void);
 
 
 /*		c2z_enum.c		*/
@@ -192,8 +194,9 @@
 	void c2_int_1(void);
 	void c2_int_2(void);
 	void c2_int_3(void);
-	void c2_int_5(void);
+      	void c2_int_5(void);
 	void c2_int_6(void);
+       void c2_int_41(void);
 	void c2_int_punch(void);
 	void c2_int_punch_1(void);
 	void c2_int_punch_2(void);
@@ -664,6 +667,7 @@ int work_use_ct[88];
  int tot_char = 0;
  int tot_goto = 0;
  int tot_float = 0;
+ int tot_arr = 1;
 
  int tot_for = 0;
  int tot_while = 0;
@@ -1397,7 +1401,7 @@ int main(int argc, char *argv[])
       rct++;
     }  
 
- printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); 
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
 
     convert = 0;
     fprtf_flag = 0;

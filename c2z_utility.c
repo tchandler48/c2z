@@ -27,9 +27,9 @@ void write_remark()
     }
 
     s1 = strlen(wk_remark);
-    if(s1 > 25)
+    if(s1 > 21)
     {
-      wk_remark[25] = '\0';
+      wk_remark[21] = '\0';
     }
 
     strcat(a_string, "/* ");
