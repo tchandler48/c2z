@@ -579,23 +579,13 @@ void pgm_label()
     o_string[x1] = ch;
     x1++;
   }
-  a_string[x1] = '\0';
+  o_string[x1] = '\0';
 
-/*
-  strcpy(o_string,p_string);
-  v = 0;
-  ch = o_string[v];
-  while ((ch == ' ') || (o_string[v] == '\t'))
-  {
-     v++;
-     ch = o_string[v];
-  } 
-  strcpy(wk_string, o_string);
-*/
   snprintf(tmp_rct, sizeof(tmp_rct), "%d", rct);
 
   strcpy(a_string, "*  ");
   strcat(a_string, tmp_rct);
+  strcat(a_string, "  ");
   strcat(a_string, o_string);
   s = strlen(a_string);
   if(s > 72)

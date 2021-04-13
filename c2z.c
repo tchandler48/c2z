@@ -348,6 +348,7 @@
 	void c2_pass2_math_51(void);
        void c2_pass2_math_99(void);
 	void c2_pass2_strrev(void);
+       void c2_pass2_math_600(void);
       
 
 /* 	       c2z_pass_3.c		*/
@@ -439,6 +440,12 @@
 	void c2_strrchr(void);
 
 
+/*            c2z_strstr.c		*/
+       void c2_strstr(void);
+       void c2_strstr_scan(void);
+       void c2_strstr_41(void);
+
+ 
 /*		c2z_struct.c		*/
 	void c2z_struct(void);
 	void c2_struct_3(void);
@@ -1112,6 +1119,13 @@ int main(int argc, char *argv[])
   int bk2 = 0;
   int bk3 = 0;
 
+
+  if (argc < 2) 
+  {
+    printf("\n ****** ERROR *******  NO INPUT FILE NAME ENTERED\n");
+    exit(0);
+  }
+
   if (argc > 2) 
   {
     p = strstr(argv[2], "-d");
@@ -1123,7 +1137,7 @@ int main(int argc, char *argv[])
       debug_lv = atoi(tfield1a);
     }
   }
-
+  
   traceflg = 1;
   puncde = 1;
 
@@ -1211,6 +1225,11 @@ int main(int argc, char *argv[])
   printf("*  c2z Z390 Pass 1 Started                    *\n");
 
   pgm = fopen(filename, "rb");
+  if(pgm == NULL)
+  {
+    printf("\n\n***** ERROR *****  INPUT FILE NOT FOUND\n");
+    exit(0);
+  }
   c_tmp = fopen("tmp.c", "wb");
 
   strcpy(trcfile, wk_file);
