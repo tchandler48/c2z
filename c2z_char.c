@@ -133,7 +133,6 @@ void c2_char()
   {
     op_code = 2;
   }
-printf("c2z_char.c op_code = %d p_string = %s",op_code,p_string);
   /* ***********************************
   *  op_code                           *
   *	1	= 	VOID              *
@@ -160,7 +159,6 @@ printf("c2z_char.c op_code = %d p_string = %s",op_code,p_string);
         x100++;
       }
     }
-   printf("c2z_char.c x100 = %d\n",x100);
 
     if(x100 == 6)	/* char xyz[ ][ ][ ]  */
     {
@@ -3098,8 +3096,6 @@ void c2_char_41()
   }
   field1[x1] = '\0';
 
-printf("c2z_char.c c2_char_41 field1 = %s\n",field1);
-
   x1 = 0;   
   x2 = 0;
   fd2_type = 0;
@@ -3126,7 +3122,6 @@ printf("c2z_char.c c2_char_41 field1 = %s\n",field1);
     ch = p_string[pi];
   }
   field2[x1] = '\0';
-printf("c2z_char.c c2_char_41 field2 = %s fd2_type = %d\n",field2, fd2_type);
 
   x1 = 0;   
   x2 = 0;
@@ -3157,8 +3152,6 @@ printf("c2z_char.c c2_char_41 field2 = %s fd2_type = %d\n",field2, fd2_type);
     ch = p_string[pi];
   }
   field3[x1] = '\0';
-printf("c2z_char.c c2_char_41 field3 = %s fd3_type = %d\n",field3, fd3_type);
-
 
   x1 = 0;   
   x2 = 0;
@@ -3189,7 +3182,6 @@ printf("c2z_char.c c2_char_41 field3 = %s fd3_type = %d\n",field3, fd3_type);
     ch = p_string[pi];
   }
   field4[x1] = '\0';
-printf("c2z_char.c c2_char_41 field4 = %s fd4_type = %d\n",field4, fd4_type);
 
   x3 = 0;
   for (v = 0; v < lv_ct; v++) 
@@ -3334,11 +3326,6 @@ printf("c2z_char.c c2_char_41 field4 = %s fd4_type = %d\n",field4, fd4_type);
     }
   }
 
-printf("c2z_char.c c2_char_41 field2a = %s fd2_type = %d\n",field2a, fd2_type);
-printf("c2z_char.c c2_char_41 field3a = %s fd3_type = %d\n",field3a, fd3_type);
-printf("c2z_char.c c2_char_41 field4a = %s fd4_type = %d\n",field4a, fd4_type);
-
-
   c_name++;
   snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
   strcpy(c_wkname, "C37F");
@@ -3436,11 +3423,6 @@ printf("c2z_char.c c2_char_41 field4a = %s fd4_type = %d\n",field4a, fd4_type);
     strcat(wk_string, wk_strg);
     strcat(wk_string, "A");
     strcpy(gw_variable[gv_ct].gv_aname, wk_string);
-
-    gw_variable[gv_ct].gv_flag = 0;
-   
-    gw_variable[gv_ct].gv_column = 32;
-    gw_variable[gv_ct].gv_row = 250;
 
     gv_ct++;
 

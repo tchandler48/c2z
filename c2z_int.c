@@ -4602,7 +4602,6 @@ void c2_int_41()
    int x1;
    int x2;
    int x3;
-   int x100;
    int x101;
    int x102;
    int ret;
@@ -4881,23 +4880,6 @@ void c2_int_41()
     strcat(wk_string, wk_strg);
     strcat(wk_string, "W");
     strcpy(gw_variable[gv_ct].gv_wk_strg, wk_string);
-
-    /* number of rows in the **array		*/
-    if((fd2_type == 1) && (fd3_type == 1))
-    {
-      x101 = atoi(field2);
-      x102 = atoi(field3);
-      x100 = (x101 + 1) * (x102 + 1);
-      gw_variable[gv_ct].gv_row = x100;
-    }
-
-    if((fd2_type == 2) && (fd3_type == 2))
-    {
-      x101 = atoi(field2a);
-      x102 = atoi(field3a);
-      x100 = (x101 + 1) * (x102 + 1);
-      gw_variable[gv_ct].gv_row = x100;
-    }
 
     snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
     strcpy(wk_string, "A37");

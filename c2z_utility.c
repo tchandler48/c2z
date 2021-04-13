@@ -556,12 +556,32 @@ void pgm_label()
 {
   int v = 0;
   int s = 0;
+  int x;
+  int x1;
+  int I;
 
   char ch;
   char tmp_rct[6];
   
-  o_string[0] = '\0';
-  wk_string[0] = '\0';
+  s = strlen(p_string);
+  x = 0;
+  ch = p_string[x];
+  while ((ch == ' ') || (o_string[v] == '\t'))
+  {
+    x++;
+    ch = p_string[x];
+  }
+
+  x1 = 0;
+  for(I = x; I < s; I++)
+  {
+    ch = p_string[I];
+    o_string[x1] = ch;
+    x1++;
+  }
+  a_string[x1] = '\0';
+
+/*
   strcpy(o_string,p_string);
   v = 0;
   ch = o_string[v];
@@ -570,13 +590,13 @@ void pgm_label()
      v++;
      ch = o_string[v];
   } 
-
   strcpy(wk_string, o_string);
+*/
   snprintf(tmp_rct, sizeof(tmp_rct), "%d", rct);
 
   strcpy(a_string, "*  ");
   strcat(a_string, tmp_rct);
-  strcat(a_string, wk_string);
+  strcat(a_string, o_string);
   s = strlen(a_string);
   if(s > 72)
   {

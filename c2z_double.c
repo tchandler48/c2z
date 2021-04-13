@@ -883,10 +883,48 @@ void c2_double_punch()
   int I;
   int ret;
   int x2;
+  int x10;
+  int x11;
+  int x100;
+  int s;
 
   char ch, *p;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
+
+  x10 = 0;
+  x100 = 0;
+  s = strlen(p_string);
+  for (I = 0; I < s; I++) 
+  {
+    ch = p_string[I];
+    if (ch == ';') 
+    {
+      break;
+    }
+    if (ch == ',') 
+    {
+      x10++;
+    }
+    if(ch == '[')
+    {
+      x100++;
+    }
+    if(ch == ']')
+    {
+      x100++;
+    }
+    if (isdigit(ch) == 1) 
+    {
+      x11++;
+    }
+  }
+
+  if(x100 == 4)
+  {
+    convert = 1;
+    return;
+  }
 
   pi = 0;
   ch = p_string[pi];

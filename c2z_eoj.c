@@ -2057,10 +2057,14 @@ void c2_eoj()
     ret = strcmp("A", gw_variable[I].gv_type);
     if (ret == 0) 
     {
+      k8 = gw_variable[I].gv_row;
+      k9 = gw_variable[I].gv_column;
+      k7 = k8 * k9;
+
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
       strcat(a_string, "DS    ");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", gw_variable[I].gv_row);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", k7);
       strcat(a_string, wk_strg);
       strcat(a_string, "CL(");
       strcat(a_string, gw_variable[I].gv_label);
@@ -2113,15 +2117,16 @@ void c2_eoj()
         ret = strcmp(field1, gw_variable[v].gv_name);
         if (ret == 0) 
         {
-          x3 = 1;
-          x = gw_variable[v].gv_row;
+          k8 = gw_variable[v].gv_row;
+          k9 = gw_variable[v].gv_column;
+          k7 = k8 * k9;
         }
       }
 
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
       strcat(a_string, "DC    ");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", x);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", k7);
       strcat(a_string, wk_strg);
       strcat(a_string, "PL6'0'");
       src_line();
@@ -4720,7 +4725,7 @@ void c2_eoj()
       strcpy(a_string, gw_variable[I].gv_aname);
       check_length();
       strcat(a_string, "DS    CL");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", gw_variable[I].gv_column);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", gw_variable[I].gv_lgth);
       strcat(a_string, wk_strg);
       strcat(a_string, "' '");
       src_line();

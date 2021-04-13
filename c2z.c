@@ -691,7 +691,6 @@ int work_use_ct[88];
  int l_type[22];
  int l_else[22];
 
-
  int if_level = 0;
 
 char output_file[24];
@@ -1385,7 +1384,7 @@ int main(int argc, char *argv[])
   fclose(c_tmp);
   rct = 0;
  
-  printf("*  c2z Z390  Started                    *\n");
+  printf("*  c2z Z390 Pass 2 Started                    *\n");
 
   pgm = fopen("srcformat.c", "r");
 
