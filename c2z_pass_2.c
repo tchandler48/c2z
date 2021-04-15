@@ -13926,7 +13926,7 @@ void c2_pass2_while_14()
 
 void c2_pass2_math_600()
 {
-printf("c2z_pass_2.c c2_pass2_math_600 START\n");
+printf("\nc2z_pass_2.c c2_pass2_math_600 START\n");
 printf("c2z_pass_2.c c2_pass2_math_600 rct = %d p_string = %s",rct,p_string);
  if (traceflg == 1) 
   {
@@ -14244,41 +14244,50 @@ printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
     return;
   }
 
-  x21 = 0;
-  x3 = 0;
-  for (I = 0; I < lv_ct; I++) 
+  if(fd4_type == 2)
   {
-    ret = strcmp(tfield4, lw_variable[I].lv_name);
-    x21 = strcmp(sv_func, lw_variable[I].lv_func);
-    if ((ret == 0) && (x21 == 0)) 
-    {
-      x3 = 1;
-      strcpy(tfield4a,lw_variable[I].lv_cname);
-    }
-  }
-
-  if (x3 == 0) 
-  {
+    x21 = 0;
     x3 = 0;
-    for (I = 0; I < gv_ct; I++) 
+    for (I = 0; I < lv_ct; I++) 
     {
-      ret = strcmp(tfield4, gw_variable[I].gv_name);
-      if (ret == 0) 
+      ret = strcmp(tfield4, lw_variable[I].lv_name);
+      x21 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (x21 == 0)) 
       {
         x3 = 1;
-        strcpy(tfield4a, gw_variable[I].gv_cname);
+        strcpy(tfield4a,lw_variable[I].lv_cname);
       }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(tfield4, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(tfield4a, gw_variable[I].gv_cname);
+        }
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      printf("\nc2z_strstr.c c2_strstr_scan E-206 tfield4 Not Found = %s\n",tfield4);
+      printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
     }
   }
 
-  if (x3 == 0) 
+  if(fd4_type == 1)
   {
-    printf("\nc2z_strstr.c c2_strstr_scan E-206 tfield4 Not Found = %s\n",tfield4);
-    printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);
-    erct++;
-    convert = 1;
-    return;
+    strcpy(field4a, field4);
   }
+
 
 
 printf("c2z_pass2_math_600 tfield1 = %s tfield1a = %s\n",tfield1,tfield1a);

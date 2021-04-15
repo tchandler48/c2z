@@ -488,7 +488,7 @@ void c2_math()
       trace_rec_1();
     }
 
-    c2_math_2();
+    c2_math_2(); 
     return;
   }
 
@@ -1357,6 +1357,8 @@ void c2_math_2()
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
+printf("c2z_math.c math_2 rct = %d p_string = %s",rct,p_string);
+printf("c2z_math.c math_2 field1 = %s\n",field1);
 
   x3 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -1381,6 +1383,7 @@ void c2_math_2()
       }
     }
   }
+printf("c2z_math.c math_2 field1a = %s\n",field1a);
 
   if (x3 == 0) 
   {
@@ -1466,6 +1469,7 @@ void c2_math_2()
     ch = p_string[pi];
   }
   field2[pi2] = '\0';
+printf("c2z_math.c math_2 field2 = %s\n",field2);
 
   x3 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -1535,6 +1539,7 @@ void c2_math_2()
       }
     }
   }
+printf("c2z_math.c math_2 field2a = %s\n",field2a);
 
   x2 = 0;
   pi2 = 0;
@@ -20407,4 +20412,5 @@ void c2_math_58() 			/*  s_holder[0] = (int)xxxchar;  iv_stack[ndx] = rdp_main()
   convert = 1;
   return;
 }
+
 

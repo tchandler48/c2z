@@ -380,6 +380,8 @@ void verbose()
   printf("%s", a_string);
 }
 
+
+
 void trace_rec_1() 
 {
   char t_string[150];
@@ -554,7 +556,6 @@ void c2_count_paren()
 
 void pgm_label() 
 {
-  int v = 0;
   int s = 0;
   int x;
   int x1;
@@ -562,11 +563,12 @@ void pgm_label()
 
   char ch;
   char tmp_rct[6];
-  
+
   s = strlen(p_string);
+
   x = 0;
   ch = p_string[x];
-  while ((ch == ' ') || (o_string[v] == '\t'))
+  while ((ch == ' ') || (p_string[x] == '\t'))
   {
     x++;
     ch = p_string[x];

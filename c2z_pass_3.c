@@ -172,7 +172,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #19");
+    strcpy(trace_1, "c2z.c pass 3 generated #18");
     trace_rec_3();
   }
 
@@ -180,7 +180,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #20");
+    strcpy(trace_1, "c2z.c pass 3 generated #19");
     trace_rec_3();
   }
 
@@ -188,7 +188,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #21");
+    strcpy(trace_1, "c2z.c pass 3 generated #20");
     trace_rec_3();
   }
 
@@ -196,7 +196,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #22");
+    strcpy(trace_1, "c2z.c pass 3 generated #21");
     trace_rec_3();
   }
 
@@ -204,11 +204,19 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #23");
+    strcpy(trace_1, "c2z.c pass 3 generated #22");
     trace_rec_3();
   }
 
   strcpy(a_string, "          MEND");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z.c pass 3 generated #23");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
   {
@@ -216,7 +224,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*");
+  strcpy(a_string, "          MACRO");
   src_line();
   if (puncde == 1) 
   {
@@ -224,7 +232,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MACRO");
+  strcpy(a_string, "          SUBEXIT");
   src_line();
   if (puncde == 1) 
   {
@@ -232,7 +240,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          SUBEXIT");
+  strcpy(a_string, "          LA     15,0");
   src_line();
   if (puncde == 1) 
   {
@@ -240,7 +248,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          LA     15,0");
+  strcpy(a_string, "          L      13,4(,13)");
   src_line();
   if (puncde == 1) 
   {
@@ -248,7 +256,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          L      13,4(,13)");
+  strcpy(a_string, "          L      14,12(,13)");
   src_line();
   if (puncde == 1) 
   {
@@ -256,7 +264,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          L      14,12(,13)");
+  strcpy(a_string, "          LM     2,12,28(13)");
   src_line();
   if (puncde == 1) 
   {
@@ -264,7 +272,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          LM     2,12,28(13)");
+  strcpy(a_string, "          BR     14");
   src_line();
   if (puncde == 1) 
   {
@@ -272,7 +280,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          BR     14");
+  strcpy(a_string, "          MEND");
   src_line();
   if (puncde == 1) 
   {
@@ -280,19 +288,11 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MEND");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z.c pass 3 generated #33");
-    trace_rec_3();
-  }
-
   strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #34");
+    strcpy(trace_1, "c2z.c pass 3 generated #33");
     trace_rec_3();
   }
 
@@ -369,11 +369,19 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
+    strcpy(trace_1, "c2z.c pass 3 generated #34");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "*  Modified by TCCS 2021");
+  src_line();
+  if (puncde == 1) 
+  {
     strcpy(trace_1, "c2z.c pass 3 generated #35");
     trace_rec_3();
   }
 
-  strcpy(a_string, "*  Modified by TCCS 2016");
+  strcpy(a_string,"*  Performs a MVC operation, using Source Length NOT Target Length");
   src_line();
   if (puncde == 1) 
   {
@@ -381,7 +389,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string,"*  Performs a MVC operation, using Source Length NOT Target Length");
+  strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
   {
@@ -389,7 +397,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*");
+  strcpy(a_string, "          MACRO");
   src_line();
   if (puncde == 1) 
   {
@@ -397,7 +405,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MACRO");
+  strcpy(a_string, "&LAB      MVC2   &TARGET,&SOURCE");
   src_line();
   if (puncde == 1) 
   {
@@ -405,7 +413,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "&LAB      MVC2   &TARGET,&SOURCE");
+  strcpy(a_string, "&LAB      LARL   R8,&SOURCE");
   src_line();
   if (puncde == 1) 
   {
@@ -413,7 +421,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "&LAB      LARL   R8,&SOURCE");
+  strcpy(a_string, "          LARL   R9,&TARGET");
   src_line();
   if (puncde == 1) 
   {
@@ -421,7 +429,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          LARL   R9,&TARGET");
+  strcpy(a_string, "          MVC    0(L'&SOURCE,R9),0(R8)");
   src_line();
   if (puncde == 1) 
   {
@@ -429,7 +437,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MVC    0(L'&SOURCE,R9),0(R8)");
+  strcpy(a_string, "          MEND");
   src_line();
   if (puncde == 1) 
   {
@@ -437,7 +445,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MEND");
+  strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
   {
@@ -445,7 +453,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*");
+  strcpy(a_string, "*  This is a modified MVC2 macro.  baseless code");
   src_line();
   if (puncde == 1) 
   {
@@ -453,7 +461,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*  This is a modified MVC2 macro.  baseless code");
+  strcpy(a_string, "*  Modified by TCCS 2016");
   src_line();
   if (puncde == 1) 
   {
@@ -461,7 +469,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*  Modified by TCCS 2016");
+  strcpy(a_string,"*  Performs a MVC operation, using Source Length NOT Target Length");
   src_line();
   if (puncde == 1) 
   {
@@ -469,7 +477,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string,"*  Performs a MVC operation, using Source Length NOT Target Length");
+  strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
   {
@@ -477,7 +485,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*");
+  strcpy(a_string, "          MACRO");
   src_line();
   if (puncde == 1) 
   {
@@ -485,7 +493,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MACRO");
+  strcpy(a_string, "&LAB      MVC3   &SOURCE");
   src_line();
   if (puncde == 1) 
   {
@@ -493,7 +501,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "&LAB      MVC3   &SOURCE");
+  strcpy(a_string, "&LAB      LARL   R8,&SOURCE");
   src_line();
   if (puncde == 1) 
   {
@@ -501,7 +509,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "&LAB      LARL   R8,&SOURCE");
+  strcpy(a_string, "          MVC    0(L'&SOURCE,R6),0(R8)");
   src_line();
   if (puncde == 1) 
   {
@@ -509,7 +517,7 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MVC    0(L'&SOURCE,R6),0(R8)");
+  strcpy(a_string, "          MEND");
   src_line();
   if (puncde == 1) 
   {
@@ -517,19 +525,11 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-  strcpy(a_string, "          MEND");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z.c pass 3 generated #54");
-    trace_rec_3();
-  }
-
   strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 generated #55");
+    strcpy(trace_1, "c2z.c pass 3 generated #54");
     trace_rec_3();
   }
 
@@ -540,7 +540,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #56");
+    strcpy(trace_1, "c2z.c pass 3 Generated #55");
     trace_rec_3();
   }
 
@@ -548,7 +548,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #57");
+    strcpy(trace_1, "c2z.c pass 3 Generated #56");
     trace_rec_3();
   }
 
@@ -556,7 +556,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #58");
+    strcpy(trace_1, "c2z.c pass 3 Generated #57");
     trace_rec_3();
   }
 
@@ -564,7 +564,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #59");
+    strcpy(trace_1, "c2z.c pass 3 Generated #58");
     trace_rec_3();
   }
 
@@ -572,7 +572,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #60");
+    strcpy(trace_1, "c2z.c pass 3 Generated #59");
     trace_rec_3();
   }
 
@@ -853,7 +853,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #35");
+    strcpy(trace_1, "c2z.c Generated #60");
     trace_rec_3();
   }
 
@@ -861,7 +861,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #36");
+    strcpy(trace_1, "c2z.c Generated #61");
     trace_rec_3();
   }
 
@@ -869,7 +869,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #37");
+    strcpy(trace_1, "c2z.c Generated #62");
     trace_rec_3();
   }
 
@@ -877,7 +877,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #38");
+    strcpy(trace_1, "c2z.c Generated #63");
     trace_rec_3();
   }
 
@@ -885,7 +885,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #39");
+    strcpy(trace_1, "c2z.c Generated #64");
     trace_rec_3();
   }
 
@@ -893,7 +893,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #40");
+    strcpy(trace_1, "c2z.c Generated #65");
     trace_rec_3();
   }
 
@@ -901,7 +901,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #41");
+    strcpy(trace_1, "c2z.c Generated #66");
     trace_rec_3();
   }
 
@@ -909,7 +909,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c Generated #42");
+    strcpy(trace_1, "c2z.c Generated #67");
     trace_rec_3();
   }
 
@@ -1211,7 +1211,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #43");
+    strcpy(trace_1, "c2z.c pass 3 Generated #68");
     trace_rec_3();
   }
 
@@ -1219,7 +1219,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #44");
+    strcpy(trace_1, "c2z.c pass 3 Generated #69");
     trace_rec_3();
   }
 
@@ -1227,7 +1227,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #45");
+    strcpy(trace_1, "c2z.c pass 3 Generated #70");
     trace_rec_3();
   }
 
@@ -1235,7 +1235,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #46");
+    strcpy(trace_1, "c2z.c pass 3 Generated #71");
     trace_rec_3();
   }
 
@@ -1243,7 +1243,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #47");
+    strcpy(trace_1, "c2z.c pass 3 Generated #72");
     trace_rec_3();
   }
 
@@ -1251,7 +1251,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #48");
+    strcpy(trace_1, "c2z.c pass 3 Generated #73");
     trace_rec_3();
   }
 
@@ -1259,7 +1259,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #49");
+    strcpy(trace_1, "c2z.c pass 3 Generated #74");
     trace_rec_3();
   }
 
@@ -1267,7 +1267,7 @@ void c2_pass_3()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z.c pass 3 Generated #50");
+    strcpy(trace_1, "c2z.c pass 3 Generated #75");
     trace_rec_3();
   }
 }

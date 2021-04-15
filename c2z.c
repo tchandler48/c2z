@@ -25,7 +25,8 @@
 #define VAR_LGTH 33
 
 /*            c2z_arth.c           */
-       void c2z_math_start(void);
+       double c2_math_start(void);
+       double c2_Expression(void);
 
 
 /* 	       c2z_atof.c		*/
@@ -248,7 +249,6 @@
 	void c2_math_98(void);
 	void c2_math_99(void);
        void c2_math_100(void);
-
 
 
 /*		c2z_math_parser.c	*/
@@ -602,6 +602,7 @@ char from_sv[24];
  char ptr_lgth[6];
  int e_pos = 0;
  int line_ndx = 0;
+ int fd_test = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -1338,6 +1339,7 @@ int main(int argc, char *argv[])
   while (fgets(p_string, BUFSIZE, pgm) != NULL) 
   {
     rct++;
+
     convert = 0;
     pi = 0;
     x2 = 0;
@@ -1413,13 +1415,17 @@ int main(int argc, char *argv[])
 
   while(!feof(pgm))
   {
-    if (skip_read == 0) 
-    { 
-      fgets(p_string, 255, pgm); 
+    if(skip_read == 0)
+    {
+      if(fgets(p_string, 255,pgm) == NULL )
+      {
+         goto pass2_skip;
+      }
+     /* pgm = fgets(p_string, 266, pgm); */
       rct++;
-    }  
+    }
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
 
     convert = 0;
     fprtf_flag = 0;
@@ -2572,10 +2578,9 @@ int main(int argc, char *argv[])
     }
 
 
-   /* ***************************************************************
-    * Scan for fprintf                                              *
-    * ************************************************************** */
-
+    /* ***************************************************************
+     * Scan for fprintf                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2786,8 +2791,9 @@ int main(int argc, char *argv[])
     }
 
 
-/* Scan for printf  */
-
+    /* ***************************************************************
+    *  Scan for printf                                               *
+    * ************************************************************** */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3016,6 +3022,8 @@ int main(int argc, char *argv[])
         }
       }
     }
+
+
 
 /* Scan for free */
 
@@ -5539,7 +5547,7 @@ int main(int argc, char *argv[])
         printf("c2z.c Pass 2 rct = %d c2_pass2_math #100\n", rct);
       }
 
-      c2_pass2_math();
+     /* c2_pass2_math(); */
       convert = 1;
     }
 
@@ -5601,7 +5609,7 @@ int main(int argc, char *argv[])
 
   printf("*  c2z Z390 Pass 3 Started                    *\n");
 
-  pgm = fopen("srcformat.c", "r");
+ 
   cc370 = fopen(asm_file, "w"); 
   
   rct = 0;
@@ -5633,6 +5641,8 @@ int main(int argc, char *argv[])
     strcpy(trace_2, "3");
   }
 
+  pgm = fopen("srcformat.c", "r");
+
   while (1) 
   {
     convert = 0;
@@ -5641,25 +5651,22 @@ int main(int argc, char *argv[])
     math_convert = 0;
     fprtf_flag = 0;
     convert_ignore = 0;
+
     fgets(p_string, BUFSIZE, pgm);
     rct++;
+    s = strlen(p_string);
 
-/* printf("c2z.c Pass 3 rct = %d erct = %d p_string = %s", rct,erct, p_string); */
-
-
-/*
+/* printf("c2z.c Pass 3 s = %d rct = %d erct = %d p_string = %s", s, rct,erct, p_string); */
+ 
     if (debug_lv >= 1) 
     {
       printf("\nc2z.c Pass 3 rct = %d L1 p_string = %s", rct, p_string);
     }
-*/
 
     if (feof(pgm)) 
     {
       break;
     }
-
-    s = strlen(p_string);
 
     if (s == 1) 
     {
@@ -6397,7 +6404,6 @@ int main(int argc, char *argv[])
       }
     }
 
-
     if (convert == 1) 
     {
       goto end_pass3;
@@ -6549,7 +6555,7 @@ int main(int argc, char *argv[])
       strcpy(trace_1, "c2.c FOR/End Loop");
       trace_rec_1();
     }
-    
+   
     v = 0;
     for (v = 0; v < for_ct; v++) 
     {
@@ -6625,6 +6631,8 @@ int main(int argc, char *argv[])
         }
       convert = 1;
       }
+printf("c2z.c FOR/END HERE #99\n");    
+
     }
 
 
@@ -9094,7 +9102,8 @@ int main(int argc, char *argv[])
 /* printf("c2z.c pass 3 before c2z_math\n"); */
           c2_math();   
 /* printf("c2z.c pass 3 beforre c2z_math_start\n"); */
-    /*    c2z_math_start(); */
+     
+
         convert = 1;
         if (return_on == 1) 
         {
@@ -9114,6 +9123,13 @@ int main(int argc, char *argv[])
         {
           return_ct++;
         }
+
+/* printf("c2z.c pass 3 beforre c2z_math_start\n"); */
+       /* c2_math_start(); */
+
+
+
+
       }
 
     }
