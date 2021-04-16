@@ -249,6 +249,7 @@
 	void c2_math_98(void);
 	void c2_math_99(void);
        void c2_math_100(void);
+       void c2_math_600(void);
 
 
 /*		c2z_math_parser.c	*/

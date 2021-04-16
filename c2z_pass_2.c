@@ -13926,8 +13926,6 @@ void c2_pass2_while_14()
 
 void c2_pass2_math_600()
 {
-printf("\nc2z_pass_2.c c2_pass2_math_600 START\n");
-printf("c2z_pass_2.c c2_pass2_math_600 rct = %d p_string = %s",rct,p_string);
  if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_strstr.c c2_pass2_math_600 START");
@@ -13951,21 +13949,12 @@ printf("c2z_pass_2.c c2_pass2_math_600 rct = %d p_string = %s",rct,p_string);
   int x2 = 0;
   int x3 = 0;
   int x21 = 0;
-  int x80 = 0;
-  int x81 = 0;
-  int x100 = 0;
-  int x101 = 0;
-  int x102 = 0;
   int I = 0;
   int ret = 0;
   int s = 0;
-  int s2 = 0;
   int size = 0;
-  int ret1;
-  int ret2;
-  int v;
-  int fd2_type;
-  int fd3_type;
+/*  int fd2_type; */
+/*  int fd3_type; */
   int fd4_type;
   int fd5_type;
 
@@ -13989,16 +13978,9 @@ printf("c2z_pass_2.c c2_pass2_math_600 rct = %d p_string = %s",rct,p_string);
     }
   }
   tfield1[pi2] = '\0';
-printf("c2z_pass2_math_600 tfield1 = %s\n",tfield1);
-
-  /*while (ch != '(') 
-  {
-    pi++;
-    ch = p_string[pi];
-  } */
 
   pi2 = 0;
-  fd2_type = 0;
+/*  fd2_type = 0; */
   pi++;
   ch = p_string[pi];
   while (ch != ']') 
@@ -14009,12 +13991,12 @@ printf("c2z_pass2_math_600 tfield1 = %s\n",tfield1);
       {
         if (isdigit(ch)) 
         {
-          fd2_type = 1;
+     /*     fd2_type = 1; */
           x2 = 1;
         }
         if (isalpha(ch)) 
         {
-          fd2_type = 2;
+    /*      fd2_type = 2; */
           x2 = 1;
         }
       }
@@ -14026,11 +14008,10 @@ printf("c2z_pass2_math_600 tfield1 = %s\n",tfield1);
     }
   }
   tfield2[pi2] = '\0';
-printf("c2z_pass2_math_600 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
 
   pi2 = 0;
   x2 = 0;
-  fd3_type = 0;
+/*  fd3_type = 0; */
   pi++;
   pi++;
   ch = p_string[pi];
@@ -14042,12 +14023,12 @@ printf("c2z_pass2_math_600 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
       {
         if (isdigit(ch)) 
         {
-          fd3_type = 1;
+     /*      fd3_type = 1; */
           x2 = 1;
         }
         if (isalpha(ch)) 
         {
-          fd3_type = 2;
+    /*      fd3_type = 2; */
           x2 = 1;
         }
       }
@@ -14058,7 +14039,6 @@ printf("c2z_pass2_math_600 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
     }
   }
   tfield3[pi2] = '\0';
-printf("c2z_pass2_math_600 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
 
   pi2 = 0;
   x2 = 0;
@@ -14090,7 +14070,6 @@ printf("c2z_pass2_math_600 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
     ch = p_string[pi];
   }
   tfield4[pi2] = '\0';
-printf("c2z_pass2_math_600 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
 
   pi++;
   pi++;
@@ -14134,7 +14113,6 @@ printf("c2z_pass2_math_600 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
     ch = p_string[pi];
   }
   tfield5[pi2] = '\0';
-printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
   x21 = 0;
   x3 = 0;
@@ -14165,8 +14143,8 @@ printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
   if (x3 == 0) 
   {
-    printf("\nc2z_strstr.c c2_strstr_scan E-203 tfield1 Not Found = %s\n",tfield1);
-    printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);
+    printf("\nc2z_pass_2.c c2_pass2_600 E-603 tfield1 Not Found = %s\n",tfield1);
+    printf("c2z_pass_2.c c2_pass2_600 rct = %d p_string = %s\n",rct,p_string);
     erct++;
     convert = 1;
     return;
@@ -14201,8 +14179,8 @@ printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
   if (x3 == 0) 
   {
-    printf("\nc2z_strstr.c c2_strstr_scan E-204 tfield2 Not Found = %s\n",tfield2);
-    printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);
+    printf("\nc2z_pass_2.c c2_pass2_600 E-604 tfield2 Not Found = %s\n",tfield2);
+    printf("c2z_pass_2.c c2_pass2_600 rct = %d p_string = %s\n",rct,p_string);
     erct++;
     convert = 1;
     return;
@@ -14237,8 +14215,8 @@ printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
   if (x3 == 0) 
   {
-    printf("\nc2z_strstr.c c2_strstr_scan E-205 tfield3 Not Found = %s\n",tfield3);
-    printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);
+    printf("\nc2z_pass_2.c c2_pass2_600 E-605 tfield3 Not Found = %s\n",tfield3);
+    printf("c2z_pass_2.c c2_pass2_600 rct = %d p_string = %s\n",rct,p_string);
     erct++;
     convert = 1;
     return;
@@ -14275,8 +14253,8 @@ printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
     if (x3 == 0) 
     {
-      printf("\nc2z_strstr.c c2_strstr_scan E-206 tfield4 Not Found = %s\n",tfield4);
-      printf("c2z_strstr.c c2_strstr rct = %d p_string = %s\n",rct,p_string);
+      printf("\nc2z_pass_2.c c2_pass2_600 E-606 tfield4 Not Found = %s\n",tfield4);
+      printf("c2z_pass_2.c c2_pass2_600 rct = %d p_string = %s\n",rct,p_string);
       erct++;
       convert = 1;
       return;
@@ -14285,17 +14263,96 @@ printf("c2z_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
   if(fd4_type == 1)
   {
-    strcpy(field4a, field4);
+    strcpy(tfield4a, tfield4);
   }
 
+  if(fd5_type == 2)
+  {
+    x21 = 0;
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(tfield5, lw_variable[I].lv_name);
+      x21 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (x21 == 0)) 
+      {
+        x3 = 1;
+        strcpy(tfield5a,lw_variable[I].lv_cname);
+      }
+    }
 
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(tfield5, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(tfield5a, gw_variable[I].gv_cname);
+        }
+      }
+    }
 
-printf("c2z_pass2_math_600 tfield1 = %s tfield1a = %s\n",tfield1,tfield1a);
-printf("c2z_pass2_math_600 tfield2 = %s tfield2a = %s\n",tfield1,tfield2a);
-printf("c2z_pass2_math_600 tfield3 = %s tfield3a = %s\n",tfield1,tfield3a);
-printf("c2z_pass2_math_600 tfield4 = %s tfield4a = %s\n",tfield1,tfield4a);
+    if (x3 == 0) 
+    {
+      printf("\nc2z_pass_2.c c2_pass2_600 E-607 tfield5 Not Found = %s\n",tfield5);
+      printf("c2z_pass_2.c c2_pass2_600 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+  }
 
+  if(fd5_type == 1)
+  {
+    strcpy(tfield5a, tfield5);
+  }
 
+  if(fd5_type == 0)
+  {
+    pi = 1;
+    x2 = 0;
+    ch = tfield5[pi];
+    while(ch != '\'')
+    {
+      tfield5a[x2] = ch;
+      x2++;
+      pi++;
+      ch = tfield5[pi];
+    }
+    tfield5a[x2] = '\0';
 
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+
+    if (char_ct == 0) 
+    {
+      size = 1;
+      w_charlit = malloc(size * sizeof(struct charlit));
+    } 
+    else 
+    {
+      size = char_ct + 1;
+      w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
+    }
+
+    w_charlit[char_ct].clit_rct = rct;
+    strcpy(w_charlit[char_ct].clit_cname, c_wkname);
+    strcpy(w_charlit[char_ct].clit_value, tfield5a);
+    w_charlit[char_ct].clit_type = 3;
+    s = strlen(tfield5a);
+    w_charlit[char_ct].clit_lgth = s;
+    w_charlit[char_ct].clit_uct = 1;
+    char_ct++;
+  }
+
+  convert = 1;
+  return;
 }
 
