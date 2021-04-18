@@ -20463,6 +20463,7 @@ printf("c2z_math_600 rct = %d p_string = %s",rct,p_string);
   int fd4_type;
   int fd5_type;
   int sv_type;
+  int x101;
 
   pi = 0;
   ch = p_string[pi];
@@ -20635,6 +20636,7 @@ printf("c2z_math_600 rct = %d p_string = %s",rct,p_string);
 
   if (x3 == 0) 
   {
+    x101 = 0;
     x3 = 0;
     for (I = 0; I < gv_ct; I++) 
     {
@@ -20650,6 +20652,12 @@ printf("c2z_math_600 rct = %d p_string = %s",rct,p_string);
         strcpy(ar_field9, gw_variable[I].gv_sv_reg);
         strcpy(ar_field10, gw_variable[I].gv_wk_reg);
         strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+        x101 = gw_variable[I].gv_lgth;
+        x101 = x101 - 1;
+printf("c2z_math.c math_600 lgth   = %d x101 = %d\n",gw_variable[I].gv_lgth,x101);
+printf("c2z_math.c math_600 row    = %d\n",gw_variable[I].gv_row);
+printf("c2z_math.c math_600 column = %d\n",gw_variable[I].gv_column);
+
 
         p = strstr(gw_variable[I].gv_type, "A");
         if(p)
@@ -21218,12 +21226,17 @@ printf("c2_math_600 tfield4 = %s tfield4a = %s fd4_type = %d\n",tfield4,tfield4a
         strcpy(trace_1, "c2z_math.c c2_math_600 #33");
         trace_rec_3();
       }
-    }
+    }  
 
     if(sv_type == 2)
     {
-      snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
-      strcpy(a_string, "         MVC   0(");
+printf("math_600 x100 = %d x101 = %d\n",x100,x101);
+      strcpy(a_string, "         MVC   ");
+    /*  snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
+      strcat(a_string, wk_strg); */
+      strcat(a_string, "0");
+      strcat(a_string, "(");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
       strcat(a_string, wk_strg);
       strcat(a_string, ",R6),0(R7)");
       src_line();

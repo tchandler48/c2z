@@ -76,14 +76,14 @@ int main(int argc, char *argv[])
            
        char *sub;
       
-       strcpy(sheet_nm, "*CELL");
+       strcpy(sheet_nm, "This is a TEST");
        strcpy(wsp_name, "EMPTY");
 
        i = 1;
        j = 3;
        printf("i = %d\n",i);
        printf("j = %d\n",j);
-       src[i][j][0] = '_';
+       src[i][j][0] = sheet_nm;
 
        i = 1;
        j = 10;
@@ -99,10 +99,20 @@ int main(int argc, char *argv[])
        flag[i][j][0] = z1;
 
        i = 1;
-       j = 3;
+       j = 2;
        printf("i = %d\n",i);
        printf("j = %d\n",j);
        src[i][j][0] = wsp_name;
+
+       i = 1;
+       j = 2;
+       printf("src = %s\n",src[i][j][0]);
+       
+       i = 1;
+       j = 3;   
+       printf("src = %s\n",src[i][j][0]);
+
+       }
 
 
 }
