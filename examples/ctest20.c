@@ -79,42 +79,38 @@ int main(int argc, char *argv[])
        strcpy(sheet_nm, "This is a TEST");
        strcpy(wsp_name, "EMPTY");
 
-       i = 1;
-       j = 3;
-       printf("i = %d\n",i);
-       printf("j = %d\n",j);
-       src[i][j][0] = sheet_nm;
+       i = 0;
+       j = 1;
+       src[i][j][0] = 'A';
+
+       i = 0;
+       j = 2;
+       src[i][j][0] = 'B';
 
        i = 1;
-       j = 10;
-       printf("i = %d\n",i);
-       printf("j = %d\n",j);
-       flag[i][j][0] = 999;
-
-       i = 2;
-       j = 5;
-       z1 = 89;
-       printf("i = %d\n",i);
-       printf("j = %d\n",j);
-       flag[i][j][0] = z1;
+       j = 1;
+       src[i][j][0] = '_';
 
        i = 1;
        j = 2;
-       printf("i = %d\n",i);
-       printf("j = %d\n",j);
-       src[i][j][0] = wsp_name;
+       src[i][j][0] = '_';
 
-       i = 1;
-       j = 2;
+       i = 0;
+       j = 1;
        printf("src = %s\n",src[i][j][0]);
        
-       i = 1;
-       j = 3;   
+       i = 0;
+       j = 2;   
        printf("src = %s\n",src[i][j][0]);
 
-       }
+       i = 1;
+       j = 1;
+       printf("src = %s\n",src[i][j][0]);
 
-
+       i = 1;
+       j = 2;
+       printf("src = %s\n",src[i][j][0]);
+ 
 }
 
 

@@ -4614,11 +4614,11 @@ void c2_int_41()
 
   char ch;
   char field1[VAR_LGTH];
-/*  char field1a[VAR_LGTH]; */
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
+  char wk_name[VAR_LGTH];
 
   pi = 0;
   ch = p_string[pi];
@@ -4809,8 +4809,62 @@ void c2_int_41()
     }
   }
 
+printf("c2z_int.c inc_41 field1 = %s field2 = %s field3 = %s\n",field1,field2,field3);
   if (global_st == 0) 
   {
+    snprintf(wk_strg, sizeof(wk_strg), "%d", st_col);
+    strcpy(wk_name, "C37FCL");
+    strcat(wk_name, wk_strg);
+    s = strlen(wk_name);
+    wk_name[s] = '\0';
+
+    if (gv_ct == 0) 
+    {
+      size = 1;
+      gw_variable = malloc(size * sizeof(struct variables));
+    } 
+    else 
+    {
+      size = gv_ct + 1;
+      gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+    }
+
+    gw_variable[gv_ct].gv_rct = rct;
+    strcpy(gw_variable[gv_ct].gv_name, wk_name);
+    strcpy(gw_variable[gv_ct].gv_cname, wk_name);
+    strcpy(gw_variable[gv_ct].gv_type, "I");
+    gw_variable[gv_ct].gv_lgth = 0;
+    gw_variable[gv_ct].gv_current_lgth = 0;
+
+    if(fd3_type == 1)
+    {
+      x102 = atoi(field3);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x102);
+      strcpy(gw_variable[gv_ct].gv_value, wk_strg);
+    }
+    if(fd3_type == 2)
+    {
+      strcpy(gw_variable[gv_ct].gv_value, field3a);
+    }
+
+    gw_variable[gv_ct].gv_init = 0;
+    strcpy(gw_variable[gv_ct].gv_literal, null_field);
+    gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
+    gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_id = 1;
+    gv_ct++;
+    st_col++;
+
     if (gv_ct == 0) 
     {
       size = 1;
@@ -4829,6 +4883,8 @@ void c2_int_41()
     gw_variable[gv_ct].gv_init = 0;
     gw_variable[gv_ct].gv_use_ct = 0;
     gw_variable[gv_ct].gv_dec = 0;
+    strcpy(gw_variable[gv_ct].gv_st_col, wk_name);
+
     if((fd2_type == 1) && (fd3_type == 1))
     {
       x101 = atoi(field2);

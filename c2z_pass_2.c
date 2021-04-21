@@ -13953,8 +13953,8 @@ void c2_pass2_math_600()
   int ret = 0;
   int s = 0;
   int size = 0;
-/*  int fd2_type; */
-/*  int fd3_type; */
+  int fd2_type; 
+  int fd3_type; 
   int fd4_type;
   int fd5_type;
 
@@ -13980,7 +13980,7 @@ void c2_pass2_math_600()
   tfield1[pi2] = '\0';
 
   pi2 = 0;
-/*  fd2_type = 0; */
+  fd2_type = 0; 
   pi++;
   ch = p_string[pi];
   while (ch != ']') 
@@ -13991,12 +13991,12 @@ void c2_pass2_math_600()
       {
         if (isdigit(ch)) 
         {
-     /*     fd2_type = 1; */
+          fd2_type = 1; 
           x2 = 1;
         }
         if (isalpha(ch)) 
         {
-    /*      fd2_type = 2; */
+          fd2_type = 2;
           x2 = 1;
         }
       }
@@ -14011,7 +14011,7 @@ void c2_pass2_math_600()
 
   pi2 = 0;
   x2 = 0;
-/*  fd3_type = 0; */
+  fd3_type = 0; 
   pi++;
   pi++;
   ch = p_string[pi];
@@ -14023,12 +14023,12 @@ void c2_pass2_math_600()
       {
         if (isdigit(ch)) 
         {
-     /*      fd3_type = 1; */
+          fd3_type = 1;
           x2 = 1;
         }
         if (isalpha(ch)) 
         {
-    /*      fd3_type = 2; */
+          fd3_type = 2; 
           x2 = 1;
         }
       }
@@ -14096,6 +14096,11 @@ void c2_pass2_math_600()
   {
     if (x2 == 0) 
     {
+      if (ch == '\'')
+      {
+        fd5_type = 0;
+        x2 = 1;
+      }
       if (isdigit(ch)) 
       {
         fd5_type = 1;
@@ -14113,6 +14118,13 @@ void c2_pass2_math_600()
     ch = p_string[pi];
   }
   tfield5[pi2] = '\0';
+
+printf("\nc2_pass2_math_600 rct = %d p_string = %s",rct,p_string);
+printf("c2_pass2_math_600 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
+printf("c2_pass2_math_600 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
+printf("c2_pass2_math_600 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
+printf("c2_pass2_math_600 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
+
 
   x21 = 0;
   x3 = 0;

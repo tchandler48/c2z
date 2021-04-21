@@ -849,6 +849,7 @@ void c2_str_1(int str1, int str4)
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #109");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R9)");
     src_line();
@@ -865,7 +866,7 @@ void c2_str_1(int str1, int str4)
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #111");
       trace_rec_3();
     }
-    work_use_ct[78]++;
+    work_use_ct[49]++;
 
     strcpy(a_string, "         LARL  R8,C370U");
     src_line();
@@ -874,6 +875,7 @@ void c2_str_1(int str1, int str4)
       strcpy(trace_1, "c2z_strcpy.c c2_str_1 #112");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R9),0(8,R8)");
     src_line();

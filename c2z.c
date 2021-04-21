@@ -250,6 +250,7 @@
 	void c2_math_99(void);
        void c2_math_100(void);
        void c2_math_600(void);
+       void c2_math_601(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -367,6 +368,7 @@
 	void c2_printf_dec_only(int);
 	void c2_snprintf(void);
        void c2_printf_float(void);
+       void c2_printf_literal(void);
 
 
 /* 	       c2z_punch_macro.c	*/
@@ -604,6 +606,7 @@ char from_sv[24];
  int e_pos = 0;
  int line_ndx = 0;
  int fd_test = 0;
+ int st_col = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -677,6 +680,8 @@ int work_use_ct[88];
  int tot_goto = 0;
  int tot_float = 0;
  int tot_arr = 1;
+ int p_eol = 0;
+ int p_ln_ct = 0;
 
  int tot_for = 0;
  int tot_while = 0;
@@ -815,6 +820,7 @@ struct variables
   char gv_sv_reg[VAR_LGTH];
   char gv_wk_reg[VAR_LGTH];
   char gv_wk_strg[VAR_LGTH];
+  char gv_st_col[VAR_LGTH];
    int gv_flag;
    int gv_dec;
    int gv_id;
@@ -1051,7 +1057,13 @@ struct bad_rec *w_bad_rec;
 #include "c2z_parameter.c"
 #include "c2z_pass_2.c"
 #include "c2z_pass_3.c"
+
 #include "c2z_print.c"
+
+/*
+#include "c2z_testprint.c"
+*/
+
 #include "c2z_realloc.c"
 #include "c2z_return.c"
 #include "c2z_scanf.c"
@@ -6632,8 +6644,6 @@ int main(int argc, char *argv[])
         }
       convert = 1;
       }
-printf("c2z.c FOR/END HERE #99\n");    
-
     }
 
 
@@ -7245,6 +7255,7 @@ printf("c2z.c FOR/END HERE #99\n");
     /* **********************************************************
     *  Punch close                                              *
     * ********************************************************* */
+/*
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7265,7 +7276,7 @@ printf("c2z.c FOR/END HERE #99\n");
 
       convert = 1;
     }
-
+*/
 
     /* **********************************************************
     *  Punch free                                               *
@@ -9100,11 +9111,9 @@ printf("c2z.c FOR/END HERE #99\n");
         {
           printf("c2z.c Pass 3 rct = %d c2_math #100\n", rct);
         }
-/* printf("c2z.c pass 3 before c2z_math\n"); */
-          c2_math();   
-/* printf("c2z.c pass 3 beforre c2z_math_start\n"); */
+ 
+        c2_math();   
      
-
         convert = 1;
         if (return_on == 1) 
         {
@@ -9125,11 +9134,7 @@ printf("c2z.c FOR/END HERE #99\n");
           return_ct++;
         }
 
-/* printf("c2z.c pass 3 beforre c2z_math_start\n"); */
        /* c2_math_start(); */
-
-
-
 
       }
 
