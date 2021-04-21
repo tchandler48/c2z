@@ -20420,10 +20420,7 @@ void c2_math_58() 			/*  s_holder[0] = (int)xxxchar;  iv_stack[ndx] = rdp_main()
 
 void c2_math_600()
 {
-
-printf("c2z_math_600 rct = %d p_string = %s",rct,p_string);
-
- if (traceflg == 1) 
+  if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_strstr.c c2_math_600 START");
     trace_rec_1();
@@ -20465,8 +20462,6 @@ printf("c2z_math_600 rct = %d p_string = %s",rct,p_string);
   int fd5_type;
   int sv_type;
   int x101;
-  int x103;
-  int x104;
 
   pi = 0;
   ch = p_string[pi];
@@ -20488,8 +20483,6 @@ printf("c2z_math_600 rct = %d p_string = %s",rct,p_string);
     }
   }
   tfield1[pi2] = '\0';
-printf("c2z_math.c math_600 tfield1 = %s\n",tfield1);
-
 
   pi2 = 0;
   fd2_type = 0;
@@ -20520,7 +20513,6 @@ printf("c2z_math.c math_600 tfield1 = %s\n",tfield1);
     }
   }
   tfield2[pi2] = '\0';
-printf("c2z_math.c math_600 tfield2 = %s fd2_type = %d\n",tfield1,fd2_type);
 
   pi2 = 0;
   x2 = 0;
@@ -20665,13 +20657,6 @@ printf("c2z_math.c math_600 tfield2 = %s fd2_type = %d\n",tfield1,fd2_type);
         strcpy(ar_field11, gw_variable[I].gv_wk_strg);
         strcpy(ar_field12, gw_variable[I].gv_st_col);
         x101 = gw_variable[I].gv_lgth;
-        x103 = gw_variable[I].gv_row;
-        x104 = gw_variable[I].gv_column;
-printf("c2z_math.c math_600 ar_field12 = %s\n",ar_field12);
-/* printf("c2z_math.c math_600 lgth   = %d x101 = %d\n",gw_variable[I].gv_lgth,x101);
-printf("c2z_math.c math_600 row    = %d x103 = %d\n",gw_variable[I].gv_row,x103);
-printf("c2z_math.c math_600 column = %d x104 = %d\n",gw_variable[I].gv_column,x104);
-*/
 
         p = strstr(gw_variable[I].gv_type, "A");
         if(p)
@@ -20698,10 +20683,6 @@ printf("c2z_math.c math_600 column = %d x104 = %d\n",gw_variable[I].gv_column,x1
     convert = 1;
     return;
   }
-
-/*
-printf("c2_math_600 sv_type = %d gv.type = %s\n",sv_type,gw_variable[I].gv_type);
-*/
  
   if(fd2_type == 2)
   {
@@ -20870,12 +20851,6 @@ printf("c2_math_600 sv_type = %d gv.type = %s\n",sv_type,gw_variable[I].gv_type)
     }
   }
 
-/*
-printf("\nc2_math_600 tfield1 = %s tfield1a = %s ar_field12 = %s\n",tfield1,tfield1a,ar_field12);
-printf("c2_math_600 tfield2 = %s tfield2a = %s fd2_type = %d\n",tfield2,tfield2a,fd2_type);
-printf("c2_math_600 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tfield3a,fd3_type);
-printf("c2_math_600 tfield4 = %s tfield4a = %s fd4_type = %d\n",tfield4,tfield4a,fd4_type);
-*/
   if(fd5_type == 1)
   {
     strcpy(tfield5a, tfield5);
@@ -20894,13 +20869,7 @@ printf("c2_math_600 tfield4 = %s tfield4a = %s fd4_type = %d\n",tfield4,tfield4a
       ch = tfield5[pi];
     }
     tfield5a[x2] = '\0';
-/* printf("c2_math_600 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type); */
   }
-
-printf("\nc2_math_600 tfield1 = %s tfield1a = %s\n",tfield1,tfield1a);
-printf("c2_math_600 tfield2 = %s tfield2a = %s fd2_type = %d\n",tfield2,tfield2a,fd2_type);
-printf("c2_math_600 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tfield3a,fd3_type);
-printf("c2_math_600 tfield4 = %s tfield4a = %s fd4_type = %d\n",tfield4,tfield4a,fd4_type);
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -21040,7 +21009,6 @@ printf("c2_math_600 tfield4 = %s tfield4a = %s fd4_type = %d\n",tfield4,tfield4a
     strcpy(trace_1, "c2z_math.c c2_math_600 #16");
     trace_rec_3();
   }
-
 
   strcpy(a_string, "         ZAP   0(6,R8),0(6,R7)");
   src_line();
@@ -21253,7 +21221,6 @@ printf("c2_math_600 tfield4 = %s tfield4a = %s fd4_type = %d\n",tfield4,tfield4a
     strcpy(trace_1, "c2z_math.c c2_math_600 #37");
     trace_rec_3();
   }
-printf("\nc2_math_600 399 tfield1 = %s tfield1a = %s ar_field12 = %s\n",tfield1,tfield1a,ar_field12);
 
   strcpy(a_string, "         LARL  R8,");
   strcat(a_string, ar_field12);
@@ -21592,7 +21559,6 @@ printf("\nc2_math_600 399 tfield1 = %s tfield1a = %s ar_field12 = %s\n",tfield1,
 
   if(fd5_type == 2)
   {
-printf("c2z_math.c math_600 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
     strcpy(a_string, "         LARL  R7,");
     strcat(a_string, tfield5a);
     strcpy(wk_remark, " ");
@@ -21618,10 +21584,7 @@ printf("c2z_math.c math_600 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
 
     if(sv_type == 2)
     {
-/* printf("math_600 x100 = %d x101 = %d\n",x100,x101); */
       strcpy(a_string, "         MVC   ");
-    /*  snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
-      strcat(a_string, wk_strg); */
       strcat(a_string, "0");
       strcat(a_string, "(");
       snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
@@ -21639,9 +21602,7 @@ printf("c2z_math.c math_600 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
 
 void c2_math_601()
 {
-printf("c2z_math_601 rct = %d p_string = %s",rct,p_string);
-
- if (traceflg == 1) 
+  if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_strstr.c c2_math_601 START");
     trace_rec_1();
@@ -21655,8 +21616,6 @@ printf("c2z_math_601 rct = %d p_string = %s",rct,p_string);
   char tfield2a[VAR_LGTH];
   char tfield3[VAR_LGTH];
   char tfield3a[VAR_LGTH];
-/*  char tfield4[VAR_LGTH];
-  char tfield4a[VAR_LGTH]; */
   char tfield5[VAR_LGTH];
   char tfield5a[VAR_LGTH];
 
@@ -21679,12 +21638,9 @@ printf("c2z_math_601 rct = %d p_string = %s",rct,p_string);
   int ret = 0;
   int fd2_type;
   int fd3_type;
-/*  int fd4_type; */
   int fd5_type;
   int sv_type;
   int x101;
-  int x103;
-  int x104;
 
   pi = 0;
   ch = p_string[pi];
@@ -21706,8 +21662,6 @@ printf("c2z_math_601 rct = %d p_string = %s",rct,p_string);
     }
   }
   tfield1[pi2] = '\0';
-printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
-
 
   pi2 = 0;
   fd2_type = 0;
@@ -21738,7 +21692,6 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     }
   }
   tfield2[pi2] = '\0';
-printf("c2z_math.c math_601 tfield2 = %s fd2_type = %d\n",tfield1,fd2_type);
 
   pi2 = 0;
   x2 = 0;
@@ -21770,7 +21723,6 @@ printf("c2z_math.c math_601 tfield2 = %s fd2_type = %d\n",tfield1,fd2_type);
     }
   }
   tfield3[pi2] = '\0';
-printf("c2z_math.c math_601 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
 
   pi++;
   pi++;
@@ -21819,7 +21771,6 @@ printf("c2z_math.c math_601 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
     ch = p_string[pi];
   }
   tfield5[pi2] = '\0';
-printf("c2z_math.c math_601 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
 
   x21 = 0;
   x3 = 0;
@@ -21854,14 +21805,7 @@ printf("c2z_math.c math_601 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
         strcpy(ar_field11, gw_variable[I].gv_wk_strg);
         strcpy(ar_field12, gw_variable[I].gv_st_col);
         x101 = 6;
-        x103 = gw_variable[I].gv_row;
-        x104 = gw_variable[I].gv_column;
-printf("c2z_math.c math_601 ar_field12 = %s\n",ar_field12);
-printf("c2z_math.c math_601 lgth   = %d x101 = %d\n",gw_variable[I].gv_lgth,x101);
-printf("c2z_math.c math_601 row    = %d x103 = %d\n",gw_variable[I].gv_row,x103);
-printf("c2z_math.c math_601 column = %d x104 = %d\n",gw_variable[I].gv_column,x104);
-
-
+ 
         p = strstr(gw_variable[I].gv_type, "A");
         if(p)
         {
@@ -21888,7 +21832,6 @@ printf("c2z_math.c math_601 column = %d x104 = %d\n",gw_variable[I].gv_column,x1
     return;
   }
 
-printf("c2_math_601 sv_type = %d gv.type = %s\n",sv_type,gw_variable[I].gv_type);
   if(fd2_type == 1)
   {
     strcpy(tfield2a, tfield2);
@@ -22022,11 +21965,6 @@ printf("c2_math_601 sv_type = %d gv.type = %s\n",sv_type,gw_variable[I].gv_type)
     }
   }
 
-printf("\nc2_math_601 tfield1 = %s tfield1a = %s ar_field12 = %s\n",tfield1,tfield1a,ar_field12);
-printf("c2_math_601 tfield2 = %s tfield2a = %s fd2_type = %d\n",tfield2,tfield2a,fd2_type);
-printf("c2_math_601 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tfield3a,fd3_type);
-printf("c2_math_601 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type);
-
   if(fd5_type == 1)
   {
     strcpy(tfield5a, tfield5);
@@ -22045,13 +21983,7 @@ printf("c2_math_601 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a
       ch = tfield5[pi];
     }
     tfield5a[x2] = '\0';
- printf("c2_math_601 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type); 
   }
-
-printf("\nc2_math_601 tfield1 = %s tfield1a = %s\n",tfield1,tfield1a);
-printf("c2_math_601 tfield2 = %s tfield2a = %s fd2_type = %d\n",tfield2,tfield2a,fd2_type);
-printf("c2_math_601 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tfield3a,fd3_type);
-printf("c2_math_601 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type);
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -22698,7 +22630,6 @@ printf("c2_math_601 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a
     strcpy(trace_1, "c2z_math.c c2_math_601 #37");
     trace_rec_3();
   }
-printf("\nc2_math_600 399 tfield1 = %s tfield1a = %s ar_field12 = %s\n",tfield1,tfield1a,ar_field12);
 
   strcpy(a_string, "         LARL  R8,");
   strcat(a_string, ar_field12);
@@ -23155,7 +23086,6 @@ printf("\nc2_math_600 399 tfield1 = %s tfield1a = %s ar_field12 = %s\n",tfield1,
 
   if(fd5_type == 2)
   {
-printf("c2z_math.c math_601 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
     strcpy(a_string, "         LARL  R7,");
     strcat(a_string, tfield5a);
     strcpy(wk_remark, " ");
@@ -23170,8 +23100,6 @@ printf("c2z_math.c math_601 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
 
     if(sv_type == 1)
     {
- printf("math_601 x100 = %d x101 = %d\n",x100,x101); 
-
       strcpy(a_string, "         ZAP   0(6,R6),0(6,R7)");
       src_line();
       if (puncde == 1) 
@@ -23183,11 +23111,9 @@ printf("c2z_math.c math_601 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
 
     if(sv_type == 2)
     {
- printf("math_601 x100 = %d x101 = %d\n",x100,x101); 
       strcpy(a_string, "         MVC   ");
       snprintf(wk_strg, sizeof(wk_strg), "%d", x100); 
       strcat(a_string, wk_strg); 
-      /* strcat(a_string, "0"); */
       strcat(a_string, "(");
       snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
       strcat(a_string, wk_strg);
@@ -23200,17 +23126,5 @@ printf("c2z_math.c math_601 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
       }
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
 }
 

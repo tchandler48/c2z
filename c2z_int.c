@@ -4809,7 +4809,6 @@ void c2_int_41()
     }
   }
 
-printf("c2z_int.c inc_41 field1 = %s field2 = %s field3 = %s\n",field1,field2,field3);
   if (global_st == 0) 
   {
     snprintf(wk_strg, sizeof(wk_strg), "%d", st_col);

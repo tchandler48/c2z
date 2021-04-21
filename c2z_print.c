@@ -257,11 +257,6 @@ void c2_fprintf()
     fprintf_lit = 1;
   }
 
-
-
-
-
-
   p1 = strstr(p_string, "%s");
   if (p1) 
   {
@@ -742,13 +737,11 @@ void c2_printf()
   int ret1 = 0;
   int printf_type = 0;
   int sv_type;
-  int fd3_type;
   int fd4_type;
   int fd5_type;
 
   char *p;
   char field1[VAR_LGTH];
-  char field2[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
@@ -829,13 +822,11 @@ void c2_printf()
       {
         if (ch != ' ') 
         {
-          field2[pi2] = ch;
           pi2++;
         }
         pi++;
         ch = p_string[pi];
       }
-      field2[pi2] = '\0';
 
       strcpy(field1, "L");
       snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
@@ -927,8 +918,6 @@ void c2_printf()
         trace_rec_3();
       }
 
-printf("printf_600 pi = %d rct = %d p_string = %s",pi,rct,p_string);
-
       pi = 0;
       ch = p_string[pi];
       while(ch != ',')
@@ -939,7 +928,6 @@ printf("printf_600 pi = %d rct = %d p_string = %s",pi,rct,p_string);
 
       pi2 = 0;
       x2 = 0;
-      fd3_type = 0;
       pi++;
       ch = p_string[pi];
       while (ch != '[') 
@@ -950,12 +938,10 @@ printf("printf_600 pi = %d rct = %d p_string = %s",pi,rct,p_string);
           {
             if (isdigit(ch)) 
             {
-              fd3_type = 1;
               x2 = 1;
             }
             if (isalpha(ch)) 
             {
-              fd3_type = 2;
               x2 = 1;
             }
           }
@@ -1085,11 +1071,6 @@ printf("printf_600 pi = %d rct = %d p_string = %s",pi,rct,p_string);
        return;
      }
 
-
-printf("c2_math_600 sv_type = %d gv.type = %s\n",sv_type,gw_variable[I].gv_type);
-printf("c2_math_600 ar_field6 = %s\n",ar_field6);
-printf("c2_math_600 ar_field7 = %s\n",ar_field7);
-
      if(fd4_type == 2)
      {
        x21 = 0;
@@ -1165,20 +1146,15 @@ printf("c2_math_600 ar_field7 = %s\n",ar_field7);
          printf("\nc2z_printf.c c2_printf_600 E-605 field5 Not Found = %s\n",field5);
          printf("c2z_printf.c c2_printf_600 rct = %d p_string = %s\n",rct,p_string);
          erct++;
-      convert = 1;
-      return;
-    }
+         convert = 1;
+         return;
+       }
   }
-
 
   if(fd4_type == 1)
   {
     strcpy(field4a, field4);
   }
-
-printf("c2_printf_600 field3 = %s field3a = %s fd3_type = %d\n",field3,field3a,fd3_type);
-printf("c2_printf_600 field4 = %s field4a = %s fd4_type = %d\n",field4,field4a,fd4_type);
-printf("c2_printf_600 field5 = %s field5a = %s fd5_type = %d\n",field5,field5a,fd5_type);
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -2122,7 +2098,6 @@ printf("c2_printf_600 field5 = %s field5a = %s fd5_type = %d\n",field5,field5a,f
     trace_rec_3();
   }
 
-printf("c2z_print.c printf_600 field5 = %s fd5_type = %d sv_type = %d\n",field5,fd5_type,sv_type);
   if(fd5_type == 1)
   {
     if(sv_type == 1)
@@ -2571,8 +2546,6 @@ printf("c2z_print.c printf_600 field5 = %s fd5_type = %d sv_type = %d\n",field5,
 
   if((fd4_type == 1) && (fd5_type == 1))
   {
-printf("c2z_print.c c2_printf_600 #120\n");
-
     strcpy(a_string, "         LARL  R9,C370EDN");
     src_line();
     if (puncde == 1) 
@@ -2676,10 +2649,11 @@ printf("c2z_print.c c2_printf_600 #120\n");
   return;
   }
 
+/* ********************************************************
+ * printf(flag[x][y]);                                    *
+ * ****************************************************** */
   if(x100 == 4) 		/*  numeric 2 dim array */
   {
-printf("c2z_print.c INSIDE x100 = 4\n");
-
     pi = 0;
     ch = p_string[pi];
     while (ch != ',') 
@@ -2695,13 +2669,11 @@ printf("c2z_print.c INSIDE x100 = 4\n");
     {
       if (ch != ' ') 
       {
-        field2[pi2] = ch;
         pi2++;
       }
       pi++;
       ch = p_string[pi];
     }
-    field2[pi2] = '\0';
 
     strcpy(field1, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
@@ -2793,8 +2765,6 @@ printf("c2z_print.c INSIDE x100 = 4\n");
       trace_rec_3();
     }
 
-printf("printf_601 pi = %d rct = %d p_string = %s",pi,rct,p_string);
-
     pi = 0;
     ch = p_string[pi];
     while(ch != ',')
@@ -2805,7 +2775,6 @@ printf("printf_601 pi = %d rct = %d p_string = %s",pi,rct,p_string);
 
     pi2 = 0;
     x2 = 0;
-    fd3_type = 0;
     pi++;
     ch = p_string[pi];
     while (ch != '[') 
@@ -2816,12 +2785,10 @@ printf("printf_601 pi = %d rct = %d p_string = %s",pi,rct,p_string);
         {
           if (isdigit(ch)) 
           {
-            fd3_type = 1;
             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd3_type = 2;
             x2 = 1;
           }
         }
@@ -2951,10 +2918,6 @@ printf("printf_601 pi = %d rct = %d p_string = %s",pi,rct,p_string);
      return;
    }
 
-printf("c2_math_601 sv_type = %d gv.type = %s\n",sv_type,gw_variable[I].gv_type);
-printf("c2_math_601 ar_field6 = %s\n",ar_field6);
-printf("c2_math_601 ar_field7 = %s\n",ar_field7);
-
    if(fd4_type == 2)
    {
      x21 = 0;
@@ -3039,10 +3002,6 @@ printf("c2_math_601 ar_field7 = %s\n",ar_field7);
   {
     strcpy(field4a, field4);
   }
-
-printf("c2_printf_601 field3 = %s field3a = %s fd3_type = %d\n",field3,field3a,fd3_type);
-printf("c2_printf_601 field4 = %s field4a = %s fd4_type = %d\n",field4,field4a,fd4_type);
-printf("c2_printf_601 field5 = %s field5a = %s fd5_type = %d\n",field5,field5a,fd5_type);
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -3985,7 +3944,6 @@ printf("c2_printf_601 field5 = %s field5a = %s fd5_type = %d\n",field5,field5a,f
     trace_rec_3();
   }
 
-printf("c2z_print.c printf_601 field5 = %s fd5_type = %d sv_type = %d\n",field5,fd5_type,sv_type);
   if(fd5_type == 1)
   {
     if(sv_type == 1)
@@ -4052,8 +4010,6 @@ printf("c2z_print.c printf_601 field5 = %s fd5_type = %d sv_type = %d\n",field5,
     }
   }
 
-
-/* dont think I need this routine, this is a numeric 2 dim so no alpha MAYBE */
 /* src[i][j][0]   (string) */
   if((fd4_type == 2) && (fd5_type == 2) && (printf_type == 1))		
   {
@@ -4436,8 +4392,6 @@ printf("c2z_print.c printf_601 field5 = %s fd5_type = %d sv_type = %d\n",field5,
 
   if((fd4_type == 1) && (fd5_type == 1))
   {
-printf("c2z_print.c c2_printf_601 #120\n");
-
     strcpy(a_string, "         LARL  R9,C370EDN");
     src_line();
     if (puncde == 1) 
