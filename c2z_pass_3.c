@@ -533,6 +533,147 @@ void c2_pass_3()
     trace_rec_3();
   }
 
+  strcpy(a_string, "R0       EQU   0");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R1       EQU   1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R2       EQU   2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R3       EQU   3");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R4       EQU   4");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R5       EQU   5");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R6       EQU   6");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R7       EQU   7");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R8       EQU   8");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R9       EQU   9");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R10      EQU   10");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R11      EQU   11");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R12      EQU   12");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R13      EQU   13");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R14      EQU   14");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "R15      EQU   15");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_eoj.c EQUREGS #2");
+    trace_rec_3();
+  }
+
+
+
+
+
+
+  strcpy(a_string, "*");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z.c pass 3 generated #54");
+    trace_rec_3();
+  }
+
   strcpy(a_string, pgm_name);
   s = strlen(pgm_name);
   check_length();

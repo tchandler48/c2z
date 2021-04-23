@@ -112,14 +112,6 @@ void c2_strstr()
     ch = p_string[pi];
   }
 
-  pi++;
-  ch = p_string[pi];
-  while (ch != '\"') 
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
   x21 = 0;
   x3 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -192,6 +184,34 @@ void c2_strstr()
     erct++;
     convert = 1;
     return;
+  }
+
+  strcpy(a_string, "         LARL  R9,");
+  strcat(a_string, tfield1a);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, tfield1);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_strstr.c c2_strstr #1");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         LARL  R8,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_strstr.c c2_strstr #2");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_strstr.c c2_strstr #3");
+    trace_rec_3();
   }
 
   strcpy(a_string, "         LA    R7,");
@@ -368,6 +388,7 @@ void c2_strstr()
       strcpy(tfield5a, w_charlit[I].clit_cname);
     }
   }
+printf("c2z_strstr.c tfield5a = %s\n",tfield5a);
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield5a);

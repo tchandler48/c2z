@@ -110,6 +110,9 @@ int main(int argc, char *argv[])
        i = 1;
        j = 2;
        printf("src = %s\n",src[i][j][0]);
+
+       src[12][2][0] = 'This is a test';
+       printf("src = %s\n",src[12][2][0]);
  
 }
 

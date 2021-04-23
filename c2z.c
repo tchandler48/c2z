@@ -932,6 +932,7 @@ struct for_table
    int for_rct;
    int for_level;
    int for_eof1;
+  char for_rt_field[VAR_LGTH];
   char for_p_string[BUFSIZE];
 };
 struct for_table *w_for_table;
@@ -3037,9 +3038,9 @@ int main(int argc, char *argv[])
     }
 
 
-
-/* Scan for free */
-
+    /* ***************************************************************
+     *  Scan for free                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3061,8 +3062,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/* Scan for #define  */
 
+    /* ***************************************************************
+     *  Scan for #define                                             *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5669,7 +5672,7 @@ int main(int argc, char *argv[])
     rct++;
     s = strlen(p_string);
 
-/* printf("c2z.c Pass 3 s = %d rct = %d erct = %d p_string = %s", s, rct,erct, p_string); */
+ /* printf("c2z.c Pass 3 s = %d rct = %d erct = %d p_string = %s", s, rct,erct, p_string); */
  
     if (debug_lv >= 1) 
     {
@@ -6565,7 +6568,7 @@ int main(int argc, char *argv[])
 
     if (traceflg == 1) 
     {
-      strcpy(trace_1, "c2.c FOR/End Loop");
+      strcpy(trace_1, "c2.c    Loop");
       trace_rec_1();
     }
    
@@ -6574,8 +6577,8 @@ int main(int argc, char *argv[])
     {
       if (rct == w_for_table[v].for_eof1) 
       {
-      strcpy(a_string, "         LARL  R9,");
-        strcat(a_string, sv_for_incr);
+        strcpy(a_string, "         LARL  R9,");
+        strcat(a_string, w_for_table[v].for_rt_field);
         src_line();
         if (puncde == 1) 
         {
@@ -6599,8 +6602,9 @@ int main(int argc, char *argv[])
           trace_rec_3();
         }
 
-        strcpy(a_string, "         JLU   ");
-        strcat(a_string, sv_for_return);
+        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
+        strcpy(a_string, "         JLU   L");
+        strcat(a_string, wk_strg);
         src_line();
         if (puncde == 1) 
         {
@@ -6608,7 +6612,9 @@ int main(int argc, char *argv[])
           trace_rec_3();
         }
 
-        strcpy(a_string, sv_for_return);
+        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
+        strcpy(a_string, "L");
+        strcat(a_string, wk_strg);
         strcat(a_string, "E");
         check_length();
         strcat(a_string, "DS    0H");

@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2Z  : c2z_debug.c :                              *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 void c2_debug() 
@@ -555,6 +555,7 @@ void c2_debug()
     fprintf(c_src, "FOR  = %d", w_for_table[I].for_rct);
     fprintf(c_src, " Level - %d", w_for_table[I].for_level);
     fprintf(c_src, " EOF - %d", w_for_table[I].for_eof1);
+    fprintf(c_src, " INC = %s", w_for_table[I].for_rt_field);
     fprintf(c_src, " RCT - %s", w_for_table[I].for_p_string);
   }
 

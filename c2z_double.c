@@ -16,7 +16,6 @@ void c2_double()
   }
 
   char ch, *p, *p1, *p2;
-/*  char tfield1[VAR_LGTH]; */
   char tfield2[VAR_LGTH];
   char tfield2a[VAR_LGTH];
   char tfield3[VAR_LGTH];
@@ -36,6 +35,13 @@ void c2_double()
   int ret = 0;
   int I = 0;
   int ret1 = 0;
+
+  p = strstr(p_string, "(double)");
+  if(p)
+  {
+    convert = 1;
+    return;
+  }
 
   tfield2a[0] = '\0';
 
@@ -1033,7 +1039,7 @@ void c2_dbl_41()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_double.c 2 c2_dbl_41 START");
+    strcpy(trace_1, "c2z_int.c 2 c2_dbl_41 START");
     trace_rec_1();
   }
 
@@ -1057,10 +1063,11 @@ void c2_dbl_41()
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
+  char wk_name[VAR_LGTH];
 
   pi = 0;
   ch = p_string[pi];
-  while(ch == ' ')
+  while((ch == ' ') || (ch == '\t'))
   {
     pi++;
     ch = p_string[pi];
@@ -1164,9 +1171,9 @@ void c2_dbl_41()
     }
   }
 
-  if(x3 == 1)
+  if (x3 == 1) 
   {
-    printf("\nc2z_double.c c2_dbl_41 E-201 field1 Duplicate Field1 = %s\n", field1);
+    printf("\nc2z_double.c c2_dbl_41 E-003 field1 Duplicate field1 Found = %s\n", field1);
     printf("c2z_double.c c2_dbl_41 rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
@@ -1200,9 +1207,9 @@ void c2_dbl_41()
       }
     }
 
-    if(x3 == 0)
+    if (x3 == 0) 
     {
-      printf("\nc2z_double.c c2_dbl_41 E-202 field2 Not Found field2 = %s\n", field2);
+      printf("\nc2z_double.c c2_dbl_41 E-001 field2 Not Found = %s\n", field2);
       printf("c2z_double.c c2_dbl_41 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
@@ -1237,9 +1244,9 @@ void c2_dbl_41()
       }
     }
 
-    if(x3 == 0)
+    if (x3 == 0) 
     {
-      printf("\nc2z_double.c c2_dbl_41 E-203 field3 Not Found field3 = %s\n", field3);
+      printf("\nc2z_double.c c2_dbl_41 E-002 field3 Not Found = %s\n", field3);
       printf("c2z_double.c c2_dbl_41 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
@@ -1249,6 +1256,59 @@ void c2_dbl_41()
 
   if (global_st == 0) 
   {
+    snprintf(wk_strg, sizeof(wk_strg), "%d", st_col);
+    strcpy(wk_name, "C37FCL");
+    strcat(wk_name, wk_strg);
+    s = strlen(wk_name);
+    wk_name[s] = '\0';
+
+    if (gv_ct == 0) 
+    {
+      size = 1;
+      gw_variable = malloc(size * sizeof(struct variables));
+    } 
+    else 
+    {
+      size = gv_ct + 1;
+      gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+    }
+
+    gw_variable[gv_ct].gv_rct = rct;
+    strcpy(gw_variable[gv_ct].gv_name, wk_name);
+    strcpy(gw_variable[gv_ct].gv_cname, wk_name);
+    strcpy(gw_variable[gv_ct].gv_type, "I");
+    gw_variable[gv_ct].gv_lgth = 0;
+    gw_variable[gv_ct].gv_current_lgth = 0;
+
+    if(fd3_type == 1)
+    {
+      x102 = atoi(field3);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x102);
+      strcpy(gw_variable[gv_ct].gv_value, wk_strg);
+    }
+    if(fd3_type == 2)
+    {
+      strcpy(gw_variable[gv_ct].gv_value, field3a);
+    }
+
+    gw_variable[gv_ct].gv_init = 0;
+    strcpy(gw_variable[gv_ct].gv_literal, null_field);
+    gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
+    gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_id = 1;
+    gv_ct++;
+    st_col++;
+
     if (gv_ct == 0) 
     {
       size = 1;
@@ -1267,19 +1327,21 @@ void c2_dbl_41()
     gw_variable[gv_ct].gv_init = 0;
     gw_variable[gv_ct].gv_use_ct = 0;
     gw_variable[gv_ct].gv_dec = 0;
+    strcpy(gw_variable[gv_ct].gv_st_col, wk_name);
+
     if((fd2_type == 1) && (fd3_type == 1))
     {
       x101 = atoi(field2);
-      gw_variable[gv_ct].gv_row = x101;
       x102 = atoi(field3);
+      gw_variable[gv_ct].gv_row = x101;
       gw_variable[gv_ct].gv_column = x102;
     }
 
     if((fd2_type == 2) && (fd3_type == 2))
     {
       x101 = atoi(field2a);
-      gw_variable[gv_ct].gv_row = x101;
       x102 = atoi(field3a);
+      gw_variable[gv_ct].gv_row = x101;
       gw_variable[gv_ct].gv_column = x102;
     }
 
@@ -1408,10 +1470,10 @@ void c2_dbl_41()
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
     gw_variable[gv_ct].gv_dec = 0;
     gv_ct++;
+
     tot_arr++;
   }
   convert = 1;
 }
-
 
 
