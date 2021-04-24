@@ -3358,6 +3358,27 @@ void c2_eoj()
     }
   }
 
+  strcpy(a_string, "         DS    0H");
+  strcpy(wk_remark, "c2z gen variable  */");
+  write_short();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z Parser Var #74");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "C370ECB  DC    F'0'");
+  strcpy(wk_remark, "c2z gen variable  */");
+  write_short();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z Parser Var #75");
+    trace_rec_3();
+  }
+
+
+
+
   if (work_use_ct[39] > 0) 
   {
     strcpy(a_string, "         DS    0H");

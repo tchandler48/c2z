@@ -188,7 +188,6 @@ void c2_if(void)
   if ((x98 == 2) && (if_complex == 0) && (if_opr == 0) && (bracket_ct == 0))		/*  if(aa op bb)	*/   
   {
     if_case_1();
-printf("c2z_if.c if_1 RETURN\n");
     if_convert = 1;
     convert = 1;
     return;
@@ -517,9 +516,8 @@ void if_case_1()
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
-printf("c2z_if.c if_1 rct = %d p_string = %s",rct,p_string);
-printf("c2z_if.c if_1 eol_1 = %d field1 = %s\n",eol_1,field1);
 
+    negfd = 0;
     if(eol_1 == 1)
     {
       p = strstr(field1, "!");
@@ -530,7 +528,7 @@ printf("c2z_if.c if_1 eol_1 = %d field1 = %s\n",eol_1,field1);
         x98 = 0;
         x99 = 0;
         ch = field1[x98];
-        while(ch != ' ')
+        while(ch != '\0')
         {
            if(ch != '!')
            {
@@ -648,8 +646,6 @@ printf("c2z_if.c if_1 eol_1 = %d field1 = %s\n",eol_1,field1);
           strcpy(trace_1, "c2z_if.c if_case_1 #503");
           trace_rec_3();
         }
-printf("c2z_if.c if_1 RETURN #999\n");
-        convert = 1;
         return;
       }
 
@@ -12317,7 +12313,7 @@ printf("c2z_if.c if_case_13 #900 fd3_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R&,C370NWK2");
+        strcpy(a_string, "         LARL  R8,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -12357,7 +12353,7 @@ printf("c2z_if.c if_case_13 #900 fd3_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R&,C370NWK2");
+        strcpy(a_string, "         LARL  R8,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -12365,7 +12361,7 @@ printf("c2z_if.c if_case_13 #900 fd3_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         CP    0(6,R9),0(6,R&)");
+        strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
         src_line();
         if (puncde == 1) 
         {
@@ -12397,7 +12393,7 @@ printf("c2z_if.c if_case_13 #900 fd3_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R&,C370NWK2");
+        strcpy(a_string, "         LARL  R8,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -12405,7 +12401,7 @@ printf("c2z_if.c if_case_13 #900 fd3_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         CP    0(6,R9),0(6,R&)");
+        strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
         src_line();
         if (puncde == 1) 
         {
@@ -12523,7 +12519,7 @@ printf("c2z_if.c if_case_13 #900 fd7_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R&,C370NWK2");
+        strcpy(a_string, "         LARL  R8,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -12562,7 +12558,7 @@ printf("c2z_if.c if_case_13 #900 fd7_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R&,C370NWK2");
+        strcpy(a_string, "         LARL  R8,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -12570,7 +12566,7 @@ printf("c2z_if.c if_case_13 #900 fd7_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         CP    0(6,R9),0(6,R&)");
+        strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
         src_line();
         if (puncde == 1) 
         {
@@ -12602,7 +12598,7 @@ printf("c2z_if.c if_case_13 #900 fd7_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R&,C370NWK2");
+        strcpy(a_string, "         LARL  R8,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -12610,7 +12606,7 @@ printf("c2z_if.c if_case_13 #900 fd7_type == 1 NOT CODED\n");
           trace_rec_3();
         }
 
-        strcpy(a_string, "         CP    0(6,R9),0(6,R&)");
+        strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
         src_line();
         if (puncde == 1) 
         {

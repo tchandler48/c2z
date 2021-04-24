@@ -388,7 +388,6 @@ void c2_strstr()
       strcpy(tfield5a, w_charlit[I].clit_cname);
     }
   }
-printf("c2z_strstr.c tfield5a = %s\n",tfield5a);
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield5a);

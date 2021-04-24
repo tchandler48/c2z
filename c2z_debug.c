@@ -540,6 +540,15 @@ void c2_debug()
     fputs(a_string, c_src);
   }
 
+  fprintf(c_src, "\n\n---------- goto table  --------------\n");
+  for (I = 0; I < goto_label_ct; I++) 
+  {
+    fprintf(c_src, "Label RCT = %d", w_goto_label[I].goto_label_rct);
+    fprintf(c_src, " Org - %s", w_goto_label[I].goto_org_lb);
+    fprintf(c_src, " New - %s\n", w_goto_label[I].goto_label_1);
+  }
+
+
   fprintf(c_src, "\n\n---------- while table --------------\n");
   for (I = 0; I < wh_ct; I++) 
   {

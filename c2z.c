@@ -157,6 +157,7 @@
 /*		c2z_goto.c 		*/
 	void c2_goto(void);
 	void c2_goto_label(void);
+       void c2_goto_scan(void);
 
 
 /* 	       c2z_if.c		*/
@@ -787,7 +788,7 @@ char output_file[24];
  int localtime_usect = 0;
  int loop_strcmp = 0;
  int i_ct = 0;
-
+ int goto_label_ct = 0;
  int use_strchr = 0;
  int skip_read = 0;
 
@@ -1001,6 +1002,15 @@ struct carry
   char carry_literal[150];
 };
 struct carry *w_carry;
+
+
+struct goto_label 
+{
+   int goto_label_rct;
+  char goto_org_lb[VAR_LGTH];
+  char goto_label_1[VAR_LGTH];
+};
+struct goto_label *w_goto_label;
 
 
 struct bad_rec 
@@ -1439,8 +1449,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
-
+ /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
@@ -5449,7 +5458,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for GOTO  */
+    /* ***************************************************************
+     *  Scan for GOTO                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5479,7 +5490,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for goto label  */
+    /* ***************************************************************
+     *  Scan for GOTO LABEL                                          *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5496,14 +5509,16 @@ int main(int argc, char *argv[])
     {
       if(p_string[x] == ':')
       {
+         goto_label_scan();
          convert = 1;
          break;
       }
     }
 
 
-/*  Scan for clock  */
-
+    /* ***************************************************************
+     *  Scan for CLOCK                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5672,7 +5687,7 @@ int main(int argc, char *argv[])
     rct++;
     s = strlen(p_string);
 
- /* printf("c2z.c Pass 3 s = %d rct = %d erct = %d p_string = %s", s, rct,erct, p_string); */
+/* printf("c2z.c Pass 3 parm_ct = %d s = %d rct = %d erct = %d p_string = %s",parm_ct, s, rct,erct, p_string); */
  
     if (debug_lv >= 1) 
     {
@@ -5703,6 +5718,7 @@ int main(int argc, char *argv[])
       parm_ct++;
       end_asm = 0;
       bracket_convert = 1;
+printf("c2z.c Pass 3 { rct = %d parm_ct = %d p_string = %s",rct,parm_ct,p_string);
     }
 
     p = strstr(p_string, "}");
@@ -5711,7 +5727,316 @@ int main(int argc, char *argv[])
       parm_ct--;
       end_asm = 0;
       bracket_convert = 1;
+printf("c2z.c Pass 3 } rct = %d parm_ct = %d p_string = %s",rct, parm_ct,p_string);
+
     }
+
+    if(parm_ct < 1)
+    {
+      parm_ct = 0;
+    }
+
+if(parm_ct == 0)
+{
+printf("c2z.c rct = %d p_string = %s",rct,p_string);
+}
+
+    /* ************************************************************************
+    *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
+    *  program has been reached.  Punch out the end statement and all defines *
+    *  before processing an functions that may be defined.                    *
+    * *********************************************************************** */
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch end of main loop\n", rct);
+    }
+if((rct > 415) && (rct < 419))
+{
+printf("c2z.c #1 INSIDE EXIT rct = %d p_string = %s",rct,p_string);
+printf("c2z.c #1 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_ct);
+}
+
+    if (parm_ct == 0)
+    {
+      parm_ct = 0;
+    }
+
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+    
+    if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
+    {
+printf("c2z.c #2 INSIDE EXIT rct = %d p_string = %s",rct,p_string);
+printf("c2z.c #2 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_ct);
+      inside_main = 0;
+
+      strcpy(a_string, "C370EXIT DS    0H");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 punch C370EXIT");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         SUBEXIT");
+      src_line();
+      var_use[1]++;
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 punch subexit");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "*");
+      src_line();
+      var_use[1]++;
+      inside_main = 0;
+
+      convert = 1;
+    }
+
+    /* ***********************************************************
+    *  test rct against wif_table eof1 & eof2                    *
+    * ********************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d L2 Punch wif_table eof1 & eof2 p_string = %s\n",rct, p_string);
+    }
+
+    p = strstr(p_string, "{");
+    if (p) 
+    {
+      goto wif_skip;
+    }
+
+    p = strstr(p_string, "}");
+    if (!p) 
+    {
+      goto wif_skip;
+    }
+
+    if (wif_ct > 0) 
+    {
+
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2.c IF End Label");
+      }
+
+      v = 0;
+      for (v = 0; v < wif_ct; v++) 
+      {
+        if ((rct == w_if_table[v].wif_eof1) && (w_if_table[v].wif_else1 == 0)) 
+        {
+          strcpy(a_string, "L");
+          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_rct);
+          strcat(a_string, wk_strg);
+          check_length();
+          strcat(a_string, "DS    0H");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "Pass3 c2.c IF End Label #1");
+            trace_rec_3();
+          }
+
+          if (return_on == 1) 
+          {
+            return_ct++;
+          }
+          convert = 1;
+        }
+
+        if ((rct == w_if_table[v].wif_eof1) && (w_if_table[v].wif_else1 != 0)) 
+        {
+          strcpy(a_string, "         JLU   ");
+          strcat(a_string, "L");
+          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_eof2);
+          strcat(a_string, wk_strg);
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "Pass3 c2.c IF End Label #2");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "L");
+          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_rct);
+          strcat(a_string, wk_strg);
+          check_length();
+          strcat(a_string, "DS    0H");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "Pass3 c2.c IF End Label #3");
+            trace_rec_3();
+          }
+
+          if (return_on == 1) 
+          {
+            return_ct++;
+          }
+          convert = 1;
+        }
+
+        if (rct == w_if_table[v].wif_eof2) 		/* punch out branch using eof2 */
+        {
+          strcpy(a_string, "L");
+          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_eof2);
+          strcat(a_string, wk_strg);
+          check_length();
+          strcat(a_string, "DS    0H");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "Pass3 c2.c IF End Label #4");
+            trace_rec_3();
+          }
+
+          if (return_on == 1) 
+          {
+            return_ct++;
+          }
+          convert = 1;
+        }
+      }
+    }
+
+    if (wh_ct > 0) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c while end label");
+        trace_rec_1();
+      }
+
+      for (v = 0; v < wh_ct; v++) 
+      {
+        if (rct == w_while_table[v].wh_eof1) 
+        {
+          for (v1 = 0; v1 < gv_ct; v1++) 
+          {
+            ret = strcmp("A", gw_variable[v1].gv_type);
+            if (ret == 0) 
+            {
+              strcpy(ar_field6, gw_variable[v1].gv_label);
+              strcpy(ar_field7, gw_variable[v1].gv_table);
+              strcpy(ar_field8, gw_variable[v1].gv_aname);
+              strcpy(ar_field9, gw_variable[v1].gv_sv_reg);
+              strcpy(ar_field10, gw_variable[v1].gv_wk_reg);
+              strcpy(ar_field11, gw_variable[v1].gv_wk_strg);
+
+              if (gw_variable[v1].gv_flag > 0) 
+              {
+                strcpy(a_string, "         LAEY  R6,");
+                strcat(a_string, ar_field6);
+                strcat(a_string, "(R0,R6)");
+                src_line();
+                if (puncde == 1) 
+                {
+                  strcpy(trace_1, "c2z.c WHILE End Label #1");
+                  trace_rec_3();
+                }
+                gw_variable[v1].gv_flag = 0;
+                convert = 1;
+              }
+            }
+          }
+
+          strcpy(a_string, "         JLU   ");
+          strcat(a_string, "L");
+          snprintf(wk_strg, sizeof(wk_strg), "%d", w_while_table[v].wh_rct);
+          strcpy(o_string, wk_strg);
+          strcat(a_string, wk_strg);
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #2");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "L");
+          strcat(a_string, o_string);
+          strcat(a_string, "E");
+          check_length();
+          strcat(a_string, "DS    0H");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #3");
+            trace_rec_3();
+          }
+
+          if (return_on == 1) 
+          {
+            return_ct++;
+          }
+
+          strcpy(a_string, "         LARL  R9,C370NWK2");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #4");
+            trace_rec_3();
+          }
+          work_use_ct[50]++;
+
+          strcpy(a_string, "         LARL  R8,C370ZERO");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #5");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #6");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         LARL  R9,C370LPCT");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #7");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         LARL  R8,C370ZERO");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #8");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c while end label #9");
+            trace_rec_3();
+          }
+          work_use_ct[73]++;
+          convert = 1;
+        }
+        convert = 1;
+      }
+    }
+
+  wif_skip:
+
 
     /* **********************************************************
     *  Test for MAIN in C program and if found punch to to ASM  *
@@ -5801,7 +6126,6 @@ int main(int argc, char *argv[])
        convert = 1; 
       }
     }
-
 
    /* **********************************************************
     *  Test for fflush                                         *
@@ -6568,10 +6892,10 @@ int main(int argc, char *argv[])
 
     if (traceflg == 1) 
     {
-      strcpy(trace_1, "c2.c    Loop");
+      strcpy(trace_1, "c2.c For Loop End");
       trace_rec_1();
     }
-   
+
     v = 0;
     for (v = 0; v < for_ct; v++) 
     {
@@ -6648,9 +6972,10 @@ int main(int argc, char *argv[])
           strcpy(trace_1, "c2z.c FOR/End Loop #8");
           trace_rec_3();
         }
-      convert = 1;
+        convert = 1;
+        break;
       }
-    }
+   }
 
 
     /* **********************************************************
@@ -6742,170 +7067,6 @@ int main(int argc, char *argv[])
       }
     }
 
-
-    /* **********************************************************
-    *  test for { & }                                           *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 3 rct = %d Punch { }\n", rct);
-    }
-
-    if(convert == 0)
-    {
-      x1 = 0;
-      x2 = 0;
-
-      s = strlen(p_string);
-      for (I = 0; I < s; I++) 
-      {
-        ch = p_string[I];
-        if (ch == '{') 
-        {
-          x1++;
-        }
-
-        if (ch == '}') 
-        {
-          x2++;
-        }
-      }
-
-      if ((x1 > 0) || (x2 > 0)) 
-      {
-        if (inside_void == 2) 
-        {
-          function_ct = function_ct + x1;
-          function_ct = function_ct - x2;
-          if (traceflg == 1) 
-          {
-            strcpy(trace_1, "c2z.c pass 3 test function_ct ");
-            trace_rec_1();
-          }
-         
-          s = strlen(p_string);
-          for (I = 0; I < s; I++) 
-          {
-            ch = p_string[I];
-            if (ch == '{') 
-            {
-              bk1++;
-            }
-
-            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-            {
-              bk2++;
-            }
-          }
-
-          if (bk1 > 0) 
-          {
-            bk3 = bk1 + bk2;
-            s--;
-            if (s == bk3) 
-            {
-              /* convert = 1; */
-            }
-          }
-
-          bk1 = 0;
-          bk2 = 0;
-          bk3 = 0;
-          s = strlen(p_string);
-          for (I = 0; I < s; I++) 
-          {
-            ch = p_string[I];
-            if (ch == '}') 
-            {
-              bk1++;
-            }
-
-            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-            {
-              bk2++;
-            }
-          }
-
-          if (bk1 > 0) 
-          {
-            bk3 = bk1 + bk2;
-            s--;
-            if (s == bk3) 
-            {
-              /* convert = 1; */
-            }
-          }
-        }
-      }
-
-      if (if_case == 1) 
-      {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass 3 test if_case { }");
-          trace_rec_1();
-        }
-
-        case_parm_ct = case_parm_ct + x1;
-        case_parm_ct = case_parm_ct - x2;
-
-        s = strlen(p_string);
-        for (I = 0; I < s; I++) 
-        {
-          ch = p_string[I];
-          if (ch == '{') 
-          {
-            bk1++;
-          }
-          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-          {
-            bk2++;
-          }
-        }
-
-        if (bk1 > 0) 
-        {
-          bk3 = bk1 + bk2;
-          s--;
-          if (s == bk3) 
-          {
-            /* convert = 1; */
-          }
-        }
-
-        bk1 = 0;
-        bk2 = 0;
-        bk3 = 0;
-        s = strlen(p_string);
-        for (I = 0; I < s; I++) 
-        {
-          ch = p_string[I];
-          if (ch == '}') 
-          {
-            bk1++;
-          }
-          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-          {
-            bk2++;
-          }
-        }
-
-        if (bk1 > 0) 
-        {
-          bk3 = bk1 + bk2;
-          s--;
-          if (s == bk3) 
-          {
-            /*	convert = 1; */
-          }
-        }
-      }
-    }
 
 
     /* **********************************************************
@@ -7334,289 +7495,6 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* ************************************************************************
-    *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
-    *  program has been reached.  Punch out the end statement and all defines *
-    *  before processing an functions that may be defined.                    *
-    * *********************************************************************** */
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 3 rct = %d Punch end of main loop\n", rct);
-    }
-
-    if (parm_ct < 0)
-    {
-      parm_ct = 0;
-    }
-
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-    
-    if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
-    {
-      inside_main = 0;
-
-      strcpy(a_string, "C370EXIT DS    0H");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 punch C370EXIT");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         SUBEXIT");
-      src_line();
-      var_use[1]++;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 punch subexit");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*");
-      src_line();
-      var_use[1]++;
-      inside_main = 0;
-
-      convert = 1;
-    }
-
-
-    /* ***********************************************************
-    *  test rct against wif_table eof1 & eof2                    *
-    * ********************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 3 rct = %d L2 Punch wif_table eof1 & eof2 p_string = %s\n",rct, p_string);
-    }
-
-    p = strstr(p_string, "{");
-    if (p) 
-    {
-      goto wif_skip;
-    }
-
-    p = strstr(p_string, "}");
-    if (!p) 
-    {
-      goto wif_skip;
-    }
-
-    if (wif_ct > 0) 
-    {
-
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2.c IF End Label");
-      }
-
-      v = 0;
-      for (v = 0; v < wif_ct; v++) 
-      {
-        if ((rct == w_if_table[v].wif_eof1) && (w_if_table[v].wif_else1 == 0)) 
-        {
-          strcpy(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_rct);
-          strcat(a_string, wk_strg);
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End Label #1");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-        }
-
-        if ((rct == w_if_table[v].wif_eof1) && (w_if_table[v].wif_else1 != 0)) 
-        {
-          strcpy(a_string, "         JLU   ");
-          strcat(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_eof2);
-          strcat(a_string, wk_strg);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End Label #2");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_rct);
-          strcat(a_string, wk_strg);
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End Label #3");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-        }
-
-        if (rct == w_if_table[v].wif_eof2) 		/* punch out branch using eof2 */
-        {
-          strcpy(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_eof2);
-          strcat(a_string, wk_strg);
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End Label #4");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-        }
-      }
-    }
-
-    if (wh_ct > 0) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c while end label");
-        trace_rec_1();
-      }
-
-      for (v = 0; v < wh_ct; v++) 
-      {
-        if (rct == w_while_table[v].wh_eof1) 
-        {
-          for (v1 = 0; v1 < gv_ct; v1++) 
-          {
-            ret = strcmp("A", gw_variable[v1].gv_type);
-            if (ret == 0) 
-            {
-              strcpy(ar_field6, gw_variable[v1].gv_label);
-              strcpy(ar_field7, gw_variable[v1].gv_table);
-              strcpy(ar_field8, gw_variable[v1].gv_aname);
-              strcpy(ar_field9, gw_variable[v1].gv_sv_reg);
-              strcpy(ar_field10, gw_variable[v1].gv_wk_reg);
-              strcpy(ar_field11, gw_variable[v1].gv_wk_strg);
-
-              if (gw_variable[v1].gv_flag > 0) 
-              {
-                strcpy(a_string, "         LAEY  R6,");
-                strcat(a_string, ar_field6);
-                strcat(a_string, "(R0,R6)");
-                src_line();
-                if (puncde == 1) 
-                {
-                  strcpy(trace_1, "c2z.c WHILE End Label #1");
-                  trace_rec_3();
-                }
-                gw_variable[v1].gv_flag = 0;
-              }
-            }
-          }
-
-          strcpy(a_string, "         JLU   ");
-          strcat(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_while_table[v].wh_rct);
-          strcpy(o_string, wk_strg);
-          strcat(a_string, wk_strg);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #2");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "L");
-          strcat(a_string, o_string);
-          strcat(a_string, "E");
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #3");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-
-          strcpy(a_string, "         LARL  R9,C370NWK2");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #4");
-            trace_rec_3();
-          }
-          work_use_ct[50]++;
-
-          strcpy(a_string, "         LARL  R8,C370ZERO");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #5");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #6");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         LARL  R9,C370LPCT");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #7");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         LARL  R8,C370ZERO");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #8");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while end label #9");
-            trace_rec_3();
-          }
-          work_use_ct[73]++;
-        }
-      }
-    }
-
-  wif_skip:
 
 
     /* **********************************************************
@@ -7713,6 +7591,170 @@ int main(int argc, char *argv[])
             return_ct++;
           }
           break;
+        }
+      }
+    }
+
+    /* **********************************************************
+    *  test for { & }                                           *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch { }\n", rct);
+    }
+
+    if(convert == 0)
+    {
+      x1 = 0;
+      x2 = 0;
+
+      s = strlen(p_string);
+      for (I = 0; I < s; I++) 
+      {
+        ch = p_string[I];
+        if (ch == '{') 
+        {
+          x1++;
+        }
+
+        if (ch == '}') 
+        {
+          x2++;
+        }
+      }
+
+      if ((x1 > 0) || (x2 > 0)) 
+      {
+        if (inside_void == 2) 
+        {
+          function_ct = function_ct + x1;
+          function_ct = function_ct - x2;
+          if (traceflg == 1) 
+          {
+            strcpy(trace_1, "c2z.c pass 3 test function_ct ");
+            trace_rec_1();
+          }
+         
+          s = strlen(p_string);
+          for (I = 0; I < s; I++) 
+          {
+            ch = p_string[I];
+            if (ch == '{') 
+            {
+              bk1++;
+            }
+
+            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+            {
+              bk2++;
+            }
+          }
+
+          if (bk1 > 0) 
+          {
+            bk3 = bk1 + bk2;
+            s--;
+            if (s == bk3) 
+            {
+              /* convert = 1; */
+            }
+          }
+
+          bk1 = 0;
+          bk2 = 0;
+          bk3 = 0;
+          s = strlen(p_string);
+          for (I = 0; I < s; I++) 
+          {
+            ch = p_string[I];
+            if (ch == '}') 
+            {
+              bk1++;
+            }
+
+            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+            {
+              bk2++;
+            }
+          }
+
+          if (bk1 > 0) 
+          {
+            bk3 = bk1 + bk2;
+            s--;
+            if (s == bk3) 
+            {
+              /* convert = 1; */
+            }
+          }
+        }
+      }
+
+      if (if_case == 1) 
+      {
+        if (traceflg == 1) 
+        {
+          strcpy(trace_1, "c2z.c pass 3 test if_case { }");
+          trace_rec_1();
+        }
+
+        case_parm_ct = case_parm_ct + x1;
+        case_parm_ct = case_parm_ct - x2;
+
+        s = strlen(p_string);
+        for (I = 0; I < s; I++) 
+        {
+          ch = p_string[I];
+          if (ch == '{') 
+          {
+            bk1++;
+          }
+          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+          {
+            bk2++;
+          }
+        }
+
+        if (bk1 > 0) 
+        {
+          bk3 = bk1 + bk2;
+          s--;
+          if (s == bk3) 
+          {
+            /* convert = 1; */
+          }
+        }
+
+        bk1 = 0;
+        bk2 = 0;
+        bk3 = 0;
+        s = strlen(p_string);
+        for (I = 0; I < s; I++) 
+        {
+          ch = p_string[I];
+          if (ch == '}') 
+          {
+            bk1++;
+          }
+          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+          {
+            bk2++;
+          }
+        }
+
+        if (bk1 > 0) 
+        {
+          bk3 = bk1 + bk2;
+          s--;
+          if (s == bk3) 
+          {
+            /*	convert = 1; */
+          }
         }
       }
     }
@@ -9145,6 +9187,57 @@ int main(int argc, char *argv[])
       }
 
     }
+
+    /* ************************************************************************
+    *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
+    *  program has been reached.  Punch out the end statement and all defines *
+    *  before processing an functions that may be defined.                    *
+    * *********************************************************************** */
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch end of main loop\n", rct);
+    }
+
+    if (parm_ct < 0)
+    {
+      parm_ct = 0;
+    }
+
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+    
+    if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
+    {
+      inside_main = 0;
+
+      strcpy(a_string, "C370EXIT DS    0H");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 punch C370EXIT");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         SUBEXIT");
+      src_line();
+      var_use[1]++;
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 punch subexit");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "*");
+      src_line();
+      var_use[1]++;
+      inside_main = 0;
+
+      convert = 1;
+    }
+
 
 
   /* ************************************************************
