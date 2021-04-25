@@ -185,11 +185,9 @@ void goto_label_scan()
     strcpy(trace_1, "c2z_goto.c c2_goto_label_scan");
     trace_rec_1();
   }
-printf("c2z_goto.c goto_label_scan rct = %d p_string = %s",rct,p_string);
 
   char ch;
   char field1[VAR_LGTH];
-  char field1a[VAR_LGTH];
 
    int pi;
    int pi2;
@@ -213,7 +211,6 @@ printf("c2z_goto.c goto_label_scan rct = %d p_string = %s",rct,p_string);
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
-printf("c2z_goto.c goto_scan field1 = %s\n",field1);
 
   if (global_st == 0) 
   {

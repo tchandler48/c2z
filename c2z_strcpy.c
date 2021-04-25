@@ -67,6 +67,7 @@ void c2_strcpy(void)
     }
     if(ch == ']')
     {
+      x91++;
       x92++;
     }
     if(ch == '.')
@@ -98,9 +99,12 @@ void c2_strcpy(void)
     {
       x97++;
     }
-  }
+   }
 
-/* printf("c2z_strcpy.c #1 rct = %d x90 = %d x91 = %d x91a = %d x92 = %d x93 = %d x93a = %d  x94 = %d x94a = %d x95 = %d x96 = %d x97 = %d\n",rct,x90,x91,x91a,x92,x93,x93a,x94,x94a,x95,x96,x97); */   
+/*
+ printf("\nc2z_strcpy.c #1 rct = %d p_string = %s",rct,p_string);
+ printf("c2z_strcpy.c #1 x90 = %d x91 = %d x91a = %d x92 = %d x93 = %d x93a = %d  x94 = %d x94a = %d x95 = %d x96 = %d x97 = %d\n",x90,x91,x91a,x92,x93,x93a,x94,x94a,x95,x96,x97);    
+*/
 
   /*  c2_str_1				strcpy(cvalue, "123456");  				*/
   /*  c2_str_1                            strcpy(in_stack[t], "123456");			*/

@@ -185,6 +185,7 @@
 	void if_case_30(void);
        void if_case_40(void);
        void if_case_41(void);
+       void if_case_42(void);
 
 
 /*		c2z_incr.c		*/
@@ -1449,7 +1450,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
- /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
@@ -4268,8 +4269,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for break  */
 
+    /* ***************************************************************
+     *  Scan for break                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4291,8 +4294,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/*  Scan for return  */
 
+    /* ***************************************************************
+     *  Scan for return                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4321,8 +4326,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for exit  */
 
+    /* ***************************************************************
+     *  Scan for exit                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4344,8 +4351,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/*  Scan for ++  */
 
+    /* ***************************************************************
+     *  Scan for ++                                                  *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4366,8 +4375,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/*  Scan for --  */
 
+    /* ***************************************************************
+     *  Scan for --                                                  *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4389,8 +4400,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/*  Scan for strcpy  */
 
+    /* ***************************************************************
+     *  Scan for strcpy                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4420,8 +4433,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for strcat  */
 
+    /* ***************************************************************
+     *  Scan for strcat                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4451,8 +4466,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for strstr  */
 
+    /* ***************************************************************
+     *  Scan for strstr                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4477,8 +4494,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for enum  */
 
+    /* ***************************************************************
+     *  Scan for enum                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4499,9 +4518,9 @@ int main(int argc, char *argv[])
     }
 
 
-  
-/*  Scan for FILE  */
-
+    /* ***************************************************************
+     *  Scan for FILE                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4531,8 +4550,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for fopen  */
-
+    /* ***************************************************************
+     *  Scan for fopen                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4563,10 +4583,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
- 
 
-/*  Scan for fclose  */
-
+    /* ***************************************************************
+     *  Scan for fclose                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5718,7 +5738,6 @@ int main(int argc, char *argv[])
       parm_ct++;
       end_asm = 0;
       bracket_convert = 1;
-printf("c2z.c Pass 3 { rct = %d parm_ct = %d p_string = %s",rct,parm_ct,p_string);
     }
 
     p = strstr(p_string, "}");
@@ -5727,8 +5746,6 @@ printf("c2z.c Pass 3 { rct = %d parm_ct = %d p_string = %s",rct,parm_ct,p_string
       parm_ct--;
       end_asm = 0;
       bracket_convert = 1;
-printf("c2z.c Pass 3 } rct = %d parm_ct = %d p_string = %s",rct, parm_ct,p_string);
-
     }
 
     if(parm_ct < 1)
@@ -5736,10 +5753,6 @@ printf("c2z.c Pass 3 } rct = %d parm_ct = %d p_string = %s",rct, parm_ct,p_strin
       parm_ct = 0;
     }
 
-if(parm_ct == 0)
-{
-printf("c2z.c rct = %d p_string = %s",rct,p_string);
-}
 
     /* ************************************************************************
     *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
@@ -5751,11 +5764,6 @@ printf("c2z.c rct = %d p_string = %s",rct,p_string);
     {
       printf("c2z.c Pass 3 rct = %d Punch end of main loop\n", rct);
     }
-if((rct > 415) && (rct < 419))
-{
-printf("c2z.c #1 INSIDE EXIT rct = %d p_string = %s",rct,p_string);
-printf("c2z.c #1 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_ct);
-}
 
     if (parm_ct == 0)
     {
@@ -5769,8 +5777,6 @@ printf("c2z.c #1 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_
     
     if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
     {
-printf("c2z.c #2 INSIDE EXIT rct = %d p_string = %s",rct,p_string);
-printf("c2z.c #2 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_ct);
       inside_main = 0;
 
       strcpy(a_string, "C370EXIT DS    0H");
@@ -5797,6 +5803,109 @@ printf("c2z.c #2 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_
 
       convert = 1;
     }
+
+    /* **********************************************************
+    *  FOR loop END                                             * 
+    *  If inside_for == 1 & for_parm == 0, end if loop of the C *
+    *  for loop has been reached.  Punch out branch   equ label *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch for loop end\n", rct);
+    }
+
+    if (traceflg == 1) 
+    {
+      strcpy(trace_1, "c2.c For Loop End");
+      trace_rec_1();
+    }
+
+    v = 0;
+    for (v = 0; v < for_ct; v++) 
+    {
+      if (rct == w_for_table[v].for_eof1) 
+      {
+        strcpy(a_string, "         LARL  R9,");
+        strcat(a_string, w_for_table[v].for_rt_field);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #1");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R8,C370ONE");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #2");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #3");
+          trace_rec_3();
+        }
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
+        strcpy(a_string, "         JLU   L");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #4");
+          trace_rec_3();
+        }
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
+        strcpy(a_string, "L");
+        strcat(a_string, wk_strg);
+        strcat(a_string, "E");
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #5");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R9,C370LPCT");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #6");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R8,C370ZERO");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #7");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z.c FOR/End Loop #8");
+          trace_rec_3();
+        }
+        convert = 1;
+        break;
+      }
+   }
+
 
     /* ***********************************************************
     *  test rct against wif_table eof1 & eof2                    *
@@ -5933,6 +6042,7 @@ printf("c2z.c #2 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_
               strcpy(ar_field9, gw_variable[v1].gv_sv_reg);
               strcpy(ar_field10, gw_variable[v1].gv_wk_reg);
               strcpy(ar_field11, gw_variable[v1].gv_wk_strg);
+              convert = 1;
 
               if (gw_variable[v1].gv_flag > 0) 
               {
@@ -6031,7 +6141,6 @@ printf("c2z.c #2 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_
           work_use_ct[73]++;
           convert = 1;
         }
-        convert = 1;
       }
     }
 
@@ -6874,108 +6983,6 @@ printf("c2z.c #2 INSIDE EXIT inside_main = %d parm_ct = %d\n",inside_main, parm_
       }
     }
 
-
-    /* **********************************************************
-    *  FOR loop END                                             * 
-    *  If inside_for == 1 & for_parm == 0, end if loop of the C *
-    *  for loop has been reached.  Punch out branch   equ label *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 3 rct = %d Punch for loop end\n", rct);
-    }
-
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2.c For Loop End");
-      trace_rec_1();
-    }
-
-    v = 0;
-    for (v = 0; v < for_ct; v++) 
-    {
-      if (rct == w_for_table[v].for_eof1) 
-      {
-        strcpy(a_string, "         LARL  R9,");
-        strcat(a_string, w_for_table[v].for_rt_field);
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #1");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R8,C370ONE");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #2");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #3");
-          trace_rec_3();
-        }
-
-        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
-        strcpy(a_string, "         JLU   L");
-        strcat(a_string, wk_strg);
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #4");
-          trace_rec_3();
-        }
-
-        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
-        strcpy(a_string, "L");
-        strcat(a_string, wk_strg);
-        strcat(a_string, "E");
-        check_length();
-        strcat(a_string, "DS    0H");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #5");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R9,C370LPCT");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #6");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R8,C370ZERO");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #7");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End Loop #8");
-          trace_rec_3();
-        }
-        convert = 1;
-        break;
-      }
-   }
 
 
     /* **********************************************************

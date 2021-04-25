@@ -1571,6 +1571,12 @@ void c2_math_2()
     field3[pi2] = '\0';
   }
 
+printf("c2z_math.c math_2 rct = %d p_string = %s",rct,p_string);
+printf("c2z_math.c math_2 field1 = %s\n",field1);
+printf("c2z_math.c math_2 field2 = %s fd2_type = %d\n",field2,fd2_type);
+printf("c2z_math.c math_2 field3 = %s fd3_type = %d\n",field3,fd3_type);
+
+
   if ((fd1_type == 2) && (fd2_type == 5)) 			/* x = gw_variable[gv_ct].gv_lgth */
   {
     x81 = 0;

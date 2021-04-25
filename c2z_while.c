@@ -3148,6 +3148,8 @@ void c2_while_4()			 /* < */
   int ret1 = 0;
   int s = 0;
   int I = 0;
+  int x2;
+  int fd3_type = 0;
   int x10 = 0;
   int x11 = 0;
   int x12 = 0;
@@ -3237,6 +3239,8 @@ void c2_while_4()			 /* < */
     }
 
     x80 = 0;
+    fd3_type = 0;
+    x2 = 0;
     pi2 = 0;
     while (ch != ')') 
     {
@@ -3247,6 +3251,19 @@ void c2_while_4()			 /* < */
       }
       if (ch != ' ') 
       {
+        if (x2 == 0) 
+        {
+          if (isalpha(ch)) 
+          {
+            fd3_type = 1;
+            x2 = 1;
+          }
+          if (isdigit(ch)) 
+          {
+            fd3_type = 2;
+            x2 = 1;
+          }
+        }
         tfield3[pi2] = ch;
         pi2++;
       }
@@ -3539,6 +3556,8 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
       return;
     }
 
+
+
     if (x80 == 0) 
     {
       if (traceflg == 1) 
@@ -3589,46 +3608,49 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
         return;
       }
 
-      wh_3 = 0;
-      if (lv_ct > 0) 
+      if(fd3_type == 1)
       {
-        for (v = 0; v < lv_ct; v++) 
+        wh_3 = 0;
+        if (lv_ct > 0) 
         {
-          ret = strcmp(tfield3, lw_variable[v].lv_name);
-          ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-          if ((ret == 0) && (ret1 == 0)) 
+          for (v = 0; v < lv_ct; v++) 
           {
-            wh_3 = 1;
-            strcpy(tfield3a, lw_variable[v].lv_cname);
-            lw_variable[v].lv_use_ct++;
-          }
-        }
-      }
-
-      if (wh_3 == 0) 
-      {
-        if (gv_ct > 0) 
-        {
-          for (v = 0; v < gv_ct; v++) 
-          {
-            wh_4 = strcmp(tfield3, gw_variable[v].gv_name);
-            if (wh_4 == 0) 
+            ret = strcmp(tfield3, lw_variable[v].lv_name);
+            ret1 = strcmp(sv_func, lw_variable[v].lv_func);
+            if ((ret == 0) && (ret1 == 0)) 
             {
               wh_3 = 1;
-              strcpy(tfield3a, gw_variable[v].gv_cname);
-              gw_variable[v].gv_use_ct++;
+              strcpy(tfield3a, lw_variable[v].lv_cname);
+              lw_variable[v].lv_use_ct++;
             }
           }
         }
-      }
 
-      if (wh_3 == 0) 
-      {
-        printf("\nc2z_while.c c2_while_4 while-041 tfield3 Not Found = %s\n",tfield3);
-        printf("c2z_while.c c2_while_4 rct = %d p_string = %s", rct, p_string);
-        erct++;
-        convert = 1;
-        return;
+        if (wh_3 == 0) 
+        {
+          if (gv_ct > 0) 
+          {
+            for (v = 0; v < gv_ct; v++) 
+            {
+              wh_4 = strcmp(tfield3, gw_variable[v].gv_name);
+              if (wh_4 == 0) 
+              {
+                wh_3 = 1;
+                strcpy(tfield3a, gw_variable[v].gv_cname);
+                gw_variable[v].gv_use_ct++;
+              }
+            }
+          }
+        }
+
+        if (wh_3 == 0) 
+        {
+          printf("\nc2z_while.c c2_while_4 while-041 tfield3 Not Found = %s\n",tfield3);
+          printf("c2z_while.c c2_while_4 rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
       }
 
       snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
@@ -3653,13 +3675,78 @@ printf("c2z_while.c while_4 tfield3 = %s\n",tfield3);
         trace_rec_3();
       }
 
-      strcpy(a_string, "         LARL  R8,");
-      strcat(a_string, tfield3a);
-      src_line();
-      if (puncde == 1) 
+      if(fd3_type == 1)
       {
-        strcpy(trace_1, "c2z_while.c c2_while_4 #3");
-        trace_rec_3();
+        strcpy(a_string, "         LARL  R8,");
+        strcat(a_string, tfield3a);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3");
+          trace_rec_3();
+        }
+      }
+
+      if(fd3_type == 2)
+      {
+        strcpy(a_string, "         LAEY  R5,");
+        strcat(a_string, tfield3);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3a");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R7,C370U");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3b");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         CVD   R5,0(R7)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3c");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R8,C370NWK1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3d");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R7,C370U");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3e");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c c2_while_4 #3f");
+          trace_rec_3();
+        }
+
+
+/*3  3      c2z_math.c c2_math_1 #13                 LAEY  R5,0                            0                    0000099
+3  3      c2z_math.c c2_math_1 #14                 LARL  R7,C370U                                                 0000100
+3  3      c2z_math.c c2_math_1 #15                 CVD   R5,0(R7)                                                 0000101
+3  3      c2z_math.c c2_math_1 #16                 LARL  R8,C370NWK1                                              0000102
+3  3      c2z_math.c c2_math_1 #17                 LARL  R7,C370U                                                 0000103
+3  3      c2z_math.c c2_math_1 #18                 ZAP   0(6,R8),0(8,R7)                                          0000104
+*/
+
       }
 
       strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
