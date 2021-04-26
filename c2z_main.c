@@ -35,6 +35,7 @@ void c2_main()
      convert = 1;
      return;
   }
+
   pi = 0;
   ch = p_string[pi];
   while (ch != '(') 

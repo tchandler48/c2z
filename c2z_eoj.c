@@ -4351,11 +4351,27 @@ void c2_eoj()
     strcpy(trace_1, "c2z Parser Var #155");
     trace_rec_3();
   }
+  
+  if(tot_localtime > 0)
+  {
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();  
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #154");
+      trace_rec_3();
+    }
 
-
-
-
-
+    strcpy(a_string, "C370TIME DC    CL29' '");
+    strcpy(wk_remark, "TIME-DATE */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #155");
+      trace_rec_3();
+    }
+  }
 
   strcpy(a_string, "         DS    0H");
   strcpy(wk_remark, "c2z gen variable  */");
@@ -4524,6 +4540,27 @@ void c2_eoj()
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z Parser Var #169");
+      trace_rec_3();
+    }
+  }
+
+ if (work_use_ct[89] > 0) 
+  {
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #164");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "C370M02  DC    PL6'0'"); 
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #165");
       trace_rec_3();
     }
   }

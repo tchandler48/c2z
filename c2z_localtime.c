@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z  : c2z_localtime.c :                          *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -14,33 +14,15 @@ void c2_localtime()
     strcpy(trace_1, "c2z_localtime.c c2_localtime");
     trace_rec_1();
   }
+
+  strcpy(a_string, "         TIME  TS,C370TIME");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_int.c c2_localtime #1");
+    trace_rec_3();
+  }
   convert = 1;
+  return;
 }
 
-
-/*
-#include <stdio.h>
-#include <time.h>
-
-
-int main(void)
-{
-    time_t     now;
-    struct tm *ts;
-    char       buf[80];
-
-  
-    now = time(NULL);
-
-   * Format and print the time, "ddd yyyy-mm-dd hh:mm:ss zzz" 
-    ts = localtime(&now);
-    strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", ts);
-    puts(buf);
-
-    return 0;
-}
-
- * The result should look something like
- * Fri 2008-08-22 15:21:59 WAST
-
-*/

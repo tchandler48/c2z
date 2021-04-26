@@ -16,8 +16,6 @@ void c2_while(void)
     trace_rec_1();
   }
 
-  /* pgm_label(); */
-
   char ch;
   char *p;
   char tfield1[VAR_LGTH];
@@ -159,6 +157,25 @@ void c2_while(void)
   {
     while_opr = 99;
     while_test = 1;
+  }
+
+  p = strstr(p_string, "(1)");
+  if(p)
+  {
+    strcpy(a_string, "L");
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcat(a_string, wk_strg);
+    check_length();
+    strcat(a_string, "DS    0H");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c while(1) #1");
+      trace_rec_3();
+    }
+
+    convert = 1;
+    return;
   }
 
   if ((while_opr == 99) && (while_convert == 0)) 	/* while((ch == 1) */

@@ -253,6 +253,7 @@
        void c2_math_100(void);
        void c2_math_600(void);
        void c2_math_601(void);
+       void c2_math_700(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -628,7 +629,7 @@ char from_sv[24];
 
 /* compiler generated fields usage counter			*/
 
-int work_use_ct[88];
+int work_use_ct[90];
 
 /* *************************************************************
 *   1		=	C370ISAL	2	=	C370L1	       *
@@ -674,6 +675,7 @@ int work_use_ct[88];
 *  81		=	C370COLN      82     =      C370NONE      *
 *  83         =      C370EDW7      84     =      C370EDW9      *
 *  85         =      C370DTTM                                  *
+*  89         =      C370M02                                   *
 ************************************************************* */
 
  int tot_localtime = 0;
@@ -3450,6 +3452,12 @@ int main(int argc, char *argv[])
     p2 = strstr(p_string, "fprintf");  
     p3 = strstr(p_string, "_int"); 
     if ((p) && (!p1) && (!p2) && (!p3) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "localtime");
+    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
@@ -6471,6 +6479,17 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
+    if ((p) && (p3) && (p4) && (p4) && (s < v) && (convert == 0)) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 Prototype #6d");
+        trace_rec_1();
+      }
+      c2_func_sub();
+      convert = 1;
+    }
+
     p = strstr(p_string, "long");
     p1 = strstr(p_string, ";");
     p3 = strstr(p_string, "(");
@@ -6647,7 +6666,8 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "struct");
-    if (p) 
+    p1 = strstr(p_string, "localtime");
+    if((p) && (!p1)) 
     {
       if (debug_lv >= 2) 
       {
