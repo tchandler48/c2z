@@ -23989,12 +23989,408 @@ void c2_math_700()
     trace_rec_1();
   }
 
+  char *p;
+  char ch;
+  char field1[VAR_LGTH];
+  char field1a[VAR_LGTH];
+
+   int pi;
+   int pi2;
+   int x3;
+   int I;
+   int ret;
+   int ret1;
+
+  p = strstr(p_string, "tm_mday");
+  if(p)
+  {
 printf("c2z.math.c math_700 rct = %d p_string = %s",rct,p_string);
 
+    pi = 0;
+    ch = p_string[pi];
+    while((ch == ' ') || (ch == '\t'))
+    {
+      pi++;
+      ch = p_string[pi];
+    }
 
+    pi2 = 0;
+    while(ch != ' ')
+    {
+      field1[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field1[pi2] = '\0';
+printf("c2z_math.c c2_math_700 tm_year field1 = %s\n",field1);
 
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        x3 = 1;
+        strcpy(field1a,lw_variable[I].lv_cname);
+        break;
+      }
+    }
 
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(field1a, gw_variable[I].gv_cname);
+          break;
+        }
+      }
+    }
 
+    if (x3 == 0) 
+    {
+      printf("\nc2z_math.c c2_math_700 E-701 field1 Not Found = %s\n",field1);
+      printf("c2z_math.c c2_math_700 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field1a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field1);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #10");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370TIME");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #11");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         MVC   0(2,R9),8(R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #12");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370EOF");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #11");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         MVC   2(1,R9),0(R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #12");
+      trace_rec_3();
+    }
+
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        x3 = 1;
+        lw_variable[I].lv_current_lgth = 2;
+        break;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          gw_variable[I].gv_current_lgth = 2;
+          break;
+        }
+      }
+    }
+    return;
+  }
+
+  p = strstr(p_string, "tm_mon");
+  if(p)
+  {
+printf("c2z.math.c math_700 rct = %d p_string = %s",rct,p_string);
+
+    pi = 0;
+    ch = p_string[pi];
+    while((ch == ' ') || (ch == '\t'))
+    {
+      pi++;
+      ch = p_string[pi];
+    }
+
+    pi2 = 0;
+    while(ch != ' ')
+    {
+      field1[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field1[pi2] = '\0';
+printf("c2z_math.c c2_math_700 tm_year field1 = %s\n",field1);
+
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        x3 = 1;
+        strcpy(field1a,lw_variable[I].lv_cname);
+        break;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(field1a, gw_variable[I].gv_cname);
+          break;
+        }
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      printf("\nc2z_math.c c2_math_700 E-701 field1 Not Found = %s\n",field1);
+      printf("c2z_math.c c2_math_700 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field1a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field1);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #20");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370TIME");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #21");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         MVC   0(2,R9),5(R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #22");
+      trace_rec_3();
+    }
+
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        x3 = 1;
+        lw_variable[I].lv_current_lgth = 2;
+        break;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          gw_variable[I].gv_current_lgth = 2;
+          break;
+        }
+      }
+    }
+    return;
+  }
+
+  p = strstr(p_string, "tm_year");
+  if(p)
+  {
+printf("c2z.math.c math_700 rct = %d p_string = %s",rct,p_string);
+
+    pi = 0;
+    ch = p_string[pi];
+    while((ch == ' ') || (ch == '\t'))
+    {
+      pi++;
+      ch = p_string[pi];
+    }
+
+    pi2 = 0;
+    while(ch != ' ')
+    {
+      field1[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field1[pi2] = '\0';
+printf("c2z_math.c c2_math_700 tm_year field1 = %s\n",field1);
+
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        x3 = 1;
+        strcpy(field1a,lw_variable[I].lv_cname);
+        break;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(field1a, gw_variable[I].gv_cname);
+          break;
+        }
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      printf("\nc2z_math.c c2_math_700 E-703 field1 Not Found = %s\n",field1);
+      printf("c2z_math.c c2_math_700 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field1a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field1);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #30");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370TIME");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #31");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         MVC   0(4,R9),0(R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c c2_math_700 #32");
+      trace_rec_3();
+    }
+
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        x3 = 1;
+        lw_variable[I].lv_current_lgth = 4;
+        break;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          gw_variable[I].gv_current_lgth = 4;
+          break;
+        }
+      }
+    }
+    return;
+  }
+
+  p = strstr(p_string, "tm_hour");
+  if(p)
+  {
+    return;
+  }
+
+  p = strstr(p_string, "tm_min");
+  if(p)
+  {
+    return;
+  }
+
+  p = strstr(p_string, "tm_sec");
+  if(p)
+  {
+    return;
+  }
 
 }
 

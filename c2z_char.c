@@ -542,7 +542,7 @@ void c2_char_1()
         strcpy(gw_variable[gv_ct].gv_type, "C");
         s = atoi(tfield3a);
         gw_variable[gv_ct].gv_lgth = s;
-        gw_variable[gv_ct].gv_current_lgth = s;
+        gw_variable[gv_ct].gv_current_lgth = 0;
         strcpy(gw_variable[gv_ct].gv_value, null_field);
         strcpy(gw_variable[gv_ct].gv_literal, null_field);
         gw_variable[gv_ct].gv_init = 0;
