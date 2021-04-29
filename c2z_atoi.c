@@ -273,6 +273,7 @@ void c2_atoi(void)
       {
         x3 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
+        x9 = lw_variable[I].lv_current_lgth;
       }
     }
 
@@ -285,6 +286,7 @@ void c2_atoi(void)
         {
           x3 = 1;
           strcpy(field2a, gw_variable[I].gv_cname);
+          x9 = gw_variable[I].gv_current_lgth;
         }
       }
     }
@@ -308,6 +310,7 @@ void c2_atoi(void)
       {
         x3 = 1;
         strcpy(field3a, lw_variable[I].lv_cname);
+        x9 = lw_variable[I].lv_current_lgth;
       }
     }
 
@@ -320,7 +323,7 @@ void c2_atoi(void)
         {
           x3 = 1;
           strcpy(field3a, gw_variable[I].gv_cname);
-          x9 = gw_variable[I].gv_lgth;
+          x9 = gw_variable[I].gv_current_lgth;
         }
       }
     }
@@ -334,10 +337,10 @@ void c2_atoi(void)
       return;
     }
 
-    if(x9 > 8)
+ /*   if(x9 > 8)
     {
       x9 = 8;
-    }
+    } */
 
     strcpy(a_string, "         LARL  R9,C370L8");
     src_line();
@@ -465,7 +468,7 @@ void c2_atoi(void)
     }
     work_use_ct[74]++;
 
-    x9 = 0;
+    /* x9 = 0; */
     strcpy(a_string, "         CLC   0(1,R9),0(R7)");
     src_line();
     if (puncde == 1) 
@@ -1401,7 +1404,7 @@ void c2_atoi(void)
   if((x30 == 0) && (x31 == 0))
   {
 
-    x9 = 8;
+  /*  x9 = 8; */
   
     strcpy(a_string, "         LARL  R9,C370L8");
     src_line();
@@ -1529,7 +1532,7 @@ void c2_atoi(void)
     }
     work_use_ct[74]++;
 
-    x9 = 0;
+  /*  x9 = 0; */
     strcpy(a_string, "         CLC   0(1,R9),0(R7)");
     src_line();
     if (puncde == 1) 
@@ -1602,7 +1605,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "B");
     src_line();
     if (puncde == 1) 
     {
@@ -1642,7 +1645,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "C");
     src_line();
     if (puncde == 1) 
     {
@@ -1682,7 +1685,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "D");
     src_line();
     if (puncde == 1) 
     {
@@ -1722,7 +1725,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "E");
     src_line();
     if (puncde == 1) 
     {
@@ -1762,7 +1765,7 @@ void c2_atoi(void)
   strcat(a_string, "L");
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
   strcat(a_string, wk_strg);
-  strcat(a_string, "A");
+  strcat(a_string, "F");
   src_line();
   if (puncde == 1) 
   {

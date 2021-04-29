@@ -126,7 +126,10 @@ void c2_case(void)
     {
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field1a);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, field1);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_case.c c2_case #2");
@@ -150,7 +153,7 @@ void c2_case(void)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_case.c c2_case #6");
+          strcpy(trace_1, "c2z_case.c c2_case #3");
           trace_rec_3();
         }
 
@@ -158,7 +161,7 @@ void c2_case(void)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_case.c c2_case #7");
+          strcpy(trace_1, "c2z_case.c c2_case #4");
           trace_rec_3();
         }
         work_use_ct[82]++;
@@ -167,7 +170,7 @@ void c2_case(void)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_case.c c2_case #8");
+          strcpy(trace_1, "c2z_case.c c2_case #5");
           trace_rec_3();
         }
         work_use_ct[81]++;
@@ -240,7 +243,7 @@ void c2_case(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_case.c c2_case #5");
+      strcpy(trace_1, "c2z_case.c c2_case #12");
       trace_rec_3();
     }
   }
@@ -260,7 +263,7 @@ void c2_case(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_case.c c2_case #6");
+      strcpy(trace_1, "c2z_case.c c2_case #13");
       trace_rec_3();
     }
   }
@@ -292,7 +295,7 @@ void c2_case(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #31");
+      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #14");
       trace_rec_3();
     }
 
@@ -310,7 +313,7 @@ void c2_case(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #32");
+      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #15");
       trace_rec_3();
     }
 
@@ -319,7 +322,7 @@ void c2_case(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #33");
+      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #16");
       trace_rec_3();
     }
 
@@ -328,7 +331,7 @@ void c2_case(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #34");
+      strcpy(trace_1, "c2z_case.c c2_case fd1_type == 0 #17");
       trace_rec_3();
     }
   }

@@ -186,6 +186,7 @@
        void if_case_40(void);
        void if_case_41(void);
        void if_case_42(void);
+       void if_case_43(void);
 
 
 /*		c2z_incr.c		*/
@@ -372,6 +373,7 @@
 	void c2_snprintf(void);
        void c2_printf_float(void);
        void c2_printf_literal(void);
+       void c2_printf_2ds(void);
 
 
 /* 	       c2z_punch_macro.c	*/
@@ -686,7 +688,6 @@ int work_use_ct[90];
  int tot_arr = 1;
  int p_eol = 0;
  int p_ln_ct = 0;
-
  int tot_for = 0;
  int tot_while = 0;
  int tot_strchr = 0;
@@ -701,6 +702,12 @@ int work_use_ct[90];
  int tot_memmove = 0;
  int tot_case = 0;
  int tot_switch = 0;
+ int p100 = 0;
+ int p101 = 0;
+ int p101d = 0;
+ int p101s = 0;
+ int p102 = 0;
+ int p103 = 0;
 
  int array_rows = 17; 				/* array row count			*/
 
@@ -1071,13 +1078,7 @@ struct bad_rec *w_bad_rec;
 #include "c2z_parameter.c"
 #include "c2z_pass_2.c"
 #include "c2z_pass_3.c"
-
 #include "c2z_print.c"
-
-/*
-#include "c2z_testprint.c"
-*/
-
 #include "c2z_realloc.c"
 #include "c2z_return.c"
 #include "c2z_scanf.c"
@@ -9047,7 +9048,7 @@ int main(int argc, char *argv[])
       s = 9999;
     }
 
-    if ((p) && (v < s))  
+    if (p)  
     {
       if (debug_lv >= 2) 
       {

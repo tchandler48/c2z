@@ -22,7 +22,6 @@ void c2_strcat(void)
   char tfield2[VAR_LGTH];
   char tfield2a[VAR_LGTH];
   char tfield3[VAR_LGTH];
-  char tfield3a[VAR_LGTH];
 
   char ar_field5[12];
   char ar_field6[12];
@@ -44,7 +43,6 @@ void c2_strcat(void)
   int ret = 0;
   int ret1 = 0;
   int s = 0;
-  int size = 0;
   int fd2_type = 0;
 
   x80 = 0;
