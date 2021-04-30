@@ -22,6 +22,7 @@ void c2_for(void)
   char tfield1[VAR_LGTH];
   char tfield1a[VAR_LGTH];
   char tfield2[VAR_LGTH];
+  char tfield2a[VAR_LGTH];
   char tfield3[VAR_LGTH];
   char tfield3a[VAR_LGTH];
   char tfield4[VAR_LGTH];
@@ -236,16 +237,66 @@ void c2_for(void)
  
     if (fd2_type == 1) 
     {
-      if (traceflg == 1) 
+      x3 = 0;
+      x2 = 0;
+      for (I = 0; I < lv_ct; I++) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for subroutine #2");
-        trace_rec_1();
+        ret = strcmp(tfield2, lw_variable[I].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          ret2 = strcmp("I", lw_variable[I].lv_type);
+          if (ret2 != 0) 
+          {
+            printf("\nc2z_for.c c2_for E-60 tfield2 Not Numeric %s\n", tfield2);
+            printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+            erct++;
+            convert = 1;
+            return;
+          }
+          x3 = 1;
+          strcpy(tfield2a, lw_variable[I].lv_cname);
+          lw_variable[I].lv_use_ct++;
+        }
       }
 
+      if (x3 == 0) 
+      {
+        x3 = 0;
+        for (I = 0; I < gv_ct; I++) 
+        {
+          ret = strcmp(tfield2, gw_variable[I].gv_name);
+          if (ret == 0) 
+          {
+            ret1 = strcmp(gw_variable[I].gv_type, "I");
+            if (ret1 != 0) 
+            {
+              printf("\nc2z_for.c c2_for E-61 tfield2 Not Numeric %s\n", tfield2);
+              printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+              erct++;
+              convert = 1;
+              return;
+            }
+            x3 = 1;
+            strcpy(tfield2a, gw_variable[I].gv_cname);
+            gw_variable[I].gv_use_ct++;
+          }
+        }
+      }
+
+      if (x3 == 0) 
+      {
+        printf("\nc2z_for.c c2_for E-62 tfield5 Not Found = %s\n", tfield5);
+        printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+  
       strcpy(a_string, "         LARL  R8,");
-      strcat(a_string, tfield1a);
+      strcat(a_string, tfield2a);
       strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
+      strcat(wk_remark, tfield2);
       strcat(wk_remark, " */");
       write_remark();
       if (puncde == 1) 

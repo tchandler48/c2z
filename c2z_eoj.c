@@ -4280,6 +4280,49 @@ void c2_eoj()
     }
   }
 
+  if (work_use_ct[90] > 0) 
+  {
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();  
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #154");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "C370TUC  DC    C'ABCDEFGHIJKLMNOPQRSTUVWXYZ'");
+    strcpy(wk_remark, "c2z gen variable */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #155");
+      trace_rec_3();
+    }
+  }
+
+  if (work_use_ct[91] > 0) 
+  {
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();  
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #154");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "C370TLC  DC    C'abcdefghijklmnopqrstuvwxyz'");
+    strcpy(wk_remark, "c2z gen variable */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #155");
+      trace_rec_3();
+    }
+  }
+
+
   strcpy(a_string, "         DS    0H");
   strcpy(wk_remark, "c2z gen variable  */");
   write_short();  

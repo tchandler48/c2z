@@ -6,7 +6,7 @@
 **************************************************** */
 
 /* ***************************************************
-*  Punch out FPRINTF conversion.                     *
+*  Punch out PRINTF conversion.                      *
 * ************************************************** */
 void c2_printf() 
 {
@@ -16,8 +16,10 @@ void c2_printf()
     trace_rec_1();
   }
 
-  int s = 0;
-  int I = 0;
+  char *p;
+
+   int s = 0;
+   int I = 0;
 
   p100 = 0;
   p101 = 0;
@@ -25,6 +27,7 @@ void c2_printf()
   p101s = 0;
   p102 = 0;
   p103 = 0;
+  p104 = 0;		/* toupper */
   s = strlen(p_string);
   for (I = 0; I < s; I++) 
   {
@@ -42,6 +45,10 @@ void c2_printf()
       if(p_string[I+1] == 'd')
       {
         p101d++;
+      }
+      if(p_string[I+1] == 'c')
+      {
+        p101s++;
       }
       if(isdigit(p_string[I+1]))
       {
@@ -71,10 +78,19 @@ printf("c2z_testprint.c INSIDE #3 format s\n");
       p103++;
     }
   }
+
+  p = strstr(p_string, "toupper");
+  if(p)
+  {
+    p104++;
+  }
+
+
 /*
  printf("c2z_testprint.c rct = %d p_string = %s",rct,p_string);
  printf("c2z_testprint.c p_ln_ct = %d p100 = %d p101 = %d p101d = %d p101s = %d p102 = %d p103 = %d\n",p_ln_ct, p100,p101,p101d,p101s,p102,p103); 
 */
+
   if (p100 != 2) 
   {
     printf("c2_fprintf Missing Starting Quote\n");
@@ -83,26 +99,15 @@ printf("c2z_testprint.c INSIDE #3 format s\n");
     exit(1);
   }
 
+  
+
   /* **********************************************************************************
-   * p101 = 0  p102 = 2  p103 = 0	 	    Literal ONLY                            *
+   * p101 = 0  p102 = 2  p103 = 0	 	             Literal ONLY                   *
    * p101 = 1  p101 = 1  p101s = 1 p102 = 2  p103 = 0  Simple %s ONLY                 *
-   * p101 = 1  p101s = 1 p103 = 6             2ds array                               *
-   * p100 = 2  p101 = 1  p101d = 1 p101s = 0 p103 = 0 Simple %d ONLY                  *
+   * p101 = 1  p101s = 1 p103 = 6                      2ds alpha array                *
+   * p100 = 2  p101 = 1  p101d = 1 p101s = 0 p103 = 0  Simple %d ONLY                 *
+   * p100 = 2  p101s = 1 p104 = 1                      toupper                        *
    * ******************************************************************************** */
-
-  if((p100 == 2) && (p101 == 0) && (p103 == 0))
-  {
-    c2_printf_literal();
-    convert = 1;
-    return;
-  }
-
-  if((p100 == 2) && (p101 == 1) && (p101s == 1) && (p103 == 0))
-  {
-    c2_printf_string();
-    convert = 1;
-    return;
-  }
 
   if((p101 == 1) && (p101s == 1) && (p103 == 6))
   {
@@ -111,7 +116,29 @@ printf("c2z_testprint.c INSIDE #3 format s\n");
     return;
   }
 
-  if((p100 == 2) && (p101 == 1) && (p101d == 1) && (p101s == 0) && (p103 == 0))
+  if((p100 == 2) && (p101s == 1) && (p104 == 1))		/* toupper */
+  {
+    c2_printf_toupper();
+    convert = 1;
+    return;
+  }
+
+  /*  the next three must be LAST in the list */
+  if((p100 == 2) && (p101 == 0) && (p103 == 0))		/* literal only */
+  {
+    c2_printf_literal();
+    convert = 1;
+    return;
+  }
+
+  if((p100 == 2) && (p101 == 1) && (p101s == 1) && (p103 == 0))	/* simple string */
+  {
+    c2_printf_string();
+    convert = 1;
+    return;
+  }
+
+  if((p100 == 2) && (p101 == 1) && (p101d == 1) && (p101s == 0) && (p103 == 0))	/* simple numeric */
   {
     c2_printf_numeric();
     convert = 1;
@@ -330,7 +357,6 @@ void c2_printf_string()
   strcpy(field1, "L");
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
   strcat(field1, wk_strg);
-printf("c2z_testprint.c string field1 = %s\n",field1);
 
   x3 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -2544,4 +2570,21 @@ void c2_printf_numeric()
   convert = 1;
   return;
 }
+
+
+void c2_printf_toupper()
+{
+   if (traceflg == 1) 
+   {
+     strcpy(trace_1, "c2z_print.c c2_print_toupper");
+     trace_rec_1();
+   }
+printf("c2z_printf.c c2_print_touuper rct = %d p_string = %s",rct,p_string);
+
+   convert = 1;
+   return;
+}
+
+
+
 

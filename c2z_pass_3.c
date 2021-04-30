@@ -661,11 +661,6 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-
-
-
-
-
   strcpy(a_string, "*");
   src_line();
   if (puncde == 1) 
@@ -985,25 +980,6 @@ void c2_pass_3()
         trace_rec_3();
       }
     }
-  }
-
-  strcpy(a_string, "*");
-  src_line();
-
-  strcpy(a_string, "C370END  DS    0H");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z.c Generated #60");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "         SUBEXIT");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z.c Generated #61");
-    trace_rec_3();
   }
 
   strcpy(a_string,"******************************************************************");

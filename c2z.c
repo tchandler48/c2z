@@ -222,6 +222,7 @@
 
 /*		c2z_isupper.c		*/
 	void c2_isupper(void);
+       void c2_toupper(void);
 
 
 /*            c2z_main.c           */
@@ -374,6 +375,7 @@
        void c2_printf_float(void);
        void c2_printf_literal(void);
        void c2_printf_2ds(void);
+       void c2_printf_toupper(void);
 
 
 /* 	       c2z_punch_macro.c	*/
@@ -631,7 +633,7 @@ char from_sv[24];
 
 /* compiler generated fields usage counter			*/
 
-int work_use_ct[90];
+int work_use_ct[92];
 
 /* *************************************************************
 *   1		=	C370ISAL	2	=	C370L1	       *
@@ -677,7 +679,8 @@ int work_use_ct[90];
 *  81		=	C370COLN      82     =      C370NONE      *
 *  83         =      C370EDW7      84     =      C370EDW9      *
 *  85         =      C370DTTM                                  *
-*  89         =      C370M02                                   *
+*  89         =      C370M02       90     =      C370TUP       *
+*  91         =      C370TLC                                   *
 ************************************************************* */
 
  int tot_localtime = 0;
@@ -708,6 +711,7 @@ int work_use_ct[90];
  int p101s = 0;
  int p102 = 0;
  int p103 = 0;
+ int p104 = 0;		/* toupper */
 
  int array_rows = 17; 				/* array row count			*/
 
@@ -3639,6 +3643,12 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
+    p = strstr(p_string, "toupper");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
     p = strstr(p_string, "unsigned");
     if ((p) && (v_convert == 0))
     {
@@ -4248,8 +4258,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for remove  */
-
+    /* ***************************************************************
+     *  Scan for remove                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4705,8 +4716,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for fgetc  */
 
+    /* ***************************************************************
+     *  Scan for fgetc                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4735,8 +4748,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for fgets  */
 
+    /* ***************************************************************
+     *  Scan for fgets                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4765,8 +4780,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for fputs  */
 
+    /* ***************************************************************
+     *  Scan for fputs                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4795,8 +4812,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for getchar  */
 
+    /* ***************************************************************
+     *  Scan for getchar                                             *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4825,8 +4844,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for int main  */
 
+    /* ***************************************************************
+     *  Scan for int main                                            *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4851,8 +4872,10 @@ int main(int argc, char *argv[])
       global_st = 1;
     }
 
-/*  Scan for double  */
 
+    /* ***************************************************************
+     *  Scan for double                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4893,8 +4916,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for float  */
 
+    /* ***************************************************************
+     *  Scan for float                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4922,8 +4947,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for long  */
 
+    /* ***************************************************************
+     *  Scan for lonh                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4952,8 +4979,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for cos  */
 
+    /* ***************************************************************
+     *  Scan for cos                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4981,8 +5010,9 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for rand  */
-
+    /* ***************************************************************
+     *  Scan for rand                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5010,8 +5040,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for pow  */
 
+    /* ***************************************************************
+     *  Scan for pw                                                  *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5039,8 +5071,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for sin  */
 
+    /* ***************************************************************
+     *  Scan for sin                                                 *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5068,8 +5102,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for sqrt  */
 
+    /* ***************************************************************
+     *  Scan for sqrt                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5097,8 +5133,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for tan  */
 
+    /* ***************************************************************
+     *  Scan for tan                                                 *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5126,8 +5164,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for unsigned  */
 
+    /* ***************************************************************
+     *  Scan for unsigned                                            *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5150,8 +5190,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for atof  */
 
+    /* ***************************************************************
+     *  Scan for atof                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5173,8 +5215,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for case  */
 
+    /* ***************************************************************
+     *  Scan for case                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5198,9 +5242,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-  
-/*  Scan for strcmp  */
 
+    /* ***************************************************************
+     *  Scan for strcmp                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5274,8 +5319,10 @@ int main(int argc, char *argv[])
       }
     }
 
-/*  Scan for feof  */
 
+    /* ***************************************************************
+     *  Scan for feof                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5305,8 +5352,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for pid_t  */
-
+    /* ***************************************************************
+     *  Scan for pid_t                                               *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5335,8 +5383,9 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for accept  */
-
+    /* ***************************************************************
+     *  Scan for accept                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5366,8 +5415,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for send  */
-
+    /* ***************************************************************
+     *  Scan for send                                                *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5397,38 +5447,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for pthread_create  */
-
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 2 rct = %d Scan for pthred_create\n", rct);
-    }
-
-    p = strstr(p_string, "pthread_create");
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan pthread_create");
-        trace_rec_1();
-      }
-
-      if (debug_lv >= 2) 
-      {
-        printf("c2z.c Pass 2 rct = %d c2_scan_pthread_create #100\n", rct);
-      }
-
-      /* c2_scan_pthread_create();   */
-      convert = 1;
-    }
-
-
-/*  Scan for strlen  */
+    /* ***************************************************************
+     *  Scan for strlen                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5457,7 +5478,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for sizeof  */
+
+    /* ***************************************************************
+     *  Scan for sizeof                                              *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5570,7 +5594,31 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Math literal  = MUST BE LAST CALL IN PARSER  */
+
+    /* ***************************************************************
+     *  Scan for TOUPPER                                             *
+     * ************************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for toupper\n", rct);
+    }
+
+    p = strstr(p_string, "toupper");
+    if (p) 
+    {
+      work_use_ct[90]++;
+      convert = 1;
+    }
+
+
+    /* ***************************************************************
+     *  Math literal  = MUST BE LAST CALL IN PARSER                  *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5716,7 +5764,7 @@ int main(int argc, char *argv[])
     rct++;
     s = strlen(p_string);
 
-/* printf("c2z.c Pass 3 parm_ct = %d s = %d rct = %d erct = %d p_string = %s",parm_ct, s, rct,erct, p_string); */
+/*  printf("c2z.c Pass 3 parm_ct = %d s = %d rct = %d erct = %d p_string = %s",parm_ct, s, rct,erct, p_string); */
  
     if (debug_lv >= 1) 
     {
@@ -5728,7 +5776,7 @@ int main(int argc, char *argv[])
       break;
     }
 
-    if (s == 1) 
+    if (s < 2) 
     {
       goto end_pass3;
     }
@@ -5762,56 +5810,6 @@ int main(int argc, char *argv[])
       parm_ct = 0;
     }
 
-
-    /* ************************************************************************
-    *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
-    *  program has been reached.  Punch out the end statement and all defines *
-    *  before processing an functions that may be defined.                    *
-    * *********************************************************************** */
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 3 rct = %d Punch end of main loop\n", rct);
-    }
-
-    if (parm_ct == 0)
-    {
-      parm_ct = 0;
-    }
-
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-    
-    if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
-    {
-      inside_main = 0;
-
-      strcpy(a_string, "C370EXIT DS    0H");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 punch C370EXIT");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         SUBEXIT");
-      src_line();
-      var_use[1]++;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 punch subexit");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*");
-      src_line();
-      var_use[1]++;
-      inside_main = 0;
-
-      convert = 1;
-    }
 
     /* **********************************************************
     *  FOR loop END                                             * 
@@ -9126,6 +9124,36 @@ int main(int argc, char *argv[])
 
 
     /* **********************************************************
+    *  Punch out toupper                                        *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch toupper\n", rct);
+    }
+
+    p = strstr(p_string, "toupper");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c toupper Start");
+        trace_rec_1();
+      }
+   
+      c2_toupper();
+      work_use_ct[90]++;
+      convert = 1; 
+    }
+
+
+
+    /* **********************************************************
     *      Math functions ( =, +, -, *, / ) MUST BE LAST CALL   * 
     *              	         IN PARSER EXECPT FOR REMARK CHECK *
     * ********************************************************* */
@@ -9221,6 +9249,10 @@ int main(int argc, char *argv[])
     *  program has been reached.  Punch out the end statement and all defines *
     *  before processing an functions that may be defined.                    *
     * *********************************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
 
     if (debug_lv >= 2) 
     {
@@ -9231,12 +9263,7 @@ int main(int argc, char *argv[])
     {
       parm_ct = 0;
     }
-
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-    
+  
     if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
     {
       inside_main = 0;
