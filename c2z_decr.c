@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_decr.c :                                *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -130,7 +130,8 @@ void c2_minus()
     }
   }
 
-  if ((p) && (!p1) && (p2) && (p3)) {
+  if ((p) && (!p1) && (p2) && (p3)) 
+  {
     pi = 0;
     ch = p_string[pi];
     while (ch == ' ') {
@@ -140,7 +141,8 @@ void c2_minus()
 
     pi2 = 0;
     ch = p_string[pi];
-    while (ch != '[') {
+    while (ch != '[') 
+    {
       tfield1[pi2] = ch;
       pi2++;
       pi++;
@@ -151,13 +153,16 @@ void c2_minus()
     x2 = 0;
     pi++;
     ch = p_string[pi];
-    while (ch != ']') {
-      if ((isdigit(ch)) && (x2 == 0)) {
+    while (ch != ']') 
+    {
+      if ((isdigit(ch)) && (x2 == 0)) 
+      {
         fd2_type = 2;
         x2 = 1;
       }
 
-      if ((isalpha(ch)) && (x2 == 0)) {
+      if ((isalpha(ch)) && (x2 == 0)) 
+      {
         fd2_type = 1;
         x2 = 1;
       }
@@ -166,10 +171,13 @@ void c2_minus()
       ch = p_string[pi];
     }
 
-    if (gv_ct > 0) {
-      for (I = 0; I < gv_ct; I++) {
+    if (gv_ct > 0) 
+    {
+      for (I = 0; I < gv_ct; I++)
+      {
         ret = strcmp(tfield1, gw_variable[I].gv_name);
-        if (ret == 0) {
+        if (ret == 0) 
+        {
           strcpy(tfield5, gw_variable[I].gv_dsect);
           strcpy(tfield6, gw_variable[I].gv_label);
           strcpy(tfield7, gw_variable[I].gv_table);
@@ -183,7 +191,8 @@ void c2_minus()
 
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr_c c2_minus_array #1");
       trace_rec_3();
     }
@@ -191,7 +200,8 @@ void c2_minus()
 
     strcpy(a_string, "         LARL  R8,C370ZERO");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #2");
       trace_rec_3();
     }
@@ -199,7 +209,8 @@ void c2_minus()
 
     strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #3");
       trace_rec_3();
     }
@@ -207,7 +218,8 @@ void c2_minus()
     strcpy(a_string, "         LARL  R6,");
     strcat(a_string, field7);
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1)
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #4");
       trace_rec_3();
     }
@@ -219,14 +231,16 @@ void c2_minus()
     check_length();
     strcat(a_string, "DS    0H");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #5");
       trace_rec_3();
     }
 
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #6");
       trace_rec_3();
     }
@@ -263,7 +277,8 @@ printf("rct = %d p_string = %s",rct,p_string);
       strcat(wk_remark, field2);
       strcat(wk_remark, " */");
       write_remark();
-      if (puncde == 1) {
+      if (puncde == 1) 
+      {
         strcpy(trace_1, "c2z_decr.c c2_minus_array #8");
         trace_rec_3();
       }
@@ -271,7 +286,8 @@ printf("rct = %d p_string = %s",rct,p_string);
 
     strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #8");
       trace_rec_3();
     }
@@ -282,14 +298,16 @@ printf("rct = %d p_string = %s",rct,p_string);
     strcat(a_string, wk_strg);
     strcat(a_string, "F");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #9");
       trace_rec_3();
     }
 
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #10");
       trace_rec_3();
     }
@@ -297,7 +315,8 @@ printf("rct = %d p_string = %s",rct,p_string);
 
     strcpy(a_string, "         LARL  R8,C370ONE");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #11");
       trace_rec_3();
     }
@@ -305,7 +324,8 @@ printf("rct = %d p_string = %s",rct,p_string);
 
     strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #12");
       trace_rec_3();
     }
@@ -314,7 +334,8 @@ printf("rct = %d p_string = %s",rct,p_string);
     strcat(a_string, field6);
     strcat(a_string, "(R0,R6)");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #13");
       trace_rec_3();
     }
@@ -325,7 +346,8 @@ printf("rct = %d p_string = %s",rct,p_string);
     strcat(a_string, wk_strg);
     strcat(a_string, "G");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1)
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #14");
       trace_rec_3();
     }
@@ -337,14 +359,16 @@ printf("rct = %d p_string = %s",rct,p_string);
     check_length();
     strcat(a_string, "DS    0H");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #15");
       trace_rec_3();
     }
 
     strcpy(a_string, "         LARL  R9,C370ONE");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1)
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #16");
       trace_rec_3();
     }
@@ -352,7 +376,8 @@ printf("rct = %d p_string = %s",rct,p_string);
 
     strcpy(a_string, "         SP    0(6,R6),0(6,R9)");
     src_line();
-    if (puncde == 1) {
+    if (puncde == 1) 
+    {
       strcpy(trace_1, "c2z_decr.c c2_minus_array #17");
       trace_rec_3();
     }

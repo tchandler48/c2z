@@ -1181,6 +1181,25 @@ void c2_func_call()
             strcpy(trace_1, "c2z_function.c c2_func_call #23");
             trace_rec_3();
           }
+
+      strcpy(a_string, "         LARL  R15,");
+      strcat(a_string, field1a);
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_function.c c2_func_call #8a");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         BAKR  0,R15");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_function.c c2_func_call #8b");
+        trace_rec_3();
+      }
+
+
         }
       }
 

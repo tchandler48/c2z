@@ -376,6 +376,7 @@
        void c2_printf_literal(void);
        void c2_printf_2ds(void);
        void c2_printf_toupper(void);
+       void c2_printf_array_string(void);
 
 
 /* 	       c2z_punch_macro.c	*/
@@ -1457,7 +1458,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+ /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
@@ -1528,7 +1529,6 @@ int main(int argc, char *argv[])
     {
        goto pass2_skip;
     }
-
 
     /* ***************************************************************
     * Scan for MAIN in C program and set sv_funcTest for int or char *
@@ -2374,7 +2374,6 @@ int main(int argc, char *argv[])
       c2_pass2_while();
     }
 
-
     /* ***************************************************************
     * Scan for switch                                                *
     * ************************************************************** */
@@ -2793,6 +2792,7 @@ int main(int argc, char *argv[])
         }
       }
 
+
 /* update the struct with literal  */
 
       if (gv_ct == 0) 
@@ -2813,12 +2813,14 @@ int main(int argc, char *argv[])
       strcpy(gw_variable[gv_ct].gv_name, wk_string);
       strcpy(gw_variable[gv_ct].gv_type, "L");
       gw_variable[gv_ct].gv_lgth = x4;
+      gw_variable[gv_ct].gv_current_lgth = x4;
       strcpy(gw_variable[gv_ct].gv_literal, strtmp);
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
 
       fprtf_flag = 1;
       convert = 1;
+printf("c2z.c rct = %d x4 = %d\n",rct,x4);
     }
 
 
@@ -3004,6 +3006,8 @@ int main(int argc, char *argv[])
 
 /* update the struct with literal  */
 
+      x1 = strlen(strtmp);
+
       if (x2 != 1) 
       {
         if (gv_ct == 0) 
@@ -3025,6 +3029,7 @@ int main(int argc, char *argv[])
         strcpy(gw_variable[gv_ct].gv_type, "L");
         gw_variable[gv_ct].gv_lgth = x4;
         strcpy(gw_variable[gv_ct].gv_literal, strtmp);
+        gw_variable[gv_ct].gv_current_lgth = x1;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 5;
         gv_ct++;
@@ -5615,7 +5620,6 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-
     /* ***************************************************************
      *  Math literal  = MUST BE LAST CALL IN PARSER                  *
      * ************************************************************* */
@@ -5647,7 +5651,6 @@ int main(int argc, char *argv[])
       {
         printf("c2z.c Pass 2 rct = %d c2_math_literal #100\n", rct);
       }
-
       c2_math_literal();
 
       if (debug_lv >= 2) 

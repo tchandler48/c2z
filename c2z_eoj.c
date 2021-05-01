@@ -4299,10 +4299,7 @@ void c2_eoj()
       strcpy(trace_1, "c2z Parser Var #155");
       trace_rec_3();
     }
-  }
 
-  if (work_use_ct[91] > 0) 
-  {
     strcpy(a_string, "         DS    0H");
     strcpy(wk_remark, "c2z gen variable  */");
     write_short();  
@@ -4321,7 +4318,6 @@ void c2_eoj()
       trace_rec_3();
     }
   }
-
 
   strcpy(a_string, "         DS    0H");
   strcpy(wk_remark, "c2z gen variable  */");

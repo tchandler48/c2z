@@ -703,19 +703,53 @@ void c2_math_literal()
   int math_div = 0;
   int math = 0;
   int math1 = 0;
+  int x501 = 0;
+  int x501L1 = 0;
+  int x501L2 = 0;
+  int x501R1 = 0;
+  int x501R2 = 0;
 
   x90 = 0;
   s = strlen(p_string);
   for(I = 0; I < s; I++)
   {
+    if(p_string[I] == '=')
+    {
+      x501 = I;
+    }
     if(p_string[I] == '[')
     {
+      if(x501 == 0)
+      {
+        x501L1++;
+      }
+      else
+      {
+        x501L2++;
+      }
       x90++;
     }
     if(p_string[I] == ']')
-    {
+    { 
+      if(x501 == 0)
+      {
+        x501R1++;
+      }
+      else
+      {
+        x501R2++;
+      }
       x90++;
     }
+  }
+
+
+  if((x501L1 == 1) && (x501R1 == 1) && (x501L2 == 2) && (x501R2 == 2))
+  {
+printf("c2z_pass_2 rct = %d p_string = %s",rct,p_string);
+printf("c2z_pass_2 NEED TO CODE\n");
+     convert = 1;
+     return;
   }
 
   if(x90 == 6)
@@ -5805,6 +5839,9 @@ void c2_pass2_if_13()
     strcpy(trace_1, "c2z_pass_2.c c2_pass2_if_case_13 START");
     trace_rec_1();
   }
+printf("c2z_pass_2.c if_case_13 FIX FIX\n");
+  convert = 1;
+  return;
 
   char ch;
   char *p, *p3, *p4, *p5, *p6;
@@ -6833,6 +6870,9 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
+printf("c2z_pass_2.c complex if_13 rct = %d p_string = %s",rct,p_string);
+printf("c2z_pass_2.c complex if_13 field1 = %s\n",field1);
+
 
     pi2 = 0;
     pi++;
@@ -6848,6 +6888,7 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field2[pi2] = '\0';
+printf("c2z_pass_2.c complex if_13 field2 = %s\n",field2);
 
     pi++;
     ch = p_string[pi];
@@ -6866,6 +6907,7 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
+printf("c2z_pass_2.c complex if_13 field3 = %s\n",field3);
 
     pi++;
     ch = p_string[pi];
@@ -6891,6 +6933,7 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
+printf("c2z_pass_2.c complex if_13 field4 = %s\n",field4);
 
     pi++;
     ch = p_string[pi];
@@ -6909,6 +6952,7 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
+printf("c2z_pass_2.c complex if_13 field5 = %s\n",field5);
 
     pi++;
     ch = p_string[pi];
@@ -6922,7 +6966,7 @@ if_13_skip1:
     x2 = 0;
     pi++;
     ch = p_string[pi];
-    while (ch != '[') 
+    while (ch != ' [') 
     {
       if (x2 == 0) 
       {
@@ -6947,6 +6991,8 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field6[pi2] = '\0';
+printf("c2z_pass_2.c complex if_13 field6 = %s\n",field6);
+
 
     pi2 = 0;
     x2 = 0;
@@ -8052,8 +8098,7 @@ void c2_pass2_while_2()
 
     pi++;
     ch = p_string[pi];
-    /* c2_white(); */
-
+ 
     fd3_type = 0;
     x2 = 0;
     pi2 = 0;
@@ -8336,6 +8381,8 @@ void c2_pass2_while_2()
       }
       tfield3a[pi2] = '\0';
 */
+      tfield3a[0] = tfield3[1];
+      tfield3a[1] = '\0';
 
       c_name++;
       snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
@@ -8359,7 +8406,7 @@ void c2_pass2_while_2()
       w_charlit[char_ct].clit_rct = rct;
       w_charlit[char_ct].clit_type = 3;
       strcpy(w_charlit[char_ct].clit_cname, tfield3b);
-      strcpy(w_charlit[char_ct].clit_value, tfield3);
+      strcpy(w_charlit[char_ct].clit_value, tfield3a);
       w_charlit[char_ct].clit_lgth = 1;
       w_charlit[char_ct].clit_uct = 1;
       char_ct++;
@@ -8438,7 +8485,6 @@ void c2_pass2_while_2()
           pi++;
           ch = tfield7[pi];
         }
-
         tfield7a[pi2] = '\0';
 
         c_name++;
@@ -8448,6 +8494,7 @@ void c2_pass2_while_2()
         s = strlen(c_wkname);
         c_wkname[s] = '\0';
         strcpy(tfield7b, c_wkname);
+printf("c2z_pass_2.c while_2 tfield7a = %s tfield7b = %s\n",tfield7a,tfield7b);
 
         if (char_ct == 0) 
         {
@@ -8777,6 +8824,7 @@ void c2_pass2_while_2()
     strcat(c_wkname, wk_strg);
     s = strlen(c_wkname);
     c_wkname[s] = '\0';
+printf("c2z_pass_2.c #10 while_2 c_wkname = %s tfield3 = %s\n",c_wkname,tfield3); 
 
     if (char_ct == 0) 
     {

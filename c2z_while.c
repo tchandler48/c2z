@@ -15427,7 +15427,10 @@ void c2_while_15() 					/* complex non function		*/
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield1a);
-  src_line();
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, tfield1);
+  strcat(wk_remark, " */");
+  write_remark();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_15 #2");
@@ -15591,7 +15594,10 @@ printf("rct = %d p_string = %s",rct,p_string);
 
   strcpy(a_string, "         LARL  R9,");
   strcat(a_string, tfield5a);
-  src_line();
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, tfield5);
+  strcat(wk_remark, " */");
+  write_remark();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_while.c c2_while_15 #10");
@@ -15602,7 +15608,10 @@ printf("rct = %d p_string = %s",rct,p_string);
   {
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield7a);
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, tfield7);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_while.c c2_while_15 #11");

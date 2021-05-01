@@ -68,7 +68,7 @@ void c2_strcpy(void)
     if(ch == ']')
     {
       x91++;
-      x92++;
+     
     }
     if(ch == '.')
     {
@@ -104,8 +104,8 @@ void c2_strcpy(void)
 /*
  printf("\nc2z_strcpy.c #1 rct = %d p_string = %s",rct,p_string);
  printf("c2z_strcpy.c #1 x90 = %d x91 = %d x91a = %d x92 = %d x93 = %d x93a = %d  x94 = %d x94a = %d x95 = %d x96 = %d x97 = %d\n",x90,x91,x91a,x92,x93,x93a,x94,x94a,x95,x96,x97);    
-*/
 
+*/
   /*  c2_str_1				strcpy(cvalue, "123456");  				*/
   /*  c2_str_1                            strcpy(in_stack[t], "123456");			*/
   /*  c2_str_2 		 		strcpy(p_string, arrary1{line_ndx])		*/
@@ -141,7 +141,7 @@ void c2_strcpy(void)
     return;
   }
 
-  if ((x90 == 0) && (x91 == 1) && (x92 == 1) && (x93 == 0) && (x94 == 1) && (x91a < x94a) && (convert == 0)) 
+  if ((x90 == 0) && (x91 == 2) && (x93 == 0) && (x94 == 1) && (x91a < x94a) && (convert == 0)) 
   {
     c2_str_3(str1, str2);
     convert = 1;
@@ -155,7 +155,7 @@ void c2_strcpy(void)
     return;
   }
 
-  if ((x90 == 0) && (x91 == 1) && (x92 == 1) && (x93 == 0) && (x94 == 1) && (x91a > x94a) && (convert == 0)) 
+  if ((x90 == 0) && (x91 == 2) && (x93 == 0) && (x94 == 1) && (x91a > x94a) && (convert == 0)) 
   {
     c2_str_2(str1, str2);
     convert = 1;
@@ -2861,7 +2861,10 @@ void c2_str_3(int str1, int str2)
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, tfield3a);
-        src_line();
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, tfield3);
+        strcat(wk_remark, " */");
+        write_remark();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_strcpy.c c2_str_3 #21");
@@ -3702,10 +3705,6 @@ void c2_str_4()
     return;
   }
 
-printf("c2z_strcpy.c str_4 rct = %d p_string = %s",rct,p_string);
-printf("c2z_strcpy.c str_4 tfield1 = %s x1 = %d\n",tfield1,x1);
-printf("c2z_strcpy.c str_4 tfiedl2 = %s x2 = %d\n",tfield2,x2);
-
 
   if (x10 == 0) 
   {
@@ -3755,7 +3754,6 @@ printf("c2z_strcpy.c str_4 tfiedl2 = %s x2 = %d\n",tfield2,x2);
           strcpy(tfield1a, lw_variable[v].lv_cname);
           lw_variable[v].lv_use_ct++;
           lw_variable[v].lv_current_lgth = x2;
-printf("c2z_strcpy.c str_4 x2 = %d lv_current_lgth = %d \n",x2,lw_variable[v].lv_current_lgth);
           break;
         }
       }
@@ -3774,7 +3772,6 @@ printf("c2z_strcpy.c str_4 x2 = %d lv_current_lgth = %d \n",x2,lw_variable[v].lv
             strcpy(tfield1a, gw_variable[v].gv_cname);
             gw_variable[v].gv_use_ct++;
             gw_variable[v].gv_current_lgth = x2;
-printf("c2z_strcpy.c str_4 x2 = %d gv_current_lgth = %d \n",x2,gw_variable[v].gv_current_lgth);
             break;
           }
         }

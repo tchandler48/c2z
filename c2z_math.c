@@ -50,20 +50,46 @@ void c2_math()
   int math = 0;
   int math1 = 0;
   int l_bracket = 0;
+  int x501 = 0;
+  int x501L1 = 0;
+  int x501R1 = 0;
+  int x501L2 = 0;
+  int x501R2 = 0;
 
   x100 = 0;
+  
   s = strlen(p_string);
-  for(I=0; I < s; I++)
+  for(I = 0; I < s; I++)
   {
+    if(p_string[I] == '=')
+    {
+      x501 = I;
+    }
     if(p_string[I] == '[')
     {
-      x100++;
+      if(x501 == 0)
+      {
+        x501L1++;
+      }
+      else
+      {
+        x501L2++;
+      }
     }
     if(p_string[I] == ']')
-    {
-      x100++;
+    { 
+      if(x501 == 0)
+      {
+        x501R1++;
+      }
+      else
+      {
+        x501R2++;
+      }
     }
   }
+/* printf("c2z_math.c x500 = %d x501L1 = %d x501R1 = %d x501L2 = %d x501R2 = %d\n",x500,x501L1,x501R1,x501L2,x501R2); */
+
 
   p1 = strstr(p_string, "->");
   if(p1)
@@ -71,6 +97,13 @@ void c2_math()
     c2_math_700();
     convert = 1;
     return;
+  }
+
+  if((x501L1 == 1) && (x501R1 == 1) && (x501L2 == 2) && (x501R2 == 2))
+  {
+printf("INSIDE L = 2 R = 4 \n");
+   convert = 1;
+   return;
   }
 
 
