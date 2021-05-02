@@ -2727,7 +2727,7 @@ void c2_str_3(int str1, int str2)
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LAEY  R6,");
+        strcpy(a_string, "         LARL  R6,");
         strcat(a_string, tfield7);
         src_line();
         if (puncde == 1) 

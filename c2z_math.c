@@ -3616,7 +3616,7 @@ printf("c2z_math.c maht_2 #2 field3 = %s fd3_type = %d\n",field3,fd3_type);
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LAEY  R6,");
+    strcpy(a_string, "         LARL  R6,");
     strcat(a_string, field7);
     src_line();
     if (puncde == 1) 

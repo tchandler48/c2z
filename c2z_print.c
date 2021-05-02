@@ -363,30 +363,12 @@ void c2_printf_string()
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
   strcat(field1, wk_strg);
 
-  x3 = 0;
-  for (I = 0; I < lv_ct; I++) 
+  for (x3 = 0; x3 < v_const; x3++) 
   {
-    ret = strcmp(field1, lw_variable[I].lv_name);
-    ret1 = strcmp(sv_func, lw_variable[I].lv_func);
-    if ((ret == 0) && (ret1 == 0)) 
+    ret = strcmp(field1, w_constant[x3].const_current);
+    if (ret == 0) 
     {
-      x3 = 1;
-      x5 = lw_variable[I].lv_current_lgth;
-      lw_variable[I].lv_use_ct++;
-    }
-  }
-
-  if (x3 == 0) 
-  {
-    for (I = 0; I < gv_ct; I++) 
-    {
-      ret = strcmp(field1, gw_variable[I].gv_name);
-      if (ret == 0) 
-      {
-        x3 = 1;
-        x5 = gw_variable[I].gv_current_lgth;
-        gw_variable[I].gv_use_ct++;
-      }
+      strcpy(field1, w_constant[x3].const_use);
     }
   }
 
@@ -545,7 +527,7 @@ void c2_printf_string()
    {
      x5 = 78 - p_ln_ct;
    }
-   
+  
    snprintf(pwk_strg, sizeof(p_ln_ct), "%d", p_ln_ct);
    strcpy(a_string, "         MVC   ");
    strcat(a_string,pwk_strg);
@@ -560,11 +542,12 @@ void c2_printf_string()
      trace_rec_3();
    }
 
-   p_ln_ct = p_ln_ct + x5;
-   p_ln_ct++;
+   /* p_ln_ct = p_ln_ct + x5;
+   p_ln_ct++; */
 
-   if(p102 != 0)
+/*   if(p102 != 0)
    { 
+*/
      snprintf(pwk_strg, sizeof(p_ln_ct), "%d", p_ln_ct);
      strcpy(a_string, "         LAEY  R0,");
      strcat(a_string, pwk_strg);
@@ -591,7 +574,7 @@ void c2_printf_string()
        trace_rec_3();
      }
      p_ln_ct = 0;
-   }
+ /*  } */
 }
 
 

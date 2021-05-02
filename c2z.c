@@ -6056,7 +6056,7 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
 
               if (gw_variable[v1].gv_flag > 0) 
               {
-                strcpy(a_string, "         LAEY  R6,");
+                strcpy(a_string, "*         LAEY  R6,");
                 strcat(a_string, ar_field6);
                 strcat(a_string, "(R0,R6)");
                 src_line();
@@ -6209,6 +6209,8 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
           trace_rec_3();
         }
 */
+
+/*
         for (I = 0; I < gv_ct; I++) 
         {  
            x = strcmp("G", gw_variable[I].gv_type);
@@ -6241,6 +6243,7 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
             c2_free();
           }
        }
+*/
 
        convert = 1; 
       }

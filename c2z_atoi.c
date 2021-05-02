@@ -1494,6 +1494,10 @@ void c2_atoi(void)
       trace_rec_3();
     }
 
+    if(x9 > 8)
+    {
+      x9 = 8;
+    }
     snprintf(wk_strg, sizeof(wk_strg), "%d", x9);
     strcpy(a_string, "         MVC   0(");
     strcat(a_string, wk_strg);

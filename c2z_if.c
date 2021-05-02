@@ -1320,7 +1320,10 @@ void if_case_1()
         
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field1a);
-        src_line();
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field1);
+        strcat(wk_remark, " */*");
+        write_remark();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_if.c if_case_1 #22");
@@ -7435,7 +7438,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
 
      strcpy(a_string, "         LA    R6,");
      strcat(a_string, tfield6);
-     strcat(a_string, "L");
      strcat(a_string, "(R0,R6)");
      src_line();
      if (puncde == 1) 
@@ -9792,10 +9794,15 @@ void if_case_13()
     ch = p_string[pi];
     while (ch != ')') 
     {
+      if(ch == '\\')
+      {
+        goto loop109;
+      }
       if (ch == '\'') 
       {
         fd3_type = 3;
-        break;
+        x2 = 1;
+        goto loop109;
       }
       if (x2 == 0) 
       {
@@ -9812,6 +9819,7 @@ void if_case_13()
       }
       tfield3[pi2] = ch;
       pi2++;
+loop109:
       pi++;
       ch = p_string[pi];
     }

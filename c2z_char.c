@@ -1506,6 +1506,7 @@ void c2_char_2()
       strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
       strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
       strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+      gw_variable[gv_ct].gv_flag = 0;
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
     }
@@ -1611,6 +1612,7 @@ void c2_char_3()
     gw_variable[gv_ct].gv_init = 0;
     gw_variable[gv_ct].gv_use_ct = 0;
     gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_flag = 0;
 
     gw_variable[gv_ct].gv_lgth = 32;
 
@@ -1700,6 +1702,7 @@ void c2_char_3()
     strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
     gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_flag = 0;
     gv_ct++;
 
     c_name++;
@@ -1743,6 +1746,7 @@ void c2_char_3()
     strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
     gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_flag = 0;
     gv_ct++;
   }
 
@@ -2758,7 +2762,6 @@ void c2_char_punch()
       strcpy(trace_1, "c2z_char.c c2_char_punch #6");
       trace_rec_3();
     }
-
   }
 
   if(p1)

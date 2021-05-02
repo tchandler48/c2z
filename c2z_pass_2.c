@@ -5839,9 +5839,6 @@ void c2_pass2_if_13()
     strcpy(trace_1, "c2z_pass_2.c c2_pass2_if_case_13 START");
     trace_rec_1();
   }
-printf("c2z_pass_2.c if_case_13 FIX FIX\n");
-  convert = 1;
-  return;
 
   char ch;
   char *p, *p3, *p4, *p5, *p6;
@@ -6870,9 +6867,6 @@ if_13_skip1:
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
-printf("c2z_pass_2.c complex if_13 rct = %d p_string = %s",rct,p_string);
-printf("c2z_pass_2.c complex if_13 field1 = %s\n",field1);
-
 
     pi2 = 0;
     pi++;
@@ -6888,7 +6882,6 @@ printf("c2z_pass_2.c complex if_13 field1 = %s\n",field1);
       ch = p_string[pi];
     }
     field2[pi2] = '\0';
-printf("c2z_pass_2.c complex if_13 field2 = %s\n",field2);
 
     pi++;
     ch = p_string[pi];
@@ -6907,7 +6900,6 @@ printf("c2z_pass_2.c complex if_13 field2 = %s\n",field2);
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
-printf("c2z_pass_2.c complex if_13 field3 = %s\n",field3);
 
     pi++;
     ch = p_string[pi];
@@ -6933,7 +6925,6 @@ printf("c2z_pass_2.c complex if_13 field3 = %s\n",field3);
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
-printf("c2z_pass_2.c complex if_13 field4 = %s\n",field4);
 
     pi++;
     ch = p_string[pi];
@@ -6952,7 +6943,6 @@ printf("c2z_pass_2.c complex if_13 field4 = %s\n",field4);
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
-printf("c2z_pass_2.c complex if_13 field5 = %s\n",field5);
 
     pi++;
     ch = p_string[pi];
@@ -6991,8 +6981,6 @@ printf("c2z_pass_2.c complex if_13 field5 = %s\n",field5);
       ch = p_string[pi];
     }
     field6[pi2] = '\0';
-printf("c2z_pass_2.c complex if_13 field6 = %s\n",field6);
-
 
     pi2 = 0;
     x2 = 0;
@@ -7019,7 +7007,6 @@ printf("c2z_pass_2.c complex if_13 field6 = %s\n",field6);
       pi++;
       ch = p_string[pi];
     }
- 
 
     pi++;
     ch = p_string[pi];
@@ -7152,6 +7139,8 @@ void c2_pass2_while()
   int while_isdigit = 0;
   int while_math = 0;
   int while_test = 0;
+  int q100 = 0;
+  int q101 = 0;
 
   while_convert = 0;
   while_opr = 0;
@@ -7165,6 +7154,33 @@ void c2_pass2_while()
     convert = 1;
     return;
   } 
+
+  s = strlen(p_string);
+  for(I = 0; I < s; I++)
+  {
+    if(p_string[I] == '(')
+    {
+      q100++;
+    }
+    if(p_string[I] == ')')
+    {
+      q100++;
+    }
+    if(p_string[I] == '[')
+    {
+      q101++;
+    }
+    if(p_string[I] == ']')
+    {
+      q101++;
+    }
+  }
+
+  if((q100 == 8) && (q101 == 2))
+  {
+    convert = 1;
+    return;
+  }
 
   s = strlen(p_string);
   for (I = 0; I < s; I++) 
