@@ -48,7 +48,7 @@ struct variables       *gw_variable;
 int main(int argc, char *argv[])
 {
 
-  printf("Hello Z390 World - ctest4\n");
+  printf("Hello Z390 World - ctest3\n");
 
   free(gw_variable);
 
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
   }
   printf(" \n");
 
-  printf("End of ctest4\n");
+  printf("End of ctest3\n");
 		
 }
 

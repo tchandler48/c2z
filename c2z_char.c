@@ -1613,6 +1613,8 @@ void c2_char_3()
     gw_variable[gv_ct].gv_use_ct = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_flag = 0;
+    gw_variable[gv_ct].gv_row = 10;
+    gw_variable[gv_ct].gv_column = 25;
 
     gw_variable[gv_ct].gv_lgth = 32;
 
@@ -1660,8 +1662,8 @@ void c2_char_3()
 
     gw_variable[gv_ct].gv_flag = 0;
    
-    gw_variable[gv_ct].gv_column = 32;
-    gw_variable[gv_ct].gv_row = 250;
+   /*  gw_variable[gv_ct].gv_column = 32;
+    gw_variable[gv_ct].gv_row = 250; */
 
     gv_ct++;
 

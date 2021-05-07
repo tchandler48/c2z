@@ -683,8 +683,10 @@ void c2_math_literal()
 
   char ch;
   char *p, *p2, *p8, *p9;
+  char field1[VAR_LGTH];
 
   int pi;
+  int pi2;
   int x = 0;
   int x1 = 0;
   int x2 = 0;
@@ -697,6 +699,7 @@ void c2_math_literal()
   int I = 0;
   int s = 0;
   int x90 = 0;
+  int size = 0;
   int math_plus = 0;
   int math_minus = 0;
   int math_mult = 0;
@@ -767,6 +770,53 @@ printf("c2z_pass_2 NEED TO CODE\n");
       strcpy(trace_1, "c2z_pass_2.c c2_math_literal subroutine #63");
       trace_rec_1();
     }
+
+    pi = 0;
+    ch = p_string[pi];
+    while(ch != '\'')
+    {
+      pi++;
+      ch = p_string[pi];
+    }
+
+    pi2 = 0;
+    pi++;
+    ch = p_string[pi];
+    while(ch != '\'')
+    {
+      field1[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field1[pi2] = '\0';
+
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+
+    if (char_ct == 0) 
+    {
+      size = 1;
+      w_charlit = malloc(size * sizeof(struct charlit));
+    } 
+    else 
+    {
+      size = char_ct + 1;
+      w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
+    }
+
+    w_charlit[char_ct].clit_rct = rct;
+    strcpy(w_charlit[char_ct].clit_cname, c_wkname);
+    strcpy(w_charlit[char_ct].clit_value, field1);
+    w_charlit[char_ct].clit_type = 3;
+    s = strlen(field1);
+    w_charlit[char_ct].clit_lgth = s;
+    w_charlit[char_ct].clit_uct = 1;
+    char_ct++;
 
     convert = 1;
     return;
@@ -5870,6 +5920,8 @@ void c2_pass2_if_13()
   int x80 = 0;
   int x85 = 0;
   int x90;
+  int x100;
+  int x100L;
   int s = 0;
   int size = 0;
   int spec_char = 0;
@@ -5925,6 +5977,23 @@ void c2_pass2_if_13()
     }
   }
 
+  x100 = 0;
+  x100L = 0;
+  s = strlen(p_string);
+  for (I = 0; I < s; I++) 
+  {
+    ch = p_string[I];
+    if (ch == '[') 
+    {
+      x100++;
+    }
+    if (ch == ']') 
+    {
+      x100++;
+      x100L = I;
+    }
+  }
+   
   p = strstr(p_string, "&&");
   if (p) 
   {
@@ -5937,9 +6006,15 @@ void c2_pass2_if_13()
     x3 = p - p_string;
   }
 
+/*  if(x100L < x3)
+  {
+    convert = 1;
+    return;
+  }
+*/
+
   p = strstr(p_string, "[");
   x2 = p - p_string;
-
 
   if ((complex_if == 1) && (lbrack == 0) && (rbrack == 0)) 
   {
@@ -6839,6 +6914,9 @@ if_13_skip1:
       strcpy(trace_1, "c2z_pass_2.c if_13 complex []");
       trace_rec_1();
     }
+printf("c2z_pass_2.c omplex [] rct = %d p_string = %s",rct,p_string);
+    convert = 1;
+    return;
 
     char ch;
 

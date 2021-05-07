@@ -993,9 +993,6 @@ printf("c2z_strcat.c #101 tfield2a = %s gv_current_lgth= %d\n",tfield2a,gw_varia
     }
 
     x2--;
-printf("c2z_strcat.c #900 tfield1 = %s  tfield2 = %s\n",tfield1,tfield2);
-printf("c2z_strcat.c #900 x2 = %d x5 = %d\n",x2,x5);
-
   
     strcpy(a_string, "         MVC   ");
     snprintf(wk_strg, sizeof(wk_strg), "%d", x2);

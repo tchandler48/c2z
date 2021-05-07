@@ -187,6 +187,7 @@
        void if_case_41(void);
        void if_case_42(void);
        void if_case_43(void);
+       void if_case_44(void);
 
 
 /*		c2z_incr.c		*/
@@ -2820,7 +2821,6 @@ int main(int argc, char *argv[])
 
       fprtf_flag = 1;
       convert = 1;
-printf("c2z.c rct = %d x4 = %d\n",rct,x4);
     }
 
 
@@ -6056,13 +6056,13 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
 
               if (gw_variable[v1].gv_flag > 0) 
               {
-                strcpy(a_string, "*         LAEY  R6,");
+                strcpy(a_string, "         LAEY  R6,");
                 strcat(a_string, ar_field6);
                 strcat(a_string, "(R0,R6)");
                 src_line();
                 if (puncde == 1) 
                 {
-                  strcpy(trace_1, "c2z.c WHILE End Label #1");
+                  strcpy(trace_1, "c2z.c while end Label #1");
                   trace_rec_3();
                 }
                 gw_variable[v1].gv_flag = 0;
@@ -6210,7 +6210,7 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
         }
 */
 
-/*
+
         for (I = 0; I < gv_ct; I++) 
         {  
            x = strcmp("G", gw_variable[I].gv_type);
@@ -6243,7 +6243,6 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
             c2_free();
           }
        }
-*/
 
        convert = 1; 
       }
@@ -6343,8 +6342,99 @@ printf("c2z.c rct = %d x4 = %d\n",rct,x4);
     p3 = strstr(p_string, "(");
     p4 = strstr(p_string, ")");
     p5 = strstr(p_string, "printf");
+  
+    if ((p) && (p3) && (p4) && (!p5) && (convert == 0)) 
+    {
+      convert = 1;
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 Prototype #3");
+        trace_rec_1();
+      }
+
+      pi = 0;
+      pi2 = 0;
+      ch = p_string[pi];
+      while ((ch == ' ') || (ch == '\t')) 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+
+      while (ch != ' ') 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+
+      while (ch != '(') 
+      {
+        if (ch != ' ') 
+        {
+          tfield1[pi2] = ch;
+          pi2++;
+        }
+        pi++;
+        ch = p_string[pi];
+      }
+      tfield1[pi2] = '\0';
+      strcpy(sv_func, tfield1);
+    }
+
+    p = strstr(p_string, "void");
+    p1 = strstr(p_string, ";");
+    p2 = strstr(p_string, "int");
+    p3 = strstr(p_string, "(");
+    p4 = strstr(p_string, ")");
+    p5 = strstr(p_string, "printf");
 
     if ((p) && (p3) && (p4) && (!p5) && (convert == 0)) 
+    {
+      convert = 1;
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 Prototype #3");
+        trace_rec_1();
+      }
+
+      pi = 0;
+      pi2 = 0;
+      ch = p_string[pi];
+      while ((ch == ' ') || (ch == '\t')) 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+
+      while (ch != ' ') 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+
+      while (ch != '(') 
+      {
+        if (ch != ' ') 
+        {
+          tfield1[pi2] = ch;
+          pi2++;
+        }
+        pi++;
+        ch = p_string[pi];
+      }
+      tfield1[pi2] = '\0';
+      strcpy(sv_func, tfield1);
+    }
+
+    p = strstr(p_string, "void");
+    p1 = strstr(p_string, ";");
+    p2 = strstr(p_string, "int");
+    p3 = strstr(p_string, "(");
+    p4 = strstr(p_string, ")");
+    p5 = strstr(p_string, "printf");
+    p6 = strstr(p_string, "(double");
+
+    if ((p2) && (p3) && (p4) && (p6) && (!p5) && (convert == 0)) 
     {
       convert = 1;
       if (traceflg == 1) 

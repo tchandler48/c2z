@@ -4455,6 +4455,9 @@ void c2_int_6() 				/*  int *temp_byte;	*/
       gw_variable[gv_ct].gv_use_ct = 0;
       gw_variable[gv_ct].gv_dec = 0;
 
+      gw_variable[gv_ct].gv_row = 10;
+      gw_variable[gv_ct].gv_column = 25;
+
       snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
       strcpy(wk_string, "A37");
       strcat(wk_string, wk_strg);
@@ -4492,7 +4495,7 @@ void c2_int_6() 				/*  int *temp_byte;	*/
       strcpy(gw_variable[gv_ct].gv_wk_strg, wk_string);
 
       /* number of rows in the **array		*/
-      gw_variable[gv_ct].gv_row = 250;
+    /*  gw_variable[gv_ct].gv_row = 250; */
 
       snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
       strcpy(wk_string, "A37");

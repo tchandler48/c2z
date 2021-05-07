@@ -104,8 +104,8 @@ void c2_strcpy(void)
 /*
  printf("\nc2z_strcpy.c #1 rct = %d p_string = %s",rct,p_string);
  printf("c2z_strcpy.c #1 x90 = %d x91 = %d x91a = %d x92 = %d x93 = %d x93a = %d  x94 = %d x94a = %d x95 = %d x96 = %d x97 = %d\n",x90,x91,x91a,x92,x93,x93a,x94,x94a,x95,x96,x97);    
-
 */
+
   /*  c2_str_1				strcpy(cvalue, "123456");  				*/
   /*  c2_str_1                            strcpy(in_stack[t], "123456");			*/
   /*  c2_str_2 		 		strcpy(p_string, arrary1{line_ndx])		*/
@@ -119,10 +119,16 @@ void c2_strcpy(void)
   /*  c2_str_10				strcpy(gw_variable[gv_ct].gv_name, in_stack[x]); */
   /*  c2_str_11				strcpy(gw_variable[gv_ct].gv_name, gw_variable[I].gv_name */
 
-
   if((x90 == 2) && (x94 == 1) && (x91 == 0) && (x92 == 0) && (x93 == 0))
   {
     c2_str_1(str1, str14);
+    convert = 1;
+    return;
+  }
+
+  if((x90 == 2) && (x91 == 2) && (convert == 0))
+  {
+    c2_str_1(str1,str14);
     convert = 1;
     return;
   }
@@ -148,7 +154,7 @@ void c2_strcpy(void)
     return;
   }
 
-  if ((x90 == 0) && (x91 == 2) && (x92 == 2) && (x93 == 0) && (x94 == 1) && (convert == 0)) 
+  if ((x90 == 0) && (x91 == 4) && (x92 == 0) && (x93 == 0) && (x94 == 1) && (x97 == 0) && (convert == 0)) 
   {
     c2_str_5();
     convert = 1;
@@ -204,7 +210,7 @@ void c2_strcpy(void)
     return;
   }
 
-  if((x97 == 2) && (convert == 0))		/*  strcpy(xstring, "This is a test\n");  */
+  if((x97 == 2) && (x91 == 0) && (convert == 0))		/*  strcpy(xstring, "This is a test\n");  */
   {
     char field2[VAR_LGTH];
     char field2a[VAR_LGTH];
@@ -380,7 +386,6 @@ void c2_str_1(int str1, int str4)
   int x2 = 0;
   int x3 = 0;
   int x6 = 0;
-/*  int x10 = 0; */
   int x90 = 0;
   int x91 = 0;
   int I = 0;
@@ -2639,7 +2644,6 @@ void c2_str_3(int str1, int str2)
           }
         }
 
-
         if(fd2_type == 1)
         {
           strcpy(a_string, "         LA    R5,");
@@ -2727,7 +2731,7 @@ void c2_str_3(int str1, int str2)
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R6,");
+        strcpy(a_string, "         LAEY  R6,");
         strcat(a_string, tfield7);
         src_line();
         if (puncde == 1) 
@@ -2772,7 +2776,10 @@ void c2_str_3(int str1, int str2)
         {
           strcpy(a_string, "         LARL  R8,");
           strcat(a_string, tfield2a);
-          src_line();
+          strcpy(wk_remark, " ");
+          strcat(wk_remark, tfield2);
+          strcat(wk_remark, " */");
+          write_remark();
           if (puncde == 1) 
           {
             strcpy(trace_1, "c2z_strcpy.c c2_str_3 #12b");
@@ -4646,9 +4653,12 @@ void c2_str_5()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LARL  R6,");
+    strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, ar_field7);
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, tfield1); 
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #4");
@@ -4717,7 +4727,10 @@ void c2_str_5()
     {
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield2a);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield2);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #7");
@@ -4901,9 +4914,12 @@ void c2_str_5()
       }
     }
 
-    strcpy(a_string, "         LARL  R5,");
+    strcpy(a_string, "         LAEY  R5,");
     strcat(a_string, ar1_field7);
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, tfield4);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #25");
@@ -4927,7 +4943,7 @@ void c2_str_5()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #22");
+      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #27");
       trace_rec_3();
     }
 
@@ -4972,7 +4988,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #23");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #28");
         trace_rec_3();
       }
     }
@@ -4984,7 +5000,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #24");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #29");
         trace_rec_3();
       }
 
@@ -4992,7 +5008,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #25");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #30");
         trace_rec_3();
       }
 
@@ -5000,7 +5016,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #26");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #31");
         trace_rec_3();
       }
 
@@ -5008,7 +5024,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #27");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #32");
         trace_rec_3();
       }
       work_use_ct[50]++;
@@ -5017,7 +5033,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #28");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #33");
         trace_rec_3();
       }
  
@@ -5025,7 +5041,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #29");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #34");
         trace_rec_3();
       }
     }
@@ -5034,7 +5050,7 @@ void c2_str_5()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #30");
+      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #35");
       trace_rec_3();
     }
 
@@ -5046,7 +5062,7 @@ void c2_str_5()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #31");
+      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #36");
       trace_rec_3();
     }
 
@@ -5056,7 +5072,7 @@ void c2_str_5()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #32");
+      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #37");
       trace_rec_3();
     }
 
@@ -5064,7 +5080,7 @@ void c2_str_5()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #33");
+      strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #38");
       trace_rec_3();
     }
 
@@ -5072,7 +5088,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #34");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #39");
         trace_rec_3();
       }
 
@@ -5080,7 +5096,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #35");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #40");
         trace_rec_3();
       }
 
@@ -5092,7 +5108,7 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #36");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #41");
         trace_rec_3();
       }
 
@@ -5106,11 +5122,9 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #37");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #42");
         trace_rec_3();
       }
-
-/* printf("c2z_strcpy.c str_5 rct = %d x92 = %d x95 = %d x91 = %d x96 = %d\n",rct,x92,x95,x91,x96); */
 
       strcpy(a_string, "         MVC   ");
       snprintf(wk_strg, sizeof(wk_strg), "%d", x95);
@@ -5125,13 +5139,13 @@ void c2_str_5()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #33");
+        strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #43");
         trace_rec_3();
       }
- 
     convert = 1;
   }
 }
+
 
 void c2_str_6() 
 {
@@ -9326,11 +9340,14 @@ void c2_strcpy_pass2(void)
     }
     field3[pi2] = '\0';
 
+    pi2 = 0;
     pi++;
     ch = p_string[pi];
     while (ch != ']') 
     {
-      pi++;
+ 
+/*     
+   pi++;
       ch = p_string[pi];
     }
   
@@ -9344,6 +9361,7 @@ void c2_strcpy_pass2(void)
     pi2 = 0;
     while (ch != ')') 
     {
+*/
       if (ch != '.') 
       {
         field5[pi2] = ch;
@@ -9353,7 +9371,6 @@ void c2_strcpy_pass2(void)
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
-
   skip_1:
 
     x3 = 0;
