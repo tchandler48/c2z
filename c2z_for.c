@@ -15,8 +15,6 @@ void c2_for(void)
     trace_rec_1();
   }
 
-printf("c2z_for.c c2_for rct = %d p_string = %s",rct,p_string);
-
   char ch;
   char *p, *p6;
   char tfield1[VAR_LGTH];
@@ -448,8 +446,6 @@ printf("c2z_for.c c2_for rct = %d p_string = %s",rct,p_string);
 skip_for_1:
   tfield3[pi2] = '\0';
 
-printf("c2z_for.c #4 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
-
   x3 = 0;
   x2 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -504,8 +500,6 @@ printf("c2z_for.c #4 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
     return;
   }
 
-printf("c2z_for.c #4 tfield3a = %s\n",tfield3a);
-
   pi++;
   ch = p_string[pi];
   while (ch == ' ') 
@@ -525,8 +519,6 @@ printf("c2z_for.c #4 tfield3a = %s\n",tfield3a);
     ch = p_string[pi];
   }
   tfield4[pi2] = '\0';
-
-printf("c2z_for.c #4 tfield4 = %s\n",tfield4);
 
   for_opr = 0;
   if (for_opr == 0) 
@@ -583,8 +575,6 @@ printf("c2z_for.c #4 tfield4 = %s\n",tfield4);
     }
   }
 
-printf("c2z_for.c #4 for_opr = %d\n",for_opr);
-
   pi++;
   ch = p_string[pi];
   while (ch == ' ') 
@@ -630,8 +620,6 @@ printf("c2z_for.c #4 for_opr = %d\n",for_opr);
     ch = p_string[pi];
   }
   tfield5[pi2] = '\0';
-
-printf("c2z_for.c #4 tfield5 %s fd5_type = %d\n",tfield5,fd5_type);
 
   x3 = 0;
   if (fd5_type == 1) 
@@ -693,8 +681,6 @@ printf("c2z_for.c #4 tfield5 %s fd5_type = %d\n",tfield5,fd5_type);
     }
   }
 
-printf("c2z_for.c #4 tfield5a = %s\n",tfield5a);
-
   if (ch == ')') 
   {
     goto skip_for_2;
@@ -751,10 +737,6 @@ printf("c2z_for.c #4 tfield5a = %s\n",tfield5a);
     ch = p_string[pi];
   }
   tfield6[pi2] = '\0';
-
-printf("c2z_for.c #4 tfield6 = %s\n",tfield6);
-printf("c2z_for.c #4 x20 = %d\n",x20);
-
 
   if (x20 == 1) 
   {
@@ -817,7 +799,6 @@ printf("c2z_for.c #4 x20 = %d\n",x20);
     return;
   }
 
-printf("c2z_for.c #4 tfield6a = %s\n",tfield6a);
   v = 0;
   for (v = 0; v < for_ct; v++) 
   {
@@ -836,9 +817,6 @@ skip_for_2:
   {
     x11 = 1;
   }
-
-printf("c2z_for.c x11 = %d\n",x11);
-printf("c2z_for.c for_opr = %d\n",for_opr);
 
   if (x11 == 1) 
   {
@@ -883,8 +861,6 @@ printf("c2z_for.c for_opr = %d\n",for_opr);
       ch = p_string[pi];
     }
     tfield7[pi2] = '\0';
-
-printf("c2z_for.c #4 tfield7 %s fd7_type = %d\n",tfield7,fd7_type);
 
     x3 = 0;
     if (fd7_type == 1) 
@@ -944,8 +920,6 @@ printf("c2z_for.c #4 tfield7 %s fd7_type = %d\n",tfield7,fd7_type);
         convert = 1;
         return;
       }
- 
-printf("c2z_for.c #4 tfield7a %s\n",tfield7a);
     }
   }
  
@@ -1170,13 +1144,10 @@ printf("c2z_for.c #4 tfield7a %s\n",tfield7a);
     }
   }
 
-printf("c2z_for.c fd3_type = %d for_opr = %d\n",fd3_type,for_opr);
-
   if (for_opr == 5) 
   {
     if (fd3_type == 1) 
     {
-printf("c2z_for.c inside for_opr 5 & fd3_type 1\n");
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield3a);
       strcpy(wk_remark, " ");
@@ -1192,8 +1163,6 @@ printf("c2z_for.c inside for_opr 5 & fd3_type 1\n");
 
     if (fd5_type == 1) 
     {
-printf("c2z_for.c inside for_opr 5 & fd5_type 1\n");
-
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield5a);
       strcpy(wk_remark, " ");

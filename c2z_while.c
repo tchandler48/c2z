@@ -9190,32 +9190,6 @@ printf("c2z_while.c while_13 ar_field11 = %s\n",ar_field11);
       return;
     }
 
-    strcpy(a_string, "         LARL  R9,C370NWK1");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #600");
-      trace_rec_3();
-    }
-    work_use_ct[49]++;
-
-    strcpy(a_string, "         LARL  R8,C370ZERO");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #601");
-      trace_rec_3();
-    }
-    work_use_ct[32]++;
-
-    strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #602");
-      trace_rec_3();
-    }
-
     strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, ar_field7);
     strcpy(wk_remark, " ");
@@ -9224,7 +9198,7 @@ printf("c2z_while.c while_13 ar_field11 = %s\n",ar_field11);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #603");
+      strcpy(trace_1, "c2z_while.c c2_while_13 #600");
       trace_rec_3();
     }
 
@@ -9236,119 +9210,7 @@ printf("c2z_while.c while_13 ar_field11 = %s\n",ar_field11);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #604");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R9,C370NWK1");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #605");
-      trace_rec_3();
-    }
-
-    if (whfd2_type == 1) 
-    {
-      strcpy(a_string, "         LARL  R8,C370NWK2");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_while.c c2_while_13 #606");
-        trace_rec_3();
-      }
-    }
-
-    if (whfd2_type == 2) 
-    {
-      strcpy(a_string, "         LARL  R8,");
-      strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field2);
-      strcat(wk_remark, " */");
-      write_remark();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_while.c c2_while_13 #607");
-        trace_rec_3();
-      }
-    }
-
-    strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #608");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         JLE   ");
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcat(a_string, "L");
-    strcat(a_string, wk_strg);
-    strcat(a_string, "F");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #609");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R9,C370NWK1");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #610");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R8,C370ONE");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #611");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #612");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LAEY  R6,");
-    strcat(a_string, ar_field6);
-    strcat(a_string, "(R0,R6)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #613");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         JLU   ");
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcat(a_string, "L");
-    strcat(a_string, wk_strg);
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #614");
-      trace_rec_3();
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcpy(a_string, "L");
-    strcat(a_string, wk_strg);
-    strcat(a_string, "F");
-    check_length();
-    strcat(a_string, "DS    0H");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #615");
+      strcpy(trace_1, "c2z_while.c c2_while_13 #601");
       trace_rec_3();
     }
 
@@ -9360,7 +9222,7 @@ printf("c2z_while.c while_13 ar_field11 = %s\n",ar_field11);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #616");
+      strcpy(trace_1, "c2z_while.c c2_while_13 #602");
       trace_rec_3();
     }
 
@@ -9368,7 +9230,7 @@ printf("c2z_while.c while_13 ar_field11 = %s\n",ar_field11);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #617");
+      strcpy(trace_1, "c2z_while.c c2_while_13 #603");
       trace_rec_3();
     }
 
@@ -9380,7 +9242,32 @@ printf("c2z_while.c while_13 ar_field11 = %s\n",ar_field11);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_13 #618");
+      strcpy(trace_1, "c2z_while.c c2_while_13 #604");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         JLU   ");
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcat(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "F");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c c2_while_13 #605");
+      trace_rec_3();
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcpy(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "F");
+    check_length();
+    strcat(a_string, "DS    0H");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c c2_while_13 #606");
       trace_rec_3();
     }
 

@@ -188,6 +188,7 @@
        void if_case_42(void);
        void if_case_43(void);
        void if_case_44(void);
+       void if_case_45(void);
 
 
 /*		c2z_incr.c		*/
@@ -337,6 +338,7 @@
        void c2_pass2_if_10(void);
 	void c2_pass2_if_13(void);
 	void c2_pass2_if_15(void);
+       void c2_pass2_if_55(void);
 	void c2_pass2_while(void);
 	void c2_pass2_while_1(void);
 	void c2_pass2_while_2(void);
@@ -527,7 +529,11 @@
 			
 
 /* ------ global vars ------------ */
-FILE *pgm, *c_src, *cc370, *c_tmp, *c_h; 		/* these are the i/o file handles 		*/
+FILE *pgm;
+FILE *c_src;
+FILE *cc370;
+FILE *c_tmp;
+FILE *c_h; 		                            /* these are the i/o file handles 		*/
 char s_holder[BUFSIZE];   				/* xstring (print) data holder  		*/
 char p_string[BUFSIZE];   				/* file input string  			*/
 char a_string[BUFSIZE];   				/* file output string                 	*/
@@ -557,7 +563,7 @@ char null_field[2];
 char wk_fdwk[24];
 ;
 char sub_name[24];
-char wk_strg[8];     /* [24] */
+char wk_strg[8];     
 char wk_remark[22];
 char sv_if_branch[24];
 char err_msg[242];
@@ -616,6 +622,9 @@ char from_sv[24];
  int line_ndx = 0;
  int fd_test = 0;
  int st_col = 0;
+ int quote_1 = 0;
+ int quote_2 = 0;
+ int quote_3 = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -1109,8 +1118,17 @@ struct bad_rec *w_bad_rec;
 int main(int argc, char *argv[]) 
 {
   char *p;
-  char *p1, *p2, *p3, *p4, *p5, *p6, *p7, *p8, *p9, *p10;
   char ch;
+  char *p1;
+  char *p2;
+  char *p3;
+  char *p4;
+  char *p5;
+  char *p6;
+  char *p7;
+  char *p8;
+  char *p9;
+  char *p10;
   char filename[VAR_LGTH];
   char asm_file_1[VAR_LGTH];
   char ar_field6[VAR_LGTH];
@@ -1278,6 +1296,9 @@ int main(int argc, char *argv[])
     fgets(p_string, BUFSIZE, pgm);
     rct++;
 
+/* printf("c2z.c PASS 1 rct = %d p_string = %s",rct,p_string); */
+
+
     if (feof(pgm)) 
     {
       break;
@@ -1285,7 +1306,8 @@ int main(int argc, char *argv[])
 
     p1 = strstr(p_string, "\"");
     ret = strncmp("#include", p_string, 8);
-    if ((ret == 0) && (p1)) 
+   
+    if((ret == 0) && (p1)) 
     {
       pi = 0;
       ch = p_string[pi];
@@ -1342,7 +1364,6 @@ int main(int argc, char *argv[])
   }
 
   fclose(pgm);
-
   if (i_ct > 0) 
   {
     for (I = 0; I < i_ct; I++) 
@@ -1459,7 +1480,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
- /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
@@ -4699,7 +4720,7 @@ int main(int argc, char *argv[])
 
       if (x == 0) 
       {
-        printf("c2z.c C2 SCAN FCLOSE ERROR!!\n");
+        printf("c2z.c C2 SCAN FCLOSE ERROR! rct = %d tfield1 = %s!\n",rct,tfield1);
         /*  exit(1); */
       }
 
@@ -5762,10 +5783,38 @@ int main(int argc, char *argv[])
     math_convert = 0;
     fprtf_flag = 0;
     convert_ignore = 0;
+    quote_1 = 0;
+    quote_2 = 0;
 
     fgets(p_string, BUFSIZE, pgm);
     rct++;
+
     s = strlen(p_string);
+    for(I = 0; I < s; I++)
+    {
+      if(p_string[I] == '\"')
+      {
+        if(p_string[I - 1] != '\\')
+        {
+          if(quote_1 == 0)
+          {
+            quote_1 = I;
+          }
+          else
+          {
+            quote_2 = I;
+          }
+        }
+      }
+    }
+
+/*
+if(quote_1 > 0)
+{
+  printf("c2z.c rct = %d p_string = %s",rct,p_string);
+  printf("c2z.c quote_1 = %d  quote_2 = %d\n",quote_1,quote_2);
+}
+*/
 
 /*  printf("c2z.c Pass 3 parm_ct = %d s = %d rct = %d erct = %d p_string = %s",parm_ct, s, rct,erct, p_string); */
  
@@ -7014,8 +7063,20 @@ int main(int argc, char *argv[])
       printf("c2z.c Pass 3 rct = %d Punch case\n", rct);
     }
 
+    quote_3 = 0;
     p = strstr(p_string, "case");
-    if (p) 
+    v = p - p_string;
+    if((quote_1 != 0) && (quote_2 != 0))
+    {
+      if((v > quote_1) && (v < quote_2))	/*  case enclosed inside of quotes NO PROCESS */
+      {
+        printf("c2z.c rct = %d p_string = %s",rct,p_string);
+        printf("c2z.c NOT PROCESSED\n");
+        quote_3 = 1;
+      }
+    }
+
+    if((p) && (quote_3 == 0)) 
     {
       if (debug_lv >= 2) 
       {

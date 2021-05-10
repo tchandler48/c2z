@@ -194,6 +194,7 @@ void c2_case(void)
           strcpy(trace_1, "c2z_case.c c2_case #7");
           trace_rec_3();
         }
+        work_use_ct[48]++;
   
         strcpy(a_string, "         CVD   R5,0(R7)");
         src_line();
@@ -210,6 +211,7 @@ void c2_case(void)
           strcpy(trace_1, "c2z_case.c c2_case #9");
           trace_rec_3();
         }
+        work_use_ct[49]++;
 
         strcpy(a_string, "         LARL  R7,C370U");
         src_line();
@@ -218,6 +220,7 @@ void c2_case(void)
           strcpy(trace_1, "c2z_case.c c2_case #10");
           trace_rec_3();
         }
+        work_use_ct[48]++;
 
         strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
         src_line();

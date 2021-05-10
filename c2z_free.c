@@ -342,7 +342,10 @@ void c2_free()
 
       strcpy(a_string, "         LARL  R6,");
       strcat(a_string, ar_field7);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield1);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free arr_char #3");
@@ -546,7 +549,10 @@ void c2_free()
 
       strcpy(a_string, "         LARL  R6,");
       strcat(a_string, ar_field7);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield1);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_free.c c2_free array_num #5");

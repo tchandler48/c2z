@@ -749,8 +749,7 @@ void c2_math_literal()
 
   if((x501L1 == 1) && (x501R1 == 1) && (x501L2 == 2) && (x501R2 == 2))
   {
-printf("c2z_pass_2 rct = %d p_string = %s",rct,p_string);
-printf("c2z_pass_2 NEED TO CODE\n");
+     c2_count_paren();
      convert = 1;
      return;
   }
@@ -3082,6 +3081,15 @@ void c2_pass2_if()
     }
   }
 
+  if((if_opr == 0) && (convert == 0))
+  {
+    p8 = strstr(p_string, "fgets");
+    if(p8)
+    {
+      if_opr = 55;
+    }
+  }
+
   if ((if_opr == 0) && (convert == 0)) 
   {
     p8 = strstr(p_string, "strchr");
@@ -3218,6 +3226,18 @@ void c2_pass2_if()
       if_opr = 1;
     }
   }
+
+/* ***************************************************
+ *  branch based on if_opr                           *
+ *************************************************** */
+
+  if((if_opr == 55) && (if_convert == 0))
+  {
+    c2_pass2_if_55();
+    if_convert = 1;
+    return;
+  }
+
 
   if ((if_opr == 22) && (if_convert == 0)) 
   {
@@ -6914,7 +6934,7 @@ if_13_skip1:
       strcpy(trace_1, "c2z_pass_2.c if_13 complex []");
       trace_rec_1();
     }
-printf("c2z_pass_2.c omplex [] rct = %d p_string = %s",rct,p_string);
+
     convert = 1;
     return;
 
@@ -8461,20 +8481,6 @@ void c2_pass2_while_2()
         trace_rec_1();
       }
 
-/*
-      pi = 0;
-      pi2 = 0;
-      pi++;
-      ch = tfield3[pi];
-      while(ch != '\'')
-      {
-        tfield3a[pi2] = ch;
-        pi2++;
-        pi++;
-        ch = tfield3[pi];
-      }
-      tfield3a[pi2] = '\0';
-*/
       tfield3a[0] = tfield3[1];
       tfield3a[1] = '\0';
 
@@ -8588,7 +8594,6 @@ void c2_pass2_while_2()
         s = strlen(c_wkname);
         c_wkname[s] = '\0';
         strcpy(tfield7b, c_wkname);
-printf("c2z_pass_2.c while_2 tfield7a = %s tfield7b = %s\n",tfield7a,tfield7b);
 
         if (char_ct == 0) 
         {
@@ -8918,7 +8923,6 @@ printf("c2z_pass_2.c while_2 tfield7a = %s tfield7b = %s\n",tfield7a,tfield7b);
     strcat(c_wkname, wk_strg);
     s = strlen(c_wkname);
     c_wkname[s] = '\0';
-printf("c2z_pass_2.c #10 while_2 c_wkname = %s tfield3 = %s\n",c_wkname,tfield3); 
 
     if (char_ct == 0) 
     {
@@ -14508,4 +14512,20 @@ void c2_pass2_math_600()
   convert = 1;
   return;
 }
+
+void c2_pass2_if_55()
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_pass_2.c c2_pass2_if_55");
+    trace_rec_1();
+  }
+
+printf("c2z_pass_2.c c2_pass2_if_55 START\n");
+
+  convert = 1;
+  return;
+}
+
+
 
