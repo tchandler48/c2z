@@ -3543,7 +3543,7 @@ void c2_str_4()
   int pi2;
   int v = 0;
   int I = 0;
-  int x1 = 0;
+/*  int x1 = 0; */
   int x2 = 0;
   int x10 = 0;
 
@@ -3615,7 +3615,7 @@ void c2_str_4()
         str3 = 1;
         strcpy(tfield1a, lw_variable[v].lv_cname);
         lw_variable[v].lv_use_ct++;
-        x1 = lw_variable[v].lv_current_lgth;
+   /*     x1 = lw_variable[v].lv_current_lgth; */
       }
     }
   }
@@ -3633,7 +3633,7 @@ void c2_str_4()
           str3 = 1;
           strcpy(tfield1a, gw_variable[v].gv_cname);
           gw_variable[v].gv_use_ct++;
-          x1 = gw_variable[v].gv_current_lgth;
+      /*    x1 = gw_variable[v].gv_current_lgth; */
          /* gw_variable[v].gv_current_lgth = x1; take out ?? */
         }
       }
@@ -4812,7 +4812,7 @@ void c2_str_5()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LA    R6,");
+    strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, ar_field6);
     strcat(a_string, "(R0,R6)");
     src_line();
@@ -4985,7 +4985,10 @@ void c2_str_5()
  
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield5a);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield5);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #28");
@@ -5066,10 +5069,13 @@ void c2_str_5()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LA    R5,");
+    strcpy(a_string, "         LAEY  R5,");
     strcat(a_string, ar1_field6);
     strcat(a_string, "(R0,R5)");
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, tfield4);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strcpy.c c2_str_5 MULTI #37");
@@ -9371,8 +9377,9 @@ void c2_strcpy_pass2(void)
       ch = p_string[pi];
     }
     field5[pi2] = '\0';
+/*
   skip_1:
-
+*/
     x3 = 0;
     if (lv_ct > 0) 
     {

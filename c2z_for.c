@@ -373,8 +373,6 @@ void c2_for(void)
   strcat(sv_for_return, wk_strg);
 
 
-
-  
   /* ************************************************
    * for(; From <= Final; From += Inc)              *
    ************************************************ */
@@ -738,10 +736,105 @@ skip_for_1:
   }
   tfield6[pi2] = '\0';
 
-  if (x20 == 1) 
+  if (x20 == 1)   /* for(ii=0; ii < count; ii++, left++)  */
   {
-    printf("c2z_for.c x20 = 1 NEED TO CODE rct = %d p_string = %s", rct,
-           p_string);
+    for_2nd_ct = 0;
+
+    pi2 = 0;
+    fd7_type = 0;
+    x2 = 0;
+    pi++;
+    ch = p_string[pi];
+    while (ch != '+') 
+    {
+      if(ch != ' ')
+      {
+        if (x2 == 0) 
+        {
+          if (isalpha(ch)) 
+          {
+            fd7_type = 1;
+            x2 = 1;
+          }
+          if (isdigit(ch)) 
+          {
+            fd7_type = 2;
+            x2 = 1;
+          }
+        }
+        tfield7[pi2] = ch;
+        pi2++;
+      }
+      pi++;
+      ch = p_string[pi];
+    }
+    tfield7[pi2] = '\0';
+
+    x3 = 0;
+    x2 = 0; 
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(tfield7, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        ret2 = strcmp(lw_variable[I].lv_type, "I");
+        if (ret2 != 0) 
+        {  
+          printf("\nc2z_for.c c2_for E-63 tfield7 Not Numeric %s\n", tfield7);
+          printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+        x3 = 1;
+        strcpy(tfield7a, lw_variable[I].lv_cname);
+        lw_variable[I].lv_use_ct++;
+        for_2nd_ct = 1;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(tfield7, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          ret1 = strcmp("I", gw_variable[I].gv_type);
+          if (ret1 != 0) 
+          {
+            printf("\nc2z_for.c c2_for E-164 tfield7 Not Numeric %s\n", tfield7);
+            printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+            erct++;
+            convert = 1; 
+            return;
+          }
+          x3 = 1;
+          strcpy(tfield7a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          for_2nd_ct = 1;
+        }
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      printf("\nc2z_for.c c2_for E-165 tfield7 Not Found = %s\n", tfield7);
+      printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+    v = 0;
+    for (v = 0; v < for_ct; v++) 
+    {
+      if (rct == w_for_table[v].for_rct) 
+      {
+        strcpy(w_for_table[v].for_rt_field2, tfield7a);
+      }
+    }
   }
 
   x3 = 0;

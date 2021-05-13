@@ -1,96 +1,94 @@
 /* ***************************************************
 *  c2  : c2z_macro.c :                               *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2018                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
 *  Punch out SIZEOF                                  *
 * ************************************************** */
 void c2_sizeof()
-	{
-		if(trace_flag == 1)
-			{
-				strcpy(trace_1, "c2z_macro.c c2_sizeof");
-				trace_rec_1();
-			}
+{
+  if(trace_flag == 1)
+  {
+    strcpy(trace_1, "c2z_macro.c c2_sizeof");
+    trace_rec_1();
+  }
 
-		char ch;
-		char field1[VAR_LGTH];
-		char field2[VAR_LGTH];
-		char field1a[VAR_LGTH];
-		char field2a[VAR_LGTH];
-	       char field3a[VAR_LGTH];
+  char ch;
+  char field1[VAR_LGTH];
+  char field2[VAR_LGTH];
+  char field1a[VAR_LGTH];
+  char field2a[VAR_LGTH];
+  char field3a[VAR_LGTH];
 
-		int x = 0;
-		int x3 = 0;
-		int pi;
-		int pi2;
-		int I = 0;
-		int ret = 0;
-		int end_of_string = 0;
+   int x = 0;
+   int x3 = 0;
+   int pi;
+   int pi2;
+   int I = 0;
+   int ret = 0;
+   int end_of_string = 0;
 
-		/* check_semi(); */
+  /*  move down to first non-blank */
+  pi = 0;
+  ch = p_string[pi];
+  while((ch == ' ') || (ch == '\t'))
+  {
+    pi++;
+    ch = p_string[pi];
+  }
 
-		/*  move down to first non-blank */
-		pi = 0;
-		ch = p_string[pi];
-		while((ch == ' ') || (ch == '\t'))
-			{
-				pi++;
-				ch = p_string[pi];
-			}
+  /* now at first non-blank, should be c keyword */
+  /* loop thru to 1st blank after field name     */
+  pi2 = 0;
+  while(ch != ' ')
+  {
+    field1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  } 
+  field1[pi2] = '\0';
 
-		/* now at first non-blank, should be c keyword */
-		/* loop thru to 1st blank after field name     */
-		pi2 = 0;
-		while(ch != ' ')
-			{
-				field1[pi2] = ch;
-				pi2++;
-				pi++;
-				ch = p_string[pi];
-			} 
-		field1[pi2] = '\0';
+  /*  get v_cname from w_variable               */
+  /*  check lw_variable 1st                     */
+  x3 = 0;
+  if(lv_ct > 0)
+  {
+    for(I = 0; I < lv_ct; I++)
+    {
+      ret = strcmp(field1, lw_variable[I].lv_name);
+      if(ret == 0)
+      {
+        x3 = 1;
+	 strcpy(field1a, lw_variable[I].lv_cname);
+	 lw_variable[I].lv_use_ct++;
+      }
+    }
+  }
 
-		/*  get v_cname from w_variable               */
-		/*  check lw_variable 1st                     */
-		x3 = 0;
-		if(lv_ct > 0)
-			{
-				for(I = 0; I < lv_ct; I++)
-					{
-						ret = strcmp(field1, lw_variable[I].lv_name);
-						if(ret == 0)
-							{
-								x3 = 1;
-								strcpy(field1a, lw_variable[I].lv_cname);
-								lw_variable[I].lv_use_ct++;
-							}
-					}
-			}
+  if(x == 0)		/* check the global gw_variable table */
+  {
+    if(gv_ct > 0)
+    {
+      for(I = 0; I < gv_ct; I++)
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+	 if(ret == 0)
+	 {
+	   x3 = 1;
+	   strcpy(field1a, gw_variable[I].gv_cname);
+	   gw_variable[I].gv_use_ct++;									}
+	 }
+      }
+  }
 
-		if(x == 0)		/* check the global gw_variable table */
-			{
-				if(gv_ct > 0)
-					{
-						for(I = 0; I < gv_ct; I++)
-							{
-								ret = strcmp(field1, gw_variable[I].gv_name);
-								if(ret == 0)
-									{
-										x3 = 1;
-										strcpy(field1a, gw_variable[I].gv_cname);
-										gw_variable[I].gv_use_ct++;									}
-							}
-					}
-			}
-
-		if(x3 == 0)
-			{
-				printf("sizeof ERROR MESSAGE\n");
-				exit(1);
-			}
+  if(x3 == 0)
+  {
+    printf("sizeof ERROR MESSAGE\n");
+    exit(1);
+  }
 
 		/* now skip down to 1st ( */
 		pi++;

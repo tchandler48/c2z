@@ -1035,7 +1035,10 @@ void c2_unsigned_punch()
 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, field1a);
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field1);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #11");

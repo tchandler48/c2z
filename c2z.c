@@ -189,6 +189,8 @@
        void if_case_43(void);
        void if_case_44(void);
        void if_case_45(void);
+       void if_case_46(void);
+       void if_case_47(void);
 
 
 /*		c2z_incr.c		*/
@@ -258,6 +260,7 @@
        void c2_math_600(void);
        void c2_math_601(void);
        void c2_math_700(void);
+       void c2_math_800(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -552,7 +555,8 @@ char sv_prt_string[80]; 				/* work string in print numeric		*/
 char pgm_name[8];
 char ret_fn[VAR_LGTH];
 char tfield99[VAR_LGTH];
-
+char for_2nd[VAR_LGTH];
+char ptr_lgth[6];
 char strtmp[128];
 char c_output_file[24];
 char c_wkname[24];
@@ -561,7 +565,6 @@ char sv_func[VAR_LGTH];
 char sv_print_lit[VAR_LGTH];
 char null_field[2];
 char wk_fdwk[24];
-;
 char sub_name[24];
 char wk_strg[8];     
 char wk_remark[22];
@@ -617,7 +620,6 @@ char from_sv[24];
  int bad_rec_ct = 0;
  int free_loop = 0;
  int erct = 0;
- char ptr_lgth[6];
  int e_pos = 0;
  int line_ndx = 0;
  int fd_test = 0;
@@ -625,6 +627,7 @@ char from_sv[24];
  int quote_1 = 0;
  int quote_2 = 0;
  int quote_3 = 0;
+ int for_2nd_ct = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -959,6 +962,7 @@ struct for_table
    int for_level;
    int for_eof1;
   char for_rt_field[VAR_LGTH];
+  char for_rt_field2[VAR_LGTH];
   char for_p_string[BUFSIZE];
 };
 struct for_table *w_for_table;
@@ -1338,7 +1342,6 @@ int main(int argc, char *argv[])
         {
           scan_func_name_1();
           fputs(p_string, c_tmp);
-
         }
         fclose(c_h);
       }
@@ -1373,6 +1376,7 @@ int main(int argc, char *argv[])
       while (1) 
       {
         fgets(p_string, BUFSIZE, pgm);
+/* printf("c2z.c Pass 1 p_string = %s",p_string); */
         rct++;
         if (feof(pgm)) 
         {
@@ -5884,6 +5888,42 @@ if(quote_1 > 0)
       trace_rec_1();
     }
 
+    if(for_2nd_ct == 1)
+    {
+      v = 0;
+      for (v = 0; v < for_ct; v++) 
+      {
+        if (rct == w_for_table[v].for_eof1) 
+        {
+          strcpy(a_string, "         LARL  R9,");
+          strcat(a_string, w_for_table[v].for_rt_field2);
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c FOR/End Loop #1");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         LARL  R8,C370ONE");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c FOR/End Loop #2");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c FOR/End Loop #3");
+            trace_rec_3();
+          }
+          for_2nd_ct = 0;
+        }
+      }
+    }
+
     v = 0;
     for (v = 0; v < for_ct; v++) 
     {
@@ -5894,7 +5934,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #1");
+          strcpy(trace_1, "c2z.c FOR/End Loop #4");
           trace_rec_3();
         }
 
@@ -5902,7 +5942,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #2");
+          strcpy(trace_1, "c2z.c FOR/End Loop #5");
           trace_rec_3();
         }
 
@@ -5910,7 +5950,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #3");
+          strcpy(trace_1, "c2z.c FOR/End Loop #6");
           trace_rec_3();
         }
 
@@ -5920,7 +5960,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #4");
+          strcpy(trace_1, "c2z.c FOR/End Loop #7");
           trace_rec_3();
         }
 
@@ -5933,7 +5973,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #5");
+          strcpy(trace_1, "c2z.c FOR/End Loop #8");
           trace_rec_3();
         }
 
@@ -5941,7 +5981,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #6");
+          strcpy(trace_1, "c2z.c FOR/End Loop #9");
           trace_rec_3();
         }
 
@@ -5949,7 +5989,7 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #7");
+          strcpy(trace_1, "c2z.c FOR/End Loop #10");
           trace_rec_3();
         }
 
@@ -5957,9 +5997,10 @@ if(quote_1 > 0)
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z.c FOR/End Loop #8");
+          strcpy(trace_1, "c2z.c FOR/End Loop #11");
           trace_rec_3();
         }
+        for_2nd_ct = 0;
         convert = 1;
         break;
       }
@@ -6105,7 +6146,7 @@ if(quote_1 > 0)
 
               if (gw_variable[v1].gv_flag > 0) 
               {
-                strcpy(a_string, "         LAEY  R6,");
+                strcpy(a_string, "*         LAEY  R6,");
                 strcat(a_string, ar_field6);
                 strcat(a_string, "(R0,R6)");
                 src_line();

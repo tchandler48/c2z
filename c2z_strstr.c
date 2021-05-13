@@ -606,8 +606,10 @@ void c2_strstr_scan()
   int ret = 0;
   int s = 0;
   int size = 0;
+/*
   int fd3_type;
   int fd4_type;
+*/
   int fd5_type;
 
   x80 = 999;
@@ -935,7 +937,7 @@ printf("c2z_strstr.c c2z_strstr_scan tfield3 = %s\n",tfield3);
 
     pi2 = 0;
     x2 = 0;
-    fd3_type = 0;
+/*    fd3_type = 0; */
     pi++;
     ch = p_string[pi];
     while (ch != ']') 
@@ -946,12 +948,12 @@ printf("c2z_strstr.c c2z_strstr_scan tfield3 = %s\n",tfield3);
         {
           if (isdigit(ch)) 
           {
-            fd3_type = 1;
+        /*    fd3_type = 1; */
             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd3_type = 2;
+       /*     fd3_type = 2; */
             x2 = 1;
           }
         }
@@ -965,7 +967,7 @@ printf("c2z_strstr.c c2z_strstr_scan tfield3 = %s\n",tfield3);
 
     pi2 = 0;
     x2 = 0;
-    fd4_type = 0;
+/*    fd4_type = 0; */
     pi++;
     ch = p_string[pi];
     while (ch != ']') 
@@ -976,12 +978,12 @@ printf("c2z_strstr.c c2z_strstr_scan tfield3 = %s\n",tfield3);
         {
           if (isdigit(ch)) 
           {
-            fd4_type = 1;
+         /*   fd4_type = 1; */
             x2 = 1;
           }
           if (isalpha(ch)) 
           {
-            fd4_type = 2;
+        /*    fd4_type = 2; */
             x2 = 1;
           }
         }
@@ -1236,30 +1238,38 @@ void c2_strstr_41()
   char tfield3a[VAR_LGTH];
   char tfield4[VAR_LGTH];
   char tfield4a[VAR_LGTH];
-  char tfield5[VAR_LGTH];
-  char tfield5a[VAR_LGTH];
+/*  char tfield5[VAR_LGTH]; */
+/*  char tfield5a[VAR_LGTH]; */
 
   int pi = 0;
   int pi2 = 0;
   int x2 = 0;
   int x3 = 0;
   int x21 = 0;
-  int x80 = 0;
+
+/*  int x80 = 0;
   int x81 = 0;
   int x100 = 0;
   int x101 = 0;
-  int x102 = 0;
+  int x102 = 0; 
+*/
+
   int I = 0;
   int ret = 0;
-  int s = 0;
+
+/*  int s = 0;
   int s2 = 0;
   int size = 0;
   int ret1;
   int ret2;
-  int v;
+  int v; 
+*/
+
+/*
   int fd3_type;
   int fd4_type;
   int fd5_type;
+*/
 
   pi = 0;
   ch = p_string[pi];
@@ -1305,7 +1315,7 @@ void c2_strstr_41()
 
   pi2 = 0;
   x2 = 0;
-  fd3_type = 0;
+/*  fd3_type = 0; */
   pi++;
   ch = p_string[pi];
   while (ch != ']') 
@@ -1316,12 +1326,12 @@ void c2_strstr_41()
       {
         if (isdigit(ch)) 
         {
-          fd3_type = 1;
+     /*     fd3_type = 1; */
           x2 = 1;
         }
         if (isalpha(ch)) 
         {
-          fd3_type = 2;
+  /*        fd3_type = 2; */
           x2 = 1;
         }
       }
@@ -1335,7 +1345,7 @@ void c2_strstr_41()
 
   pi2 = 0;
   x2 = 0;
-  fd4_type = 0;
+/*  fd4_type = 0; */
   pi++;
   ch = p_string[pi];
   while (ch != ']') 
@@ -1346,12 +1356,12 @@ void c2_strstr_41()
       {
         if (isdigit(ch)) 
         {
-          fd4_type = 1;
+   /*       fd4_type = 1; */
           x2 = 1;
         }
         if (isalpha(ch)) 
         {
-          fd4_type = 2;
+   /*       fd4_type = 2; */
           x2 = 1;
         }
       }
@@ -1374,7 +1384,7 @@ void c2_strstr_41()
 
   pi2 = 0;
   x2 = 0;
-  fd5_type = 0;
+/*  fd5_type = 0; */
   ch = p_string[pi];
   while (ch != ')') 
   {
@@ -1382,21 +1392,21 @@ void c2_strstr_41()
     {
       if (isdigit(ch)) 
       {
-        fd5_type = 1;
+/*        fd5_type = 1; */
         x2 = 1;
       }
       if (isalpha(ch)) 
       {
-        fd5_type = 2;
+/*        fd5_type = 2; */
         x2 = 1;
       }
     }
-    tfield5[pi2] = ch;
+  /*  tfield5[pi2] = ch; */
     pi2++;
     pi++;
     ch = p_string[pi];
   }
-  tfield5[pi2] = '\0';
+ /* tfield5[pi2] = '\0'; */
 
   x21 = 0;
   x3 = 0;
