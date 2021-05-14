@@ -1017,6 +1017,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
   int ret = 0;
   int fd2_type = 0;
   int fd4_type = 0;
+  int fd6_type = 0;
 
   int no_parameters = 0;
   int comma_ct = 0;
@@ -1111,9 +1112,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
     }
 
     int rp = 0;
-  /*  char field4[VAR_LGTH]; */
-  /*  char field5[VAR_LGTH]; */
-
+ 
     pi = 0;
     ch = p_string[pi];
     while ((ch == ' ') || (ch == '\t') || (ch == '{')) 
@@ -1975,8 +1974,6 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
     }
   }
 
-
-
   if ((no_parameters == 1) && (tot_comma == 2) && (comma_ct == 1)) 		/* three variables passed	*/
   {
     pi = 0;
@@ -2150,21 +2147,21 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
     }
     field7[pi2] = '\0';
 
-   /* fd6_type = 0; */
+    fd6_type = 0; 
     p = strstr(field6, "char");
     if(p)
     {
-   /*   fd6_type = 1; */
+      fd6_type = 1; 
     }
     p = strstr(field6, "int");
     if(p)
     {
-   /*   fd6_type = 2; */
+      fd6_type = 2; 
     }
     p = strstr(field6, "dou");
     if(p)
     {
-   /*   fd6_type = 4; */
+      fd6_type = 4; 
     }
 
     for (I = 0; I < fn_ct; I++) 
@@ -2227,7 +2224,6 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         gw_variable[gv_ct].gv_id = 3;
         gv_ct++;
       }
-
 
       if(fd2_type == 2)
       {
@@ -2303,7 +2299,6 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         gv_ct++;
       }
     }
-   
 
     if (global_st == 1) 
     {
@@ -2393,7 +2388,6 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         lv_ct++;
       }
     }
-
 
     c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
@@ -2617,7 +2611,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
 
     if (global_st == 0) 
     {
-      if(fd4_type == 1)
+      if(fd6_type == 1)
       {
         if (gv_ct == 0) 
         {
@@ -2654,7 +2648,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         gv_ct++;
       }
 
-      if(fd4_type == 2)
+      if(fd6_type == 2)
       {
         if (gv_ct == 0) 
         {
@@ -2691,7 +2685,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         gv_ct++;
       }
 
-      if(fd4_type == 4)
+      if(fd6_type == 4)
       {
         if (gv_ct == 0) 
         {
@@ -2732,7 +2726,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
 
     if (global_st == 1) 
     {
-      if(fd4_type == 1)
+      if(fd6_type == 1)
       {
         if (lv_ct == 0) 
         {
@@ -2760,7 +2754,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
       }
   
 
-      if(fd4_type == 2)
+      if(fd6_type == 2)
       {
         if (lv_ct == 0) 
         {
@@ -2789,7 +2783,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         lv_ct++;
       }
 
-      if(fd4_type == 4)
+      if(fd6_type == 4)
       {
         if (lv_ct == 0) 
         {

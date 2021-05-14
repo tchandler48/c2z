@@ -624,8 +624,12 @@ void c2_return_2()
   }
 
   pi2 = 0;
-  while (ch != ' ') 
+  while(ch != ' ')
   {
+    if(ch == ';')
+    {
+      break;
+    }
     field1[pi2] = ch;
     pi2++;
     pi++;

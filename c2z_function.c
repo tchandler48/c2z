@@ -275,6 +275,7 @@ void c2_func_call()
   int x3 = 0;
   int x4 = 0;
   int x5 = 0;
+  int x100;
   int I = 0;
   int s = 0;
   int v = 0;
@@ -817,7 +818,10 @@ void c2_func_call()
 
       strcpy(a_string, "         LARL  R15,");
       strcat(a_string, field1a);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, field1);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #8a");
@@ -1072,6 +1076,7 @@ void c2_func_call()
 
       if (fd2_type == 1) 
       {
+        x100 = 0;
         x3 = 0;
         v = 0;
         for (v = 0; v < lv_ct; v++) 
@@ -1083,6 +1088,7 @@ void c2_func_call()
             x3 = 1;
             strcpy(field2a, lw_variable[v].lv_cname);
             lw_variable[v].lv_use_ct++;
+            x100 = lw_variable[v].lv_current_lgth;
             ret2 = strcmp("I", lw_variable[v].lv_type);
             if (ret2 == 0) 
             {
@@ -1105,6 +1111,7 @@ void c2_func_call()
               x3 = 1;
               strcpy(field2a, gw_variable[v].gv_cname);
               gw_variable[v].gv_use_ct++;
+              x100 = gw_variable[v].gv_current_lgth;
               ret2 = strcmp("I", gw_variable[v].gv_type);
               if (ret2 == 0) 
               {
@@ -1212,7 +1219,7 @@ void c2_func_call()
             trace_rec_3();
           }
 
-          snprintf(wk_strg, sizeof(wk_strg), "%d", fd2_type);
+          snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
           strcpy(a_string, "         MVC   0(");
           strcat(a_string, wk_strg);
           strcat(a_string, ",R9),0(R8)");
@@ -1226,7 +1233,10 @@ void c2_func_call()
 
         strcpy(a_string, "         LARL  R15,");
         strcat(a_string, field1a);
-        src_line();
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field1);
+        strcat(wk_remark, " */");
+        write_remark();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_function.c c2_func_call #8a");
@@ -1407,7 +1417,10 @@ void c2_func_sub()
     strcpy(a_string, field2a);
     check_length();
     strcat(a_string, "DS    0H");
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_function.c c2_func_sub #2");
@@ -1819,12 +1832,12 @@ void scan_func_name_1()
     strcpy(trace_1, "c2z_function.c scan_func_name_1 START");
   }
 
-  int size = 0;
-  int pi;
-  int pi2;
-  int x1;
-  int x4;
-  int ret = 0;
+   int size = 0;
+   int pi;
+   int pi2;
+   int x1;
+   int x4;
+   int ret = 0;
 
   char ch;
   char *p, *p1, *p2, *p3, *p4, *p5, *p6, *p7, *p8;
@@ -2546,12 +2559,13 @@ void scan_func_name_1()
 
   if ((p4) && (p2) && (p3) && (p1) && (!p5) && (convert == 0)) 	/* INT procedure INT get_upper(int, int);		*/
   {
+
     if (traceflg == 1) 
     {
       strcpy(trace_1, "c2z_function.c #83 scan_func_name_1 INT 2 - int");
       trace_rec_1();
     }
-
+   
     pi = 0;
     ch = p_string[pi];
     while ((ch == ' ') || (ch == '\t')) 
@@ -2696,7 +2710,9 @@ void scan_func_name_1()
 
   if ((p4) && (p2) && (p3) && (!p1) && (!p5) && (convert == 0)) 		/* INT procedure INT get_upper(int, int);	*/
   {
-    if (traceflg == 1) {
+printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
+    if (traceflg == 1) 
+    {
       strcpy(trace_1, "c2z_pass_1.c #84 scan_func_name_1 INT #100");
       trace_rec_1();
     }

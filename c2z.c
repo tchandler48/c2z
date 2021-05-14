@@ -432,6 +432,8 @@
        void c2_str_9(void);
        void c2_str_10(void);
        void c2_str_11(void);
+       void c2_str_12(void);
+       void c2_str_13(void);
 	void c2_strcpy_pass2(void);
 	void c2_pass2_strcpy_2(int,int);
 
