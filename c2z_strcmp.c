@@ -1066,10 +1066,13 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, field6);
     strcat(a_string, "(R0,R6)");
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #14");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #15");
       trace_rec_3();
     }
 
@@ -1079,7 +1082,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #15");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #16");
       trace_rec_3();
     }
 
@@ -1092,7 +1095,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #16");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #17");
       trace_rec_3();
     }
 
@@ -1104,7 +1107,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #17");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #18");
       trace_rec_3();
     }
 
@@ -1112,7 +1115,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #18");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #19");
       trace_rec_3();
     }
 
@@ -1123,7 +1126,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #19");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #20");
       trace_rec_3();
     }
 
@@ -1132,7 +1135,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #20");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #21");
       trace_rec_3();
     }
 
@@ -1145,7 +1148,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #21");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #22");
       trace_rec_3();
     }
 
@@ -1157,7 +1160,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #22");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #23");
       trace_rec_3();
     }
 
@@ -1165,7 +1168,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #23");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #24");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -1174,7 +1177,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #24");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #25");
       trace_rec_3();
     }
 
@@ -1187,7 +1190,7 @@ void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #25");
+      strcpy(trace_1, "c2z_strcmp.c c2_strcmp_3 #26");
       trace_rec_3();
     }
 

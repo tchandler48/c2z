@@ -111,6 +111,7 @@ void c2_case(void)
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(save_case_break, wk_strg);
     strcat(save_case_break, "E");
+
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, sw_field);
     src_line();
@@ -180,7 +181,10 @@ void c2_case(void)
       {
         strcpy(a_string, "         LAEY  R5,");
         strcat(a_string, field1);
-        src_line();
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field1);
+        strcat(wk_remark, " */");
+        write_remark();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_case.c c2_case #6");

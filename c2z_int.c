@@ -3440,14 +3440,6 @@ void c2_int_5() 			/*  INT IV_STACK[MAX_VALUE]	 int iv_stack[5]	*/
 * ************************************************** */
 void c2_int_punch() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_int.c c2_int_punch START");
-    trace_rec_1();
-  }
-
-  /* pgm_label(); */
-
   int x = 0;
   int pi;
   int pi2;
@@ -3776,7 +3768,7 @@ void c2_int_punch_1()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_int.c c2_int_punch_1 #1");
+      strcpy(trace_1, "c2z_int.c punch_1 #1");
       trace_rec_3();
     }
 
@@ -3784,7 +3776,7 @@ void c2_int_punch_1()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_int.c c2_int_punch_1 #2");
+      strcpy(trace_1, "c2z_int.c punch_1 #2");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -3793,7 +3785,7 @@ void c2_int_punch_1()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_int.c c2_int_punch_1 #3");
+      strcpy(trace_1, "c2z_int.c punch_1 #3");
       trace_rec_3();
     }
   }
@@ -3887,7 +3879,7 @@ void c2_int_punch_1()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_int.c c2_int_punch_1 #4");
+      strcpy(trace_1, "c2z_int.c punch_1 #4");
       trace_rec_3();
     }
 
@@ -3945,7 +3937,7 @@ void c2_int_punch_1()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_int.c c2_int_punch_1 #5");
+        strcpy(trace_1, "c2z_int.c punch_1 #5");
         trace_rec_3();
       }
       work_use_ct[32]++;
@@ -3954,7 +3946,7 @@ void c2_int_punch_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_int.c c2_int_punch_1 #6");
+        strcpy(trace_1, "c2z_int.c punch_1 #6");
         trace_rec_3();
       }
     }
@@ -3969,7 +3961,7 @@ void c2_int_punch_1()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_int.c c2_int_punch_1 #7");
+        strcpy(trace_1, "c2z_int.c punch_1 #7");
         trace_rec_3();
       }
     }
@@ -3984,7 +3976,7 @@ void c2_int_punch_1()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #8");
+            strcpy(trace_1, "c2z_int.c punch_1 #8");
             trace_rec_3();
           }
           work_use_ct[82]++;
@@ -4000,7 +3992,7 @@ void c2_int_punch_1()
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #9");
+            strcpy(trace_1, "c2z_int.c punch_1 #9");
             trace_rec_3();
           }
        
@@ -4009,7 +4001,7 @@ void c2_int_punch_1()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #10");
+            strcpy(trace_1, "c2z_int.c punch_1 #10");
             trace_rec_3();
           }
           work_use_ct[48]++;
@@ -4018,7 +4010,7 @@ void c2_int_punch_1()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #11");
+            strcpy(trace_1, "c2z_int.c punch_1 #11");
             trace_rec_3();
           }
 
@@ -4026,7 +4018,7 @@ void c2_int_punch_1()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #12");
+            strcpy(trace_1, "c2z_int.c punch_1 #12");
             trace_rec_3();
           }
           work_use_ct[50]++;
@@ -4035,7 +4027,7 @@ void c2_int_punch_1()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #13");
+            strcpy(trace_1, "c2z_int.c punch_1 #13");
             trace_rec_3();
           }
           work_use_ct[48]++;
@@ -4044,7 +4036,7 @@ void c2_int_punch_1()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_int.c c2_int_punch_1 #14");
+            strcpy(trace_1, "c2z_int.c punch_1 #14");
             trace_rec_3();
           }
         }
@@ -4053,7 +4045,7 @@ void c2_int_punch_1()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_int.c c2_int_punch_1 #15");
+          strcpy(trace_1, "c2z_int.c punch_1 #15");
           trace_rec_3();
         }
       }

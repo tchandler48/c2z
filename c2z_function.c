@@ -1278,7 +1278,10 @@ void c2_func_call()
   {
       strcpy(a_string, "         LARL  R15,");
       strcat(a_string, field1a);
-      src_line();
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, field1);
+      strcat(wk_remark, " */");
+      write_remark();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_function.c c2_func_call #8a");

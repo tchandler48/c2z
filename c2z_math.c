@@ -11,12 +11,6 @@
 
 void c2_math() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_math.c c2_math START");
-    trace_rec_1();
-  }
-
   char *p, *p1, *p2, *p8, *p9;
   char ch;
   char field1[VAR_LGTH];
@@ -520,12 +514,6 @@ void c2_math()
 
   if ((op_1 == 1) && (L1 == 0) && (R1 == 0) && (L2 == 0) && (R2 == 0) && (!p8) && (!p9)) 
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_math.c c2_math_1 BRANCH");
-      trace_rec_1();
-    }
-
     c2_math_1();
     return;
   }
@@ -3618,7 +3606,10 @@ printf("c2z_math.c maht_2 #2 field3 = %s fd3_type = %d\n",field3,fd3_type);
 
     strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, field7);
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_math.c c2_math_2 2 & 2 #5");
@@ -3741,7 +3732,10 @@ printf("c2z_math.c maht_2 #2 field3 = %s fd3_type = %d\n",field3,fd3_type);
     strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, field6);
     strcat(a_string, "(R0,R6)");
-    src_line();
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_math.c c2_math_2 2 & 2 #14");
@@ -4828,7 +4822,7 @@ void c2_math_5()
     strcat(a_string, field6);
     strcat(a_string, "(R0,R6)");
     strcpy(wk_remark, " ");
-    strcat(wk_remark, field6);
+    strcat(wk_remark, field1);
     strcat(wk_remark, " */");
     write_remark();
     if (puncde == 1) 
