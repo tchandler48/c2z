@@ -514,11 +514,6 @@
 /* 	       c2z_while.c		*/
 	void c2_while(void);
 	void c2_while_1(void);
-	void c2_while_2(void);
-	void c2_while_3(void);
-	void c2_while_4(void);
-	void c2_while_5(void);
-	void c2_while_6(void);
 	void c2_while_7(void);
 	void c2_while_8(void);
 	void c2_while_9(void);
@@ -6148,6 +6143,7 @@ if(quote_1 > 0)
 
               if (gw_variable[v1].gv_flag > 0) 
               {
+/*
                 strcpy(a_string, "*         LAEY  R6,");
                 strcat(a_string, ar_field6);
                 strcat(a_string, "(R0,R6)");
@@ -6157,6 +6153,7 @@ if(quote_1 > 0)
                   strcpy(trace_1, "c2z.c while end Label #1");
                   trace_rec_3();
                 }
+ */
                 gw_variable[v1].gv_flag = 0;
                 convert = 1;
               }

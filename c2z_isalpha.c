@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2_isaplha.c                                *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2021                    *
 **************************************************** */
 
 /* ***************************************************
@@ -13,7 +13,7 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #1");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #1");
     trace_rec_3();
   }
 
@@ -21,32 +21,33 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #2");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #2");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370L1A");
-  src_line();
+  strcpy(a_string, "         LARL  R9,C370ISAL");
+  strcpy(wk_remark, " C370ISAL */");
+  write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #3");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #3");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R8,C370UCA");
-  src_line();
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  strcpy(wk_remark, " C370ZERO */");
+  write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #4");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #4");
     trace_rec_3();
   }
-  work_use_ct[35]++;
-
-  strcpy(a_string, "         MVC   0(1,R9),0(R8)");
+ 
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #5");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #5");
     trace_rec_3();
   }
 
@@ -54,49 +55,46 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #6");
-    trace_rec_3();
-  }
-  work_use_ct[59]++;
-
-  strcpy(a_string, "         LARL  R8,C370L1A");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #7");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #6");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         CLC   ");
-  strcat(a_string, "0(1,R9),0(R8)");
+  strcpy(a_string, "         LARL  R8,C370NWK2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #8");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #7");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLE   ISA01");
+  strcpy(a_string, "         LARL  R7,C370ZERO");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #9");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #8");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         ZAP   0(6,R8),0(6,R7)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #9");
+    trace_rec_3();
+  }
+  strcpy(a_string, "*  Start test for TSTUC ");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLH   ISA01");
+  strcpy(a_string, "         LAEY  R5,27");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #10");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "         JLU   ISA02");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #11");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #10");
     trace_rec_3();
   }
 
@@ -104,56 +102,89 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #12");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #11");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370L1A");
+/*  test tstuc */
+
+  strcpy(a_string, "         LARL  R7,C370U");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #13");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #12");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R8,C370UCZ");
+  strcpy(a_string, "         LARL  R6,C370NWK2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #14");
-    trace_rec_3();
-  }
-  work_use_ct[36]++;
-
-  strcpy(a_string, "         MVC   0(1,R9),0(R8)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #15");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #13");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370L1");
+  strcpy(a_string, "         ZAP   0(8,R7),2(4,R6)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #16");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #14");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R8,C370L1A");
+  strcpy(a_string, "         LARL  R7,C370U");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #17");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #15");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+  strcpy(a_string, "         CVB   R4,0(R7)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #18");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #16");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R7,TSTUC");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #17");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         IC    R0,0(R7,(R4))");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #18");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R6,C370L2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #19");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         STC   R0,0(0,R6)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #20");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         CLC   0(1,R9),0(R6)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #21");
     trace_rec_3();
   }
 
@@ -161,65 +192,79 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #19");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #22");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLL   ISA03");
+  strcpy(a_string, "         LARL  R8,C370NWK2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #20");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #23");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLU   ISA02");
+  strcpy(a_string, "         LARL  R7,C370ONE");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #21");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #24");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         AP    0(6,R8),0(6,R7)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #25");
     trace_rec_3();
   }
 
-  strcpy(a_string, "ISA03    DS    0H");
+  strcpy(a_string, "         JCT   R5,ISA01");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #22");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #26");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370ISAL");
+  strcpy(a_string, "*  Start test for TSTLC ");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #23");
-    trace_rec_3();
-  }
-  work_use_ct[1]++;
-
-  strcpy(a_string, "         LARL  R8,C370ONE");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #24");
-    trace_rec_3();
-  }
-  work_use_ct[33]++;
-
-  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #25");
+    strcpy(trace_1, "c2z_isalpha.c");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLU   ISA04");
+  strcpy(a_string, "         LARL  R8,C370NWK2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #26");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #27");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R7,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #28");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         ZAP   0(6,R8),0(6,R7)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #29");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LAEY  R5,27");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #30");
     trace_rec_3();
   }
 
@@ -227,137 +272,88 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #27");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #31");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370L1A");
+/*  test tstlc */
+  strcpy(a_string, "         LARL  R7,C370U");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #28");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #32");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R8,C370LCA");
+  strcpy(a_string, "         LARL  R6,C370NWK2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #29");
-    trace_rec_3();
-  }
-  work_use_ct[37]++;
-
-  strcpy(a_string, "         MVC   0(1,R9),0(R8)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #30");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #33");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370L1");
+  strcpy(a_string, "         ZAP   0(8,R7),2(4,R6)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #31");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #34");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R8,C370L1A");
+  strcpy(a_string, "         LARL  R7,C370U");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #32");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #35");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+  strcpy(a_string, "         CVB   R4,0(R7)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #33");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #36");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLE   ISA05");
+  strcpy(a_string, "         LARL  R7,TSTLC");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #34");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #37");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLH   ISA05");
+  strcpy(a_string, "         IC    R0,0(R7,(R4))");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #35");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #38");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLU   ISA06");
+  strcpy(a_string, "         LARL  R6,C370L2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #36");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #39");
     trace_rec_3();
   }
 
-  strcpy(a_string, "ISA05    DS    0H");
+  strcpy(a_string, "         STC   R0,0(0,R6)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #37");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #40");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R9,C370L1A");
+  strcpy(a_string, "         CLC   0(1,R9),0(R6)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #38");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "         LARL  R8,C370LCZ");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #39");
-    trace_rec_3();
-  }
-  work_use_ct[38]++;
-
-  strcpy(a_string, "         MVC   0(1,R9),0(R8)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #40");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "         LARL  R9,C370L1");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #41");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "         LARL  R8,C370L1A");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #42");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "         CLC   0(1,R9),0(R8)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #43");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #41");
     trace_rec_3();
   }
 
@@ -365,65 +361,89 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #44");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #42");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLL   ISA03");
+  strcpy(a_string, "         LARL  R8,C370NWK2");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #45");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #43");
     trace_rec_3();
   }
 
-  strcpy(a_string, "         JLU   ISA06");
+  strcpy(a_string, "         LARL  R7,C370ONE");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #46");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #44");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         AP    0(6,R8),0(6,R7)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #45");
     trace_rec_3();
   }
 
-  strcpy(a_string, "ISA06    DS    0H");
+  strcpy(a_string, "         JCT   R5,ISA02");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #47");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #46");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLU   ISA99");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #47");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "ISA03    DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalpha.c isalpha #48");
     trace_rec_3();
   }
 
   strcpy(a_string, "         LARL  R9,C370ISAL");
-  src_line();
+  strcpy(wk_remark, " C370ISAL */");
+  write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #48");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #49");
     trace_rec_3();
   }
-  work_use_ct[1]++;
 
-  strcpy(a_string, "         LARL  R8,C370ZERO");
-  src_line();
+  strcpy(a_string, "         LARL  R8,C370ONE");
+  strcpy(wk_remark, " C370ONE */");
+  write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #49");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #50");
     trace_rec_3();
   }
-  work_use_ct[32]++;
-
+ 
   strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #50");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #51");
     trace_rec_3();
   }
 
-  strcpy(a_string, "ISA04    DS    0H");
+  strcpy(a_string, "ISA99    DS    0H");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #51");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #52");
     trace_rec_3();
   }
 
@@ -431,7 +451,7 @@ void c2_isalpha()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalpha.c c2_isalpha #52");
+    strcpy(trace_1, "c2z_isalpha.c isalpha #53");
     trace_rec_3();
   }
 }

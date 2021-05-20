@@ -707,7 +707,7 @@ void c2_unsigned_punch()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #20");
+      strcpy(trace_1, "c2z_unsigned.c punch #20");
       trace_rec_3();
     }
 
@@ -719,7 +719,7 @@ void c2_unsigned_punch()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #21");
+      strcpy(trace_1, "c2z_unsigned.c punch #21");
       trace_rec_3();
     }
 
@@ -727,7 +727,7 @@ void c2_unsigned_punch()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #22");
+      strcpy(trace_1, "c2z_unsigned.c punch #22");
       trace_rec_3();
     }
 
@@ -879,7 +879,7 @@ void c2_unsigned_punch()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #1");
+      strcpy(trace_1, "c2z_unsigned.c punch #1");
       trace_rec_3();
     }
 
@@ -893,7 +893,7 @@ void c2_unsigned_punch()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #2");
+        strcpy(trace_1, "c2z_unsigned.c punch #2");
         trace_rec_3();
        }
     }
@@ -909,7 +909,7 @@ void c2_unsigned_punch()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #3");
+        strcpy(trace_1, "c2z_unsigned.c punch #3");
         trace_rec_3();
       }
 
@@ -917,7 +917,7 @@ void c2_unsigned_punch()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #4");
+        strcpy(trace_1, "c2z_unsigned.c punch #4");
         trace_rec_3();
       }
 
@@ -925,7 +925,7 @@ void c2_unsigned_punch()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #4");
+        strcpy(trace_1, "c2z_unsigned.c punch #4");
         trace_rec_3();
       }
  
@@ -933,7 +933,7 @@ void c2_unsigned_punch()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #5");
+        strcpy(trace_1, "c2z_unsigned.c punch #5");
         trace_rec_3();
       }
 
@@ -941,7 +941,7 @@ void c2_unsigned_punch()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #6");
+        strcpy(trace_1, "c2z_unsigned.c punch #6");
         trace_rec_3();
       }
 
@@ -949,7 +949,7 @@ void c2_unsigned_punch()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #7");
+        strcpy(trace_1, "c2z_unsigned.c punch #7");
         trace_rec_3();
       }
     }
@@ -958,7 +958,7 @@ void c2_unsigned_punch()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #8");
+      strcpy(trace_1, "c2z_unsigned.c punch #8");
       trace_rec_3();
     }
 
@@ -1041,7 +1041,7 @@ void c2_unsigned_punch()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #11");
+      strcpy(trace_1, "c2z_unsigned.c punch #11");
       trace_rec_3();
     }
 
@@ -1049,7 +1049,7 @@ void c2_unsigned_punch()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #12");
+      strcpy(trace_1, "c2z_unsigned.c punch #12");
       trace_rec_3();
     }
 
@@ -1057,7 +1057,7 @@ void c2_unsigned_punch()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch #13");
+      strcpy(trace_1, "c2z_unsigned.c punch #13");
       trace_rec_3();
     }
 

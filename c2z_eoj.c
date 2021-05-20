@@ -3275,89 +3275,6 @@ void c2_eoj()
     }
   }
 
-  if (work_use_ct[35] > 0) 
-  {
-    strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) {
-      strcpy(trace_1, "c2z Parser Var #66");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "C370UCA  DC    C'A'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #67");
-      trace_rec_3();
-    }
-  }
-
-  if (work_use_ct[36] > 0) 
-  {
-    strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #68");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "C370UCZ  DC    C'Z'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #69");
-      trace_rec_3();
-    }
-  }
-
-  if (work_use_ct[37] > 0) 
-  {
-    strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #70");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "C370LCA  DC    C'a'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #71");
-      trace_rec_3();
-    }
-  }
-
-  if (work_use_ct[38] > 0) 
-  {
-    strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #72");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "C370LCZ  DC    C'z'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z Parser Var #73");
-      trace_rec_3();
-    }
-  }
-
   strcpy(a_string, "         DS    0H");
   strcpy(wk_remark, "c2z gen variable  */");
   write_short();
@@ -3375,9 +3292,6 @@ void c2_eoj()
     strcpy(trace_1, "c2z Parser Var #75");
     trace_rec_3();
   }
-
-
-
 
   if (work_use_ct[39] > 0) 
   {
@@ -4430,19 +4344,40 @@ void c2_eoj()
     trace_rec_3();
   }
 
+  strcpy(a_string, "         DS    0H");
+  strcpy(wk_remark, "c2z gen variable  */");
+  write_short();  
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z Parser Var #154");
+    trace_rec_3();
+  }
 
+  strcpy(a_string, "TSTUC    DC    C'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z Parser Var #155");
+    trace_rec_3();
+  }
 
+  strcpy(a_string, "         DS    0H");
+  strcpy(wk_remark, "c2z gen variable  */");
+  write_short();  
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z Parser Var #154");
+    trace_rec_3();
+  }
 
-
-
-
-
-
-
-
-
-
-
+  strcpy(a_string, "TSTLC    DC    C'abcdefghijklmnopqrstuvwxyz0123456789'");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z Parser Var #155");
+    trace_rec_3();
+  }
+ 
   if (work_use_ct[81] > 0) 
   {
     strcpy(a_string, "         DS    0H");

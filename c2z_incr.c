@@ -12,7 +12,7 @@ void c2_plus()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.incr.c c2_plus #1 START");
+    strcpy(trace_1, "c2z.incr.c plus #1 START");
     trace_rec_1();
   }
 
@@ -126,7 +126,7 @@ void c2_plus()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus #1");
+      strcpy(trace_1, "c2z_incr.c plus #1");
       trace_rec_3();
     }
 
@@ -134,7 +134,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus #2");
+      strcpy(trace_1, "c2z_incr.c plus #2");
       trace_rec_3();
     }
     work_use_ct[33]++;
@@ -143,7 +143,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus #3");
+      strcpy(trace_1, "c2z_incr.c plus #3");
       trace_rec_3();
     }
     convert = 1;
@@ -229,7 +229,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr_c c2_plus_array #1");
+      strcpy(trace_1, "c2z_incr_c plus_array #1");
       trace_rec_3();
     }
     work_use_ct[49]++;
@@ -238,7 +238,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #2");
+      strcpy(trace_1, "c2z_incr.c plus_array #2");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -247,7 +247,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #3");
+      strcpy(trace_1, "c2z_incr.c plus_array #3");
       trace_rec_3();
     }
 
@@ -256,7 +256,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #4");
+      strcpy(trace_1, "c2z_incr.c plus_array #4");
       trace_rec_3();
     }
 
@@ -269,7 +269,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #5");
+      strcpy(trace_1, "c2z_incr.c plus_array #5");
       trace_rec_3();
     }
 
@@ -277,7 +277,7 @@ void c2_plus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #6");
+      strcpy(trace_1, "c2z_incr.c plus_array #6");
       trace_rec_3();
     }
     work_use_ct[49]++;
@@ -314,7 +314,7 @@ printf("rct = %d p_string = %s",rct,p_string);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_incr.c c2_plus_array #8");
+        strcpy(trace_1, "c2z_incr.c plus_array #8");
         trace_rec_3();
       }
     }
@@ -323,7 +323,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #8");
+      strcpy(trace_1, "c2z_incr.c plus_array #8");
       trace_rec_3();
     }
 
@@ -335,7 +335,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #9");
+      strcpy(trace_1, "c2z_incr.c plus_array #9");
       trace_rec_3();
     }
 
@@ -343,7 +343,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #10");
+      strcpy(trace_1, "c2z_incr.c plus_array #10");
       trace_rec_3();
     }
     work_use_ct[49]++;
@@ -352,7 +352,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #11");
+      strcpy(trace_1, "c2z_incr.c plus_array #11");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -361,7 +361,7 @@ printf("rct = %d p_string = %s",rct,p_string);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_incr.c c2_plus_array #12");
+      strcpy(trace_1, "c2z_incr.c plus_array #12");
       trace_rec_3();
     }
 

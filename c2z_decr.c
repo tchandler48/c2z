@@ -11,7 +11,7 @@ void c2_minus()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.decr.c c2_minus #1");
+    strcpy(trace_1, "c2z_decr.c c2_minus START");
     trace_rec_1();
   }
 
@@ -109,14 +109,14 @@ void c2_minus()
     strcat(wk_remark, " */");
     write_remark();
     if (puncde == 1) {
-      strcpy(trace_1, "c2z_decr.c c2_minus #1");
+      strcpy(trace_1, "c2z_decr.c minus #1");
       trace_rec_3();
     }
 
     strcpy(a_string, "         LARL  R8,C370ONE");
     src_line();
     if (puncde == 1) {
-      strcpy(trace_1, "c2z_decr.c c2_minus #2");
+      strcpy(trace_1, "c2z_decr.c minus #2");
       trace_rec_3();
     }
     work_use_ct[33]++;
@@ -125,7 +125,7 @@ void c2_minus()
     strcpy(wk_remark, " --       */ ");
     write_remark();
     if (puncde == 1) {
-      strcpy(trace_1, "c2z_decr.c c2_minus #3");
+      strcpy(trace_1, "c2z_decr.c minus #3");
       trace_rec_3();
     }
   }
@@ -134,7 +134,8 @@ void c2_minus()
   {
     pi = 0;
     ch = p_string[pi];
-    while (ch == ' ') {
+    while (ch == ' ') 
+    {
       pi++;
       ch = p_string[pi];
     }
@@ -193,7 +194,7 @@ void c2_minus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_decr_c c2_minus_array #1");
+      strcpy(trace_1, "c2z_decr_c minus_array #1");
       trace_rec_3();
     }
     work_use_ct[49]++;
@@ -202,7 +203,7 @@ void c2_minus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_decr.c c2_minus_array #2");
+      strcpy(trace_1, "c2z_decr.c minus_array #2");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -211,7 +212,7 @@ void c2_minus()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_decr.c c2_minus_array #3");
+      strcpy(trace_1, "c2z_decr.c minus_array #3");
       trace_rec_3();
     }
 

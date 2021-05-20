@@ -603,7 +603,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #1");
+        strcpy(trace_1, "c2z_function.c func_call #1");
         trace_rec_3();
       }
 
@@ -615,15 +615,18 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #2");
+        strcpy(trace_1, "c2z_function.c func_call #2");
         trace_rec_3();
       }
 
-      strcpy(a_string, "         MVC   0(R9),(R8)");
+      strcpy(a_string, "         MVC2  ");
+      strcat(a_string, field7a);
+      strcat(a_string, ",");
+      strcat(a_string, field2a);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #3");
+        strcpy(trace_1, "c2z_function.c func_call #3");
         trace_rec_3();
       }
     }
@@ -638,7 +641,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #4");
+        strcpy(trace_1, "c2z_function.c func_call #4");
         trace_rec_3();
       }
 
@@ -650,7 +653,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #5");
+        strcpy(trace_1, "c2z_function.c func_call #5");
         trace_rec_3();
       }
 
@@ -658,7 +661,7 @@ void c2_func_call()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #6");
+        strcpy(trace_1, "c2z_function.c func_call #6");
         trace_rec_3();
       }
     }
@@ -673,7 +676,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #7");
+        strcpy(trace_1, "c2z_function.c func_call #7");
         trace_rec_3();
       }
     
@@ -685,15 +688,18 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #8");
+        strcpy(trace_1, "c2z_function.c func_call #8");
         trace_rec_3();
       }
 
-      strcpy(a_string, "         MVC   0(R9),(R8)");
+      strcpy(a_string, "         MVC2   ");
+      strcat(a_string, field8a);
+      strcat(a_string, ",");
+      strcat(a_string, field3a);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #9");
+        strcpy(trace_1, "c2z_function.c func_call #9");
         trace_rec_3();
       }
     }
@@ -708,7 +714,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #10");
+        strcpy(trace_1, "c2z_function.c func_call #10");
         trace_rec_3();
       }
 
@@ -720,7 +726,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #11");
+        strcpy(trace_1, "c2z_function.c func_call #11");
         trace_rec_3();
       }
 
@@ -728,7 +734,7 @@ void c2_func_call()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #12");
+        strcpy(trace_1, "c2z_function.c func_call #12");
         trace_rec_3();
       }
     }
@@ -824,7 +830,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #8a");
+        strcpy(trace_1, "c2z_function.c func_call #13");
         trace_rec_3();
       }
 
@@ -832,7 +838,7 @@ void c2_func_call()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #8b");
+        strcpy(trace_1, "c2z_function.c func_call #14");
         trace_rec_3();
       }
 
@@ -1026,7 +1032,7 @@ void c2_func_call()
         write_remark();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_function.c c2_func_call #14");
+          strcpy(trace_1, "c2z_function.c func_call #16");
           trace_rec_3();
         }
 
@@ -1038,7 +1044,7 @@ void c2_func_call()
         write_remark();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_function.c c2_func_call #15");
+          strcpy(trace_1, "c2z_function.c func_call #17");
           trace_rec_3();
         }
 
@@ -1049,7 +1055,7 @@ void c2_func_call()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_function.c c2_func_call #16");
+          strcpy(trace_1, "c2z_function.c func_call #18");
           trace_rec_3();
         }
 
@@ -1168,7 +1174,7 @@ void c2_func_call()
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_function.c c2_func_call #18");
+            strcpy(trace_1, "c2z_function.c func_call #19");
             trace_rec_3();
           }
 
@@ -1180,7 +1186,7 @@ void c2_func_call()
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_function.c c2_func_call #19");
+            strcpy(trace_1, "c2z_function.c func_call #20");
             trace_rec_3();
           }
 
@@ -1188,7 +1194,7 @@ void c2_func_call()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_function.c c2_func_call #20");
+            strcpy(trace_1, "c2z_function.c func_call #21");
             trace_rec_3();
           }
         }
@@ -1203,7 +1209,7 @@ void c2_func_call()
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_function.c c2_func_call #21");
+            strcpy(trace_1, "c2z_function.c func_call #22");
             trace_rec_3();
           }
 
@@ -1215,7 +1221,7 @@ void c2_func_call()
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_function.c c2_func_call #22");
+            strcpy(trace_1, "c2z_function.c func_call #23");
             trace_rec_3();
           }
 
@@ -1226,7 +1232,7 @@ void c2_func_call()
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_function.c c2_func_call #23");
+            strcpy(trace_1, "c2z_function.c func_call #24");
             trace_rec_3();
           }
         }
@@ -1239,7 +1245,7 @@ void c2_func_call()
         write_remark();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_function.c c2_func_call #8a");
+          strcpy(trace_1, "c2z_function.c func_call #25");
           trace_rec_3();
         }
 
@@ -1247,10 +1253,9 @@ void c2_func_call()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_function.c c2_func_call #8b");
+          strcpy(trace_1, "c2z_function.c func_call #26");
           trace_rec_3();
         }
-  
       }
 
       if (fd2_type == 2) 
@@ -1258,11 +1263,6 @@ void c2_func_call()
         printf("\nc2_func_call comma = 0 fd2_type = 2 function-008 NOT FINISHED\n");
         printf("c2_func_call rct = %d p_string = %s\n",rct,p_string);
         erct++;
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z_function.c c2_func_call START #24");
-          trace_rec_1();
-        }
       }
 
       if_convert = 1;
@@ -1284,7 +1284,7 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #8a");
+        strcpy(trace_1, "c2z_function.c func_call #27");
         trace_rec_3();
       }
 
@@ -1292,7 +1292,7 @@ void c2_func_call()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c c2_func_call #8b");
+        strcpy(trace_1, "c2z_function.c func_call #28");
         trace_rec_3();
       }
   }
@@ -1313,7 +1313,7 @@ void c2_func_sub()
 
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_function.c c2_func_sub START");
+    strcpy(trace_1, "c2z_function.c func_sub START");
     trace_rec_1();
   }
 
@@ -1409,14 +1409,6 @@ void c2_func_sub()
 
   if(x80 == 1)
   {
-    strcpy(a_string, "*");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_function.c c2_func_sub #1");
-      trace_rec_3();
-    }
-
     strcpy(a_string, field2a);
     check_length();
     strcat(a_string, "DS    0H");
@@ -1426,7 +1418,7 @@ void c2_func_sub()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_function.c c2_func_sub #2");
+      strcpy(trace_1, "c2z_function.c func_sub #2");
       trace_rec_3();
     }
   }
@@ -1483,7 +1475,7 @@ void c2_scan_func()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_function.c c2_scan_func START");
+    strcpy(trace_1, "c2z_function.c scan_func START");
     trace_rec_1();
   }
 

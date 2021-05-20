@@ -378,12 +378,6 @@ void c2_for(void)
    ************************************************ */
   if (x10 == 1)
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_for.c c2_for subroutine #4");
-      trace_rec_1();
-    }
-
     pi++;
     ch = p_string[pi];
     while (ch != ' ') 
@@ -400,7 +394,7 @@ void c2_for(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c c2_for #13");
+      strcpy(trace_1, "c2z_for.c for #13");
       trace_rec_3();
     }
 
@@ -1034,7 +1028,7 @@ skip_for_2:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #14");
+        strcpy(trace_1, "c2z_for.c for #14");
         trace_rec_3();
       }
     }
@@ -1066,7 +1060,7 @@ skip_for_2:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #15");
+        strcpy(trace_1, "c2z_for.c for #15");
         trace_rec_3();
       }
 
@@ -1078,7 +1072,7 @@ skip_for_2:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #16");
+        strcpy(trace_1, "c2z_for.c for #16");
         trace_rec_3();
       }
     }
@@ -1088,7 +1082,7 @@ skip_for_2:
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c c2_for #17");
+      strcpy(trace_1, "c2z_for.c for #17");
       trace_rec_3();
     }
 
@@ -1125,7 +1119,7 @@ skip_for_2:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #18");
+        strcpy(trace_1, "c2z_for.c for #18");
         trace_rec_3();
       }
       strcpy(sv_for_incr, tfield3a);
@@ -1143,7 +1137,7 @@ skip_for_2:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #19");
+        strcpy(trace_1, "c2z_for.c for #19");
         trace_rec_3();
       }
 
@@ -1151,7 +1145,7 @@ skip_for_2:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #20");
+        strcpy(trace_1, "c2z_for.c for #20");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -1160,7 +1154,7 @@ skip_for_2:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #21");
+        strcpy(trace_1, "c2z_for.c for #21");
         trace_rec_3();
       }
 
@@ -1168,7 +1162,7 @@ skip_for_2:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #22");
+        strcpy(trace_1, "c2z_for.c for #22");
         trace_rec_3();
       }
       work_use_ct[49]++;
@@ -1177,7 +1171,7 @@ skip_for_2:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #23");
+        strcpy(trace_1, "c2z_for.c for #23");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -1186,7 +1180,7 @@ skip_for_2:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c c2_for #24");
+        strcpy(trace_1, "c2z_for.c for #24");
         trace_rec_3();
       }
 
@@ -1460,16 +1454,6 @@ skip_for_2:
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_for.c c2_for #45");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         JLE   ");
-    strcat(a_string, sv_for_return);
-    strcat(a_string, "E");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_for.c c2_for #46");
       trace_rec_3();
     }
   }

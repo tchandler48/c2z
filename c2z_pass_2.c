@@ -8063,7 +8063,6 @@ void c2_pass2_while_2()
   int I = 0;
   int s;
   int x = 0;
-  int x69 = 0;
   int size;
   int x2 = 0;
   int x80 = 0;
@@ -8117,12 +8116,6 @@ void c2_pass2_while_2()
 
   if (while_complex == 0) 
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_pass2_while_2 subroutine #1");
-      trace_rec_1();
-    }
-
     pi = 0;
     ch = p_string[pi];
     while (ch != '(') 
@@ -8177,7 +8170,7 @@ void c2_pass2_while_2()
     pi2 = 0;
     pi++;
     ch = p_string[pi];
-    while (ch != ')') 
+    while(ch != '\n')
     {
       if (x2 == 0) 
       {
@@ -8203,6 +8196,7 @@ void c2_pass2_while_2()
       {
         x80 = 1;
       }
+  
       if (ch != '\'') 
       {
         tfield3[pi2] = ch;
@@ -8210,27 +8204,42 @@ void c2_pass2_while_2()
       }
       pi++;
       ch = p_string[pi];
+      if(ch == ')')
+      {
+        break;
+      }
     }
     tfield3[pi2] = '\0';
-
-    x69 = 0;
-    ret = strcmp(tfield3, "'\0'");
-    if(ret == 0)
-    {
-      x69 = 1;
-      tfield3a[0] =  tfield3[1];
-      tfield3a[1] = '\0';
-      strcpy(tfield3, tfield3a);
-    }
-
-    s = 0;
+ 
     s = strlen(tfield3);
-    if((s == 2) && (x69 == 0))
+    for(I=0; I < s; I++)
     {
-      tfield3a[0] =  tfield3[1];
-      tfield3a[1] = '\0';
-      strcpy(tfield3, tfield3a);
+      if(tfield3[I] == '\\')
+      {
+         if(tfield3[I+1] == '0')
+         {
+           x80 = 0;
+           break;
+         }
+       }
     }
+
+    if(x80 == 1)
+    {
+      pi2 = 0;
+      s = strlen(tfield3);
+      for(I=0; I < s; I++)
+      {
+        if(tfield3[I] != '\\')
+        {
+           tfield3a[pi2] = tfield3[I];
+           pi2++;
+        }
+      }
+      tfield3a[pi2] = '\0';
+      strcpy(tfield3,tfield3a);
+    }
+
 
     if(x80 == 1)
     {

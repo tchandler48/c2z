@@ -608,7 +608,7 @@ void c2_fgets()
       }
       work_use_ct[74]++;
 
-      strcpy(a_string, "         MVC   0(R9,R1),0(R8)");
+      strcpy(a_string, "         MVC   0(1,R1),0(R8)");
       src_line();
       if (puncde == 1) 
       {
