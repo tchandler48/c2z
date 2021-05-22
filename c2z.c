@@ -1297,7 +1297,7 @@ int main(int argc, char *argv[])
     fgets(p_string, BUFSIZE, pgm);
     rct++;
 
-/* printf("c2z.c PASS 1 rct = %d p_string = %s",rct,p_string); */
+ printf("c2z.c PASS 1 rct = %d p_string = %s",rct,p_string); 
 
 
     if (feof(pgm)) 
@@ -1373,7 +1373,7 @@ int main(int argc, char *argv[])
       while (1) 
       {
         fgets(p_string, BUFSIZE, pgm);
-/* printf("c2z.c Pass 1 p_string = %s",p_string); */
+ printf("c2z.c Pass 1a p_string = %s",p_string); 
         rct++;
         if (feof(pgm)) 
         {
@@ -4804,6 +4804,36 @@ int main(int argc, char *argv[])
       }
 
       c2_scan_fgets();
+      convert = 1;
+    }
+
+
+    /* ***************************************************************
+     *  Scan for gets                                                *
+     * ************************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for gets\n", rct);
+    }
+
+    p = strstr(p_string, "gets");
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 2 scan gets");
+        trace_rec_1();
+      }
+
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 2 rct = %d c2_gets #100\n", rct);
+      }
       convert = 1;
     }
 
@@ -8780,6 +8810,36 @@ if(quote_1 > 0)
 
       c2_fgets();
       var_use[18]++;
+      convert = 1;
+      if (return_on == 1) 
+      {
+        return_ct++;
+      }
+    }
+
+
+    /* **********************************************************
+    *  Punch out gets                                           *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch gets\n", rct);
+    }
+
+    p = strstr(p_string, "gets");
+    if (p) 
+    {
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 3 rct = %d c2_gets #100\n", rct);
+      }
+
+      c2_gets();
       convert = 1;
       if (return_on == 1) 
       {

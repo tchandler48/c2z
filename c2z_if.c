@@ -1377,7 +1377,7 @@ void if_case_1()
       src_line();
       if (puncde == 1)
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #21");
+        strcpy(trace_1, "c2z_if.c case_1 #21");
         trace_rec_3();
       }
 
@@ -1410,7 +1410,7 @@ void if_case_1()
         write_remark();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_1 #22");
+          strcpy(trace_1, "c2z_if.c case_1 #22");
           trace_rec_3();
         }
 
@@ -1428,7 +1428,7 @@ void if_case_1()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_1 #23");
+          strcpy(trace_1, "c2z_if.c case_1 #23");
           trace_rec_3();
         }
 
@@ -1436,7 +1436,7 @@ void if_case_1()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_1 #24");
+          strcpy(trace_1, "c2z_if.c case_1 #24");
           trace_rec_3();
         }
         if_convert = 1;
@@ -1453,7 +1453,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #25");
+        strcpy(trace_1, "c2z_if.c case_1 #25");
         trace_rec_3();
       }
 
@@ -1467,7 +1467,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #26");
+        strcpy(trace_1, "c2z_if.c case_1 #26");
         trace_rec_3();
       }
     }
@@ -1479,7 +1479,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #27");
+        strcpy(trace_1, "c2z_if.c case_1 #27");
         trace_rec_3();
       }
     }
@@ -1491,7 +1491,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #28");
+        strcpy(trace_1, "c2z_if.c case_1 #28");
         trace_rec_3();
       }
     }
@@ -1503,7 +1503,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #29");
+        strcpy(trace_1, "c2z_if.c case_1 #29");
         trace_rec_3();
       }
 
@@ -1512,7 +1512,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #30");
+        strcpy(trace_1, "c2z_if.c case_1 #30");
         trace_rec_3();
       }
     }
@@ -1533,7 +1533,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #30");
+        strcpy(trace_1, "c2z_if.c case_1 #30");
         trace_rec_3();
       }
 
@@ -1542,7 +1542,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #31");
+        strcpy(trace_1, "c2z_if.c case_1 #31");
         trace_rec_3();
       }
     }
@@ -1554,7 +1554,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #32");
+        strcpy(trace_1, "c2z_if.c case_1 #32");
         trace_rec_3();
       }
 
@@ -1563,7 +1563,7 @@ void if_case_1()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_1 #33");
+        strcpy(trace_1, "c2z_if.c case_1 #33");
         trace_rec_3();
       }
     }
@@ -4578,12 +4578,6 @@ void if_case_7()
 
   if (if_complex == 0) 
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_if.c if_case_7 subroutine #1");
-      trace_rec_1();
-    }
-
     pi = 0;
     ch = p_string[pi];
     while (ch != '(') 
@@ -4655,18 +4649,6 @@ void if_case_7()
 
     if (if_short == 1) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z_if.c if_case_7 subroutine #2");
-        trace_rec_1();
-      }
-
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 Short");
-        trace_rec_1();
-      }
-
       p7 = strstr(p_string, "!isdigit");
       if (p7)
       {
@@ -4684,7 +4666,7 @@ void if_case_7()
       {
         if (traceflg == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #1");
+          strcpy(trace_1, "c2z_if.c case_7 #1");
           trace_rec_1();
         }
 
@@ -4692,7 +4674,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #2");
+          strcpy(trace_1, "c2z_if.c case_7 #2");
           trace_rec_3();
         }
 
@@ -4704,7 +4686,7 @@ void if_case_7()
         write_remark();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #3");
+          strcpy(trace_1, "c2z_if.c case_7 #3");
           trace_rec_3();
         }
 
@@ -4712,7 +4694,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #4");
+          strcpy(trace_1, "c2z_if.c case_7 #4");
           trace_rec_3();
         }
         work_use_ct[2]++;
@@ -4730,7 +4712,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #5");
+          strcpy(trace_1, "c2z_if.c case_7 #5");
           trace_rec_3();
         }
 
@@ -4739,7 +4721,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #6");
+          strcpy(trace_1, "c2z_if.c case_7 #6");
           trace_rec_3();
         }
 
@@ -4747,7 +4729,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #7");
+          strcpy(trace_1, "c2z_if.c case_7 #7");
           trace_rec_3();
         }
         work_use_ct[2]++;
@@ -4757,7 +4739,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 #8");
+        strcpy(trace_1, "c2z_if.c case_7 #8");
         trace_rec_3();
       }
 
@@ -4765,7 +4747,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 #8");
+        strcpy(trace_1, "c2z_if.c case_7 #8");
         trace_rec_3();
       }
 
@@ -4773,7 +4755,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 #9");
+        strcpy(trace_1, "c2z_if.c case_7 #9");
         trace_rec_3();
       }
 
@@ -4781,7 +4763,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 #10");
+        strcpy(trace_1, "c2z_if.c case_7 #10");
         trace_rec_3();
       }
       work_use_ct[33]++;
@@ -4790,7 +4772,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 #11");
+        strcpy(trace_1, "c2z_if.c case_7 #11");
         trace_rec_3();
       }
       work_use_ct[31]++;
@@ -4802,7 +4784,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #12");
+          strcpy(trace_1, "c2z_if.c case_7 #12");
           trace_rec_3();
         }
       }
@@ -4814,7 +4796,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #13");
+          strcpy(trace_1, "c2z_if.c case_7 #13");
           trace_rec_3();
         }
       }
@@ -4822,12 +4804,6 @@ void if_case_7()
 
     if (if_short == 0) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z_if.c if_case_7 subroutine #4");
-        trace_rec_1();
-      }
-
       pi2 = 0;
       pi++;
       ch = p_string[pi];
@@ -4935,7 +4911,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #100");
+          strcpy(trace_1, "c2z_if.c case_7 #100");
           trace_rec_3();
         }
 
@@ -4944,7 +4920,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #101");
+          strcpy(trace_1, "c2z_if.c case_7 #101");
           trace_rec_3();
         }
 
@@ -4952,7 +4928,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #102");
+          strcpy(trace_1, "c2z_if.c case_7 #102");
           trace_rec_3();
         }
         work_use_ct[2]++;
@@ -4961,7 +4937,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #103");
+          strcpy(trace_1, "c2z_if.c case_7 #103");
           trace_rec_3();
         }
 
@@ -4969,7 +4945,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #103");
+          strcpy(trace_1, "c2z_if.c case_7 #103");
           trace_rec_3();
         }
 
@@ -4977,7 +4953,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #104");
+          strcpy(trace_1, "c2z_if.c case_7 #104");
           trace_rec_3();
         }
 
@@ -4985,7 +4961,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #105");
+          strcpy(trace_1, "c2z_if.c case_7 #105");
           trace_rec_3();
         }
         work_use_ct[33]++;
@@ -4994,7 +4970,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #106");
+          strcpy(trace_1, "c2z_if.c case_7 #106");
           trace_rec_3();
         }
         work_use_ct[31]++;
@@ -5004,7 +4980,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 #107");
+          strcpy(trace_1, "c2z_if.c case_7 #107");
           trace_rec_3();
         }
       }
@@ -5022,7 +4998,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #9");
+          strcpy(trace_1, "c2z_if.c case_7 short #9");
           trace_rec_3();
         }
 
@@ -5031,7 +5007,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #10");
+          strcpy(trace_1, "c2z_if.c case_7 short #10");
           trace_rec_3();
         }
 
@@ -5039,7 +5015,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #11");
+          strcpy(trace_1, "c2z_if.c case_7 short #11");
           trace_rec_3();
         }
         work_use_ct[2]++;
@@ -5048,7 +5024,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #12");
+          strcpy(trace_1, "c2z_if.c case_7 short #12");
           trace_rec_3();
         }
 
@@ -5056,7 +5032,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #12");
+          strcpy(trace_1, "c2z_if.c case_7 short #12");
           trace_rec_3();
         }
 
@@ -5064,7 +5040,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #13");
+          strcpy(trace_1, "c2z_if.c case_7 short #13");
           trace_rec_3();
         }
 
@@ -5072,7 +5048,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #14");
+          strcpy(trace_1, "c2z_if.c case_7 short #14");
           trace_rec_3();
         }
         work_use_ct[33]++;
@@ -5081,7 +5057,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #15");
+          strcpy(trace_1, "c2z_if.c case_7 short #15");
           trace_rec_3();
         }
 
@@ -5090,7 +5066,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex = 0 short #16");
+          strcpy(trace_1, "c2z_if.c case_7 short #16");
           trace_rec_3();
         }
       }
@@ -5230,12 +5206,6 @@ void if_case_7()
 
     if (set_math == 0) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z_if.c if_case_7 subroutine #6");
-        trace_rec_1();
-      }
-
       x40 = 0;
       pi2 = 0;
       pi++;
@@ -5257,12 +5227,6 @@ void if_case_7()
 
     if (set_math == 1) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z_if.c if_case_7 subroutine #7");
-        trace_rec_1();
-      }
-
       pi++;
       ch = p_string[pi];
       while (ch == ' ') 
@@ -5470,7 +5434,7 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #700");
+      strcpy(trace_1, "c2z_if.c case_7 #700");
       trace_rec_3();
     }
 
@@ -5482,7 +5446,7 @@ void if_case_7()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #701");
+      strcpy(trace_1, "c2z_if.c case_7 #701");
       trace_rec_3();
     }
     work_use_ct[2]++;
@@ -5491,15 +5455,15 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #702");
+      strcpy(trace_1, "c2z_if.c case_7 #702");
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LARL  R15,ISALPHA");
+    strcpy(a_string, "         LARL  R15,ISDIGIT");
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #703");
+      strcpy(trace_1, "c2z_if.c case_7 #703");
       trace_rec_3();
     }
 
@@ -5507,7 +5471,7 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #704");
+      strcpy(trace_1, "c2z_if.c case_7 #704");
       trace_rec_3();
     }
 
@@ -5515,7 +5479,7 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #705");
+      strcpy(trace_1, "c2z_if.c case_7 #705");
       trace_rec_3();
     }
 
@@ -5523,7 +5487,7 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #706");
+      strcpy(trace_1, "c2z_if.c case_7 #706");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -5532,7 +5496,7 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #707");
+      strcpy(trace_1, "c2z_if.c case_7 #707");
       trace_rec_3();
     }
     work_use_ct[31]++;
@@ -5544,7 +5508,7 @@ void if_case_7()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #708");
+      strcpy(trace_1, "c2z_if.c case_7 #708");
       trace_rec_3();
     }
 
@@ -5616,7 +5580,7 @@ void if_case_7()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709a");
+        strcpy(trace_1, "c2z_if.c case_7 #709a");
         trace_rec_3();
       }
 
@@ -5624,7 +5588,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709b");
+        strcpy(trace_1, "c2z_if.c case_7 #709b");
         trace_rec_3();
       }
 
@@ -5632,7 +5596,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709c");
+        strcpy(trace_1, "c2z_if.c case_7 #709c");
         trace_rec_3();
       }
 
@@ -5640,7 +5604,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709d");
+        strcpy(trace_1, "c2z_if.c case_7 #709d");
         trace_rec_3();
       }
 
@@ -5648,7 +5612,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709e");
+        strcpy(trace_1, "c2z_if.c case_7 #709e");
         trace_rec_3();
       }
 
@@ -5656,7 +5620,7 @@ void if_case_7()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709f");
+        strcpy(trace_1, "c2z_if.c case_7 #709f");
         trace_rec_3();
       }
 
@@ -5668,7 +5632,7 @@ void if_case_7()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709g");
+        strcpy(trace_1, "c2z_if.c case_7 #709g");
         trace_rec_3();
       }
      
@@ -5678,7 +5642,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709h");
+          strcpy(trace_1, "c2z_if.c case_7 #709h");
           trace_rec_3();
         }
  
@@ -5688,7 +5652,7 @@ void if_case_7()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_7 complex == 1 #709i");
+          strcpy(trace_1, "c2z_if.c case_7 #709i");
           trace_rec_3();
         }
       }
@@ -15323,7 +15287,7 @@ void if_case_30()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_if.c if_case_30 strchr");
+    strcpy(trace_1, "c2z_if.c case_30 strchr");
     trace_rec_1();
   }
 
@@ -15463,7 +15427,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #1");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #1");
           trace_rec_3();
         }
         break;
@@ -15478,7 +15442,7 @@ void if_case_30()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #2");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #2");
       trace_rec_3();
     }
 
@@ -15486,7 +15450,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #3");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #3");
       trace_rec_3();
     }
 
@@ -15497,7 +15461,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #4");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #4");
       trace_rec_3();
     }
   }
@@ -15522,7 +15486,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #6");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #6");
           trace_rec_3();
         }
         break;
@@ -15537,7 +15501,7 @@ void if_case_30()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #7");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #7");
       trace_rec_3();
     }
 
@@ -15545,7 +15509,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #8");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #8");
       trace_rec_3();
     }
 
@@ -15556,7 +15520,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #9");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #9");
       trace_rec_3();
     }
   }
@@ -15572,7 +15536,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #10");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #10");
           trace_rec_3();
         }
 
@@ -15581,7 +15545,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #11");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #11");
           trace_rec_3();
         }
         break;
@@ -15596,7 +15560,7 @@ void if_case_30()
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #12");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #12");
       trace_rec_3();
     }
 
@@ -15604,7 +15568,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #13");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #13");
       trace_rec_3();
     }
 
@@ -15615,11 +15579,10 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #14");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #14");
       trace_rec_3();
     }
   }
-
 
   if (s1 < s) 
   {
@@ -15633,7 +15596,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #13");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #15");
           trace_rec_3();
         }
         break;
@@ -15645,7 +15608,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #14");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #16");
       trace_rec_3();
     }
 
@@ -15653,7 +15616,7 @@ void if_case_30()
     src_line();
     if (puncde == 1)
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #15");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #17");
       trace_rec_3();
     }
 
@@ -15664,7 +15627,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #16");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #18");
       trace_rec_3();
     }
   }
@@ -15681,7 +15644,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #17");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #19");
           trace_rec_3();
         }
         break;
@@ -15693,7 +15656,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #18");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #20");
       trace_rec_3();
     }
 
@@ -15701,7 +15664,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #19");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #21");
       trace_rec_3();
     }
 
@@ -15712,7 +15675,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #20");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #22");
       trace_rec_3();
     }
   }
@@ -15729,7 +15692,7 @@ void if_case_30()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c if_case_30 strchr #21");
+          strcpy(trace_1, "c2z_if.c case_30 strchr #23");
           trace_rec_3();
         }
         break;
@@ -15741,7 +15704,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #22");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #24");
       trace_rec_3();
     }
 
@@ -15749,7 +15712,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #23");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #25");
       trace_rec_3();
     }
 
@@ -15760,7 +15723,7 @@ void if_case_30()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c if_case_30 strchr #24");
+      strcpy(trace_1, "c2z_if.c case_30 strchr #26");
       trace_rec_3();
     }
   }
@@ -15771,7 +15734,7 @@ void if_case_30()
   src_line();
   if (puncde == 1) 
   {
-     strcpy(trace_1, "c2z_if.c if_case_30 strchr #25");
+     strcpy(trace_1, "c2z_if.c case_30 strchr #27");
      trace_rec_3();
   }
 
@@ -15784,7 +15747,7 @@ void if_case_30()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_if.c if_case_30 strchr #26");
+    strcpy(trace_1, "c2z_if.c case_30 strchr #28");
     trace_rec_3();
   }
 
