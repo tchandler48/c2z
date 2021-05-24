@@ -814,9 +814,6 @@ printf("c2z_strcat.c  rct = %d p_string = %s",rct,p_string);
       return;
     }
 
-printf("c2z_strcat.c #100 tfield1 = %s x5 = %d\n",tfield1,x5);
-printf("c2z_strcat.c #100 tfield2a = %s x2 = %d\n",tfield2a,x2);
-
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield1a);
     strcpy(wk_remark, " ");
@@ -862,7 +859,6 @@ printf("c2z_strcat.c #100 tfield2a = %s x2 = %d\n",tfield2a,x2);
         x3 = 1;
         strcpy(tfield1a, lw_variable[I].lv_cname);
         lw_variable[I].lv_current_lgth = x2 + x5;
-printf("c2z_strcat.c #101 tfield1 = %s lv_current_lgth = %d\n",tfield1,lw_variable[I].lv_current_lgth);
         break;
       }
     }
@@ -877,7 +873,6 @@ printf("c2z_strcat.c #101 tfield1 = %s lv_current_lgth = %d\n",tfield1,lw_variab
           x3 = 1;
           strcpy(tfield1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_current_lgth = x2 + x5;
-printf("c2z_strcat.c #101 tfield2a = %s gv_current_lgth= %d\n",tfield2a,gw_variable[I].gv_current_lgth);
           break;
         }
       }

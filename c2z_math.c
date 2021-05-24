@@ -82,13 +82,31 @@ void c2_math()
       }
     }
   }
-/* printf("c2z_math.c x500 = %d x501L1 = %d x501R1 = %d x501L2 = %d x501R2 = %d\n",x500,x501L1,x501R1,x501L2,x501R2); */
+
+/*
+ printf("c2z_math.c rct = %d p_string = %s",rct,p_string);
+ printf("c2z_math.c x501L1 = %d x501R1 = %d x501L2 = %d x501R2 = %d\n",x501L1,x501R1,x501L2,x501R2); 
+*/
 
 
   p1 = strstr(p_string, "->");
   if(p1)
   {
     c2_math_700();
+    convert = 1;
+    return;
+  }
+
+  if((x501L1 == 3) && (x501R1 == 3) && (x501L2 == 0) && (x501R2 == 0))
+  {
+    c2_math_830();
+    convert = 1;
+    return;
+  }
+
+  if((x501L1 == 3) && (x501R1 == 3) && (x501L2 == 1) && (x501R2 == 1))
+  {
+    c2_math_820();
     convert = 1;
     return;
   }
@@ -26414,6 +26432,1978 @@ void c2_math_800()
 */
 
 
+
+  convert = 1;
+  return;
+}
+
+
+void c2_math_830()
+{
+
+printf("\nc2_math_830 rct = %d p_string = %s",rct,p_string);
+
+   int pi;
+   int pi2;
+   int x2 = 0;
+   int x3;
+   int x21;
+   int x100;
+   int x101;
+   int x102;
+   int I;
+   int ret;
+   int ret1;
+
+   int fd1_type;
+   int fd2_type;
+   int fd3_type;
+   int fd4_type;
+   int fd5_type;
+   int fd6_type;
+
+  char ch;
+  char field1[VAR_LGTH];
+  char field1a[VAR_LGTH];
+  char field2[VAR_LGTH];
+  char field2a[VAR_LGTH];
+  char field3[VAR_LGTH];
+  char field3a[VAR_LGTH];
+  char field4[VAR_LGTH];
+  char field4a[VAR_LGTH];
+  char field5[VAR_LGTH];
+  char field5a[VAR_LGTH];
+  char field6[VAR_LGTH];
+
+  char ar_field5[VAR_LGTH];
+  char ar_field6[VAR_LGTH];
+  char ar_field7[VAR_LGTH];
+  char ar_field8[VAR_LGTH];
+  char ar_field9[VAR_LGTH];
+  char ar_field10[VAR_LGTH];
+  char ar_field11[VAR_LGTH];
+  char ar_field12[VAR_LGTH];
+
+
+  pi = 0;
+  ch = p_string[pi];
+  while((ch == ' ') || (ch == '\t'))
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  x2 = 0;
+  fd1_type = 0;
+  pi2 = 0;
+  while(ch != '[')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd1_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd1_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd1_type = 2;
+        x2 = 1;
+      }
+    }
+    field1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field1[pi2] = '\0';
+
+  pi2 = 0;
+  x2 = 0;
+  fd2_type = 0;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd2_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd2_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd2_type = 2;
+        x2 = 1;
+      }
+    }
+    field2[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field2[pi2] = '\0';
+
+  pi2 = 0;
+  x2 = 0;
+  fd3_type = 0;
+  pi++;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd3_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd3_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd3_type = 2;
+        x2 = 1;
+      }
+    }
+    field3[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field3[pi2] = '\0';
+
+  pi2 = 0;
+  x2 = 0;
+  fd4_type = 0;
+  pi++;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd4_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd4_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd4_type = 2;
+        x2 = 1;
+      }
+    }
+    field4[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field4[pi2] = '\0';
+
+  pi++;
+  ch = p_string[pi];
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi++;
+  ch = p_string[pi];
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  x2 = 0;
+  fd5_type = 0;
+  ch = p_string[pi];
+  while(ch != ';')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd5_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd5_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd5_type = 2;
+        x2 = 1;
+      }
+    }
+    field5[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field5[pi2] = '\0';
+
+  x21 = 0;
+  x3 = 0;
+  for (I = 0; I < lv_ct; I++) 
+  {
+    ret = strcmp(field1, lw_variable[I].lv_name);
+    x21 = strcmp(sv_func, lw_variable[I].lv_func);
+    if ((ret == 0) && (x21 == 0)) 
+    {
+       x3 = 1;
+       strcpy(field1a, lw_variable[I].lv_cname);
+    }
+  }
+
+  if (x3 == 0) 
+  {
+    x3 = 0;
+    for (I = 0; I < gv_ct; I++) 
+    {
+      ret = strcmp(field1, gw_variable[I].gv_name);
+      if (ret == 0) 
+      {
+        x3 = 1;
+        strcpy(field1a, gw_variable[I].gv_cname);
+        strcpy(ar_field5, gw_variable[I].gv_dsect);
+        strcpy(ar_field6, gw_variable[I].gv_label);
+        strcpy(ar_field7, gw_variable[I].gv_table);
+        strcpy(ar_field8, gw_variable[I].gv_aname);
+        strcpy(ar_field9, gw_variable[I].gv_sv_reg);
+        strcpy(ar_field10, gw_variable[I].gv_wk_reg);
+        strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+        strcpy(ar_field12, gw_variable[I].gv_st_col);
+        x101 = gw_variable[I].gv_lgth;
+        x101 = x101 - 1;
+        x102 = gw_variable[I].gv_column;
+      }
+    }
+  }
+
+  if(fd2_type == 2)
+  {
+    x21 = 0;
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field2, lw_variable[I].lv_name);
+      x21 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (x21 == 0)) 
+      {
+        x3 = 1;
+        strcpy(field2a, lw_variable[I].lv_cname);
+        x100 = lw_variable[I].lv_lgth;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field2, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(field2a, gw_variable[I].gv_cname);
+          break;
+        }
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      printf("\nc2z_printf.c c2_printf_600 E-604 field4 Not Found = %s\n",field4);
+      printf("c2z_printf.c c2_printf_600 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+  }
+
+  if(fd3_type == 2)
+  {
+    x21 = 0;
+    x3 = 0;
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field3, lw_variable[I].lv_name);
+      x21 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (x21 == 0)) 
+      {
+        x3 = 1;
+        strcpy(field3a, lw_variable[I].lv_cname);
+        x100 = lw_variable[I].lv_lgth;
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      x3 = 0;
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field3, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x3 = 1;
+          strcpy(field3a, gw_variable[I].gv_cname);
+          break;
+        }
+      }
+    }
+
+    if (x3 == 0) 
+    {
+      printf("\nc2z_printf.c c2_printf_600 E-604 field3 Not Found = %s\n",field3);
+      printf("c2z_printf.c c2_printf_600 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+  }
+
+
+printf("c2z_math.c math_830 rct = %d fd1_type = %d field1 = %s field1a = %s\n",rct,fd1_type,field1,field1a);
+printf("c2z_math.c math_830 rct = %d fd2_type = %d field2 = %s field2a = %s\n",rct,fd2_type,field2,field2a);
+printf("c2z_math.c math_830 rct = %d fd3_type = %d field3 = %s field3a = %s\n",rct,fd3_type,field3,field3a);
+printf("c2z_math.c math_830 rct = %d fd4_type = %d field4 = %s \n",rct,fd4_type,field4);
+printf("c2z_math.c math_830 rct = %d fd5_type = %d field5 = %s \n",rct,fd5_type,field5);
+
+
+
+  strcpy(a_string, "         LARL  R9,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #1");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #3");
+    trace_rec_3();
+  }
+
+  if(fd2_type == 1)
+  {
+    strcpy(a_string, "         LAEY  R5,");
+    strcat(a_string, field2);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #4a");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #4b");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CVD   R5,0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #4c");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK4");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #4d");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #4e");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #4f");
+      trace_rec_3();
+    }
+  }
+
+  if(fd2_type == 2)
+  {
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field2a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " ROW */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c math_830 #4g");
+      trace_rec_3();
+    }
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #5");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #6");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLNE  L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "V");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #7");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #8");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #9");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_830 #10");
+    trace_rec_3();
+  }
+
+  if(fd3_type == 1)
+  {
+    strcpy(a_string, "         LAEY  R5,");
+    strcat(a_string, field3);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field3);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #11a");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #11b");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CVD   R5,0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #11c");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK5");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #11d");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #11e");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #11f");
+      trace_rec_3();
+    }
+  }
+
+  if(fd3_type == 2)
+  {
+    strcpy(a_string, "         LARL  R7,");
+    strcat(a_string, field3a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field3);
+    strcat(wk_remark, " COL */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c math_830 #11g");
+      trace_rec_3();
+    }
+  }
+
+  strcpy(a_string, "         LARL  R5,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #15");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         AP    0(6,R7),0(6,R5)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #16");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #17");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         AP    0(6,R9),0(6,R7)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #18");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLU   L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "W");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #19");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "V");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #20");
+    trace_rec_3();
+  }
+
+  if(fd4_type == 2)
+  {
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field4a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " ROW */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #21");
+      trace_rec_3();
+    }
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #22");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #23");
+    trace_rec_3();
+  }
+
+/* printf("c2z_print.c printf_600 #2 rct = %d x102 = %d\n",rct,x102); */
+
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x102);
+  strcpy(a_string, "         LAEY  R5,");
+  strcat(a_string, wk_strg);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, wk_strg);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  { 
+    strcpy(trace_1, "c2z_print.c printf_600 #24");
+    trace_rec_3();
+  }
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #25");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CVD   R5,0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #26");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK4");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #27");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #28");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #29");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #30");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field4a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " ROW */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #21");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #29");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #30");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370NWK4");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #31");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         MP    0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #32");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #33");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field5a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " COL */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #34");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #35");
+      trace_rec_3();
+    }
+
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "W");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #36");
+    trace_rec_3();
+  }
+
+/*  C370NWK1 contains pointer to array element */
+
+  strcpy(a_string, "         LARL  R9,C370NWK2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #37");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #38");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #39");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R6,");
+  strcat(a_string, ar_field7);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field3);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #40");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #41");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #42");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #43");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #44");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLE   L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "B");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #45");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #46");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #47");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #48");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LAEY  R6,");
+  strcat(a_string, ar_field6);
+  strcat(a_string, "(R0,R6)");
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field3);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #49");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLU   L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #50");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "B");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #51");
+    trace_rec_3();
+  }
+
+
+/* src[i][j][0]   (string) */
+
+
+  strcpy(a_string, "         LARL  R9,C370WTOB");
+  src_line();
+  if (puncde == 1) 
+  { 
+    strcpy(trace_1, "c2z_print.c printf_600 #100");
+    trace_rec_3();
+  }
+    
+  strcpy(a_string, "         MVC   ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "(");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
+  strcat(a_string, wk_strg); 
+  strcat(a_string, ",R9),0(R6)");
+  src_line();
+  if (puncde == 1) 
+  { 
+    strcpy(trace_1, "c2z_print.c printf_600 #101");
+    trace_rec_3();
+  }
+
+  convert = 1;
+  return;
+}
+
+
+void c2_math_820()
+{
+
+printf("\nc2_math_820 rct = %d p_string = %s",rct,p_string);
+
+   int pi;
+   int pi2;
+   int x2 = 0;
+   int x21;
+   int x3;
+   int I;
+   int ret;
+   int ret1;
+   int x100;
+   int x102;
+   int x101;
+
+   int fd1_type;
+   int fd2_type;
+   int fd3_type;
+   int fd4_type;
+   int fd5_type;
+   int fd6_type;
+
+  char ch;
+  char field1[VAR_LGTH];
+  char field2[VAR_LGTH];
+  char field3[VAR_LGTH];
+  char field3a[VAR_LGTH];
+  char field4[VAR_LGTH];
+  char field4a[VAR_LGTH];
+  char field5[VAR_LGTH];
+  char field5a[VAR_LGTH];
+  char field6[VAR_LGTH];
+
+  char ar_field5[VAR_LGTH];
+  char ar_field6[VAR_LGTH];
+  char ar_field7[VAR_LGTH];
+  char ar_field8[VAR_LGTH];
+  char ar_field9[VAR_LGTH];
+  char ar_field10[VAR_LGTH];
+  char ar_field11[VAR_LGTH];
+  char ar_field12[VAR_LGTH];
+
+
+  pi = 0;
+  ch = p_string[pi];
+  while((ch == ' ') || (ch == '\t'))
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  x2 = 0;
+  fd1_type = 0;
+  pi2 = 0;
+  while(ch != '[')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd1_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd1_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd1_type = 2;
+        x2 = 1;
+      }
+    }
+    field1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field1[pi2] = '\0';
+printf("c2z_math.c math_820 rct = %d fd1_type = %d field1 = %s\n",rct,fd1_type,field1);
+
+  pi2 = 0;
+  x2 = 0;
+  fd2_type = 0;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd2_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd2_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd2_type = 2;
+        x2 = 1;
+      }
+    }
+    field2[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field2[pi2] = '\0';
+printf("c2z_math.c math_820 rct = %d fd2_type = %d field2 = %s\n",rct,fd2_type,field2);
+
+  pi2 = 0;
+  x2 = 0;
+  fd3_type = 0;
+  pi++;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd3_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd3_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd3_type = 2;
+        x2 = 1;
+      }
+    }
+    field3[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field3[pi2] = '\0';
+printf("c2z_math.c math_820 rct = %d fd3_type = %d field3 = %s\n",rct,fd3_type,field3);
+
+  pi2 = 0;
+  x2 = 0;
+  fd4_type = 0;
+  pi++;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd4_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd4_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd4_type = 2;
+        x2 = 1;
+      }
+    }
+    field4[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field4[pi2] = '\0';
+printf("c2z_math.c math_820 rct = %d fd4_type = %d field4 = %s\n",rct,fd4_type,field4);
+
+  pi++;
+  ch = p_string[pi];
+  while(ch  == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi++;
+  ch = p_string[pi];
+  while(ch  == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  x2 = 0;
+  fd5_type = 0;
+  ch = p_string[pi];
+  while(ch != '[')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd5_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd5_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd5_type = 2;
+        x2 = 1;
+      }
+    }
+    field5[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field5[pi2] = '\0';
+printf("c2z_math.c math_820 rct = %d fd5_type = %d field5 = %s\n",rct,fd5_type,field5);
+
+  pi2 = 0;
+  x2 = 0;
+  fd6_type = 0;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if(ch == '\'')
+      {
+        fd6_type = 0;
+        x2 = 1;
+      }
+      if (isdigit(ch)) 
+      {
+        fd6_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd6_type = 2;
+        x2 = 1;
+      }
+    }
+    field6[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field6[pi2] = '\0';
+printf("c2z_math.c math_820 rct = %d fd6_type = %d field6 = %s\n",rct,fd6_type,field6);
+
+     x21 = 0;
+     x3 = 0;
+     for (I = 0; I < lv_ct; I++) 
+     {
+       ret = strcmp(field1, lw_variable[I].lv_name);
+       x21 = strcmp(sv_func, lw_variable[I].lv_func);
+       if ((ret == 0) && (x21 == 0)) 
+       {
+         x3 = 1;
+         strcpy(field1a, lw_variable[I].lv_cname);
+       }
+     }
+
+     if (x3 == 0) 
+     {
+       x3 = 0;
+       for (I = 0; I < gv_ct; I++) 
+       {
+         ret = strcmp(field1, gw_variable[I].gv_name);
+         if (ret == 0) 
+         {
+           x3 = 1;
+           strcpy(field1a, gw_variable[I].gv_cname);
+           strcpy(ar_field5, gw_variable[I].gv_dsect);
+           strcpy(ar_field6, gw_variable[I].gv_label);
+           strcpy(ar_field7, gw_variable[I].gv_table);
+           strcpy(ar_field8, gw_variable[I].gv_aname);
+           strcpy(ar_field9, gw_variable[I].gv_sv_reg);
+           strcpy(ar_field10, gw_variable[I].gv_wk_reg);
+           strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+           strcpy(ar_field12, gw_variable[I].gv_st_col);
+           x101 = gw_variable[I].gv_lgth;
+           x101 = x101 - 1;
+           x102 = gw_variable[I].gv_column;
+         }
+       }
+     }
+
+     if(fd2_type == 2)
+     {
+       x21 = 0;
+       x3 = 0;
+       for (I = 0; I < lv_ct; I++) 
+       {
+         ret = strcmp(field2, lw_variable[I].lv_name);
+         x21 = strcmp(sv_func, lw_variable[I].lv_func);
+         if ((ret == 0) && (x21 == 0)) 
+         {
+           x3 = 1;
+           strcpy(field2a, lw_variable[I].lv_cname);
+           x100 = lw_variable[I].lv_lgth;
+         }
+       }
+
+       if (x3 == 0) 
+       {
+         x3 = 0;
+         for (I = 0; I < gv_ct; I++) 
+         {
+           ret = strcmp(field2, gw_variable[I].gv_name);
+           if (ret == 0) 
+           {
+             x3 = 1;
+             strcpy(field2a, gw_variable[I].gv_cname);
+             break;
+           }
+         }
+       }
+
+       if (x3 == 0) 
+       {
+         printf("\nc2z_printf.c c2_printf_600 E-604 field2 Not Found = %s\n",field2);
+         printf("c2z_printf.c c2_printf_600 rct = %d p_string = %s\n",rct,p_string);
+         erct++;
+         convert = 1;
+         return;
+       }
+     }
+
+
+  strcpy(a_string, "         LARL  R9,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_820 #1");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_820 #2");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c math_820 #3");
+    trace_rec_3();
+  }
+
+  if(fd4_type == 1)
+  {
+    strcpy(a_string, "         LAEY  R5,");
+    strcat(a_string, field4);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_820 #4");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #7b");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CVD   R5,0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #7c");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK4");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #7d");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #7e");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #7f");
+      trace_rec_3();
+    }
+  }
+
+  if(fd4_type == 2)
+  {
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field4a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " ROW */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #7g");
+      trace_rec_3();
+    }
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #8");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #9");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLNE  L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "V");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #10");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #11");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #12");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #13");
+    trace_rec_3();
+  }
+
+
+  if(fd5_type == 1)
+  {
+    strcpy(a_string, "         LAEY  R5,");
+    strcat(a_string, field5);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #14a");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #14b");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CVD   R5,0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #14c");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK5");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #14d");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #14e");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #14f");
+      trace_rec_3();
+    }
+  }
+
+  if(fd5_type == 2)
+  {
+    strcpy(a_string, "         LARL  R7,");
+    strcat(a_string, field5a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " COL */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #14g");
+      trace_rec_3();
+    }
+  }
+
+  strcpy(a_string, "         LARL  R5,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #15");
+    trace_rec_3();
+  }
+ 
+  strcpy(a_string, "         AP    0(6,R7),0(6,R5)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #16");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #17");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         AP    0(6,R9),0(6,R7)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #18");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLU   L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "W");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #19");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "V");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #20");
+    trace_rec_3();
+  }
+
+  if(fd4_type == 2)
+  {
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field4a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " ROW */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #21");
+      trace_rec_3();
+    }
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #22");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #23");
+    trace_rec_3();
+  }
+
+/* printf("c2z_print.c printf_600 #2 rct = %d x102 = %d\n",rct,x102); */
+
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x102);
+  strcpy(a_string, "         LAEY  R5,");
+  strcat(a_string, wk_strg);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, wk_strg);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  { 
+    strcpy(trace_1, "c2z_print.c printf_600 #24");
+    trace_rec_3();
+  }
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #25");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CVD   R5,0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #26");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK4");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #27");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         LARL  R7,C370U");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #28");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #29");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #30");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field4a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " ROW */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #21");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #29");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #30");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370NWK4");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #31");
+      trace_rec_3();
+    }
+    work_use_ct[78]++;
+
+    strcpy(a_string, "         MP    0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #32");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #33");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field5a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " COL */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c printf_600 #34");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_print.c printf_600 #35");
+      trace_rec_3();
+    }
+
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "W");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #36");
+    trace_rec_3();
+  }
+
+/*  C370NWK1 contains pointer to array element */
+
+  strcpy(a_string, "         LARL  R9,C370NWK2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #37");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #38");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #39");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R6,");
+  strcat(a_string, ar_field7);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field3);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #40");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #41");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #42");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370NWK1");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #43");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #44");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLE   L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "B");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #45");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,C370NWK2");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #46");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R8,C370ONE");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #47");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #48");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LAEY  R6,");
+  strcat(a_string, ar_field6);
+  strcat(a_string, "(R0,R6)");
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field3);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #49");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLU   L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #50");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "L");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "B");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_print.c printf_600 #51");
+    trace_rec_3();
+  }
+
+
+/* src[i][j][0]   (string) */
+
+
+  strcpy(a_string, "         LARL  R9,C370WTOB");
+  src_line();
+  if (puncde == 1) 
+  { 
+    strcpy(trace_1, "c2z_print.c printf_600 #100");
+    trace_rec_3();
+  }
+    
+  strcpy(a_string, "         MVC   ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "(");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
+  strcat(a_string, wk_strg); 
+  strcat(a_string, ",R9),0(R6)");
+  src_line();
+  if (puncde == 1) 
+  { 
+    strcpy(trace_1, "c2z_print.c printf_600 #101");
+    trace_rec_3();
+  }
 
   convert = 1;
   return;

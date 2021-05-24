@@ -209,6 +209,13 @@
 	void c2_int_punch_1(void);
 	void c2_int_punch_2(void);
 
+
+/*            c2z_internet.c       */
+       void c2_bind(void);
+       void c2_listen(void);      
+       void c2_send(void);
+
+
 /*		c2z_isalpha.c		*/
 	void c2_isalpha(void);
 
@@ -261,6 +268,8 @@
        void c2_math_601(void);
        void c2_math_700(void);
        void c2_math_800(void);
+       void c2_math_820(void);
+       void c2_math_830(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -383,6 +392,7 @@
        void c2_printf_2ds(void);
        void c2_printf_toupper(void);
        void c2_printf_array_string(void);
+       void c2_sprintf(void);
 
 
 /* 	       c2z_punch_macro.c	*/
@@ -1078,6 +1088,7 @@ struct bad_rec *w_bad_rec;
 #include "c2z_if.c"
 #include "c2z_incr.c"
 #include "c2z_int.c"
+#include "c2z_internet.c"
 #include "c2z_isalnum.c"
 #include "c2z_isalpha.c"
 #include "c2z_isdigit.c"
@@ -1297,7 +1308,7 @@ int main(int argc, char *argv[])
     fgets(p_string, BUFSIZE, pgm);
     rct++;
 
- printf("c2z.c PASS 1 rct = %d p_string = %s",rct,p_string); 
+/* printf("c2z.c PASS 1 rct = %d p_string = %s",rct,p_string); */
 
 
     if (feof(pgm)) 
@@ -1373,7 +1384,7 @@ int main(int argc, char *argv[])
       while (1) 
       {
         fgets(p_string, BUFSIZE, pgm);
- printf("c2z.c Pass 1a p_string = %s",p_string); 
+/* printf("c2z.c Pass 1a p_string = %s",p_string); */
         rct++;
         if (feof(pgm)) 
         {
@@ -1481,7 +1492,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
@@ -1635,6 +1646,61 @@ int main(int argc, char *argv[])
     if ((p) && (!p1))
     {
       /* c2_scan_realloc();  */
+      convert = 1;
+    }
+
+
+
+    /* ***************************************************************
+     *  Scan for bind                                                *
+     * ************************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for bind\n", rct);
+    }
+
+    p = strstr(p_string, "bind");
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 2 bind");
+        trace_rec_1();
+      }
+
+      /* c2_bind();   */
+      convert = 1;
+    }
+
+
+    /* ***************************************************************
+     *  Scan for listen                                              *
+     * ************************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for listen\n", rct);
+    }
+
+    p = strstr(p_string, "listen");
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 2 listen");
+        trace_rec_1();
+      }
+
+      /* c2_listen();   */
       convert = 1;
     }
 
@@ -2632,6 +2698,32 @@ int main(int argc, char *argv[])
 
 
     /* ***************************************************************
+     * Scan for sprintf                                              *
+     * ************************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for sprintf\n", rct);
+    }
+
+    p = strstr(p_string, "sprintf");
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 2 sprintf");
+        trace_rec_1();
+      }
+      convert = 1;
+    }
+
+
+
+    /* ***************************************************************
      * Scan for fprintf                                              *
      * ************************************************************* */
     if (convert == 1) 
@@ -3135,8 +3227,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for #ifndef  */
 
+    /* ***************************************************************
+     *  Scan for #ifndef                                             *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3320,6 +3414,12 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
+    p = strstr(p_string, "bind");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
     p = strstr(p_string, "bool");
     if ((p) && (v_convert == 0))
     {
@@ -3488,6 +3588,12 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
+    p = strstr(p_string, "listen");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
     p = strstr(p_string, "localtime");
     if ((p) && (v_convert == 0))
     {
@@ -3507,6 +3613,12 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "pow");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "sprintf");
     if ((p) && (v_convert == 0))
     {
       v_convert = 1;
@@ -4263,8 +4375,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/*  Scan for malloc  (skip)  */
 
+    /* ***************************************************************
+     *  Scan for malloc (skip)                                       *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -6329,7 +6443,6 @@ if(quote_1 > 0)
         }
 */
 
-
         for (I = 0; I < gv_ct; I++) 
         {  
            x = strcmp("G", gw_variable[I].gv_type);
@@ -6865,6 +6978,83 @@ if(quote_1 > 0)
         trace_rec_1();
       }
     }
+
+
+    /* **********************************************************
+    *  Punch bind                                               *
+    * ********************************************************* */
+
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch bind\n", rct);
+    }
+
+    p = strstr(p_string, "bind");
+    if (p)
+    {
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 3 rct = %d c2_bind #100\n", rct);
+      }
+      c2_bind();
+      convert = 1;
+    }
+
+
+    /* **********************************************************
+    *  Punch listen                                             *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch listen\n", rct);
+    }
+
+    p = strstr(p_string, "listen");
+    if (p)
+    {
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 3 rct = %d c2_listen #100\n", rct);
+      }
+      c2_listen();
+      convert = 1;
+    }
+
+
+    /* **********************************************************
+    *  Punch send                                               *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch send\n", rct);
+    }
+
+    p = strstr(p_string, "send");
+    if (p)
+    {
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 3 rct = %d c2_send #100\n", rct);
+      }
+      c2_send();
+      convert = 1;
+    }
+
 
     /* **********************************************************
     * Punch struct                                              *
@@ -7448,6 +7638,38 @@ if(quote_1 > 0)
 
 
     /* **********************************************************
+    *  Punch sprintf                                            *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 3 rct = %d Punch sprintf\n", rct);
+    }
+
+    p = strstr(p_string, "sprintf");
+    p1 = strstr(p_string, "snprintf");
+    if ((p) && (!p1)) 
+    {
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 3 rct = %d c2_sprintf #100\n", rct);
+      }
+
+      c2_sprintf();
+      convert = 1;
+      if (return_on == 1) 
+      {
+        return_ct++;
+      }
+    }
+
+
+
+    /* **********************************************************
     *  Punch fprintf                                            *
     * ********************************************************* */
     if (convert == 1) 
@@ -7697,6 +7919,7 @@ if(quote_1 > 0)
       convert = 1;
     }
 */
+
 
     /* **********************************************************
     *  Punch free                                               *
