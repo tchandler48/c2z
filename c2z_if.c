@@ -21061,6 +21061,7 @@ printf("\nc2z_if.c if_case_49 rct = %d p_string = %s\n",rct,p_string);
 
    int pi;
    int si;
+   int x2;
 
    int fd1_type;
    int fd2_type;
@@ -21076,6 +21077,150 @@ printf("\nc2z_if.c if_case_49 rct = %d p_string = %s\n",rct,p_string);
      pi++;
      ch = p_string[pi];
    }
+
+   si = 0;
+   pi++;
+   ch = p_string[pi];
+   while(ch != '(')
+   {
+     field1[si] = ch;
+     si++;
+     pi++;
+     ch = p_string[pi];
+   }
+   field1[si] = '\0';
+printf("c2z_if.c case_49 field1 = %s\n",field1);
+
+   si = 0;
+   pi++;
+   ch = p_string[pi];
+   while(ch != '[')
+   {
+     field2[si] = ch;
+     si++;
+     pi++;
+     ch = p_string[pi];
+   }
+   field2[si] = '\0';
+printf("c2z_if.c case_49 field2 = %s\n",field2);
+
+   si = 0;
+   fd3_type = 0;
+   x2 = 0;
+   pi++;
+   ch = p_string[pi];
+   while(ch != ']')
+   {
+     if (x2 == 0) 
+     {
+       if (isdigit(ch)) 
+       {
+         fd3_type = 1;
+         x2 = 1;
+       }
+
+       if (isalpha(ch)) 
+       {
+         fd3_type = 2;
+         x2 = 1;
+       }
+     }
+
+     field3[si] = ch;
+     si++;
+     pi++;
+     ch = p_string[pi];
+   }
+   field3[si] = '\0';
+printf("c2z_if.c case_49 field3 = %s fd3_type = %d\n",field3,fd3_type);
+
+   si = 0;
+   x2 = 0;
+   fd4_type = 0;
+   pi++;
+   pi++;
+   ch = p_string[pi];
+   while(ch != ']')
+   {
+     if (x2 == 0) 
+     {
+       if (isdigit(ch)) 
+       {
+         fd4_type = 1;
+         x2 = 1;
+       }
+
+       if (isalpha(ch)) 
+       {
+         fd4_type = 2;
+         x2 = 1;
+       }
+     }
+     field4[si] = ch;
+     si++;
+     pi++;
+     ch = p_string[pi];
+   }
+   field4[si] = '\0';
+printf("c2z_if.c case_49 field4 = %s fd4_type = %d\n",field4,fd4_type);
+
+   pi++;
+   pi++;
+   ch = p_string[pi];
+   while(ch == ' ')
+   {
+     pi++;
+     ch = p_string[pi];
+   }
+
+   si = 0;
+   while(ch != ' ')
+   {
+     field5[si] = ch;
+     si++;
+     pi++;
+     ch = p_string[pi];
+   }
+   field5[si] = '\0';
+printf("c2z_if.c case_49 field5 = %s\n",field5);
+
+   si = 0;
+   fd6_type = 0;
+   while(ch != ')')
+   {
+
+     if(ch != ' ')
+     {
+       if (x2 == 0) 
+       {
+         if (isdigit(ch)) 
+         {
+           fd6_type = 1;
+           x2 = 1;
+         }
+
+         if (isalpha(ch)) 
+         {
+           fd6_type = 2;
+           x2 = 1;
+         }
+       }
+
+       field6[si] = ch;
+       si++;
+     }
+     pi++;
+     ch = p_string[pi];
+   }
+   field6[si] = '\0';
+printf("c2z_if.c case_49 field6 = %s fd6_type = %d\n",field6,fd6_type);
+
+
+
+
+
+
+
 
 
 

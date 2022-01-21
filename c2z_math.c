@@ -14906,6 +14906,7 @@ void c2_math_99()
       strcpy(trace_1, "c2z_math.c #454");
       trace_rec_3();
     }
+    work_use_ct[43]++;
 
     strcpy(a_string, "         LARL  R8,C370ZERO");
     src_line();
