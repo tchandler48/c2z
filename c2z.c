@@ -194,6 +194,8 @@
        void if_case_48(void);
        void if_case_49(void);
 
+       void if_case_51(void);
+
 
 /*		c2z_incr.c		*/
 	void c2_plus(void);
