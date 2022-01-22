@@ -384,9 +384,17 @@
 	void c2_return(void);
 
 /* 	       c2z_print.c		*/
-	void c2_fprintf(void);
-	void c2_printf(void);
+       void c2_printf(void);
        void c2_printf_literal(void);
+      
+	void c2_printf_str1(void);
+       void c2_printf_str2(void);
+       void c2_printf_dec(void);
+	void c2_printf_dec1(void);
+
+
+
+	void c2_fprintf(void);
 	void c2_printf_numeric(void);
 	void c2_printf_string(void);
 	void c2_printf_dec_only(int);

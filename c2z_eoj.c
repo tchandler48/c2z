@@ -1924,6 +1924,7 @@ void c2_eoj()
       k8 = gw_variable[I].gv_row;
       k9 = gw_variable[I].gv_column;
       k7 = k8 * k9;
+      k7 = 90;
 
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
@@ -1987,6 +1988,7 @@ void c2_eoj()
         }
       }
 
+      k7 = 90;
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
       strcat(a_string, "DC    ");

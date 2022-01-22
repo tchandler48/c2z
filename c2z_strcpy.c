@@ -10,6 +10,24 @@
 * ************************************************** */
 void c2_strcpy(void) 
 {
+
+/* *************************************** */ 
+/*  stcopy proiles	                      */
+/*       []    ,      []                   */
+/*       0     ,      0    c2_str_4        */
+/*       0     ,      2                    */
+/*       0     ,      4                    */
+/*       2     ,      0    c2_str_1        */
+/*       2     ,      2                    */
+/*       2     ,      4                    */
+/*       4     ,      0                    */
+/*       4     ,      2                    */
+/*       4     ,      4                    */
+/*                                         */
+/*       ()    ,      ()                   
+/*       0     ,      2    c2_str_6        */
+/* *************************************** */
+
   char ch;
 
   int str1 = 0;
@@ -30,18 +48,66 @@ void c2_strcpy(void)
   int x95 = 0;
   int x96 = 0;
   int x97 = 0;
+  int bkl = 0;
+  int bkr = 0;
 
   str1 = 0;
   str2 = 0;
 
   s = strlen(p_string);
-  for (I = 0; I < s; I++) 
+  for (I = 0; I <= s; I++) 
   {
     ch = p_string[I];
+    if(ch == ',')
+    {
+      if(x94 == 0)
+      {
+        x94a = I;
+        str1 = I;
+      }
+      x94++;
+    }
+    if(ch == '[')
+    {
+      if(str1 == 0)
+      {
+        bkl++;
+      }
+      else
+      {
+        bkr++;
+      }
+    }
+    if(ch == ']')
+    {
+      if(str1 == 0)
+      {
+        bkl++;
+      }
+      else
+      {
+        bkr++;
+      }
+    }
+    if(ch == '(')
+    {
+     
+        x95++;
+      
+    }
+    if(ch == ')')
+    {
+      
+        x95 ++;
+     
+    }
     if (ch == '\"') 
     {
       x90++;
     }
+  }
+
+/*
     if(ch == '[')
     {
       if(x91 == 0)
@@ -55,7 +121,7 @@ void c2_strcpy(void)
       }
       if(x94a > 0)
       {
-      /*  x91b = I; */
+      
         x94d++;
       }
       x91++;
@@ -80,34 +146,16 @@ void c2_strcpy(void)
       }
       x93++;
     }
-    if(ch == ',')
-    {
-      if(x94 == 0)
-      {
-        x94a = I;
-        str1 = I;
-      }
-      x94++;
-    }
-    if(ch == '(')
-    {
-      x95++;
-    }
-    if(ch == ')')
-    {
-      x96 ++;
-    }
+ 
     if(ch == '\"')
     {
       x97++;
     }
-   }
-
-/*
- printf("\nc2z_strcpy.c #1 rct = %d p_string = %s",rct,p_string);
- printf("c2z_strcpy.c #1 x90 = %d x92 = %d x93 = %d x93a = %d  x94 = %d x94a = %d x95 = %d x96 = %d x97 = %d\n",x90,x92,x93,x93a,x94,x94a,x95,x96,x97);    
- printf("c2z_strcpy.c #1 x91 = %d x91a = %d x91b = %d x94a = %d x94c = %d x94d = %d\n",x91, x91a,x91b,x94a,x94c,x94d);
+  }
 */
+
+
+
 
   /*  c2_str_1				strcpy(cvalue, "123456");  				*/
   /*  c2_str_1                            strcpy(in_stack[t], "123456");			*/
@@ -123,40 +171,64 @@ void c2_strcpy(void)
   /*  c2_str_11				strcpy(gw_variable[gv_ct].gv_name, gw_variable[I].gv_name */
   /*  c2_str_12                           strcpy(row[x][y], input);                        */
 
-  if((x90 == 2) && (x94 == 1) && (x91 == 0) && (x92 == 0) && (x93 == 0))
+  if((bkl == 2) && (bkr == 0) && (x90 == 2))
   {
     c2_str_1(str1, str14);
     convert = 1;
     return;
   }
 
-  if((x90 == 2) && (x91 == 2) && (convert == 0))
+  if((x90 == 2) && (bkl == 0) && (bkr == 0) && (convert == 0))
   {
     c2_str_1(str1,str14);
     convert = 1;
     return;
   }
 
-  if ((x90 == 0) && (x91 == 0) && (x92 == 0) && (x93 == 0) && (x94 == 1) && (x95 == 1) && (x96 == 1) && (convert == 0)) 
+  if ((bkl == 0) && (bkr == 2) && (convert == 0)) 
+  {
+    c2_str_2(str1, str2);
+    convert = 1;
+    return;
+  }
+
+  if ((x90 == 0) && (bkl == 2) && (bkr == 0) && (x95 == 2)  && (convert == 0)) 
+  {
+    c2_str_3(str1, str2);
+    convert = 1;
+    return;
+  }
+
+  if ((bkl == 0) && (bkr == 0) && (x90 == 0) && (x95 == 2) && (convert == 0)) 
   {
     c2_str_4();
     convert = 1;
     return;
   }
 
-  if ((x90 == 2) && (x91 == 1) && (x92 == 1) && (x93 == 0) && (x94 == 1) && (convert == 0)) 
+  if ((x95 == 2) && (bkl == 2) && (bkr == 2) && (x90 == 0) && (convert == 0)) 
   {
-    c2_str_1(str1, str14); 
+    c2_str_5();
     convert = 1;
     return;
   }
 
-  if ((x90 == 0) && (x91 == 2) && (x93 == 0) && (x94 == 1) && (x91a < x94a) && (convert == 0)) 
+  if ((bkl == 0) && (bkr == 0) && (x95 == 4) && (convert == 0)) 
   {
-    c2_str_3(str1, str2);
+    c2_str_6();
     convert = 1;
     return;
   }
+
+
+
+
+printf("\nc2z_strcpy.c rct = %d p_string = %s",rct,p_string);
+printf("c2z_strcpy.c bkl = %d bkr = %d x95 = %d x90 = %d\n",bkl,bkr,x95,x90);
+
+/* **************** */
+
+
 
   if((x94c == 4) && (x94d == 0) && (x95 == 1) && (x96 == 1) && (convert == 0))
   {
@@ -173,19 +245,7 @@ void c2_strcpy(void)
   }
 
 
-  if ((x90 == 0) && (x91 == 4) && (x92 == 0) && (x93 == 0) && (x94 == 1) && (x97 == 0) && (convert == 0)) 
-  {
-    c2_str_5();
-    convert = 1;
-    return;
-  }
 
-  if ((x90 == 0) && (x91 == 2) && (x93 == 0) && (x94 == 1) && (x91a > x94a) && (convert == 0)) 
-  {
-    c2_str_2(str1, str2);
-    convert = 1;
-    return;
-  }
 
   if ((x90 == 0) && (x91 == 0) && (x92 == 0) && (x93 == 0) && (x94 == 1) && (x95 == 2) && (x96 == 2) && (convert == 0)) 
   {
@@ -1337,12 +1397,6 @@ void c2_str_1(int str1, int str4)
       ch = p_string[pi];
     }
     field2[pi2] = '\0';
-printf("\nc2z_strcpy.c field2 = %s fd2_type = %d\n",field2,fd2_type);
-
-
-
-
-
 
     if(fd2_type == 2)
     {
@@ -3651,7 +3705,6 @@ void c2_str_4()
   int pi2;
   int v = 0;
   int I = 0;
-/*  int x1 = 0; */
   int x2 = 0;
   int x10 = 0;
 
@@ -3723,7 +3776,6 @@ void c2_str_4()
         str3 = 1;
         strcpy(tfield1a, lw_variable[v].lv_cname);
         lw_variable[v].lv_use_ct++;
-   /*     x1 = lw_variable[v].lv_current_lgth; */
       }
     }
   }
@@ -3741,8 +3793,6 @@ void c2_str_4()
           str3 = 1;
           strcpy(tfield1a, gw_variable[v].gv_cname);
           gw_variable[v].gv_use_ct++;
-      /*    x1 = gw_variable[v].gv_current_lgth; */
-         /* gw_variable[v].gv_current_lgth = x1; take out ?? */
         }
       }
     }
@@ -3819,7 +3869,6 @@ void c2_str_4()
     convert = 1;
     return;
   }
-
 
   if (x10 == 0) 
   {
