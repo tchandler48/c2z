@@ -75,7 +75,7 @@ void c2_eoj()
     trace_rec_3();
   }
 
-  strcpy(a_string, "         XC    0(78,R9),0(R8)");
+  strcpy(a_string, "         XC    0(132,R9),0(R8)");
   src_line();
   if (puncde == 1) 
   {
@@ -4607,7 +4607,7 @@ void c2_eoj()
     trace_rec_3();
   }
 
-  strcpy(a_string, "C370WTOB DC    CL78' '");
+  strcpy(a_string, "C370WTOB DC    CL132' '");
   strcpy(wk_remark, "c2z gen variable  */");
   write_short();
   if (puncde == 1) 

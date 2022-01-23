@@ -389,6 +389,8 @@
       
 	void c2_printf_str1(void);
        void c2_printf_str2(void);
+       void c2_printf_str3(void);
+
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);
 
