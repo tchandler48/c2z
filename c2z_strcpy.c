@@ -13,6 +13,7 @@ void c2_strcpy(void)
 
 /* *************************************** */ 
 /*  stcopy proiles	                      */
+/*       bkl          bkr                  */
 /*       []    ,      []                   */
 /*       0     ,      0    c2_str_4        */
 /*       0     ,      2                    */
@@ -20,7 +21,7 @@ void c2_strcpy(void)
 /*       2     ,      0    c2_str_1        */
 /*       2     ,      2                    */
 /*       2     ,      4                    */
-/*       4     ,      0                    */
+/*       4     ,      0    c2_str_12       */
 /*       4     ,      2                    */
 /*       4     ,      4                    */
 /*                                         */
@@ -240,6 +241,12 @@ printf("c2z_strcpy.c bkl = %d bkr = %d x95 = %d x90 = %d x93 = %d\n",bkl,bkr,x95
   }
 
 
+  if((bkl == 4) && (bkr == 0) && (x95 == 2) && (convert == 0))
+  {
+    c2_str_12();
+    convert = 1;
+    return;
+  }
 
 printf("c2z_strcpy.c NOT MATCH FOUND\n");
 printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
@@ -251,12 +258,6 @@ printf("c2z_strcpy.c bkl = %d bkr = %d x95 = %d x90 = %d x93 = %d\n",bkl,bkr,x95
 
 
 
-  if((x94c == 4) && (x94d == 0) && (x95 == 1) && (x96 == 1) && (convert == 0))
-  {
-    c2_str_12();
-    convert = 1;
-    return;
-  }
 
   if((x94c == 0) && (x94d == 4) && (x95 == 1) && (x96 == 1) && (convert == 0))
   {

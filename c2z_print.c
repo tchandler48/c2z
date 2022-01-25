@@ -1452,6 +1452,7 @@ void c2_printf_dec1()
    int ret1;
    int v;
    int fd2_type = 0;
+   int fd3_type = 0;
    int xc;
    int prf3;
 
@@ -1465,12 +1466,27 @@ void c2_printf_dec1()
     }
 
     pi2 = 0;
+    x2 = 0;
+    fd2_type = 0;
     pi++;
     ch = p_string[pi];
     while (ch != '[') 
     {
       if (ch != ' ') 
       {
+        if(x2 == 0) 
+        {
+          if(isdigit(ch)) 
+          {
+   	     fd2_type = 2;
+            x2 = 1;
+          }
+          if(isalpha(ch)) 
+          {
+	     fd2_type = 1;
+            x2 = 1;
+          }
+        }
         field2[pi2] = ch;
         pi2++;
       }
@@ -1480,10 +1496,25 @@ void c2_printf_dec1()
     field2[pi2] = '\0';
  
     pi2 = 0;
+    x2 = 0;
+    fd3_type = 0;
     pi++;
     ch = p_string[pi];
     while(ch != ']')
     {
+      if(x2 == 0) 
+      {
+        if(isdigit(ch)) 
+        {
+   	   fd3_type = 2;
+          x2 = 1;
+        }
+        if(isalpha(ch)) 
+        {
+	   fd3_type = 1;
+          x2 = 1;
+        }
+      }
       field3[pi2] = ch;
       pi2++;
       pi++;
@@ -1682,7 +1713,11 @@ void c2_printf_dec1()
       trace_rec_3();
     }
 
-    if(fd2_type == 2) 
+printf("\nc2z_print.c rct = %d p_string = %s",rct,p_string);
+printf("c2z_print.c field2 = %s fd2_type = %d\n",field2,fd2_type);
+printf("c2z_print.c field3 = %s fd3_type = %d\n",field3,fd3_type);
+
+    if(fd3_type == 2) 
     {
       strcpy(a_string, "         LAEY  R5,");
       strcat(a_string, field2);
@@ -1737,12 +1772,12 @@ void c2_printf_dec1()
       }
     }
 
-    if (fd2_type == 1) 
+    if (fd3_type == 1) 
     {
       strcpy(a_string, "         LARL  R9,");
-      strcat(a_string, field2a);
+      strcat(a_string, field3a);
       strcpy(wk_remark, " ");
-      strcat(wk_remark, field2);
+      strcat(wk_remark, field3);
       strcat(wk_remark, " */");
       write_remark();
       if (puncde == 1) 

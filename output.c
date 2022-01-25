@@ -86,6 +86,7 @@ void get_prnstring()
   pi++;
   pi = iswhite(pi);
   ch = p_string[pi];
+  e_pos = pi;
 
   printf(" %s\n",xstring);
 }
@@ -99,6 +100,9 @@ void get_prnvar()
   pi = e_pos;
   pi = iswhite(pi);
   e_pos = pi;
+
+printf("get_prnvar #1 pi = %d\n",pi);
+
   value = get_varvalue();
   pi = e_pos;
   pi = iswhite(pi);

@@ -9,9 +9,6 @@ void get_input()
    pi = e_pos;
    ch = p_string[pi];
 
-printf("get_input #1 pi = %d\n",pi);
-printf("get_input #1 ch = %s\n",ch);
-
    if(ch == ';')
    {
      loc = 1;
@@ -22,9 +19,6 @@ printf("get_input #1 ch = %s\n",ch);
    }
 
    len = strlen(p_string);
-
-printf("get_input #2 pi = %d\n",pi);
-printf("get_input len = %d\n",len);
 
    while(pi < len)
    {
@@ -37,18 +31,16 @@ printf("get_input len = %d\n",len);
        ch = p_string[pi];
        e_pos = pi;
      }
-     else
-     {
+ 
        if(isalpha(ch))
        {
          type = get_vtype(pi);
 
-printf("get_input type = %d\n",type);
-
          strcpy(varname, get_varname());
 
 printf("get_input varname = %s\n",varname);
-printf("get_input loc = %d\n",loc);
+
+printf("get_input type = %d\n",type);
 
          if(type == 3)
          {
@@ -63,7 +55,7 @@ printf("get_input loc = %d\n",loc);
            ch = p_string[pi];
          }
        }
-     }
+     
    }
 }
 
@@ -76,11 +68,7 @@ void input_str(char *name, int loc)
 
   strcpy(varname, name);
 
-printf("input_str varname = %s\n",varname);
-
   ndx = get_varndx(varname);
-
-printf("input_str loc = %d\n",loc);
 
   if(loc == 1)
   {
@@ -92,9 +80,8 @@ printf("input_str loc = %d\n",loc);
     gets(string);
   }
 
-printf("input_str string = %s\n",string);
-
   strcpy(sv_stack[ndx], string);
+  smax_vars++;
 
   pi = e_pos;
   pi++;
@@ -117,6 +104,13 @@ void input_val(char *name, int loc)
    int pi, ndx, len,row, col;
 
    strcpy(varname, name);
+
+
+printf("input_val varname = %s\n",varname);
+
+
+   ndx = get_intndx(varname);
+
    pi = e_pos;
    ch = p_string[pi];
 
@@ -130,8 +124,18 @@ void input_val(char *name, int loc)
      gets(string);
    }
 
-   ndx = get_varndx(varname);
+  
+
+printf("input_val ndx #2 = %d\n",ndx);
+
+printf("input_val string = %s\n",string);
+
    iv_stack[ndx] = atoi(string);
+   imax_vars++;
+
+printf("iv_stack[ndx] = %d\n",iv_stack[ndx]);
+
+printf("imax_vars = %d\n",imax_vars);
 
    pi = iswhite(pi);
    ch = p_string[pi];

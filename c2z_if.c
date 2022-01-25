@@ -225,6 +225,7 @@ printf("c2z_if.c x98 = %d bracket_ct = %d if_opr = %d if_complex = %d x95 = %d x
 /*     if_case_49		if(strlen(sheet[i9][jj]) > 12)	 */
 /*     if_case_50 		if((str[i]) >= '0' && str[i] <= 9 || (str[i] == '.') */
 /*	if_case_51		if(wk_row[0] == sheet[x][i])	*/
+/*     if_case_55           if(isNumber(input))                */
 
 
   if((bracket_ct == 6) && (if_complex == 1))
@@ -457,9 +458,6 @@ printf("\nc2z_if.c if_case_46 HERE rct = %d p_string = %s\n",rct,p_string);
   }
 
 
-printf("\nc2z_if.c ERROR GOTO HERE\n");
-printf("c2z_if.c rct = %d p_string = %s",rct,p_string);
-
 /*  above is new correct code */
 
   p = strstr(p_string, "&&");
@@ -503,6 +501,18 @@ printf("c2z_if.c rct = %d p_string = %s",rct,p_string);
     if_case_10();
     if_convert = 1;
   }
+
+  if((x98 == 4) && (if_convert == 0))
+  {
+    if_case_55(); 
+    if_convert = 1;
+    return;
+  }
+
+printf("\nc2z_if.c ERROR GOTO HERE x98 = %d\n",x98);
+printf("c2z_if.c rct = %d p_string = %s",rct,p_string);
+
+
   convert = 1;
 }
 
@@ -22687,6 +22697,30 @@ void if_case_51()
 
 }
 
+
+void if_case_55(void)
+{
+printf("\nc2z_if.c inside if_case_55\n");
+printf("c2z_if.c case_55 rct = %d p_string = %s\n",rct,p_string);
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_if.c case_55 START");
+    trace_rec_1();
+  }
+
+/*
+  tmp_byte(ii);
+
+3  621    c2z_function.c #37                       LARL  R9,C37F350                      ii                   0002180
+3  621    c2z_function.c #38                       LARL  R8,C37F334                      ii                   0002181
+3  621    c2z_function.c #39                       ZAP   0(6,R9),0(6,R8)                                          0002182
+3  621    c2z_function.c #43                       LARL  R15,C37F107                     tmp_byte             0002183
+3  621    c2z_function.c #44                       BAKR  0,R15                                                    0002184
+ */
+
+
+  convert = 1;
+}
 
 
 

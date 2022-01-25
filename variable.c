@@ -71,6 +71,10 @@ int get_intndx(char *name)
 
   while((strcmp(in_stack[ndx], varname) != 0) && (ndx < imax_vars))
   {
+
+printf("in_stack[ndx] = %s\n",in_stack[ndx]);
+
+
     if(vflag == 0)
     {
       if(in_stack[ndx] == ' ')
@@ -82,15 +86,30 @@ int get_intndx(char *name)
     ndx++;
   }
 
+printf("get_intndx ndx = %d\n",ndx);
+
+printf("get_intndx imax_vars = %d\n",imax_vars);
+
+printf("get_intndx vflag = %d\n",vflag);
+
+
   if(ndx == imax_vars)
   {
     if(vflag == 0)
     {
+      imax_vars--;
       init_int();
       ndx = imax_vars;
       ndx--;
+
+printf("get_intndx varname = %s\n",varname);
+
+printf("get_intndx ndx = %d\n",ndx);
+
       strcpy(in_stack[ndx], varname);
-      imax_vars++;
+      
+printf("in_stack[ndx] = %s\n",in_stack[ndx]);
+
     }
     else
     {
@@ -165,16 +184,27 @@ int get_varvalue()
   char ch;
   char varname[VAR_NAME];
   int pi;
-  int ndx=0;
+  int ndx = 0;
   int ab_code=13, x=line_ndx;
   int value; 
   int I;
 
   strcpy(varname, get_varname());
 
+printf("get_varvalue varname = %s\n",varname);
+
   pi = e_pos;
   ch = p_string[pi];
   var_type = ch;
+
+printf("get_varvalue ch = %s\n",ch);
+
+printf("get_varvalue imax_vars = %d\n",imax_vars);
+
+for(I = 0; I < 4; I++)
+{
+printf("in_stack[ndx] = %s\n",in_stack[ndx]);
+}
 
   if(ch == '#')
   {

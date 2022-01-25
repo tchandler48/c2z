@@ -195,6 +195,7 @@
        void if_case_49(void);
 
        void if_case_51(void);
+	void if_case_55(void);
 
 
 /*		c2z_incr.c		*/
@@ -1521,17 +1522,12 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
     skip_read = 0;
 
-    if (debug_lv >= 1) 
-    {
-      printf("\nc2z.c Pass 2 START rct = %d p_string = %s", rct, p_string);
-    }
- 
     if (global_st == 0) 
     {
       sv_func[0] = '\0';
@@ -1541,11 +1537,6 @@ int main(int argc, char *argv[])
     skip_read = 0;
 
     /* Scan for { }  */
-
-    if (debug_lv >= 2) 
-    {
-      printf("c2z.c Pass 2 rct = %d L2 Scan for { }\n", rct);
-    }
 
     x = 0;
     x1 = 0;
@@ -1579,12 +1570,6 @@ int main(int argc, char *argv[])
         strcpy(trace_1, "c2z.c Pass 2 { }");
         trace_rec_1();
       }
-
-      if (debug_lv >= 3) 
-      {
-        printf("c2z.c Pass 2 rct = %d L3 c2_param_ct #101 if_level = %d\n", rct, if_level);
-      }
-
       c2_param_ct();
     }
 
@@ -5945,7 +5930,7 @@ int main(int argc, char *argv[])
     pass2_skip:
     ch = '\0';
 
-  } 			/* end of first while */
+  } 		
 
 
 
