@@ -23,6 +23,7 @@ void c2_atoi(void)
 
   int pi;
   int pi2;
+  int x2;
   int x3 = 0;
   int x9 = 0;
   int x30 = 0;
@@ -31,6 +32,8 @@ void c2_atoi(void)
   int s = 0;
   int ret = 0;
   int ret1 = 0;
+  int fd2_type = 0;
+  int fd3_type = 0;
 
   char ch;
   char field1[VAR_LGTH];
@@ -204,11 +207,26 @@ void c2_atoi(void)
     }
     field1[pi2] = '\0';
 
+    x2 = 0;
+    fd2_type = 0;
     pi2 = 0;
     pi++;
     ch = p_string[pi];
     while (ch != ']') 
     {
+      if(x2 == 0) 
+      {
+        if(isdigit(ch)) 
+        {
+   	   fd2_type = 2;
+          x2 = 1;
+        }
+        if(isalpha(ch)) 
+        {
+	   fd2_type = 1;
+          x2 = 1;
+        }
+      }
       field2[pi2] = ch;
       pi2++;
       pi++;
@@ -222,11 +240,27 @@ void c2_atoi(void)
       ch = p_string[pi];
     }
 
+    x2 = 0;
+    fd3_type = 0;
     pi2 = 0;
     pi++;
     ch = p_string[pi];
     while (ch != ')') 
     {
+     if(x2 == 0) 
+      {
+        if(isdigit(ch)) 
+        {
+   	   fd3_type = 2;
+          x2 = 1;
+        }
+        if(isalpha(ch)) 
+        {
+	   fd3_type = 1;
+          x2 = 1;
+        }
+      }
+
       field3[pi2] = ch;
       pi2++;
       pi++;
@@ -264,42 +298,44 @@ void c2_atoi(void)
       return;
     }
 
-    x3 = 0;
-    for (I = 0; I < lv_ct; I++) 
+    if(fd2_type == 1)
     {
-      ret = strcmp(field2, lw_variable[I].lv_name);
-      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
-      if ((ret == 0) && (ret1 == 0)) 
+      x3 = 0;
+      for (I = 0; I < lv_ct; I++) 
       {
-        x3 = 1;
-        strcpy(field2a, lw_variable[I].lv_cname);
-        x9 = lw_variable[I].lv_current_lgth;
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      for (I = 0; I < gv_ct; I++) 
-      {
-        ret = strcmp(field2, gw_variable[I].gv_name);
-        if (ret == 0) 
+        ret = strcmp(field2, lw_variable[I].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
         {
           x3 = 1;
-          strcpy(field2a, gw_variable[I].gv_cname);
-          x9 = gw_variable[I].gv_current_lgth;
+          strcpy(field2a, lw_variable[I].lv_cname);
+          x9 = lw_variable[I].lv_current_lgth;
         }
       }
-    }
 
-    if (x3 == 0) 
-    {
-      printf("\nc2z_atoi.c c2_atoi atoi-004 field2 Not Found = %s\n", field2);
-      printf("c2z_atoi.c c2_atoi rct = %d p_string = %s", rct, p_string);
-      erct++;
-      convert = 1;
-      return;
-    }
+      if (x3 == 0) 
+      {
+        for (I = 0; I < gv_ct; I++) 
+        {
+          ret = strcmp(field2, gw_variable[I].gv_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(field2a, gw_variable[I].gv_cname);
+            x9 = gw_variable[I].gv_current_lgth;
+          }
+        }
+      }
 
+      if (x3 == 0) 
+      {
+        printf("\nc2z_atoi.c c2_atoi atoi-004 field2 Not Found = %s\n", field2);
+        printf("c2z_atoi.c c2_atoi rct = %d p_string = %s", rct, p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+    }
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
@@ -336,11 +372,6 @@ void c2_atoi(void)
       convert = 1;
       return;
     }
-
- /*   if(x9 > 8)
-    {
-      x9 = 8;
-    } */
 
     strcpy(a_string, "         LARL  R9,C370L8");
     src_line();
@@ -542,7 +573,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "B");
     src_line();
     if (puncde == 1) 
     {
@@ -582,7 +613,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "C");
     src_line();
     if (puncde == 1) 
     {
@@ -622,7 +653,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "D");
     src_line();
     if (puncde == 1) 
     {
@@ -662,7 +693,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "E");
     src_line();
     if (puncde == 1) 
     {
@@ -702,7 +733,7 @@ void c2_atoi(void)
     strcat(a_string, "L");
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcat(a_string, wk_strg);
-    strcat(a_string, "A");
+    strcat(a_string, "F");
     src_line();
     if (puncde == 1) 
     {
@@ -766,7 +797,7 @@ void c2_atoi(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_atoi.c c2_atoi #343");
+      strcpy(trace_1, "c2z_atoi.c #43a");
       trace_rec_3();
     }
 
@@ -1154,7 +1185,7 @@ void c2_atoi(void)
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_atoi.c 81");
+      strcpy(trace_1, "c2z_atoi.c #81");
       trace_rec_3();
     }
 
@@ -1259,18 +1290,84 @@ void c2_atoi(void)
       }
       work_use_ct[49]++;
 
-      strcpy(a_string, "         LARL  R8,");
-      strcat(a_string, field2a);
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, field2);
-      strcat(wk_remark, " */");
-      write_remark();
-      if (puncde == 1) 
+      if(fd2_type == 1)
       {
-        strcpy(trace_1, "c2z_atoi.c #92");
-        trace_rec_3();
+        strcpy(a_string, "         LARL  R8,");
+        strcat(a_string, field2a);
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field2);
+        strcat(wk_remark, " */");
+        write_remark();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92");
+          trace_rec_3();
+        }
+        work_use_ct[50]++;
       }
-      work_use_ct[50]++;
+
+      if(fd2_type == 2)
+      {
+        strcpy(a_string, "         LAEY  R5,");
+        strcat(a_string, field2);
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field2);
+        strcat(wk_remark, " */");
+        write_remark();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92a");
+          trace_rec_3();
+        }
+      
+        strcpy(a_string, "         LARL  R8,C370U");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92b");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         CVD   R5,0(R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92c");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R7,C370NWK2");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92d");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R8,C370U");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92e");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         ZAP   0(6,R7),0(8,R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92f");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         LARL  R8,C370NWK2");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_atoi.c #92g");
+          trace_rec_3();
+        }
+      }
 
       strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
       src_line();
@@ -1502,10 +1599,11 @@ void c2_atoi(void)
       trace_rec_3();
     }
 
-    if(x9 > 8)
+ /*   if(x9 > 8)
     {
       x9 = 8;
-    }
+    } */
+
     snprintf(wk_strg, sizeof(wk_strg), "%d", x9);
     strcpy(a_string, "         MVC   0(");
     strcat(a_string, wk_strg);

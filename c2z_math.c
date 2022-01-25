@@ -5391,12 +5391,6 @@ printf("rct = %d p_string = %s",rct,p_string);
 
   if ((m5fd1_type == 3) && (m5fd2_type == 1) && (m5fd3_type == 2)) 
   {
-
-printf("FIX THIS rct = %d p_string = %s",rct,p_string);
-printf("rct = %d field1 = %s\n",rct,field1);
-printf("rct = %d field2 = %s\n",rct,field2);
-printf("rct = %d field3 = %s\n",rct,field3);
-
     if (gv_ct > 0) 
     {
       for (I = 0; I < gv_ct; I++) 

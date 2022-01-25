@@ -1294,7 +1294,7 @@ void c2_printf_str1(void)
           trace_rec_3();
         }
 
-         strcpy(a_string, "         LARL  R9,C370NWK2");
+        strcpy(a_string, "         LARL  R9,C370NWK2");
         src_line();
         if (puncde == 1) 
         {
@@ -1713,14 +1713,10 @@ void c2_printf_dec1()
       trace_rec_3();
     }
 
-printf("\nc2z_print.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_print.c field2 = %s fd2_type = %d\n",field2,fd2_type);
-printf("c2z_print.c field3 = %s fd3_type = %d\n",field3,fd3_type);
-
     if(fd3_type == 2) 
     {
       strcpy(a_string, "         LAEY  R5,");
-      strcat(a_string, field2);
+      strcat(a_string, field3);
       src_line();
       if(puncde == 1) 
       {
@@ -2193,10 +2189,7 @@ void c2_printf_str2()
       }
       p_ln_ct = 0;
     }
-
 }
-
-
 
 
 void c2_sprintf(void)
