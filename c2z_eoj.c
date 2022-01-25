@@ -1988,7 +1988,7 @@ void c2_eoj()
         }
       }
 
-      k7 = 90;
+     /* k7 = 90; */
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
       strcat(a_string, "DC    ");

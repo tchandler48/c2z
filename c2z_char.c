@@ -1604,6 +1604,8 @@ void c2_char_3()
       size = gv_ct + 1;
       gw_variable = realloc(gw_variable, size * sizeof(struct variables));
     }
+    
+    tot_malloc++;
 
     gw_variable[gv_ct].gv_rct = rct;
     strcpy(gw_variable[gv_ct].gv_cname, field1a);

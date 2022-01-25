@@ -264,7 +264,7 @@ void c2_free()
     {
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z_macro.c c2_free array-char");
+        strcpy(trace_1, "c2z_free.c c2_free array-char");
         trace_rec_1();
       }
 

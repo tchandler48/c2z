@@ -4800,6 +4800,7 @@ void c2_int_41()
 
   if (global_st == 0) 
   {
+    c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", st_col);
     strcpy(wk_name, "C37FCL");
     strcat(wk_name, wk_strg);
@@ -4889,6 +4890,7 @@ void c2_int_41()
       gw_variable[gv_ct].gv_column = x102;
     }
 
+    tot_arr++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
