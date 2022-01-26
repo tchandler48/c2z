@@ -1,0 +1,5 @@
+SET pgm=BX6.BAS
+SET f_out=source.tmp
+SET f_in=BX6.BAS
+SET f_src=BX6.BAS
+CALL EZ390 BXBASIC RMODE24 NOTIME  
