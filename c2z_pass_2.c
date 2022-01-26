@@ -679,12 +679,6 @@ void c2_return_2()
 
 void c2_math_literal() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_pass_2.c c2_math_literal START");
-    trace_rec_1();
-  }
-
   char ch;
   char *p, *p2, *p8, *p9;
   char field1[VAR_LGTH];

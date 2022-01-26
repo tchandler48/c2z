@@ -271,6 +271,7 @@
        void c2_math_100(void);
        void c2_math_600(void);
        void c2_math_601(void);
+       void c2_math_603(void);
        void c2_math_700(void);
        void c2_math_800(void);
        void c2_math_820(void);
@@ -394,6 +395,7 @@
 
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);
+	void c2_printf_dec2(void);
 
 
 
