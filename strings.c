@@ -107,7 +107,9 @@ void get_strfunc(char *name, int ndx)
   char varname[VAR_NAME], temp[TOKEN_LEN];
 
   strcpy(varname, name);
+
   temp[0] = '\0';
+
 
   if(strcmp(varname, "CHR") == 0)
   {

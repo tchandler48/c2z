@@ -666,12 +666,8 @@ void c2_return_2()
       }
     }
  
-
-    if(x3 == 0)
-    {
- 
-    }
   }
+
 
   convert = 1;
 }

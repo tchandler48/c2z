@@ -15,19 +15,19 @@ void cls()
 }
 
 
-void get_prnstring()
+void parse_print()
 {
   char ch;
   int pi;
   int si = 0;
   int stlen;
   int ab_code, x = line_ndx;
+  int process;
 
   pi = e_pos;
-  pi = iswhite(pi);
+  pi = iswhiter(pi);
   ch = p_string[pi];
   e_pos = pi;
-
 
   if(ch == ':')
   {
@@ -35,56 +35,77 @@ void get_prnstring()
     return;
   }
 
+  process = 0;
   if(isalpha(ch))
   {
     strcpy(s_holder, get_varname());
-
     pi = e_pos;
     ch = p_string[pi];
 
-    if(ch == '$')
+    if((ch == '$') && (process == 0))
     {
       pi = 0;
       e_pos = 0;
       get_strvar();
+      process = 1;
     }
-    else
+
+
+    if(process == 0)
     { 
       pi = 0;
       e_pos = 0;
       get_prnvar();
+      process = 1;
     }
-    return;
   }
+    if(isdigit(ch))
+    {
+      prn_strfunc();
+      process = 1;
+    }
+
+  if(ch == '\"')
+  {
+    get_prnstring();
+    process = 1;
+  }
+ 
+}
+
+
+
+void get_prnstring()
+{
+  char ch;
+  int pi;
+  int si = 0;
+  int stlen;
+  int ab_code = 6, x = line_ndx;
 
   stlen = strlen(p_string);
-  if((ch != '\"') || (pi == stlen))
+  si = 0;
+  pi = e_pos;
+  pi++;
+  ch = p_string[pi];
+ 
+  while((ch != '\"') && (pi < stlen))
   {
-    ab_code = 9;
-    a_bort(ab_code, x);
-  }
-  else
-  {
+    xstring[si] = ch;
+    si++; 
     pi++;
-    ch = p_string[pi]; 
-    while((ch != '\"') && (pi < stlen))
-    {
-      xstring[si] = ch;
-      si++; 
-      pi++;
-      ch = p_string[pi];
-    }
-    xstring[si] = '\0';
+    ch = p_string[pi];
+  }
+  xstring[si] = '\0';
 
-    if(pi >= stlen)
-    {
-      ab_code = 6;
-      a_bort(ab_code, x);
-    }
+  if(pi >= stlen)
+  {
+    ab_code = 6;
+    a_bort(ab_code, x);
   }
   
   pi++;
-  pi = iswhite(pi);
+  pi = iswhiter(pi);
   ch = p_string[pi];
   e_pos = pi;
 
@@ -100,8 +121,6 @@ void get_prnvar()
   pi = e_pos;
   pi = iswhite(pi);
   e_pos = pi;
-
-printf("get_prnvar #1 pi = %d\n",pi);
 
   value = get_varvalue();
   pi = e_pos;
@@ -156,6 +175,21 @@ void get_strvar()
   ch = p_string[pi];
 
   printf(" %s\n", sv_stack[ndx]);
+}
+
+void prn_strfunc()
+{
+  char ch;
+   int pi;
+
+  asn_function();
+  pi = e_pos;
+  pi++;
+  pi = iswhiter(pi);
+  ch = p_string[pi];
+  e_pos = pi;
+
+  printf(" %s\n",s_holder);
 }
 
 

@@ -89,7 +89,7 @@ void input_str(char *name, int loc)
   if(strchr(":;,",ch))
   {
     pi++;
-    set_TabNl(ch);
+ 
   }
   pi = iswhite(pi);
   e_pos = pi;
@@ -142,29 +142,12 @@ printf("imax_vars = %d\n",imax_vars);
    if(strchr(":;,",ch))
    {
      pi++;
-     set_TabNl(ch);
    }
    pi = iswhite(pi);
    e_pos = pi;
 }
 
 
-
-
-void set_TabNl(char ch)
-{
-  if(ch == '.')
-  {
-    printf("     ");
-  }
-  else
-  {
-    if(ch == ':')
-    {
-      printf("\n");
-    }
-  }
-}
 
 
 

@@ -82,7 +82,7 @@
 	void loader_2(void);
 	void program_array(void);
        void token_ix(int);
-       void get_strfunc(char *, int);
+  	void str_funct2(int);
  
 
  
@@ -125,6 +125,8 @@
 	void locate(void);
        char get_vartype(void);
        void get_strvar(void);
+       void parse_print(void);
+	void prn_strfunc(void);
 
 
 
@@ -261,7 +263,7 @@ void parser()
       break;
 
     case 4:
-      get_prnstring();
+      parse_print();
       break;
 
     case 5:

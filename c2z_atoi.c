@@ -2435,8 +2435,6 @@ printf("c2z_atoi.c x30 = %d x31 = %d\n",x30,x31);
       ch = p_string[pi];
     }
     field1[pi2] = '\0';
-printf("\nc2z_atoi.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_atoi.c field1 = %s\n",field1);
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
@@ -2471,15 +2469,6 @@ printf("c2z_atoi.c field1 = %s\n",field1);
         }
       }
     }
-
-printf("c2z_atoi.c ar_field5 = %s\n",ar_field5);
-printf("c2z_atoi.c ar_field6 = %s\n",ar_field6);
-printf("c2z_atoi.c ar_field7 = %s\n",ar_field7);
-printf("c2z_atoi.c ar_field8 = %s\n",ar_field8);
-printf("c2z_atoi.c ar_field9 = %s\n",ar_field9);
-printf("c2z_atoi.c ar_field10 = %s\n",ar_field10);
-printf("c2z_atoi.c ar_field11 = %s\n",ar_field11);
-
 
     if (x3 == 0) 
     {
@@ -2516,7 +2505,6 @@ printf("c2z_atoi.c ar_field11 = %s\n",ar_field11);
       ch = p_string[pi];
     }
     field2[pi2] = '\0';
-printf("c2z_atoi.c field2 = %s fd2_type = %d\n",field2,fd2_type);
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
@@ -2583,7 +2571,6 @@ printf("c2z_atoi.c field2 = %s fd2_type = %d\n",field2,fd2_type);
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
-printf("c2z_atoi.c field3 = %s fd3_type = %d\n",field3,fd3_type);
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
@@ -2655,7 +2642,6 @@ printf("c2z_atoi.c field3 = %s fd3_type = %d\n",field3,fd3_type);
       ch = p_string[pi];
     }
     field4[pi2] = '\0';
-printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
@@ -3687,7 +3673,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1808");
+      strcpy(trace_1, "c2z_atoi.c #398");
       trace_rec_3();
     }
 
@@ -3695,7 +3681,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1809");
+      strcpy(trace_1, "c2z_atoi.c #399");
       trace_rec_3();
     }
 
@@ -3707,7 +3693,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1810");
+      strcpy(trace_1, "c2z_atoi.c #400");
       trace_rec_3();
     }
 
@@ -3721,7 +3707,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1811");
+      strcpy(trace_1, "c2z_atoi.c #401");
       trace_rec_3();
     }
 
@@ -3733,7 +3719,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1812");
+      strcpy(trace_1, "c2z_atoi.c #402");
       trace_rec_3();
     }
 
@@ -3741,7 +3727,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1813");
+      strcpy(trace_1, "c2z_atoi.c #403");
       trace_rec_3();
     }
 
@@ -3749,7 +3735,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1814");
+      strcpy(trace_1, "c2z_atoi.c #404");
       trace_rec_3();
     }
     work_use_ct[48]++;
@@ -3758,7 +3744,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1815");
+      strcpy(trace_1, "c2z_atoi.c #405");
       trace_rec_3();
     }
 
@@ -3766,7 +3752,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1816");
+      strcpy(trace_1, "c2z_atoi.c #406");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -3775,7 +3761,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1817");
+      strcpy(trace_1, "c2z_atoi.c #407");
       trace_rec_3();
     }
     work_use_ct[48]++;
@@ -3784,7 +3770,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1818");
+      strcpy(trace_1, "c2z_atoi.c #408");
       trace_rec_3();
     }
 
@@ -3794,7 +3780,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1819");
+      strcpy(trace_1, "c2z_atoi.c #409");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -3803,7 +3789,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1820");
+      strcpy(trace_1, "c2z_atoi.c #410");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -3812,7 +3798,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1821");
+      strcpy(trace_1, "c2z_atoi.c #411");
       trace_rec_3();
     }
 
@@ -3822,7 +3808,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1822");
+      strcpy(trace_1, "c2z_atoi.c #412");
       trace_rec_3();
     }
     work_use_ct[49]++;
@@ -3835,7 +3821,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1823");
+      strcpy(trace_1, "c2z_atoi.c #413");
       trace_rec_3();
     }
 
@@ -3843,7 +3829,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1824");
+      strcpy(trace_1, "c2z_atoi.c #414");
       trace_rec_3();
     }
 
@@ -3857,7 +3843,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1825");
+      strcpy(trace_1, "c2z_atoi.c #415");
       trace_rec_3();
     }
 
@@ -3865,7 +3851,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1826");
+      strcpy(trace_1, "c2z_atoi.c #416");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -3874,7 +3860,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1827");
+      strcpy(trace_1, "c2z_atoi.c #417");
       trace_rec_3();
     }
     work_use_ct[32]++;
@@ -3883,7 +3869,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1828");
+      strcpy(trace_1, "c2z_atoi.c #418");
       trace_rec_3();
     }
 
@@ -3917,7 +3903,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1829");
+      strcpy(trace_1, "c2z_atoi.c #419");
       trace_rec_3();
     }
 
@@ -3930,7 +3916,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1830");
+      strcpy(trace_1, "c2z_atoi.c #420");
       trace_rec_3();
     }
 
@@ -3938,7 +3924,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1831");
+      strcpy(trace_1, "c2z_atoi.c #421");
       trace_rec_3();
     }
     work_use_ct[49]++;
@@ -3947,7 +3933,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1832");
+      strcpy(trace_1, "c2z_atoi.c #422");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -3956,7 +3942,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1833");
+      strcpy(trace_1, "c2z_atoi.c #423");
       trace_rec_3();
     }
 
@@ -3968,7 +3954,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1834");
+      strcpy(trace_1, "c2z_atoi.c #424");
       trace_rec_3();
     }
 
@@ -3976,7 +3962,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1835");
+      strcpy(trace_1, "c2z_atoi.c #425");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -3985,7 +3971,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1836");
+      strcpy(trace_1, "c2z_atoi.c #426");
       trace_rec_3();
     }
     work_use_ct[33]++;
@@ -3994,7 +3980,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_printf.c #1837");
+      strcpy(trace_1, "c2z_atoi.c #427");
       trace_rec_3();
     }
 
@@ -4004,7 +3990,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_printf.c #1838");
+    strcpy(trace_1, "c2z_atoi.c #428");
     trace_rec_3();
   }
 
@@ -4016,7 +4002,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_printf.c #1839");
+    strcpy(trace_1, "c2z_atoi.c #429");
     trace_rec_3();
   }
 
@@ -4029,7 +4015,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_printf.c #1840");
+    strcpy(trace_1, "c2z_atoi.c #430");
     trace_rec_3();
   }
 
@@ -4037,7 +4023,7 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_printf.c #1841");
+    strcpy(trace_1, "c2z_atoi.c #431");
     trace_rec_3();
   }
   work_use_ct[95]++;
@@ -4048,25 +4034,9 @@ printf("c2z_atoi.c field4 = %s fd4_type = %d\n",field4,fd4_type);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_printf.c #1842");
+    strcpy(trace_1, "c2z_atoi.c #432");
     trace_rec_3();
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   }
   convert = 1;
