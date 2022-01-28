@@ -35,41 +35,35 @@ void parse_print()
     return;
   }
 
-  process = 0;
-  if(isalpha(ch))
-  {
-    strcpy(s_holder, get_varname());
-    pi = e_pos;
-    ch = p_string[pi];
-
-    if((ch == '$') && (process == 0))
+    process = 0;
+    if(isalpha(ch))
     {
-      pi = 0;
-      e_pos = 0;
-      get_strvar();
-      process = 1;
+      strcpy(s_holder, get_varname());
+      pi = e_pos;
+      ch = p_string[pi];
+
+      if((ch == '$') && (process == 0))
+      {
+        pi = 0;
+        e_pos = 0;
+        get_strvar();
+        process = 1;
+      }
+
+      if(process == 0)
+      { 
+        pi = 0;
+        e_pos = 0;
+        get_prnvar();
+        process = 1;
+      }
     }
 
-
-    if(process == 0)
-    { 
-      pi = 0;
-      e_pos = 0;
-      get_prnvar();
-      process = 1;
-    }
-  }
-    if(isdigit(ch))
+    if(ch == '\"')
     {
-      prn_strfunc();
+      get_prnstring();
       process = 1;
     }
-
-  if(ch == '\"')
-  {
-    get_prnstring();
-    process = 1;
-  }
  
 }
 
@@ -175,21 +169,6 @@ void get_strvar()
   ch = p_string[pi];
 
   printf(" %s\n", sv_stack[ndx]);
-}
-
-void prn_strfunc()
-{
-  char ch;
-   int pi;
-
-  asn_function();
-  pi = e_pos;
-  pi++;
-  pi = iswhiter(pi);
-  ch = p_string[pi];
-  e_pos = pi;
-
-  printf(" %s\n",s_holder);
 }
 
 

@@ -133,6 +133,7 @@ void loader_1()
   while(!feof(f_in))
   {
     fgets(p_string, BUFSIZE, f_in);
+/* printf("loader_1 p_string = %s \n",p_string); */
     if(!feof(f_in))
     {	
       len = strlen(p_string);
@@ -414,12 +415,6 @@ void loader_2()
     {
       str_functn(ndx);
     }
-
-    if(temp_byte[ndx] == 4)
-    {
-      str_funct2(ndx);
-    }
-
   }
 
   nrows = line_count;
@@ -545,37 +540,6 @@ void token_ix(int ndx)
 
   strcpy(temp_prog[ndx], p_string);
 }
-
-
-void str_funct2(int ndx)
-{
-  char ch, temp[VAR_NAME];
-   int pi = 0, len;
-
-  strcpy(p_string, temp_prog[ndx]);
-  len = strlen(p_string);
-
-  while(pi < len)
-  {
-    pi = get_upper(pi, len);
-    if(pi < len)
-    {
-      e_pos = pi;
-      strcpy(temp, get_varname());
-      s_pos = e_pos;
-      ch = p_string[s_pos];
-
-      if(ch == '$')
-      {
-        e_pos = pi;
-        get_strfunc(temp, ndx);
-      }
-      pi = e_pos;
-      pi++;
-    }
-  }
-}
-
 
 
 

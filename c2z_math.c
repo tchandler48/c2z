@@ -83,10 +83,10 @@ void c2_math()
     }
   }
 
-/*
+
  printf("c2z_math.c rct = %d p_string = %s",rct,p_string);
  printf("c2z_math.c x501L1 = %d x501R1 = %d x501L2 = %d x501R2 = %d\n",x501L1,x501R1,x501L2,x501R2); 
-*/
+
 
 
   p1 = strstr(p_string, "->");
@@ -8388,6 +8388,10 @@ printf("c2z_math.c c2_math HERE #0 rct = %d x10 = %d x11 = %d x12 = %d x13 = %d 
     }
     tfield1[pi2] = '\0';
 
+printf("\nc2z_math.c math_6 rct = %d p_string = %s",rct,p_string);
+printf("c2z_math.c math_6 tfield1 = %s\n",tfield1);
+
+
     for (I = 0; I < char_ct; I++) 
     {
       if (w_charlit[I].clit_rct == rct) 
@@ -8396,6 +8400,8 @@ printf("c2z_math.c c2_math HERE #0 rct = %d x10 = %d x11 = %d x12 = %d x13 = %d 
         x3 = w_charlit[I].clit_lgth;
       }
     }
+printf("c2z_math.c math_6 tfield2 = %s\n",tfield2);
+
 
     if (fn_ct > 0) 
     {
@@ -8422,6 +8428,8 @@ printf("c2z_math.c c2_math HERE #0 rct = %d x10 = %d x11 = %d x12 = %d x13 = %d 
       convert = 1;
       return;
     }
+
+printf("c2z_math.c math_6 tfield4 = %s\n",tfield4);
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
@@ -8482,9 +8490,7 @@ printf("c2z_math.c c2_math HERE #0 rct = %d x10 = %d x11 = %d x12 = %d x13 = %d 
       trace_rec_3();
     }
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", s);
-    strcpy(a_string, "         MVC   0(");
-    strcat(a_string, wk_strg);
+    strcpy(a_string, "         MVC   0(1");
     strcat(a_string, ",R9),0(R8)");
     src_line();
     if (puncde == 1) 
@@ -29483,7 +29489,7 @@ void c2_math_603()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_c #1818");
+      strcpy(trace_1, "c2z_math.c #1818");
       trace_rec_3();
     }
 

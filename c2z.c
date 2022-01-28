@@ -1321,6 +1321,7 @@ int main(int argc, char *argv[])
   printf("*  Copyright (C) TCCS 2015 - 2022             *\n");
   printf("*  c2z Z390 Pass 1 Started                    *\n");
 
+
   pgm = fopen(filename, "rb");
   if(pgm == NULL)
   {
@@ -1412,6 +1413,8 @@ int main(int argc, char *argv[])
     for (I = 0; I < i_ct; I++) 
     {
       strcpy(tfield1, w_include[I].include_name);
+
+
       pgm = fopen(tfield1, "r");
       while (1) 
       {
@@ -1524,7 +1527,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */ 
+/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);  */
     convert = 0;
     fprtf_flag = 0;
 
@@ -8113,6 +8116,7 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "}");
+
     if ((p) && (inside_void == 2) && (parm_ct == 0)) 
     {
       if (debug_lv >= 2) 

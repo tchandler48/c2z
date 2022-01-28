@@ -38,10 +38,6 @@ void get_input()
 
          strcpy(varname, get_varname());
 
-printf("get_input varname = %s\n",varname);
-
-printf("get_input type = %d\n",type);
-
          if(type == 3)
          {
            input_str(varname, loc);
@@ -89,7 +85,7 @@ void input_str(char *name, int loc)
   if(strchr(":;,",ch))
   {
     pi++;
- 
+    set_TabNl(ch);
   }
   pi = iswhite(pi);
   e_pos = pi;
@@ -104,10 +100,6 @@ void input_val(char *name, int loc)
    int pi, ndx, len,row, col;
 
    strcpy(varname, name);
-
-
-printf("input_val varname = %s\n",varname);
-
 
    ndx = get_intndx(varname);
 
@@ -124,30 +116,37 @@ printf("input_val varname = %s\n",varname);
      gets(string);
    }
 
-  
-
-printf("input_val ndx #2 = %d\n",ndx);
-
-printf("input_val string = %s\n",string);
-
    iv_stack[ndx] = atoi(string);
    imax_vars++;
-
-printf("iv_stack[ndx] = %d\n",iv_stack[ndx]);
-
-printf("imax_vars = %d\n",imax_vars);
 
    pi = iswhite(pi);
    ch = p_string[pi];
    if(strchr(":;,",ch))
    {
      pi++;
+     set_TabNl(ch);
    }
    pi = iswhite(pi);
    e_pos = pi;
 }
 
 
+
+
+void set_TabNl(char ch)
+{
+  if(ch == '.')
+  {
+    printf("     ");
+  }
+  else
+  {
+    if(ch == ':')
+    {
+      printf("\n");
+    }
+  }
+}
 
 
 

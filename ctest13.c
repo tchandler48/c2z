@@ -12,10 +12,13 @@
    int row;
    int col;
    int maxm;
+   int i;
+   int j;
 
 
    int spreadsheet[99][26] = {0};
    int flag[99][26] = {0};
+  char sheet[99][26][20]   = {0};
 
    int isNumber(char *);
 
@@ -66,6 +69,13 @@ int main ()
    {
      I = 9999;
    }
+
+   i = 5;
+   j = 10;
+   sheet[i][j] = '_';
+
+   strcpy(sheet[row][col],age);
+
 
    return;
 }

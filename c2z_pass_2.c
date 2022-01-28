@@ -7329,6 +7329,9 @@ if_13_skip1:
     if_convert = 1;
   }
 
+/* printf("c2z_pass_2.c rct = %d lbrack = %d rbrack = %d x2 = %d x3 = %d\n",rct,lbrack,rbrack,x2,x3); */
+
+
   if ((complex_if == 1) && (lbrack > 0) && (rbrack > 0) && (x2 < x3)) 
   {
     if (traceflg == 1) 
@@ -13829,21 +13832,7 @@ void c2_pass2_while_33()
   int size = 0;
   int s = 0;
 
-  while (ch != '(') 
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
-  pi++;
-  ch = p_string[pi];
-  while (ch == '(') 
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
-  pi++;
+  pi = 0;
   ch = p_string[pi];
   while (ch != '"') 
   {
@@ -13851,78 +13840,84 @@ void c2_pass2_while_33()
     ch = p_string[pi];
   }
 
-  x90 = 0;
   pi2 = 0;
   pi++;
   ch = p_string[pi];
-  while (ch != ',') 
-  {
-    if (ch == '"') 
-    {
-      x90 = 1;
-    }
-    if (ch != '"') 
-    {
-      field1[pi2] = ch;
-      pi2++;
-    }
-    pi++;
-    ch = p_string[pi];
-  }
+  field1[pi2] = ch;
+  pi2++;
   field1[pi2] = '\0';
 
-  if (x90 == 1) 
+  c_name++;
+  snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+  strcpy(c_wkname, "C37F");
+  strcat(c_wkname, wk_strg);
+  s = strlen(c_wkname);
+  c_wkname[s] = '\0';
+
+  if (char_ct == 0) 
   {
-    c_name++;
-    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-    strcpy(c_wkname, "C37F");
-    strcat(c_wkname, wk_strg);
-    s = strlen(c_wkname);
-    c_wkname[s] = '\0';
-
-    if (char_ct == 0) 
-    {
-      size = 1;
-      w_charlit = malloc(size * sizeof(struct charlit));
-    } 
-    else 
-    {
-      size = char_ct + 1;
-      w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
-    }
-
-    w_charlit[char_ct].clit_rct = rct;
-    w_charlit[char_ct].clit_type = 3;
-    strcpy(w_charlit[char_ct].clit_cname, c_wkname);
-    strcpy(w_charlit[char_ct].clit_value, field1);
-    s = strlen(field1);
-    w_charlit[char_ct].clit_lgth = s;
-    w_charlit[char_ct].clit_uct = 1;
-    char_ct++;
+    size = 1;
+    w_charlit = malloc(size * sizeof(struct charlit));
+  } 
+  else 
+  {
+    size = char_ct + 1;
+    w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
   }
 
-  x90 = 0;
+  w_charlit[char_ct].clit_rct = rct;
+  w_charlit[char_ct].clit_type = 3;
+  strcpy(w_charlit[char_ct].clit_cname, c_wkname);
+  strcpy(w_charlit[char_ct].clit_value, field1);
+  s = strlen(field1);
+  w_charlit[char_ct].clit_lgth = s;
+  w_charlit[char_ct].clit_uct = 1;
+  char_ct++;
+  
+  pi2 = 0;
   pi++;
   ch = p_string[pi];
-  while (ch != ')') 
+  field1[pi2] = ch;
+  pi2++;
+  field1[pi2] = '\0';
+
+  c_name++;
+  snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+  strcpy(c_wkname, "C37F");
+  strcat(c_wkname, wk_strg);
+  s = strlen(c_wkname);
+  c_wkname[s] = '\0';
+
+  if (char_ct == 0) 
   {
-    pi++;
-    ch = p_string[pi];
+    size = 1;
+    w_charlit = malloc(size * sizeof(struct charlit));
+  } 
+  else 
+  {
+    size = char_ct + 1;
+    w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
   }
 
+  w_charlit[char_ct].clit_rct = rct;
+  w_charlit[char_ct].clit_type = 3;
+  strcpy(w_charlit[char_ct].clit_cname, c_wkname);
+  strcpy(w_charlit[char_ct].clit_value, field1);
+  s = strlen(field1);
+  w_charlit[char_ct].clit_lgth = s;
+  w_charlit[char_ct].clit_uct = 2;
+  char_ct++;
+
+  pi2 = 0;
   pi++;
   ch = p_string[pi];
-  while (ch == ' ') 
+  if(ch == '"')
   {
-    pi++;
-    ch = p_string[pi];
+    goto end_lit;
   }
 
-  while (ch != ' ') 
-  {
-    pi++;
-    ch = p_string[pi];
-  }
+
+end_lit:
 
   convert = 1;
 }

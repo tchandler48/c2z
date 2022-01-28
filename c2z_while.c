@@ -15514,9 +15514,497 @@ void c2_while_20() 				/* complex with strchr			*/
     trace_rec_1();
   }
 
-  printf("\nc2z_while.c c2_while_20 while-168 rct = %d p_string = %s", rct, p_string);
-  printf("c2z_while.c c2_while_20 FIX THIS CODE\n");
-  erct++;
+   int pi;
+   int pi2;
+   int x3;
+   int v;
+   int I;
+   int ret;
+   int ret1;
+   int operand_1;
+
+   char ch;
+   char *p;
+   char field1[VAR_LGTH];
+   char field1a[VAR_LGTH];
+   char field2[VAR_LGTH];
+   char field2a[VAR_LGTH];
+   char field3[VAR_LGTH];
+   char field3a[VAR_LGTH];
+   char field4[VAR_LGTH];
+   char field4a[VAR_LGTH];
+   char field5[VAR_LGTH];
+   char field5a[VAR_LGTH];
+
+   pi = 0;
+   ch = p_string[pi];
+   while(ch != ',')
+   {
+     pi++;
+     ch = p_string[pi];
+   }
+
+   pi2 = 0;
+   pi++;
+   ch = p_string[pi];
+   while(ch != ')')
+   {
+     field1[pi2] = ch;
+     pi2++;
+     pi++;
+     ch = p_string[pi];
+   }
+   field1[pi2] = '\0';
+
+   x3 = 0;
+   if (lv_ct > 0) 
+   {
+     for (v = 0; v < lv_ct; v++) 
+     {
+        ret = strcmp(field1, lw_variable[v].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[v].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          x3 = 1;
+          strcpy(field1a, lw_variable[v].lv_cname);
+          lw_variable[v].lv_use_ct++;
+        }
+      }
+    }
+  
+    if (x3 == 0) 
+    {
+      if (gv_ct > 0) 
+      {
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(field1, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(field1a, gw_variable[v].gv_cname);
+            gw_variable[v].gv_use_ct++;
+          }
+        }
+      }
+    }
+  
+    if (x3 == 0) 
+    {
+      printf("\nc2z_while.c case_20 while-150 field1 Not Found %s\n", field1);
+      printf("c2z_while.c case_20 rct = %d p_string = %s", rct, p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+   
+   pi = 0;
+   ch = p_string[pi];
+   while(ch != '"')
+   {
+     pi++;
+     ch = p_string[pi];
+   }
+
+   pi2 = 0;
+   pi++;
+   ch = p_string[pi];
+   field2[pi2] = ch;
+   pi2++;
+   field2[pi2] = '\0';
+
+   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+   strcpy(a_string, "L");
+   strcat(a_string, wk_strg);
+   check_length();
+   strcat(a_string, "DS    0H");
+   src_line();
+   if (puncde == 1) 
+   {
+     strcpy(trace_1, "c2z_while.c while_20 #0");
+     trace_rec_3();
+   }
+
+  strcpy(a_string, "         LARL  R9,");
+  strcat(a_string, field1a);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field1);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #1");
+    trace_rec_3();
+  }
+
+  for (I = 0; I < char_ct; I++) 
+  {
+    if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 1)) 
+    {
+      strcpy(a_string, "         LARL  R8,");
+      strcat(a_string, w_charlit[I].clit_cname);
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_while.c while_20 #2");
+        trace_rec_3();
+      }
+      break;
+    }
+  }
+
+  strcpy(a_string, "         CP    0(1,R9),0(R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #3");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLE   ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, "L");
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #4");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         LARL  R9,");
+  strcat(a_string, field1a);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field1);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #5");
+    trace_rec_3();
+  }
+
+  for (I = 0; I < char_ct; I++) 
+  {
+    if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 2)) 
+    {
+      strcpy(a_string, "         LARL  R8,");
+      strcat(a_string, w_charlit[I].clit_cname);
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_while.c while_20 #6");
+        trace_rec_3();
+      }
+      break;
+    }
+  }
+
+  strcpy(a_string, "         CP    0(1,R9),0(R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #7");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLE   ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, "L");
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #8");
+    trace_rec_3();
+  }
+
+  strcpy(a_string, "         JLU   ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, "L");
+  strcat(a_string, wk_strg);
+  strcat(a_string, "E");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #9");
+    trace_rec_3();
+  }
+
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcpy(a_string, "L");
+  strcat(a_string, wk_strg);
+  strcat(a_string, "A");
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c while_20 #10");
+    trace_rec_3();
+  }
+
+  pi++;
+  ch = p_string[pi];
+  while(ch != '(')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  pi++;
+  ch = p_string[pi];
+  while(ch != ' ')
+  {
+    field3[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field3[pi2] = '\0';
+
+   x3 = 0;
+   if (lv_ct > 0) 
+   {
+     for (v = 0; v < lv_ct; v++) 
+     {
+        ret = strcmp(field3, lw_variable[v].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[v].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          x3 = 1;
+          strcpy(field3a, lw_variable[v].lv_cname);
+          lw_variable[v].lv_use_ct++;
+        }
+      }
+    }
+  
+    if (x3 == 0) 
+    {
+      if (gv_ct > 0) 
+      {
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(field3, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(field3a, gw_variable[v].gv_cname);
+            gw_variable[v].gv_use_ct++;
+          }
+        }
+      }
+    }
+  
+    if (x3 == 0) 
+    {
+      printf("\nc2z_while.c case_20 while-150 field3 Not Found %s\n", field3);
+      printf("c2z_while.c case_20 rct = %d p_string = %s", rct, p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  ch = p_string[pi];
+  while(ch != ' ')
+  {
+    field4[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field4[pi2] = '\0';
+
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  ch = p_string[pi];
+  while(ch != ')')
+  {
+    field5[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field5[pi2] = '\0';
+
+   x3 = 0;
+   if (lv_ct > 0) 
+   {
+     for (v = 0; v < lv_ct; v++) 
+     {
+        ret = strcmp(field5, lw_variable[v].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[v].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          x3 = 1;
+          strcpy(field5a, lw_variable[v].lv_cname);
+          lw_variable[v].lv_use_ct++;
+        }
+      }
+    }
+  
+    if (x3 == 0) 
+    {
+      if (gv_ct > 0) 
+      {
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(field5, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(field5a, gw_variable[v].gv_cname);
+            gw_variable[v].gv_use_ct++;
+          }
+        }
+      }
+    }
+  
+    if (x3 == 0) 
+    {
+      printf("\nc2z_while.c case_20 while-150 field5 Not Found %s\n", field5);
+      printf("c2z_while.c case_20 rct = %d p_string = %s", rct, p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+  operand_1 = 0;
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, "==");
+    if (p)
+    {
+      operand_1 = 1;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, "!=");
+    if (p)
+    {
+      operand_1 = 2;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, "<=");
+    if (p)
+    {
+      operand_1 = 3;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, ">=");
+    if (p)
+    {
+      operand_1 = 4;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, "=");
+    if (p)
+    {
+      operand_1 = 5;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, "<");
+    if (p)
+    {
+      operand_1 = 6;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field4, ">");
+    if (p)
+    {
+      operand_1 = 7;
+    }
+  }
+
+  if(operand_1 == 6)
+  {
+    strcpy(a_string, "         LARL  R9,");
+    strcat(a_string, field3a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field3);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c while_20 #11");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field5a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c while_20 #12");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         CP    0(1,R9),0(R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c while_20 #13");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         JLE   ");
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcat(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "E");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c while_20 #14");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         JLH   ");
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcat(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "E");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_while.c while_20 #15");
+      trace_rec_3();
+    }
+  }
   convert = 1;
-  return;
 }
