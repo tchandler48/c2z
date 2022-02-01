@@ -950,6 +950,7 @@ void c2_str_1(int str1, int str4)
           lw_variable[v].lv_current_lgth = x3;
           lw_variable[v].lv_use_ct++;
           str5 = 1;
+          break;
         }
       }
     }
@@ -967,6 +968,7 @@ void c2_str_1(int str1, int str4)
             gw_variable[v].gv_current_lgth = x3;
             gw_variable[v].gv_use_ct++;
             str5 = 1;
+            break;
           }
         }
       }
@@ -10247,6 +10249,7 @@ void c2_str_12()
 
     int pi;
     int pi2;
+    int x3;
     int x2;
     int I;
     int ret;
@@ -10478,6 +10481,8 @@ void c2_str_12()
           x2 = 1;
           strcpy(field4a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          x3 = lw_variable[I].lv_current_lgth;
+          break;
         }
      }
    }
@@ -10494,6 +10499,7 @@ void c2_str_12()
            x2 = 1;
            strcpy(field4a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           break;
          }
        }
      }
@@ -10954,7 +10960,10 @@ void c2_str_12()
   }
 
   strcpy(a_string, "         MVC   ");
-  strcat(a_string, "0(R6),");
+  strcat(a_string, "0(");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x3);
+  strcat(a_string, wk_strg);
+  strcat(a_string, ",R6),");
   strcat(a_string, "0(R9)");
   src_line();
   if (puncde == 1) 
@@ -11685,7 +11694,10 @@ void c2_str_13()
   }
 
   strcpy(a_string, "         MVC   ");
-  strcat(a_string, "0(R9),");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcat(a_string, "0(");
+  strcat(a_string, wk_strg);
+  strcat(a_string, ",R9),");
   strcat(a_string, "0(R6)");
   src_line();
   if (puncde == 1) 

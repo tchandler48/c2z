@@ -196,6 +196,7 @@
 
        void if_case_51(void);
 	void if_case_55(void);
+       void if_case_56(void);
 
 
 /*		c2z_incr.c		*/
@@ -392,6 +393,7 @@
 	void c2_printf_str1(void);
        void c2_printf_str2(void);
        void c2_printf_str3(void);
+	void c2_printf_str4(void);
 
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);

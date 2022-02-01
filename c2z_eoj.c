@@ -3493,6 +3493,25 @@ void c2_eoj()
     }
   }
 
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #98");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "C370PBUF DC    PL6'0'");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #99");
+      trace_rec_3();
+    }
+
+
   if (work_use_ct[49] > 0)		/* C370NWK1	*/ 
   {
     strcpy(a_string, "         DS    0H");
