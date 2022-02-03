@@ -24,6 +24,8 @@ void c2_free()
   int fr_3 = 0;
   int x1 = 0;
   int x2 = 0;
+  int x3 = 0;
+  int x4 = 0;
 
   char ch, *p;
   char field1a[VAR_LGTH];
@@ -288,9 +290,14 @@ void c2_free()
             strcpy(ar_field11, gw_variable[I].gv_wk_strg);
             x1 = gw_variable[I].gv_row;
             x2 = gw_variable[I].gv_column;
+            x3 = gw_variable[I].gv_lgth;
+            break;
           }
         }
       }
+printf("c2z_free.c x1 row = %d\n",x1);
+printf("c2z_free.c x2 column = %d\n",x2);
+printf("c2z_free.c x3 str = %d\n",x3);
 
       fr_3 = 0;
       fr_2 = 0;
@@ -350,8 +357,9 @@ void c2_free()
         trace_rec_3();
       }
 
+      x4 = x1 * x2;
       strcpy(a_string, "         LAEY  R5,");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", x1);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x4);
       strcat(a_string, wk_strg);
       src_line();
       if (puncde == 1) 
@@ -391,7 +399,7 @@ void c2_free()
       }
 
       x2--;
-      snprintf(wk_strg, sizeof(wk_strg), "%d", x2);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x3);
       strcpy(a_string, "         MVC   1(");
       strcat(a_string, wk_strg);
       strcat(a_string, ",R6),0(R6)");
@@ -411,7 +419,11 @@ void c2_free()
       }
       work_use_ct[74]++;
 
-      strcpy(a_string, "         MVC   0(1,R6),0(R8)");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x3);
+      strcpy(a_string, "         MVC   ");
+      strcat(a_string, "1(");
+      strcat(a_string, wk_strg);
+      strcat(a_string, ",R6),0(R8)");
       src_line();
       if (puncde == 1) 
       {

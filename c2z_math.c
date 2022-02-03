@@ -30258,6 +30258,29 @@ printf("c2z_math.c #1800 field5 = %s fd5_type = %d\n",field5,fd5_type);
       strcpy(trace_1, "c2z_math.c #1874");
       trace_rec_3();
     }
+
+    strcpy(a_string, "         LARL  R9,C370EOF");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c #1875");
+      trace_rec_3();
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", x100);
+    strcpy(a_string, "         MVC   ");
+    strcat(a_string, wk_strg);
+    strcat(a_string,"(");
+    strcat(a_string, wk_strg);
+    strcat(a_string, ",R6),");
+    strcat(a_string, "0(R9)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c #1876");
+      trace_rec_3();
+    }
+
   }
 
 

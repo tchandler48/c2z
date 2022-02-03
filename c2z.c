@@ -1529,7 +1529,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/*  printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);  */
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);  */
     convert = 0;
     fprtf_flag = 0;
 
