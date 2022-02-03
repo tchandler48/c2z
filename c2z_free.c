@@ -409,6 +409,7 @@ void c2_free()
         strcpy(trace_1, "c2z_free.c #17");
         trace_rec_3();
       }
+      work_use_ct[74]++;
 
       strcpy(a_string, "         MVC   0(1,R6),0(R8)");
       src_line();

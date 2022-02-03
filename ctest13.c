@@ -14,7 +14,12 @@
    int maxm;
    int i;
    int j;
-
+   int a;
+   int b;
+   int c;
+   int d;
+   int a1;
+   int c1;
 
    int spreadsheet[99][26] = {0};
    int flag[99][26] = {0};
@@ -36,7 +41,7 @@ int main ()
    printf("test = %d\n",test);
    iv_stack[0] = test;
    
-   for(I = 0; I < 5; I++)
+   for(I = 0; I < 1; I++)
    {
       printf("#2 iv_stack[I] = %d\n",iv_stack[I]);
    }
@@ -60,21 +65,44 @@ int main ()
      spreadsheet[row][col] = atoi(age);
    }
 
-   row = 4;
-   col = 6;
+   row = 1;
+   col = 10;
 
    printf("#2 spreadsheet = %d\n",spreadsheet[row][col]);
 
-   if((flag[row][col] == 1) && (spreadsheet[x][y] == 2))
+   a = 2;
+   b = 5;
+   a1 = 1;
+   flag[a][b] = a1;
+
+   c = 3;
+   d = 10;
+   c1 = 2;
+   spreadsheet[c][d] = c1;
+
+   I = 0;
+   if(flag[a][b] == 1)
    {
      I = 9999;
    }
+   printf "#1 I = %d\n", I);
+
+   I = 0;
+   printf("a = %d\n",a);
+   printf("b = %d\n",b);
+   if((flag[a][b] == 1) && (spreadsheet[c][d] == 2))
+   {
+     I = 1234;
+   }
+   printf("#2 I = %d\n",I);
 
    i = 5;
    j = 10;
    sheet[i][j] = '_';
 
    strcpy(sheet[row][col],age);
+
+   printf("sheet #5 = %s\n",sheet[row][col]);
 
 
    return;

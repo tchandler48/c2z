@@ -4573,6 +4573,7 @@ void c2_int_6() 				/*  int *temp_byte;	*/
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
 
+      tot_malloc++;
       convert = 1;
     }
   }
@@ -4890,44 +4891,44 @@ void c2_int_41()
       gw_variable[gv_ct].gv_column = x102;
     }
 
-    tot_arr++;
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    tot_malloc++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "T");
     strcpy(gw_variable[gv_ct].gv_table, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "N");
     strcpy(gw_variable[gv_ct].gv_dsect, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "L");
     strcpy(gw_variable[gv_ct].gv_label, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "R");
     strcpy(gw_variable[gv_ct].gv_sv_reg, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "X");
     strcpy(gw_variable[gv_ct].gv_wk_reg, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "W");
     strcpy(gw_variable[gv_ct].gv_wk_strg, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "A");
@@ -4991,7 +4992,7 @@ void c2_int_41()
       size = gv_ct + 1;
       gw_variable = realloc(gw_variable, size * sizeof(struct variables));
     }
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "W");
@@ -5017,6 +5018,7 @@ void c2_int_41()
     gw_variable[gv_ct].gv_dec = 0;
     gv_ct++;
 
+    tot_malloc++;
     tot_arr++;
   }
   convert = 1;
