@@ -3560,6 +3560,7 @@ void c2_char_41()
     gw_variable[gv_ct].gv_dec = 0;
     gv_ct++;
     tot_arr++;
+    tot_malloc++;
 
   }
   convert = 1;
