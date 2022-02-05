@@ -729,8 +729,8 @@ int work_use_ct[110];
 *  97		=	C370M004	98	=	C370M005	*
 *  99		=	C370QUOT	100	=	TSTUC		*
 *  100		=	TSTLC		101	=	C370DDTE      *
-*  102		=	C370DWRK					*
-************************************************************* */
+*  102		=	C370DWRK	103	=	C370DATE      *
+* ************************************************************ */
 
  int tot_localtime = 0;
  int tot_int = 0;
@@ -5974,6 +5974,7 @@ int main(int argc, char *argv[])
   gw_variable[gv_ct].gv_dec = 0;
   gw_variable[gv_ct].gv_id = 1;
   gv_ct++;
+
 
 /* End of Pass 2 - scan parser  */
 

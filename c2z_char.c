@@ -3182,13 +3182,6 @@ void c2_char_41()
   }
   field4[x1] = '\0';
 
-printf("\nc2z_char.c char_41 rct = %d p_string = %s",rct,p_string);
-printf("c2z_char.c char_41 field1 = %s\n",field1);
-printf("c2z_char.c char_41 field2 = %s\n",field2);
-printf("c2z_char.c char_41 field3 = %s\n",field3);
-printf("c2z_char.c char_41 field4 = %s\n",field4);
-
-
   x3 = 0;
   for (v = 0; v < lv_ct; v++) 
   {
@@ -3433,15 +3426,12 @@ printf("c2z_char.c char_41 field4 = %s\n",field4);
     {
       x103 = atoi(field4);
       gw_variable[gv_ct].gv_lgth = x103;
-printf("#100 c2z_char.c printf_str4 #1 field4 = %s x103 = %d\n",field4,x103);
     }
 
     if(fd4_type == 2)
     {
       x103 = atoi(field4a);
       gw_variable[gv_ct].gv_lgth = x103;
-printf("#100 c2z_char.c printf_str4 #2 field4 = %s x103 = %d\n",field4,x103);
-
     }
 
     snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);

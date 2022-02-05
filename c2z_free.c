@@ -295,9 +295,6 @@ void c2_free()
           }
         }
       }
-printf("c2z_free.c x1 row = %d\n",x1);
-printf("c2z_free.c x2 column = %d\n",x2);
-printf("c2z_free.c x3 str = %d\n",x3);
 
       fr_3 = 0;
       fr_2 = 0;

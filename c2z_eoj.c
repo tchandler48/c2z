@@ -3520,7 +3520,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #98");
+      strcpy(trace_1, "c2z Parser Var #100");
       trace_rec_3();
     }
 
@@ -3529,7 +3529,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #99");
+      strcpy(trace_1, "c2z Parser Var #101");
       trace_rec_3();
     }
   }
@@ -3541,7 +3541,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #100");
+      strcpy(trace_1, "c2z Parser Var #102");
       trace_rec_3();
     }
 
@@ -3550,7 +3550,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #101");
+      strcpy(trace_1, "c2z Parser Var #103");
       trace_rec_3();
     }
   }
@@ -3562,7 +3562,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #102");
+      strcpy(trace_1, "c2z Parser Var #104");
       trace_rec_3();
     }
 
@@ -3571,7 +3571,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #103");
+      strcpy(trace_1, "c2z Parser Var #105");
       trace_rec_3();
     }
   }
@@ -3583,7 +3583,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #104");
+      strcpy(trace_1, "c2z Parser Var #106");
       trace_rec_3();
     }
 
@@ -3592,7 +3592,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #105");
+      strcpy(trace_1, "c2z Parser Var #107");
       trace_rec_3();
     }
   }
@@ -3604,7 +3604,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #106");
+      strcpy(trace_1, "c2z Parser Var #108");
       trace_rec_3();
     }
 
@@ -3613,7 +3613,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #107");
+      strcpy(trace_1, "c2z Parser Var #109");
       trace_rec_3();
     }
   }
@@ -3625,7 +3625,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #108");
+      strcpy(trace_1, "c2z Parser Var #110");
       trace_rec_3();
     }
 
@@ -3634,7 +3634,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #109");
+      strcpy(trace_1, "c2z Parser Var #111");
       trace_rec_3();
     }
   }
@@ -3646,7 +3646,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #110");
+      strcpy(trace_1, "c2z Parser Var #112");
       trace_rec_3();
     }
 
@@ -3655,7 +3655,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #111");
+      strcpy(trace_1, "c2z Parser Var #113");
       trace_rec_3();
     }
   }
@@ -3667,7 +3667,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #112");
+      strcpy(trace_1, "c2z Parser Var #114");
       trace_rec_3();
     }
   
@@ -3676,7 +3676,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #113");
+      strcpy(trace_1, "c2z Parser Var #115");
       trace_rec_3();
     }
   }
@@ -3688,7 +3688,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #114");
+      strcpy(trace_1, "c2z Parser Var #116");
       trace_rec_3();
     }
 
@@ -3697,7 +3697,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #115");
+      strcpy(trace_1, "c2z Parser Var #117");
       trace_rec_3();
     }
   }
@@ -3709,7 +3709,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #116");
+      strcpy(trace_1, "c2z Parser Var #118");
       trace_rec_3();
     }
 
@@ -3718,7 +3718,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #117");
+      strcpy(trace_1, "c2z Parser Var #119");
       trace_rec_3();
     }
   }
@@ -3730,7 +3730,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #118");
+      strcpy(trace_1, "c2z Parser Var #120");
       trace_rec_3();
     }
 
@@ -3739,7 +3739,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #119");
+      strcpy(trace_1, "c2z Parser Var #121");
       trace_rec_3();
     }
   }
@@ -3751,7 +3751,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #120");
+      strcpy(trace_1, "c2z Parser Var #122");
       trace_rec_3();
     }
 
@@ -3760,7 +3760,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #121");
+      strcpy(trace_1, "c2z Parser Var #123");
       trace_rec_3();
     }
   }
@@ -3772,7 +3772,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #122");
+      strcpy(trace_1, "c2z Parser Var #124");
       trace_rec_3();
     }
 
@@ -3781,7 +3781,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #123");
+      strcpy(trace_1, "c2z Parser Var #125");
       trace_rec_3();
     }
   }
@@ -3793,7 +3793,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #124");
+      strcpy(trace_1, "c2z Parser Var #126");
       trace_rec_3();
     }
 
@@ -3802,7 +3802,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #125");
+      strcpy(trace_1, "c2z Parser Var #127");
       trace_rec_3();
     }
   }
@@ -3814,7 +3814,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #126");
+      strcpy(trace_1, "c2z Parser Var #128");
       trace_rec_3();
     }
 
@@ -3823,7 +3823,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #127");
+      strcpy(trace_1, "c2z Parser Var #129");
       trace_rec_3();
     }
   }
@@ -3840,7 +3840,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #130");
+      strcpy(trace_1, "c2z Parser Var #132");
       trace_rec_3();
     }
 
@@ -3849,7 +3849,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #131");
+      strcpy(trace_1, "c2z Parser Var #133");
       trace_rec_3();
     }
   }
@@ -3861,7 +3861,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #132");
+      strcpy(trace_1, "c2z Parser Var #134");
       trace_rec_3();
     }
 
@@ -3870,7 +3870,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
    {
-      strcpy(trace_1, "c2z Parser Var #133");
+      strcpy(trace_1, "c2z Parser Var #135");
       trace_rec_3();
     }
   }
@@ -3882,7 +3882,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #134");
+      strcpy(trace_1, "c2z Parser Var #136");
       trace_rec_3();
     }
 
@@ -3891,7 +3891,7 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #135");
+      strcpy(trace_1, "c2z Parser Var #137");
       trace_rec_3();
     }
   }
@@ -4579,6 +4579,28 @@ printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
       trace_rec_3();
     }
   }
+
+  if (work_use_ct[103] > 0)		/* C370DATE	*/ 
+  {
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #166");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "C370DATE DC    CL29' '"); 
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #167");
+      trace_rec_3();
+    }
+  }
+
 
   if(tot_localtime > 0)
   {
