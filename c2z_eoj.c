@@ -1925,7 +1925,6 @@ void c2_eoj()
       k9 = gw_variable[I].gv_column;
       k7 = k8 * k9;
      /* k7 = 90; */
-printf("c2z_eoj.c #1928 lgth = %d\n",gw_variable[I].gv_lgth);
 
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
