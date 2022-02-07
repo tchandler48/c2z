@@ -242,6 +242,11 @@
        void c2_toupper(void);
 
 
+/*		c2z_localtime.c	*/
+	void c2_localtime(void);
+       void c2_localtime_time(void);
+
+
 /*            c2z_main.c           */
        void c2_main(void);
 
@@ -507,7 +512,6 @@
 	void c2_ctime(void);
 	void c2_time(void);
 	void c2_compute_time(void);
-	void c2_localtime(void);
        void c2_clock_pass2(void);
        void c2_clock_punch(void);
 
@@ -9495,7 +9499,9 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "localtime");
-    if (p) 
+    p1 = strstr(p_string, "date");
+    p2 = strstr(p_string, "time");
+    if((p) && (p1)) 
     {
       if (debug_lv >= 2) 
       {
@@ -9510,6 +9516,23 @@ int main(int argc, char *argv[])
         return_ct++;
       }
     }
+
+    if((p1) && (p2)) 
+    {
+      if (debug_lv >= 2) 
+      {
+        printf("c2z.c Pass 3 rct = %d c2_localtime #200\n", rct);
+      }
+
+      c2_localtime_time();
+      tot_localtime++;
+      convert = 1;
+      if (return_on == 1) 
+      {
+        return_ct++;
+      }
+    }
+
 
 
     /* **********************************************************

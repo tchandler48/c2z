@@ -16,7 +16,6 @@ void c2_time()
     trace_rec_1();
   }
 
-printf("c2z_time.c c2_time rct = %d p_string = %s",rct,p_string);
 
    int pi = 0;
    int pi2 = 0;
@@ -46,12 +45,10 @@ printf("c2z_time.c c2_time rct = %d p_string = %s",rct,p_string);
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
-printf("c2z_time.c c2_time field1 = %s\n",field1);
 
   x3 = 0;
   if (lv_ct > 0) 
-  {
-    for (v = 0; v < lv_ct; v++) 
+  {    for (v = 0; v < lv_ct; v++) 
     {
       ret = strcmp(field1, lw_variable[v].lv_name);
       ret1 = strcmp(sv_func, lw_variable[v].lv_func);

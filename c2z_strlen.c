@@ -1635,6 +1635,7 @@ void c2_strlen()
         x2 = lw_variable[I].lv_lgth;
         strcpy(tfield2a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -1649,6 +1650,7 @@ void c2_strlen()
           x2 = gw_variable[I].gv_lgth;
           strcpy(tfield2a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -1662,33 +1664,7 @@ void c2_strlen()
       return;
     }
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", x2);
-    strcpy(a_string, "         LAEY  R5,0");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_strlen.c #111");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R7,C370U");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_strlen.c #112");
-      trace_rec_3();
-    }
-    work_use_ct[48]++;
-
-    strcpy(a_string, "         CVD   R5,0(R7)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_strlen.c #113");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R8,C370NWK1");
+    strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
     if (puncde == 1) 
     {
@@ -1697,15 +1673,19 @@ void c2_strlen()
     }
     work_use_ct[49]++;
 
-    strcpy(a_string, "         LARL  R7,C370U");
-    src_line();
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, tfield1a);
+    strcpy(wk_remark, " ");
+    strcpy(wk_remark, tfield1);
+    strcat(wk_remark, " */");
+    write_remark();
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_strlen.c #115");
       trace_rec_3();
     }
 
-    strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
+    strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
     src_line();
     if (puncde == 1) 
     {

@@ -67,6 +67,7 @@ void c2_for(void)
   int fd2_type = 0;
   int fd3_type = 0;
   int fd5_type = 0;
+  int fd6_type = 0;
   int fd7_type = 0;
 
   pi = 0;
@@ -362,24 +363,11 @@ void c2_for(void)
       strcpy(trace_1, "c2z_for.c #10");
       trace_rec_3();
     }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcpy(a_string, "L");
-    strcat(a_string, wk_strg);
-    strcpy(while_tag, a_string);
-    strcat(a_string, "xx");
-    check_length();
-    strcat(a_string, "DS    0H");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_for.c #11");
-      trace_rec_3();
-    }
   }
   strcpy(sv_for_return, "L");
   strcat(sv_for_return, wk_strg);
-
+ 
+ 
 
   /* ************************************************
    * for(; From <= Final; From += Inc)              *
@@ -737,6 +725,7 @@ skip_for_1:
     ch = p_string[pi];
   }
 
+  fd6_type = 0;
   x20 = 0;
   pi2 = 0;
   x2 = 0;
@@ -746,10 +735,12 @@ skip_for_1:
     {
       if (isalpha(ch)) 
       {
+        fd6_type = 1;
         x2 = 1;
       }
       if (isdigit(ch)) 
       {
+        fd6_type = 2;
         x2 = 1;
       }
     }
@@ -1061,6 +1052,17 @@ skip_for_2:
       }
     }
   }
+
+/*
+printf("\nc2z_for.c #1 rct = %d p_string = %s",rct,p_string);
+printf("c2z_for.c #1 tfield1 = %s fd1_type = %d\n",tfield1,fd1_type);
+printf("c2z_for.c #2 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
+printf("c2z_for.c #3 tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
+printf("c2z_for.c #4 tfield4 = %s\n",tfield4);
+printf("c2z_for.c #5 tfield5 = %s fd5_type = %d\n",tfield5,fd5_type);
+printf("c2z_for.c #6 tfield6 = %s fd6_type = %d\n",tfield6,fd6_type);
+printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
+*/
  
   if (for_opr == 1) 
   {
@@ -1161,6 +1163,19 @@ skip_for_2:
 
   if (for_opr == 4) 
   {
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcpy(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcpy(while_tag, a_string);
+    check_length();
+    strcat(a_string, "DS    0H");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #11");
+      trace_rec_3();
+    }
+
     if (fd3_type == 1) 
     {
       strcpy(a_string, "         LARL  R9,");

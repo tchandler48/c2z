@@ -1788,9 +1788,6 @@ void c2_str_2(int str1,int str2) 		/* strcpy(p_string, arrary1{line_ndx]")	*/
     trace_rec_1();
   }
 
-printf("\nc2z_strcpy.c str_2 rct = %d p_string = %s",rct,p_string);
-
-
   char ch;
   char *p;
   char field1[VAR_LGTH];
@@ -1847,8 +1844,6 @@ printf("\nc2z_strcpy.c str_2 rct = %d p_string = %s",rct,p_string);
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
-
-printf("c2z_strcpy.c str_2 field1 = %s\n",field1);
 
   str5 = 0;
   if (lv_ct > 0) 
@@ -1915,8 +1910,6 @@ printf("c2z_strcpy.c str_2 field1 = %s\n",field1);
     ch = p_string[pi];
   }
   field2[pi2] = '\0';
-
-printf("c2z_strcpy.c str_2 field2 = %s\n",field2);
 
   str5 = 0;
   if (lv_ct > 0) 
@@ -1991,8 +1984,6 @@ printf("c2z_strcpy.c str_2 field2 = %s\n",field2);
   }
   field3[pi2] = '\0';
 
-printf("c2z_strcpy.c str_2 #1 field3 = %s fd3_type = %d\n",field3, fd3_type);
-
   p = strstr(field3, "tday");
 
   if(!p)
@@ -2009,7 +2000,6 @@ printf("c2z_strcpy.c str_2 #1 field3 = %s fd3_type = %d\n",field3, fd3_type);
   {
     strcpy(field3a, field3);
     strcpy(field3, "C370DATE");
-printf("c2z_strcpy.c str_2 #2 field3 = %s fd3_type = %d field3a = %s\n",field3, fd3_type,field3a);
   }
 
   if(!p)
@@ -2363,20 +2353,15 @@ printf("c2z_strcpy.c str_2 #2 field3 = %s fd3_type = %d field3a = %s\n",field3, 
         trace_rec_3();
       }
     }
-printf("c2z_strcpy.c str_2 field4 = %s\n",field4);
 
     str9 = strcmp(field4, "C");
     if(str9 == 0)
     {
-
-printf("c2z_strcpy.c str_2 INSIDE str9\n");
       x500 = 0;
       x501 = 0;
       x502 = 0;
 
       x500 = strcmp(field3a,"tday");
-
-printf("c2z_strcpy.c #1 str_2 x500 = %d\n",x500);
 
       if(x500 == 0)
       {
@@ -2490,7 +2475,6 @@ printf("c2z_strcpy.c #1 str_2 x500 = %d\n",x500);
         }
       }
     }
-printf("c2z_strcpy.c #210 lw_variable current_lgth = %d field1 = %s\n",lw_variable[I].lv_current_lgth,field1);
 
     if (str2 == 0) 
     {
@@ -2507,40 +2491,14 @@ printf("c2z_strcpy.c #210 lw_variable current_lgth = %d field1 = %s\n",lw_variab
         }
       }
     }
-printf("c2z_strcpy.c #210 gw_variable current_lgth = %d field1 = %s\n",gw_variable[I].gv_current_lgth, field1);
 
 
-
-
-
-/*
-3  171    c2z_math.c #1814                         LAEY  R5,3                            3                    0001641
-3  171    c2z_math.c #1815                         LARL  R7,C370U                                                 0001642
-3  171    c2z_math.c #1816                         CVD   R5,0(R7)                                                 0001643
-3  171    c2z_math.c #1817                         LARL  R8,C370NWK5                                              0001644
-3  171    c2z_math.c #1818                         LARL  R7,C370U                                                 0001645
-3  171    c2z_math.c #1819                         ZAP   0(6,R8),0(8,R7)                                          0001646
-
-
-3  326    c2z_math.c math_2 START                                         ch = p_string[pi];
-3  326    c2z_math.c #76                  L326A    DS    0H                                                       0000920
-3  326    c2z_math.c #77                           LARL  R9,C370U                                                 0000921
-3  326    c2z_math.c #78                           LARL  R8,C37F291                      pi                  0000922
-3  326    c2z_math.c #79                           ZAP   0(8,R9),2(4,R8)                                          0000923
-3  326    c2z_math.c #80                           LARL  R8,C370U                                                 0000924
-3  326    c2z_math.c #81                           CVB   R5,0(R8)                                                 0000925
-3  326    c2z_math.c #82                           LARL  R8,C37F14                       p_string             0000926
-3  326    c2z_math.c #83                           IC    R0,0(R8,(R5))                                            0000927
-3  326    c2z_math.c #84                           LARL  R9,C37F289                      ch                  0000928
-3  326    c2z_math.c #85                           STC   R0,0(0,R9)                                               0000929
-*/
       }
 
       x501 = strcmp(field3a,"tmth");
       if(x501 == 0)
       {
-printf("c2z_strcpy.c #2 str_2 x501 = %d\n",x501);
-strcpy(a_string, "         LARL  R5,5");
+        strcpy(a_string, "         LARL  R5,5");
         src_line();
         if (puncde == 1) 
         {
@@ -2650,7 +2608,6 @@ strcpy(a_string, "         LARL  R5,5");
         }
       }
     }
-printf("c2z_strcpy.c #218 lw_variable current_lgth = %d field2 = %s\n",lw_variable[I].lv_current_lgth,field2);
 
     if (str2 == 0) 
     {
@@ -2667,39 +2624,14 @@ printf("c2z_strcpy.c #218 lw_variable current_lgth = %d field2 = %s\n",lw_variab
         }
       }
     }
-printf("c2z_strcpy.c #218 gw_variable current_lgth = %d field1 = %s\n",gw_variable[I].gv_current_lgth, field1);
 
-
-
-/*
-3  171    c2z_math.c #1814                         LAEY  R5,3                            3                    0001641
-3  171    c2z_math.c #1815                         LARL  R7,C370U                                                 0001642
-3  171    c2z_math.c #1816                         CVD   R5,0(R7)                                                 0001643
-3  171    c2z_math.c #1817                         LARL  R8,C370NWK5                                              0001644
-3  171    c2z_math.c #1818                         LARL  R7,C370U                                                 0001645
-3  171    c2z_math.c #1819                         ZAP   0(6,R8),0(8,R7)                                          0001646
-
-
-3  326    c2z_math.c math_2 START                                         ch = p_string[pi];
-3  326    c2z_math.c #76                  L326A    DS    0H                                                       0000920
-3  326    c2z_math.c #77                           LARL  R9,C370U                                                 0000921
-3  326    c2z_math.c #78                           LARL  R8,C37F291                      pi                  0000922
-3  326    c2z_math.c #79                           ZAP   0(8,R9),2(4,R8)                                          0000923
-3  326    c2z_math.c #80                           LARL  R8,C370U                                                 0000924
-3  326    c2z_math.c #81                           CVB   R5,0(R8)                                                 0000925
-3  326    c2z_math.c #82                           LARL  R8,C37F14                       p_string             0000926
-3  326    c2z_math.c #83                           IC    R0,0(R8,(R5))                                            0000927
-3  326    c2z_math.c #84                           LARL  R9,C37F289                      ch                  0000928
-3  326    c2z_math.c #85                           STC   R0,0(0,R9)                                               0000929
-*/
 
       }
 
       x502 = strcmp(field3a,"tyear");
       if(x502 == 0)
       {
-printf("c2z_strcpy.c #2 str_2 x502 = %d\n",x502);
-strcpy(a_string, "         LARL  R5,0");
+        strcpy(a_string, "         LARL  R5,0");
         src_line();
         if (puncde == 1) 
         {
@@ -2809,7 +2741,6 @@ strcpy(a_string, "         LARL  R5,0");
         }
       }
     }
-printf("c2z_strcpy.c #231 lw_variable current_lgth = %d field1 = %s\n",lw_variable[I].lv_current_lgth,field1);
 
     if (str2 == 0) 
     {
@@ -2826,31 +2757,8 @@ printf("c2z_strcpy.c #231 lw_variable current_lgth = %d field1 = %s\n",lw_variab
         }
       }
     }
-printf("c2z_strcpy.c #231 gw_variable current_lgth = %d field2 = %s\n",gw_variable[I].gv_current_lgth, field2);
 
 
-
-/*
-3  171    c2z_math.c #1814                         LAEY  R5,3                            3                    0001641
-3  171    c2z_math.c #1815                         LARL  R7,C370U                                                 0001642
-3  171    c2z_math.c #1816                         CVD   R5,0(R7)                                                 0001643
-3  171    c2z_math.c #1817                         LARL  R8,C370NWK5                                              0001644
-3  171    c2z_math.c #1818                         LARL  R7,C370U                                                 0001645
-3  171    c2z_math.c #1819                         ZAP   0(6,R8),0(8,R7)                                          0001646
-
-
-3  326    c2z_math.c math_2 START                                         ch = p_string[pi];
-3  326    c2z_math.c #76                  L326A    DS    0H                                                       0000920
-3  326    c2z_math.c #77                           LARL  R9,C370U                                                 0000921
-3  326    c2z_math.c #78                           LARL  R8,C37F291                      pi                  0000922
-3  326    c2z_math.c #79                           ZAP   0(8,R9),2(4,R8)                                          0000923
-3  326    c2z_math.c #80                           LARL  R8,C370U                                                 0000924
-3  326    c2z_math.c #81                           CVB   R5,0(R8)                                                 0000925
-3  326    c2z_math.c #82                           LARL  R8,C37F14                       p_string             0000926
-3  326    c2z_math.c #83                           IC    R0,0(R8,(R5))                                            0000927
-3  326    c2z_math.c #84                           LARL  R9,C37F289                      ch                  0000928
-3  326    c2z_math.c #85                           STC   R0,0(0,R9)                                               0000929
-*/
 
       }
 

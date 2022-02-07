@@ -8504,10 +8504,6 @@ printf("c2z_math.c c2_math HERE #0 rct = %d x10 = %d x11 = %d x12 = %d x13 = %d 
     }
     tfield1[pi2] = '\0';
 
-printf("\nc2z_math.c math_6 rct = %d p_string = %s",rct,p_string);
-printf("c2z_math.c math_6 tfield1 = %s\n",tfield1);
-
-
     for (I = 0; I < char_ct; I++) 
     {
       if (w_charlit[I].clit_rct == rct) 
@@ -8516,8 +8512,6 @@ printf("c2z_math.c math_6 tfield1 = %s\n",tfield1);
         x3 = w_charlit[I].clit_lgth;
       }
     }
-printf("c2z_math.c math_6 tfield2 = %s\n",tfield2);
-
 
     if (fn_ct > 0) 
     {
@@ -8544,8 +8538,6 @@ printf("c2z_math.c math_6 tfield2 = %s\n",tfield2);
       convert = 1;
       return;
     }
-
-printf("c2z_math.c math_6 tfield4 = %s\n",tfield4);
 
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 

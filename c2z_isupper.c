@@ -342,7 +342,6 @@ void c2_toupper()
     strcpy(trace_1, "c2z_isupper.c c2_toupper START");
     trace_rec_1();
   }
-printf("c2z_isupper.c c2_toupper rct = %d p_string = %s",rct,p_string);
 
   char ch;
   char field1[VAR_LGTH];
@@ -352,6 +351,7 @@ printf("c2z_isupper.c c2_toupper rct = %d p_string = %s",rct,p_string);
    int pi2;
    int x3;
    int x500;
+   int x501;
    int ret;
    int ret1;
    int v;
@@ -375,8 +375,9 @@ printf("c2z_isupper.c c2_toupper rct = %d p_string = %s",rct,p_string);
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
-printf("c2z_isupper.c c2_toupper field1 = %s\n",field1);
 
+  x500 = 0;
+  x501 = 0;
   x3 = 0;
   if (lv_ct > 0) 
   {
@@ -389,6 +390,11 @@ printf("c2z_isupper.c c2_toupper field1 = %s\n",field1);
         strcpy(field1a, lw_variable[v].lv_cname);
         lw_variable[v].lv_use_ct++;
         x500 = lw_variable[v].lv_current_lgth;
+        x501 = lw_variable[v].lv_lgth;
+        if((x500 == 0) && (x501 != 0))
+        {
+          x500 = x501;
+        }
         x3 = 1;
       }
     }
@@ -406,6 +412,11 @@ printf("c2z_isupper.c c2_toupper field1 = %s\n",field1);
           strcpy(field1a, gw_variable[v].gv_cname);
           gw_variable[v].gv_use_ct++;
           x500 = gw_variable[v].gv_current_lgth;
+          x501 = gw_variable[v].gv_lgth;
+          if((x500 == 0) && (x501 != 0))
+          {
+            x500 = x501;
+          }
           x3 = 1;
         }
       }
@@ -420,7 +431,6 @@ printf("c2z_isupper.c c2_toupper field1 = %s\n",field1);
     convert = 1;
     return;
   }
-printf("c2z_isupper.c c2_toupper field1a = %s lgth = %d\n",field1a,x500);
 
   if(x500 == 1)
   { 

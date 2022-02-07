@@ -17002,7 +17002,6 @@ void if_case_40()
   char field7a[VAR_LGTH];
   char field8[VAR_LGTH];
   char field9[VAR_LGTH];
-/*  char field9a[VAR_LGTH]; */
 
   char ar_field6[VAR_LGTH];
   char ar_field7[VAR_LGTH];
@@ -17032,8 +17031,6 @@ void if_case_40()
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
-printf("\nc2z_if.c case_40 rct = %d p_string = %s",rct,p_string);
-printf("c2z_if.c case_40 field1 = %s\n",field1);
 
   x2 = 0;
   pi2 = 0;
@@ -17061,7 +17058,6 @@ printf("c2z_if.c case_40 field1 = %s\n",field1);
     ch = p_string[pi];
   }
   field2[pi2] = '\0';
-printf("c2z_if.c case_40 field2 = %s fd2_type = %d\n",field2,fd2_type);
 
   pi++;
   ch = p_string[pi];
@@ -17080,7 +17076,6 @@ printf("c2z_if.c case_40 field2 = %s fd2_type = %d\n",field2,fd2_type);
     ch = p_string[pi];
   }
   field3[pi2] = '\0';
-printf("c2z_if.c case_40 field3 = %s\n",field3);
 
   while(ch == ' ')
   {
@@ -17113,7 +17108,6 @@ printf("c2z_if.c case_40 field3 = %s\n",field3);
     ch = p_string[pi];
   }
   field4[pi2] = '\0';
-printf("c2z_if.c case_40 field4 = %s\n",field4);
 
   pi++;
   ch = p_string[pi];
@@ -17148,7 +17142,6 @@ printf("c2z_if.c case_40 field4 = %s\n",field4);
     ch = p_string[pi];
   }
   field6[pi2] = '\0';
-printf("c2z_if.c case_40 field6 = %s\n",field6);
 
   pi2 = 0;
   x2 = 0;
@@ -17174,7 +17167,6 @@ printf("c2z_if.c case_40 field6 = %s\n",field6);
     ch = p_string[pi];
   }
   field7[pi2] = '\0';
-printf("c2z_if.c case_40 field7 = %s\n",field7);
 
   pi++;
   ch = p_string[pi];
@@ -17193,7 +17185,6 @@ printf("c2z_if.c case_40 field7 = %s\n",field7);
     ch = p_string[pi];
   }
   field8[pi2] = '\0';
-printf("c2z_if.c case_40 field8 = %s\n",field8);
 
   pi2 = 0;
   fd9_type = 0;
@@ -17225,7 +17216,6 @@ printf("c2z_if.c case_40 field8 = %s\n",field8);
     }
   }
   field9[pi2] = '\0';
-printf("c2z_if.c case_40 field9 = %s\n",field9);
 
   x3 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -17307,7 +17297,6 @@ printf("c2z_if.c case_40 field9 = %s\n",field9);
       return;
     }
   }
-
 
   operand_1 = 0;
   if (operand_1 == 0) 
