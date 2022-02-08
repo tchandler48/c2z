@@ -29742,21 +29742,20 @@ printf("c2z_math.c #1800 field5 = %s fd5_type = %d\n",field5,fd5_type);
         trace_rec_3();
       }
 
-
-/*
-3  57     c2z_math.c #26                           LAEY  R5,8765                         8765                 0001252
-3  57     c2z_math.c #27                           LARL  R7,C370U                                                 0001253
-3  57     c2z_math.c #28                           CVD   R5,0(R7)                                                 0001254
-3  57     c2z_math.c #29                           LARL  R8,C370NWK1                                              0001255
-3  57     c2z_math.c #30                           LARL  R7,C370U                                                 0001256
-3  57     c2z_math.c #31                           ZAP   0(6,R8),0(8,R7)                                          0001257
-*/
-
     }
 
     if(fd2_type == 2)
     {
-      strcpy(a_string, "         LARL  R9,");
+      strcpy(a_string, "         LARL  R9,C370NWK1");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_math.c #1830");
+        trace_rec_3();
+      }
+      work_use_ct[49]++;
+
+      strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
       strcpy(wk_remark, " ");
       strcat(wk_remark, field2);
@@ -29764,7 +29763,15 @@ printf("c2z_math.c #1800 field5 = %s fd5_type = %d\n",field5,fd5_type);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_math.c #1830");
+        strcpy(trace_1, "c2z_math.c #1830a");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_math.c #1830b");
         trace_rec_3();
       }
     }

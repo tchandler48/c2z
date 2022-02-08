@@ -1003,6 +1003,9 @@ struct for_table
   char for_rt_field[VAR_LGTH];
   char for_rt_field2[VAR_LGTH];
   char for_p_string[BUFSIZE];
+  char for_rt_field5b[VAR_LGTH];
+  char for_rt_field5c[VAR_LGTH];
+   int for_type;
 };
 struct for_table *w_for_table;
 
@@ -6237,6 +6240,36 @@ int main(int argc, char *argv[])
           strcpy(trace_1, "c2z.c FOR/End #11");
           trace_rec_3();
         }
+   
+        if(w_for_table[v].for_type == 1)
+        {
+          strcpy(a_string, "         LARL  R9,");
+          strcat(a_string, w_for_table[v].for_rt_field5c);
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c FOR/End #12");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         LARL  R8,");
+          strcat(a_string, w_for_table[v].for_rt_field5b);
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c FOR/End #13");
+            trace_rec_3();
+          }
+
+          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+          src_line();
+          if (puncde == 1) 
+          {
+            strcpy(trace_1, "c2z.c FOR/End #14");
+            trace_rec_3();
+          }
+        }
+
         for_2nd_ct = 0;
         convert = 1;
         break;
