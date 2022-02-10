@@ -5446,7 +5446,7 @@ void c2_sprintf(void)
        trace_rec_3();
      }
 
-     strcpy(a_string, "         MVC   0(R6),0(R8)");
+     strcpy(a_string, "         MVC   0(10,R6),0(R8)");
      src_line();
      if (puncde == 1) 
      { 
@@ -7147,15 +7147,32 @@ printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LARL  R9,");
-    strcat(a_string, ar_field7);
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c #3155");
+      trace_rec_3();
+    }
+    work_use_ct[49]++;
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field2a);
     strcpy(wk_remark, " ");
-    strcat(wk_remark, field1);
+    strcat(wk_remark, field2);
     strcat(wk_remark, " */");
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_print.c #3155");
+      strcpy(trace_1, "c2z_print.c #3155a");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_print.c #3155b");
       trace_rec_3();
     }
 
@@ -8538,7 +8555,32 @@ void c2_printf_str4()
       }
     }
 
-    strcpy(a_string, "         LAEY  R5,26");
+   if (gv_ct > 0) 
+    {
+       for (I = 0; I < gv_ct; I++) 
+       {
+         ret = strcmp(field1, gw_variable[I].gv_name);
+         if (ret == 0) 
+         {
+           x2 = 1;
+           strcpy(field1a, gw_variable[I].gv_cname);
+           gw_variable[I].gv_use_ct++;
+           strcpy(ar_field5, gw_variable[I].gv_dsect);
+           strcpy(ar_field6, gw_variable[I].gv_label);
+           strcpy(ar_field7, gw_variable[I].gv_table);
+           strcpy(ar_field8, gw_variable[I].gv_aname);
+           strcpy(ar_field9, gw_variable[I].gv_sv_reg);
+           strcpy(ar_field10, gw_variable[I].gv_wk_reg);
+           strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+           x101 = gw_variable[I].gv_column;
+           break;
+         }
+       }
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
+    strcpy(a_string, "         LAEY  R5,");
+    strcat(a_string,wk_strg);
     src_line();
     if (puncde == 1) 
     {
@@ -8747,27 +8789,6 @@ void c2_printf_str4()
     {
       strcpy(trace_1, "c2z_print.c #2854");
       trace_rec_3();
-    }
-
-    if (gv_ct > 0) 
-    {
-       for (I = 0; I < gv_ct; I++) 
-       {
-         ret = strcmp(field1, gw_variable[I].gv_name);
-         if (ret == 0) 
-         {
-           x2 = 1;
-           strcpy(field1a, gw_variable[I].gv_cname);
-           gw_variable[I].gv_use_ct++;
-           strcpy(ar_field5, gw_variable[I].gv_dsect);
-           strcpy(ar_field6, gw_variable[I].gv_label);
-           strcpy(ar_field7, gw_variable[I].gv_table);
-           strcpy(ar_field8, gw_variable[I].gv_aname);
-           strcpy(ar_field9, gw_variable[I].gv_sv_reg);
-           strcpy(ar_field10, gw_variable[I].gv_wk_reg);
-           strcpy(ar_field11, gw_variable[I].gv_wk_strg);
-         }
-       }
     }
 
     strcpy(a_string, "         LARL  R6,");

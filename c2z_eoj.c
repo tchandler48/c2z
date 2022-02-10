@@ -4600,6 +4600,28 @@ void c2_eoj()
     }
   }
 
+  if (work_use_ct[104] > 0)		/* C370NCVT	*/ 
+  {
+    strcpy(a_string, "         DS    0H");
+    strcpy(wk_remark, "c2z gen variable  */");
+    write_short();  
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #154");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "C370NCVT  DC    PL6'0'");
+    strcpy(wk_remark, "Value  Exp */");
+    write_short();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z Parser Var #155");
+      trace_rec_3();
+    }
+  }
+
+
 
   if(tot_localtime > 0)
   {

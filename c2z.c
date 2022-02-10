@@ -193,10 +193,10 @@
        void if_case_47(void);
        void if_case_48(void);
        void if_case_49(void);
-
        void if_case_51(void);
 	void if_case_55(void);
        void if_case_56(void);
+	void if_case_57(void);
 
 
 /*		c2z_incr.c		*/
@@ -282,6 +282,7 @@
        void c2_math_800(void);
        void c2_math_820(void);
        void c2_math_830(void);
+       void c2_math_920(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -297,6 +298,7 @@
 	 int c2_msth_08(char);
 	 int c2_math_09(char);
 	void c2_math_10(void);
+ 
 
 
 /* 	       c2z_math_func.c	*/
@@ -471,6 +473,7 @@
        void c2_str_11(void);
        void c2_str_12(void);
        void c2_str_13(void);
+       void c2_str_15(void);
 	void c2_strcpy_pass2(void);
 	void c2_pass2_strcpy_2(int,int);
 
@@ -661,6 +664,8 @@ char from_sv[24];
  int quote_2 = 0;
  int quote_3 = 0;
  int for_2nd_ct = 0;
+ int lp_ct = 0;
+ int trc_ct = 1;
  
 /* usage counters	*/
  int var_use[24];
@@ -734,6 +739,7 @@ int work_use_ct[110];
 *  99		=	C370QUOT	100	=	TSTUC		*
 *  100		=	TSTLC		101	=	C370DDTE      *
 *  102		=	C370DWRK	103	=	C370DATE      *
+*  104        =      C370NCVT                                  *
 * ************************************************************ */
 
  int tot_localtime = 0;
@@ -1536,7 +1542,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string);  */
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
     convert = 0;
     fprtf_flag = 0;
 
@@ -5897,6 +5903,27 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
+
+    /* ***************************************************************
+     *  Math literal  = MUST BE LAST CALL IN PARSER                  *
+     * ************************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    if (debug_lv >= 2) 
+    {
+      printf("c2z.c Pass 2 rct = %d Scan for math literal\n", rct);
+    }
+
+    p = strstr(p_string, "localtime");
+    if (p) 
+    {
+      convert = 1;
+    }
+
+
     /* ***************************************************************
      *  Math literal  = MUST BE LAST CALL IN PARSER                  *
      * ************************************************************* */
@@ -5919,7 +5946,6 @@ int main(int argc, char *argv[])
     {
       v = 9999;
     }
-
 
     p = strstr(p_string, "=");
     if ((p) && (s < v)) 
@@ -6267,6 +6293,11 @@ int main(int argc, char *argv[])
           {
             strcpy(trace_1, "c2z.c FOR/End #14");
             trace_rec_3();
+          }
+          lp_ct--;
+          if(lp_ct < 0)
+          {
+            lp_ct = 0;
           }
         }
 

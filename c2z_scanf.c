@@ -404,7 +404,7 @@ void c2_scanf()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strlen.c #20");
+      strcpy(trace_1, "c2z_scanf.c #20");
       trace_rec_3();
     }
 
@@ -513,7 +513,7 @@ void c2_scanf()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strlen.c #32");
+      strcpy(trace_1, "c2z_scanf.c #32");
       trace_rec_3();
     }
 
@@ -550,7 +550,7 @@ void c2_scanf()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strlen.c #36");
+      strcpy(trace_1, "c2z_scanf.c #36");
       trace_rec_3();
     }
 
@@ -563,7 +563,7 @@ void c2_scanf()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_strlen.c #37");
+      strcpy(trace_1, "c2z_scanf.c #37");
       trace_rec_3();
     }
 
