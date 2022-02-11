@@ -1,3 +1,8 @@
+/* ***************************************************
+*  c2z : c2Z_strncmp.c :                             *
+*                                                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
+**************************************************** */
 
 
 void c2_strncmp_2() 					/*  x = strncmp(field1,field2[xx],nn)		*/
@@ -13,7 +18,6 @@ void c2_strncmp_2() 					/*  x = strncmp(field1,field2[xx],nn)		*/
    int pi2;
    int fd1_type;
    int fd2_type;
-   int fd3_type;
    int fd4_type;
    int fd5_type;
    int I;

@@ -16,7 +16,7 @@ void c2_strcpy(void)
 /*       bkl          bkr                  */
 /*       []    ,      []                   */
 /*       0     ,      0    c2_str_4        */
-/*       0     ,      2                    */
+/*       0     ,      2    c2_str_6        */
 /*       0     ,      4                    */
 /*       2     ,      0    c2_str_1        */
 /*       2     ,      2                    */
@@ -25,8 +25,6 @@ void c2_strcpy(void)
 /*       4     ,      2                    */
 /*       4     ,      4                    */
 /*                                         */
-/*       ()    ,      ()                   
-/*       0     ,      2    c2_str_6        */
 /* *************************************** */
 
   char ch;
@@ -38,7 +36,6 @@ void c2_strcpy(void)
   int s = 0;
   int x90 = 0;
   int x91 = 0;
-  int x91a = 0;
   int x92 = 0;
   int x93 = 0;
   int x93a = 0;
@@ -480,7 +477,6 @@ void c2_str_1(int str1, int str4)
   char field7[VAR_LGTH];
   char field7a[VAR_LGTH];
   char field8[VAR_LGTH];
-  char field8a[VAR_LGTH];
   char field9[VAR_LGTH];
   char field10[VAR_LGTH];
   

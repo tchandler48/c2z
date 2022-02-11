@@ -136,6 +136,8 @@
 
 /* 	       c2z_for.c		*/
 	void c2_for(void);
+       void c2_for_022(void);
+       void c2_for_023(void);
 
 
 /*		c2z_fputs.c		*/

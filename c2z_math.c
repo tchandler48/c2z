@@ -23617,7 +23617,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #52");
+    strcpy(trace_1, "c2z_math.c #960");
     trace_rec_3();
   }
 
@@ -23625,7 +23625,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #53");
+    strcpy(trace_1, "c2z_math.c #961");
     trace_rec_3();
   }
 
@@ -23633,7 +23633,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #54");
+    strcpy(trace_1, "c2z_math.c #962");
     trace_rec_3();
   }
 
@@ -23644,7 +23644,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #55");
+    strcpy(trace_1, "c2z_math.c #963");
     trace_rec_3();
   }
 
@@ -23652,7 +23652,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #56");
+    strcpy(trace_1, "c2z_math.c #964");
     trace_rec_3();
   }
 
@@ -23660,7 +23660,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #57");
+    strcpy(trace_1, "c2z_math.c #965");
     trace_rec_3();
   }
 
@@ -23668,7 +23668,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #58");
+    strcpy(trace_1, "c2z_math.c #966");
     trace_rec_3();
   }
 
@@ -23681,7 +23681,7 @@ void c2_math_600()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #59");
+    strcpy(trace_1, "c2z_math.c #967");
     trace_rec_3();
   }
 
@@ -23692,7 +23692,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #60");
+    strcpy(trace_1, "c2z_math.c #968");
     trace_rec_3();
   }
 
@@ -23705,7 +23705,7 @@ void c2_math_600()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #61");
+    strcpy(trace_1, "c2z_math.c #969");
     trace_rec_3();
   }
 
@@ -23725,7 +23725,7 @@ void c2_math_600()
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_600 #62");
+      strcpy(trace_1, "c2z_math.c #970");
       trace_rec_3();
     }
 
@@ -23736,7 +23736,7 @@ void c2_math_600()
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_600 #63");
+      strcpy(trace_1, "c2z_math.c #971");
       trace_rec_3();
     }
   }
@@ -23753,7 +23753,7 @@ void c2_math_600()
       write_remark();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #64");
+        strcpy(trace_1, "c2z_math.c #972");
         trace_rec_3();
       }
 
@@ -23761,15 +23761,16 @@ void c2_math_600()
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #65");
+        strcpy(trace_1, "c2z_math.c #973");
         trace_rec_3();
       }
+      work_use_ct[48]++;
 
       strcpy(a_string, "         CVD   R5,0(R7)");
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #66");
+        strcpy(trace_1, "c2z_math.c #974");
         trace_rec_3();
       }
 
@@ -23777,7 +23778,7 @@ void c2_math_600()
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #67");
+        strcpy(trace_1, "c2z_math.c #975");
         trace_rec_3();
       }
       work_use_ct[78]++;
@@ -23786,15 +23787,16 @@ void c2_math_600()
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #68");
+        strcpy(trace_1, "c2z_math.c #976");
         trace_rec_3();
       }
+      work_use_ct[48]++;
 
       strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #69");
+        strcpy(trace_1, "c2z_math.c #977");
         trace_rec_3();
       }
 
@@ -23802,7 +23804,7 @@ void c2_math_600()
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #70");
+        strcpy(trace_1, "c2z_math.c #978");
         trace_rec_3();
       }
     }
@@ -23818,7 +23820,7 @@ void c2_math_600()
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_600 #71");
+      strcpy(trace_1, "c2z_math.c #979");
       trace_rec_3();
     }
 
@@ -23828,7 +23830,7 @@ void c2_math_600()
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #72");
+        strcpy(trace_1, "c2z_math.c #980");
         trace_rec_3();
       }
     }  
@@ -23844,7 +23846,7 @@ void c2_math_600()
       src_line();
       if (puncde == 1) 
       { 
-        strcpy(trace_1, "c2z_math.c c2_math_600 #73");
+        strcpy(trace_1, "c2z_math.c #981");
         trace_rec_3();
       }
     }
@@ -24288,23 +24290,25 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #1");
+    strcpy(trace_1, "c2z_math.c #982");
     trace_rec_3();
   }
+  work_use_ct[49]++;
 
   strcpy(a_string, "         LARL  R8,C370ZERO");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #2");
+    strcpy(trace_1, "c2z_math.c #983");
     trace_rec_3();
   }
+  work_use_ct[32]++;
 
   strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #3");
+    strcpy(trace_1, "c2z_math.c #984");
     trace_rec_3();
   }
 
@@ -24318,7 +24322,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4a");
+      strcpy(trace_1, "c2z_math.c #985");
       trace_rec_3();
     }
 
@@ -24326,15 +24330,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4b");
+      strcpy(trace_1, "c2z_math.c #986");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4c");
+      strcpy(trace_1, "c2z_math.c #987");
       trace_rec_3();
     }
 
@@ -24342,7 +24347,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4d");
+      strcpy(trace_1, "c2z_math.c #988");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -24351,15 +24356,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4e");
+      strcpy(trace_1, "c2z_math.c #989");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4f");
+      strcpy(trace_1, "c2z_math.c #990");
       trace_rec_3();
     }
   }
@@ -24374,7 +24380,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_601 #4g");
+      strcpy(trace_1, "c2z_math.c #991");
       trace_rec_3();
     }
   }
@@ -24383,15 +24389,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #5");
+    strcpy(trace_1, "c2z_math.c #992");
     trace_rec_3();
   }
+  work_use_ct[32]++;
 
   strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #6");
+    strcpy(trace_1, "c2z_math.c #993");
     trace_rec_3();
   }
 
@@ -24402,7 +24409,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #7");
+    strcpy(trace_1, "c2z_math.c #994");
     trace_rec_3();
   }
 
@@ -24410,23 +24417,25 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #8");
+    strcpy(trace_1, "c2z_math.c #995");
     trace_rec_3();
   }
+  work_use_ct[49]++;
 
   strcpy(a_string, "         LARL  R8,C370ZERO");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #9");
+    strcpy(trace_1, "c2z_math.c #996");
     trace_rec_3();
   }
+  work_use_ct[32]++;
  
   strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #10");
+    strcpy(trace_1, "c2z_math.c #997");
     trace_rec_3();
   }
 
@@ -24434,23 +24443,25 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #11");
+    strcpy(trace_1, "c2z_math.c #998");
     trace_rec_3();
   }
+  work_use_ct[50]++;
 
   strcpy(a_string, "         LARL  R7,C370ZERO");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #12");
+    strcpy(trace_1, "c2z_math.c #999");
     trace_rec_3();
   }
- 
+  work_use_ct[32]++;
+
   strcpy(a_string, "         ZAP   0(6,R8),0(6,R7)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #13");
+    strcpy(trace_1, "c2z_math.c #1000");
     trace_rec_3();
   }
 
@@ -24464,7 +24475,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14a");
+      strcpy(trace_1, "c2z_math.c #1001");
       trace_rec_3();
     }
 
@@ -24472,15 +24483,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14b");
+      strcpy(trace_1, "c2z_math.c #1002");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14c");
+      strcpy(trace_1, "c2z_math.c #1003");
       trace_rec_3();
     }
 
@@ -24488,7 +24500,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14d");
+      strcpy(trace_1, "c2z_math.c #1004");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -24497,15 +24509,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14e");
+      strcpy(trace_1, "c2z_math.c #1005");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14f");
+      strcpy(trace_1, "c2z_math.c #1004");
       trace_rec_3();
     }
   }
@@ -24520,7 +24533,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_601 #14g");
+      strcpy(trace_1, "c2z_math.c #1005");
       trace_rec_3();
     }
   }
@@ -24529,15 +24542,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #15");
+    strcpy(trace_1, "c2z_math.c #1006");
     trace_rec_3();
   }
+  work_use_ct[33]++;
  
   strcpy(a_string, "         AP    0(6,R7),0(6,R5)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #16");
+    strcpy(trace_1, "c2z_math.c #1007");
     trace_rec_3();
   }
 
@@ -24545,7 +24559,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_600 #17");
+    strcpy(trace_1, "c2z_math.c #1008");
     trace_rec_3();
   }
 
@@ -24553,7 +24567,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #18");
+    strcpy(trace_1, "c2z_math.c #1009");
     trace_rec_3();
   }
 
@@ -24564,7 +24578,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #19");
+    strcpy(trace_1, "c2z_math.c #1010");
     trace_rec_3();
   }
 
@@ -24577,7 +24591,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #20");
+    strcpy(trace_1, "c2z_math.c #1011");
     trace_rec_3();
   }
 
@@ -24590,7 +24604,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #21");
+    strcpy(trace_1, "c2z_math.c #1012");
     trace_rec_3();
   }
 
@@ -24604,7 +24618,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22a");
+      strcpy(trace_1, "c2z_math.c #1013");
       trace_rec_3();
     }
 
@@ -24612,15 +24626,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22b");
+      strcpy(trace_1, "c2z_math.c #1014");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22c");
+      strcpy(trace_1, "c2z_math.c #1015");
       trace_rec_3();
     }
 
@@ -24628,7 +24643,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22d");
+      strcpy(trace_1, "c2z_math.c #1016");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -24637,15 +24652,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22e");
+      strcpy(trace_1, "c2z_math.c #1017");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22f");
+      strcpy(trace_1, "c2z_math.c #1018");
       trace_rec_3();
     }
   }
@@ -24660,7 +24676,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_601 #22g");
+      strcpy(trace_1, "c2z_math.c #1019");
       trace_rec_3();
     }
   }
@@ -24669,15 +24685,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #23");
+    strcpy(trace_1, "c2z_math.c #1020");
     trace_rec_3();
   }
+  work_use_ct[32]++;
 
   strcpy(a_string, "         CP    0(6,R9),0(6,R8)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #24");
+    strcpy(trace_1, "c2z_math.c #1021");
     trace_rec_3();
   }
 
@@ -24688,7 +24705,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #25");
+    strcpy(trace_1, "c2z_math.c #1022");
     trace_rec_3();
   }
 
@@ -24702,7 +24719,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26a");
+      strcpy(trace_1, "c2z_math.c #1023");
       trace_rec_3();
     }
 
@@ -24710,15 +24727,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26b");
+      strcpy(trace_1, "c2z_math.c #1024");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26c");
+      strcpy(trace_1, "c2z_math.c #1025");
       trace_rec_3();
     }
 
@@ -24726,7 +24744,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26d");
+      strcpy(trace_1, "c2z_math.c #1026");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -24735,15 +24753,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26e");
+      strcpy(trace_1, "c2z_math.c #1027");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26f");
+      strcpy(trace_1, "c2z_math.c #1028");
       trace_rec_3();
     }
   }
@@ -24758,7 +24777,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_601 #26g");
+      strcpy(trace_1, "c2z_math.c #1029");
       trace_rec_3();
     }
   }
@@ -24767,7 +24786,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #27");
+    strcpy(trace_1, "c2z_math.c #1030");
     trace_rec_3();
   }
 
@@ -24778,7 +24797,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #28");
+    strcpy(trace_1, "c2z_math.c #1031");
     trace_rec_3();
   }
 
@@ -24791,7 +24810,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #29");
+    strcpy(trace_1, "c2z_math.c #1032");
     trace_rec_3();
   }
 
@@ -24799,9 +24818,10 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #30");
+    strcpy(trace_1, "c2z_math.c #1033");
     trace_rec_3();
   }
+  work_use_ct[49]++;
 
   if(fd2_type == 1)
   {
@@ -24813,7 +24833,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31a");
+      strcpy(trace_1, "c2z_math.c #1034");
       trace_rec_3();
     }
 
@@ -24821,15 +24841,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31b");
+      strcpy(trace_1, "c2z_math.c #1035");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31c");
+      strcpy(trace_1, "c2z_math.c #1036");
       trace_rec_3();
     }
 
@@ -24837,7 +24858,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31d");
+      strcpy(trace_1, "c2z_math.c #1037");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -24846,15 +24867,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31e");
+      strcpy(trace_1, "c2z_math.c #1038");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R9),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31f");
+      strcpy(trace_1, "c2z_math.c #1039");
       trace_rec_3();
     }
   }
@@ -24869,7 +24891,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_601 #31g");
+      strcpy(trace_1, "c2z_math.c #1040");
       trace_rec_3();
     }
   }
@@ -24878,15 +24900,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #32");
+    strcpy(trace_1, "c2z_math.c #1041");
     trace_rec_3();
   }
+  work_use_ct[33]++;
 
   strcpy(a_string, "         AP    0(6,R8),0(6,R7)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #33");
+    strcpy(trace_1, "c2z_math.c #1042");
     trace_rec_3();
   }
 
@@ -24894,7 +24917,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #34");
+    strcpy(trace_1, "c2z_math.c #1043");
     trace_rec_3();
   }
 
@@ -24905,7 +24928,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #35");
+    strcpy(trace_1, "c2z_math.c #1044");
     trace_rec_3();
   }
 
@@ -24918,7 +24941,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #36");
+    strcpy(trace_1, "c2z_math.c #1045");
     trace_rec_3();
   }
 
@@ -24926,9 +24949,10 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #37");
+    strcpy(trace_1, "c2z_math.c #1046");
     trace_rec_3();
   }
+  work_use_ct[49]++;
 
   strcpy(a_string, "         LARL  R8,");
   strcat(a_string, ar_field12);
@@ -24938,7 +24962,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #38");
+    strcpy(trace_1, "c2z_math.c #1047");
     trace_rec_3();
   }
 
@@ -24946,7 +24970,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #39");
+    strcpy(trace_1, "c2z_math.c #1048");
     trace_rec_3();
   }
 
@@ -24960,7 +24984,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40a");
+      strcpy(trace_1, "c2z_math.c #1049");
       trace_rec_3();
     }
 
@@ -24968,15 +24992,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40b");
+      strcpy(trace_1, "c2z_math.c #1050");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40c");
+      strcpy(trace_1, "c2z_math.c #1051");
       trace_rec_3();
     }
 
@@ -24984,7 +25009,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40d");
+      strcpy(trace_1, "c2z_math.c #1052");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -24993,15 +25018,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40e");
+      strcpy(trace_1, "c2z_math.c #1053");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40f");
+      strcpy(trace_1, "c2z_math.c #1054");
       trace_rec_3();
     }
   }
@@ -25016,7 +25042,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_601 #40g");
+      strcpy(trace_1, "c2z_math.c #1055");
       trace_rec_3();
     }
   }
@@ -25025,7 +25051,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_math.c c2_math_601 #41");
+    strcpy(trace_1, "c2z_math.c #1056");
     trace_rec_3();
   }
 
@@ -25039,7 +25065,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     write_remark();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #42a");
+      strcpy(trace_1, "c2z_math.c #1057");
       trace_rec_3();
     }
 
@@ -25047,15 +25073,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #42b");
+      strcpy(trace_1, "c2z_math.c #1058");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         CVD   R5,0(R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #42c");
+      strcpy(trace_1, "c2z_math.c #1059");
       trace_rec_3();
     }
 
@@ -25063,7 +25090,7 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #42d");
+      strcpy(trace_1, "c2z_math.c #1060");
       trace_rec_3();
     }
     work_use_ct[78]++;
@@ -25072,15 +25099,16 @@ printf("c2z_math.c math_601 tfield1 = %s\n",tfield1);
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #42e");
+      strcpy(trace_1, "c2z_math.c #1061");
       trace_rec_3();
     }
+    work_use_ct[48]++;
 
     strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
     src_line();
     if (puncde == 1) 
     { 
-      strcpy(trace_1, "c2z_math.c c2_math_601 #42f");
+      strcpy(trace_1, "c2z_math.c #1062");
       trace_rec_3();
     }
   }
@@ -29240,14 +29268,14 @@ void c2_math_603()
   }
   field5[pi2] = '\0';
 
-
+/*
 printf("\nc2z_math.c #1800 rct = %d p_string = %s",rct,p_string);
 printf("c2z_math.c #1800 field1 = %s fd1_type = %d\n",field1,fd1_type);
 printf("c2z_math.c #1800 field2 = %s fd2_type = %d\n",field2,fd2_type);
 printf("c2z_math.c #1800 field3 = %s fd3_type = %d\n",field3,fd3_type);
 printf("c2z_math.c #1800 field4 = %s\n",field4);
 printf("c2z_math.c #1800 field5 = %s fd5_type = %d\n",field5,fd5_type);
-
+*/
 
   x3 = 0;
   if (x3 == 0) 

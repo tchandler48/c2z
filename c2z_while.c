@@ -15528,11 +15528,9 @@ void c2_while_20() 				/* complex with strchr			*/
    char field1[VAR_LGTH];
    char field1a[VAR_LGTH];
    char field2[VAR_LGTH];
-   char field2a[VAR_LGTH];
    char field3[VAR_LGTH];
    char field3a[VAR_LGTH];
    char field4[VAR_LGTH];
-   char field4a[VAR_LGTH];
    char field5[VAR_LGTH];
    char field5a[VAR_LGTH];
 

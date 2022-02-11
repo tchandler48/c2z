@@ -6471,12 +6471,14 @@ void c2_printf_dec2()
     }
   }
 
+/*
 printf("\nc2z_print.c dec2 rct = %d p_string = %s",rct,p_string);
 printf("c2z_print.c dec2 field1 = %s\n",field1);
 printf("c2z_print.c dec2 field2 = %s fd2_type = %d\n",field2,fd2_type);
 printf("c2z_print.c dec2 field3 = %s fd3_type = %d\n",field3,fd3_type);
 printf("c2z_print.c dec2 field4 = %s x5 = %d\n",field4,x5);
 printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
+*/
 
   x3 = 0;
   if (x3 == 0) 

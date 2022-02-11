@@ -353,13 +353,6 @@ void c2_atof_punch(void)
     }
   }
 
-
-
-
-
-
-
-
     strcpy(a_string, "         LARL  R9,C370L8");
     src_line();
     if (puncde == 1) 
