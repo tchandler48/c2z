@@ -21,7 +21,6 @@ void c2_for(void)
    int x101 = 0;
    int x102 = 0;
 
-  char *p;
   char ch;
 
   s = strlen(p_string);

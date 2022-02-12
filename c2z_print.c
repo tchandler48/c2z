@@ -13,17 +13,12 @@ void c2_printf()
   char *p3;
 
    int s;
-   int x;
    int x93 = 0;
-   int x93a = 0;
    int x94 = 0;
-   int x94a = 0;
    int I;
    int x90 = 0;
-   int x100;
    int ptr_type = 0;
    int str1 = 0;
-   int str2 = 0;
    int bkl = 0;
    int bkr = 0;
    int pi;
@@ -32,11 +27,9 @@ void c2_printf()
   printf_convert = 0;
 
   s = strlen(p_string);
-  x = 0;
   p102 = 0;
 
   str1 = 0;
-  str2 = 0;
   bkl = 0;
   bkr = 0;
   x90 = 0;
@@ -48,7 +41,6 @@ void c2_printf()
     {
       if(x94 == 0)
       {
-        x94a = I;
         str1 = I;
       }
       x94++;
@@ -73,10 +65,6 @@ void c2_printf()
     }
     if(ch == '.')
     {
-      if(x93 == 0)
-      {
-        x93a = I;
-      }
       x93++;
     }
   }
@@ -245,26 +233,17 @@ void c2_printf_dec()		/* NEW */
   }
 
   char ch;
-  char *p5;
-  char *p6;
-  char *p7;
   char field1[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
-  char field12[VAR_LGTH];
   char prt_lit[VAR_LGTH];
 
-   int prf1;
-   int prf2;
-   int prf6;
    int pi;
    int pi2;
    int I;
-   int x1;
    int x3;
    int x4;
    int x5;
-   int x9;
    int ret;
    int ret1;
    int s;
@@ -347,7 +326,7 @@ void c2_printf_dec()		/* NEW */
            {
              x4 = 1;
              x5 = lw_variable[v].lv_lgth;
-             lw_variable[I].lv_use_ct++;
+             lw_variable[v].lv_use_ct++;
            }
          }
        }
@@ -1529,16 +1508,11 @@ void c2_printf_str1(void)
   }
 
   char ch;
-  char *p6;
-  char *p7;
-  char *p8;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
-  char field1b[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
   char field5[VAR_LGTH];
   char field6[VAR_LGTH];
@@ -1547,10 +1521,6 @@ void c2_printf_str1(void)
   char field9[VAR_LGTH];
   char field10[VAR_LGTH];
   char field11[VAR_LGTH];
-  char field11a[VAR_LGTH];
-  char field12[VAR_LGTH];
-  char tfield22[VAR_LGTH];
-  char tfield22a[VAR_LGTH];
 
    int I;
    int pi;
@@ -1560,17 +1530,11 @@ void c2_printf_str1(void)
    int x2;
    int x3;
    int x5;
-   int x9;
-   int x11;
-   int xc;
    int v;
    int ret;
    int ret1;
-   int pf1;
-   int prf1;
-   int prf3;
    int fd2_type;
-   int fd3_type;
+   int fd3_type = 0;
 
   p102 = 0;
   s = strlen(p_string);
@@ -1729,35 +1693,28 @@ void c2_printf_str1(void)
           strcpy(field9, gw_variable[I].gv_sv_reg);
           strcpy(field10, gw_variable[I].gv_wk_reg);
           strcpy(field11, gw_variable[I].gv_wk_strg);
-          xc = gw_variable[I].gv_column;
           gw_variable[I].gv_flag = 1;
         }
       }
     }
       
-    prf3 = 0;
     for(v = 0; v < lv_ct; v++) 
     {
       ret = strcmp(field2, lw_variable[v].lv_name);
       ret1 = strcmp(sv_func, lw_variable[v].lv_func);
       if((ret == 0) && (ret1 == 0)) 
       {
-        prf3 = 1;
         strcpy(field2a, lw_variable[v].lv_cname);
-        x9 = lw_variable[v].lv_lgth;
         lw_variable[v].lv_use_ct++;
       }
     }
 
-    prf3 = 0;
     for(v = 0; v < gv_ct; v++) 
     {
       ret = strcmp(field2, gw_variable[v].gv_name);
       if(ret == 0) 
       {
-        prf3 = 1;
         strcpy(field2a, gw_variable[v].gv_cname);
-        x9 = gw_variable[v].gv_lgth;
         gw_variable[v].gv_use_ct++;
       }
     }
@@ -2675,14 +2632,9 @@ void c2_printf_dec1()
   }
 
   char ch;
-  char *p5;
-  char *p6;
-  char *p7;
   char field1[VAR_LGTH];
-  char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
-  char field12[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
@@ -2694,25 +2646,17 @@ void c2_printf_dec1()
   char field10[VAR_LGTH];
   char field11[VAR_LGTH];
 
-   int prf1;
-   int prf2;
-   int prf6;
    int pi;
    int pi2;
    int I;
    int x1;
    int x2;
    int x3;
-   int x4;
    int x5;
-   int x9;
    int ret;
    int ret1;
    int v;
-   int fd2_type = 0;
    int fd3_type = 0;
-   int xc;
-   int prf3;
 
     pi = 0;
     pi++;
@@ -2724,26 +2668,12 @@ void c2_printf_dec1()
 
     pi2 = 0;
     x2 = 0;
-    fd2_type = 0;
     pi++;
     ch = p_string[pi];
     while (ch != '[') 
     {
       if (ch != ' ') 
       {
-        if(x2 == 0) 
-        {
-          if(isdigit(ch)) 
-          {
-   	     fd2_type = 2;
-            x2 = 1;
-          }
-          if(isalpha(ch)) 
-          {
-	     fd2_type = 1;
-            x2 = 1;
-          }
-        }
         field2[pi2] = ch;
         pi2++;
       }
@@ -2853,36 +2783,29 @@ void c2_printf_dec1()
           strcpy(field9, gw_variable[I].gv_sv_reg);
           strcpy(field10, gw_variable[I].gv_wk_reg);
           strcpy(field11, gw_variable[I].gv_wk_strg);
-          xc = gw_variable[I].gv_column;
           gw_variable[I].gv_flag = 1;
         }
       }
     }
   }
       
-    prf3 = 0;
     for(v = 0; v < lv_ct; v++) 
     {
       ret = strcmp(field3, lw_variable[v].lv_name);
       ret1 = strcmp(sv_func, lw_variable[v].lv_func);
       if((ret == 0) && (ret1 == 0)) 
       {
-        prf3 = 1;
         strcpy(field3a, lw_variable[v].lv_cname);
-        x9 = lw_variable[v].lv_lgth;
         lw_variable[v].lv_use_ct++;
       }
     }
 
-    prf3 = 0;
     for(v = 0; v < gv_ct; v++) 
     {
       ret = strcmp(field3, gw_variable[v].gv_name);
       if(ret == 0) 
       {
-        prf3 = 1;
         strcpy(field3a, gw_variable[v].gv_cname);
-        x9 = gw_variable[v].gv_lgth;
         gw_variable[v].gv_use_ct++;
       }
     }
@@ -3826,7 +3749,6 @@ void c2_printf_str2()
    int x5;
    int x9;
    int x10;
-   int x11;
    int I;
    int ret;
    int ret1;
@@ -3935,7 +3857,6 @@ void c2_printf_str2()
     }
   }
 
-  x11 = 0;
   x9 = 0;
   pf1 = 0;
   for (I = 0; I < lv_ct; I++) 
@@ -4620,7 +4541,6 @@ void c2_sprintf(void)
    int ret1;
    int pf1;
    int prf3;
-   int x3;
    int is_dec;
 
    bk_ct = 0;
@@ -4922,13 +4842,11 @@ void c2_sprintf(void)
      }
      field5[si] = '\0';
 
-     x3 = 0;
      for (I = 0; I < gv_ct; I++) 
      {
        ret = strcmp(field1, gw_variable[I].gv_name);
        if (ret == 0) 
        {
-         x3 = 1;
          strcpy(field1a, gw_variable[I].gv_cname);
          strcpy(ar_field5, gw_variable[I].gv_dsect);
          strcpy(ar_field6, gw_variable[I].gv_label);
@@ -5715,8 +5633,6 @@ void c2_printf_str3()
   char ch;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
-  char field2[VAR_LGTH];
-  char field3[VAR_LGTH];
 
   char tfield1[VAR_LGTH];
   char tfield1a[VAR_LGTH];
@@ -5737,7 +5653,6 @@ void c2_printf_str3()
    int s;
    int x9;
    int x95;
-   int fd2_type = 0;
 
   p102 = 0;
  
@@ -5847,22 +5762,10 @@ void c2_printf_str3()
   ch = p_string[pi];
   while (ch != ']') 
   {
-    if ((isdigit(ch)) && (x3 == 0)) 
-    {
-      fd2_type = 2;
-      x3 = 1;
-    }
-    if ((isalpha(ch)) && (x3 == 0)) 
-    {
-      fd2_type = 1;
-      x3 = 1;
-    }
-    field2[pi2] = ch;
     pi2++;
     pi++;
     ch = p_string[pi];
   }
-  field2[pi2] = '\0';
 
   pi2 = 0;
   pi++;
@@ -5871,13 +5774,12 @@ void c2_printf_str3()
   {
     if(ch != '.')
     {
-      field3[pi2] = ch;
       pi2++;
     }
     pi++;
     ch = p_string[pi];
   }
-  field3[pi2] = '\0';
+ 
 
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
@@ -6258,10 +6160,9 @@ void c2_printf_dec2()
 
    int pi;
    int pi2;
-   int fd1_type;
    int fd2_type;
    int fd3_type;
-   int fd5_type;
+   int fd5_type = 0;
    int x2;
    int x3;
    int x4;
@@ -6269,9 +6170,7 @@ void c2_printf_dec2()
    int ret;
    int ret1;
    int x21;
-   int x100;
    int x101;
-   int x102;
    int I;
    int v;
 
@@ -6283,10 +6182,8 @@ void c2_printf_dec2()
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
   char field5a[VAR_LGTH];
-  char field12[VAR_LGTH];
 
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
@@ -6308,30 +6205,11 @@ void c2_printf_dec2()
   }
 
   x2 = 0;
-  fd1_type = 0;
   pi2 = 0;
   while(ch != '[')
   {
     if(ch != ',')
     {
-      if (x2 == 0) 
-      {
-        if(ch == '\'')
-        {
-          fd1_type = 0;
-          x2 = 1;
-        }
-        if (isdigit(ch)) 
-        {
-          fd1_type = 1;
-          x2 = 1;
-        }
-        if (isalpha(ch)) 
-        {
-          fd1_type = 2;
-          x2 = 1;
-        }
-      }
       field1[pi2] = ch;
       pi2++;
     }
@@ -6445,7 +6323,7 @@ void c2_printf_dec2()
           {
             x4 = 1;
             x5 = lw_variable[v].lv_lgth;
-            lw_variable[I].lv_use_ct++;
+            lw_variable[v].lv_use_ct++;
           }
         }
       }
@@ -6501,7 +6379,6 @@ printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
         strcpy(ar_field12, gw_variable[I].gv_st_col);
         x101 = gw_variable[I].gv_lgth;
         x101 = x101 - 1;
-        x102 = gw_variable[I].gv_column;
       }
     }
   }
@@ -6518,7 +6395,6 @@ printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
       {
         x3 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -6559,7 +6435,6 @@ printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
       {
         x3 = 1;
         strcpy(field3a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -6600,7 +6475,6 @@ printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
       {
         x3 = 1;
         strcpy(field5a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -7921,7 +7795,6 @@ printf("c2z_print.c dec2 wk_strg = %s\n",wk_strg);
   }
 
   convert = 1;
-
 }
 
 
@@ -7936,10 +7809,8 @@ void c2_printf_str4()
 
    int pi;
    int pi2;
-   int fd1_type;
    int fd2_type;
    int fd3_type;
-   int fd5_type;
    int x2;
    int x3;
    int x4;
@@ -7947,9 +7818,7 @@ void c2_printf_str4()
    int ret;
    int ret1;
    int x21;
-   int x100;
    int x101;
-   int x102;
    int x103;
    int I;
    int v;
@@ -7961,13 +7830,8 @@ void c2_printf_str4()
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
-  char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
-  char field5[VAR_LGTH];
-  char field5a[VAR_LGTH];
   char field6[VAR_LGTH];
   char field12[VAR_LGTH];
-  char field13[VAR_LGTH];
 
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
@@ -8015,30 +7879,11 @@ void c2_printf_str4()
   }
 
   x2 = 0;
-  fd1_type = 0;
   pi2 = 0;
   while(ch != '[')
   {
     if(ch != ',')
     {
-      if (x2 == 0) 
-      {
-        if(ch == '\'')
-        {
-          fd1_type = 0;
-          x2 = 1;
-        }
-        if (isdigit(ch)) 
-        {
-          fd1_type = 1;
-          x2 = 1;
-        }
-        if (isalpha(ch)) 
-        {
-          fd1_type = 2;
-          x2 = 1;
-        }
-      }
       field1[pi2] = ch;
       pi2++;
     }
@@ -8132,7 +7977,6 @@ void c2_printf_str4()
         strcpy(ar_field11, gw_variable[I].gv_wk_strg);
         strcpy(ar_field12, gw_variable[I].gv_st_col);
         x101 = gw_variable[I].gv_lgth;
-        x102 = gw_variable[I].gv_column;
       }
     }
   }
@@ -8149,7 +7993,6 @@ void c2_printf_str4()
       {
         x3 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -8190,7 +8033,6 @@ void c2_printf_str4()
       {
         x3 = 1;
         strcpy(field3a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -9585,10 +9427,7 @@ void c2_printf_str4()
     trace_rec_3();
   }
 
- 
-
   goto skip_print_zero;	/* end of printf("%18s", sheet[x][y])  */
-
 
   skip_print_one:
 
@@ -10184,8 +10023,6 @@ void c2_printf_str4()
     strcpy(trace_1, "c2z_print.c #3000");
     trace_rec_3();
   }
-
-  print_end:
 
   strcpy(a_string, "L");
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);

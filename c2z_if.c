@@ -4729,13 +4729,11 @@ void if_case_7()
 
   char wk_sv_func[VAR_LGTH];
   char tfield1[VAR_LGTH];
-  char tfield1a[VAR_LGTH];
   char tfield2[VAR_LGTH];
   char tfield2a[VAR_LGTH];
   char tfield4[VAR_LGTH];
   char tfield4a[VAR_LGTH];
   char tfield5[VAR_LGTH];
-  char tfield5a[VAR_LGTH];
   char tfield6[VAR_LGTH];
   char tfield6a[VAR_LGTH];
   char tfield11[VAR_LGTH];
@@ -19176,8 +19174,6 @@ void if_case_43()
     trace_rec_1();
   }
 
-printf("\nc2z_if.c case_43 rct = %d p_string = %s",rct,p_string);
-
   char ch;
   char *p;
   char field1[VAR_LGTH];
@@ -19185,7 +19181,6 @@ printf("\nc2z_if.c case_43 rct = %d p_string = %s",rct,p_string);
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
   char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
@@ -19201,20 +19196,12 @@ printf("\nc2z_if.c case_43 rct = %d p_string = %s",rct,p_string);
   char ar_field11[VAR_LGTH];
   char ar_field12[VAR_LGTH];
 
-
-
    int pi;
    int pi2;
-   int fd1_type;
    int fd2_type;
-   int fd3_type;
    int fd4_type;
    int fd5_type;
    int fd6_type;
-   int fd7_type;
-   int fd8_type;
-   int fd9_type;
-   int fd11_type;
    int x2;
    int x3;
    int I;
@@ -22027,17 +22014,11 @@ void if_case_48()
     trace_rec_1();
   }
 
-printf("\nc2z_if.c case_48 rct = %d p_string = %s",rct,p_string);
-
   char ch;
   char field1[VAR_LGTH];
-  char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
-  char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
 
    int pi;
    int pi2;
@@ -22154,9 +22135,7 @@ void if_case_49()
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
-  char field5a[VAR_LGTH];
 
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
@@ -22165,11 +22144,6 @@ void if_case_49()
   char ar_field9[VAR_LGTH];
   char ar_field10[VAR_LGTH];
   char ar_field11[VAR_LGTH];
-
-  char tfield1a[VAR_LGTH];
-  char tfield1[VAR_LGTH];
-  char tfield2[VAR_LGTH];
-  char tfield2a[VAR_LGTH];
 
    int pi;
    int si;
@@ -23318,7 +23292,6 @@ void if_case_51()
   char ch;
   char *p;
   char field1[VAR_LGTH];
-  char fiedl1a[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
@@ -23328,7 +23301,6 @@ void if_case_51()
   char field5[VAR_LGTH];
   char field5a[VAR_LGTH];
   char field6[VAR_LGTH];
-  char field6a[VAR_LGTH];
 
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
@@ -23349,7 +23321,6 @@ void if_case_51()
    int x101;
 
    int fd1_type;
-   int fd2_type;
    int fd3_type;
    int fd4_type;
    int fd5_type;
@@ -24132,8 +24103,6 @@ void if_case_55(void)
    int pi2;
    int x2;
    int x3;
-   int x100;
-   int x101;
    int I;
    int ret;
    int ret1;
@@ -24141,15 +24110,10 @@ void if_case_55(void)
 
   char ch;
   char wk_sv_func[VAR_LGTH];
-
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
-  char field3[VAR_LGTH];
-  char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
-
   char field10[VAR_LGTH];
   char field10a[VAR_LGTH];
   char field11[VAR_LGTH];
@@ -24474,17 +24438,12 @@ void if_case_56(void)
     trace_rec_1();
   }
 
-printf("\nc2z_if.c case_56 rct = %d p_string = %s\n",rct,p_string);
-
     int pi;
     int pi2;
-    int x3;
     int x2;
     int I;
     int ret;
     int ret1;
-    int x100;
-    int x101;
     int fd1_type;
     int fd2_type;
     int fd3_type;
@@ -24494,7 +24453,6 @@ printf("\nc2z_if.c case_56 rct = %d p_string = %s\n",rct,p_string);
     int fd9_type;
     int fd11_type;
     int operand_1;
-    int operand_2;
 
    char ch;
    char *p;
@@ -24505,11 +24463,9 @@ printf("\nc2z_if.c case_56 rct = %d p_string = %s\n",rct,p_string);
    char field3[VAR_LGTH];
    char field3a[VAR_LGTH];
    char field4[VAR_LGTH];
-   char field4a[VAR_LGTH];
    char field5[VAR_LGTH];
    char field5a[VAR_LGTH];
    char field6[VAR_LGTH];
-   char field6a[VAR_LGTH];
    char field7[VAR_LGTH];
    char field7a[VAR_LGTH];
    char field8[VAR_LGTH];
@@ -24517,7 +24473,6 @@ printf("\nc2z_if.c case_56 rct = %d p_string = %s\n",rct,p_string);
    char field9[VAR_LGTH];
    char field9a[VAR_LGTH];
    char field10[VAR_LGTH];
-   char field10a[VAR_LGTH];
    char field11[VAR_LGTH];
    char field11a[VAR_LGTH];
 
@@ -24898,8 +24853,6 @@ printf("\nc2z_if.c case_56 fd2_type == 1 NOT CODED\n");
              x2 = 1;
              strcpy(field2a, gw_variable[I].gv_cname);
              gw_variable[I].gv_use_ct++;
-             x100 = gw_variable[I].gv_row;
-             x101 = gw_variable[I].gv_column;
              break;
            }
          }
@@ -26259,33 +26212,20 @@ void if_case_57(void)
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
-  char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field3a[VAR_LGTH];
-  char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
   char field5a[VAR_LGTH];
   char field6[VAR_LGTH];
-  char field6a[VAR_LGTH];
   char field7[VAR_LGTH];
   char field7a[VAR_LGTH];
-  char field8[VAR_LGTH];
-  char field8a[VAR_LGTH];
   char field9[VAR_LGTH];
   char field9a[VAR_LGTH];
   char field10[VAR_LGTH];
-  char field10a[VAR_LGTH];
   char field11[VAR_LGTH];
-  char field11a[VAR_LGTH];
-  char field12[VAR_LGTH];
-  char field12a[VAR_LGTH];
   char field13[VAR_LGTH];
   char field13a[VAR_LGTH];
   char field14[VAR_LGTH];
-  char field14a[VAR_LGTH];
   char field15[VAR_LGTH];
-  char field15a[VAR_LGTH];
 
    int fd1_type = 0;
    int fd3_type = 0;  
@@ -26306,9 +26246,11 @@ void if_case_57(void)
    int operand_2 = 0;
    int operand_3 = 0;
    int operand_4 = 0;
+/*
    int bol1 = 0;
    int bol2 = 0;
    int bol3 = 0;
+*/
 
    pi = 0;
    ch = p_string[pi];
@@ -26403,16 +26345,12 @@ void if_case_57(void)
      ch = p_string[pi];
    }
 
-   pi2 = 0;
    while(ch != ' ')
    {
-     field4[pi2] = ch;
-     pi2++;
      pi++;
      ch = p_string[pi];
    }
-   field4[pi2] = '\0';
-
+   
    ch = p_string[pi];
    while(ch != '(')
    {
@@ -26504,16 +26442,12 @@ void if_case_57(void)
      ch = p_string[pi];
    }
 
-   pi2 = 0;
    while(ch != ' ')
    {
-     field8[pi2] = ch;
-     pi2++;
      pi++;
      ch = p_string[pi];
    }
-   field8[pi2] = '\0';
-
+ 
    ch = p_string[pi];
    while(ch != '(')
    {
@@ -26605,16 +26539,13 @@ void if_case_57(void)
      ch = p_string[pi];
    }
 
-   pi2 = 0;
+  
    while(ch != ' ')
    {
-     field12[pi2] = ch;
-     pi2++;
      pi++;
      ch = p_string[pi];
    }
-   field12[pi2] = '\0';
-
+  
    ch = p_string[pi];
    while(ch != '(')
    {
@@ -26819,6 +26750,7 @@ void if_case_57(void)
       printf("c2z_if.c case_57  fd3_type == 2 NOT CODED\n");
    }
     
+/*
    bol1 = 0;
    p = strstr(field4, "|");
    if(p)
@@ -26830,6 +26762,7 @@ void if_case_57(void)
    {
       bol1 = 2;
    }
+*/
 
    if(fd5_type == 1)
    {
@@ -26994,6 +26927,7 @@ void if_case_57(void)
      }
    }
 
+/*
    bol2 = 0;
    p = strstr(field8, "|");
    if(p)
@@ -27005,6 +26939,7 @@ void if_case_57(void)
    {
       bol2 = 2;
    }
+*/
 
    if(fd9_type == 1)
    {
@@ -27122,6 +27057,7 @@ void if_case_57(void)
       }
    }
 
+/*
    bol3 = 0;
    p = strstr(field12, "|");
    if(p)
@@ -27133,6 +27069,7 @@ void if_case_57(void)
    {
       bol3 = 2;
    }
+*/
 
    if(fd13_type == 1)
    {

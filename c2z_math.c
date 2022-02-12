@@ -26817,8 +26817,6 @@ void c2_math_800()
 3  587    c2z_math.c c2_math_5 field3 type == 1 #26L587E    DS    0H                                                       0002312
 */
 
-
-
   convert = 1;
   return;
 }
@@ -26831,19 +26829,12 @@ void c2_math_830()
    int x2 = 0;
    int x3;
    int x21;
-   int x100;
    int x101;
-   int x102;
    int I;
    int ret;
-   int ret1;
 
-   int fd1_type;
    int fd2_type;
    int fd3_type;
-   int fd4_type;
-   int fd5_type;
-   int fd6_type;
 
   char ch;
   char field1[VAR_LGTH];
@@ -26853,10 +26844,7 @@ void c2_math_830()
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
-  char field5a[VAR_LGTH];
-  char field6[VAR_LGTH];
 
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
@@ -26876,29 +26864,9 @@ void c2_math_830()
     ch = p_string[pi];
   }
 
-  x2 = 0;
-  fd1_type = 0;
   pi2 = 0;
   while(ch != '[')
   {
-    if (x2 == 0) 
-    {
-      if(ch == '\'')
-      {
-        fd1_type = 0;
-        x2 = 1;
-      }
-      if (isdigit(ch)) 
-      {
-        fd1_type = 1;
-        x2 = 1;
-      }
-      if (isalpha(ch)) 
-      {
-        fd1_type = 2;
-        x2 = 1;
-      }
-    }
     field1[pi2] = ch;
     pi2++;
     pi++;
@@ -26972,31 +26940,11 @@ void c2_math_830()
   field3[pi2] = '\0';
 
   pi2 = 0;
-  x2 = 0;
-  fd4_type = 0;
   pi++;
   pi++;
   ch = p_string[pi];
   while(ch != ']')
   {
-    if (x2 == 0) 
-    {
-      if(ch == '\'')
-      {
-        fd4_type = 0;
-        x2 = 1;
-      }
-      if (isdigit(ch)) 
-      {
-        fd4_type = 1;
-        x2 = 1;
-      }
-      if (isalpha(ch)) 
-      {
-        fd4_type = 2;
-        x2 = 1;
-      }
-    }
     field4[pi2] = ch;
     pi2++;
     pi++;
@@ -27021,29 +26969,9 @@ void c2_math_830()
   }
 
   pi2 = 0;
-  x2 = 0;
-  fd5_type = 0;
   ch = p_string[pi];
   while(ch != ';')
   {
-    if (x2 == 0) 
-    {
-      if(ch == '\'')
-      {
-        fd5_type = 0;
-        x2 = 1;
-      }
-      if (isdigit(ch)) 
-      {
-        fd5_type = 1;
-        x2 = 1;
-      }
-      if (isalpha(ch)) 
-      {
-        fd5_type = 2;
-        x2 = 1;
-      }
-    }
     field5[pi2] = ch;
     pi2++;
     pi++;
@@ -27084,7 +27012,6 @@ void c2_math_830()
         strcpy(ar_field12, gw_variable[I].gv_st_col);
         x101 = gw_variable[I].gv_lgth;
         x101 = x101 - 1;
-        x102 = gw_variable[I].gv_column;
       }
     }
   }
@@ -27101,7 +27028,6 @@ void c2_math_830()
       {
         x3 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -27142,7 +27068,6 @@ void c2_math_830()
       {
         x3 = 1;
         strcpy(field3a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -27717,15 +27642,12 @@ printf("\nc2_math_820 rct = %d p_string = %s",rct,p_string);
    int x3;
    int I;
    int ret;
-   int ret1;
-   int x100;
    int x102;
    int x101;
 
    int fd1_type;
    int fd2_type;
    int fd3_type;
-   int fd4_type;
    int fd5_type;
    int fd6_type;
 
@@ -27736,8 +27658,6 @@ printf("\nc2_math_820 rct = %d p_string = %s",rct,p_string);
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
-  char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
   char field5a[VAR_LGTH];
   char field6[VAR_LGTH];
@@ -27856,38 +27776,14 @@ printf("\nc2_math_820 rct = %d p_string = %s",rct,p_string);
   }
   field3[pi2] = '\0';
 
-  pi2 = 0;
-  x2 = 0;
-  fd4_type = 0;
   pi++;
   pi++;
   ch = p_string[pi];
   while(ch != ']')
   {
-    if (x2 == 0) 
-    {
-      if(ch == '\'')
-      {
-        fd4_type = 0;
-        x2 = 1;
-      }
-      if (isdigit(ch)) 
-      {
-        fd4_type = 1;
-        x2 = 1;
-      }
-      if (isalpha(ch)) 
-      {
-        fd4_type = 2;
-        x2 = 1;
-      }
-    }
-    field4[pi2] = ch;
-    pi2++;
     pi++;
     ch = p_string[pi];
   }
-  field4[pi2] = '\0';
 
   pi++;
   ch = p_string[pi];
@@ -28020,7 +27916,6 @@ printf("c2z_math.c math_820 rct = %d fd1_type = %d field1 = %s field1a = %s fd1_
       {
         x3 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -28047,10 +27942,7 @@ printf("c2z_math.c math_820 rct = %d fd1_type = %d field1 = %s field1a = %s fd1_
       convert = 1;
       return;
     }
-printf("c2z_math.c math_820 rct = %d fd2_type = %d field2 = %s field2a = %s\n",rct,fd2_type,field2,field2a);
-
   }
-printf("c2z_math.c math_820 rct = %d fd2_type = %d field2 = %s\n",rct,fd2_type,field2);
 
   if(fd3_type == 2)
   {
@@ -28064,7 +27956,6 @@ printf("c2z_math.c math_820 rct = %d fd2_type = %d field2 = %s\n",rct,fd2_type,f
       {
         x3 = 1;
         strcpy(field3a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -28091,14 +27982,7 @@ printf("c2z_math.c math_820 rct = %d fd2_type = %d field2 = %s\n",rct,fd2_type,f
       convert = 1;
       return;
     }
-printf("c2z_math.c math_820 rct = %d fd3_type = %d field3 = %s field3a = %s\n",rct,fd3_type,field3,field3a);
-
   }
-
-printf("c2z_math.c math_820 rct = %d fd4_type = %d field4 = %s\n",rct,fd4_type,field4);
-
-
-
 
   if(fd5_type == 2)
   {
@@ -28112,7 +27996,6 @@ printf("c2z_math.c math_820 rct = %d fd4_type = %d field4 = %s\n",rct,fd4_type,f
       {
         x3 = 1;
         strcpy(field5a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -28139,11 +28022,7 @@ printf("c2z_math.c math_820 rct = %d fd4_type = %d field4 = %s\n",rct,fd4_type,f
       convert = 1;
       return;
     }
-printf("c2z_math.c math_820 rct = %d fd5_type = %d field5 = %s field5a = %s\n",rct,fd5_type,field5,field5a);
-
   }
-
-
 
   if(fd6_type == 2)
   {
@@ -28157,7 +28036,6 @@ printf("c2z_math.c math_820 rct = %d fd5_type = %d field5 = %s field5a = %s\n",r
       {
         x3 = 1;
         strcpy(field6a, lw_variable[I].lv_cname);
-        x100 = lw_variable[I].lv_lgth;
       }
     }
 
@@ -29074,7 +28952,6 @@ void c2_math_603()
 
    int pi;
    int pi2;
-   int fd1_type;
    int fd2_type;
    int fd3_type;
    int fd5_type;
@@ -29094,8 +28971,6 @@ void c2_math_603()
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field3a[VAR_LGTH];
-  char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
   char field5a[VAR_LGTH];
 
@@ -29117,28 +28992,9 @@ void c2_math_603()
   }
 
   x2 = 0;
-  fd1_type = 0;
   pi2 = 0;
   while(ch != '[')
   {
-    if (x2 == 0) 
-    {
-      if(ch == '\'')
-      {
-        fd1_type = 0;
-        x2 = 1;
-      }
-      if (isdigit(ch)) 
-      {
-        fd1_type = 1;
-        x2 = 1;
-      }
-      if (isalpha(ch)) 
-      {
-        fd1_type = 2;
-        x2 = 1;
-      }
-    }
     field1[pi2] = ch;
     pi2++;
     pi++;
@@ -29219,16 +29075,12 @@ void c2_math_603()
     ch = p_string[pi];
   }
 
-  pi2 = 0;
   ch = p_string[pi];
   while(ch != ' ')
   {
-    field4[pi2] = ch;
-    pi2++;
     pi++;
     ch = p_string[pi];
   }
-  field4[pi2] = '\0';
 
   ch = p_string[pi];
   while(ch == ' ')
@@ -30304,7 +30156,6 @@ void c2_math_920(void)
    int x100;
    int x102;
    int ret;
-   int ret1;
 
    pi = 0;
    ch = p_string[pi];

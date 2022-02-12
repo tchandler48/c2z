@@ -606,7 +606,6 @@ void c2_return_2()
   int ret = 0;
   int pi;
   int pi2;
-  int x3 = 0;
 
   char ch;
   char *p1;
@@ -652,7 +651,6 @@ void c2_return_2()
     }
     field2[pi2] = '\0';
 
-    x3 = 0;
     if (fn_ct > 0) 
     {
       for (I = 0; I < fn_ct; I++) 
@@ -661,13 +659,10 @@ void c2_return_2()
         if (ret == 0) 
         {
           strcpy(w_function[I].fn_ret_var, field2);
-          x3 = 1;
         }
       }
     }
- 
   }
-
 
   convert = 1;
 }
@@ -6407,8 +6402,6 @@ void c2_pass2_if_13()
       ch = p_string[pi];
     }
     field3[pi2] = '\0';
-
-if_13_skip1:
 
     ch = p_string[pi];
     while (ch != '(') 
@@ -13828,7 +13821,6 @@ void c2_pass2_while_33()
 
   int pi;
   int pi2;
-  int x90;
   int size = 0;
   int s = 0;
 

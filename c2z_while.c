@@ -15527,7 +15527,6 @@ void c2_while_20() 				/* complex with strchr			*/
    char *p;
    char field1[VAR_LGTH];
    char field1a[VAR_LGTH];
-   char field2[VAR_LGTH];
    char field3[VAR_LGTH];
    char field3a[VAR_LGTH];
    char field4[VAR_LGTH];
@@ -15603,13 +15602,6 @@ void c2_while_20() 				/* complex with strchr			*/
      pi++;
      ch = p_string[pi];
    }
-
-   pi2 = 0;
-   pi++;
-   ch = p_string[pi];
-   field2[pi2] = ch;
-   pi2++;
-   field2[pi2] = '\0';
 
    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
    strcpy(a_string, "L");

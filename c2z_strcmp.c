@@ -571,14 +571,12 @@ void c2_strcmp_2() 					/*  x = strcmp(field1,field2[xx])		*/
    int pi2;
    int fd1_type;
    int fd2_type;
-   int fd3_type;
    int fd4_type;
    int I;
    int ret;
    int ret1;
    int x1;
-   int x50;
-
+ 
   char ch;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
@@ -756,7 +754,6 @@ void c2_strcmp_2() 					/*  x = strcmp(field1,field2[xx])		*/
         x1 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
         strcpy(field2b, lw_variable[I].lv_type);
-        x50 = lw_variable[I].lv_current_lgth;
       }
     }
 
@@ -770,8 +767,6 @@ void c2_strcmp_2() 					/*  x = strcmp(field1,field2[xx])		*/
           x1 = 1;
           strcpy(field2a, gw_variable[I].gv_cname);
           strcpy(field2b, gw_variable[I].gv_type);
-          x50 = gw_variable[I].gv_current_lgth;
-
         }
       }
     }
@@ -1149,8 +1144,6 @@ void c2_strcmp_2() 					/*  x = strcmp(field1,field2[xx])		*/
     strcpy(while_array_table, field7);
 
     convert = 1;
-    x50 = 1;
- 
 }
 
 void c2_strcmp_3() 					/* xtest = strcmp(array2[pi],gtl_holder	*/
