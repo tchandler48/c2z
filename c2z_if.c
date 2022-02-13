@@ -6213,7 +6213,6 @@ void if_case_8()
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field4[VAR_LGTH];
   char field5[VAR_LGTH];
   char field5a[VAR_LGTH];
 
@@ -6383,12 +6382,10 @@ void if_case_8()
           x2 = 1;
         }
       }
-      field4[pi2] = ch;
-      pi2++;
       pi++;
       ch = p_string[pi];
     }
-    field4[pi2] = '\0';
+    
 
     operand_1 = 0;
     if (operand_1 == 0) 
@@ -7983,7 +7980,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
     trace_rec_1();
   }
 
-   int fd2_type = 0;
    int fd3_type = 0;
    int fd4_type = 0;
    int fd5_type = 0;
@@ -8005,8 +8001,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
    int y3;
    int y4;
    int y5;
-   int y6;
-   int y6a;
 
   char *p;
   char ch;
@@ -8079,11 +8073,6 @@ void if_case_11() 					/*	if(in_stack[ndx][0] == '\0' 	*/
       {
         y5++;
       }
-      if(ch == '=')
-      {
-        y6++;
-        y6a = pi;
-      }
       pi++;
       ch = p_string[pi];
     }
@@ -8116,26 +8105,10 @@ printf("\nc2z_if.c rct = %d p_string = %s\n",rct,p_string);
       field1[pi2] = '\0';
 
       pi2 = 0;
-      x2 = 0;
-      fd2_type = 0;
       pi++;
       ch = p_string[pi];
       while(ch != ']')
       {
-        if (x2 == 0) 
-        {
-          if (isalpha(ch)) 
-          {
-            x2 = 1;
-            fd2_type = 2;
-          }
-
-          if (isdigit(ch)) 
-          {
-            x2 = 1;
-            fd2_type = 1;
-          }
-        }
         field2[pi2] = ch;
         pi2++;
         pi++;
@@ -22152,12 +22125,9 @@ void if_case_49()
    int I;
    int ret;
    int ret1;
-   int x100;
    int x101;
    int x102;
 
-   int fd2_type;
-   int fd3_type;
    int fd5_type;
 
    pi = 0;
@@ -22197,26 +22167,11 @@ void if_case_49()
    field1[si] = '\0';
 
    si = 0;
-   x2 = 0;
-   fd2_type = 0;
+ 
    pi++;
    ch = p_string[pi];
    while(ch != ']')
    {
-     if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd2_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd2_type = 2;
-         x2 = 1;
-       }
-     }
      field2[si] = ch;
      si++;
      pi++;
@@ -22225,27 +22180,11 @@ void if_case_49()
    field2[si] = '\0';
 
    si = 0;
-   fd3_type = 0;
-   x2 = 0;
    pi++;
    pi++;
    ch = p_string[pi];
    while(ch != ']')
    {
-     if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd3_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd3_type = 2;
-         x2 = 1;
-       }
-     }
      field3[si] = ch;
      si++;
      pi++;
@@ -22322,7 +22261,6 @@ void if_case_49()
            strcpy(ar_field9, gw_variable[I].gv_sv_reg);
            strcpy(ar_field10, gw_variable[I].gv_wk_reg);
            strcpy(ar_field11, gw_variable[I].gv_wk_strg);
-           x100 = gw_variable[I].gv_row;
            x101 = gw_variable[I].gv_column;
            x102 = gw_variable[I].gv_lgth;
            break;
@@ -23291,7 +23229,6 @@ void if_case_51()
 
   char ch;
   char *p;
-  char field1[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
@@ -23317,14 +23254,7 @@ void if_case_51()
    int I;
    int ret;
    int ret1;
-   int x100;
-   int x101;
 
-   int fd1_type;
-   int fd3_type;
-   int fd4_type;
-   int fd5_type;
- 
    pi = 0;
    ch = p_string[pi];
    while(ch != '(')
@@ -23333,34 +23263,14 @@ void if_case_51()
      ch = p_string[pi];
    }
 
-   si = 0;
-   fd1_type = 0;
    pi++;
    ch = p_string[pi];
    while(ch != ' ')
    {
-   if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd1_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd1_type = 2;
-         x2 = 1;
-       }
-     }
-
-     field1[si] = ch;
-     si++;
      pi++;
      ch = p_string[pi];
    }
-   field1[si] = '\0';
-
+  
    while(ch == ' ')
    {
      pi++;
@@ -23385,26 +23295,9 @@ void if_case_51()
    }
 
    si = 0;
-   fd3_type = 0;
-   x2 = 0;
    ch = p_string[pi];
    while(ch != '[')
    {
-     if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd3_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd3_type = 2;
-         x2 = 1;
-       }
-     }
-
      field3[si] = ch;
      si++;
      pi++;
@@ -23413,26 +23306,10 @@ void if_case_51()
    field3[si] = '\0';
 
    si = 0;
-   x2 = 0;
-   fd4_type = 0;
    pi++;
    ch = p_string[pi];
    while(ch != ']')
    {
-     if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd4_type = 1;
-         x2 = 1;
-       }
-
-       if (isalpha(ch)) 
-       {
-         fd4_type = 2;
-         x2 = 1;
-       }
-     }
      field4[si] = ch;
      si++;
      pi++;
@@ -23441,30 +23318,14 @@ void if_case_51()
    field4[si] = '\0';
 
    si = 0;
-   x2 = 0;
-   fd5_type = 0;
    pi++;
    ch = p_string[pi];
    while(ch != ']')
    {
      if(ch != '[')
      {
-       if (x2 == 0) 
-       {
-         if (isdigit(ch)) 
-         {
-           fd5_type = 1;
-           x2 = 1;
-         }
-
-       if (isalpha(ch)) 
-       {
-         fd5_type = 2;
-         x2 = 1;
-       }
-     }
-     field5[si] = ch;
-     si++;
+       field5[si] = ch;
+       si++;
      }
      pi++;
      ch = p_string[pi];
@@ -23500,8 +23361,6 @@ void if_case_51()
            x2 = 1;
            strcpy(field4a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
-           x100 = gw_variable[I].gv_row;
-           x101 = gw_variable[I].gv_column;
            break;
          }
        }

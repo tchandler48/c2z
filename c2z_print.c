@@ -148,8 +148,8 @@ printf("\nc2z_print.c #99 ptr_type = %d rct = %d p_string = %s\n",ptr_type,rct,p
 /*       0     ,     2          0		 1     c2_printf_str1             */
 /*       0     ,     0          0		 1     c2_printf_str2             */
 /*	  0     ,     2          1          1	c2_printf_str3	      */
-/*       0     ,     2          0		 2     c2_printf_dec1             */
-/*       0     ,     4          -          2     c2_printf_dec2             */
+/*       0     ,     2          0		 2     c2_printf_dec1                                                      */
+/*       0     ,     4          -          2     c2_printf_dec2   printf("spreadsheet = %d\n",spreadsheet[i9][jj]);  */
 /*       0     ,     4          0          1     c2_printf_str4             */
 /*                                            				      */
 /*  Literal only     ptr_type = 0             				      */
@@ -4855,6 +4855,7 @@ void c2_sprintf(void)
        }
      }
 
+     pf1 = 0;
      for (I = 0; I < lv_ct; I++) 
      {
        ret = strcmp(field2, lw_variable[I].lv_name);
@@ -4964,6 +4965,15 @@ void c2_sprintf(void)
        convert = 1;
        return;
      }
+
+/*
+printf("\nc2z_print.c case_803 rct = %d p_string = %s",rct,p_string);
+printf("c2z_print.c case_803 field1 = %s\n",field1);
+printf("c2z_print.c case_803 field2 = %s\n",field2);
+printf("c2z_print.c case_803 field3 = %s\n",field3);
+printf("c2z_print.c case_803 field4 = %s\n",field4);
+printf("c2z_print.c case_803 field5 = %s\n",field5);
+*/
 
 /*  find displacement in array  */
 
@@ -6290,17 +6300,6 @@ void c2_printf_dec2()
     pi++;
     ch = p_string[pi];
   }
-
-  pi2 = 0;
-  ch = p_string[pi];
-  while(ch != ' ')
-  {
-    field4[pi2] = ch;
-    pi2++;
-    pi++;
-    ch = p_string[pi];
-  }
-  field4[pi2] = '\0';
 
   strcpy(field4, "L");
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);

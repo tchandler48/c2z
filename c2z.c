@@ -31,16 +31,17 @@
 
 /* 	       c2z_atof.c		*/
 	void c2_atof(void);
-       void c2_atof_punch(void);
+       void c2_atof_00(void);
+       void c2_atof_11(void);
+       void c2_atof_22(void);
 
 
 /* 	       c2z_atoi.c		*/
 	void c2_atoi(void);
+       void c2_atoi_00(void);
+       void c2_atoi_11(void);
+       void c2_atoi_22(void);
 
-
-/* 	       c2z_atof.c		*/
-	void c2_atof(void);
-       void c2_atof_punch(void);
 
 /* 	       c2z_atol.c		*/
 	void c2_atol(void);
@@ -138,6 +139,7 @@
 	void c2_for(void);
        void c2_for_022(void);
        void c2_for_023(void);
+	void c2_for_222(void);
 
 
 /*		c2z_fputs.c		*/
@@ -5424,7 +5426,7 @@ int main(int argc, char *argv[])
         printf("c2z.c Pass 2 rct = %d c2_atof #100\n", rct);
       }
 
-      c2_atof();
+      /* c2_atof(); */
       convert = 1;
     }
 
@@ -9379,10 +9381,10 @@ int main(int argc, char *argv[])
     {
       if (debug_lv >= 2) 
       {
-        printf("c2z.c Pass 3 rct = %d c2_atof_punch #100\n", rct);
+        printf("c2z.c Pass 3 rct = %d c2_atof #100\n", rct);
       }
 
-      c2_atof_punch();
+      c2_atof();
       var_use[13]++;
       convert = 1;
       if (return_on == 1) 

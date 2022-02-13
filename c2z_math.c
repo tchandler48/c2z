@@ -26824,6 +26824,12 @@ void c2_math_800()
 
 void c2_math_830()
 {
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_math.c c2_math_830 START");
+    trace_rec_1();
+  }
+
    int pi;
    int pi2;
    int x2 = 0;
@@ -26837,6 +26843,7 @@ void c2_math_830()
    int fd3_type;
 
   char ch;
+  char *p;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
@@ -27594,27 +27601,49 @@ printf("c2z_math.c math_830 rct = %d fd5_type = %d field5 = %s \n",rct,fd5_type,
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LARL  R7,");
-  strcat(a_string, field5);
-  strcpy(wk_remark, " ");
-  strcat(wk_remark, field5);
-  strcat(wk_remark, " */");
-  write_remark();
-  if (puncde == 1) 
+  p = strstr(field5, "\0");
+ 
+  if(p)
   {
-    strcpy(trace_1, "c2z_math.c math_830 #46");
-    trace_rec_3();
+    strcpy(a_string, "         LARL  R7,C370EOF");
+    src_line();
+
+    strcpy(a_string, "         MVC   ");
+    strcat(a_string, "0(");
+    strcat(a_string, "1,R6),0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #46b");
+      trace_rec_3();
+    }
+  }
+ 
+  if(!p)
+  {
+    strcpy(a_string, "         LARL  R7,");
+    strcat(a_string, field5);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c math_830 #46c");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         MVC   ");
+    strcat(a_string, "0(");
+    strcat(a_string, "1,R6),0(R7)");
+    src_line();
+    if (puncde == 1) 
+    { 
+      strcpy(trace_1, "c2z_math.c math_830 #46d");
+      trace_rec_3();
+    }
   }
     
-  strcpy(a_string, "         MVC   ");
-  strcat(a_string, "0(");
-  strcat(a_string, "1,R6),0(R7)");
-  src_line();
-  if (puncde == 1) 
-  { 
-    strcpy(trace_1, "c2z_math.c math_830 #47");
-    trace_rec_3();
-  }
 
   strcpy(a_string, "*");
   src_line();

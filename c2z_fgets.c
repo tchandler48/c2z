@@ -826,14 +826,12 @@ void c2_gets()
   int pi2;
   int I = 0;
   int x = 0;
-  int x1 = 0;
   int x5 = 0;
   int x6 = 0;
   int ret = 0;
   int ret1 = 0;
 
   x = 1;
-  x1 = 2;
   
   if (x == 0) 
   {
