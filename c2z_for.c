@@ -2753,7 +2753,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #10e");
+        strcpy(trace_1, "c2z_for.c #2212");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -2762,7 +2762,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #10f");
+        strcpy(trace_1, "c2z_for.c #2213");
         trace_rec_3();
       }
     }
@@ -2772,7 +2772,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_for.c #11");
+    strcpy(trace_1, "c2z_for.c #2214");
     trace_rec_3();
   }
  
@@ -2780,7 +2780,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_for.c #12");
+    strcpy(trace_1, "c2z_for.c #2215");
     trace_rec_3();
   }
   work_use_ct[78]++;
@@ -2789,7 +2789,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_for.c #13");
+    strcpy(trace_1, "c2z_for.c #2216");
     trace_rec_3();
   }
   work_use_ct[32]++;
@@ -2798,18 +2798,12 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_for.c #14");
+    strcpy(trace_1, "c2z_for.c #2217");
     trace_rec_3();
   }
 
   if (for_opr == 1) 
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_for.c c2_for subroutine #4");
-      trace_rec_1();
-    }
-
     if (fd1_type == 1) 
     {
       strcpy(a_string, "         LARL  R9,");
@@ -2820,15 +2814,15 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #15");
+        strcpy(trace_1, "c2z_for.c #2218");
         trace_rec_3();
       }
     }
 
     if (fd1_type == 2) 
     {
-      printf("\nc2z_for.c c2_for E-66 fd1_type == 2 NOT Coded\n");
-      printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_for.c c2_for_022 E-66 fd1_type == 2 NOT Coded\n");
+      printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -2836,8 +2830,8 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
 
     if (fd2_type == 1) 
     {
-      printf("\nc2z_for.c c2_for E-67 fd1_type == 1 NOT Coded\n");
-      printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_for.c c2_for_022 E-67 fd1_type == 1 NOT Coded\n");
+      printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -2846,12 +2840,12 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     if (fd2_type == 2) 
     {
       x = 0;
-      strcpy(a_string, "         LA     R5,");
+      strcpy(a_string, "         LAEY   R5,");
       strcat(a_string, tfield2);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #16");
+        strcpy(trace_1, "c2z_for.c #2219");
         trace_rec_3();
       }
 
@@ -2863,7 +2857,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #17");
+        strcpy(trace_1, "c2z_for.c #2220");
         trace_rec_3();
       }
     }
@@ -2873,7 +2867,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #18");
+      strcpy(trace_1, "c2z_for.c #2221");
       trace_rec_3();
     }
 
@@ -2891,8 +2885,8 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
 
   if (for_opr == 3) 
   {
-    printf("\nc2z_for.c c2_for E-68 for_opr == 3 NOT CODED\n");
-    printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_for.c c2_for_022 E-68 for_opr == 3 NOT CODED\n");
+    printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -2909,7 +2903,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #19");
+      strcpy(trace_1, "c2z_for.c #2222");
       trace_rec_3();
     }
 
@@ -2923,7 +2917,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #20a");
+        strcpy(trace_1, "c2z_for.c #2223");
         trace_rec_3();
       }
       strcpy(sv_for_incr, tfield3a);
@@ -2940,7 +2934,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #20b");
+        strcpy(trace_1, "c2z_for.c #2224");
         trace_rec_3();
       }
       strcpy(sv_for_incr, tfield3a);
@@ -2958,7 +2952,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #21");
+        strcpy(trace_1, "c2z_for.c #2225");
         trace_rec_3();
       }
 
@@ -2966,7 +2960,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #22");
+        strcpy(trace_1, "c2z_for.c #2226");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -2975,7 +2969,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #23");
+        strcpy(trace_1, "c2z_for.c #2227");
         trace_rec_3();
       }
 
@@ -2983,7 +2977,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #24");
+        strcpy(trace_1, "c2z_for.c #2228");
         trace_rec_3();
       }
       work_use_ct[104]++;
@@ -2992,7 +2986,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #25");
+        strcpy(trace_1, "c2z_for.c #2229");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -3001,10 +2995,9 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #26");
+        strcpy(trace_1, "c2z_for.c #2230");
         trace_rec_3();
       }
-
       x = 1;
     }
 
@@ -3014,7 +3007,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #27a");
+        strcpy(trace_1, "c2z_for.c #2231");
         trace_rec_3();
       }
     }
@@ -3029,7 +3022,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #27b");
+        strcpy(trace_1, "c2z_for.c #2232");
         trace_rec_3();
       }
     }
@@ -3038,7 +3031,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #28");
+      strcpy(trace_1, "c2z_for.c #2233");
       trace_rec_3();
     }
 
@@ -3048,7 +3041,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #29");
+      strcpy(trace_1, "c2z_for.c #2234");
       trace_rec_3();
     }
 
@@ -3058,18 +3051,16 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #30");
+      strcpy(trace_1, "c2z_for.c #2235");
       trace_rec_3();
     }
   }
 
   if (for_opr == 5) 
   {
-
     if (fd3_type == 1)
     {
 	printf("c2z_for fd3_type NOT CODED\n");
-
     }
 
     if (fd3_type == 2) 
@@ -3082,7 +3073,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #31");
+        strcpy(trace_1, "c2z_for.c #2236");
         trace_rec_3();
       }
     }
@@ -3097,7 +3088,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #32");
+        strcpy(trace_1, "c2z_for.c #2237");
         trace_rec_3();
       }
     }
@@ -3129,7 +3120,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
         src_line();
         if (puncde == 1) 
         {
-           strcpy(trace_1, "c2z_for.c #33");
+           strcpy(trace_1, "c2z_for.c #2238");
            trace_rec_3();
         }
       }
@@ -3139,7 +3130,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #34");
+        strcpy(trace_1, "c2z_for.c #2239");
         trace_rec_3();
       }
     }
@@ -3148,7 +3139,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #37");
+      strcpy(trace_1, "c2z_for.c #2240");
       trace_rec_3();
     }
 
@@ -3158,7 +3149,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #38");
+      strcpy(trace_1, "c2z_for.c #2241");
       trace_rec_3();
     }
   }
@@ -3170,7 +3161,6 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     if (fd5_type == 2) 
     {
       x = 0;
-
       strcpy(a_string, "         LAEY  R5,");
       strcat(a_string, tfield5);
       strcpy(wk_remark, " ");
@@ -3179,7 +3169,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #40");
+        strcpy(trace_1, "c2z_for.c #2242");
         trace_rec_3();
       }
 
@@ -3187,7 +3177,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #41");
+        strcpy(trace_1, "c2z_for.c #2243");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -3196,7 +3186,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #42");
+        strcpy(trace_1, "c2z_for.c #2244");
         trace_rec_3();
       }
 
@@ -3215,7 +3205,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #43");
+        strcpy(trace_1, "c2z_for.c #2245");
         trace_rec_3();
       }
       work_use_ct[95]++;
@@ -3224,7 +3214,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #44");
+        strcpy(trace_1, "c2z_for.c #2246");
         trace_rec_3();
       }
       work_use_ct[48]++;
@@ -3233,10 +3223,9 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #45");
+        strcpy(trace_1, "c2z_for.c #2247");
         trace_rec_3();
       }
-
       x = 1;
     }
 
@@ -3250,7 +3239,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #46");
+        strcpy(trace_1, "c2z_for.c #2248");
         trace_rec_3();
       }
     }
@@ -3264,7 +3253,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #57");
+      strcpy(trace_1, "c2z_for.c #2249");
       trace_rec_3();
     }
 
@@ -3276,7 +3265,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #58");
+      strcpy(trace_1, "c2z_for.c #2250");
       trace_rec_3();
     }
 
@@ -3287,7 +3276,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #59");
+        strcpy(trace_1, "c2z_for.c #2251");
         trace_rec_3();
       }
     }
@@ -3302,7 +3291,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #60");
+        strcpy(trace_1, "c2z_for.c #2252");
         trace_rec_3();
       }
     }
@@ -3311,7 +3300,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #61");
+      strcpy(trace_1, "c2z_for.c #2253");
       trace_rec_3();
     }
 
@@ -3321,7 +3310,7 @@ printf("c2z_for.c #7 tfield7 = %s\n",tfield7);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #62");
+      strcpy(trace_1, "c2z_for.c #2254");
       trace_rec_3();
     }
   }
@@ -3352,6 +3341,8 @@ void c2_for_222()
    int operand_1;
    int operand_2;
    int operand_3;
+   int y50;
+   int y51;
 
   char ch;
   char *p;
@@ -3620,7 +3611,7 @@ void c2_for_222()
   }
   field9[pi2] = '\0';
 
-
+/*
 printf("\nc2z_for.c case_222 rct = %d p_string = %s",rct,p_string);
 printf("c2z_for.c case_222 field1 = %s fd1_type = %d\n",field1,fd1_type);
 printf("c2z_for.c case_222 field2 = %s\n",field2);
@@ -3631,7 +3622,7 @@ printf("c2z_for.c case_222 field6 = %s\n",field6);
 printf("c2z_for.c case_222 field7 = %s fd7_type = %d\n",field7,fd7_type);
 printf("c2z_for.c case_222 field8 = %s fd8_type = %d\n",field8,fd8_type);
 printf("c2z_for.c case_222 field9 = %s\n",field9);
-
+*/
 
   if(fd1_type == 1)
   {
@@ -3736,8 +3727,6 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     }
   }
 
-printf("c2z_for.c case_222 field2 = %s operand_1 = %d\n",field2,operand_1);
-
   x3 = 0;
   if(fd3_type == 1)
   {
@@ -3779,6 +3768,8 @@ printf("c2z_for.c case_222 field2 = %s operand_1 = %d\n",field2,operand_1);
 
   if(fd4_type == 1)
   {
+    y50 = 0;
+    y51 = 0;
     x3 = 0;
     for (I = 0; I < lv_ct; I++) 
     {
@@ -3789,6 +3780,17 @@ printf("c2z_for.c case_222 field2 = %s operand_1 = %d\n",field2,operand_1);
         x3 = 1;
         strcpy(field4a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+
+        y50 = strcmp(lw_variable[I].lv_type, "I");
+        if(y50 == 0)
+        {
+          y51 = 1;
+        }
+        y50 = strcmp(lw_variable[I].lv_type, "C");
+        if(y50 == 0)
+        {
+          y51 = 2;
+        }
       }
     }
 
@@ -3802,6 +3804,16 @@ printf("c2z_for.c case_222 field2 = %s operand_1 = %d\n",field2,operand_1);
            x3 = 1;
            strcpy(field4a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           y50 = strcmp(lw_variable[I].lv_type, "I");
+           if(y50 == 0)
+           {
+             y51 = 1;
+           }
+           y50 = strcmp(lw_variable[I].lv_type, "C");
+           if(y50 == 0)
+           {
+             y51 = 2;
+           }
         }
       }
     }
@@ -3919,8 +3931,6 @@ printf("c2z_for.c case_222 field2 = %s operand_1 = %d\n",field2,operand_1);
     }
   }
 
-printf("c2z_for.c case_222 field6 = %s operand_2 = %d\n",field6,operand_2);
-
   if(fd7_type == 0)
   {
     printf("c2z_for.c case_222 fd7_type == 0 NOT CODED\n");
@@ -4024,8 +4034,6 @@ printf("c2z_for.c case_222 field6 = %s operand_2 = %d\n",field6,operand_2);
     }
   }
 
-printf("c2z_for.c case_222 field9 = %s operand_3 = %d\n",field9,operand_3);
-
   v = 0;
   for (v = 0; v < for_ct; v++) 
   {
@@ -4034,7 +4042,6 @@ printf("c2z_for.c case_222 field9 = %s operand_3 = %d\n",field9,operand_3);
       strcpy(w_for_table[v].for_rt_field, field8a);
     }
   }
-
 
   strcpy(a_string, "         LARL  R9,C370LPCT");
   src_line();
@@ -4091,14 +4098,83 @@ printf("c2z_for.c case_222 field9 = %s operand_3 = %d\n",field9,operand_3);
     trace_rec_3();
   }
 
+  strcpy(a_string, "         LARL  R9,C370NWK3");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_for.c #22207");
+    trace_rec_3();
+  }
+  work_use_ct[78]++;
 
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_for.c #22208");
+    trace_rec_3();
+  }
+  work_use_ct[32]++;
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcpy(a_string, "L");
-    strcat(a_string, wk_strg);
-    strcpy(while_tag, a_string);
-    check_length();
-    strcat(a_string, "DS    0H");
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_for.c #22209");
+    trace_rec_3();
+  }
+
+  snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+  strcpy(a_string, "L");
+  strcat(a_string, wk_strg);
+  strcpy(while_tag, a_string);
+  check_length();
+  strcat(a_string, "DS    0H");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_for.c #22210");
+    trace_rec_3();
+  }
+
+  if(y51 == 1)		/* numeric compare condition */ /* for(i = 0; str[i] != '\0'; i++) */
+  {
+    printf("c2z_for.c case_222 y51 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+/*
+3  53     c2z_for.c #21                            LAEY  R5,5                            5                    0001975
+3  53     c2z_for.c #22                            LARL  R8,C370U                                                 0001976
+3  53     c2z_for.c #23                            CVD   R5,0(R8)                                                 0001977
+3  53     c2z_for.c #24                            LARL  R8,C370NCVT                                              0001978
+3  53     c2z_for.c #25                            LARL  R7,C370U                                                 0001979
+3  53     c2z_for.c #26                            ZAP   0(6,R8),0(8,R7)                                          0001980
+*/
+  }
+
+  if(y51 == 2)		/* character compare condition */ /* for(i = 0; str[i] != '\0'; i++) */
+  {
+    strcpy(a_string, "         LARL  R9,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field5a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field5);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxxx");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(8,R9),2(4,R8)");
     src_line();
     if (puncde == 1) 
     {
@@ -4106,34 +4182,155 @@ printf("c2z_for.c case_222 field9 = %s operand_3 = %d\n",field9,operand_3);
       trace_rec_3();
     }
 
+    strcpy(a_string, "         LARL  R9,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         CVB   R5,0(R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field4a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field4);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxxx");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         IC    R0,0(R8,(R5))");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370L1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+    work_use_ct[2]++;
+
+    strcpy(a_string, "         STC   R0,0(0,R9)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+  }
+
+  if(y51 == 1)		/* numeric */
+  {
 /*
-3  53     c2z_for.c c2_for_022 START                                    for(I = 0; I < 5; I++)
-3  53     c2z_for.c #12                            LARL  R9,C370NWK3                                              0001970
-3  53     c2z_for.c #13                            LARL  R8,C370ZERO                                              0001971
-3  53     c2z_for.c #14                            ZAP   0(6,R9),0(6,R8)                                          0001972
-3  53     c2z_for.c #19                   L53      DS    0H                                                       0001973
-3  53     c2z_for.c #20a                           LARL  R9,C37F6                        I                    0001974
-3  53     c2z_for.c #21                            LAEY  R5,5                            5                    0001975
-3  53     c2z_for.c #22                            LARL  R8,C370U                                                 0001976
-3  53     c2z_for.c #23                            CVD   R5,0(R8)                                                 0001977
-3  53     c2z_for.c #24                            LARL  R8,C370NCVT                                              0001978
-3  53     c2z_for.c #25                            LARL  R7,C370U                                                 0001979
-3  53     c2z_for.c #26                            ZAP   0(6,R8),0(8,R7)                                          0001980
-3  53     c2z_for.c #27a                           LARL  R8,C370NCVT                                              0001981
-3  53     c2z_for.c #28                            CP    0(6,R9),0(6,R8)                                          0001982
-3  53     c2z_for.c #29                            JLH   L53E                                                     0001983
-3  53     c2z_for.c #30                            JLE   L53E                                                     0001984
-
+   LARL  R9,C37F6                        I                    
+   LARL  R8,C370NCVT                                              
+   CP    0(6,R9),0(6,R8)                                          
 */
+  }
 
-    strcpy(w_for_table[v].for_rt_field, field8a);
+  if(y51 == 2)		/* character */
+  {
+    p = strstr(field7, "\0");
+    if(p)
+    {
+      strcpy(a_string, "         LARL  R9,C370L1");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_for.c #xxxx");
+        trace_rec_3();
+      }
+      work_use_ct[2]++;
 
+      strcpy(a_string, "         LARL  R8,C370EOF");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_for.c #xxxx");
+        trace_rec_3();
+      }
+      work_use_ct[74]++;
 
-    strcpy(sv_for_incr, field8a);
+      strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_for.c #xxxx");
+        trace_rec_3();
+      }
+    }
+  }
 
+  if(operand_2 == 1)
+  {
+    printf("c2z_for.c case_222 operand_2 = 1 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+  }
 
+  if(operand_2 == 2)
+  {
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcpy(a_string, "         JLE   L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "E");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_for.c #xxxx");
+      trace_rec_3();
+    }
+  }
 
+  if(operand_2 == 3)
+  {
+    printf("c2z_for.c case_222 operand_2 = 3 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+  }
 
+  if(operand_2 == 4)
+  {
+    printf("c2z_for.c case_222 operand_2 = 4 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+  }
+
+  if(operand_2 == 5)
+  {
+    printf("c2z_for.c case_222 operand_2 = 5 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+  }
+
+  if(operand_2 == 6)
+  {
+    printf("c2z_for.c case_222 operand_2 = 6 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+  }
+
+  if(operand_2 == 7)
+  {
+    printf("c2z_for.c case_222 operand_2 = 7 NOT CODED\n");
+    printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
+  }
+
+  strcpy(w_for_table[v].for_rt_field, field8a);
+  strcpy(sv_for_incr, field8a);
 }
 
 

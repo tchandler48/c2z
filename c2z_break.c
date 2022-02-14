@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_break.c :                               *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 /* ***************************************************
@@ -13,6 +13,13 @@ void c2_break(void)
   {
     printf("c2z_break.c c2_break rct = %d START\n", rct);
   }
+
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_break.c c2_break START");
+    trace_rec_1();
+  }
+
 
   strcpy(a_string, "         JLU   ");
   strcat(a_string, sw_tag);

@@ -22,8 +22,6 @@ void c2_case(void)
     trace_rec_1();
   }
 
-  /* pgm_label(); */
-
   char ch;
   char *p1;
   char field1[VAR_LGTH];

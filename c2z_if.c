@@ -34,6 +34,8 @@ void c2_if(void)
   int x97 = 0;
   int x98 = 0;
   int x99 = 0;
+  int x100 = 0;
+  int x101 = 0;
 
   if_opr = 0;
   convert = 0;
@@ -185,24 +187,48 @@ void c2_if(void)
     {
       x96++;
     }
+
     if(ch == '>')
     {
       x96++;
     }
+
     if(ch == '!')
     {
       x96++;
     }
+
     if(ch == ',')
     {
       x90++;
     }
   }
 
+  p = strstr(p_string, "&&");
+  if(p)
+  {
+    x100++;
+  }
+
+  p = strstr(p_string, "||");
+  if(p)
+  {
+    x101++;
+  }
 
 /*
-printf("c2z_if.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_if.c x98 = %d bracket_ct = %d if_opr = %d if_complex = %d x95 = %d x96 = %d x91 = %d x92 = %d x90 = %d\n",x98,bracket_ct,if_opr,if_complex,x95,x96,x91,x92,x90);  
+printf("\nc2z_if.c rct = %d p_string = %s",rct,p_string);
+printf("c2z_if.c )       x98 = %d\n",x98);
+printf("c2z_if.c []      bracket_ct = %d\n",bracket_ct);
+printf("c2z_if.c         if_opr = %d\n",if_opr);
+printf("c2z_if.c         if_complex = %d\n",if_complex);
+printf("c2z_if.c .       x95 = %d\n",x95);
+printf("c2z_if.c = < > ! x96 = %d\n",x96);
+printf("c2z_if.c [ loc   x91 = %d\n",x91);
+printf("c2z_if.c = loc   x92 = %d\n",x92);
+printf("c2z_if.c ,       x90 = %d\n",x90);
+printf("c2z_if.c &&      x100 = %d\n",x100);
+printf("c2z_if.c ||      x101 = %d\n",x101);
 */
 
 /*	if_case_1		if(aa op bb)				 */
@@ -229,14 +255,6 @@ printf("c2z_if.c x98 = %d bracket_ct = %d if_opr = %d if_complex = %d x95 = %d x
 /*     if_case_56		if((flag[row][col] == 0) && (spreadsheet[x][y] == 2))	*/
 /*	if_case_57		if((a == 1) || (b == 2) || (c == 3) || (d == 4))	*/
 
-  if((bracket_ct == 6) && (if_complex == 1))
-  {
-printf("\nc2z_if.c inside case 50\n");
-printf("c2z_if.c rct = %d p_string = %s\n",rct,p_string);
-
-    convert = 1;
-    return;
-  }
 
   if ((x98 == 2) && (if_complex == 0) && (if_opr == 0) && (bracket_ct == 0))		/*  if(aa op bb)	*/   
   {
@@ -356,13 +374,6 @@ printf("c2z_if.c rct = %d p_string = %s\n",rct,p_string);
     return;
   }
 
-  if((bracket_ct == 6) && (convert == 0))
-  {
-    if_case_43();
-    convert = 1;
-    return;
-  }
-
   if((x98 == 6) && (bracket_ct == 2) && (x96 == 1) && (convert == 0))	/* if((temp_byte[uu] != 0) && (pi < len)) */
   {
     if_case_44();
@@ -388,7 +399,7 @@ printf("c2z_if.c rct = %d p_string = %s\n",rct,p_string);
     return;
   }
 
-  if((bracket_ct == 6) && (if_complex == 1))
+  if((bracket_ct == 6) && (x100 == 0) && (x101 == 0) && (if_complex == 1))
   {
     if_case_48();
     convert = 1;
@@ -402,6 +413,15 @@ printf("c2z_if.c rct = %d p_string = %s\n",rct,p_string);
     convert = 1;
     return;
   }
+
+  if((bracket_ct == 6) && (x98 == 6) && (x100 == 1) && (x101 == 1) && (if_complex == 1))
+  {
+    if_case_50();
+    if_convert = 1;
+    convert = 1;
+    return;
+  }
+
 
   if((bracket_ct == 6) && (if_complex == 0))
   {
@@ -425,6 +445,14 @@ printf("c2z_if.c rct = %d p_string = %s\n",rct,p_string);
     convert = 1;
     return;
   }
+
+  if((bracket_ct == 6) && (convert == 0))
+  {
+    if_case_43();
+    convert = 1;
+    return;
+  }
+
 
   if (if_convert == 0) 
   {
@@ -22091,6 +22119,10 @@ printf("c2z_if.c case_48 field4 = %s\n",field4);
 }
 
 
+
+/* ***************************************************
+*  if_case_49                                        *
+* ************************************************** */
 void if_case_49()
 {
   if (traceflg == 1) 
@@ -23219,6 +23251,143 @@ printf("c2z_if.c case_49 field5 = %s fd5_type = %d\n",field5,fd5_type);
 }
 
 
+/* ***************************************************
+*  if_case_50                                        *
+* ************************************************** */
+void if_case_50()
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_if.c if_case_50 START");
+    trace_rec_1();
+  }
+
+   int pi;
+   int pi2;
+   int fd1_type = 0;
+   int fd2_type = 0;
+   int fd4_type = 0;
+   int operand_1 = 0;
+   int operand_2 = 0;
+   int operand_3 = 0;
+   int x2;
+
+  char ch;
+  char field1[VAR_LGTH];
+  char field1a[VAR_LGTH];
+  char field2[VAR_LGTH];
+  char field2a[VAR_LGTH];
+  char field3[VAR_LGTH];
+  char field3a[VAR_LGTH];
+  char field4[VAR_LGTH];
+  char field4a[VAR_LGTH];
+
+
+  pi = 0;
+  ch = p_string[pi];
+  while(ch != '(')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi++;
+  pi++;
+  pi2 = 0;
+  x2 = 0;
+  fd1_type = 0;
+  ch = p_string[pi];
+  while(ch != '[')
+  {
+    if (x2 == 0) 
+    {
+      if (isdigit(ch)) 
+      {
+        fd1_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd1_type = 2;
+        x2 = 1;
+      }
+    }
+    field1[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field1[pi2] = '\0';
+
+  pi++;
+  pi2 = 0;
+  x2 = 0;
+  fd2_type = 0;
+  ch = p_string[pi];
+  while(ch != ']')
+  {
+    if (x2 == 0) 
+    {
+      if (isdigit(ch)) 
+      {
+        fd2_type = 1;
+        x2 = 1;
+      }
+      if (isalpha(ch)) 
+      {
+        fd2_type = 2;
+        x2 = 1;
+      }
+    }
+    field2[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field2[pi2] = '\0';
+
+  pi++;
+  ch = p_string[pi];
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  while(ch != ' ')
+  {
+    field3[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field3[pi2] = '\0';
+
+
+
+
+
+
+
+
+
+printf("\nc2z_if.c case_50 rct = %d p_string = %s",rct,p_string);
+printf("c2z_if.c case_50 field1 = %s fd1_type = %d\n",field1,fd1_type);
+printf("c2z_if.c case_50 field2 = %s fd2_type = %d\n",field2,fd2_type);
+printf("c2z_if.c case_50 field3 = %s operand_1 = %d\n",field3,operand_1);
+
+
+printf("\n");
+
+
+}
+
+
+
+/* ***************************************************
+*  if_case_51                                        *
+* ************************************************** */
 void if_case_51()
 {
   if (traceflg == 1) 

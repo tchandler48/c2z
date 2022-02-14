@@ -197,6 +197,7 @@
        void if_case_47(void);
        void if_case_48(void);
        void if_case_49(void);
+       void if_case_50(void);
        void if_case_51(void);
 	void if_case_55(void);
        void if_case_56(void);
@@ -6017,7 +6018,7 @@ int main(int argc, char *argv[])
 
   if(erct != 0)
   {
-    printf("\nPass 2 Failed with %d errors.\n",erct);
+    printf("\nPass 2 Failed with %d errors.\n\n",erct);
 /*    c2_debug();  */
 /*    exit(1);  */
   }

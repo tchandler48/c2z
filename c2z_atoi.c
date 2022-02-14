@@ -705,8 +705,6 @@ void c2_atoi_00()
     trace_rec_3();
   }
 
-  printf("c2z_atoi.c x9 = %d\n",x9);
-
   if(x9 > 6)
   {
     x9 = 6;
