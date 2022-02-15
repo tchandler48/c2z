@@ -23364,6 +23364,13 @@ void if_case_50()
   }
   field3[pi2] = '\0';
 
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+
 
 
 

@@ -559,13 +559,97 @@ void c2_debug()
   }
 
   fprintf(c_src, "\n\n----------   for table --------------\n");
+  fprintf(c_src, "FOR  Lvl  EOF     INCR     TWO         5b       5c   Type       CODE\n");
   for (I = 0; I < for_ct; I++) 
   {
-    fprintf(c_src, "FOR  = %d", w_for_table[I].for_rct);
-    fprintf(c_src, " Level - %d", w_for_table[I].for_level);
-    fprintf(c_src, " EOF - %d", w_for_table[I].for_eof1);
-    fprintf(c_src, " INC = %s", w_for_table[I].for_rt_field);
-    fprintf(c_src, " RCT - %s", w_for_table[I].for_p_string);
+    s = 0;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_rct);
+    strcpy(a_string, wk_strg);
+    s = strlen(a_string);
+    if (s < 6) 
+    {
+      for (v = s; v < 6; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_level);
+    strcat(a_string, wk_strg);
+    s = strlen(a_string);
+    if (s < 10) 
+    {
+      for (v = s; v < 10; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_eof1);
+    strcat(a_string, wk_strg);
+    s = strlen(a_string);
+    if (s < 16) 
+    {
+      for (v = s; v < 16 ; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    strcat(a_string, w_for_table[I].for_rt_field);
+    s = strlen(a_string);
+    if (s < 25) 
+    {
+      for (v = s; v < 25; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    strcat(a_string, w_for_table[I].for_rt_field2);
+    s = strlen(a_string);
+    if (s < 35) 
+    {
+      for (v = s; v < 35; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    strcat(a_string, w_for_table[I].for_rt_field5b);
+    s = strlen(a_string);
+    if (s < 45) 
+    {
+      for (v = s; v < 45; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    strcat(a_string, w_for_table[I].for_rt_field5c);
+    s = strlen(a_string);
+    if (s < 55) 
+    {
+      for (v = s; v < 55; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_type);
+    strcat(a_string, wk_strg);
+    s = strlen(a_string);
+    if (s < 61) 
+    {
+      for (v = s; v < 61 ; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+    strcat(a_string, w_for_table[I].for_p_string);
+
+     fputs(a_string, c_src);
   }
 
 
@@ -577,6 +661,7 @@ void c2_debug()
     fprintf(c_src, " EOF - %d", w_switch_table[I].switch_eof1);
     fprintf(c_src, " RCT - %s", w_switch_table[I].switch_p_string);
   }
+ 
 
 
   fprintf(c_src, "\n\n---------- Function Start -----------\n");

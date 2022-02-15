@@ -671,6 +671,7 @@ char from_sv[24];
  int for_2nd_ct = 0;
  int lp_ct = 0;
  int trc_ct = 1;
+ int for_loop_ct = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -6271,7 +6272,7 @@ int main(int argc, char *argv[])
           strcpy(trace_1, "c2z.c FOR/End #11");
           trace_rec_3();
         }
-   
+
         if(w_for_table[v].for_type == 1)
         {
           strcpy(a_string, "         LARL  R9,");
