@@ -266,7 +266,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #24");
+    strcpy(trace_1, "c2z_isupper.c #23");
     trace_rec_3();
   }
  
@@ -274,7 +274,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #25");
+    strcpy(trace_1, "c2z_isupper.c #24");
     trace_rec_3();
   }
 
@@ -282,7 +282,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #26");
+    strcpy(trace_1, "c2z_isupper.c #25");
     trace_rec_3();
   }
 
@@ -290,7 +290,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #27");
+    strcpy(trace_1, "c2z_isupper.c #26");
     trace_rec_3();
   }
 
@@ -298,7 +298,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #28");
+    strcpy(trace_1, "c2z_isupper.c #27");
     trace_rec_3();
   }
 
@@ -307,7 +307,7 @@ void c2_isupper()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #29");
+    strcpy(trace_1, "c2z_isupper.c #28");
     trace_rec_3();
   }
 
@@ -316,7 +316,7 @@ void c2_isupper()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #30");
+    strcpy(trace_1, "c2z_isupper.c #29");
     trace_rec_3();
   }
  
@@ -324,7 +324,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #31");
+    strcpy(trace_1, "c2z_isupper.c #30");
     trace_rec_3();
   }
 
@@ -332,7 +332,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #32");
+    strcpy(trace_1, "c2z_isupper.c #31");
     trace_rec_3();
   }
 
@@ -340,7 +340,7 @@ void c2_isupper()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isupper.c isupper #33");
+    strcpy(trace_1, "c2z_isupper.c #32");
     trace_rec_3();
   }
 }
@@ -450,7 +450,7 @@ void c2_toupper()
      write_remark();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #1");
+       strcpy(trace_1, "c2z_isupper.c #100");
        trace_rec_3();
      }
      work_use_ct[49]++;
@@ -459,7 +459,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #2");
+       strcpy(trace_1, "c2z_isupper.c #101");
        trace_rec_3();
      }
      work_use_ct[32]++;
@@ -468,7 +468,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #3");
+       strcpy(trace_1, "c2z_isupper.c #102");
        trace_rec_3();
      }
 
@@ -477,7 +477,7 @@ void c2_toupper()
      write_remark();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #4");
+       strcpy(trace_1, "c2z_isupper.c #103");
        trace_rec_3();
      }
      work_use_ct[50]++;
@@ -486,7 +486,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #5");
+       strcpy(trace_1, "c2z_isupper.c #104");
        trace_rec_3();
      }
      work_use_ct[32]++;
@@ -495,7 +495,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #6");
+       strcpy(trace_1, "c2z_isupper.c #105");
        trace_rec_3();
      }
 
@@ -503,7 +503,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #7");
+       strcpy(trace_1, "c2z_isupper.c #106");
        trace_rec_3();
      }
 
@@ -511,7 +511,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #8");
+       strcpy(trace_1, "c2z_isupper.c #107");
        trace_rec_3();
      }
      work_use_ct[48]++;
@@ -520,7 +520,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #9");
+       strcpy(trace_1, "c2z_isupper.c #108");
        trace_rec_3();
      }
 
@@ -528,7 +528,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #9");
+       strcpy(trace_1, "c2z_isupper.c #109");
        trace_rec_3();
      }
      work_use_ct[49]++;
@@ -537,7 +537,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #10");
+       strcpy(trace_1, "c2z_isupper.c #110");
        trace_rec_3();
      }
      work_use_ct[48]++;
@@ -546,7 +546,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #11");
+       strcpy(trace_1, "c2z_isupper.c #111");
        trace_rec_3();
      }
 
@@ -559,7 +559,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #12");
+       strcpy(trace_1, "c2z_isupper.c #112");
        trace_rec_3();
      }
 
@@ -567,7 +567,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #13");
+       strcpy(trace_1, "c2z_isupper.c #113");
        trace_rec_3();
      }
      work_use_ct[48]++;
@@ -576,7 +576,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #14");
+       strcpy(trace_1, "c2z_isupper.c #114");
        trace_rec_3();
      }
      work_use_ct[49]++; 
@@ -585,7 +585,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #15");
+       strcpy(trace_1, "c2z_isupper.c #115");
        trace_rec_3();
      }
 
@@ -593,7 +593,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #16");
+       strcpy(trace_1, "c2z_isupper.c #116");
        trace_rec_3();
      }
      work_use_ct[48]++;
@@ -602,7 +602,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #17");
+       strcpy(trace_1, "c2z_isupper.c #117");
        trace_rec_3();
      }
 
@@ -610,7 +610,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #18");
+       strcpy(trace_1, "c2z_isupper.c #118");
        trace_rec_3();
      }
 
@@ -618,7 +618,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #19");
+       strcpy(trace_1, "c2z_isupper.c #119");
        trace_rec_3();
      }
 
@@ -626,7 +626,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #20");
+       strcpy(trace_1, "c2z_isupper.c #120");
        trace_rec_3();
      }
      work_use_ct[2]++;
@@ -635,7 +635,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #21");
+       strcpy(trace_1, "c2z_isupper.c #121");
        trace_rec_3();
      }
 
@@ -647,7 +647,7 @@ void c2_toupper()
      write_remark();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #22");
+       strcpy(trace_1, "c2z_isupper.c #122");
        trace_rec_3();
      }
 
@@ -655,7 +655,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #23");
+       strcpy(trace_1, "c2z_isupper.c #123");
        trace_rec_3();
      }
      work_use_ct[2]++;
@@ -664,7 +664,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #24");
+       strcpy(trace_1, "c2z_isupper.c #124");
        trace_rec_3();
      }
 
@@ -675,7 +675,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #25");
+       strcpy(trace_1, "c2z_isupper.c #125");
        trace_rec_3();
      }
 
@@ -683,7 +683,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #26");
+       strcpy(trace_1, "c2z_isupper.c #126");
        trace_rec_3();
      }
      work_use_ct[49]++;
@@ -692,7 +692,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #27");
+       strcpy(trace_1, "c2z_isupper.c #127");
        trace_rec_3();
      }
 
@@ -700,7 +700,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #28");
+       strcpy(trace_1, "c2z_isupper.c #128");
        trace_rec_3();
      }
 
@@ -708,7 +708,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #29");
+       strcpy(trace_1, "c2z_isupper.c #129");
        trace_rec_3();
      }
 
@@ -716,7 +716,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #30");
+       strcpy(trace_1, "c2z_isupper.c #130");
        trace_rec_3();
      }
      work_use_ct[49]++;
@@ -725,7 +725,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #31");
+       strcpy(trace_1, "c2z_isupper.c #131");
        trace_rec_3();
      }
 
@@ -736,7 +736,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #32");
+       strcpy(trace_1, "c2z_isupper.c #132");
        trace_rec_3();
      }
 
@@ -747,7 +747,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #33");
+       strcpy(trace_1, "c2z_isupper.c #133");
        trace_rec_3();
      }
 
@@ -758,7 +758,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #32");
+       strcpy(trace_1, "c2z_isupper.c #134");
        trace_rec_3();
      }
 
@@ -771,7 +771,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #33");
+       strcpy(trace_1, "c2z_isupper.c #135");
        trace_rec_3();
      }
 
@@ -779,7 +779,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #34");
+       strcpy(trace_1, "c2z_isupper.c #136");
        trace_rec_3();
      }
      work_use_ct[48]++;
@@ -788,7 +788,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #35");
+       strcpy(trace_1, "c2z_isupper.c #137");
        trace_rec_3();
      }
      work_use_ct[49]++;
@@ -797,7 +797,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #36");
+       strcpy(trace_1, "c2z_isupper.c #138");
        trace_rec_3();
      }
 
@@ -805,7 +805,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #37");
+       strcpy(trace_1, "c2z_isupper.c #139");
        trace_rec_3();
      }
      work_use_ct[48]++;
@@ -814,7 +814,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #38");
+       strcpy(trace_1, "c2z_isupper.c #140");
        trace_rec_3();
      }
 
@@ -822,7 +822,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #39");
+       strcpy(trace_1, "c2z_isupper.c #141");
        trace_rec_3();
      }
 
@@ -830,7 +830,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #40");
+       strcpy(trace_1, "c2z_isupper.c #142");
        trace_rec_3();
      }
 
@@ -838,7 +838,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #41");
+       strcpy(trace_1, "c2z_isupper.c #143");
        trace_rec_3();
      }
      work_use_ct[2]++;
@@ -847,7 +847,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #42");
+       strcpy(trace_1, "c2z_isupper.c #144");
        trace_rec_3();
      }
 
@@ -859,7 +859,7 @@ void c2_toupper()
      write_remark();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #43");
+       strcpy(trace_1, "c2z_isupper.c #145");
        trace_rec_3();
      }
 
@@ -867,7 +867,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #44");
+       strcpy(trace_1, "c2z_isupper.c #146");
        trace_rec_3();
      }
      work_use_ct[2]++;
@@ -876,7 +876,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #45");
+       strcpy(trace_1, "c2z_isupper.c #147");
        trace_rec_3();
      }
 
@@ -889,7 +889,7 @@ void c2_toupper()
      src_line();
      if (puncde == 1) 
      {
-       strcpy(trace_1, "c2z_isupper.c c2_toupper #46");
+       strcpy(trace_1, "c2z_isupper.c #148");
        trace_rec_3();
      }
    }

@@ -4621,7 +4621,32 @@ void c2_eoj()
     }
   }
 
+  if(for_loop_ct > 0)
+  {
+    for(I = 1; I <= for_loop_ct; I++)
+    {
+      strcpy(a_string, "         DS    0H");
+      strcpy(wk_remark, "c2z gen variable  */");
+      write_short();  
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z Parser Var #154");
+        trace_rec_3();
+      }
 
+      snprintf(wk_strg, sizeof(wk_strg), "%d", I);
+      strcpy(a_string, "C370R");
+      strcat(a_string, wk_strg);
+      check_length();
+      strcat(a_string, "DC    PL6'0'");
+      write_short();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z Parser Var #155");
+        trace_rec_3();
+      }
+    }
+  }
 
   if(tot_localtime > 0)
   {

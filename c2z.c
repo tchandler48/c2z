@@ -137,8 +137,10 @@
 
 /* 	       c2z_for.c		*/
 	void c2_for(void);
+ 	void c2_for_021(void);
        void c2_for_022(void);
        void c2_for_023(void);
+       void c2_for_024(void);
 	void c2_for_222(void);
 
 
@@ -410,6 +412,7 @@
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);
 	void c2_printf_dec2(void);
+       void c2_printf_dec4(void);
 
 
 

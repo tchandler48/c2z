@@ -269,8 +269,17 @@ void c2_while(void)
   }
 }
 
+
+
+
 void c2_while_1() 					
 {
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_while.c c2_while_1 START");
+    trace_rec_1();
+  }
+
   int fd1_type = 0;
   int fd3_type = 0;
   int fd3t_type = 0;
@@ -1977,7 +1986,7 @@ void c2_while_7() 					/* isdigit */
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_while.c c2_while_7");
+    strcpy(trace_1, "c2z_while.c c2_while_7 START");
     trace_rec_1();
   }
 
@@ -2701,12 +2710,6 @@ void c2_while_7() 					/* isdigit */
 
   if (while_complex == 1) 
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_7 complex == 1");
-      trace_rec_1();
-    }
-
     pi = 0;
     ch = p_string[pi];
     while (ch != '(') 
@@ -4937,7 +4940,7 @@ void c2_while_10()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_while.c c2_while_10");
+    strcpy(trace_1, "c2z_while.c c2_while_10 START");
     trace_rec_1();
   }
 
@@ -4980,12 +4983,6 @@ void c2_while_10()
 
   if (while_complex == 0) 			/* non complex isupper	*/
   {
-    if (traceflg == 1) 
-    {
-      strcpy(trace_1, "c2z_while.c c2_while_10 while_complex = 0");
-      trace_rec_1();
-    }
-
     pi = 0;
     ch = p_string[pi];
     while (ch != '(') 
