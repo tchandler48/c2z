@@ -81,9 +81,6 @@
 	void c2_print_files(void);
 
 
-/*		c2z_decr.c		*/
-	void c2_minus(void);
-
 
 /*		c2z_define.c 		*/
 	void c2_define(void);
@@ -208,6 +205,10 @@
 
 /*		c2z_incr.c		*/
 	void c2_plus(void);
+       void c2_plus_00(void);
+       void c2_plus_01(void);
+	void c2_plus_04(void);
+	void c2_plus_05(void);
 
 
 /* 	       c2z_int.c		*/
@@ -305,6 +306,7 @@
 	 int c2_msth_08(char);
 	 int c2_math_09(char);
 	void c2_math_10(void);
+       void rdp_parser(void);
  
 
 
@@ -1118,7 +1120,6 @@ struct bad_rec *w_bad_rec;
 #include "c2z_const.c"
 #include "c2z_ctime.c"
 #include "c2z_debug.c"
-#include "c2z_decr.c"
 #include "c2z_define.c"
 #include "c2z_double.c"
 #include "c2z_enum.c"
@@ -6020,6 +6021,47 @@ int main(int argc, char *argv[])
 
 /* End of Pass 2 - scan parser  */
 
+  if(fn_ct == 0)
+  {
+    size = 1;
+    w_function = malloc(size * sizeof(struct functions));
+  }
+  else
+  {
+    size = fn_ct + 1;
+    w_function = realloc(w_function, size * sizeof(struct functions));
+  }
+
+  strcpy(tfield1, "rdp_parser");
+  strcpy(tfield1a, "rdp_parser");
+  w_function[fn_ct].fn_rct = 0;
+  strcpy(w_function[fn_ct].fn_name, tfield1);
+  strcpy(w_function[fn_ct].fn_cname, tfield1a);
+  strcpy(w_function[fn_ct].fn_loop, null_field);
+  w_function[fn_ct].fn_level = 0;
+  w_function[fn_ct].fn_return = 0; 
+  strcpy(w_function[fn_ct].fn_fd1, null_field);
+  strcpy(w_function[fn_ct].fn_fd2, null_field);
+  strcpy(w_function[fn_ct].fn_fd3, null_field);
+  strcpy(w_function[fn_ct].fn_fd4, null_field);
+  strcpy(w_function[fn_ct].fn_fd5, null_field);
+  strcpy(w_function[fn_ct].fn_fd6, null_field);
+  strcpy(w_function[fn_ct].fn_fd7, null_field);
+  strcpy(w_function[fn_ct].fn_fd8, null_field);
+  strcpy(w_function[fn_ct].fn_fd9, null_field);
+  strcpy(w_function[fn_ct].fn_loop_use,null_field);
+  w_function[fn_ct].fn_eof = 0; 
+  w_function[fn_ct].fn_pass_1 = 0;
+  w_function[fn_ct].fn_pass_2 = 0;
+  w_function[fn_ct].fn_pass_3 = 0;
+  w_function[fn_ct].fn_pass_4 = 0;
+  w_function[fn_ct].fn_pass_5 = 0;
+  w_function[fn_ct].fn_pass_6 = 0;
+  w_function[fn_ct].fn_pass_7 = 0;
+  w_function[fn_ct].fn_pass_8 = 0;
+  w_function[fn_ct].fn_pass_9 = 0;
+  fn_ct++;
+
   if(erct != 0)
   {
     printf("\nPass 2 Failed with %d errors.\n\n",erct);
@@ -9014,10 +9056,10 @@ int main(int argc, char *argv[])
     {
       if (debug_lv >= 2) 
       {
-        printf("c2z.c Pass 3 rct = %d c2_minus #100\n", rct);
+        printf("c2z.c Pass 3 rct = %d c2_incr #100\n", rct);
       }
 
-      c2_minus();
+      c2_plus();
       convert = 1;
       if (return_on == 1) 
       {
@@ -9921,6 +9963,7 @@ int main(int argc, char *argv[])
         }
  
         c2_math();   
+        /* rdp_parser(); */
      
         convert = 1;
         if (return_on == 1) 

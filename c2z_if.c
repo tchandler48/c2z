@@ -23277,8 +23277,13 @@ void if_case_50()
    int operand_2 = 0;
    int operand_3 = 0;
    int x2;
+   int I;
+   int ret;
+   int ret1;
 
   char ch;
+  char *p;
+  char *p1;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
@@ -23298,7 +23303,9 @@ void if_case_50()
   char field9a[VAR_LGTH];
   char field10[VAR_LGTH];
   char field11[VAR_LGTH];
+  char field11a[VAR_LGTH];
   char field12[VAR_LGTH];
+  char field12a[VAR_LGTH];
   char field13[VAR_LGTH];
   char field14[VAR_LGTH];
   
@@ -23662,22 +23669,726 @@ void if_case_50()
   }
   field14[pi2] = '\0';
 
+  x2 = 0;
+  if (lv_ct > 0) 
+  {
+    for (I = 0; I < lv_ct; I++) 
+    {
+       ret = strcmp(field1, lw_variable[I].lv_name);
+       ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+       if ((ret == 0) && (ret1 == 0)) 
+       {
+         x2 = 1;
+         strcpy(field1a, lw_variable[I].lv_cname);
+         lw_variable[I].lv_use_ct++;
+         break;
+       }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    if (gv_ct > 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field1, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x2 = 1;
+          strcpy(field1a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          break;
+        }
+      }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    printf("\nc2z_if.c case_50 field1 Not Found = %s\n",field1);
+    printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
+  if(fd2_type == 1)
+  {
+    printf("c2z_if.c case_50 fd2_type == 1 NOT CODED\n");
+    printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+  }
+
+  if(fd2_type == 2)
+  {
+    x2 = 0;
+    if (lv_ct > 0) 
+    {
+      for (I = 0; I < lv_ct; I++) 
+      {
+         ret = strcmp(field2, lw_variable[I].lv_name);
+         ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+         if ((ret == 0) && (ret1 == 0)) 
+         {
+           x2 = 1;
+           strcpy(field2a, lw_variable[I].lv_cname);
+           lw_variable[I].lv_use_ct++;
+           break;
+        }
+      }
+    }
+
+    if (x2 == 0) 
+    {
+      if (gv_ct > 0) 
+      {
+        for (I = 0; I < gv_ct; I++) 
+        {
+          ret = strcmp(field2, gw_variable[I].gv_name);
+          if (ret == 0) 
+          {
+            x2 = 1;
+            strcpy(field2a, gw_variable[I].gv_cname);
+            gw_variable[I].gv_use_ct++;
+            break;
+          }
+        }
+      }
+    }
+
+    if (x2 == 0) 
+    {
+      printf("\nc2z_if.c case_50 field2 Not Found = %s\n",field2);
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+  }
+
+  operand_1 = 0;
+  if (operand_1 == 0) 
+  {
+     p = strstr(field3, "==");
+     if (p)
+     {
+       operand_1 = 1;
+     }
+  }
+  
+  if (operand_1 == 0) 
+  {
+     p = strstr(field3, "!=");
+     if (p)
+     {
+       operand_1 = 2;
+     }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field3, "<=");
+    if (p)
+    {
+      operand_1 = 3;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field3, ">=");
+    if (p)
+    {
+      operand_1 = 4;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field3, "=");
+    if (p)
+    {
+      operand_1 = 5;
+     }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field3, "<");
+    if (p)
+    {
+      operand_1 = 6;
+    }
+  }
+
+  if (operand_1 == 0) 
+  {
+    p = strstr(field3, ">");
+    if (p)
+    {
+      operand_1 = 7;
+    }
+  }
+
+  x2 = 0;
+  if (lv_ct > 0) 
+  {
+    for (I = 0; I < lv_ct; I++) 
+    {
+       ret = strcmp(field6, lw_variable[I].lv_name);
+       ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+       if ((ret == 0) && (ret1 == 0)) 
+       {
+         x2 = 1;
+         strcpy(field6a, lw_variable[I].lv_cname);
+         lw_variable[I].lv_use_ct++;
+         break;
+       }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    if (gv_ct > 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field6, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x2 = 1;
+          strcpy(field6a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          break;
+        }
+      }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    printf("\nc2z_if.c case_50 field6 Not Found = %s\n",field6);
+    printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
+  x2 = 0;
+  if (lv_ct > 0) 
+  {
+    for (I = 0; I < lv_ct; I++) 
+    {
+       ret = strcmp(field7, lw_variable[I].lv_name);
+       ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+       if ((ret == 0) && (ret1 == 0)) 
+       {
+         x2 = 1;
+         strcpy(field7a, lw_variable[I].lv_cname);
+         lw_variable[I].lv_use_ct++;
+         break;
+       }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    if (gv_ct > 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field7, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x2 = 1;
+          strcpy(field7a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          break;
+        }
+      }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    printf("\nc2z_if.c case_50 field7 Not Found = %s\n",field7);
+    printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
+  operand_2 = 0;
+  if (operand_2 == 0) 
+  {
+     p = strstr(field8, "==");
+     if (p)
+     {
+       operand_2 = 1;
+     }
+  }
+  
+  if (operand_2 == 0) 
+  {
+     p = strstr(field8, "!=");
+     if (p)
+     {
+       operand_2 = 2;
+     }
+  }
+
+  if (operand_2 == 0) 
+  {
+    p = strstr(field8, "<=");
+    if (p)
+    {
+      operand_2 = 3;
+    }
+  }
+
+  if (operand_2 == 0) 
+  {
+    p = strstr(field8, ">=");
+    if (p)
+    {
+      operand_2 = 4;
+    }
+  }
+
+  if (operand_2 == 0) 
+  {
+    p = strstr(field8, "=");
+    if (p)
+    {
+      operand_2 = 5;
+     }
+  }
+
+  if (operand_2 == 0) 
+  {
+    p = strstr(field8, "<");
+    if (p)
+    {
+      operand_2 = 6;
+    }
+  }
+
+  if (operand_2 == 0) 
+  {
+    p = strstr(field8, ">");
+    if (p)
+    {
+      operand_2 = 7;
+    }
+  }
+
+  x2 = 0;
+  if (lv_ct > 0) 
+  {
+    for (I = 0; I < lv_ct; I++) 
+    {
+       ret = strcmp(field11, lw_variable[I].lv_name);
+       ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+       if ((ret == 0) && (ret1 == 0)) 
+       {
+         x2 = 1;
+         strcpy(field11a, lw_variable[I].lv_cname);
+         lw_variable[I].lv_use_ct++;
+         break;
+       }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    if (gv_ct > 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field11, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x2 = 1;
+          strcpy(field11a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          break;
+        }
+      }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    printf("\nc2z_if.c case_50 field11 Not Found = %s\n",field11);
+    printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
+  x2 = 0;
+  if (lv_ct > 0) 
+  {
+    for (I = 0; I < lv_ct; I++) 
+    {
+       ret = strcmp(field12, lw_variable[I].lv_name);
+       ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+       if ((ret == 0) && (ret1 == 0)) 
+       {
+         x2 = 1;
+         strcpy(field12a, lw_variable[I].lv_cname);
+         lw_variable[I].lv_use_ct++;
+         break;
+       }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    if (gv_ct > 0) 
+    {
+      for (I = 0; I < gv_ct; I++) 
+      {
+        ret = strcmp(field12, gw_variable[I].gv_name);
+        if (ret == 0) 
+        {
+          x2 = 1;
+          strcpy(field12a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
+          break;
+        }
+      }
+    }
+  }
+
+  if (x2 == 0) 
+  {
+    printf("\nc2z_if.c case_50 field12 Not Found = %s\n",field12);
+    printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
+  operand_3 = 0;
+  if (operand_3 == 0) 
+  {
+     p = strstr(field13, "==");
+     if (p)
+     {
+       operand_3 = 1;
+     }
+  }
+  
+  if (operand_3 == 0) 
+  {
+     p = strstr(field13, "!=");
+     if (p)
+     {
+       operand_3 = 2;
+     }
+  }
+
+  if (operand_3 == 0) 
+  {
+    p = strstr(field13, "<=");
+    if (p)
+    {
+      operand_3 = 3;
+    }
+  }
+
+  if (operand_3 == 0) 
+  {
+    p = strstr(field13, ">=");
+    if (p)
+    {
+      operand_3 = 4;
+    }
+  }
+
+  if (operand_3 == 0) 
+  {
+    p = strstr(field13, "=");
+    if (p)
+    {
+      operand_3 = 5;
+     }
+  }
+
+  if (operand_3 == 0) 
+  {
+    p = strstr(field13, "<");
+    if (p)
+    {
+      operand_3 = 6;
+    }
+  }
+
+  if (operand_3 == 0) 
+  {
+    p = strstr(field13, ">");
+    if (p)
+    {
+      operand_3 = 7;
+    }
+  }
+
+
+
+  p = strstr(field5, "&&");
+  p1 = strstr(field10, "||");
+
+  if((p) && (p1))	/* field5 = &&, field10 = || */
+  {
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcpy(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "A");
+    check_length();
+    strcat(a_string, "DS    0H");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5001");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5002");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field2a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5003");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(8,R9),2(4,R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5004");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5005");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         CVB   R5,0(R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5006");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field1a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field1);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5007");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         IC    R0,0(R8,(R5))");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5008");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370L1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5009");
+      trace_rec_3();
+    }
+    work_use_ct[2]++;
+
+    strcpy(a_string, "         STC   R0,0(0,R9)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5010");
+      trace_rec_3();
+    }
+
+    if(operand_1 == 1)			/* == */
+    {
+      printf("c2z_if.c case_50 operand_1 = 1 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_1 == 2)			/*!= */
+    {
+      printf("c2z_if.c case_50 operand_1 = 2 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_1 == 3)			/*<= */
+    {
+      printf("c2z_if.c case_50 operand_1 = 3 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_1 == 4)			/*>= */
+    {
+      if(fd4_type == 0)
+      {
+        strcpy(a_string, "*         LARL  R9,C370L1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5011");
+          trace_rec_3();
+        }
+        work_use_ct[2]++;
+
+        pi2 = 0;
+        x2 = 0;
+        I = 0;
+        ch = field4[x2];
+        while(ch != ' ')
+        {
+          if(ch != '\'')
+          {
+            field4a[I] = ch;
+            I++;
+          }
+          x2++;
+          ch = field4[x2];
+        }
+        field4a[I] = '\0';
+
+printf("c2z_if.c case_50 rct = %d field4 = %s field4a = %s\n",rct,field4,field4a);
+
+
+
+/*
+        strcpy(a_string, "*         LARL  R8,");
+        strcat(a_string, field4);
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field4);
+        strcat(wk_remark, " ");
+        write_remark();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5012");
+          trace_rec_3();
+        }
+*/
+
+        strcpy(a_string, "*         CLC   0(1,R9),1(1,R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5013");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "*         JLL   ");
+        strcat(a_string, "L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        strcat(a_string, "B");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5014");
+          trace_rec_3();
+        }
+      }
+    }
+
+    if(operand_1 == 5)			
+    {
+      printf("c2z_if.c case_50 operand_1 = 5 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_1 == 6)			
+    {
+      printf("c2z_if.c case_50 operand_1 = 6 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_1 == 7)			
+    {
+      printf("c2z_if.c case_50 operand_1 = 7 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcpy(a_string, "L");
+    strcat(a_string, wk_strg);
+    strcat(a_string, "B");
+    check_length();
+    strcat(a_string, "DS    0H");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5001");
+      trace_rec_3();
+    }
+
+
+  }			/* END OF field5 = &&, field10 = || */
+
+
+/*
+3  1973   c2z_math.c math_2 START                                     	 ch = p_string[pi];
+3  1973   c2z_math.c #76                  L1973A   DS    0H                                                       0009093
+3  1973   c2z_math.c #77                           LARL  R9,C370U                                                 0009094
+3  1973   c2z_math.c #78                           LARL  R8,C37F624                      pi                   0009095
+3  1973   c2z_math.c #79                           ZAP   0(8,R9),2(4,R8)                                          0009096
+3  1973   c2z_math.c #80                           LARL  R8,C370U                                                 0009097
+3  1973   c2z_math.c #81                           CVB   R5,0(R8)                                                 0009098
+3  1973   c2z_math.c #82                           LARL  R8,C37F14                       p_string             0009099
+3  1973   c2z_math.c #83                           IC    R0,0(R8,(R5))                                            0009100
+3  1973   c2z_math.c #84                           LARL  R9,C37F622                      ch                   0009101
+3  1973   c2z_math.c #85                           STC   R0,0(0,R9)                                               0009102
+*/
+
 
 
 printf("\nc2z_if.c case_50 rct = %d p_string = %s",rct,p_string);
 printf("c2z_if.c case_50 field1 = %s fd1_type = %d\n",field1,fd1_type);
 printf("c2z_if.c case_50 field2 = %s fd2_type = %d\n",field2,fd2_type);
 printf("c2z_if.c case_50 field3 = %s operand_1 = %d\n",field3,operand_1);
-printf("c2z_if.c case_50 field4 = %s fd4_type = %d\n",field4,fd4_type);
+printf("c2z_if.c case_50 field4 = %s field4a = %s fd4_type = %d\n",field4,field4a,fd4_type);
 printf("c2z_if.c case_50 field5 = %s\n",field5);
 printf("c2z_if.c case_50 field6 = %s fd6_type = %d\n",field6,fd6_type);
 printf("c2z_if.c case_50 field7 = %s fd7_type = %d\n",field7,fd7_type);
-printf("c2z_if.c case_50 field8 = %s\n",field8);
+printf("c2z_if.c case_50 field8 = %s operand_2 = %d\n",field8,operand_2);
 printf("c2z_if.c case_50 field9 = %s fd9_type = %d\n",field9,fd9_type);
 printf("c2z_if.c case_50 field10 = %s\n",field10);
 printf("c2z_if.c case_50 field11 = %s fd11_type = %d\n",field11,fd11_type);
 printf("c2z_if.c case_50 field12 = %s fd12_type = %d\n",field12,fd12_type);
-printf("c2z_if.c case_50 field13 = %s\n",field13);
+printf("c2z_if.c case_50 field13 = %s operand_3 = %d\n",field13,operand_3);
 printf("c2z_if.c case_50 field14 = %s fd14_type = %d\n",field14,fd14_type);
 
 printf("\n");
