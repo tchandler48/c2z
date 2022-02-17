@@ -920,6 +920,7 @@ void c2_printf_dec()		/* NEW */
     strcpy(trace_1, "c2z_print.c #62a");
     trace_rec_3();
   }
+  work_use_ct[52]++;
 
   strcpy(a_string, "         CLC   0(1,R8),0(R7)");
   src_line();
