@@ -266,7 +266,6 @@
 /* 	       c2z_math.c		*/
 	void c2_math(void);
 	void c2_reg_math(void);
-	void c2_math_1(void);
 	void c2_math_2(void);
 	void c2_math_5(void);
 	void c2_math_51(void);
@@ -285,12 +284,18 @@
        void c2_math_100(void);
        void c2_math_600(void);
        void c2_math_601(void);
-       void c2_math_603(void);
-       void c2_math_700(void);
+        void c2_math_700(void);
        void c2_math_800(void);
        void c2_math_820(void);
        void c2_math_830(void);
        void c2_math_920(void);
+
+
+/* new code */
+       void c2_math_500(void);
+       void c2_math_501(void);
+	void c2_math_502(void);
+	void c2_math_503(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -410,11 +415,14 @@
        void c2_printf_str2(void);
        void c2_printf_str3(void);
 	void c2_printf_str4(void);
+       void c2_printf_str5(void);
 
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);
 	void c2_printf_dec2(void);
        void c2_printf_dec4(void);
+       void c2_printf_dec5(void);
+       void c2_printf_dec6(void);
 
 
 
@@ -431,9 +439,10 @@
        void c2_sprintf(void);
 
 
-/* 	       c2z_punch_macro.c	*/
+/* 	       c2z_punch_macro.c	
 	void c2_punch_eoj(void);
 	void c2_isupper(void);
+*/
 
 
 /* 	       c2z_realloc.c		*/
