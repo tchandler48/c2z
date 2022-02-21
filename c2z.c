@@ -264,15 +264,12 @@
 
 
 /* 	       c2z_math.c		*/
-	void c2_math(void);
 	void c2_reg_math(void);
-	void c2_math_2(void);
-	void c2_math_5(void);
+ 	void c2_math_5(void);
 	void c2_math_51(void);
        void c2_math_52(void);
        void c2_math_58(void);
 	void c2_math_6(void);
-	void c2_math_7(void);
 	void c2_math_8(void);
 	void c2_math_9(void);
 	void c2_math_add(void);
@@ -284,18 +281,25 @@
        void c2_math_100(void);
        void c2_math_600(void);
        void c2_math_601(void);
-        void c2_math_700(void);
-       void c2_math_800(void);
+       void c2_math_700(void);
        void c2_math_820(void);
        void c2_math_830(void);
        void c2_math_920(void);
 
 
 /* new code */
+	void c2_math(void);
        void c2_math_500(void);
        void c2_math_501(void);
 	void c2_math_502(void);
 	void c2_math_503(void);
+       void c2_math_504(void);
+ 	void c2_math_505(void);
+       void c2_math_506(void);
+	void c2_math_507(void);
+       void c2_math_508(void);
+       void c2_math_509(void);
+       void c2_math_510(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -416,6 +420,7 @@
        void c2_printf_str3(void);
 	void c2_printf_str4(void);
        void c2_printf_str5(void);
+       void c2_printf_str6(void);
 
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);
@@ -492,6 +497,7 @@
        void c2_str_11(void);
        void c2_str_12(void);
        void c2_str_13(void);
+       void c2_str_14(void);
        void c2_str_15(void);
 	void c2_strcpy_pass2(void);
 	void c2_pass2_strcpy_2(int,int);

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
    x = 1 + 2 + 3;
    printf("x = %d",x);
 
-   printf("Line Number Two");
+   printf("Line Number Two\n");
 
    printf("Line Number Three\n");
 
@@ -35,9 +35,9 @@ int main(int argc, char *argv[])
    y = 0;
    iv_stack[y] = 123;
 
-   printf("iv_stack[y] = %d",iv_stack[y]);
+   printf(" iv_stack[y] = %d",iv_stack[y]);
 
-   printf("iv_stack[0] = %d\n",iv_stack[0]);
+   printf(" iv_stack[0] = %d\n",iv_stack[0]);
 
 }
 

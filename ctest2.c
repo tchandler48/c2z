@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
   strcpy(sv_stack[I], varname);
   strcpy(sv_stack[I],fielda);
 
+
   xyz = 12;
   printf("xyz = %d\n",xyz);
   I = 0;
@@ -92,9 +93,6 @@ int main(int argc, char *argv[])
   {
     printf("sv_stack = %s\n",sv_stack[I]);
   }
-
-
-
 
 
 

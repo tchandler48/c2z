@@ -390,7 +390,7 @@ void do_ret()
 
   if(gs_ptr == 0)
   {
-    line_ndx = gosub_stack[gs_ptr);
+    line_ndx = gosub_stack[gs_ptr]);
   }
   else
   {
