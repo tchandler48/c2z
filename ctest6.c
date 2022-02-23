@@ -53,7 +53,7 @@ struct variables
 	
 int main(int argc, char *argv[])
 	{
-		printf("Hello Z390 World ctest7\n");
+		printf("Hello Z390 World ctest6\n");
 		
               strcpy(a, "123456");
               printf("a = %s\n",a);
@@ -75,10 +75,10 @@ int main(int argc, char *argv[])
               strcat(in_stack[t], "zyxwtu");
               
               printf("Here #3\n");
-              strcat(in_stack[2], b);
+         /*     strcat(in_stack[2], b); */
             
               printf("Here #4\n"); 
-              strcat(in_stack[3], "yefrtyu");
+         /*     strcat(in_stack[3], "yefrtyu"); */
              
 
               x = 5;
@@ -86,14 +86,15 @@ int main(int argc, char *argv[])
 			{
 				printf("in_stack = %s\n", in_stack[I]);
 			}
-		printf(" \n");
+		
+              printf("HERE #5\n");
 
               t = 0;
               strcpy(gw_variable[t].gv_name, "123456");
-              printf("gw_variable[t].gv_name = %s\n",gw_variable[t].gv_name);
-              printf("Here #5\n");
+              printf("gv_name #a = %s\n",gw_variable[t].gv_name);
               gv_ct = 1;
               strcat(gw_variable[gv_ct].gv_name, b);
+              printf("gv_name #b = %s\n",gw_variable[gv_ct].gv_name);
 
               x = 5;
               for(I=0; I < x; I++)

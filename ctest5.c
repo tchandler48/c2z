@@ -22,7 +22,7 @@
 
 
 struct variables
-{
+  {
    int gv_rct;
   char gv_name[VAR_NAME];
   char gv_cname[VAR_NAME];
@@ -49,7 +49,7 @@ struct variables    *gw_variable;
 	
 int main(int argc, char *argv[])
 	{
-		printf("Hello Z390 World ctest6\n");
+		printf("Hello Z390 World ctest5\n");
 		
               strcpy(a, "123456");
               printf("a = %s\n",a);

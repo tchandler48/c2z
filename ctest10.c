@@ -48,7 +48,7 @@ struct variables
 int main(int argc, char *argv[])
 {
 
-  printf("Hello Z390 World - ctest4\n");
+  printf("Hello Z390 World - ctest10\n");
 
   ndx = 1;
   iv_stack[ndx] = 345;
@@ -100,12 +100,8 @@ int main(int argc, char *argv[])
     printf("gv_name = %s\n"),gw_variable[I].gv_name);
   }
   printf(" \n");
-
- 
-
 		
-		
-  printf("End of ctest4\n");
+  printf("End of ctest10\n");
 		
 }
 

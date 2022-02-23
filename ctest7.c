@@ -9,6 +9,7 @@
 
 int main() 
 {
+    printf("Test of ctest7\n");
 
     strcpy(ch, "l");
     printf("ch #1a = %s\n",ch);

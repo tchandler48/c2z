@@ -1,4 +1,4 @@
- 
+  
 #define MAX_VARS     12
 #define VAR_NAM      16
 #define VAR_NAME     16
@@ -43,12 +43,14 @@ struct variables
    int gv_flag;
 };
 
-struct variables    *gw_variable;
+     struct variables    *gw_variable;
 	
 int main(int argc, char *argv[])
 	{
-
+              printf("Testing ctest8\n");
               
+              strcpy(varname, "abcdef");
+
               gv_ct = 1;
               strcpy(gw_variable[gv_ct].gv_name, varname);
               strcpy(gw_variable[3].gv_name, varname);

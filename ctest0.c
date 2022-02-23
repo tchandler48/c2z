@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
    printf("sv_stack[y] = %s \n",sv_stack[y]);
 
   
-   printf("sv_stack[0] = %s ",sv_stack[0]);
+   printf("sv_stack[0] = %s\n",sv_stack[0]);
 
-   printf("x = %d \n",x);
+   printf(" x = %d\n",x);
 
    y = 0;
    iv_stack[y] = 123;
