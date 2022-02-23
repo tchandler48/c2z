@@ -2024,26 +2024,16 @@ void c2_struct_4()
   char field4a[VAR_LGTH];
 
   pi = 0;
+  ch = p_string[pi];
+
+
   while((ch == ' ') || (ch == '\t') || (ch == '{'))
   {
     pi++;
     ch = p_string[pi];
   }
 
-  while(ch != ' ')
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
-  while(ch == ' ')
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
   pi2 = 0;
-  ch = p_string[pi];
   while(ch != ' ')
   {
     field1[pi2] = ch;
@@ -2052,7 +2042,13 @@ void c2_struct_4()
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
- 
+
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
   while(ch == ' ')
   {
     pi++;
@@ -2087,7 +2083,6 @@ void c2_struct_4()
   {
     for (I = 0; I < m_struc_ct; I++) 
     {
-      
       ret = strcmp(field1, w_struc[I].st_name);
       if(ret == 0)
       {

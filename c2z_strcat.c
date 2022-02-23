@@ -542,6 +542,12 @@ printf("c2z_strcat.c rct = %d ar_field11 = %s\n",rct,ar_field11);
       }
     }
 
+printf("\nc2z_strcat.c #20 rct = %d p_string = %s",rct,p_string);
+printf("c2z_strcat.c #20 tfield1 = %s\n",tfield1);
+printf("c2z_strcat.c #20 tfield2 = %s\n",tfield2);
+printf("c2z_strcat.c #20 tfield3 = %s\n",tfield3);
+
+
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
     if (puncde == 1) 
@@ -779,6 +785,7 @@ printf("c2z_strcat.c rct = %d ar_field11 = %s\n",rct,ar_field11);
           }
         }
       }
+printf("c2z_strcat.c tfield3 = %s tfield3a = %s x2 = %d\n",tfield3,tfield3a,x2);
 
       if (x3 == 0) 
       {
@@ -801,7 +808,10 @@ printf("c2z_strcat.c rct = %d ar_field11 = %s\n",rct,ar_field11);
         trace_rec_3();
       }
 
-      strcpy(a_string, "         MVC   0(R6),0(R9)"); 
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x2);
+      strcpy(a_string, "         MVC   0(");
+      strcat(a_string, wk_strg);
+      strcat(a_string, ",R6),0(R9)"); 
       src_line();
       if (puncde == 1) 
       {
@@ -816,6 +826,7 @@ printf("c2z_strcat.c rct = %d ar_field11 = %s\n",rct,ar_field11);
       {  
         if(rct == w_charlit[x3].clit_rct)
         {
+           snprintf(wk_strg, sizeof(wk_strg), "%d", w_charlit[x3].clit_lgth);
            strcpy(a_string, "         LARL  R9,");
            strcat(a_string, w_charlit[x3].clit_cname);
            src_line();
@@ -827,7 +838,9 @@ printf("c2z_strcat.c rct = %d ar_field11 = %s\n",rct,ar_field11);
          }
       }
 
-      strcpy(a_string, "         MVC   0(R6),0(R9)"); 
+      strcpy(a_string, "         MVC   0(");
+      strcat(a_string, wk_strg);
+      strcat(a_string, ",R6),0(R9)"); 
       src_line();
       if (puncde == 1) 
       {

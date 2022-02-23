@@ -300,6 +300,7 @@
        void c2_math_508(void);
        void c2_math_509(void);
        void c2_math_510(void);
+       void c2_math_511(void);
 
 
 /*		c2z_math_parser.c	*/
@@ -6696,7 +6697,7 @@ int main(int argc, char *argv[])
           if(ret == 0)
           {
             strcpy(p_string, "    free(");
-            strcat(p_string, w_struc[I].st_name);
+            strcat(p_string, w_struc[I].st_wname);
             strcat(p_string, ")\n");
             c2_free();
           }

@@ -185,14 +185,6 @@ printf("c2z_strcpy.c x93 .  = %d\n",x93);
 
   if ((x95 == 2) && (bkl == 2) && (bkr == 2) && (x90 == 0) && (convert == 0)) 
   {
-printf("\nc2z_strcpy.c str5\n");
-printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_strcpy.c bkl [] = %d\n",bkl);
-printf("c2z_strcpy.c bkr [] = %d\n",bkr);
-printf("c2z_strcpy.c x95 () = %d\n",x95);
-printf("c2z_strcpy.c x90 qu = %d\n",x90);
-printf("c2z_strcpy.c x93 .  = %d\n",x93);
-
     c2_str_5();
     convert = 1;
     return;
@@ -228,7 +220,6 @@ printf("c2z_strcpy.c x93 .  = %d\n",x93);
     convert = 1;
     return;
   }
-
 
 
   if((bkl == 4) && (bkr == 0) && (x95 == 2) && (convert == 0))
@@ -290,15 +281,6 @@ printf("\nc2z_strcpy.c HERE #1 rct = %d p_string = %s\n",rct,p_string);
     return;
   }
 
-
-  if ((x90 == 2) && (x91 == 1) && (x92 == 1) && (x93 == 1) && (x94 == 1) && (x95 == 1) && (x96 == 1) && (convert == 0)) 
-  {
-printf("\nc2z_strcpy.c HERE #2 rct = %d p_string = %s\n",rct,p_string);
-
-    c2_str_8();
-    convert = 1;
-    return;
-  }
 
   if ((x90 == 0) && (x91 == 2) && (x92 == 2) && (x93 == 1) && (x94 == 1) && (x95 == 1) && (x96 == 1) && (x94a < x93a) && (convert == 0)) 
   {
@@ -5649,10 +5631,10 @@ void c2_str_6()
       strcpy(trace_1, "c2z_strcpy.c #214");
       trace_rec_3();
     }
-
     convert = 1;
   }
 }
+
 
 
 void c2_str_7() 
@@ -5800,38 +5782,14 @@ void c2_str_7()
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
-    if(ret == 0)
-    {
-       x3 = 1;
-       strcpy(tfield1a, w_struc[I].st_cname);
-  /*     x92 = w_struc[I].st_field_lgth;
-       x96 = w_struc[I].st_disp; */
-       break;
-    }
-  }
-
-  if (x3 == 0) 
-  {
-    printf("\nc2z_strcpy.c c2_str_7 strcpy-059 tfield1 Not Found = %s\n", tfield1);
-    printf("c2z_strcpy.c c2_str_7 tfield3 Not Found = %s\n",tfield3);
-    printf("c2z_strcpy.c c2_str_7 rct = %d p_string = %s\n",rct,p_string);
-    erct++;
-    convert = 1;
-    return;
-  }
-
-  x3 = 0;
-  for (I = 0; I < m_struc_ct; I++) 
-  {
-    ret = strcmp(tfield1, w_struc[I].st_name);
+    ret = strcmp(tfield1, w_struc[I].st_wname);
     ret1 = strcmp(tfield3, w_struc[I].st_field_name);
-    if((ret == 0) && (ret1 == 0))
+    if ((ret == 0) && (ret1 == 0)) 
     {
        x3 = 1;
+       strcpy(tfield1a, w_struc[I].st_cwname);
        x92 = w_struc[I].st_field_lgth;
-       x96 = w_struc[I].st_disp; 
-       break;
+       x96 = w_struc[I].st_disp;
     }
   }
 
@@ -5899,6 +5857,8 @@ void c2_str_7()
       {
         x3 = 1;
         strcpy(tfield4a, lw_variable[v].lv_cname);
+        x92 = lw_variable[v].lv_current_lgth;
+        break;
       }
     }
   }
@@ -5914,19 +5874,22 @@ void c2_str_7()
         {
           x3 = 1;
           strcpy(tfield4a, gw_variable[v].gv_cname);
+          x92 = gw_variable[v].gv_current_lgth;
+          break;
+
         }
       }
     }
   }
 
-    if (x3 == 0) 
-    {
-      printf("\nc2z_strcpy.c c2_str_7 strcpy-061 tfield4 Not Found = %s\n",tfield4);
-      printf("c2z_strcpy.c c2_str_7 rct = %d sv_func = %s p_string = %s",rct, sv_func, p_string);
-      erct++;
-      convert = 1;
-      return;
-    }
+  if (x3 == 0) 
+  {
+    printf("\nc2z_strcpy.c c2_str_7 strcpy-061 tfield4 Not Found = %s\n",tfield4);
+    printf("c2z_strcpy.c c2_str_7 rct = %d sv_func = %s p_string = %s",rct, sv_func, p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
 
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
@@ -6782,12 +6745,12 @@ void c2_str_8()
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
+    ret = strcmp(tfield1, w_struc[I].st_wname);
     ret1 = strcmp(tfield3, w_struc[I].st_field_name);
     if ((ret == 0) && (ret1 == 0)) 
     {
        x3 = 1;
-       strcpy(tfield1a, w_struc[I].st_field_cname);
+       strcpy(tfield1a, w_struc[I].st_cwname);
        x92 = w_struc[I].st_field_lgth;
        x96 = w_struc[I].st_disp;
     }
@@ -6896,6 +6859,14 @@ void c2_str_8()
       convert = 1;
       return;
     }
+
+/*
+printf("\nc2z_strcpy.c str_8 rct = %d p_string = %s",rct,p_string);
+printf("c2z_strcpy.c str_8 tfield1 = %s\n",tfield1);
+printf("c2z_strcpy.c str_8 tfield2 = %s\n",tfield2);
+printf("c2z_strcpy.c str_8 tfield3 = %s\n",tfield3);
+printf("c2z_strcpy.c str_8 tfield4 = %s tfield4a = %s\n",tfield4,tfield4a);
+*/
 
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();

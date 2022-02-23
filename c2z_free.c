@@ -459,8 +459,6 @@ void c2_free()
         trace_rec_1();
       }
 
-    /*  pgm_label(); */
-
       fr_3 = 0;
       if (gv_ct > 0) 
       {
@@ -690,7 +688,7 @@ void c2_free()
       for (I = 0; I < m_struc_ct; I++) 
       {
  
-        ret = strcmp(tfield1, w_struc[I].st_name);
+        ret = strcmp(tfield1, w_struc[I].st_wname);
         ret1 = strcmp(w_struc[I].st_id, "N"); 
         if ((ret == 0) && (ret1 == 0)) 
         {
@@ -789,7 +787,6 @@ void c2_free()
         trace_rec_3();
       }
     }
-
     convert = 1;
     return;
   }

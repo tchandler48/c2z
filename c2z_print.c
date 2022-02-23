@@ -65,7 +65,10 @@ void c2_printf()
     }
     if(ch == '.')
     {
-      x93++;
+      if(str1 != 0)
+      {
+        x93++;
+      }
     }
   }
 
@@ -1060,6 +1063,7 @@ void c2_printf_dec()		/* NEW */
     trace_rec_3();
   }
 
+printf("c2z_print.c #75 rct = %d p102 = %d\n",rct,p102);
   if(p102 == 1)
   {
     strcpy(a_string, "         LARL  R15,WTOALPHA");
@@ -14695,6 +14699,7 @@ void c2_printf_str5()
   int x3;
   int x4;
   int x5;
+  int x80;
   int x81;
   int v;
   int s;
@@ -14847,25 +14852,20 @@ printf("c2z_print.c c2_math_str5 tfield10 = %s\n",tfield10);
 printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
 */
 
+  x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
+    ret = strcmp(tfield1, w_struc[I].st_wname);
     ret1 = strcmp(tfield3, w_struc[I].st_field_name);
     if ((ret == 0) && (ret1 == 0)) 
     {
       x3 = 1;
       strcpy(tfield3a, w_struc[I].st_field_cname);
- /*     x80 = w_struc[I].st_disp; */
-      x81 = w_struc[I].st_field_cur_lgth;
+      x80 = w_struc[I].st_disp; 
+      x81 = w_struc[I].st_field_lgth;
+      break;
     }
   }
-/*
-printf("c2z_print.c c2_math_str5 x3 = %d\n",x3);
-printf("c2z_print.c c2_math_str5 tfield3 = %s field3a = %s\n",tfield3,tfield3a);
-printf("c2z_print.c c2_math_str5 st_name = %s\n",w_struc[I].st_name);
-printf("c2z_print.c c2_math_str5 st_disp = %d\n",x80);
-printf("c2z_print.c c2_math_str5 st_field_lgth = %d\n",x81); 
-*/
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -14951,7 +14951,8 @@ printf("c2z_print.c c2_math_str5 st_field_lgth = %d\n",x81);
   }
 
   strcpy(a_string, "         LARL  R6,");
-  strcat(a_string, tfield7);
+  strcat(a_string, tfield1a);
+  strcat(a_string, "T");
   src_line();
   if (puncde == 1) 
   {
@@ -15099,7 +15100,13 @@ printf("c2z_print.c c2_math_str5 st_field_lgth = %d\n",x81);
     trace_rec_3();
   }
   
-  strcpy(a_string, "         MVC   0(16,R9),0(R6)");
+/*  snprintf(wk_strg, sizeof(wk_strg), "%d", x80); */
+  strcpy(a_string, "         MVC   0");
+ /* strcat(a_string, wk_strg); */
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x81);
+  strcat(a_string, "(");
+  strcat(a_string, wk_strg);
+  strcat(a_string, ",R9),0(R6)");
   src_line();
   if (puncde == 1) 
   {
@@ -16547,7 +16554,17 @@ void c2_printf_str6()
   int x3;
   int x4;
   int x5;
+  int s;
   int v;
+
+  s = strlen(p_string);
+  for (I = 0; I < s; I++) 
+  {
+    if((p_string[I] == '\\') && (p_string[I + 1] == 'n'))
+    {
+      p102 = 1;
+    }
+  }
 
   pi = 0;
   ch = p_string[pi];
@@ -18196,6 +18213,8 @@ void c2_printf_str6()
     strcpy(trace_1, "c2z_print.c #2059");
     trace_rec_3();
   }
+
+printf("c2z_print.c #2059 rct = %d p102 = %d\n",rct,p102);
 
   if(p102 == 1)
   {
