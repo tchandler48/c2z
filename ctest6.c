@@ -1,4 +1,4 @@
- 
+  
 #define MAX_VARS     12
 #define VAR_NAM      16
 #define VAR_NAME     16
@@ -46,7 +46,7 @@ struct variables
 		 int gv_flag;
 	};
 
-  struct variables         *gw_variable;                  
+struct variables         *gw_variable;                  
 
 
 

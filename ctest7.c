@@ -6,7 +6,7 @@
     char ch;
     char test[5];
 
-
+  
 int main() 
 {
     printf("Test of ctest7\n");

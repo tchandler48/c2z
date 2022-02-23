@@ -1,7 +1,7 @@
    #define BUFSIZE     100
    #define MAX_VARS    90
    #define VAR_NAME    33
-
+ 
    char r_string[BUFSIZE];
    char fielda[10];
    char fieldc[10];

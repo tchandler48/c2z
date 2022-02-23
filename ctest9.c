@@ -1,4 +1,4 @@
- 
+  
 #define MAX_VARS     12
 #define VAR_NAME     16
 	
