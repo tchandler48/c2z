@@ -708,6 +708,7 @@ void c2_free()
             }
             work_use_ct[52]++;
 
+            x80--;
             snprintf(wk_strg, sizeof(wk_strg), "%d", x80);
             strcpy(a_string, "         MVC   ");
             strcat(a_string, wk_strg);

@@ -542,11 +542,12 @@ printf("c2z_strcat.c rct = %d ar_field11 = %s\n",rct,ar_field11);
       }
     }
 
+/*
 printf("\nc2z_strcat.c #20 rct = %d p_string = %s",rct,p_string);
 printf("c2z_strcat.c #20 tfield1 = %s\n",tfield1);
 printf("c2z_strcat.c #20 tfield2 = %s\n",tfield2);
 printf("c2z_strcat.c #20 tfield3 = %s\n",tfield3);
-
+*/
 
     strcpy(a_string, "         LARL  R9,C370NWK1");
     src_line();
@@ -785,7 +786,6 @@ printf("c2z_strcat.c #20 tfield3 = %s\n",tfield3);
           }
         }
       }
-printf("c2z_strcat.c tfield3 = %s tfield3a = %s x2 = %d\n",tfield3,tfield3a,x2);
 
       if (x3 == 0) 
       {

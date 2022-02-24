@@ -6127,7 +6127,8 @@ void c2_str_7()
       strcpy(trace_1, "c2z_strcpy.c #237");
       trace_rec_3();
     }
-
+   
+    x96--;
     strcpy(a_string, "         MVC   ");
     snprintf(wk_strg, sizeof(wk_strg), "%d", x96);
     strcat(a_string, wk_strg);

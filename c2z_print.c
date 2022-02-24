@@ -1063,7 +1063,6 @@ void c2_printf_dec()		/* NEW */
     trace_rec_3();
   }
 
-printf("c2z_print.c #75 rct = %d p102 = %d\n",rct,p102);
   if(p102 == 1)
   {
     strcpy(a_string, "         LARL  R15,WTOALPHA");
@@ -14699,7 +14698,6 @@ void c2_printf_str5()
   int x3;
   int x4;
   int x5;
-  int x80;
   int x81;
   int v;
   int s;
@@ -14861,7 +14859,7 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
     {
       x3 = 1;
       strcpy(tfield3a, w_struc[I].st_field_cname);
-      x80 = w_struc[I].st_disp; 
+  /*    x80 = w_struc[I].st_disp; */
       x81 = w_struc[I].st_field_lgth;
       break;
     }
@@ -15099,6 +15097,7 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
     strcpy(trace_1, "c2z_print_c #1722");
     trace_rec_3();
   }
+  work_use_ct[10]++;
   
 /*  snprintf(wk_strg, sizeof(wk_strg), "%d", x80); */
   strcpy(a_string, "         MVC   0");
@@ -16077,38 +16076,6 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
     trace_rec_3();
   }
 
-  strcpy(a_string, "*         LARL  R9,C370EDN");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1823");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*         ZAP   0(6,R9),0(6,R6)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1824");
-    trace_rec_3();
-  }
-   
-  strcpy(a_string, "*         LARL  R15,WTOIMVC");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1825");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*         BAKR  0,R15");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1826");
-    trace_rec_3();
-  }
-
   strcpy(a_string, "L");
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
   strcat(a_string, wk_strg);
@@ -16145,32 +16112,6 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_print.c #1830");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*         LARL  R9,C370L80");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1831");
-    trace_rec_3();
-  }
-  work_use_ct[10]++;
-
-  strcpy(a_string, "*         LARL  R8,");
-  strcat(a_string, tfield3a);
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1832");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*         MVC  0(16,R9),0(R8)");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_print.c #1833");
     trace_rec_3();
   }
 
@@ -16247,6 +16188,7 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
     strcpy(trace_1, "c2z_print.c #1841");
     trace_rec_3();
   }
+  work_use_ct[10]++;
 
   strcpy(a_string, "         IC    R0,0(R8,(R5))");
   src_line();
@@ -18213,8 +18155,6 @@ void c2_printf_str6()
     strcpy(trace_1, "c2z_print.c #2059");
     trace_rec_3();
   }
-
-printf("c2z_print.c #2059 rct = %d p102 = %d\n",rct,p102);
 
   if(p102 == 1)
   {

@@ -1097,7 +1097,7 @@ void c2_strlen()
     x3 = 0;
     for (I = 0; I < m_struc_ct; I++) 
     {
-      ret = strcmp(tfield2, w_struc[I].st_name);
+      ret = strcmp(tfield2, w_struc[I].st_wname);
       ret1 = strcmp(tfield4,w_struc[I].st_field_name);
       if ((ret == 0) && (ret1 == 0))
       {

@@ -654,6 +654,7 @@ void c2_atoi_00()
       strcpy(field2a, lw_variable[I].lv_cname);
       lw_variable[I].lv_use_ct++;
       x9 = lw_variable[I].lv_current_lgth;
+      break;
     }
   }
 
@@ -668,6 +669,7 @@ void c2_atoi_00()
         strcpy(field2a, gw_variable[I].gv_cname);
         gw_variable[I].gv_use_ct++;
         x9 = gw_variable[I].gv_current_lgth;
+        break;
       }
     }
   }
