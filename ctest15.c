@@ -18,6 +18,8 @@
 int main () 
 {
 
+   printf("ctest15 Testing...\n");
+
    abc = 123;
    printf("abc = %d",abc);
 
@@ -43,9 +45,9 @@ int main ()
    printf("in_stack = %s",in_stack[x]);
 
    strcpy(in_stack[2], "Entry 2");
-   printf(" in_stack = %s",in_stack[2]);
+   printf(" in_stack = %s\n",in_stack[2]);
 
-   printf(" abc = %d\n",abc);
+   printf("abc = %d\n",abc);
 
    x = 9999;
    y = 1;
@@ -60,12 +62,12 @@ int main ()
    y = 2;
    z = 1;
    strcpy(sheet[y][z], "test of sheet");
-   printf("sheet = %s ",sheet[y][z]); 
+   printf("sheet = %s\n",sheet[y][z]); 
 
    y = 3;
    z = 5;
    strcpy(sheet[y][z], xyz);
-   printf("sheet = %s \n",sheet[y][z]); 
+   printf("sheet = %s\n",sheet[y][z]); 
 
 
    return;

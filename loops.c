@@ -117,7 +117,7 @@ int get_To()
     ch = p_string[pi];
     if(strcmp(varname, "TO") != 0)
     {
-      ab_code=7;
+      ab_code = 7;
       a_bort(ab_code,x);
     }
   }
@@ -130,7 +130,7 @@ int get_To()
   }
   else
   {
-    ab_code=15;
+    ab_code = 15;
     a_bort(ab_code,x);
   }
   return Final;
@@ -147,7 +147,7 @@ int get_Step()
   strcpy(varname, get_varname());
   if(strcmp(varname, "STEP") != 0)
   {
-    ab_code=7;
+    ab_code = 7;
     a_bort(ab_code,x);
   }
   pi = e_pos;

@@ -96,18 +96,17 @@ void c2_strcpy(void)
 
 /* ************************************************************ */ 
 /*  stcopy profile	                                           */
-/*       bkl          bkr   x93  x95  x90   x93                 */
+/*       bkl          bkr   x93  x95  x90                       */
 /*       []    ,      []     .                                  */
-/*       0     ,      0      0     2    2     0   c2_str_4      */
-/*       0     ,      2                           c2_str_6      */
+/*       0     ,      0      0     2    2   c2_str_4            */
+/*       0     ,      0      0     4    0   c2_str_6            */
 /*       0     ,      4                                         */
-/*       2     ,      0      0     2    2     0   c2_str_14     */
-/*       2     ,      2                           c2_str_2      */
+/*       2     ,      0      0     2    0   c2_str_14           */
+/*       2     ,      2                     c2_str_2            */
 /*       2     ,      4                                         */
-/*       4     ,      0                           c2_str_12     */
+/*       4     ,      0      0     2    0   c2_str_12           */
 /*       4     ,      2                                         */
 /*       4     ,      4                                         */
-/*                                                              */
 /* ************************************************************ */
 
   /*  c2_str_1		NOT USED		strcpy(cvalue, "123456");  				*/
@@ -125,6 +124,8 @@ void c2_strcpy(void)
   /*  c2_str_14                           strcpy(in_stack[t], varname);			*/
 
 /*
+if(rct == 955)
+{
 printf("\nc2z_strcpy.c str\n");
 printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
 printf("c2z_strcpy.c bkl [] = %d\n",bkl);
@@ -132,6 +133,7 @@ printf("c2z_strcpy.c bkr [] = %d\n",bkr);
 printf("c2z_strcpy.c x95 () = %d\n",x95);
 printf("c2z_strcpy.c x90 qu = %d\n",x90);
 printf("c2z_strcpy.c x93 .  = %d\n",x93);
+}
 */
 
 /*  
@@ -159,22 +161,14 @@ printf("c2z_strcpy.c x93 .  = %d\n",x93);
     return;
   }
 
-/*
+
   if ((bkl == 2) && (bkr == 0) && (x95 == 2)  && (x93 == 0)) 
   {
-printf("\nc2z_strcpy.c str_3\n");
-printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_strcpy.c bkl [] = %d\n",bkl);
-printf("c2z_strcpy.c bkr [] = %d\n",bkr);
-printf("c2z_strcpy.c x95 () = %d\n",x95);
-printf("c2z_strcpy.c x90 qu = %d\n",x90);
-printf("c2z_strcpy.c x93 .  = %d\n",x93);
-
     c2_str_3(str1, str2);
     convert = 1;
     return;
   }
-*/
+
 
   if ((bkl == 0) && (bkr == 0) && (x95 == 2)) 
   {
@@ -182,6 +176,7 @@ printf("c2z_strcpy.c x93 .  = %d\n",x93);
     convert = 1;
     return;
   }
+
 
   if ((x95 == 2) && (bkl == 2) && (bkr == 2) && (x90 == 0) && (convert == 0)) 
   {
@@ -192,14 +187,6 @@ printf("c2z_strcpy.c x93 .  = %d\n",x93);
 
   if ((bkl == 0) && (bkr == 0) && (x95 == 4) && (convert == 0)) 
   {
-printf("\nc2z_strcpy.c str6\n");
-printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_strcpy.c bkl [] = %d\n",bkl);
-printf("c2z_strcpy.c bkr [] = %d\n",bkr);
-printf("c2z_strcpy.c x95 () = %d\n",x95);
-printf("c2z_strcpy.c x90 qu = %d\n",x90);
-printf("c2z_strcpy.c x93 .  = %d\n",x93);
-
     c2_str_6();
     convert = 1;
     return;
@@ -224,33 +211,19 @@ printf("c2z_strcpy.c x93 .  = %d\n",x93);
 
   if((bkl == 4) && (bkr == 0) && (x95 == 2) && (convert == 0))
   {
-printf("\nc2z_strcpy.c str12\n");
-printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_strcpy.c bkl [] = %d\n",bkl);
-printf("c2z_strcpy.c bkr [] = %d\n",bkr);
-printf("c2z_strcpy.c x95 () = %d\n",x95);
-printf("c2z_strcpy.c x90 qu = %d\n",x90);
-printf("c2z_strcpy.c x93 .  = %d\n",x93);
-
     c2_str_12();
     convert = 1;
     return;
   }
 
+
   if((bkl == 0) && (bkr == 4) && (x95 == 2) && (convert == 0))
   {
-printf("\nc2z_strcpy.c str13\n");
-printf("c2z_strcpy.c rct = %d p_string = %s",rct,p_string);
-printf("c2z_strcpy.c bkl [] = %d\n",bkl);
-printf("c2z_strcpy.c bkr [] = %d\n",bkr);
-printf("c2z_strcpy.c x95 () = %d\n",x95);
-printf("c2z_strcpy.c x90 qu = %d\n",x90);
-printf("c2z_strcpy.c x93 .  = %d\n",x93);
-
     c2_str_13();
     convert = 1;
     return;
   }
+
 
   if((bkl == 2) && (bkr == 0) && (x95 == 2) && (x93 == 0))
   {
@@ -12926,26 +12899,6 @@ void c2_str_14()
       trace_rec_3();
     }
 
-    strcpy(a_string, "L");
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcat(a_string, wk_strg);
-    strcat(a_string, "A");
-    check_length();
-    strcat(a_string, "DS    0H");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_strcpy.c #46");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R9,C370NWK1");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_strcpy.c #47");
-      trace_rec_3();
-    }
 
     if(fd2_type == 1)
     {
@@ -12978,7 +12931,7 @@ void c2_str_14()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         LARL  R8,C370NWK1");
+      strcpy(a_string, "         LARL  R8,C370NWK2");
       src_line();
       if (puncde == 1) 
       {
@@ -13003,8 +12956,33 @@ void c2_str_14()
         strcpy(trace_1, "c2z_strcpy.c #48f");
         trace_rec_3();
       }
+    }
 
-      strcpy(a_string, "         LARL  R8,C370NWK1");
+
+    strcpy(a_string, "L");
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcat(a_string, wk_strg);
+    strcat(a_string, "A");
+    check_length();
+    strcat(a_string, "DS    0H");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_strcpy.c #46");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_strcpy.c #47");
+      trace_rec_3();
+    }
+
+    if(fd2_type == 1)
+    {
+      strcpy(a_string, "         LARL  R8,C370NWK2");
       src_line();
       if (puncde == 1) 
       {
@@ -13166,5 +13144,5 @@ void c2_str_14()
     }
 
     convert = 1;
-
 }
+

@@ -23289,7 +23289,6 @@ void if_case_50()
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
   char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
@@ -23298,9 +23297,7 @@ void if_case_50()
   char field7[VAR_LGTH];
   char field7a[VAR_LGTH];
   char field8[VAR_LGTH];
-  char field8a[VAR_LGTH];
   char field9[VAR_LGTH];
-  char field9a[VAR_LGTH];
   char field10[VAR_LGTH];
   char field11[VAR_LGTH];
   char field11a[VAR_LGTH];
@@ -25485,11 +25482,9 @@ void if_case_56(void)
     int I;
     int ret;
     int ret1;
-    int fd1_type;
     int fd2_type;
     int fd3_type;
     int fd5_type;
-    int fd7_type;
     int fd8_type;
     int fd9_type;
     int fd11_type;
@@ -25506,14 +25501,12 @@ void if_case_56(void)
    char field4[VAR_LGTH];
    char field5[VAR_LGTH];
    char field5a[VAR_LGTH];
-   char field6[VAR_LGTH];
    char field7[VAR_LGTH];
    char field7a[VAR_LGTH];
    char field8[VAR_LGTH];
    char field8a[VAR_LGTH];
    char field9[VAR_LGTH];
    char field9a[VAR_LGTH];
-   char field10[VAR_LGTH];
    char field11[VAR_LGTH];
    char field11a[VAR_LGTH];
 
@@ -25535,32 +25528,17 @@ void if_case_56(void)
 
    pi2 = 0;
    x2 = 0;
-   fd1_type = 0;
    pi++;
    pi++;
    ch = p_string[pi];
    while(ch != '[')
    {
-     if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd1_type = 1;
-         x2 = 1;
-       }
-       if (isalpha(ch)) 
-       {
-         fd1_type = 2;
-         x2 = 1;
-       }
-     }
      field1[pi2] = ch;
      pi2++;
      pi++;
      ch = p_string[pi];
    }
    field1[pi2] = '\0';
-printf("c2z_if.c case_56 field1 = %s fd1_type = %d\n",field1,fd1_type);
 
    pi2 = 0;
    x2 = 0;
@@ -25588,7 +25566,6 @@ printf("c2z_if.c case_56 field1 = %s fd1_type = %d\n",field1,fd1_type);
      ch = p_string[pi];
    }
    field2[pi2] = '\0';
-printf("c2z_if.c case_56 field2 = %s fd2_type = %d\n",field2,fd2_type);
 
    pi2 = 0;
    x2 = 0;
@@ -25617,7 +25594,6 @@ printf("c2z_if.c case_56 field2 = %s fd2_type = %d\n",field2,fd2_type);
      ch = p_string[pi];
    }
    field3[pi2] = '\0';
-printf("c2z_if.c case_56 field3 = %s fd3_type = %d\n",field3,fd3_type);
 
    pi++;
    pi++;
@@ -25637,7 +25613,6 @@ printf("c2z_if.c case_56 field3 = %s fd3_type = %d\n",field3,fd3_type);
      ch = p_string[pi];
    }
    field4[pi2] = '\0';
-printf("c2z_if.c case_56 field4 = %s\n",field4);
 
    ch = p_string[pi];
    while(ch == ' ')
@@ -25671,7 +25646,6 @@ printf("c2z_if.c case_56 field4 = %s\n",field4);
      ch = p_string[pi];
    }
    field5[pi2] = '\0';
-printf("c2z_if.c case_56 field5 = %s   fd5_type = %d\n",field5,fd5_type);
 
    pi++;
    ch = p_string[pi];
@@ -25684,14 +25658,10 @@ printf("c2z_if.c case_56 field5 = %s   fd5_type = %d\n",field5,fd5_type);
    pi2 = 0;
    while(ch != ' ')
    {
-     field6[pi2] = ch;
-     pi2++;
      pi++;
      ch = p_string[pi];
    }
-   field6[pi2] = '\0';
-printf("c2z_if.c case_56 field6 = %s\n",field6);
-
+  
    ch = p_string[pi];
    while(ch != '(')
    {
@@ -25701,31 +25671,16 @@ printf("c2z_if.c case_56 field6 = %s\n",field6);
 
    pi2 = 0;
    x2 = 0;
-   fd7_type = 0;
    pi++;
    ch = p_string[pi];
    while(ch != '[')
    {
-    if (x2 == 0) 
-     {
-       if (isdigit(ch)) 
-       {
-         fd7_type = 1;
-         x2 = 1;
-       }
-       if (isalpha(ch)) 
-       {
-         fd7_type = 2;
-         x2 = 1;
-       }
-     }
      field7[pi2] = ch;
      pi2++;
      pi++;
      ch = p_string[pi];
    }
    field7[pi2] = '\0';
-printf("c2z_if.c case_56 field7 = %s   fd7_type = %d\n",field7,fd7_type);
 
    pi2 = 0;
    x2 = 0;
@@ -25753,7 +25708,6 @@ printf("c2z_if.c case_56 field7 = %s   fd7_type = %d\n",field7,fd7_type);
      ch = p_string[pi];
    }
    field8[pi2] = '\0';
-printf("c2z_if.c case_56 field8 = %s   fd8_type = %d\n",field8,fd8_type);
 
    pi2 = 0;
    x2 = 0;
@@ -25782,7 +25736,6 @@ printf("c2z_if.c case_56 field8 = %s   fd8_type = %d\n",field8,fd8_type);
      ch = p_string[pi];
    }
    field9[pi2] = '\0';
-printf("c2z_if.c case_56 field9 = %s   fd9_type = %d\n",field9,fd9_type);
 
    pi++;
    ch = p_string[pi];
@@ -25795,14 +25748,10 @@ printf("c2z_if.c case_56 field9 = %s   fd9_type = %d\n",field9,fd9_type);
    pi2 = 0;
    while(ch != ' ')
    {
-     field10[pi2] = ch;
-     pi2++;
      pi++;
      ch = p_string[pi];
    }
-   field10[pi2] = '\0';
-printf("c2z_if.c case_56 field10 = %s\n",field10);
-
+  
    ch = p_string[pi];
    while(ch == ' ')
    {
@@ -25835,7 +25784,6 @@ printf("c2z_if.c case_56 field10 = %s\n",field10);
      ch = p_string[pi];
    }
    field11[pi2] = '\0';
-printf("c2z_if.c case_56 field11 = %s   fd11_type = %d\n",field11,fd11_type);
 
    if (gv_ct > 0) 
    {

@@ -143,7 +143,7 @@ void loader_1()
       if(ch == ':')
       {
         temp_byte[ii] = -1;
-        strcpy(temp_prog[ii],"\0";
+        strcpy(temp_prog[ii],"\0");
       }
       else
       {
@@ -178,7 +178,7 @@ void tmp_label(int ii)
   }
   else
   {
-    strcpy(temp_label[ii], "";
+    strcpy(temp_label[ii], " ");
   }
   e_pos = pi;
 }

@@ -149,7 +149,7 @@ void c2_printf()
 /*	  0     ,     2          1                 1	c2_printf_str3	      */
 /*       0     ,     2          0		        2     c2_printf_dec1                                                      */
 /*       2     ,     2          0         2       2     c2_printf_dec2   printf("spreadsheet = %d\n",spreadsheet[i9][jj]);  */
-/*       0     ,     4          0                 1     c2_printf_str4   printf("%18s src = %s\n",src[i9][jj]);             */
+/*       2     ,     4          0                 1     c2_printf_str4   printf("%18s src = %s\n",src[i9][jj]);             */
 /*       1     ,     1          1                 2     c2_printf_dec5   printf("k gv_lgth = %d\n",gw_variable[3].gv_lgth); */
 /*       1     ,     1          0         2       2     c2_printf_dec6   printf("#g iv_stack = %d\n",iv_stack[2];           */
 /*       1     ,     1          1         2       1     c2_printf_str5   printf("gv_name = %s\n",gw_variable[x].gv_name);   */
@@ -211,7 +211,7 @@ void c2_printf()
       return;
     }
 
-    if((ptr_type == 1) && (bkl == 0) && (bkr == 4) && (x90 == 2))
+    if((ptr_type == 1) && (bkl == 2) && (bkr == 2) && (x90 == 2))
     {
       c2_printf_str4();
       convert = 1;
@@ -18031,14 +18031,14 @@ void c2_printf_str6()
   }
   work_use_ct[2]++;
 
-  strcpy(a_string, "         LARL  R7,C370B1");
+  strcpy(a_string, "         LARL  R7,C370EOF");
   src_line();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_print.c #2047");
     trace_rec_3();
   }
-  work_use_ct[52]++;
+  work_use_ct[74]++;
 
   strcpy(a_string, "         CLC   0(1,R8),0(R7)");
   src_line();
@@ -18051,7 +18051,7 @@ void c2_printf_str6()
   strcpy(a_string, "         JLE   L");
   snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
   strcat(a_string, wk_strg);
-  strcat(a_string, "P");
+  strcat(a_string, "K");
   src_line();
   if (puncde == 1) 
   {

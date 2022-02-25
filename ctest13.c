@@ -35,6 +35,8 @@ int main ()
    char age[5];
    char year[5];
 
+   printf("ctest13 Testing...\n");
+
    strcpy(age,"123");
    test = atoi(age);
    printf("age = %s\n",age);
@@ -51,12 +53,12 @@ int main ()
    y = 4;
 
    spreadsheet[x][y] = z;
-   printf("#0 spreadsheet = %d\n",spreadsheet[x][y]);
+   printf("A spreadsheet = %d\n",spreadsheet[x][y]);
    
    x = 1;
    y = 10;
    spreadsheet[x][y] = 87;
-   printf("#1 spreadsheet = %d\n",spreadsheet[x][y]);
+   printf("B spreadsheet = %d\n",spreadsheet[x][y]);
    
    row = 4;
    col = 6;
@@ -68,7 +70,7 @@ int main ()
    row = 1;
    col = 10;
 
-   printf("#2 spreadsheet = %d\n",spreadsheet[row][col]);
+   printf("C spreadsheet = %d\n",spreadsheet[row][col]);
 
    a = 2;
    b = 5;
@@ -94,17 +96,13 @@ int main ()
    {
      I = 1234;
    }
-   printf("#2 I = %d\n",I);
+   printf("D I = %d\n",I);
 
    i = 5;
    j = 10;
    sheet[i][j] = '_';
 
-   strcpy(sheet[row][col],age);
-
-   printf("sheet #5 = %s\n",sheet[row][col]);
-
-
+   printf("sheet E = %s\n",sheet[i][j]);
    return;
 }
 

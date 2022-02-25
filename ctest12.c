@@ -14,6 +14,7 @@ int main ()
    int  syear;
    char age[5];
    char year[5];
+   printf("ctest12 Testing...\n");
 
    strcpy(age,"123");
    test = atoi(age);
