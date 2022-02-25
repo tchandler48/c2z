@@ -359,7 +359,7 @@ int get_varndx(char *name)
   {
     if(vflag == 0)
     {
-      if(sn_stack[ndx][0] == '\0')
+      if(sn_stack[ndx] == '\0')
       {
         vi_pos = ndx;
         vflag = 1;

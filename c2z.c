@@ -798,6 +798,7 @@ int work_use_ct[110];
  int p102 = 0;
  int p103 = 0;
  int p104 = 0;		/* toupper */
+ int v_convert = 0;
 
  int array_rows = 17; 				/* array row count			*/
 
@@ -1569,6 +1570,7 @@ int main(int argc, char *argv[])
     }
 
 /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+ 
     convert = 0;
     fprtf_flag = 0;
 
@@ -1879,6 +1881,10 @@ int main(int argc, char *argv[])
 
     if ((x1 == 1) && (p1) && (!p3) && (!p4) && (p5) && (p6) && (!p7) && (convert == 0)) 
     {
+if(rct == 2200)
+{
+  printf("HERE #1\n");
+}
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (char) #101");
@@ -1895,6 +1901,11 @@ int main(int argc, char *argv[])
 
     if ((x1 == 2) && (p1) && (p5) && (p6) && (!p8) && (convert == 0)) 
     {
+if(rct == 2200)
+{
+  printf("HERE #2\n");
+}
+
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (int) #102");
@@ -1911,6 +1922,11 @@ int main(int argc, char *argv[])
 
     if ((x1 == 3) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
+if(rct == 2200)
+{
+  printf("HERE #3\n");
+}
+
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (void) #103");
@@ -1925,6 +1941,11 @@ int main(int argc, char *argv[])
 
     if ((x1 == 4) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
+if(rct == 2200)
+{
+  printf("HERE #4\n");
+}
+
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (double) #104");
@@ -2522,6 +2543,7 @@ int main(int argc, char *argv[])
 
       c2_pass2_while();
     }
+
 
     /* ***************************************************************
     * Scan for switch                                                *
@@ -3287,7 +3309,6 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-
     /* ***************************************************************
      *  Scan for #ifndef                                             *
      * ************************************************************* */
@@ -3318,6 +3339,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
+
 /* Scan for #endif  */
 
     if (convert == 1) 
@@ -3347,8 +3369,11 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-/* Scan for user VOID FUNCTION code  */
+    v_convert = 0;
 
+    /* ***************************************************************
+     *  Scan for user VOID FUNCTION code                             *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3365,7 +3390,6 @@ int main(int argc, char *argv[])
       goto vf_convert;
     }
 
-    int v_convert = 0;
     pi = 0;
     pi2 = 0;
     ch = p_string[pi];
@@ -3377,6 +3401,7 @@ int main(int argc, char *argv[])
 
     s = strlen(p_string);
     s--;
+
 
     if ((s == pi) || ((pi + 1) == s)) 
     {
@@ -3420,11 +3445,12 @@ int main(int argc, char *argv[])
       s = 9999;
     }
 
-
+/*
     if ((p) && (s < v))
     {
       v_convert = 1;
     }
+*/
 
     p = strstr(p_string, "#define");
     if ((p) && (v_convert == 0))
@@ -7073,7 +7099,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    
+  
     /* **********************************************************
     *  Punch #defines  (skip)                                   *
     * ********************************************************* */
@@ -8280,6 +8306,7 @@ int main(int argc, char *argv[])
     {
       printf("c2z.c Pass 3 rct = %d Punch void function\n", rct);
     }
+
 
     if (fns_ct > 0) 
     {

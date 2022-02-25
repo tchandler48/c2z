@@ -1515,7 +1515,8 @@ printf("c2z_for.c #7 tfield7 = %s fd7_type = %d\n",tfield7,fd7_type);
 
     if (fd3_type == 1)
     {
-	printf("c2z_for fd3_type NOT CODED\n");
+	printf("\nc2z_for fd3_type NOT CODED\n");
+       printf("c2z_for.c rct = %d p_string = %s\n",rct,p_string);
     }
 
     if (fd3_type == 2) 
@@ -3087,7 +3088,8 @@ printf("c2z_for.c #6 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
   {
     if (fd3_type == 1)
     {
-	printf("c2z_for fd3_type NOT CODED\n");
+	printf("\nc2z_for #2 fd3_type NOT CODED\n");
+       printf("c2z_for.c rct = %d p_string = %s\n",rct,p_string);
     }
 
     if (fd3_type == 2) 
@@ -5765,7 +5767,8 @@ printf("c2z_for.c #7 tfield7 = %s fd7_type = %d\n",tfield7,fd7_type);
 
     if (fd3_type == 1)
     {
-	printf("c2z_for fd3_type NOT CODED\n");
+	printf("\nc2z_for.c #3 fd3_type NOT CODED\n");
+       printf("c2z_for.c rct = %d p_string = %s\n",rct,p_string);
     }
 
     if (fd3_type == 2) 

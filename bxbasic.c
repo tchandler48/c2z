@@ -10,7 +10,7 @@
 #define MAX_VARS 		100
 
 	FILE *pgm, *f_out,*f_in;
-	char *prog_name;
+	char prog_name[VAR_NAME];
        char **array1;
 	char p_string[BUFSIZE];
 	char t_holder[20];
