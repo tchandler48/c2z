@@ -2371,8 +2371,6 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
   int I = 0;
   int ret = 0;
   int ret1 = 0;
-  /* int fd1_type = 0; */
-  /* int fd2_type = 0; */
   int fd4_type = 0;
   int operand_1 = 0;
   
@@ -2492,6 +2490,11 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
       if (isdigit(ch)) 
       {
         fd4_type = 2; 
+        x2 = 1;
+      }
+      if (ch == '\'')
+      {
+        fd4_type = 3;
         x2 = 1;
       }
     }
@@ -2644,6 +2647,12 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     convert = 1;
     return;
   }
+
+printf("\nc2z_if.c case_2 rct = %d p_string = %s",rct,p_string);
+printf("c2z_if.c case_2 tfield1 = %s\n",tfield1);
+printf("c2z_if.c case_2 tfield2 = %s\n",tfield2);
+printf("c2z_if.c case_2 tfield3 = %s\n",tfield3);
+printf("c2z_if.c case_2 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -2809,6 +2818,8 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     trace_rec_3();
   }
 
+printf("c2z_if.c case_2 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
+
   if(fd4_type == 1)
   {
      printf("c2z_if.c case_2 NOT CODED\n");
@@ -2818,7 +2829,200 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
      return;
   }
 
-  if(fd4_type == 2)
+  if(fd4_type == 3)
+  {
+    p = strstr(tfield4, "0'");
+    if(p)
+    {
+      strcpy(a_string, "         LARL  R8,C370EOF");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_if.c #70");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         CLC   0(1,R8),0(R6)");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_if.c #71");
+        trace_rec_3();
+      }
+
+      if(operand_1 == 1)
+      {
+        strcpy(a_string, "         JLNE  ");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, "L");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+           strcpy(trace_1, "c2z_if.c #72");
+           trace_rec_3();
+        }
+      }
+
+      if(operand_1 == 2)
+      {
+        strcpy(a_string, "         JLE   ");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, "L");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+           strcpy(trace_1, "c2z_if.c #73");
+           trace_rec_3();
+        }
+      }
+
+      if(operand_1 == 3)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 4)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 5)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 6)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 7)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+    }
+
+    ret = strcmp(tfield4, "' '");
+    if(ret == 0)
+    {
+     strcpy(a_string, "         LARL  R8,C370B1");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_if.c #74");
+        trace_rec_3();
+      }
+      work_use_ct[52]++;
+
+      strcpy(a_string, "         CLC   0(1,R8),0(R6)");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_if.c #75");
+        trace_rec_3();
+      }
+
+      if(operand_1 == 1)
+      {
+        strcpy(a_string, "         JLNE  ");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, "L");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+           strcpy(trace_1, "c2z_if.c #76");
+           trace_rec_3();
+        }
+      }
+
+      if(operand_1 == 2)
+      {
+        strcpy(a_string, "         JLE   ");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, "L");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+           strcpy(trace_1, "c2z_if.c #77");
+           trace_rec_3();
+        }
+      }
+
+      if(operand_1 == 3)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 4)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 5)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 6)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      if(operand_1 == 7)
+      {
+        printf("c2z_if.c case_2 This operand NOT CODED operand_1 = %d\n",operand_1);
+        printf("c2z_if.c case_2 rct = %d p_string = %s\n", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+    }
+
+  }
+
+
+  if(fd4_type == 2) 
   {
     strcpy(a_string, "         LAEY  R5,");
     strcat(a_string, tfield4);
@@ -2828,7 +3032,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #70");
+      strcpy(trace_1, "c2z_if.c #74");
       trace_rec_3();
     }
 
@@ -2836,7 +3040,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #71");
+      strcpy(trace_1, "c2z_if.c #75");
       trace_rec_3();
     }
     work_use_ct[48]++;
@@ -2845,7 +3049,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #72");
+      strcpy(trace_1, "c2z_if.c #76");
       trace_rec_3();
     }
 
@@ -2853,7 +3057,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #73");
+      strcpy(trace_1, "c2z_if.c #77");
       trace_rec_3();
     }
     work_use_ct[50]++;
@@ -2862,7 +3066,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #74");
+      strcpy(trace_1, "c2z_if.c #78");
       trace_rec_3();
     }
     work_use_ct[48]++;
@@ -2871,7 +3075,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #75");
+      strcpy(trace_1, "c2z_if.c #79");
       trace_rec_3();
     }
 
@@ -2879,7 +3083,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #76");
+      strcpy(trace_1, "c2z_if.c #80");
       trace_rec_3();
     }
 
@@ -2892,7 +3096,21 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
       src_line();
       if (puncde == 1) 
       {
-         strcpy(trace_1, "c2z_if.c #77");
+         strcpy(trace_1, "c2z_if.c #81");
+         trace_rec_3();
+      }
+    }
+
+    if(operand_1 == 1)
+    {
+      strcpy(a_string, "         JLNE  ");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcat(a_string, "L");
+      strcat(a_string, wk_strg);
+      src_line();
+      if (puncde == 1) 
+      {
+         strcpy(trace_1, "c2z_if.c #82");
          trace_rec_3();
       }
     }
@@ -2906,7 +3124,7 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
       src_line();
       if (puncde == 1) 
       {
-         strcpy(trace_1, "c2z_if.c #78");
+         strcpy(trace_1, "c2z_if.c #82");
          trace_rec_3();
       }
     }

@@ -267,7 +267,6 @@
 	void c2_reg_math(void);
  	void c2_math_5(void);
 	void c2_math_51(void);
-       void c2_math_52(void);
        void c2_math_58(void);
 	void c2_math_6(void);
 	void c2_math_8(void);
