@@ -52,6 +52,7 @@ void parse_let()
     ndx = get_intndx(varname);
     pi = iswhite(pi);
     e_pos = pi;
+
     Match('=');
     iv_stack[ndx] = rdp_start();
     process = 1;
@@ -92,7 +93,6 @@ int get_intndx(char *name)
       ndx--;
      
       strcpy(in_stack[ndx], varname);
-      
     }
     else
     {

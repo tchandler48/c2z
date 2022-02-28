@@ -213,7 +213,18 @@ int main(int argc, char *argv[])
 
   printf("BXBasic Intepreter\n");
   line_cnt(argv);
+
   pgm_parser();
+  for(I = 0; I < 6; I++)
+  {
+    printf("in_stack = %s\n",in_stack[I]);
+  }
+
+  for(I = 0; I < 6; I++)
+  {
+    printf("iv_stack = %d\n",iv_stack[I]);
+  }
+
   clr_arrays();
   exit(1);
 }

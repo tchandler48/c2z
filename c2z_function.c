@@ -275,7 +275,7 @@ void c2_func_call()
   int x3 = 0;
   int x4 = 0;
   int x5 = 0;
-  int x100;
+  int x100 = 0;
   int I = 0;
   int s = 0;
   int v = 0;
@@ -1094,7 +1094,7 @@ void c2_func_call()
             x3 = 1;
             strcpy(field2a, lw_variable[v].lv_cname);
             lw_variable[v].lv_use_ct++;
-            x100 = lw_variable[v].lv_current_lgth;
+            x100 = lw_variable[v].lv_lgth;
             ret2 = strcmp("I", lw_variable[v].lv_type);
             if (ret2 == 0) 
             {
@@ -1117,7 +1117,7 @@ void c2_func_call()
               x3 = 1;
               strcpy(field2a, gw_variable[v].gv_cname);
               gw_variable[v].gv_use_ct++;
-              x100 = gw_variable[v].gv_current_lgth;
+              x100 = gw_variable[v].gv_lgth;
               ret2 = strcmp("I", gw_variable[v].gv_type);
               if (ret2 == 0) 
               {

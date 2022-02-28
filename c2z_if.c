@@ -2648,11 +2648,13 @@ void if_case_2() 					/* if(temp_byte[ii] != 0)	 */
     return;
   }
 
+/*
 printf("\nc2z_if.c case_2 rct = %d p_string = %s",rct,p_string);
 printf("c2z_if.c case_2 tfield1 = %s\n",tfield1);
 printf("c2z_if.c case_2 tfield2 = %s\n",tfield2);
 printf("c2z_if.c case_2 tfield3 = %s\n",tfield3);
 printf("c2z_if.c case_2 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
+*/
 
   strcpy(a_string, "         LARL  R9,C370NWK1");
   src_line();
@@ -2817,8 +2819,6 @@ printf("c2z_if.c case_2 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
     strcpy(trace_1, "c2z_if.c #69");
     trace_rec_3();
   }
-
-printf("c2z_if.c case_2 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
 
   if(fd4_type == 1)
   {
@@ -3020,7 +3020,6 @@ printf("c2z_if.c case_2 tfield4 = %s fd4_type = %d\n",tfield4,fd4_type);
     }
 
   }
-
 
   if(fd4_type == 2) 
   {

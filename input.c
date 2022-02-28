@@ -133,7 +133,6 @@ void loader_1()
   while(!feof(f_in))
   {
     fgets(p_string, BUFSIZE, f_in);
-/* printf("loader_1 p_string = %s \n",p_string); */
     if(!feof(f_in))
     {	
       len = strlen(p_string);
@@ -173,7 +172,6 @@ void tmp_label(int ii)
       ch = p_string[pi];
     }
     ln_label[pi] = ' ';
-
     strcpy(temp_label[ii], ln_label);
   }
   else
@@ -392,6 +390,7 @@ void tmp_prog(int ii)
     }
   }
   prog[si] = '\0';
+
   strcpy(temp_prog[ii], prog);
 }
 

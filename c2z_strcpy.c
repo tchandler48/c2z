@@ -2711,7 +2711,8 @@ void c2_str_3(int str1, int str2)
 printf("\nc2z_strcpy.c s < s rct = %d p_string = %s",rct,p_string);
 printf("c2z_strcpy.c s < s tfield1 = %s\n",tfield1);
 printf("c2z_strcpy.c s < s tfield2 = %s\n",tfield2);
-printf("c2z_strcpy.c x < x tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
+printf("c2z_strcpy.c s < s tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
+printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
 */
 
       if(fd2_type == 1)
@@ -2813,12 +2814,24 @@ printf("c2z_strcpy.c x < x tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
           }
         }
 
-        p = strstr(tfield3, "\0");
-        if (p) 
+        if(fd3_type == 1)
         {
-          x6 = 1;
+          p = strstr(tfield3, "\0");
+          if (p) 
+          {
+            x6 = 1;
+          }
         }
 
+        if(fd3_type == 0)
+        {
+          p = strstr(tfield3, "\0");
+          if (p) 
+          {
+            x6 = 1;
+          }
+        }
+    
         if (x6 == 0) 
         {
           str6 = 0;
@@ -3117,7 +3130,7 @@ printf("c2z_strcpy.c x < x tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_strcpy.c #111");
+            strcpy(trace_1, "c2z_strcpy.c #118");
             trace_rec_3();
           }
          
@@ -3126,7 +3139,7 @@ printf("c2z_strcpy.c x < x tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
           src_line();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_strcpy.c #117");
+            strcpy(trace_1, "c2z_strcpy.c #119");
             trace_rec_3();
           }
         }

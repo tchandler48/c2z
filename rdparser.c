@@ -23,9 +23,13 @@ int Expression()
   }
   else
   {
+    pi++;
+    pi = iswhite(pi);
+    e_pos = pi;
     Value = Term();
     pi = e_pos;
     ch = p_string[pi];
+   
   }
 
   while(IsAddop(ch))  
@@ -61,6 +65,7 @@ int Term()
   int pi, Value;
 
   Value = Factor();
+
   pi = e_pos;
   ch = p_string[pi];
 
@@ -206,6 +211,7 @@ int GetNum()
     ch = p_string[pi];
   }
   cvalue[si] = '\0';
+
   Value = atoi(cvalue);
   SkipWhite();
   return Value;

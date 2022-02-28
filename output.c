@@ -35,36 +35,35 @@ void parse_print()
     return;
   }
 
-    process = 0;
-    if(isalpha(ch))
+  process = 0;
+  if(isalpha(ch))
+  {
+    strcpy(s_holder, get_varname());
+    pi = e_pos;
+    ch = p_string[pi];
+
+    if((ch == '$') && (process == 0))
     {
-      strcpy(s_holder, get_varname());
-      pi = e_pos;
-      ch = p_string[pi];
-
-      if((ch == '$') && (process == 0))
-      {
-        pi = 0;
-        e_pos = 0;
-        get_strvar();
-        process = 1;
-      }
-
-      if(process == 0)
-      { 
-        pi = 0;
-        e_pos = 0;
-        get_prnvar();
-        process = 1;
-      }
-    }
-
-    if(ch == '\"')
-    {
-      get_prnstring();
+      pi = 0;
+      e_pos = 0;
+      get_strvar();
       process = 1;
     }
- 
+
+    if(process == 0)
+    { 
+      pi = 0;
+      e_pos = 0;
+      get_prnvar();
+      process = 1;
+    }
+  }
+
+  if(ch == '\"')
+  {
+    get_prnstring();
+    process = 1;
+  }
 }
 
 
