@@ -3733,7 +3733,6 @@ void c2_int_punch_1()
       {
         x3 = 1;
         strcpy(tfield1a, lw_variable[v].lv_cname);
-        lw_variable[v].lv_use_ct++;
       }
     }
 
@@ -3746,7 +3745,6 @@ void c2_int_punch_1()
         {
           x3 = 1;
           strcpy(tfield1a, gw_variable[v].gv_cname);
-          gw_variable[v].gv_use_ct++;
         }
       }
     }
@@ -3843,7 +3841,6 @@ void c2_int_punch_1()
       {
         x3 = 1;
         strcpy(tfield1a, lw_variable[v].lv_cname);
-        lw_variable[v].lv_use_ct++;
       }
     }
 
@@ -3856,8 +3853,7 @@ void c2_int_punch_1()
         {
           x3 = 1;
           strcpy(tfield1a, gw_variable[v].gv_cname);
-          gw_variable[v].gv_use_ct++;
-        }
+         }
       }
     }
 
@@ -3902,7 +3898,6 @@ void c2_int_punch_1()
         {
           x3 = 1;
           strcpy(tfield2a, lw_variable[v].lv_cname);
-          lw_variable[v].lv_use_ct++;
         }
       }
 
@@ -3915,8 +3910,7 @@ void c2_int_punch_1()
           {
             x3 = 1;
             strcpy(tfield2a, gw_variable[v].gv_cname);
-            gw_variable[v].gv_use_ct++;
-          }
+           }
         }
      
         if (x3 == 0) 

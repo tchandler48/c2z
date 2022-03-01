@@ -8,6 +8,7 @@ void line_cnt(char *argv[])
   int ab_code=2;
   unsigned fnam_len;
   int I;
+  int x99 = 0;
 
   nrows = 0;
   len = fnam_len;

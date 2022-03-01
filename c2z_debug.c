@@ -355,6 +355,65 @@ void c2_debug()
   fprintf(c_src, "\nTotal Global Variables = %d\n", I);
 
 
+  fprintf(c_src, "\n\n---------- Unused Local Variables -----------\n");
+  fprintf(c_src, "Rct    ");
+  fprintf(c_src, "Name     ");
+  fprintf(c_src, "CName    ");
+  fprintf(c_src, " Function\n");
+
+  for (I = 0; I < lv_ct; I++) 
+  {
+    if(lw_variable[I].lv_use_ct == 0)
+    {
+      snprintf(wk_strg, sizeof(wk_strg), "%d", lw_variable[I].lv_rct);
+      strcpy(a_string, wk_strg);
+      s = strlen(a_string);
+      if (s < 7) 
+      {
+        for (v = s; v < 7; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, lw_variable[I].lv_name);
+      s = strlen(a_string);
+      if (s < 31) 
+      {
+        for (v = s; v < 31; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, lw_variable[I].lv_cname);
+      s = strlen(a_string);
+      if (s < 47) 
+      {
+        for (v = s; v < 47; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, lw_variable[I].lv_func);
+      s = strlen(a_string);
+      if (s < 65) 
+      {
+        for (v = s; v < 65; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+      strcat(a_string, "\n");
+
+      fputs(a_string, c_src);
+    }
+  }
+
+
+
+
   fprintf(c_src, "\n\n------------------------------------ Local Variables ------------------------------------------\n");
   fprintf(c_src, "Rec     Name                   CName          Function         Type  Lgth  Clgth   ID      Value/Literal\n");
   fprintf(c_src, "-----  ----------------------  -------------  ---------------  ----  ----  -----   ---     -------------\n");
@@ -671,6 +730,8 @@ void c2_debug()
     fprintf(c_src, " Name - %s", w_func_start[I].fns_name);
   }
 
+
+
   fprintf(c_src, "\n\n--------------- Structures ---------------\n");
   fprintf(c_src, "Rec    Name          CName              WName          "
                  "WCName       Field Name         Field CName      Id  Type  "
@@ -805,6 +866,7 @@ void c2_debug()
     fputs(a_string, c_src);
   }
   fprintf(c_src, "\n");
+
 
   fclose(c_src);
 }

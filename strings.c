@@ -11,6 +11,9 @@ void parse_str(char *name)
   pi = e_pos;
   ch = p_string[pi];
   ndx = get_varndx(varname);
+
+  pi++;
+  pi = iswhite(pi);
   pi++;
   pi = iswhite(pi);
   e_pos = pi;

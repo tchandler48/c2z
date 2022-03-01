@@ -46,7 +46,7 @@ int iswhite(int pi)
   char ch;
  
   ch = p_string[pi];
-  while(isspace(ch) != 0)
+  while(ch == ' ')
   {
     pi++;
     ch = p_string[pi];

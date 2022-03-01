@@ -1007,7 +1007,6 @@ void c2_unsigned_punch()
         if ((ret == 0) && (ret1 == 0)) 
         {
           strcpy(field1a, lw_variable[I].lv_cname);
-          lw_variable[I].lv_use_ct++;
           x3 = 1;
         }
       }
@@ -1021,7 +1020,6 @@ void c2_unsigned_punch()
         if (ret == 0) 
         {
           strcpy(field1a, gw_variable[I].gv_cname);
-          gw_variable[I].gv_use_ct++;
           x3 = 1;
         }
       }

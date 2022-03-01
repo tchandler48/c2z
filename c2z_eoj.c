@@ -5094,6 +5094,50 @@ void c2_eoj()
   strcat(a_string, "*");
   printf("%s\n", a_string);
 
+  x3 = 0;
+  strcpy(a_string, "*               Unused Global Var - ");
+  for(I = 0; I < gv_ct; I++)
+  {
+    if(gw_variable[I].gv_use_ct == 0)
+    {
+      x3++;
+    }
+  }
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x3);
+  strcat(a_string, wk_strg);
+  s = strlen(a_string);
+  if (s < 46) 
+  {
+    for (v = s; v < 46; v++) 
+    {
+      strcat(a_string, " ");
+    }
+  }
+  strcat(a_string, "*");
+  printf("%s\n", a_string);
+
+  x3 = 0;
+  strcpy(a_string, "*               Unused Local Var  - ");
+  for(I = 0; I < lv_ct; I++)
+  {
+    if(lw_variable[I].lv_use_ct == 0)
+    {
+      x3++;
+    }
+  }
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x3);
+  strcat(a_string, wk_strg);
+  s = strlen(a_string);
+  if (s < 46) 
+  {
+    for (v = s; v < 46; v++) 
+    {
+      strcat(a_string, " ");
+    }
+  }
+  strcat(a_string, "*");
+  printf("%s\n", a_string);
+
   printf("*\t\t\t\t\t      *\n");
   printf("*\t  C\t\t c2z\t\t      *\n");
   printf("*\tFiles\t\tFiles\t\t      *\n");

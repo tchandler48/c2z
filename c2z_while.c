@@ -8706,6 +8706,7 @@ printf("rct = %d p_string = %s",rct,p_string);
             wh_3 = 1;
             strcpy(field3a, lw_variable[v].lv_cname);
             lw_variable[v].lv_use_ct++;
+            break;
           }
         }
       }
@@ -8722,6 +8723,7 @@ printf("rct = %d p_string = %s",rct,p_string);
               wh_3 = 1;
               strcpy(field3a, gw_variable[v].gv_cname);
               gw_variable[v].gv_use_ct++;
+              break;
             }
           }
         }
@@ -8820,14 +8822,14 @@ printf("rct = %d p_string = %s",rct,p_string);
         return;
       }
 
-      strcpy(a_string, "         LARL  R9,C370NWK1");
+      strcpy(a_string, "         LARL  R9,C370NCVT");
       src_line();
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_while.c #241");
         trace_rec_3();
       }
-      work_use_ct[49]++;
+      work_use_ct[104]++;
 
       strcpy(a_string, "         LARL  R8,C370ZERO");
       strcpy(wk_remark, " 0");
@@ -8873,14 +8875,14 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R9,C370NWK1");
+        strcpy(a_string, "         LARL  R9,C370NCVT");
         src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c #246");
           trace_rec_3();
         }
-        work_use_ct[49]++;
+        work_use_ct[104]++;
 
         strcpy(a_string, "         LARL  R8,");
         strcat(a_string, field2a);
@@ -8913,14 +8915,14 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LARL  R9,C370NWK1");
+        strcpy(a_string, "         LARL  R9,C370NCVT");
         src_line();
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c #250");
           trace_rec_3();
         }
-        work_use_ct[49]++;
+        work_use_ct[104]++;
 
         strcpy(a_string, "         LARL  R8,C370ONE");
         src_line();
@@ -9019,6 +9021,14 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
+        strcpy(a_string, "         XR    0,0");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #260");
+          trace_rec_3();
+        }
+
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field3a);
         strcpy(wk_remark, " ");
@@ -9027,17 +9037,53 @@ printf("rct = %d p_string = %s",rct,p_string);
         write_remark();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c #260");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         CLC   0(3,R9),0(R6)");
-        src_line();
-        if (puncde == 1) 
-        {
           strcpy(trace_1, "c2z_while.c #261");
           trace_rec_3();
         }
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcpy(a_string, "L");
+        strcat(a_string, wk_strg);
+        strcat(a_string, "H");
+        strcpy(start_while, a_string);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #262");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         CLST  R9,R6");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #263");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JO    L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        strcat(a_string, "H");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #264");
+          trace_rec_3();
+        }
+
+/*
+	  LARL R9,C37F648 		Set GR7 to start of first operand
+*	  LA 5,B 		       Set GR5 to start of second operand
+Comp     CLST R9,R6 		       Compare the two strings
+	  JO Comp 			Incomplete comparison, repeat
+	  JLE  L2170E 		Strings are equal
+	  JH A_High 			String A compares higher than string B
+	  J  A_Low 			String A compares lower than string B
+
+*/
 
         strcpy(a_string, "         JLE   L");
         snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
@@ -9046,7 +9092,43 @@ printf("rct = %d p_string = %s",rct,p_string);
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c #262");
+          strcpy(trace_1, "c2z_while.c #265");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JLH   L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        strcat(a_string, "K");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #266");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         J     L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        strcat(a_string, "K");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #267");
+          trace_rec_3();
+        }
+
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcpy(a_string, "L");
+        strcat(a_string, wk_strg);
+        strcat(a_string, "K");
+        strcpy(start_while, a_string);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #268");
           trace_rec_3();
         }
 

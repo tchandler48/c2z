@@ -224,6 +224,15 @@ int main(int argc, char *argv[])
   {
     printf("iv_stack = %d\n",iv_stack[I]);
   }
+  for(I = 0; I < 6; I++)
+  {
+    printf("sn_stack = %s\n",sn_stack[I]);
+  }
+
+  for(I = 0; I < 6; I++)
+  {
+    printf("sv_stack = %s\n",sv_stack[I]);
+  }
 
   clr_arrays();
   exit(1);

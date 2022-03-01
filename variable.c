@@ -52,7 +52,6 @@ void parse_let()
     ndx = get_intndx(varname);
     pi = iswhite(pi);
     e_pos = pi;
-
     Match('=');
     iv_stack[ndx] = rdp_start();
     process = 1;
@@ -67,7 +66,6 @@ int get_intndx(char *name)
   int vi_pos = 0;
 
   strcpy(varname, name);
-
   vflag = 0;
 
   while((strcmp(in_stack[ndx], varname) != 0) && (ndx < imax_vars))
@@ -77,7 +75,7 @@ int get_intndx(char *name)
       if(in_stack[ndx] == ' ')
       {
         vi_pos = ndx;
-        vflag = 0;
+        vflag = 1;
       }
     }
     ndx++;
@@ -355,11 +353,11 @@ int get_varndx(char *name)
 
   strcpy(varname, name);
 
-  while((strcmp(sn_stack[ndx], varname) != 0) && (ndx < imax_vars))
+  while((strcmp(sn_stack[ndx], varname) != 0) && (ndx < smax_vars))
   {
     if(vflag == 0)
     {
-      if(sn_stack[ndx] == '\0')
+      if(sn_stack[ndx] == ' ')
       {
         vi_pos = ndx;
         vflag = 1;
@@ -368,22 +366,20 @@ int get_varndx(char *name)
     ndx++;
   }
 
-  if(ndx == imax_vars)
+  if(ndx == smax_vars)
   {
     ndx = vi_pos;
 
     if(vflag == 0)
     {
-      init_int();
-      ndx = imax_vars;
+      init_str();
+      ndx = smax_vars;
       ndx--;
       strcpy(sn_stack[ndx], varname);
-     
     }
     else
     {
       strcpy(sn_stack[ndx], varname);
-     
     }
   }
   return ndx;

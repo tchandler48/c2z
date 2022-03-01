@@ -3060,7 +3060,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LAEY  R6,");
+        strcpy(a_string, "         LA    R6,");
         strcat(a_string, tfield6);
         strcat(a_string, "(R0,R6)");
         strcpy(wk_remark, " ");
@@ -5132,7 +5132,7 @@ void c2_str_5()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LAEY  R6,");
+    strcpy(a_string, "         LA    R6,");
     strcat(a_string, ar_field6);
     strcat(a_string, "(R0,R6)");
     src_line();
@@ -5394,7 +5394,7 @@ void c2_str_5()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LAEY  R5,");
+    strcpy(a_string, "         LA    R5,");
     strcat(a_string, ar1_field6);
     strcat(a_string, "(R0,R5)");
     strcpy(wk_remark, " ");

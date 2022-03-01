@@ -55,7 +55,7 @@ void a_bort(int code, int line_ndx)
      break;
 
    case 13:
-     printf("Case 13 Error\n");
+     printf("Case 13 Variable NOT FOUND\n");
      printf("Case 13 p_string = %s\n",p_string);
      break;
 

@@ -156,16 +156,11 @@ void get_strvar()
   {
     ndx++;
   }
- 
+
   if(ndx == smax_vars)
   {
     a_bort(ab_code, x);
   }
-
-  pi = e_pos;
-  pi++;
-  pi = iswhite(pi);
-  ch = p_string[pi];
 
   printf(" %s\n", sv_stack[ndx]);
 }
