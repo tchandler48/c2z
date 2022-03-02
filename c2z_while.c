@@ -8941,7 +8941,7 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LAEY  R6,");
+        strcpy(a_string, "         LA    R6,");
         strcat(a_string, ar_field6);
         strcat(a_string, "(R0,R6)");
         strcpy(wk_remark, " ");
@@ -9021,6 +9021,20 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcpy(a_string, "L");
+        strcat(a_string, wk_strg);
+        strcat(a_string, "H");
+        strcpy(start_while, a_string);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_while.c #262");
+          trace_rec_3();
+        }
+
         strcpy(a_string, "         XR    0,0");
         src_line();
         if (puncde == 1) 
@@ -9038,20 +9052,6 @@ printf("rct = %d p_string = %s",rct,p_string);
         if (puncde == 1) 
         {
           strcpy(trace_1, "c2z_while.c #261");
-          trace_rec_3();
-        }
-
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcpy(a_string, "L");
-        strcat(a_string, wk_strg);
-        strcat(a_string, "H");
-        strcpy(start_while, a_string);
-        check_length();
-        strcat(a_string, "DS    0H");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_while.c #262");
           trace_rec_3();
         }
 
@@ -9107,7 +9107,7 @@ Comp     CLST R9,R6 		       Compare the two strings
           trace_rec_3();
         }
 
-        strcpy(a_string, "         J     L");
+        strcpy(a_string, "         JLL   L");
         snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
         strcat(a_string, wk_strg);
         strcat(a_string, "K");
