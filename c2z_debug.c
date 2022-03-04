@@ -257,6 +257,54 @@ void c2_debug()
   fprintf(c_src, "\n");
 
 
+
+  fprintf(c_src, "\n\n---------- Unused Global Variables -----------\n");
+  fprintf(c_src, "Rct    ");
+  fprintf(c_src, "Name     ");
+  fprintf(c_src, "         CName    \n");
+ 
+  for (I = 0; I < gv_ct; I++) 
+  {
+    if(gw_variable[I].gv_use_ct == 0)
+    {
+      snprintf(wk_strg, sizeof(wk_strg), "%d", gw_variable[I].gv_rct);
+      strcpy(a_string, wk_strg);
+      s = strlen(a_string);
+      if (s < 7) 
+      {
+        for (v = s; v < 7; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, gw_variable[I].gv_name);
+      s = strlen(a_string);
+      if (s < 25) 
+      {
+        for (v = s; v < 25; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, gw_variable[I].gv_cname);
+      s = strlen(a_string);
+      if (s < 35) 
+      {
+        for (v = s; v < 35; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, "\n");
+      fputs(a_string, c_src);
+    }
+  }
+
+
+
   fprintf(c_src, "\n\n------------------------------ Global Variables -------------------------------\n");
   fprintf(c_src, "Rec     Name                   CName         Type  Lgth  Clgth   ID   Value   Literal\n");
   fprintf(c_src, "-----  ----------------------  ------------  ----  ----  ----    --   ------  -------------\n");
@@ -358,7 +406,7 @@ void c2_debug()
   fprintf(c_src, "\n\n---------- Unused Local Variables -----------\n");
   fprintf(c_src, "Rct    ");
   fprintf(c_src, "Name     ");
-  fprintf(c_src, "CName    ");
+  fprintf(c_src, "         CName    ");
   fprintf(c_src, " Function\n");
 
   for (I = 0; I < lv_ct; I++) 
@@ -378,9 +426,9 @@ void c2_debug()
 
       strcat(a_string, lw_variable[I].lv_name);
       s = strlen(a_string);
-      if (s < 31) 
+      if (s < 25) 
       {
-        for (v = s; v < 31; v++) 
+        for (v = s; v < 25; v++) 
         {
           strcat(a_string, " ");
         }
@@ -388,23 +436,15 @@ void c2_debug()
 
       strcat(a_string, lw_variable[I].lv_cname);
       s = strlen(a_string);
-      if (s < 47) 
+      if (s < 35) 
       {
-        for (v = s; v < 47; v++) 
+        for (v = s; v < 35; v++) 
         {
           strcat(a_string, " ");
         }
       }
 
       strcat(a_string, lw_variable[I].lv_func);
-      s = strlen(a_string);
-      if (s < 65) 
-      {
-        for (v = s; v < 65; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
       strcat(a_string, "\n");
 
       fputs(a_string, c_src);
@@ -530,6 +570,11 @@ void c2_debug()
   {
     fprintf(c_src, "\nRec  - %d", w_include[I].include_rct);
     fprintf(c_src, "   Pgm    - %s", w_include[I].include_name);
+  }
+
+  if(I == 0)
+  {
+    fprintf(c_src, "         No Includes\n");
   }
 
   fprintf(c_src, "\n\n-------------------------------- IF table "

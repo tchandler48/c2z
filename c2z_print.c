@@ -14808,8 +14808,8 @@ void c2_printf_str5()
 
     if (x3 == 0) 
     {
-      printf("\nc2z_printf.c c2_printf_dec6 E-002 tfield2 Not Found = %s\n", tfield2);
-      printf("c2z_printf.c c2_printf_dec6 rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_printf.c c2_printf_str5 E-002 tfield2 Not Found = %s\n", tfield2);
+      printf("c2z_printf.c c2_printf_str5 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -14838,16 +14838,16 @@ void c2_printf_str5()
 
 /*
 printf("\nc2z_print.c c2_math_str5 rct = %d p_string = %s",rct,p_string);
-printf("c2z_print.c c2_math_str5 gv_type = %s\n",gw_variable[I].gv_type);
-printf("c2z_print.c c2_math_str5 tfield1 = %s\n",tfield1);
-printf("c2z_print.c c2_math_str5 tfield1a = %s\n",tfield1a);
-printf("c2z_print.c c2_math_str5 tfield5 = %s\n",tfield5);
-printf("c2z_print.c c2_math_str5 tfield6 = %s\n",tfield6);
-printf("c2z_print.c c2_math_str5 tfield7 = %s\n",tfield7);
-printf("c2z_print.c c2_math_str5 tfield8 = %s\n",tfield8);
-printf("c2z_print.c c2_math_str5 tfield9 = %s\n",tfield9);
-printf("c2z_print.c c2_math_str5 tfield10 = %s\n",tfield10);
-printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
+printf("c2z_print.c c2_print_str5 gv_type = %s\n",gw_variable[I].gv_type);
+printf("c2z_print.c c2_print_str5 tfield1 = %s\n",tfield1);
+printf("c2z_print.c c2_print_str5 tfield1a = %s\n",tfield1a);
+printf("c2z_print.c c2_print_str5 tfield5 = %s\n",tfield5);
+printf("c2z_print.c c2_print_str5 tfield6 = %s\n",tfield6);
+printf("c2z_print.c c2_print_str5 tfield7 = %s\n",tfield7);
+printf("c2z_print.c c2_print_str5 tfield8 = %s\n",tfield8);
+printf("c2z_print.c c2_print_str5 tfield9 = %s\n",tfield9);
+printf("c2z_print.c c2_print_str5 tfield10 = %s\n",tfield10);
+printf("c2z_print.c c2_print_str5 tfield11 = %s\n",tfield11);
 */
 
   x3 = 0;
@@ -14869,7 +14869,7 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_printf_c #1700");
+    strcpy(trace_1, "c2z_print_c #1700");
     trace_rec_3();
   }
   work_use_ct[49]++;
@@ -14951,7 +14951,10 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
   strcpy(a_string, "         LARL  R6,");
   strcat(a_string, tfield1a);
   strcat(a_string, "T");
-  src_line();
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, tfield1);
+  strcat(wk_remark, "*/");
+  write_remark();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_print.c #1709");
@@ -15054,11 +15057,14 @@ printf("c2z_print.c c2_math_str5 tfield11 = %s\n",tfield11);
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LA    R6,");
+  strcpy(a_string, "         LAEY  R6,");
   strcat(a_string, tfield1a);
   strcat(a_string, "L");
   strcat(a_string, "(R0,R6)");
-  src_line();
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, tfield1);
+  strcat(wk_remark, "*/");
+  write_remark();
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_print.c #1719");
@@ -16619,7 +16625,7 @@ void c2_printf_str6()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_print_c #1900");
+    strcpy(trace_1, "c2z_print_c 2");
     trace_rec_3();
   }
   work_use_ct[49]++;

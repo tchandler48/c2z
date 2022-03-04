@@ -595,7 +595,15 @@ void c2_func_call()
 
     if (fd7_type == 1) 
     {
-      strcpy(a_string, "         LARL  R9,");
+      strcpy(a_string, "         LHI   R0,X'0'");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_strcpy.c #136b");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         LARL  R1,");
       strcat(a_string, field7a);
       strcpy(wk_remark, " ");
       strcat(wk_remark, field7);
@@ -603,11 +611,10 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c #20");
+        strcpy(trace_1, "c2z_strcpy.c #136b");
         trace_rec_3();
       }
-
-      strcpy(a_string, "         LARL  R8,");
+      strcpy(a_string, "         LARL  R2,");
       strcat(a_string, field2a);
       strcpy(wk_remark, " ");
       strcat(wk_remark, field2);
@@ -615,11 +622,64 @@ void c2_func_call()
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_function.c #21");
+        strcpy(trace_1, "c2z_strcpy.c #136a");
         trace_rec_3();
       }
 
-      strcpy(a_string, "         MVC2  ");
+      strcpy(a_string, "         LR    R3,1");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_strcpy.c #136b");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "L");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcat(a_string, wk_strg);
+      strcat(a_string, "A");
+      check_length();
+      strcat(a_string, "DS    0H");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_strcpy.c #142");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         MVST  R2,R1");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_strcpy.c #136b");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         JO    ");
+      strcat(a_string, "L");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcat(a_string, wk_strg);
+      strcat(a_string, "A");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_strcpy.c #142");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         SR    R1,R3");
+      src_line();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_strcpy.c #136b");
+        trace_rec_3();
+      }
+
+
+
+
+
+      strcpy(a_string, "*         MVC2  ");
       strcat(a_string, field7a);
       strcat(a_string, ",");
       strcat(a_string, field2a);
@@ -1816,8 +1876,10 @@ void c2_scan_sub()
       w_charlit[char_ct].clit_uct = 1;
       char_ct++;
     }
+    convert = 1;
   }
-  convert = 1;
+ /* convert = 1; */
+
 }
 
 void scan_func_name_1() 

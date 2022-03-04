@@ -7,7 +7,6 @@ void line_cnt(char *argv[])
   int x=0;
   int ab_code=2;
   unsigned fnam_len;
-  int I;
   int x99 = 0;
 
   nrows = 0;
@@ -125,7 +124,6 @@ void loader_1()
   char ch, ln_holder[LLEN];
   char tmp[24];
   int ii, len, pi;
-  int size=ncolumns;
   int I;
 
   strcpy(tmp, "source.tmp");

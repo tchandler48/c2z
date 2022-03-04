@@ -24348,8 +24348,6 @@ void if_case_50()
     }
   }
 
-
-
   p = strstr(field5, "&&");
   p1 = strstr(field10, "||");
 
@@ -24498,10 +24496,6 @@ void if_case_50()
         }
         field4a[I] = '\0';
 
-printf("c2z_if.c case_50 rct = %d field4 = %s field4a = %s\n",rct,field4,field4a);
-
-
-
 /*
         strcpy(a_string, "*         LARL  R8,");
         strcat(a_string, field4);
@@ -24568,8 +24562,6 @@ printf("c2z_if.c case_50 rct = %d field4 = %s field4a = %s\n",rct,field4,field4a
       strcpy(trace_1, "c2z_if.c #5001");
       trace_rec_3();
     }
-
-
   }			/* END OF field5 = &&, field10 = || */
 
 
@@ -24588,7 +24580,7 @@ printf("c2z_if.c case_50 rct = %d field4 = %s field4a = %s\n",rct,field4,field4a
 */
 
 
-
+/*
 printf("\nc2z_if.c case_50 rct = %d p_string = %s",rct,p_string);
 printf("c2z_if.c case_50 field1 = %s fd1_type = %d\n",field1,fd1_type);
 printf("c2z_if.c case_50 field2 = %s fd2_type = %d\n",field2,fd2_type);
@@ -24604,9 +24596,8 @@ printf("c2z_if.c case_50 field11 = %s fd11_type = %d\n",field11,fd11_type);
 printf("c2z_if.c case_50 field12 = %s fd12_type = %d\n",field12,fd12_type);
 printf("c2z_if.c case_50 field13 = %s operand_3 = %d\n",field13,operand_3);
 printf("c2z_if.c case_50 field14 = %s fd14_type = %d\n",field14,fd14_type);
-
 printf("\n");
-
+*/
 
 }
 

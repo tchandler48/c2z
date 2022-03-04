@@ -91,6 +91,7 @@ void c2_free()
           lw_variable[I].lv_use_ct++;
           strcpy(fr_type, lw_variable[I].lv_type);
           x2 = lw_variable[I].lv_lgth;
+          break;
         }
       }
     }
@@ -110,6 +111,7 @@ void c2_free()
             strcpy(fr_type, gw_variable[I].gv_type);
             xr = gw_variable[I].gv_row;
             x2 = gw_variable[I].gv_lgth;
+            break;
           }
         }
       }
@@ -477,6 +479,7 @@ void c2_free()
             strcpy(ar_field9, gw_variable[I].gv_sv_reg);
             strcpy(ar_field10, gw_variable[I].gv_wk_reg);
             strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+            break;
           }
         }
       }

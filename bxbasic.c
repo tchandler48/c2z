@@ -352,8 +352,7 @@ void go_to()
   char ch;
   char goto_label[LLEN];
   int pi, si=0, ab_code=8;
-  int xtest, stlen, x=line_ndx;
-  int I;
+  int xtest, x=line_ndx;
   int x9;
 
   pi = e_pos;
@@ -389,20 +388,14 @@ void go_to()
 
 void do_gs()
 {
-  int size;
-
   gs_ptr++;
-
   gosub_stack[gs_ptr] = line_ndx;
-
   go_to();
 }
 
 
 void do_ret()
 {
-  int size;
-
   if(gs_ptr < 0)
   {
     return;

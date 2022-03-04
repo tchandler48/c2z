@@ -315,7 +315,7 @@
 	 int c2_msth_08(char);
 	 int c2_math_09(char);
 	void c2_math_10(void);
-       void rdp_parser(void);
+ 
  
 
 
@@ -991,6 +991,7 @@ struct functions
    int fn_pass_8;
    int fn_pass_9;
   char fn_loop_use[12];
+   int fn_use_ct;
 };
 struct functions *w_function;
 
@@ -1880,10 +1881,6 @@ int main(int argc, char *argv[])
 
     if ((x1 == 1) && (p1) && (!p3) && (!p4) && (p5) && (p6) && (!p7) && (convert == 0)) 
     {
-if(rct == 2200)
-{
-  printf("HERE #1\n");
-}
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (char) #101");
@@ -1900,11 +1897,6 @@ if(rct == 2200)
 
     if ((x1 == 2) && (p1) && (p5) && (p6) && (!p8) && (convert == 0)) 
     {
-if(rct == 2200)
-{
-  printf("HERE #2\n");
-}
-
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (int) #102");
@@ -1921,10 +1913,6 @@ if(rct == 2200)
 
     if ((x1 == 3) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
-if(rct == 2200)
-{
-  printf("HERE #3\n");
-}
 
       if (traceflg == 1) 
       {
@@ -1940,11 +1928,6 @@ if(rct == 2200)
 
     if ((x1 == 4) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
-if(rct == 2200)
-{
-  printf("HERE #4\n");
-}
-
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z.c pass_2 prototype (double) #104");
@@ -3401,7 +3384,6 @@ if(rct == 2200)
     s = strlen(p_string);
     s--;
 
-
     if ((s == pi) || ((pi + 1) == s)) 
     {
       goto pass2_skip;
@@ -3450,7 +3432,6 @@ if(rct == 2200)
       v_convert = 1;
     }
 */
-
     p = strstr(p_string, "#define");
     if ((p) && (v_convert == 0))
     {
@@ -4465,7 +4446,6 @@ if(rct == 2200)
       c2_pass2_if();
       convert = 1;
     }
-
 
     /* ***************************************************************
      *  Scan for malloc (skip)                                       *
@@ -5990,6 +5970,10 @@ if(rct == 2200)
 
     p8 = strstr(p_string, "=");
     s = p8 - p_string;
+    if(s < 0)
+    {
+      s = 0;
+    }
     p8 = strstr(p_string, "/*");
     v = p8 - p_string;
 
@@ -5999,7 +5983,7 @@ if(rct == 2200)
     }
 
     p = strstr(p_string, "=");
-    if ((p) && (s < v)) 
+    if (p)
     {
       if (debug_lv >= 2) 
       {
@@ -6059,49 +6043,7 @@ if(rct == 2200)
   gw_variable[gv_ct].gv_id = 1;
   gv_ct++;
 
-
 /* End of Pass 2 - scan parser  */
-
-  if(fn_ct == 0)
-  {
-    size = 1;
-    w_function = malloc(size * sizeof(struct functions));
-  }
-  else
-  {
-    size = fn_ct + 1;
-    w_function = realloc(w_function, size * sizeof(struct functions));
-  }
-
-  strcpy(tfield1, "rdp_parser");
-  strcpy(tfield1a, "rdp_parser");
-  w_function[fn_ct].fn_rct = 0;
-  strcpy(w_function[fn_ct].fn_name, tfield1);
-  strcpy(w_function[fn_ct].fn_cname, tfield1a);
-  strcpy(w_function[fn_ct].fn_loop, null_field);
-  w_function[fn_ct].fn_level = 0;
-  w_function[fn_ct].fn_return = 0; 
-  strcpy(w_function[fn_ct].fn_fd1, null_field);
-  strcpy(w_function[fn_ct].fn_fd2, null_field);
-  strcpy(w_function[fn_ct].fn_fd3, null_field);
-  strcpy(w_function[fn_ct].fn_fd4, null_field);
-  strcpy(w_function[fn_ct].fn_fd5, null_field);
-  strcpy(w_function[fn_ct].fn_fd6, null_field);
-  strcpy(w_function[fn_ct].fn_fd7, null_field);
-  strcpy(w_function[fn_ct].fn_fd8, null_field);
-  strcpy(w_function[fn_ct].fn_fd9, null_field);
-  strcpy(w_function[fn_ct].fn_loop_use,null_field);
-  w_function[fn_ct].fn_eof = 0; 
-  w_function[fn_ct].fn_pass_1 = 0;
-  w_function[fn_ct].fn_pass_2 = 0;
-  w_function[fn_ct].fn_pass_3 = 0;
-  w_function[fn_ct].fn_pass_4 = 0;
-  w_function[fn_ct].fn_pass_5 = 0;
-  w_function[fn_ct].fn_pass_6 = 0;
-  w_function[fn_ct].fn_pass_7 = 0;
-  w_function[fn_ct].fn_pass_8 = 0;
-  w_function[fn_ct].fn_pass_9 = 0;
-  fn_ct++;
 
   if(erct != 0)
   {
@@ -6115,7 +6057,6 @@ if(rct == 2200)
   * *********************************************************** */
 
   printf("*  c2z Z390 Pass 3 Started                    *\n");
-
  
   cc370 = fopen(asm_file, "w"); 
   
