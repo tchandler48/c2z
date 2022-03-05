@@ -9,12 +9,6 @@
 * ************************************************** */
 void c2_for(void) 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_for.c c2_for START");
-    trace_rec_1();
-  }
-
    int pi = 0;
    int s;
    int x100 = 0;

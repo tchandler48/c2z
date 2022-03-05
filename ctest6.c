@@ -98,16 +98,39 @@ int main(int argc, char *argv[])
               printf("in_stack[3] 9 = %s\n",in_stack[3]);
               strcpy(f, "76ab54");
               printf("f 10 = %s\n",f);
-		strcat(in_stack[3], f);
+		strcat(in_stack[3], "76ab54");
               printf("in_stack[3] 11 = %s\n",in_stack[3]);
 
-
-
+              printf("Here #5\n");
               x = 5;
 		for(I=0; I < x; I++)
 		{
 		  printf("in_stack = %s\n", in_stack[I]);
 		}
+
+              printf("Here #6\n");
+              gv_ct = 1;
+              strcpy(gw_variable[gv_ct].gv_name, "123456");
+              printf("gv_name #a = %s\n",gw_variable[gv_ct].gv_name);
+              printf("b       #b = %s\n",b);
+              strcat(gw_variable[gv_ct].gv_name, b);
+              printf("gv_name #c = %s\n",gw_variable[gv_ct].gv_name);
+
+              printf("Here #7\n");
+              gv_ct = 2;
+              strcpy(gw_variable[gv_ct].gv_name, b);
+              printf("b       #d = %s\n",b);
+              printf("gv_name #e = %s\n",gw_variable[gv_ct].gv_name);
+              strcat(gw_variable[gv_ct].gv_name, "123456");
+              printf("gv_name #f = %s\n",gw_variable[gv_ct].gv_name);
+
+
+              printf("Here #8\n");
+              x = 5;
+              for(I=0; I < x; I++)
+              {
+                printf("gv_name = %s\n",gw_variable[I].gv_name);
+              }
      }
 		
        

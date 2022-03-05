@@ -14698,6 +14698,7 @@ void c2_printf_str5()
   int x3;
   int x4;
   int x5;
+  int x80;
   int x81;
   int v;
   int s;
@@ -14859,7 +14860,7 @@ printf("c2z_print.c c2_print_str5 tfield11 = %s\n",tfield11);
     {
       x3 = 1;
       strcpy(tfield3a, w_struc[I].st_field_cname);
-  /*    x80 = w_struc[I].st_disp; */
+      x80 = w_struc[I].st_disp; 
       x81 = w_struc[I].st_field_lgth;
       break;
     }
@@ -15100,25 +15101,27 @@ printf("c2z_print.c c2_print_str5 tfield11 = %s\n",tfield11);
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_print_c #1722");
+    strcpy(trace_1, "c2z_print.c #1722");
     trace_rec_3();
   }
   work_use_ct[10]++;
-  
-/*  snprintf(wk_strg, sizeof(wk_strg), "%d", x80); */
+
   strcpy(a_string, "         MVC   0");
- /* strcat(a_string, wk_strg); */
-  snprintf(wk_strg, sizeof(wk_strg), "%d", x81);
   strcat(a_string, "(");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x81);
   strcat(a_string, wk_strg);
-  strcat(a_string, ",R9),0(R6)");
+  strcat(a_string, ",R9),");
+  x80--;
+  snprintf(wk_strg, sizeof(wk_strg), "%d", x80);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "(R6)");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_print_c #1723");
+    strcpy(trace_1, "c2z_print.c #1723");
     trace_rec_3();
   }
-
+  
   strcpy(a_string, "* found location in 2d array ");
   src_line();
   if (puncde == 1) 
@@ -16625,7 +16628,7 @@ void c2_printf_str6()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_print_c 2");
+    strcpy(trace_1, "c2z_print.c #1900");
     trace_rec_3();
   }
   work_use_ct[49]++;
@@ -16730,7 +16733,7 @@ void c2_printf_str6()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_print_c #1911");
+    strcpy(trace_1, "c2z_print.c #1911");
     trace_rec_3();
   }
   work_use_ct[49]++;
@@ -16809,7 +16812,7 @@ void c2_printf_str6()
     trace_rec_3();
   }
 
-  strcpy(a_string, "         LA    R6,");
+  strcpy(a_string, "         LAEY  R6,");
   strcat(a_string, tfield6);
   strcat(a_string, "(R0,R6)");
   src_line();
