@@ -6556,6 +6556,7 @@ void c2_math_9() 				/* in_stack[ndx][0] = '\0'		*/
 
   char ch;
   char fr_type[2];
+
   char ar_field5[32];
   char ar_field6[32];
   char ar_field7[32];
@@ -15820,7 +15821,6 @@ void c2_math_830()
   char ar_field11[VAR_LGTH];
   char ar_field12[VAR_LGTH];
 
-
   pi = 0;
   ch = p_string[pi];
   while((ch == ' ') || (ch == '\t'))
@@ -16658,7 +16658,6 @@ printf("\nc2_math_820 rct = %d p_string = %s",rct,p_string);
   char ar_field10[VAR_LGTH];
   char ar_field11[VAR_LGTH];
   char ar_field12[VAR_LGTH];
-
 
   pi = 0;
   ch = p_string[pi];
@@ -19764,15 +19763,21 @@ void c2_math_501()
   }
   tfield5[pi2] = '\0';
 
+printf("\nc2z_math.c math_501 rct = %d p_string = %s",rct,p_string);
+printf("c2z_math.c math_501 tfield1 = %s\n",tfield1);
+printf("c2z_math.c math_501 tfield2 = %s\n",tfield2);
+printf("c2z_math.c math_501 tfield3 = %s\n",tfield3);
+printf("c2z_math.c math_501 tfield5 = %s m5fd5_type = %d\n",tfield5,m5fd5_type);
+
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
+    ret = strcmp(tfield1, w_struc[I].st_wname);
     ret1 = strcmp(tfield3,w_struc[I].st_field_name);
     if ((ret == 0) && (ret1 == 0))
     {
       x3 = 1;
-      strcpy(tfield1a, w_struc[I].st_cname);
+      strcpy(tfield1a, w_struc[I].st_cwname);
       strcpy(tfield6a, w_struc[I].st_field_cname);
       strcpy(tfield7a, w_struc[I].st_type);
       break;
@@ -19830,7 +19835,7 @@ void c2_math_501()
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
+    ret = strcmp(tfield1, w_struc[I].st_wname);
     ret1 = strcmp(tfield3, w_struc[I].st_field_name);
     if ((ret == 0) && (ret1 == 0)) 
     {
@@ -20237,7 +20242,7 @@ void c2_math_501()
   x3 = 0;
   for (I = 0; I < m_struc_ct; I++) 
   {
-    ret = strcmp(tfield1, w_struc[I].st_name);
+    ret = strcmp(tfield1, w_struc[I].st_wname);
     ret1 = strcmp(tfield3, w_struc[I].st_field_name);
     if ((ret == 0) && (ret1 == 0)) 
     {
@@ -24483,10 +24488,10 @@ math_skip_6:
           trace_rec_3();
         }
 
-        snprintf(wk_strg, sizeof(wk_strg), "%d", s);
-        strcpy(a_string, "         MVC   0(");
-        strcat(a_string, wk_strg);
-        strcat(a_string, ",R9),0(R8)");
+        strcpy(a_string, "         MVC2  ");
+        strcat(a_string, tfield6a);
+        strcat(a_string, ",");
+        strcat(a_string, tfield4a);
         src_line();
         if (puncde == 1) 
         {
@@ -28715,6 +28720,7 @@ void c2_math_507()			/* p_string[I] = prog_name[z];	*/
   char field8[VAR_LGTH];
   char field9[VAR_LGTH];
   char field10[VAR_LGTH];
+
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
   char ar_field7[VAR_LGTH];
@@ -30857,6 +30863,7 @@ void c2_math_509()		/* array equal calling subroutine iv_stack[ndx] = rdp_set() 
   int fd2_type = 0;
 
   char ch, *p;
+
   char ar_field5[12];
   char ar_field6[12];
   char ar_field7[12];
@@ -30864,6 +30871,7 @@ void c2_math_509()		/* array equal calling subroutine iv_stack[ndx] = rdp_set() 
   char ar_field9[12];
   char ar_field10[12];
   char ar_field11[12];
+
   char wk_sv_func[32];
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];

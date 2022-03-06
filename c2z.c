@@ -597,7 +597,9 @@ FILE *pgm;
 FILE *c_src;
 FILE *cc370;
 FILE *c_tmp;
-FILE *c_h; 		                            /* these are the i/o file handles 		*/
+FILE *c_h; 
+
+		                 	              /* these are the i/o file handles 		*/
 char s_holder[BUFSIZE];   				/* xstring (print) data holder  		*/
 char p_string[BUFSIZE];   				/* file input string  			*/
 char a_string[BUFSIZE];   				/* file output string                 	*/
@@ -1569,7 +1571,7 @@ int main(int argc, char *argv[])
       rct++;
     }
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); 
  
     convert = 0;
     fprtf_flag = 0;
@@ -7975,12 +7977,6 @@ int main(int argc, char *argv[])
     p1 = strstr(p_string, "scanf");
     if (p1) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test scanf");
-        trace_rec_1();
-      }
-
       if (debug_lv >= 2) 
       {
         printf("c2z.c Pass 3 rct = %d c2_scanf #100\n", rct);

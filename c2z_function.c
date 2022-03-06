@@ -595,7 +595,7 @@ void c2_func_call()
 
     if (fd7_type == 1) 
     {
-      strcpy(a_string, "         LHI   R0,X'0'");
+      strcpy(a_string, "*         LHI   R0,X'0'");
       src_line();
       if (puncde == 1) 
       {
@@ -603,7 +603,7 @@ void c2_func_call()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         LARL  R1,");
+      strcpy(a_string, "         LARL  R9,");
       strcat(a_string, field7a);
       strcpy(wk_remark, " ");
       strcat(wk_remark, field7);
@@ -614,7 +614,7 @@ void c2_func_call()
         strcpy(trace_1, "c2z_strcpy.c #136b");
         trace_rec_3();
       }
-      strcpy(a_string, "         LARL  R2,");
+      strcpy(a_string, "         LARL  R8,");
       strcat(a_string, field2a);
       strcpy(wk_remark, " ");
       strcat(wk_remark, field2);
@@ -626,7 +626,7 @@ void c2_func_call()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         LR    R3,1");
+      strcpy(a_string, "*         LR    R3,1");
       src_line();
       if (puncde == 1) 
       {
@@ -634,7 +634,7 @@ void c2_func_call()
         trace_rec_3();
       }
 
-      strcpy(a_string, "L");
+      strcpy(a_string, "*L");
       snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
       strcat(a_string, wk_strg);
       strcat(a_string, "A");
@@ -647,7 +647,7 @@ void c2_func_call()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         MVST  R2,R1");
+      strcpy(a_string, "*         MVST  R2,R1");
       src_line();
       if (puncde == 1) 
       {
@@ -655,7 +655,7 @@ void c2_func_call()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         JO    ");
+      strcpy(a_string, "*         JO    ");
       strcat(a_string, "L");
       snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
       strcat(a_string, wk_strg);
@@ -667,7 +667,7 @@ void c2_func_call()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         SR    R1,R3");
+      strcpy(a_string, "*         SR    R1,R3");
       src_line();
       if (puncde == 1) 
       {
@@ -676,10 +676,7 @@ void c2_func_call()
       }
 
 
-
-
-
-      strcpy(a_string, "*         MVC2  ");
+      strcpy(a_string, "         MVC2  ");
       strcat(a_string, field7a);
       strcat(a_string, ",");
       strcat(a_string, field2a);

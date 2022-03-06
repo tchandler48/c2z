@@ -4512,7 +4512,7 @@ void c2_eoj()
       trace_rec_3();
     }
 
-    strcpy(a_string, "TSTUC    DC    C'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'");
+    strcpy(a_string, "TSTUC    DC    CL36'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'");
     src_line();
     if (puncde == 1) 
     {
@@ -4529,11 +4529,11 @@ void c2_eoj()
       trace_rec_3();
     }
 
-    strcpy(a_string, "TSTLC    DC    C'abcdefghijklmnopqrstuvwxyz0123456789'");
+    strcpy(a_string, "TSTLC    DC    CL36'abcdefghijklmnopqrstuvwxyz0123456789'");
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z.c #155");
       trace_rec_3();
     }
   } 
@@ -4545,7 +4545,7 @@ void c2_eoj()
     write_short();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #168");
+      strcpy(trace_1, "c2z.c #168");
       trace_rec_3();
     }
 
@@ -4553,7 +4553,7 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #169");
+      strcpy(trace_1, "c2z,c #169");
       trace_rec_3();
     }
   }
