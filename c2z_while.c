@@ -4938,12 +4938,6 @@ void c2_while_9()
 
 void c2_while_10() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_while.c c2_while_10 START");
-    trace_rec_1();
-  }
-
   char ch;
   char *p, *p1;
 
@@ -6566,12 +6560,6 @@ void c2_while_12() 					/* ISALNUM	*/
 
 void c2_while_13() 			/* STRCMP	*/
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_while.c c2_while_13 START");
-    trace_rec_1();
-  }
-
   char *p;
   char ch;
   char field1[VAR_LGTH];
@@ -6598,7 +6586,6 @@ void c2_while_13() 			/* STRCMP	*/
   int pi;
   int pi2;
   int while_complex = 0;
-/*  int whfd2_type = 0; */
   int whfd5_type = 0;
   int wh_3 = 0;
   int wh_4 = 0;
@@ -6624,8 +6611,7 @@ void c2_while_13() 			/* STRCMP	*/
   int ret1 = 0;
   int q500 = 0;
   int q501 = 0;
- /* int fd3_lgth = 0; */
-
+ 
   char ar_field5[VAR_LGTH];
   char ar_field6[VAR_LGTH];
   char ar_field7[VAR_LGTH];
@@ -8941,7 +8927,7 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         LA    R6,");
+        strcpy(a_string, "         LAEY  R6,");
         strcat(a_string, ar_field6);
         strcat(a_string, "(R0,R6)");
         strcpy(wk_remark, " ");
@@ -9035,14 +9021,6 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         XR    0,0");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_while.c #260");
-          trace_rec_3();
-        }
-
         strcpy(a_string, "         LARL  R9,");
         strcat(a_string, field3a);
         strcpy(wk_remark, " ");
@@ -9055,36 +9033,14 @@ printf("rct = %d p_string = %s",rct,p_string);
           trace_rec_3();
         }
 
-        strcpy(a_string, "         CLST  R9,R6");
+        strcpy(a_string, "         CLC   0(3,R9),0(R6)");
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c #263");
+          strcpy(trace_1, "c2z_while.c #262");
           trace_rec_3();
-        }
-
-        strcpy(a_string, "         JO    L");
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcat(a_string, wk_strg);
-        strcat(a_string, "H");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_while.c #264");
-          trace_rec_3();
-        }
-
-/*
-	  LARL R9,C37F648 		Set GR7 to start of first operand
-*	  LA 5,B 		       Set GR5 to start of second operand
-Comp     CLST R9,R6 		       Compare the two strings
-	  JO Comp 			Incomplete comparison, repeat
-	  JLE  L2170E 		Strings are equal
-	  JH A_High 			String A compares higher than string B
-	  J  A_Low 			String A compares lower than string B
-
-*/
-
+        }     
+      
         strcpy(a_string, "         JLE   L");
         snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
         strcat(a_string, wk_strg);
@@ -9092,43 +9048,7 @@ Comp     CLST R9,R6 		       Compare the two strings
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c #265");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         JLH   L");
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcat(a_string, wk_strg);
-        strcat(a_string, "K");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_while.c #266");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         JLL   L");
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcat(a_string, wk_strg);
-        strcat(a_string, "K");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_while.c #267");
-          trace_rec_3();
-        }
-
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcpy(a_string, "L");
-        strcat(a_string, wk_strg);
-        strcat(a_string, "K");
-        strcpy(start_while, a_string);
-        check_length();
-        strcat(a_string, "DS    0H");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_while.c #268");
+          strcpy(trace_1, "c2z_while.c #263");
           trace_rec_3();
         }
 
@@ -10976,7 +10896,7 @@ void c2_while_14() 				/* user function		*/
   {
     if (traceflg == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_14 #1");
+      strcpy(trace_1, "c2z_while.c #1");
       trace_rec_1();
     }
 
@@ -11142,7 +11062,7 @@ void c2_while_14() 				/* user function		*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_14 #4");
+      strcpy(trace_1, "c2z_while.c #2");
       trace_rec_3();
     }
 
@@ -11153,7 +11073,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #5");
+        strcpy(trace_1, "c2z_while.c #3");
         trace_rec_3();
       }
 
@@ -11162,7 +11082,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #6");
+        strcpy(trace_1, "c2z_while.c #4");
         trace_rec_3();
       }
 
@@ -11170,7 +11090,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #4");
+        strcpy(trace_1, "c2z_while.c #5");
         trace_rec_3();
       }
     }
@@ -11182,7 +11102,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #5");
+        strcpy(trace_1, "c2z_while.c #6");
         trace_rec_3();
       }
 
@@ -11191,7 +11111,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #6");
+        strcpy(trace_1, "c2z_while.c #7");
         trace_rec_3();
       }
 
@@ -11199,7 +11119,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #7");
+        strcpy(trace_1, "c2z_while.c #8");
         trace_rec_3();
       }
     }
@@ -11219,7 +11139,7 @@ void c2_while_14() 				/* user function		*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_14 #8");
+      strcpy(trace_1, "c2z_while.c #9");
       trace_rec_3();
     }
 
@@ -11227,7 +11147,7 @@ void c2_while_14() 				/* user function		*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_14 #8");
+      strcpy(trace_1, "c2z_while.c #10");
       trace_rec_3();
     }
 
@@ -11298,7 +11218,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #9");
+        strcpy(trace_1, "c2z_while.c #11");
         trace_rec_3();
       }
 
@@ -11306,7 +11226,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #10");
+        strcpy(trace_1, "c2z_while.c #12");
         trace_rec_3();
       }
 
@@ -11314,7 +11234,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #11");
+        strcpy(trace_1, "c2z_while.c #13");
         trace_rec_3();
       }
     }
@@ -11335,7 +11255,7 @@ void c2_while_14() 				/* user function		*/
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_while.c c2_while_14 #12");
+      strcpy(trace_1, "c2z_while.c #14");
       trace_rec_3();
     }
   }
@@ -11941,7 +11861,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_15 #199");
+        strcpy(trace_1, "c2z_while.c #199");
         trace_rec_3();
       }
 
@@ -11950,7 +11870,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #200");
+        strcpy(trace_1, "c2z_while.c #200");
         trace_rec_3();
       }
 
@@ -11959,7 +11879,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #201");
+        strcpy(trace_1, "c2z_while.c #201");
         trace_rec_3();
       }
 
@@ -11969,7 +11889,7 @@ void c2_while_14() 				/* user function		*/
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c c2_while_14 #202");
+          strcpy(trace_1, "c2z_while.c #202");
           trace_rec_3();
         }
       }
@@ -11984,7 +11904,7 @@ void c2_while_14() 				/* user function		*/
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c c2_while_14 #203");
+          strcpy(trace_1, "c2z_while.c #203");
           trace_rec_3();
         }
       }
@@ -11994,7 +11914,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #204");
+        strcpy(trace_1, "c2z_while.c #204");
         trace_rec_3();
       }
 
@@ -12003,7 +11923,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_14 #205");
+        strcpy(trace_1, "c2z_while.c #205");
         trace_rec_3();
       }
 
@@ -12013,7 +11933,7 @@ void c2_while_14() 				/* user function		*/
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c c2_while_14 #206");
+          strcpy(trace_1, "c2z_while.c #206");
           trace_rec_3();
         }
       }
@@ -12028,7 +11948,7 @@ void c2_while_14() 				/* user function		*/
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c c2_while_14 #207");
+          strcpy(trace_1, "c2z_while.c #207");
           trace_rec_3();
         }
 
@@ -12040,7 +11960,7 @@ void c2_while_14() 				/* user function		*/
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_while.c c2_while_14 #208");
+          strcpy(trace_1, "c2z_while.c #208");
           trace_rec_3();
         }
       }
@@ -12979,7 +12899,7 @@ void c2_while_14() 				/* user function		*/
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_while.c c2_while_15 #200");
+        strcpy(trace_1, "c2z_while.c #200");
         trace_rec_3();
       }
 
