@@ -1,24 +1,16 @@
 /* ***************************************************
 *  c2z  : c2z_isalnum.c :                            *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2021                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 void c2_isalnum() 
 {
-  strcpy(a_string, "*");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #1");
-    trace_rec_3();
-  }
-
   strcpy(a_string, "ISALNUM  DS    0H");
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #2");
+    strcpy(trace_1, "c2z_isalnum.c #1");
     trace_rec_3();
   }
 
@@ -27,7 +19,7 @@ void c2_isalnum()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #3");
+    strcpy(trace_1, "c2z_isalnum.c #2");
     trace_rec_3();
   }
 
@@ -36,7 +28,7 @@ void c2_isalnum()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #4");
+    strcpy(trace_1, "c2z_isalnum.c #3");
     trace_rec_3();
   }
  
@@ -44,7 +36,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #5");
+    strcpy(trace_1, "c2z_isalnum.c #4");
     trace_rec_3();
   }
 
@@ -52,7 +44,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #6");
+    strcpy(trace_1, "c2z_isalnum.c #5");
     trace_rec_3();
   }
 
@@ -60,7 +52,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #7");
+    strcpy(trace_1, "c2z_isalnum.c #6");
     trace_rec_3();
   }
 
@@ -68,7 +60,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #8");
+    strcpy(trace_1, "c2z_isalnum.c #7");
     trace_rec_3();
   }
  
@@ -76,7 +68,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #9");
+    strcpy(trace_1, "c2z_isalnum.c #8");
     trace_rec_3();
   }
   strcpy(a_string, "*  Start test for TSTUC ");
@@ -91,7 +83,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #10");
+    strcpy(trace_1, "c2z_isalnum.c #9");
     trace_rec_3();
   }
 
@@ -99,7 +91,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #11");
+    strcpy(trace_1, "c2z_isalnum.c #10");
     trace_rec_3();
   }
 
@@ -109,7 +101,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #12");
+    strcpy(trace_1, "c2z_isalnum.c #11");
     trace_rec_3();
   }
 
@@ -117,7 +109,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #13");
+    strcpy(trace_1, "c2z_isalnum.c #12");
     trace_rec_3();
   }
 
@@ -125,7 +117,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #14");
+    strcpy(trace_1, "c2z_isalnum.c #13");
     trace_rec_3();
   }
 
@@ -133,7 +125,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #15");
+    strcpy(trace_1, "c2z_isalnum.c #14");
     trace_rec_3();
   }
 
@@ -141,7 +133,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #16");
+    strcpy(trace_1, "c2z_isalnum.c #15");
     trace_rec_3();
   }
 
@@ -149,7 +141,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #17");
+    strcpy(trace_1, "c2z_isalnum.c #16");
     trace_rec_3();
   }
 
@@ -157,7 +149,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #18");
+    strcpy(trace_1, "c2z_isalnum.c #17");
     trace_rec_3();
   }
 
@@ -165,7 +157,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #19");
+    strcpy(trace_1, "c2z_isalnum.c #18");
     trace_rec_3();
   }
 
@@ -173,7 +165,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #20");
+    strcpy(trace_1, "c2z_isalnum.c #19");
     trace_rec_3();
   }
 
@@ -181,7 +173,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #21");
+    strcpy(trace_1, "c2z_isalnum.c #20");
     trace_rec_3();
   }
 
@@ -189,7 +181,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #22");
+    strcpy(trace_1, "c2z_isalnum.c #21");
     trace_rec_3();
   }
 
@@ -197,7 +189,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #23");
+    strcpy(trace_1, "c2z_isalnum.c #22");
     trace_rec_3();
   }
 
@@ -205,7 +197,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #24");
+    strcpy(trace_1, "c2z_isalnum.c #23");
     trace_rec_3();
   }
  
@@ -213,7 +205,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #25");
+    strcpy(trace_1, "c2z_isalnum.c #24");
     trace_rec_3();
   }
 
@@ -221,7 +213,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #26");
+    strcpy(trace_1, "c2z_isalnum.c #25");
     trace_rec_3();
   }
 
@@ -229,7 +221,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c");
+    strcpy(trace_1, "c2z_isalnum.c #26");
     trace_rec_3();
   }
 
@@ -237,7 +229,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #27");
+    strcpy(trace_1, "c2z_isalnum.c #27");
     trace_rec_3();
   }
 
@@ -245,7 +237,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #28");
+    strcpy(trace_1, "c2z_isalnum.c #28");
     trace_rec_3();
   }
  
@@ -253,7 +245,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #29");
+    strcpy(trace_1, "c2z_isalnum.c #29");
     trace_rec_3();
   }
 
@@ -261,7 +253,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #29a");
+    strcpy(trace_1, "c2z_isalnum.c #30");
     trace_rec_3();
   }
 
@@ -269,7 +261,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #30");
+    strcpy(trace_1, "c2z_isalnum.c #31");
     trace_rec_3();
   }
 
@@ -277,7 +269,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #31");
+    strcpy(trace_1, "c2z_isalnum.c #32");
     trace_rec_3();
   }
 
@@ -286,7 +278,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #32");
+    strcpy(trace_1, "c2z_isalnum.c #33");
     trace_rec_3();
   }
 
@@ -294,7 +286,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #33");
+    strcpy(trace_1, "c2z_isalnum.c #34");
     trace_rec_3();
   }
 
@@ -302,7 +294,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #34");
+    strcpy(trace_1, "c2z_isalnum.c #35");
     trace_rec_3();
   }
 
@@ -310,7 +302,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #35");
+    strcpy(trace_1, "c2z_isalnum.c #36");
     trace_rec_3();
   }
 
@@ -318,7 +310,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #36");
+    strcpy(trace_1, "c2z_isalnum.c #37");
     trace_rec_3();
   }
 
@@ -326,7 +318,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #37");
+    strcpy(trace_1, "c2z_isalnum.c #38");
     trace_rec_3();
   }
 
@@ -334,7 +326,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #38");
+    strcpy(trace_1, "c2z_isalnum.c #39");
     trace_rec_3();
   }
 
@@ -342,7 +334,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #39");
+    strcpy(trace_1, "c2z_isalnum.c #40");
     trace_rec_3();
   }
 
@@ -350,7 +342,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #40");
+    strcpy(trace_1, "c2z_isalnum.c #41");
     trace_rec_3();
   }
 
@@ -358,7 +350,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #41");
+    strcpy(trace_1, "c2z_isalnum.c #42");
     trace_rec_3();
   }
 
@@ -366,7 +358,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #42");
+    strcpy(trace_1, "c2z_isalnum.c #43");
     trace_rec_3();
   }
 
@@ -374,7 +366,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #43");
+    strcpy(trace_1, "c2z_isalnum.c #44");
     trace_rec_3();
   }
 
@@ -382,7 +374,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #44");
+    strcpy(trace_1, "c2z_isalnum.c #45");
     trace_rec_3();
   }
  
@@ -390,7 +382,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #45");
+    strcpy(trace_1, "c2z_isalnum.c #46");
     trace_rec_3();
   }
 
@@ -398,7 +390,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #46");
+    strcpy(trace_1, "c2z_isalnum.c #47");
     trace_rec_3();
   }
 
@@ -406,7 +398,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #47");
+    strcpy(trace_1, "c2z_isalnum.c #48");
     trace_rec_3();
   }
 
@@ -414,7 +406,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #48");
+    strcpy(trace_1, "c2z_isalnum.c #49");
     trace_rec_3();
   }
 
@@ -423,7 +415,7 @@ void c2_isalnum()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #49");
+    strcpy(trace_1, "c2z_isalnum.c #50");
     trace_rec_3();
   }
 
@@ -432,7 +424,7 @@ void c2_isalnum()
   write_remark();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #50");
+    strcpy(trace_1, "c2z_isalnum.c #51");
     trace_rec_3();
   }
  
@@ -440,7 +432,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #51");
+    strcpy(trace_1, "c2z_isalnum.c #52");
     trace_rec_3();
   }
 
@@ -448,7 +440,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #52");
+    strcpy(trace_1, "c2z_isalnum.c #53");
     trace_rec_3();
   }
 
@@ -456,7 +448,7 @@ void c2_isalnum()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isalnum.c isalnum #53");
+    strcpy(trace_1, "c2z_isalnum.c #54");
     trace_rec_3();
   }
 }

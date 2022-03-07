@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2_isspace.c :                              *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 /* ***************************************************
@@ -13,14 +13,14 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #1");
+    strcpy(trace_1, "c2z_isspace.c #1");
     trace_rec_3();
   }
 
   strcpy(a_string, "ISSPACE  DS    0H");
   src_line();
   if (puncde == 1) {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #2");
+    strcpy(trace_1, "c2z_isspace.c #2");
     trace_rec_3();
   }
 
@@ -28,7 +28,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #5");
+    strcpy(trace_1, "c2z_isspace.c #3");
     trace_rec_3();
   }
 
@@ -36,7 +36,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #6");
+    strcpy(trace_1, "c2z_isspace.c #4");
     trace_rec_3();
   }
 
@@ -44,7 +44,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #7");
+    strcpy(trace_1, "c2z_isspace.c #5");
     trace_rec_3();
   }
   work_use_ct[74]++;
@@ -53,7 +53,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #8");
+    strcpy(trace_1, "c2z_isspace.c #6");
     trace_rec_3();
   }
 
@@ -61,7 +61,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #9");
+    strcpy(trace_1, "c2z_isspace.c #7");
     trace_rec_3();
   }
 
@@ -69,7 +69,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #6");
+    strcpy(trace_1, "c2z_isspace.c #8");
     trace_rec_3();
   }
 
@@ -77,7 +77,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #7");
+    strcpy(trace_1, "c2z_isspace.c #9");
     trace_rec_3();
   }
   work_use_ct[52]++;
@@ -86,7 +86,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #8");
+    strcpy(trace_1, "c2z_isspace.c #10");
     trace_rec_3();
   }
 
@@ -94,7 +94,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #9");
+    strcpy(trace_1, "c2z_isspace.c #11");
     trace_rec_3();
   }
 
@@ -102,7 +102,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #10");
+    strcpy(trace_1, "c2z_isspace.c #12");
     trace_rec_3();
   }
   work_use_ct[1]++;
@@ -111,7 +111,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #11");
+    strcpy(trace_1, "c2z_isspace.c #13");
     trace_rec_3();
   }
   work_use_ct[33]++;
@@ -120,7 +120,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #12");
+    strcpy(trace_1, "c2z_isspace.c #14");
     trace_rec_3();
   }
 
@@ -128,7 +128,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #13");
+    strcpy(trace_1, "c2z_isspace.c #15");
     trace_rec_3();
   }
 
@@ -138,7 +138,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #14");
+    strcpy(trace_1, "c2z_isspace.c #16");
     trace_rec_3();
   }
 
@@ -146,7 +146,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #15");
+    strcpy(trace_1, "c2z_isspace.c #17");
     trace_rec_3();
   }
   work_use_ct[1]++;
@@ -155,7 +155,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #16");
+    strcpy(trace_1, "c2z_isspace.c #18");
     trace_rec_3();
   }
   work_use_ct[32]++;
@@ -164,7 +164,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #17");
+    strcpy(trace_1, "c2z_isspace.c #19");
     trace_rec_3();
   }
 
@@ -174,7 +174,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #18");
+    strcpy(trace_1, "c2z_isspace.c #20");
     trace_rec_3();
   }
 
@@ -182,7 +182,7 @@ void c2_isspace()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isspace.c c2_isspace #21");
+    strcpy(trace_1, "c2z_isspace.c #21");
     trace_rec_3();
   }
 }

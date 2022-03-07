@@ -248,12 +248,6 @@ void c2_func_end()
 * ************************************************** */
 void c2_func_call() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_function.c c2_func_call START");
-    trace_rec_1();
-  }
-
   char ch;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
@@ -946,7 +940,7 @@ void c2_func_call()
       {
         if (traceflg == 1) 
         {
-          strcpy(trace_1, "c2_func_call ARGV ");
+          strcpy(trace_1, "c2z_function.c c2_func_call ARGV ");
           trace_rec_1();
         }
 

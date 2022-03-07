@@ -446,8 +446,7 @@ void c2_toupper()
   if(x500 == 1)
   { 
      strcpy(a_string, "         LARL  R9,C370NWK1");
-     strcat(wk_remark, " max loop 27 */");
-     write_remark();
+     src_line();
      if (puncde == 1) 
      {
        strcpy(trace_1, "c2z_isupper.c #100");

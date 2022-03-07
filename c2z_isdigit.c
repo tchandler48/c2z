@@ -11,13 +11,6 @@ void c2_isdigit(void)
     trace_rec_1();
   }
 
-  strcpy(a_string, "*");
-  src_line();
-  if (puncde == 1)
-  {
-    trace_rec_3();
-  }
-
   strcpy(a_string, "ISDIGIT  DS    0H");
   src_line();
   if (puncde == 1) 

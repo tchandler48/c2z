@@ -22982,12 +22982,6 @@ printf("c2z_math.c math_504 field3 = %s fd3_type = %d\n",field3,fd3_type);
 
 void c2_math_505()		/* procedure call	pi = get_upper(pi,stlen);	*/
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_math.c c2_math_505 START");
-    trace_rec_1();
-  }
-
   char ch;
   char *p;
   char *p1;
