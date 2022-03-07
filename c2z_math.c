@@ -21660,6 +21660,8 @@ void c2_math_503()			/*  array iv_stack[2] = 444;   */
     if (ch == '\'') 
     {
       x10 = 1;
+      m5fd3_type = 0;
+      x2 = 1;
     }
 
     if (x2 == 0) 
@@ -21793,6 +21795,21 @@ printf("c2z_math.c math_503 field3 = %s m5fd3_type = %d\n",field3,m5fd3_type);
       if(p)
       {
         x4 = 1;
+      }
+    }
+
+    if((m5fd3_type == 0) && (x4 == 0))
+    {
+      p = strstr(field3, "0'");
+      if(p)
+      {
+         strcpy(a_string, "         LARL  R7,C370EOF");
+         src_line();
+         if (puncde == 1) 
+         {
+           strcpy(trace_1, "c2z_math_c #200");
+           trace_rec_3();
+         }
       }
     }
 
@@ -22068,6 +22085,17 @@ printf("c2z_math.c math_503 field3 = %s m5fd3_type = %d\n",field3,m5fd3_type);
   {
     strcpy(trace_1, "c2z_math.c #227");
     trace_rec_3();
+  }
+
+  if(m5fd3_type == 0)
+  {
+    strcpy(a_string, "         MVC   0(1,R6),0(R7)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c #227a");
+      trace_rec_3();
+    }
   }
 
   if((m5fd3_type == 1) && (x4 == 0))
@@ -31102,6 +31130,13 @@ printf("rct = %d p_string = %s",rct,p_string);
     }
   }
 
+/*
+printf("\nc2z_math.c math_509 rct = %d p_string = %s",rct,p_string);
+printf("c2z_math.c math_509 field1 = %s\n",field1);
+printf("c2z_math.c math_509 field2 = %s\n",field2);
+printf("c2z_math.c math_509 field3 = %s\n",field3);
+printf("c2z_math.c math_509 x10 = %d\n",x10);
+*/
 
   if (x10 == 0) 						/*  function	*/
   {

@@ -10,12 +10,6 @@
 * ************************************************** */
 void c2_scanf() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_scanf.c c2_scanf");
-    trace_rec_1();
-  }
-
   char *p;
   char ch;
   char tfield1[VAR_LGTH];
@@ -905,7 +899,7 @@ printf("c2z_scanf.c tfield1 = %s x4 = %d\n",tfield1,x4);
       strcpy(trace_1, "c2z_scanf.c #50");
       trace_rec_3();
     }
-    work_use_ct[77]++;
+    work_use_ct[93]++;
 
     strcpy(a_string, "         WTOR  '?',(R9),10");
     strcat(a_string, ",(R8)");

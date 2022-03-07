@@ -248,6 +248,12 @@ void c2_func_end()
 * ************************************************** */
 void c2_func_call() 
 {
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_function.c c2_func_call");
+    trace_rec_1();
+  }
+
   char ch;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
@@ -1128,6 +1134,26 @@ void c2_func_call()
           erct++;
           convert = 1;
           return;
+        }
+       
+        strcpy(a_string, "         LARL  R15,");
+        strcat(a_string, field1a);
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, field1);
+        strcat(wk_remark, " */");
+        write_remark();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_function.c #36a");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         BAKR  0,R15");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_function.c #36b");
+          trace_rec_3();
         }
       }
 

@@ -11283,6 +11283,12 @@ void if_case_12() 				/*	if(isaddop(ch)) 	*/
 
 void if_case_13() 
 {
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_if.c if_case_13");
+    trace_rec_1();
+  }
+
   char *p;
   char ch;
   char tfield1[VAR_LGTH];
@@ -11802,7 +11808,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #N200");
+        strcpy(trace_1, "c2z_if.c #N200");
         trace_rec_3();
       }
 
@@ -11810,7 +11816,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #N201");
+        strcpy(trace_1, "c2z_if.c #N201");
         trace_rec_3();
       }
 
@@ -11818,7 +11824,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #N202");
+        strcpy(trace_1, "c2z_if.c #N202");
         trace_rec_3();
       }
 
@@ -11830,7 +11836,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #N203");
+          strcpy(trace_1, "c2z_if.c #N203");
           trace_rec_3();
         }
       }
@@ -11842,7 +11848,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #N204");
+          strcpy(trace_1, "c2z_if.c #N204");
           trace_rec_3();
         }
       }
@@ -11893,7 +11899,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #N205");
+        strcpy(trace_1, "c2z_if.c #N205");
         trace_rec_3();
       }
 
@@ -11901,7 +11907,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #N205");
+        strcpy(trace_1, "c2z_if.c #N205");
         trace_rec_3();
       }
 
@@ -11909,7 +11915,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #N206");
+        strcpy(trace_1, "c2z_if.c #N206");
         trace_rec_3();
       }
 
@@ -11921,7 +11927,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #N207");
+          strcpy(trace_1, "c2z_if.c #N207");
           trace_rec_3();
         }
       }
@@ -11933,25 +11939,11 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #N208");
+          strcpy(trace_1, "c2z_if.c #N208");
           trace_rec_3();
         }
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     if ((fd1_type == 1) && (fd3_type == 3) && (fd5_type == 1) && (fd7_type == 3))  /* if((ch == '+') || (ch == '-')) */
     {
@@ -11963,7 +11955,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #700");
+        strcpy(trace_1, "c2z_if.c #700");
         trace_rec_3();
       }
 
@@ -11984,7 +11976,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #951");
+        strcpy(trace_1, "c2z_if.c #701");
         trace_rec_3();
       }
 
@@ -11995,7 +11987,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #702");
+        strcpy(trace_1, "c2z_if.c #702");
         trace_rec_3();
       }
 
@@ -12009,7 +12001,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #703");
+          strcpy(trace_1, "c2z_if.c #703");
           trace_rec_3();
         }
       }
@@ -12023,7 +12015,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #704");
+          strcpy(trace_1, "c2z_if.c #704");
           trace_rec_3();
         }
       }
@@ -12069,7 +12061,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #705");
+        strcpy(trace_1, "c2z_if.c #705");
         trace_rec_3();
       }
 
@@ -12087,7 +12079,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #706");
+        strcpy(trace_1, "c2z_if.c #706");
         trace_rec_3();
       }
 
@@ -12098,7 +12090,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #707");
+        strcpy(trace_1, "c2z_if.c #707");
         trace_rec_3();
       }
 
@@ -12111,7 +12103,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #708");
+          strcpy(trace_1, "c2z_if.c #708");
           trace_rec_3();
         }
       }
@@ -12125,7 +12117,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #709");
+        strcpy(trace_1, "c2z_if.c #709");
         trace_rec_3();
       }
 
@@ -12133,8 +12125,6 @@ skip_if_7:
       return;
     }
 
-
- 
 
 /* use this one */
 
@@ -12148,7 +12138,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #710");
+        strcpy(trace_1, "c2z_if.c #710");
         trace_rec_3();
       }
 
@@ -12166,7 +12156,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #711");
+        strcpy(trace_1, "c2z_if.c #711");
         trace_rec_3();
       }
 
@@ -12177,7 +12167,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #712");
+        strcpy(trace_1, "c2z_if.c #712");
         trace_rec_3();
       }
 
@@ -12190,7 +12180,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #713");
+          strcpy(trace_1, "c2z_if.c #713");
           trace_rec_3();
         }
       }
@@ -12239,7 +12229,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #714");
+        strcpy(trace_1, "c2z_if.c #714");
         trace_rec_3();
       }
 
@@ -12287,7 +12277,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #715");
+        strcpy(trace_1, "c2z_if.c #715");
         trace_rec_3();
       }
 
@@ -12295,7 +12285,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #716");
+        strcpy(trace_1, "c2z_if.c #716");
         trace_rec_3();
       }
 
@@ -12308,7 +12298,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #717");
+          strcpy(trace_1, "c2z_if.c #717");
           trace_rec_3();
         }
       }
@@ -12322,7 +12312,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #717");
+          strcpy(trace_1, "c2z_if.c #718");
           trace_rec_3();
         }
 
@@ -12333,7 +12323,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #717");
+          strcpy(trace_1, "c2z_if.c #719");
           trace_rec_3();
         }
       }
@@ -12442,7 +12432,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #730");
+        strcpy(trace_1, "c2z_if.c #730");
         trace_rec_3();
       }
 
@@ -12454,7 +12444,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #731");
+        strcpy(trace_1, "c2z_if.c #731");
         trace_rec_3();
       }
 
@@ -12462,7 +12452,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #732");
+        strcpy(trace_1, "c2z_if.c #732");
         trace_rec_3();
       }
   
@@ -12470,7 +12460,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #733");
+        strcpy(trace_1, "c2z_if.c #733");
         trace_rec_3();
       }
 
@@ -12478,7 +12468,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #734");
+        strcpy(trace_1, "c2z_if.c #734");
         trace_rec_3();
       }
 
@@ -12486,7 +12476,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #735");
+        strcpy(trace_1, "c2z_if.c #735");
         trace_rec_3();
       }
 
@@ -12494,7 +12484,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #736");
+        strcpy(trace_1, "c2z_if.c #736");
         trace_rec_3();
       }
 
@@ -12502,7 +12492,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #737");
+        strcpy(trace_1, "c2z_if.c #737");
         trace_rec_3();
       }
      
@@ -12515,7 +12505,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #738");
+          strcpy(trace_1, "c2z_if.c #738");
           trace_rec_3();
         }
       }
@@ -12529,7 +12519,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #739");
+          strcpy(trace_1, "c2z_if.c #739");
           trace_rec_3();
         }
       }
@@ -12543,7 +12533,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #740");
+          strcpy(trace_1, "c2z_if.c #740");
           trace_rec_3();
         }
       }
@@ -12575,7 +12565,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #741");
+          strcpy(trace_1, "c2z_if.c #741");
           trace_rec_3();
         }
 
@@ -12586,7 +12576,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #742");
+          strcpy(trace_1, "c2z_if.c #742");
           trace_rec_3();
         }
       }
@@ -12601,7 +12591,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #742");
+          strcpy(trace_1, "c2z_if.c #743");
           trace_rec_3();
         }
 
@@ -12612,7 +12602,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #741");
+          strcpy(trace_1, "c2z_if.c #744");
           trace_rec_3();
         }
       }
@@ -12628,7 +12618,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #743");
+        strcpy(trace_1, "c2z_if.c #743");
         trace_rec_3();
       }
 
@@ -12649,7 +12639,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #744");
+        strcpy(trace_1, "c2z_if.c #744");
         trace_rec_3();
       }
 
@@ -12657,7 +12647,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #745");
+        strcpy(trace_1, "c2z_if.c #745");
         trace_rec_3();
       }
 
@@ -12670,7 +12660,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #746");
+          strcpy(trace_1, "c2z_if.c #746");
           trace_rec_3();
         }
       }
@@ -12684,7 +12674,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #747");
+          strcpy(trace_1, "c2z_if.c #747");
           trace_rec_3();
         }
       }
@@ -12698,7 +12688,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #748");
+          strcpy(trace_1, "c2z_if.c #748");
           trace_rec_3();
         }
       }
@@ -12856,7 +12846,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #749");
+        strcpy(trace_1, "c2z_if.c #749");
         trace_rec_3();
       }
 
@@ -12865,7 +12855,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #750");
+        strcpy(trace_1, "c2z_if.c #750");
         trace_rec_3();
       }
 
@@ -12875,7 +12865,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #751");
+          strcpy(trace_1, "c2z_if.c #751");
           trace_rec_3();
         }
       }
@@ -12886,7 +12876,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #752");
+          strcpy(trace_1, "c2z_if.c #752");
           trace_rec_3();
         }
       }
@@ -12900,7 +12890,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #753");
+          strcpy(trace_1, "c2z_if.c #753");
           trace_rec_3();
         }
       }
@@ -12923,7 +12913,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #754");
+          strcpy(trace_1, "c2z_if.c #754");
           trace_rec_3();
         }
       }
@@ -12955,7 +12945,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #755");
+          strcpy(trace_1, "c2z_if.c #755");
           trace_rec_3();
         }
       }
@@ -13016,7 +13006,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #756");
+        strcpy(trace_1, "c2z_if.c #756");
         trace_rec_3();
       }
 
@@ -13025,7 +13015,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #757");
+        strcpy(trace_1, "c2z_if.c #757");
         trace_rec_3();
       }
 
@@ -13033,7 +13023,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #758");
+        strcpy(trace_1, "c2z_if.c #758");
         trace_rec_3();
       }
 
@@ -13041,7 +13031,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #759");
+        strcpy(trace_1, "c2z_if.c #759");
         trace_rec_3();
       }
 
@@ -13049,7 +13039,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #760");
+        strcpy(trace_1, "c2z_if.c #760");
         trace_rec_3();
       }
 
@@ -13057,7 +13047,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #761");
+        strcpy(trace_1, "c2z_if.c #761");
         trace_rec_3();
       }
 
@@ -13065,7 +13055,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #762");
+        strcpy(trace_1, "c2z_if.c #762");
         trace_rec_3();
       }
 
@@ -13073,7 +13063,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #763");
+        strcpy(trace_1, "c2z_if.c #763");
         trace_rec_3();
       }
 
@@ -13081,7 +13071,7 @@ skip_if_7:
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #764");
+        strcpy(trace_1, "c2z_if.c #764");
         trace_rec_3();
       }
 
@@ -13112,7 +13102,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #765");
+          strcpy(trace_1, "c2z_if.c #765");
           trace_rec_3();
         }
       }
@@ -13144,7 +13134,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #766");
+          strcpy(trace_1, "c2z_if.c #766");
           trace_rec_3();
         }
       }
@@ -13158,7 +13148,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #767");
+          strcpy(trace_1, "c2z_if.c #767");
           trace_rec_3();
         }
       }
@@ -13285,7 +13275,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #768");
+        strcpy(trace_1, "c2z_if.c #768");
         trace_rec_3();
       }
 
@@ -13297,7 +13287,7 @@ skip_if_7:
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_if.c case_13 #769");
+        strcpy(trace_1, "c2z_if.c #769");
         trace_rec_3();
       }
 
@@ -13307,7 +13297,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #770");
+          strcpy(trace_1, "c2z_if.c #770");
           trace_rec_3();
         }
       }
@@ -13365,7 +13355,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #771");
+          strcpy(trace_1, "c2z_if.c #771");
           trace_rec_3();
         }
       }
@@ -13379,7 +13369,7 @@ skip_if_7:
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_if.c case_13 #772");
+          strcpy(trace_1, "c2z_if.c #772");
           trace_rec_3();
         }
       }

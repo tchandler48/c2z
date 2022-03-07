@@ -530,7 +530,7 @@ void c2_strncmp_2() 					/*  x = strncmp(field1,field2[xx],nn)		*/
     strcat(a_string, field7);
     strcat(a_string, "(R0,R6)");
     strcpy(wk_remark, " ");
-    strcat(wk_remark, field2);
+    strcat(wk_remark, field3);
     strcat(wk_remark, " */");
     write_remark();
     if (puncde == 1) 
