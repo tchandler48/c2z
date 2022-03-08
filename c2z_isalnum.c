@@ -6,6 +6,14 @@
 
 void c2_isalnum() 
 {
+  strcpy(a_string, "*");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_isalnum.c");
+    trace_rec_3();
+  }
+  
   strcpy(a_string, "ISALNUM  DS    0H");
   src_line();
   if (puncde == 1) 
@@ -71,13 +79,6 @@ void c2_isalnum()
     strcpy(trace_1, "c2z_isalnum.c #8");
     trace_rec_3();
   }
-  strcpy(a_string, "*  Start test for TSTUC ");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalnum.c");
-    trace_rec_3();
-  }
 
   strcpy(a_string, "         LAEY  R5,37");
   src_line();
@@ -94,8 +95,6 @@ void c2_isalnum()
     strcpy(trace_1, "c2z_isalnum.c #10");
     trace_rec_3();
   }
-
-/*  test tstuc */
 
   strcpy(a_string, "         LARL  R7,C370U");
   src_line();
@@ -214,14 +213,6 @@ void c2_isalnum()
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_isalnum.c #25");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*  Start test for TSTLC ");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalnum.c #26");
     trace_rec_3();
   }
 

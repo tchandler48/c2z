@@ -334,9 +334,9 @@ void c2_debug()
 
     strcat(a_string, gw_variable[I].gv_cname);
     s = strlen(a_string);
-    if (s < 47) 
+    if (s < 46) 
     {
-      for (v = s; v < 47; v++) 
+      for (v = s; v < 46; v++) 
       {
         strcat(a_string, " ");
       }
@@ -344,6 +344,9 @@ void c2_debug()
 
     strcat(a_string, gw_variable[I].gv_type);
     s = strlen(a_string);
+    strcat(a_string, " ");
+    snprintf(p_strg, sizeof(p_strg), "%d", gw_variable[I].gv_id);
+    strcat(a_string, p_strg);
     if (s < 53) 
     {
       for (v = s; v < 53; v++) 
@@ -494,19 +497,22 @@ void c2_debug()
 
     strcat(a_string, lw_variable[I].lv_func);
     s = strlen(a_string);
-    if (s < 65) 
+    if (s < 64) 
     {
-      for (v = s; v < 65; v++) 
+      for (v = s; v < 64; v++) 
       {
         strcat(a_string, " ");
       }
     }
     strcat(a_string, lw_variable[I].lv_type);
+    strcat(a_string, " ");
+    snprintf(p_strg, sizeof(p_strg), "%d", lw_variable[I].lv_id);
+    strcat(a_string, p_strg);
 
     s = strlen(a_string);
-    if (s < 70) 
+    if (s < 71) 
     {
-      for (v = s; v < 70; v++) 
+      for (v = s; v < 71; v++) 
       {
         strcat(a_string, " ");
       }

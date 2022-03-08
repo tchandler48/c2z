@@ -5,10 +5,12 @@
 **************************************************** */
 void c2_isdigit(void) 
 {
-  if (traceflg == 1) 
+  strcpy(a_string, "*");
+  src_line();
+  if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_isdigit.c c2_isdigit START");
-    trace_rec_1();
+    strcpy(trace_1, "c2z_isdigit.c");
+    trace_rec_3();
   }
 
   strcpy(a_string, "ISDIGIT  DS    0H");

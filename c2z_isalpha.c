@@ -88,14 +88,6 @@ void c2_isalpha()
     trace_rec_3();
   }
 
-  strcpy(a_string, "*  Start test for TSTUC ");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c");
-    trace_rec_3();
-  }
-
   strcpy(a_string, "         LAEY  R5,26");
   src_line();
   if (puncde == 1) 
@@ -238,14 +230,6 @@ void c2_isalpha()
   if (puncde == 1) 
   {
     strcpy(trace_1, "c2z_isalpha.c #26");
-    trace_rec_3();
-  }
-
-  strcpy(a_string, "*  Start test for TSTLC ");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isalpha.c");
     trace_rec_3();
   }
 

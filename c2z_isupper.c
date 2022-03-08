@@ -134,13 +134,6 @@ void c2_isupper()
     strcpy(trace_1, "c2z_isupper.c #8");
     trace_rec_3();
   }
-  strcpy(a_string, "*  Start test for TSTUC ");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z_isupper.c");
-    trace_rec_3();
-  }
 
   strcpy(a_string, "         LAEY  R5,26");
   src_line();
