@@ -35,12 +35,15 @@
      double *dv_stack;
        char **dn_stack;
         int dmax_vars = 0;
+
+       char **sv_stack;
+       char **sn_stack;
+        int smax_vars = 0;
 	
 /*	bxbasic.c	*/
        void pgm_parser(void);
        void get_token(void);
        void parser(void);
-       void xstring_array(void);
        void go_to(void);
 
 /*	error.c	*/
@@ -60,11 +63,15 @@
        void program_array(void);
 
 /*	output.c	*/
-      void get_prnstring(void);
-      void get_prnvar(void);
-      void locate(void);
-      void beep(void);
-      void cls(void);
+       void beep(void);
+       void cls(void);
+       void get_prnstring(void);
+       void get_prnvar(void);
+       void locate(void);
+       char get_vartype(void);
+       void get_strvar(void);
+      
+      
 
 /*	rdparser.c	*/
 	int rdp_start(void);
@@ -86,6 +93,8 @@
        int get_digit(int, int);
        int iswhite(int);
       void clr_arrays(void);
+       int iswhiter(int);
+
 
 /*	variable.c	*/
       void parse_let(void);
@@ -93,11 +102,16 @@
       char get_varname(void);
        int get_intndx(char *);
        int get_dblndx(char *);
+       int get_varndx(char *);
+      void strng_assgn(int);
+
       void clr_vars(void);
-      void init_int(void);
       void clr_int(void);
-      void init_dbl(void);
       void clr_dbl(void);
+
+      void init_int(void);
+      void init_dbl(void);
+      void init_str(void);
 
 
 #include "error.c"
@@ -164,7 +178,6 @@ void parser()
       break;
 
     case 4:
-      xstring_array();
       get_prnstring();
       break;
 
@@ -189,64 +202,6 @@ void parser()
     default:
       a_bort(ab_code, x);
       break;
-  }
-}
-
-
-
-void xstring_array()
-{
-  char ch;
-  int pi = 0;
-  int si = 0;
-  int ab_code;
-  int stlen;
-  int x = line_ndx;
-
-  pi = e_pos;
-  pi = iswhite(pi);
-  e_pos = pi;
-  ch = p_string[pi]; 
-
-  if(ch == ':')
-  {
-     return;
-  }
-
-  if(isalpha(ch))
-  {
-     return;
-  }
-
-  stlen = strlen(p_string);
-  if((ch != '\"') || (pi == stlen))
-  {
-    ab_code = 9;
-    a_bort(ab_code, x);
-  }
-  else
-  {
-    pi++; 
-    ch = p_string[pi]; 
-    ch = ' ';
-    while((ch != '\"') && (pi < stlen))
-    {
-       si++;
-       pi++;
-       ch = p_string[pi];
-    }
-
-    if((si <= 1) && (pi < stlen))
-    {
-      ab_code = 5;
-      a_bort(ab_code,x);
-    }
-
-    if(pi >= stlen)
-    { 
-      ab_code = 6;
-      a_bort(ab_code,x);
-    }
   }
 }
 

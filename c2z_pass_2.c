@@ -2534,6 +2534,86 @@ void c2_pass2_for()
   int ret1 = 0;
   int ret2 = 0;
   int fd2_type = 0;
+  int s;
+  int data_convert = 0;
+  int size;
+
+  s = strlen(p_string);
+  for(I = 0; I < s; I++)
+  {
+     ch = p_string[I];
+     if(ch == '\'')
+     {
+        data_convert = 1;
+     }
+     if(ch == '\"')
+     {
+        data_convert = 2;
+     }
+  }
+
+  if(data_convert == 0)
+  {
+     convert = 1;
+     return;
+  }
+
+  if(data_convert == 1)
+  {
+     for(I = 0; I < s; I++)
+     {
+        ch = p_string[I];
+        if(ch == '\'')
+        {
+          break;
+        }
+      }
+      I++;
+      pi = I;
+      pi2 = 0;
+      ch = p_string[I];
+      while(ch != '\'')
+      {
+         tfield1[pi2] = ch;
+         pi2++;
+         I++;
+         ch = p_string[I];
+      }
+      tfield1[pi2] = '\0';
+
+      x3 = strlen(tfield2);
+      c_name++;
+      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+      strcpy(c_wkname, "C37F");
+      strcat(c_wkname, wk_strg);
+      s = strlen(c_wkname);
+      c_wkname[s] = '\0';
+      strcpy(tfield1a, c_wkname);
+
+      if (char_ct == 0) 
+      {
+        size = 1;
+        w_charlit = malloc(size * sizeof(struct charlit));
+      } 
+      else 
+      {
+        size = char_ct + 1;
+        w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
+      }
+
+      w_charlit[char_ct].clit_rct = rct;
+      strcpy(w_charlit[char_ct].clit_cname, tfield1a);
+      strcpy(w_charlit[char_ct].clit_value, tfield1);
+      w_charlit[char_ct].clit_type = 3;
+      w_charlit[char_ct].clit_lgth = x3;
+      w_charlit[char_ct].clit_uct = 1;
+      char_ct++;
+
+      convert = 1;
+      return;
+   }
+
+
 
   pi = 0;
   ch = p_string[pi];
@@ -3368,6 +3448,7 @@ void c2_pass2_if_1()
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
+/*  char field3[VAR_LGTH]; */
   char field3a[VAR_LGTH];
 
   int pi;
@@ -3376,9 +3457,7 @@ void c2_pass2_if_1()
   int if_comma = 0;
   int if_complex = 0;
   int if_blank = 0;
-  int if_quote = 0;
   int if_convert = 0;
-
   int fd1_type = 0;
   int fd2_type = 0;
 
@@ -3393,7 +3472,7 @@ void c2_pass2_if_1()
   int ret = 0;
 
   convert = 0;
- 
+
   p = strstr(p_string, "&&");
   if (p) 
   {
@@ -3405,286 +3484,6 @@ void c2_pass2_if_1()
   {
     if_complex = 1;
   }
-
-  p = strstr(p_string, "')'");
-  if(p)
-  {
-    pi = 0;
-    ch = p_string[pi];
-    while (ch != '(') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi2 = 0;
-    x3 = 0;
-    x2 = 0;
-    pi++;
-    ch = p_string[pi];
-    while (ch != ' ') 
-    {
-      if ((ch == '_') && (x3 == 0)) 
-      {
-        x3 = 1;
-      }
-
-      if (x2 == 0) 
-      {
-        if (isdigit(ch)) 
-        {
-          fd1_type = 1;
-          x2 = 1;
-        }
-        if (isalpha(ch)) 
-        {
-          fd1_type = 2;
-          x2 = 1;
-        }
-      }
-      if (ch != '(') 
-      {
-        field1[pi2] = ch;
-        pi2++;
-      }
-      pi++;
-      ch = p_string[pi];
-    }
-    field1[pi2] = '\0';
-
-    x3 = 0;
-    for (I = 0; I < lv_ct; I++) 
-    {
-      ret = strcmp(field1, lw_variable[I].lv_name);
-      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
-      if ((ret == 0) && (ret1 == 0)) 
-      {
-        x3 = 1;
-        strcpy(field1a, lw_variable[I].lv_cname);
-        lw_variable[I].lv_use_ct++;
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      for (I = 0; I < gv_ct; I++) 
-      {
-        ret = strcmp(field1, gw_variable[I].gv_name);
-        if (ret == 0) 
-        {
-          x3 = 1;
-          strcpy(field1a, gw_variable[I].gv_cname);
-          gw_variable[I].gv_use_ct++;
-        }
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      printf("\2c2z_pass_2.c c2_pass2_if_1 pass2-022 field1 Not Found = %s\n",field1);
-      printf("c2z_pass_2.c c2_pass2_if_1 rct = %d sv_func = %s p_string = %s",rct, sv_func, p_string);
-      printf("c2z_pass_2.c c2_pass2_if_1 #99 FIX THIS CODE\n");
-      erct++;
-      convert = 1;
-      return;
-    }
-
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi++;
-    ch = p_string[pi];
-    while (ch != ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    fd2_type = 0;
-    x2 = 0;
-    x3 = 0;
-    pi2 = 0;
-    while (ch != '\n') 
-    {
-      if(ch == '\'')
-      {
-        x3++;
-      }
-      if (x2 == 0) 
-      {
-        if ((ch == '\'') && (x2 == 0)) 
-        {
-          fd2_type = 0;
-          x2 = 1;
-        }
-        if ((isdigit(ch)) && (x2 == 0)) 
-        {
-          fd2_type = 1;
-          x2 = 1;
-        }
-        if ((isalpha(ch)) && (x2 == 0)) 
-        {
-          fd2_type = 2;
-          x2 = 1;
-        }
-      }
-      if(x3 == 2)
-      {
-        break;
-      }
-      if(ch != '\'')
-      {
-        field2[pi2] = ch;
-        pi2++;
-      }
-      pi++;
-      ch = p_string[pi];
-    }
-    field2[pi2] = '\0';
-
-    if (global_st == 0) 
-    {
-      x3 = 0;
-      for (I = 0; I < gv_ct; I++) 
-      {
-        ret = strcmp(field1, gw_variable[I].gv_name);
-        if (ret == 0) 
-        {
-          x3 = 1;
-        }
-      }
-
-      if (x3 == 0) 
-      {
-        c_name++;
-        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-        strcpy(c_wkname, "C37F");
-        strcat(c_wkname, wk_strg);
-        s = strlen(c_wkname);
-        c_wkname[s] = '\0';
-        strcpy(field1a, c_wkname);
-
-        if (gv_ct == 0) 
-        {
-          size = 1;
-          gw_variable = malloc(size * sizeof(struct variables));
-        } 
-        else 
-        {
-          size = gv_ct + 1;
-          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-        }
-
-        gw_variable[gv_ct].gv_rct = rct;
-        strcpy(gw_variable[gv_ct].gv_cname, field1a);
-        strcpy(gw_variable[gv_ct].gv_name, field1);
-        strcpy(gw_variable[gv_ct].gv_type, "C");
-        gw_variable[gv_ct].gv_lgth = 0;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_value, "0");
-        gw_variable[gv_ct].gv_init = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
-        gw_variable[gv_ct].gv_use_ct = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        gw_variable[gv_ct].gv_dec = 0;
-        gv_ct++;
-      }
-    } 			/* END OF if(global_st == 0) */
-
-    if (global_st == 1) 
-    {
-      x3 = 0;
-      if (lv_ct > 0) 
-      {
-        for (I = 0; I < lv_ct; I++) 
-        {
-          ret = strcmp(field1, lw_variable[I].lv_name);
-          ret1 = strcmp(sv_func, lw_variable[I].lv_func);
-          if ((ret == 0) && (ret1 == 0)) 
-          {
-            x3 = 1;
-          }
-        }
-      }
-
-      if (x3 == 0) 
-      {
-        if (lv_ct == 0) 
-        {
-          size = 1;
-          lw_variable = malloc(size * sizeof(struct var));
-        } 
-        else 
-        {
-          size = lv_ct + 1;
-          lw_variable = realloc(lw_variable, size * sizeof(struct var));
-        }
-        lw_variable[lv_ct].lv_rct = rct;
-        strcpy(lw_variable[lv_ct].lv_cname, field1a);
-        strcpy(lw_variable[lv_ct].lv_name, field1);
-        strcpy(lw_variable[lv_ct].lv_type, "C");
-        lw_variable[lv_ct].lv_lgth = 0;
-        strcpy(lw_variable[lv_ct].lv_value, "0");
-        lw_variable[lv_ct].lv_current_lgth = 0;
-        lw_variable[lv_ct].lv_init = 0;
-        strcpy(lw_variable[lv_ct].lv_literal, null_field);
-        lw_variable[lv_ct].lv_use_ct = 0;
-        lw_variable[lv_ct].lv_dec = 0;
-        lv_ct++;
-      }
-    } 				/* END OF if(global_st == 1) */
-
-    c_name++;
-    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-    strcpy(c_wkname, "C37F");
-    strcat(c_wkname, wk_strg);
-    s = strlen(c_wkname);
-    c_wkname[s] = '\0';
-    strcpy(field1a, c_wkname);
-    s = strlen(field2);
-    if (char_ct == 0) 
-    {
-       size = 1;
-       w_charlit = malloc(size * sizeof(struct charlit));
-     } 
-     else 
-     {
-       size = char_ct + 1;
-       w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
-     }
-
-     w_charlit[char_ct].clit_rct = rct;
-     strcpy(w_charlit[char_ct].clit_cname, field1a);
-     strcpy(w_charlit[char_ct].clit_value, field2);
-     w_charlit[char_ct].clit_type = 3;
-     w_charlit[char_ct].clit_lgth = 1;
-     w_charlit[char_ct].clit_uct = 1;
-     char_ct++;
-
-     convert = 1;
-     return;
-   }
 
   if (if_complex == 0) 
   {
@@ -3725,7 +3524,6 @@ void c2_pass2_if_1()
         {
           x3 = 1;
         }
-
         if (x2 == 0) 
         {
           if (isdigit(ch)) 
@@ -3794,13 +3592,16 @@ void c2_pass2_if_1()
         ch = p_string[pi];
       }
 
-      pi++;
+      pi2 = 0;
       ch = p_string[pi];
       while (ch != ' ') 
       {
+        /* field3[pi2] = ch; */
+        pi2++;
         pi++;
         ch = p_string[pi];
       }
+   /*   field3[pi2] = '\0'; */
 
       pi++;
       ch = p_string[pi];
@@ -3842,7 +3643,6 @@ void c2_pass2_if_1()
 
       if_comma = 0;
       if_blank = 0;
-      if_quote = 0;
 
       p5 = strstr(field2, " ");
       if (p5) 
@@ -3862,173 +3662,9 @@ void c2_pass2_if_1()
         if_comma = 2;
       }
 
-      p5 = strchr(field2, '\'');
-      if (p5) 
-      {
-        if_quote = 1;
-        fd2_type = 1;
-      }
 
-      strcpy(field2a, field2);
 
-      if((fd2_type == 1) && (if_blank == 1) && (if_comma == 0) && (if_quote == 1))
-      {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z_pass_2.c c2_pass2_if_1 subroutine #16 START");
-          trace_rec_1();
-        }
-
-        if (global_st == 0) 
-        {
-          x3 = 0;
-          for (I = 0; I < gv_ct; I++) 
-          {
-            ret = strcmp(field1, gw_variable[I].gv_name);
-            if (ret == 0) 
-            {
-              x3 = 1;
-            }
-          }
-
-          if (x3 == 0) 
-          {
-            c_name++;
-            snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-            strcpy(c_wkname, "C37F");
-            strcat(c_wkname, wk_strg);
-            s = strlen(c_wkname);
-            c_wkname[s] = '\0';
-            strcpy(field1a, c_wkname);
-
-            if (gv_ct == 0) 
-            {
-              size = 1;
-              gw_variable = malloc(size * sizeof(struct variables));
-            } 
-            else 
-            {
-              size = gv_ct + 1;
-              gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-            }
-
-            gw_variable[gv_ct].gv_rct = rct;
-            strcpy(gw_variable[gv_ct].gv_cname, field1a);
-            strcpy(gw_variable[gv_ct].gv_name, field1);
-            strcpy(gw_variable[gv_ct].gv_type, "C");
-            gw_variable[gv_ct].gv_lgth = 0;
-            gw_variable[gv_ct].gv_current_lgth = 0;
-            strcpy(gw_variable[gv_ct].gv_value, "0");
-            gw_variable[gv_ct].gv_init = 0;
-            strcpy(gw_variable[gv_ct].gv_literal, null_field);
-            gw_variable[gv_ct].gv_use_ct = 0;
-            strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-            gw_variable[gv_ct].gv_row = 0;
-            gw_variable[gv_ct].gv_column = 0;
-            strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-            strcpy(gw_variable[gv_ct].gv_label, null_field);
-            strcpy(gw_variable[gv_ct].gv_aname, null_field);
-            strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-            strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-            strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-            gw_variable[gv_ct].gv_dec = 0;
-            gv_ct++;
-          }
-        } 			/* END OF if(global_st == 0) */
-
-        if (global_st == 1) 
-        {
-          x3 = 0;
-          if (lv_ct > 0) 
-          {
-            for (I = 0; I < lv_ct; I++) 
-            {
-              ret = strcmp(field1, lw_variable[I].lv_name);
-              ret1 = strcmp(sv_func, lw_variable[I].lv_func);
-              if ((ret == 0) && (ret1 == 0)) 
-              {
-                x3 = 1;
-              }
-            }
-          }
-
-          if (x3 == 0) 
-          {
-            if (lv_ct == 0) 
-            {
-              size = 1;
-              lw_variable = malloc(size * sizeof(struct var));
-            } 
-            else 
-            {
-              size = lv_ct + 1;
-              lw_variable = realloc(lw_variable, size * sizeof(struct var));
-            }
-
-            lw_variable[lv_ct].lv_rct = rct;
-            strcpy(lw_variable[lv_ct].lv_cname, field1a);
-            strcpy(lw_variable[lv_ct].lv_name, field1);
-            strcpy(lw_variable[lv_ct].lv_type, "C");
-            lw_variable[lv_ct].lv_lgth = 0;
-            strcpy(lw_variable[lv_ct].lv_value, "0");
-            lw_variable[lv_ct].lv_current_lgth = 0;
-            lw_variable[lv_ct].lv_init = 0;
-            strcpy(lw_variable[lv_ct].lv_literal, null_field);
-            lw_variable[lv_ct].lv_use_ct = 0;
-            lw_variable[lv_ct].lv_dec = 0;
-            lv_ct++;
-          }
-        } 				/* END OF if(global_st == 1) */
-
-        c_name++;
-        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-        strcpy(c_wkname, "C37F");
-        strcat(c_wkname, wk_strg);
-        s = strlen(c_wkname);
-        c_wkname[s] = '\0';
-        strcpy(field1a, c_wkname);
-        s = strlen(field2);
-
-        if (s == 3)
-        {
-          field2a[0] = field2[1];
-          field2a[1] = '\0';
-          x3 = strlen(field2a);
-        }
-
-        if(s == 4)
-        {
-          field2a[0] = field2[2];
-          field2a[1] = '\0';
-          strcpy(field2, field2a);
-          x3 = strlen(field2a);
-        }
-
-        if (char_ct == 0) 
-        {
-          size = 1;
-          w_charlit = malloc(size * sizeof(struct charlit));
-        } 
-        else 
-        {
-          size = char_ct + 1;
-          w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
-        }
-
-        w_charlit[char_ct].clit_rct = rct;
-        strcpy(w_charlit[char_ct].clit_cname, field1a);
-        strcpy(w_charlit[char_ct].clit_value, field2a);
-        w_charlit[char_ct].clit_type = 3;
-        w_charlit[char_ct].clit_lgth = x3;
-        w_charlit[char_ct].clit_uct = 1;
-        char_ct++;
-        convert = 1;
-        return;
-      }
-
-      }
-
-      if ((if_comma == 0) && (if_blank == 0) && (fd2_type == 2) && (if_quote == 0)) 
+      if (fd2_type == 2) 			 /* if(ch == max) */
       {
         x3 = 0;
         for (I = 0; I < lv_ct; I++) 
@@ -4063,45 +3699,47 @@ void c2_pass2_if_1()
               {
                 fd2_type = 2;
               }
-            }
+            } 
           }
         }
+
+/*
+printf("\nc2z_pass_2.c if_1 PROC if(ch == max) #1 rct = %d p_string = %s",rct,p_string);
+printf("c2z_pass_2.c if_1 #2 if_complex = %d\n",if_complex);
+printf("c2z_pass_2.c if_1 #3 HERE rct = %d lbrack = %d rbrack = %d\n",rct,lbrack,rbrack);
+printf("c2z_pass_2.c if_1 #4 HERE rct = %d field1 = %s fd1_type = %d\n",rct,field1,fd1_type);
+printf("c2z_pass_2.c if_1 #5 HERE rct = %d field3 = %s\n",rct,field3);
+printf("c2z_pass_2.c if_1 #6 HERE rct = %d field2 = %s fd2_type = %d\n",rct,field2,fd2_type);
+printf("c2z_pass_2.c if_1 #7 HERE rct = %d if_blank = %d if_comma = %d if_quote = %d global_st = %d\n",rct,if_blank,if_comma,if_quote,global_st);
+printf("c2z_pass_2.c if_1 #8 HERE rct = %d p_string = %s",rct,p_string);
+*/
       }
 
-      if ((if_comma == 0) && (fd2_type == 2) && (if_convert == 0)) 
+      if (fd2_type == 0)		 		/* if(ch == ' ') or ch == 'special char' */
       {
-        if_convert = 1;
-        return;
-      }
-
-      if ((if_comma == 0) && (fd2_type == 0) && (convert == 0)) 
-      {
-        if (fd2_type == 0) 
-        {
+        
           c_name++;
           snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
           strcpy(c_wkname, "C37F");
           strcat(c_wkname, wk_strg);
           s = strlen(c_wkname);
           c_wkname[s] = '\0';
-          strcpy(field3a, c_wkname);
+          
           s = strlen(field2);
-
-          if (s == 3) 
+          x3 = 0;
+          pi2 = 0;
+          I = 0;
+          ch = field2[I];
+          for(I = 0; I < s; I++)
           {
-            field2a[0] = field2[1];
-            field2a[1] = '\0';
-            x3 = strlen(field2a);
+            ch = field2[I];
+            if(ch != '\'')
+            {
+              field2a[pi2] = ch;
+              pi2++;
+            }
           }
-
-          if(s == 4)
-          {
-            field2a[0] = field2[2];
-            field2a[1] = '\0';
-            strcpy(field2, field2a);
-            x3 = strlen(field2a);
-          }
-
+          field2a[pi2] = '\0';
 
           if (char_ct == 0) 
           {
@@ -4115,18 +3753,36 @@ void c2_pass2_if_1()
           }
 
           w_charlit[char_ct].clit_rct = rct;
-          strcpy(w_charlit[char_ct].clit_cname, field3a);
+          strcpy(w_charlit[char_ct].clit_cname, c_wkname);
           strcpy(w_charlit[char_ct].clit_value, field2a);
           w_charlit[char_ct].clit_type = 3;
-          w_charlit[char_ct].clit_lgth = x3;
+          w_charlit[char_ct].clit_lgth = 1;
           w_charlit[char_ct].clit_uct = 1;
           char_ct++;
+
+/*
+printf("\nc2z_pass_2.c if_1 PROC Special character #1 rct = %d p_string = %s",rct,p_string);
+printf("c2z_pass_2.c if_1 #2 if_complex = %d\n",if_complex);
+printf("c2z_pass_2.c if_1 #3 HERE rct = %d lbrack = %d rbrack = %d\n",rct,lbrack,rbrack);
+printf("c2z_pass_2.c if_1 #4 HERE rct = %d field1 = %s fd1_type = %d\n",rct,field1,fd1_type);
+printf("c2z_pass_2.c if_1 #5 HERE rct = %d field3 = %s\n",rct,field3);
+printf("c2z_pass_2.c if_1 #6 HERE rct = %d field2 = %s fd2_type = %d\n",rct,field2,fd2_type);
+printf("c2z_pass_2.c if_1 #7 HERE rct = %d if_blank = %d if_comma = %d if_quote = %d global_st = %d\n",rct,if_blank,if_comma,if_quote,global_st);
+printf("c2z_pass_2.c if_1 #8 HERE rct = %d p_string = %s",rct,p_string);
+printf("c2z_pass_2.c if_1 #9 HERE rct = %d x3 = %d field2a = %s\n",rct,x3,field2a);
+*/
+
+
+          convert = 1;
           return;
-        }
+        
       }
 
-      if ((if_comma == 0) && (fd2_type == 1) && (if_blank == 0) && (if_quote == 1) && (convert == 0)) 
+      if (fd2_type == 1) 				  /* fd2_type == 1 */
       {
+/*
+printf("c2z_pass_2.c if_1 #13 HERE rct = %d x3 = %d field2 = %s\n",rct,x3,field2);
+*/
         if (global_st == 0) 
         {
           x3 = 0;
@@ -4136,6 +3792,7 @@ void c2_pass2_if_1()
             if (ret == 0) 
             {
               x3 = 1;
+              break;
             }
           }
 
@@ -4182,7 +3839,7 @@ void c2_pass2_if_1()
             gw_variable[gv_ct].gv_dec = 0;
             gv_ct++;
           }
-        } 			/* END OF if(global_st == 0) */
+        } 			
 
         if (global_st == 1) 
         {
@@ -4204,6 +3861,7 @@ void c2_pass2_if_1()
               if ((ret == 0) && (ret1 == 0)) 
               {
                 x3 = 1;
+                break;
               }
             }
           }
@@ -4234,7 +3892,7 @@ void c2_pass2_if_1()
             lw_variable[lv_ct].lv_dec = 0;
             lv_ct++;
           }
-        } 				/* END OF if(global_st == 1) */
+        } 				
 
         c_name++;
         snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
@@ -4281,35 +3939,19 @@ void c2_pass2_if_1()
         convert = 1;
         return;
       }
-    }
+    } 
 
-    if ((if_comma == 0) && (fd2_type == 1) && (if_quote == 0) && (if_convert == 0)) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_pass2_if_1 subroutine #7 START");
-        trace_rec_1();
-      }
-      if_convert = 1;
-    }
-
-    if ((if_comma == 0) && (fd2_type == 1) && (if_quote == 0) && (if_convert == 0)) 
-    {
-      printf("\nc2_pass_2.c if_case_1 pass2-023 #1 Not Coded\n");
-      printf("c2_pass_2.c rct = %d p_string = %s", rct, p_string);
-      erct++;
-      convert = 1;
-      if_convert = 1;
-      return;
-    }
 
     if ((if_comma == 1) || (if_comma == 2)) 
     {
+
+/*
       if (traceflg == 1) 
       {
         strcpy(trace_1, "c2z_pass_2.c c2_pass2_if_1 subroutine #8 START");
         trace_rec_1();
       }
+*/
 
       if ((if_blank == 0) && (fd2_type == 1)) 
       {
@@ -4375,28 +4017,10 @@ void c2_pass2_if_1()
         return;
       }
     }
+   }
 
-    if ((if_comma == 1) && (if_blank == 0) && (if_convert == 0)) 
-    {
-      printf("\nc2_pass_2.c if_case_1 #3 pass2-024 Not Coded\n");
-      printf("c2_pass_2.c rct = %d p_string = %s", rct, p_string);
-      erct++;
-      convert = 1;
-      if_convert = 1;
-      return;
-    }
 
-    if ((if_complex == 0) && (lbrack > 0) && (rbrack > 0)) 
-    {
-      printf("\nc2_pass_2.c if_case_1 #3 pass2-025 Not Coded\n");
-      printf("c2_pass_2.c rct = %d p_string = %s", rct, p_string);
-      erct++;
-      if_convert = 1;
-      convert = 1;
-      return;
-    }
-
-  if ((if_complex == 1) && (if_convert == 0)) 				/* complex if statement	*/
+   if ((if_complex == 1) && (if_convert == 0)) 				/* complex if statement	*/
   {
     printf("\nc2_pass_2.c if_case_1 #4 pass2-026 Not Coded\n");
     printf("c2_pass_2.c rct = %d p_string = %s", rct, p_string);
@@ -6210,7 +5834,6 @@ void c2_pass2_if_13()
   int x85 = 0;
   int x90;
   int x100;
-/*  int x100L; */
   int s = 0;
   int size = 0;
   int spec_char = 0;
@@ -6226,6 +5849,7 @@ void c2_pass2_if_13()
   int operand_2 = 0;
   int lbrack = 0;
   int rbrack = 0;
+  int data_convert = 0;
 
   c2_count_paren();
 
@@ -6267,7 +5891,6 @@ void c2_pass2_if_13()
   }
 
   x100 = 0;
-/*  x100L = 0; */
   s = strlen(p_string);
   for (I = 0; I < s; I++) 
   {
@@ -6279,7 +5902,6 @@ void c2_pass2_if_13()
     if (ch == ']') 
     {
       x100++;
- /*     x100L = I; */
     }
   }
    
@@ -6297,6 +5919,7 @@ void c2_pass2_if_13()
 
   p = strstr(p_string, "[");
   x2 = p - p_string;
+
 
   if ((complex_if == 1) && (lbrack == 0) && (rbrack == 0)) 
   {
@@ -6755,6 +6378,7 @@ void c2_pass2_if_13()
     if (p6) 
     {
       spec_char = 1;
+      data_convert = 1;
     }
 
     if ((fd3_type == 2) && (spec_char == 0)) 
@@ -6762,13 +6386,16 @@ void c2_pass2_if_13()
       return;
     }
 
-
     if((fd3_type == 0) && (fd6_type == 0) && (x90 == 1) && (spec_char == 1))		/* if((ch == '+') || (ch == '-'))  */
     {
       pi2 = 0;
       x3 = strlen(field3);
       for(I = 0; I < x3; I++)
       {
+        if(ch == '\'')
+        {
+          data_convert = 1;
+        }
         ch = field3[I];
         if(ch != '\'')
         {
@@ -6811,6 +6438,10 @@ void c2_pass2_if_13()
       x3 = strlen(field6);
       for(I = 0; I < x3; I++)
       {
+        if(ch == '\'')
+        {
+           data_convert = 1;
+        }
         ch = field6[I];
         if(ch != '\'')
         {
@@ -6860,6 +6491,10 @@ void c2_pass2_if_13()
       for(I = 0; I < x3; I++)
       {
         ch = field3[I];
+        if(ch == '\'')
+        {
+           data_convert = 1;
+        }
         if(ch != '\'')
         {
           field3a[pi2] = ch;
@@ -6900,7 +6535,6 @@ void c2_pass2_if_13()
       convert = 1;
       return;
     }
-
 
     if ((fd3_type == 1) && (spec_char == 0)) 
     {
@@ -7092,6 +6726,7 @@ void c2_pass2_if_13()
     if (p6) 
     {
       spec_char_2 = 1;
+      data_convert = 1;
     }
 
     if (fd6_type == 2) 
@@ -7155,6 +6790,12 @@ void c2_pass2_if_13()
         convert = 1;
         return;
       }
+    }
+
+    if(data_convert == 0)
+    {
+      convert = 1;
+      return;
     }
 
     if ((fd1_var == 2) && (fd3_var == 0)) 
@@ -7322,25 +6963,46 @@ void c2_pass2_if_13()
     if_convert = 1;
   }
 
-/* printf("c2z_pass_2.c rct = %d lbrack = %d rbrack = %d x2 = %d x3 = %d\n",rct,lbrack,rbrack,x2,x3); */
+/* printf("c2z_pass_2.c #7 rct = %d lbrack = %d rbrack = %d x2 = %d x3 = %d\n",rct,lbrack,rbrack,x2,x3); */
 
 
   if ((complex_if == 1) && (lbrack > 0) && (rbrack > 0) && (x2 < x3)) 
   {
+
     if (traceflg == 1) 
     {
       strcpy(trace_1, "c2z_pass_2.c if_13 complex []");
       trace_rec_1();
     }
 
-    convert = 1;
-    return;
-
     char ch;
 
     int pi;
     int pi2 = 0;
     int x2 = 0;
+    int s;
+    int I;
+
+    data_convert = 0;
+    s = strlen(p_string);
+    for(I = 0; I < s; I++)
+    {
+      ch = p_string[I];
+      if(ch == '\'')
+      {
+         data_convert = 1;
+      }
+      if(ch == '\"')
+      {
+         data_convert = 1;
+      }
+    }
+
+    if(data_convert == 0)
+    {
+      convert = 1;
+      return;
+    }
 
     pi = 0;
     ch = p_string[pi];
@@ -7540,13 +7202,26 @@ void c2_pass2_if_13()
       }
       if(ch != '*')
       {
-        field9[pi2] = ch;
-        pi2++;
+        if(ch == '\'')
+        {
+           data_convert = 1;
+        }
+        if(ch != '\'')
+        {
+          field9[pi2] = ch;
+          pi2++;
+        }
       }
       pi++;
       ch = p_string[pi];
     }
     field9[pi2] = '\0';
+
+    if(data_convert == 0)
+    {
+       convert = 1;
+       return;
+    }
 
     c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
@@ -11790,42 +11465,26 @@ void c2_pass2_while_7()
   }
 
   char ch;
-  char *p, *p1;
+  char *p;
   char wk_sv_func[32];
 
   char field1[VAR_LGTH];
-  char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
-  char field3a[VAR_LGTH];
-  char field5[VAR_LGTH];
-  char field5a[VAR_LGTH];
-  char field6[VAR_LGTH];
-  char field7[VAR_LGTH];
-  char field7a[VAR_LGTH];
-
-  char tfield3b[VAR_LGTH];
 
   int pi;
   int pi2;
-  int x2 = 0;
   int x3 = 0;
-  int x99 = 0;
+  int x9 = 0;
   int I = 0;
   int v = 0;
   int while_complex = 0;
-  int whfd3_type = 0;
-  int whfd7_type = 0;
   int operand_1 = 0;
-  int operand_3 = 0;
-  int wh_3 = 0;
-  int wh_4 = 0;
   int short_while = 0;
   int ret = 0;
   int ret1 = 0;
   int s = 0;
-  int s1 = 0;
 
   var_use[10]++;
 
@@ -11843,6 +11502,11 @@ void c2_pass2_while_7()
       while_complex = 1;
     }
   }
+
+/*
+printf("\nc2z_pass_2.c while_7 #1 START rct = %d p_string = %s",rct,p_string);
+printf("\nc2z_pass_2.c while_7 #2 rct = %d while_complex = %d\n",rct,while_complex);
+*/
 
   if (while_complex == 0) 
   {
@@ -11997,7 +11661,6 @@ void c2_pass2_while_7()
       }
 
       x3 = 0;
-      x2 = 0;
       if (lv_ct > 0) 
       {
         for (v = 0; v < lv_ct; v++) 
@@ -12015,7 +11678,6 @@ void c2_pass2_while_7()
 
       if (x3 == 0) 
       {
-        x2 = 0;
         if (gv_ct > 0) 
         {
           for (v = 0; v < gv_ct; v++) 
@@ -12070,739 +11732,76 @@ void c2_pass2_while_7()
       trace_rec_1();
     }
 
-    pi = 0;
-    ch = p_string[pi];
-    while (ch != '(') 
+    x9 = 0;
+    s = strlen(p_string);
+    for(I = 0; I < s; I++)
     {
-      pi++;
-      ch = p_string[pi];
+       ch = p_string[I];
+       if(ch == '\'')
+       {
+          x9++;
+          break;
+       }
+       if(ch == '\"')
+       {
+          x9++;
+          break;
+       }
+    }
+/*
+printf("c2z_pass_2.c while_7 #4 rct = %d x9 = %d\n",rct,x9);
+*/   
+    if(x9 == 0)
+    {
+      convert = 1;
+      return;
     }
 
-    pi++;
-    ch = p_string[pi];
-    while (ch != '(') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi++;
-    ch = p_string[pi];
-    while (ch != '(') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
+    I++;
     pi2 = 0;
-    pi++;
-    ch = p_string[pi];
-    while (ch != ')') 
+    ch = p_string[I];
+    while(ch != '\'')
     {
-      field1[pi2] = ch;
-      pi2++;
-      pi++;
-      ch = p_string[pi];
+       field1[pi2] = ch;
+       pi2++;
+       I++;
+       ch = p_string[I];
     }
     field1[pi2] = '\0';
-
-    pi2 = 0;
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    while (ch != ' ') 
-    {
-      if (ch != ' ') 
-      {
-        field2[pi2] = ch;
-        pi2++;
-        pi++;
-        ch = p_string[pi];
-      }
-    }
-    field2[pi2] = '\0';
-
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi2 = 0;
-    x2 = 0;
-    while (ch != ')') 
-    {
-      if (x2 == 0) 
-      {
-        if (isdigit(ch)) 
-        {
-          whfd3_type = 1;
-          x2 = 1;
-        }
-
-        if (isalpha(ch)) 
-        {
-          whfd3_type = 2;
-          x2 = 1;
-        }
-      }
-      field3[pi2] = ch;
-      pi2++;
-      pi++;
-      ch = p_string[pi];
-    }
-    field3[pi2] = '\0';
-
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    while (ch != ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi++;
-    ch = p_string[pi];
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi2 = 0;
-    while (ch != ' ') 
-    {
-      field5[pi2] = ch;
-      pi2++;
-      pi++;
-      ch = p_string[pi];
-    }
-    field5[pi2] = '\0';
-
-    while (ch == ' ') 
-    {
-      pi++;
-      ch = p_string[pi];
-    }
-
-    pi2 = 0;
-    ch = p_string[pi];
-    while (ch != ' ') 
-    {
-      field6[pi2] = ch;
-      pi2++;
-      pi++;
-      ch = p_string[pi];
-    }
-    field6[pi2] = '\0';
-
-    x2 = 0;
-    pi2 = 0;
-    ch = p_string[pi];
-    while (ch != ')') 
-    {
-      if (x2 == 0) 
-      {
-        if (isdigit(ch)) 
-        {
-          whfd7_type = 1;
-          x2 = 1;
-        }
-
-        if (isalpha(ch)) 
-        {
-          whfd7_type = 2;
-          x2 = 1;
-        }
-      }
-
-      if (ch != ' ') 
-      {
-        field7[pi2] = ch;
-        pi2++;
-      }
-      pi++;
-      ch = p_string[pi];
-    }
-    field7[pi2] = '\0';
-
-    if (whfd7_type == 2) 
-    {
-      return;
-    }
-
-    if (whfd7_type == 1) 
-    {
-      c_name++;
-      snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-      strcpy(c_wkname, "C37F");
-      strcat(c_wkname, wk_strg);
-      s = strlen(c_wkname);
-      c_wkname[s] = '\0';
-      strcpy(field7a, c_wkname);
-
-      s = strlen(field7);
-      x99 = 0;
-      p1 = strstr(field7, "-");
-      if (p1) 
-      {
-        x99 = 1;
-      }
-
-      s1 = s + 1;
-      if (x99 == 1) 
-      {
-        strcpy(tfield3b, field7);
-        pi2 = 0;
-        for (I = 0; I < s1; I++) 
-        {
-          ch = tfield3b[I];
-          if (ch != '-') 
-          {
-            field7[pi2] = ch;
-            pi2++;
-          }
-        }
-        field7[pi2] = '\0';
-      }
-
 /*
-      if (x99 == 0) 
-      {
-        strcpy(field7b, field7);
-      } 
-      else 
-      {
-        strcpy(field7b, "-");
-        strcat(field7b, field7);
-      }
-
-      for (I = 0; I < math_lit_ct; I++) 
-      {
-        ret = strcmp(field7b, w_mathlit[I].lit_value);
-        if (ret == 0) 
-        {
-          strcpy(field7c, w_mathlit[I].lit_cname);
-          break;
-        }
-      }
+printf("c2z_pass_2.c while_7 #3 rct = %d field1 = %s\n",rct,field1);
 */
-      return;
-    }
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
 
-    wh_3 = 0;
-    if (lv_ct > 0) 
+    if (char_ct == 0) 
     {
-      for (v = 0; v < lv_ct; v++) 
-      {
-        ret = strcmp(field1, lw_variable[v].lv_name);
-        ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-        if ((ret == 0) && (ret1 == 0)) 
-        {
-          wh_3 = 1;
-          strcpy(field1a, lw_variable[v].lv_cname);
-        }
-      }
-    }
-
-    if (wh_3 == 0) 
+      x3 = 1;
+      w_charlit = malloc(x3 * sizeof(struct charlit));
+    } 
+    else 
     {
-      if (gv_ct > 0) 
-      {
-        for (v = 0; v < gv_ct; v++) 
-        {
-          wh_4 = strcmp(field1, gw_variable[v].gv_name);
-          if (wh_4 == 0) 
-          {
-            wh_3 = 1;
-            strcpy(field1a, gw_variable[v].gv_cname);
-          }
-        }
-      }
+      x3 = char_ct + 1;
+      w_charlit = realloc(w_charlit, x3 * sizeof(struct charlit));
     }
 
-    if (wh_3 == 0) 
-    {
-      printf("\nc2z_pass_2.c while_case_7 pass2-057 field1 Not Found = %s\n", field1);
-      printf("c2z_pass_2.c while_case_7 rct = %d p_string = %s\n", rct,p_string);
-      erct++;
-      convert = 1;
-      return;
-    }
-
-    operand_1 = 0;
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, "==");
-      if (p)
-      {
-        operand_1 = 1;
-      }
-    }
-
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, "!=");
-      if (p)
-      {
-        operand_1 = 2;
-      }
-    }
-
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, "<=");
-      if (p)
-      {
-        operand_1 = 3;
-      }
-    }
-
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, ">=");
-      if (p)
-      {
-        operand_1 = 4;
-      }
-    }
-
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, "=");
-      if (p)
-      {
-        operand_1 = 5;
-      }
-    }
-
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, "<");
-      if (p)
-      {
-        operand_1 = 6;
-      }
-    }
-
-    if (operand_1 == 0) 
-    {
-      p = strstr(field2, ">");
-      if (p)
-      {
-        operand_1 = 7;
-      }
-    }
-
-    if (whfd3_type == 1) 
-    {
-      strcpy(field3a, field3);
-    }
-
-    if (whfd3_type == 2) 
-    {
-      wh_3 = 0;
-      if (lv_ct > 0) 
-      {
-        for (v = 0; v < lv_ct; v++) 
-        {
-          ret = strcmp(field3, lw_variable[v].lv_name);
-          ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-          if ((ret == 0) && (ret1 == 0)) 
-          {
-            wh_3 = 1;
-            strcpy(field3a, lw_variable[v].lv_cname);
-          }
-        }
-      }
-
-      if (wh_3 == 0) 
-      {
-        if (gv_ct > 0) 
-        {
-          for (v = 0; v < gv_ct; v++) 
-          {
-            wh_4 = strcmp(field3, gw_variable[v].gv_name);
-            if (wh_4 == 0)
-            {
-              wh_3 = 1;
-              strcpy(field3a, gw_variable[v].gv_cname);
-            }
-          }
-        }
-      }
-
-      if (wh_3 == 0) 
-      {
-        printf("\nc2z_pass_2.c while_case_7 pass2-058 field3 Not Found = %s\n", field3);
-        printf("c2z_pass_2.c while_case_7 rct = %d p_string = %s\n", rct, p_string);
-        erct++;
-        convert = 1;
-        return;
-      }
-    }
-
-    wh_3 = 0;
-    if (lv_ct > 0) 
-    {
-      for (v = 0; v < lv_ct; v++) 
-      {
-        ret = strcmp(field5, lw_variable[v].lv_name);
-        ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-        if ((ret == 0) && (ret1 == 0)) 
-        {
-          wh_3 = 1;
-          strcpy(field5a, lw_variable[v].lv_cname);
-        }
-      }
-    }
-
-    if (wh_3 == 0) 
-    {
-      if (gv_ct > 0) 
-      {
-        for (v = 0; v < gv_ct; v++) 
-        {
-          wh_4 = strcmp(field5, gw_variable[v].gv_name);
-          if (wh_4 == 0) 
-          {
-            wh_3 = 1;
-            strcpy(field5a, gw_variable[v].gv_cname);
-          }
-        }
-      }
-    }
-
-    if (wh_3 == 0) 
-    {
-      printf("\nc2z_pass_2.c while_case_7 pass2-059 field5 Not Found = %s\n", field5);
-      printf("c2z_pass_2.c while_case_7 rct = %d p_string = %s\n", rct, p_string);
-      erct++;
-      convert = 1;
-      return;
-    }
-
-    operand_3 = 0;
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, "==");
-      if (p)
-      {
-        operand_3 = 1;
-      }
-    }
-
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, "!=");
-      if (p)
-      {
-        operand_3 = 2;
-      }
-    }
-
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, "<=");
-      if (p)
-      {
-        operand_3 = 3;
-      }
-    }
-
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, ">=");
-      if (p)
-      {
-        operand_3 = 4;
-      }
-    }
-
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, "=");
-      if (p)
-      {
-        operand_3 = 5;
-      }
-    }
-
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, "<");
-      if (p)
-      {
-        operand_3 = 6;
-      }
-    }
-
-    if (operand_3 == 0) 
-    {
-      p = strstr(field6, ">");
-      if (p)
-      {
-        operand_3 = 7;
-      }
-    }
-
-    if (whfd7_type == 2) 
-    {
-      wh_3 = 0;
-      if (lv_ct > 0) 
-      {
-        for (v = 0; v < lv_ct; v++) 
-        {
-          ret = strcmp(field7, lw_variable[v].lv_name);
-          ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-          if ((ret == 0) && (ret1 == 0)) 
-          {
-            wh_3 = 1;
-            strcpy(field7a, lw_variable[v].lv_cname);
-          }
-        }
-      }
-
-      if (wh_3 == 0) 
-      {
-        if (gv_ct > 0) 
-        {
-          for (v = 0; v < gv_ct; v++)
-          {
-            wh_4 = strcmp(field7, gw_variable[v].gv_name);
-            if (wh_4 == 0) 
-            {
-              wh_3 = 1;
-              strcpy(field7a, gw_variable[v].gv_cname);
-            }
-          }
-        }
-      }
-
-      if (wh_3 == 0) 
-      {
-        printf("\nc2z_pass_2.c while_case_7 pass2-060 field7 Not Found = %s\n", field7);
-        printf("c2z_pass_2.c while_case_7 rct = %d p_string = %s\n", rct, p_string);
-        erct++;
-        convert = 1;
-        return;
-      }
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-    strcpy(a_string, "L");
-    strcat(a_string, wk_strg);
-    check_length();
-    strcat(a_string, "DS    0H");
-    strcpy(wk_remark, " while    */");
-    write_remark();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #1");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R9,C370L1");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #2");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R8,");
-    strcat(a_string, field1a);
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #3");
-      trace_rec_3();
-    }
-    work_use_ct[2]++;
-
-    strcpy(a_string, "         LARL  R15,ISDIGIT");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #4");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         BAKR  0,R15");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #4");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R9,C370ISDG");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #5");
-      trace_rec_3();
-    }
-
-    strcpy(a_string, "         LARL  R8,C370ZERO");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #6");
-      trace_rec_3();
-    }
-    work_use_ct[32]++;
-
-    strcpy(a_string, "         CP    0(4,R9),0(4,R8)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #7");
-      trace_rec_3();
-    }
-    work_use_ct[31]++;
-
-    if (operand_1 == 1) {
-      strcpy(a_string, "         JNE   L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "E");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #8");
-        trace_rec_3();
-      }
-    }
-
-    if (operand_1 == 2) 
-    {
-      strcpy(a_string, "         JLE   L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "E");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #9");
-        trace_rec_3();
-      }
-    }
-
-    strcpy(a_string, "         LARL  R9,");
-    strcat(a_string, field5a);
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #10");
-      trace_rec_3();
-    }
-
-    if (whfd7_type == 1) 
-    {
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #11");
-        trace_rec_3();
-      }
-    }
-
-    if (whfd7_type == 2) 
-    {
-      strcpy(a_string, "         LARL  R8,");
-      strcat(a_string, field7a);
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #12");
-        trace_rec_3();
-      }
-    }
-
-    strcpy(a_string, "         CP    0(4,R9),0(4,R8)");
-    src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #13");
-      trace_rec_3();
-    }
-
-    if (operand_3 == 3) 
-    {
-      strcpy(a_string, "         JLE   L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "E");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #14");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         JLL   L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "E");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #15");
-        trace_rec_3();
-      }
-    }
-
-    if (operand_3 == 6) 
-    {
-      strcpy(a_string, "         JLE   L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "E");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #16");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         JLH   L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "E");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_pass_2.c c2_while_7 complex == 1 #17");
-        trace_rec_3();
-      }
-    }
-
-    while_convert = 1;
-    convert = 1;
+    w_charlit[char_ct].clit_rct = rct;
+    w_charlit[char_ct].clit_type = 3;
+    strcpy(w_charlit[char_ct].clit_cname, c_wkname);
+    strcpy(w_charlit[char_ct].clit_value, field1);
+    w_charlit[char_ct].clit_lgth = 1;
+    w_charlit[char_ct].clit_uct = 1;
+    char_ct++;
   }
+
+  while_convert = 1;
+  convert = 1;
 }
+
 
 void c2_pass2_while_13() 				/* STRCMP	*/
 {

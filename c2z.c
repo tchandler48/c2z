@@ -733,8 +733,8 @@ int work_use_ct[110];
 *  29		=	C370PN2	30	=	C370PN3	*
 *  31		=	C370DDW2     	32	= 	C370ZERO	*
 *  33		=	C370ONE	34	=	C370TWO	*
-*  35		=	C370UCA	36	=	C370UCZ	*
-*  37		=	C370LCA	38	=	C370LCZ	*
+*  35		=	  	       36	=	 	       *
+*  37		=			38	=			*
 *  39		=	C370MATH     	40	=	C370DEND	*
 *  41		=	C370IENT	42	=	REMAINDER	*
 *  43		=	C370ISOR	44	=	C370MLT1	*
