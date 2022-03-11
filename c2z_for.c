@@ -242,8 +242,8 @@ void c2_for_023()
 
     if (x3 == 0) 
     {
-      printf("\nc2z_for.c c2_for E-001 tfield1 Not Found = %s\n", tfield1);
-      printf("c2z_for.c c2_for rct = %d p_string = %s\n", rct, p_string);
+      printf("\nc2z_for.c c2_for_023 E-001 tfield1 Not Found = %s\n", tfield1);
+      printf("c2z_for.c c2_for_023 rct = %d p_string = %s\n", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -315,8 +315,8 @@ void c2_for_023()
 
       if (x3 == 0) 
       {
-        printf("\nc2z_for.c c2_for E-002 tfield2 Not Found = %s\n", tfield2);
-        printf("c2z_for.c c2_for rct = %d p_string = %s\n", rct, p_string);
+        printf("\nc2z_for.c c2_for_023 E-002 tfield2 Not Found = %s\n", tfield2);
+        printf("c2z_for.c c2_for_023 rct = %d p_string = %s\n", rct, p_string);
         erct++;
         convert = 1;
         return;
@@ -410,8 +410,8 @@ skip_for_1:
 
   if (x3 == 0) 
   {
-    printf("\nc2z_for.c c2_for E-59 tfield3 Not Found = %s\n", tfield3);
-    printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_for.c c2_for_023 E-59 tfield3 Not Found = %s\n", tfield3);
+    printf("c2z_for.c c2_for_023 rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -763,8 +763,8 @@ printf("c2z.for.c case_023 #204 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
 
     if (x3 == 0) 
     {
-      printf("\nc2z_for.c c2_for E-165 tfield7 Not Found = %s\n", tfield7);
-      printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_for.c c2_for_023 E-165 tfield7 Not Found = %s\n", tfield7);
+      printf("c2z_for.c c2_for_023 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -811,8 +811,8 @@ printf("c2z.for.c case_023 #204 tfield5 = %s tfield5a = %s\n",tfield5,tfield5a);
 
   if (x3 == 0) 
   {
-    printf("\nc2z_for.c c2_for E-65 tfield6 Not Found = %s\n", tfield6);
-    printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_for.c c2_for_023 E-65 tfield6 Not Found = %s\n", tfield6);
+    printf("c2z_for.c c2_for_023 rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -896,6 +896,7 @@ skip_for_2:
           x3 = 1;
           strcpy(tfield7a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
 
@@ -910,26 +911,26 @@ skip_for_2:
             x3 = 1;
             strcpy(tfield7a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
 
       if (x3 == 0) 
       {
-        printf("\nc2z_for.c c2_for E-62 tfield7 Not Found = %s\n", tfield7);
-        printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+        printf("\nc2z_for.c c2_for_023 E-62 tfield7 Not Found = %s\n", tfield7);
+        printf("c2z_for.c c2_for_023 rct = %d p_string = %s", rct, p_string);
         erct++;
         convert = 1;
         return;
       }
     }
   }
-
 /*
 printf("\nc2z_for.c #1 rct = %d p_string = %s",rct,p_string);
-printf("c2z_for.c #1 tfield1 = %s tfield1a = %s fd1_type = %d\n",tfield1,tfield1a,fd1_type);
-printf("c2z_for.c #2 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
-printf("c2z_for.c #3 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tfield3a,fd3_type);
+printf("c2z_for.c c2_for_023 #1 tfield1 = %s tfield1a = %s fd1_type = %d\n",tfield1,tfield1a,fd1_type);
+printf("c2z_for.c c2_for_023 #2 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
+printf("c2z_for.c c2_for_023 #3 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tfield3a,fd3_type);
 printf("c2z_for.c #4 tfield4 = %s\n",tfield4);
 printf("c2z_for.c #5 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type);
 printf("c2z_for.c #6 tfield6 = %s tfield6a = %s fd6_type = %d\n",tfield6,tfield6a,fd6_type);
@@ -1966,8 +1967,8 @@ void c2_for_022()
         ret2 = strcmp(lw_variable[I].lv_type, "I");
         if (ret2 != 0) 
         {
-          printf("\nc2z_for.c c2_for E-54 tfield1 Not Numeric %s\n", tfield1);
-          printf("c2z_for.c c2_for rct = %d p_string = %s\n", rct, p_string);
+          printf("\nc2z_for.c c2_for_022 E-54 tfield1 Not Numeric %s\n", tfield1);
+          printf("c2z_for.c c2_for_022 rct = %d p_string = %s\n", rct, p_string);
           erct++;
           convert = 1;
           return;
@@ -1988,8 +1989,8 @@ void c2_for_022()
           ret1 = strcmp(gw_variable[I].gv_type, "I");
           if (ret1 != 0) 
           {
-            printf("\nc2z_for.c c2_for E-55 tfield1 Not Numeric %s\n", tfield1);
-            printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+            printf("\nc2z_for.c c2_for_022 E-55 tfield1 Not Numeric %s\n", tfield1);
+            printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
             erct++;
             convert = 1;
             return;
@@ -2000,8 +2001,8 @@ void c2_for_022()
 
     if (x3 == 0) 
     {
-      printf("\nc2z_for.c c2_for E-003 tfield1 Not Found = %s\n", tfield1);
-      printf("c2z_for.c c2_for rct = %d p_string = %s\n", rct, p_string);
+      printf("\nc2z_for.c c2_for_022 E-003 tfield1 Not Found = %s\n", tfield1);
+      printf("c2z_for.c c2_for_022 rct = %d p_string = %s\n", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -2010,36 +2011,35 @@ void c2_for_022()
 
   if(x99 == 0)
   {
-  pi2 = 0;
-  x2 = 0;
-  fd2_type = 0;
-  pi++;
-  ch = p_string[pi];
-  while (ch != ';') 
-  {
-    if (ch != ' ') 
-    {
-      if (x2 == 0) 
-      {
-        if (isalpha(ch)) 
-        {
-          fd2_type = 1;
-          x2 = 1;
-        }
-        if (isdigit(ch)) 
-        {
-          fd2_type = 2;
-          x2 = 1;
-        }
-      }
-      tfield2[pi2] = ch;
-      pi2++;
-    }
+    pi2 = 0;
+    x2 = 0;
+    fd2_type = 0;
     pi++;
     ch = p_string[pi];
-  }
-
-  tfield2[pi2] = '\0';
+    while (ch != ';') 
+    {
+      if (ch != ' ') 
+      {
+        if (x2 == 0) 
+        {
+          if (isalpha(ch)) 
+          {
+            fd2_type = 1;
+            x2 = 1;
+          }
+          if (isdigit(ch)) 
+          {
+            fd2_type = 2;
+            x2 = 1;
+          }
+        }
+        tfield2[pi2] = ch;
+        pi2++;
+      }
+      pi++;
+      ch = p_string[pi];
+    }
+    tfield2[pi2] = '\0';
   }
 
   inside_for = 1;
@@ -2057,8 +2057,8 @@ void c2_for_022()
         ret2 = strcmp("I", lw_variable[I].lv_type);
         if (ret2 != 0) 
         {
-          printf("\nc2z_for.c c2_for E-60 tfield2 Not Numeric %s\n", tfield2);
-          printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+          printf("\nc2z_for.c c2_for_022 E-60 tfield2 Not Numeric %s\n", tfield2);
+          printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
           erct++;
           convert = 1;
           return;
@@ -2080,8 +2080,8 @@ void c2_for_022()
           ret1 = strcmp(gw_variable[I].gv_type, "I");
           if (ret1 != 0) 
           {
-            printf("\nc2z_for.c c2_for E-61 tfield2 Not Numeric %s\n", tfield2);
-            printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+            printf("\nc2z_for.c c2_for_022 E-61 tfield2 Not Numeric %s\n", tfield2);
+            printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
             erct++;
             convert = 1;
             return;
@@ -2095,8 +2095,8 @@ void c2_for_022()
 
     if (x3 == 0) 
     {
-      printf("\nc2z_for.c c2_for E-62 tfield2 Not Found = %s\n", tfield2);
-      printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_for.c c2_for_022 E-62 tfield2 Not Found = %s\n", tfield2);
+      printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -2155,8 +2155,8 @@ skip_for_1:
       ret2 = strcmp("I", lw_variable[I].lv_type);
       if (ret2 != 0) 
       {
-        printf("\nc2z_for.c c2_for E-57 tfield3 Not Numeric %s\n", tfield3);
-        printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+        printf("\nc2z_for.c c2_for_022 E-57 tfield3 Not Numeric %s\n", tfield3);
+        printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
         erct++;
         convert = 1;
         return;
@@ -2176,8 +2176,8 @@ skip_for_1:
       {
         ret1 = strcmp("I", gw_variable[I].gv_type);
         if (ret1 != 0) {
-          printf("\nc2z_for.c c2_for E-58 tfield3 Not Numeric %s\n", tfield3);
-          printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+          printf("\nc2z_for.c c2_for_022 E-58 tfield3 Not Numeric %s\n", tfield3);
+          printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
           erct++;
           convert = 1;
           return;
@@ -2191,8 +2191,8 @@ skip_for_1:
 
   if (x3 == 0) 
   {
-    printf("\nc2z_for.c c2_for E-59 tfield3 Not Found = %s\n", tfield3);
-    printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_for.c c2_for_022 E-59 tfield3 Not Found = %s\n", tfield3);
+    printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -2324,8 +2324,8 @@ skip_for_1:
         ret2 = strcmp(lw_variable[I].lv_type, "I");
         if (ret2 != 0) 
         {
-          printf("\nc2z_for.c c2_for E-63 tfield5 Not Numeric %s\n", tfield5);
-          printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+          printf("\nc2z_for.c c2_for_022 E-63 tfield5 Not Numeric %s\n", tfield5);
+          printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
           erct++;
           convert = 1;
           return;
@@ -2346,8 +2346,8 @@ skip_for_1:
           ret1 = strcmp("I", gw_variable[I].gv_type);
           if (ret1 != 0) 
           {
-            printf("\nc2z_for.c c2_for E-64 tfield5 Not Numeric %s\n", tfield5);
-            printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+            printf("\nc2z_for.c c2_for_022 E-64 tfield5 Not Numeric %s\n", tfield5);
+            printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
             erct++;
             convert = 1;
             return;
@@ -2442,8 +2442,8 @@ skip_for_1:
       ret2 = strcmp(lw_variable[I].lv_type, "I");
       if (ret2 != 0) 
       {
-        printf("\nc2z_for.c c2_for E-63 tfield6 Not Numeric %s\n", tfield3);
-        printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+        printf("\nc2z_for.c c2_for_022 E-63 tfield6 Not Numeric %s\n", tfield3);
+        printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
         erct++;
         convert = 1;
         return;
@@ -2464,8 +2464,8 @@ skip_for_1:
         ret1 = strcmp("I", gw_variable[I].gv_type);
         if (ret1 != 0) 
         {
-          printf("\nc2z_for.c c2_for E-64 tfield6 Not Numeric %s\n", tfield6);
-          printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+          printf("\nc2z_for.c c2_for_022 E-64 tfield6 Not Numeric %s\n", tfield6);
+          printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
           erct++;
           convert = 1;
           return;
@@ -2479,8 +2479,8 @@ skip_for_1:
 
   if (x3 == 0) 
   {
-    printf("\nc2z_for.c c2_for E-65 tfield6 Not Found = %s\n", tfield6);
-    printf("c2z_for.c c2_for rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_for.c c2_for_022 E-65 tfield6 Not Found = %s\n", tfield6);
+    printf("c2z_for.c c2_for_022 rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -2493,6 +2493,7 @@ skip_for_1:
     {
       strcpy(w_for_table[v].for_rt_field, tfield6a);
       w_for_table[v].for_type = 0;
+      strcpy(w_for_table[v].for_rt_field2," ");
       break;
     }
   }
@@ -5186,9 +5187,6 @@ skip_for_2:
     }
   }
 
-/*
-if(rct == 1800)
-{
 printf("\nc2z_for.c #1 rct = %d p_string = %s",rct,p_string);
 printf("c2z_for.c #1 tfield1 = %s tfield1a = %s fd1_type = %d\n",tfield1,tfield1a,fd1_type);
 printf("c2z_for.c #2 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
@@ -5197,8 +5195,6 @@ printf("c2z_for.c #4 tfield4 = %s\n",tfield4);
 printf("c2z_for.c #5 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type);
 printf("c2z_for.c #6 tfield6 = %s tfield6a = %s fd6_type = %d\n",tfield6,tfield6a,fd6_type);
 printf("c2z_for.c #7 tfield7 = %s fd7_type = %d\n",tfield7,fd7_type);
-}
-*/
 
   if(fd5_type == 1)
   {

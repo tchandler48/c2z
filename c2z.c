@@ -18,6 +18,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "c2z_time.h"
+
 /* ------ declare constants ------ */
 #define IOARRAY 99
 #define PATH 129
