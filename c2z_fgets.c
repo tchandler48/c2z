@@ -36,8 +36,8 @@ void c2_fgets()
   int x4 = 0;
   int x6 = 0;
   int size = 0;
-
   int fd2_type = 0;
+
 
   pi = 0;
   ch = p_string[pi];
@@ -69,6 +69,7 @@ void c2_fgets()
     {
       strcpy(field1a, lw_variable[f1].lv_value);
       f3 = 1;
+      break;
     }
   }
 
@@ -82,6 +83,7 @@ void c2_fgets()
         strcpy(field1a, gw_variable[f1].gv_cname);
         x6 = gw_variable[f1].gv_lgth;
         f3 = 1;
+        break;
       }
     }
   }
@@ -141,6 +143,7 @@ void c2_fgets()
       {
         strcpy(field2a, lw_variable[f1].lv_value);
         f3 = 1;
+        break;
       }
     }
 
@@ -153,6 +156,7 @@ void c2_fgets()
         {
           strcpy(field2a, gw_variable[f1].gv_cname);
           f3 = 1;
+          break;
         }
       }
     }
@@ -176,6 +180,7 @@ void c2_fgets()
       gw_variable[f1].gv_lgth = x6 - 1;
       gw_variable[f1].gv_current_lgth = x6 - 1;
       f3 = 1;
+      break;
     }
   }
 
@@ -203,6 +208,7 @@ void c2_fgets()
     if (f2 == 0) 
     {
       strcpy(field3a, w_file[f1].f_cname);
+      break;
     }
   }
 
@@ -281,8 +287,9 @@ void c2_fgets()
       x4 = strlen(c_wkname);
       c_wkname[x4] = '\0';
 
-      snprintf(wk_strg, sizeof(wk_strg), "%d", x6);
-   
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x6); 
+
+      size = 0;
       if (gv_ct == 0) 
       {
         size = 1;
@@ -293,7 +300,6 @@ void c2_fgets()
         size = gv_ct + 1;
         gw_variable = realloc(gw_variable, size * sizeof(struct variables));
       }
-
       gw_variable[gv_ct].gv_rct = rct;
       strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
       strcpy(gw_variable[gv_ct].gv_name, c_wkname);
@@ -314,7 +320,6 @@ void c2_fgets()
       strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
-
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, c_wkname);

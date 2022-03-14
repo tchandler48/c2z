@@ -9,11 +9,6 @@
 * ************************************************** */
 void c2_case(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_case.c c2_case START\n");
-  }
-
   if_case = 0;
 
   if (traceflg == 1) 
@@ -338,11 +333,6 @@ void c2_case(void)
 
 void c2_pass2_case() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_case.c c2_pass2_case rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_case.c c2_pass2_case #1");

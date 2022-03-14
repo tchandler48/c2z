@@ -9,17 +9,11 @@
 * ************************************************** */
 void c2_break(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_break.c c2_break rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_break.c c2_break START");
     trace_rec_1();
   }
-
 
   strcpy(a_string, "         JLU   ");
   strcat(a_string, sw_tag);

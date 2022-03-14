@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_atol.c :                                *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 /* *************************************************** 
@@ -9,11 +9,6 @@
 * ************************************************** */
 void c2_atol(void)
 {
-   if(debug_lv >= 3)
-   {
-      printf("c2z_atol.c c2_atol rct = %d START\n",rct);
-   }
-
    if(traceflg == 1)		
    {
       strcpy(trace_1, "c2z.atoi.c c2_atol START");
@@ -27,11 +22,6 @@ void c2_atol(void)
 
 void c2_atol_punch(void)
 {
-   if(debug_lv >= 3)
-   {
-      printf("c2z_atol.c c2_atol_punch rct = %d START\n",rct);
-   }
-
    if(traceflg == 1)		
    {
       strcpy(trace_1, "c2z.atoi.c c2_atol_punch START");

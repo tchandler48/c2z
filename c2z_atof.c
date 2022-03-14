@@ -10,11 +10,6 @@
 * ************************************************** */
 void c2_atof(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_atof.c c2_atof rct = %d START\n", rct);
-  }
-
    int I = 0;
    int s = 0;
    int x30 = 0;

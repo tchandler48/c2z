@@ -10,11 +10,6 @@
 * ************************************************** */
 void c2_char() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char rct = %d START", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c #1 ");
@@ -418,11 +413,6 @@ void c2_char()
 * ***************************** */
 void c2_char_1() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_1 rct = %d START", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c c2_char_1 START");
@@ -1399,11 +1389,6 @@ void c2_char_1()
 * ***************************** */
 void c2_char_2() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_2 START");
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c c2_char_2 START");
@@ -1545,11 +1530,6 @@ void c2_char_2()
 * ***************************** */
 void c2_char_3() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_3 rct = %d START", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c c2_char_3");
@@ -1762,11 +1742,6 @@ void c2_char_3()
 * ***************************** */
 void c2_char_4() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_4 START");
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c scan c2_char_4 START");
@@ -1955,11 +1930,6 @@ void c2_char_4()
 
 void c2_char_5() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_35rct = %d START", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "scan c2_char_5 ");
@@ -1972,11 +1942,6 @@ void c2_char_5()
 
 void c2_char_6() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_6 rct = %d START", rct);
-  }
-
   if (traceflg == 1)   
   {
     strcpy(trace_1, "scan c2_char_6 ");
@@ -1989,11 +1954,6 @@ void c2_char_6()
 
 void c2_char_9() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_9 START");
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c c2_char_9 START");
@@ -2572,11 +2532,6 @@ void c2_char_9()
 * ************************************************** */
 void c2_char_punch() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_punch rct = %d START", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c punch START");
@@ -3029,11 +2984,6 @@ void c2_char_punch()
 * ***************************** */
 void c2_char_41() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_char.c c2_char_41 rct = %d START", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_char.c c2_char_41");

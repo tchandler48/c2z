@@ -1973,6 +1973,7 @@ void c2_for_022()
           convert = 1;
           return;
         }
+        break;
       }
     }
 
@@ -1995,6 +1996,7 @@ void c2_for_022()
             convert = 1;
             return;
           }
+          break;
         }
       }
     }
@@ -2066,6 +2068,7 @@ void c2_for_022()
         x3 = 1;
         strcpy(tfield2a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -2089,6 +2092,7 @@ void c2_for_022()
           x3 = 1;
           strcpy(tfield2a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -2164,6 +2168,7 @@ skip_for_1:
       x3 = 1;
       strcpy(tfield3a, lw_variable[I].lv_cname);
       lw_variable[I].lv_use_ct++;
+      break;
     }
   }
 
@@ -2185,6 +2190,7 @@ skip_for_1:
         x3 = 1;
         strcpy(tfield3a, gw_variable[I].gv_cname);
         gw_variable[I].gv_use_ct++;
+        break;
       }
     }
   }
@@ -2375,6 +2381,7 @@ skip_for_1:
     tfield5b[0] = '\0';
   }
 
+
 /*
   pi3 = 0;
   p = strstr(tfield5, "+");
@@ -2511,6 +2518,13 @@ printf("c2z_for.c for_022 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tf
 printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
 */
 
+/*
+  if(fd5_type == 2)
+  {
+printf("c2z_for.c for_022 INSIDE fd5_type = 2\n");
+  }
+*/
+
   if(fd5_type == 1)
   {
     c_name++;
@@ -2529,6 +2543,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
       if ((ret == 0) && (ret1 == 0)) 
       {
         x3 = 1;
+        break;
       }
     }
 
@@ -2540,6 +2555,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         if (ret == 0) 
         {
           x3 = 1;
+          break;
         }
       }
     }
@@ -2548,6 +2564,8 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
     {
       if (global_st == 0) 
       {
+        size = 0;
+
         if (gv_ct == 0) 
         {
           size = 1;
@@ -2586,6 +2604,8 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
 
       if (global_st == 1) 
       {
+        size = 0;
+
         if (lv_ct == 0) 
         {
           size = 1;
@@ -2593,7 +2613,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         } 
         else 
         {
-          size = lv_ct + 1;
+          size = gv_ct + 1;
           lw_variable = realloc(lw_variable, size * sizeof(struct var));
         }
 
@@ -2613,6 +2633,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         lv_ct++;
       }
     }
+  }
 
     v = 0;
     for (v = 0; v < for_ct; v++) 
@@ -2625,11 +2646,13 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
       }
     }
 
+
+/*
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield5b);
     strcpy(wk_remark, " ");
     strcat(wk_remark, tfield5b);
-    strcat(wk_remark, " */");
+    strcat(wk_remark, " ");
     write_remark();
     if (puncde == 1) 
     {
@@ -2641,7 +2664,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
     strcat(a_string, tfield5a);
     strcpy(wk_remark, " ");
     strcat(wk_remark, tfield5);
-    strcat(wk_remark, " */");
+    strcat(wk_remark, " ");
     write_remark();
     if (puncde == 1) 
     {
@@ -2656,6 +2679,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
       strcpy(trace_1, "c2z_for.c #2202");
       trace_rec_3();
     }
+*/
 
     v = 0;
     for (v = 0; v < for_ct; v++) 
@@ -2666,7 +2690,9 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         w_for_table[v].for_type = 0;
       }
     }
-  }
+/*  }  */
+
+
 
   strcpy(a_string, "         LARL  R9,C370LPCT");
   src_line();
@@ -2725,9 +2751,11 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
 
     if (fd2_type == 2) 
     {
-      ret = strcmp("0", tfield2);
+
+/*      ret = strcmp("0", tfield2); */
       if (ret == 0) 
       {
+/*
         strcpy(a_string, "         LARL  R8,C370ZERO");
         src_line();
         if (puncde == 1) 
@@ -2737,6 +2765,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         }
         x = 1;
         work_use_ct[32]++;
+*/
       } 
       else
       {
@@ -3222,7 +3251,6 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         trace_rec_3();
       }
 
-
 /*      if(lp_ct == 0)
       {
 */
@@ -3236,6 +3264,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
         strcpy(tfield20, "C370NWK4");
       }
 */
+
       lp_ct = lp_ct + 1;
 
       src_line();
@@ -3267,7 +3296,7 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
 
     if(fd3_type == 1)
     {
-      strcpy(a_string, "         LARL  R9,");
+      strcpy(a_string, "*         LARL  R9,");
       strcat(a_string, tfield3a);
       strcpy(wk_remark, " ");
       strcat(wk_remark, tfield3);
@@ -3350,6 +3379,8 @@ printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
       trace_rec_3();
     }
   }
+
+  return;
 }
 
 

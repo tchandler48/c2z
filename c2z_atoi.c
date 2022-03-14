@@ -10,11 +10,6 @@
 * ************************************************** */
 void c2_atoi(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_atoi.c c2_atoi rct = %d START\n", rct);
-  }
-
    int I = 0;
    int s = 0;
    int x30 = 0;

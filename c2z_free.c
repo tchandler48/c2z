@@ -568,6 +568,7 @@ void c2_free()
         trace_rec_3();
       }
 
+      xr = 250;
       strcpy(a_string, "         LAEY  R5,");
       snprintf(wk_strg, sizeof(wk_strg), "%d", xr);
       strcat(a_string, wk_strg);

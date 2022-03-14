@@ -919,6 +919,20 @@ void c2_debug()
   fprintf(c_src, "\n");
 
 
+
+  fprintf(c_src, "\n\n---------- TM Value -----------\n");
+
+  strcpy(a_string, "\nRct  = ");
+  strcat(a_string, "\n");
+  fputs(a_string,c_src);
+ 
+  strcpy(a_string, "Month = ");
+ /* strcat(a_string, tm[0].tm_mon); */
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
+ 
+
+
   fclose(c_src);
 }
 
