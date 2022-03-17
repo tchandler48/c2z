@@ -10,6 +10,12 @@
 * ************************************************** */
 void c2_scanf() 
 {
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z_scanf.c c2_scanf START");
+    trace_rec_1();
+  }
+
   char *p;
   char ch;
   char tfield1[VAR_LGTH];

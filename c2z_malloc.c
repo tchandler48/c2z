@@ -2,7 +2,7 @@
 *  c2z : c2z_malloc.c :                              *
 *                                                    *
 *  next error - malloc-003                           *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 /* ***************************************************
@@ -68,6 +68,7 @@ void c2_scan_malloc()
           x3 = 1;
           strcpy(tfield1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -104,6 +105,7 @@ void c2_scan_malloc()
           x3 = 1;
           strcpy(tfield2a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -164,6 +166,7 @@ void c2_scan_malloc()
           x3 = 1;
           strcpy(tfield1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -190,6 +193,7 @@ void c2_scan_malloc()
           strcpy(tfield2a, lw_variable[I].lv_cname);
           strcpy(tfield3, lw_variable[I].lv_value);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
     }
@@ -207,6 +211,7 @@ void c2_scan_malloc()
             strcpy(tfield2a, gw_variable[I].gv_cname);
             strcpy(tfield3, gw_variable[I].gv_value);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
@@ -230,6 +235,7 @@ void c2_scan_malloc()
         {
           gw_variable[I].gv_lgth = atoi(tfield3);
           gw_variable[I].gv_column = atoi(tfield3);
+          break;
         }
       }
     }

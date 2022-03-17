@@ -926,6 +926,7 @@ skip_for_2:
       }
     }
   }
+
 /*
 printf("\nc2z_for.c #1 rct = %d p_string = %s",rct,p_string);
 printf("c2z_for.c c2_for_023 #1 tfield1 = %s tfield1a = %s fd1_type = %d\n",tfield1,tfield1a,fd1_type);
@@ -3705,6 +3706,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
         x3 = 1;
         strcpy(field1a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -3718,6 +3720,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
            x3 = 1;
            strcpy(field1a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           break;
         }
       }
     }
@@ -3808,6 +3811,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
         x3 = 1;
         strcpy(field3a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -3821,6 +3825,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
            x3 = 1;
            strcpy(field3a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           break;
         }
       }
     }
@@ -3909,6 +3914,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
         x3 = 1;
         strcpy(field5a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -3922,6 +3928,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
            x3 = 1;
            strcpy(field5a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           break;
         }
       }
     }
@@ -4018,6 +4025,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
         x3 = 1;
         strcpy(field7a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -4031,6 +4039,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
            x3 = 1;
            strcpy(field7a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           break;
         }
       }
     }
@@ -4057,6 +4066,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
         x3 = 1;
         strcpy(field8a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -4070,6 +4080,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
            x3 = 1;
            strcpy(field8a, gw_variable[I].gv_cname);
            gw_variable[I].gv_use_ct++;
+           break;
         }
       }
     }
@@ -4110,6 +4121,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     {
       strcpy(w_for_table[v].for_rt_field, field8a);
       w_for_table[v].for_type = 0;
+      break;
     }
   }
 
@@ -4211,14 +4223,6 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
   {
     printf("c2z_for.c case_222 y51 NOT CODED\n");
     printf("c2z_for.c case_222 rct = %d p_string = %s\n",rct,p_string);
-/*
-3  53     c2z_for.c #21                            LAEY  R5,5                            5                    0001975
-3  53     c2z_for.c #22                            LARL  R8,C370U                                                 0001976
-3  53     c2z_for.c #23                            CVD   R5,0(R8)                                                 0001977
-3  53     c2z_for.c #24                            LARL  R8,C370NCVT                                              0001978
-3  53     c2z_for.c #25                            LARL  R7,C370U                                                 0001979
-3  53     c2z_for.c #26                            ZAP   0(6,R8),0(8,R7)                                          0001980
-*/
   }
 
   if(y51 == 2)		/* character compare condition */ /* for(i = 0; str[i] != '\0'; i++) */
@@ -4227,7 +4231,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22211");
       trace_rec_3();
     }
     work_use_ct[48]++;
@@ -4240,7 +4244,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxxx");
+      strcpy(trace_1, "c2z_for.c #22212");
       trace_rec_3();
     }
 
@@ -4248,15 +4252,15 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22213");
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LARL  R9,C370U");
+    strcpy(a_string, "         LARL  R8,C370U");
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22214");
       trace_rec_3();
     }
     work_use_ct[48]++;
@@ -4265,7 +4269,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22215");
       trace_rec_3();
     }
 
@@ -4277,7 +4281,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     write_remark();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxxx");
+      strcpy(trace_1, "c2z_for.c #22216");
       trace_rec_3();
     }
 
@@ -4285,7 +4289,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22217");
       trace_rec_3();
     }
 
@@ -4293,7 +4297,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22218");
       trace_rec_3();
     }
     work_use_ct[2]++;
@@ -4302,7 +4306,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22219");
       trace_rec_3();
     }
   }
@@ -4325,7 +4329,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #xxxx");
+        strcpy(trace_1, "c2z_for.c #22220");
         trace_rec_3();
       }
       work_use_ct[2]++;
@@ -4334,7 +4338,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #xxxx");
+        strcpy(trace_1, "c2z_for.c #22221");
         trace_rec_3();
       }
       work_use_ct[74]++;
@@ -4343,7 +4347,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_for.c #xxxx");
+        strcpy(trace_1, "c2z_for.c #22222");
         trace_rec_3();
       }
     }
@@ -4364,7 +4368,7 @@ printf("c2z_for.c case_222 field9 = %s\n",field9);
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_for.c #xxxx");
+      strcpy(trace_1, "c2z_for.c #22223");
       trace_rec_3();
     }
   }
@@ -5218,6 +5222,7 @@ skip_for_2:
     }
   }
 
+/*
 printf("\nc2z_for.c #1 rct = %d p_string = %s",rct,p_string);
 printf("c2z_for.c #1 tfield1 = %s tfield1a = %s fd1_type = %d\n",tfield1,tfield1a,fd1_type);
 printf("c2z_for.c #2 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
@@ -5226,6 +5231,7 @@ printf("c2z_for.c #4 tfield4 = %s\n",tfield4);
 printf("c2z_for.c #5 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type);
 printf("c2z_for.c #6 tfield6 = %s tfield6a = %s fd6_type = %d\n",tfield6,tfield6a,fd6_type);
 printf("c2z_for.c #7 tfield7 = %s fd7_type = %d\n",tfield7,fd7_type);
+*/
 
   if(fd5_type == 1)
   {

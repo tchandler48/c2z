@@ -448,10 +448,11 @@ void c2_pass2_case()
     }
 
     w_charlit[char_ct].clit_rct = rct;
-    w_charlit[char_ct].clit_type = 3;
     strcpy(w_charlit[char_ct].clit_cname, tfield1a);
     strcpy(w_charlit[char_ct].clit_value, tfield3);
     w_charlit[char_ct].clit_lgth = 1;
+    w_charlit[char_ct].clit_type = 3;
+    w_charlit[char_ct].clit_uct = 0;
     char_ct++;
 
     convert = 1;
@@ -493,10 +494,11 @@ void c2_pass2_case()
     }
 
     w_charlit[char_ct].clit_rct = rct;
-    w_charlit[char_ct].clit_type = 3;
     strcpy(w_charlit[char_ct].clit_cname, tfield1a);
     strcpy(w_charlit[char_ct].clit_value, tfield3);
     w_charlit[char_ct].clit_lgth = 1;
+    w_charlit[char_ct].clit_type = 3;
+    w_charlit[char_ct].clit_uct = 0;
     char_ct++;
   }
 

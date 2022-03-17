@@ -2,16 +2,11 @@
 *  c2z : c2z_u_short.c :                             *
 *                                                    *
 *  next error - u_short-001                          *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 void c2_u_short()
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_u_short.c c2_u_short rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z.U-short.c c2_u_short START");

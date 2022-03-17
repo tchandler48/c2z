@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_math_func.c :                           *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 /* ***************************************************
@@ -9,11 +9,6 @@
 * ************************************************** */
 void c2_cos_pass2(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_cos_pass2 rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z.math_func.c c2_cos_pass2 START");
@@ -40,11 +35,6 @@ void c2_cos_pass2(void)
 * ************************************************** */
 void c2_cos_punch(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_cos_punch rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_cos_punch START");
@@ -71,11 +61,6 @@ void c2_cos_punch(void)
 * ************************************************** */
 void c2_rand_pass2(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_rand_pass2 rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_rand_pass2 START");
@@ -102,11 +87,6 @@ void c2_rand_pass2(void)
 * ************************************************** */
 void c2_pow_pass2(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_pow_pass2 rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_pow_pass2 START");
@@ -133,11 +113,6 @@ void c2_pow_pass2(void)
 * ************************************************** */
 void c2_pow_punch(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_pow_punch rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_pow_punch START");
@@ -164,11 +139,6 @@ void c2_pow_punch(void)
 * ************************************************** */
 void c2_rand_punch(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_rand_punch rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_rand_punch START");
@@ -195,11 +165,6 @@ void c2_rand_punch(void)
 * ************************************************** */
 void c2_sin_pass2(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_sin_pass2 rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_sin_pass2 START");
@@ -226,11 +191,6 @@ void c2_sin_pass2(void)
 * ************************************************** */
 void c2_sin_punch(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_sin_punch rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_sin_punch START");
@@ -257,11 +217,6 @@ void c2_sin_punch(void)
 * ************************************************** */
 void c2_sqrt_pass2(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_sqrt_pass2 rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_sqrt_pass2 START");
@@ -288,11 +243,6 @@ void c2_sqrt_pass2(void)
 * ************************************************** */
 void c2_sqrt_punch(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_punch.c c2_sqrt_punch rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_sqrt_punch START");
@@ -319,11 +269,6 @@ void c2_sqrt_punch(void)
 * ************************************************** */
 void c2_tan_pass2(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_tan_pass2 rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_tan_pass2 START");
@@ -350,11 +295,6 @@ void c2_tan_pass2(void)
 * ************************************************** */
 void c2_tan_punch(void) 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_math_func.c c2_tan_punch rct = %d START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_math_func.c c2_tan_punch START");

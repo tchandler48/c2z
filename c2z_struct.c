@@ -12,11 +12,6 @@ void c2z_struct(void)
     trace_rec_1();
   }
 
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct rct = %d START\n", rct);
-  }
-
   char *p, *p2, *p3, *p4, *p6, *p7;
   char ch;
   char tfield1[VAR_LGTH];
@@ -45,11 +40,6 @@ void c2z_struct(void)
   int I = 0;
   int ret = 0;
   int fd5_type = 0;
-
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct rct = %d subroutine #1\n", rct);
-  }
 
   pi = 0;
   ch = p_string[pi];
@@ -177,11 +167,6 @@ void c2z_struct(void)
 * ******************************************************** */
 struct_1:
 
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct rct = %d subroutine #2\n", rct);
-  }
-
   x2 = 0;
   p2 = strstr(p_string, "/*");
 
@@ -213,11 +198,6 @@ struct_1:
   p = strstr(tfield5, "[");
   if (p) 
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #3\n", rct);
-    }
-
     pi2 = 0;
     pi = 0;
     ch = tfield5[pi];
@@ -263,11 +243,6 @@ struct_1:
 
       if (z3 == 0) 
       {
-        if (debug_lv >= 3) 
-        {
-          printf("c2z_struct.c c2_struct rct = %d subroutine #4\n", rct);
-        }
-
         if (gv_ct == 0) 
         {
           size = 1;
@@ -497,18 +472,8 @@ struct_1:
 *************************************************** */
 struct_2:
 
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct rct = %d subroutine #5\n", rct);
-  }
-
   fgets(p_string, 255, pgm);
   rct++;
-
-  if (debug_lv >= 1) 
-  {
-    printf("\nc2z.c Pass 2 struct rct = %d L1 p_string = %s", rct, p_string);
-  }
 
   p7 = strstr(p_string, "};");
   if (p7) 
@@ -615,11 +580,6 @@ struct_2:
 
   if (x80 == 2) 			/* int	*/
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #6\n", rct);
-    }
-
     p2 = strstr(p_string, "[");
     p3 = strstr(p_string, "]");
 
@@ -645,11 +605,6 @@ struct_2:
 
     if ((!p2) && (!p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #7\n", rct);
-      }
-
       pi2 = 0;
       while (ch != ';') 
       {
@@ -698,11 +653,6 @@ struct_2:
 
     if ((p2) && (p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #17\n", rct);
-      }
-
       pi2 = 0;
       while (ch != '[') 
       {
@@ -768,11 +718,6 @@ struct_2:
 
   if (x80 == 1) 				/* char	*/
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #8\n", rct);
-    }
-
     pi = 0;
     ch = p_string[pi];
     while (ch == ' ') 
@@ -851,11 +796,6 @@ struct_2:
 
     if ((p2) && (p3) && (!p4)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #9\n", rct);
-      }
-
       pi2 = 0;
       pi = 0;
       ch = p_string[pi];
@@ -953,11 +893,6 @@ struct_2:
 
       if (fd5_type == 2) 
       {
-        if (debug_lv >= 3) 
-        {
-          printf("c2z_struct.c c2_struct rct = %d subroutine #10\n", rct);
-        }
-
         x3 = 0;
         for (v = 0; v < lv_ct; v++) 
         {
@@ -993,11 +928,6 @@ struct_2:
 
     if (p4) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #10\n", rct);
-      }
-
       pi = 0;
       ch = p_string[pi];
 
@@ -1263,11 +1193,6 @@ struct_2:
 
   if (x80 == 3) 				/*	long	*/
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #11\n", rct);
-    }
-
     p2 = strstr(p_string, "[");
     p3 = strstr(p_string, "]");
 
@@ -1293,11 +1218,6 @@ struct_2:
 
     if ((!p2) && (!p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #12\n", rct);
-      }
-
       pi2 = 0;
       while (ch != ';') 
       {
@@ -1358,11 +1278,6 @@ struct_2:
 
   if (x80 == 4) 				/* float	*/
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #13\n", rct);
-    }
-
     p2 = strstr(p_string, "[");
     p3 = strstr(p_string, "]");
 
@@ -1388,11 +1303,6 @@ struct_2:
 
     if ((!p2) && (!p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #14\n", rct);
-      }
-
       pi2 = 0;
       while (ch != ';') 
       {
@@ -1453,11 +1363,6 @@ struct_2:
 
   if (x80 == 5) 				/* double	*/
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #15\n", rct);
-    }
-
     p2 = strstr(p_string, "[");
     p3 = strstr(p_string, "]");
 
@@ -1483,11 +1388,6 @@ struct_2:
 
     if ((!p2) && (!p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #16\n", rct);
-      }
-
       pi2 = 0;
       while (ch != ';') 
       {
@@ -1548,11 +1448,6 @@ struct_2:
 
   if (x80 == 6) 			/* FILE */
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #17\n", rct);
-    }
-
     p2 = strstr(p_string, "[");
     p3 = strstr(p_string, "]");
 
@@ -1592,11 +1487,6 @@ struct_2:
 
     if ((!p2) && (!p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #7\n", rct);
-      }
-
       pi2 = 0;
       while (ch != ';') 
       {
@@ -1648,11 +1538,6 @@ struct_2:
 
     if ((p2) && (p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #17\n", rct);
-      }
-
       pi2 = 0;
       while (ch != '[') 
       {
@@ -1719,11 +1604,6 @@ struct_2:
 
   if (x80 == 8)		/* sa_family_t	*/ 
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #18\n", rct);
-    }
-
     printf("\nc2z_struct.c c2_struc (sa_familty_t) struct-005 NEED TO CODE  \n");
     printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
@@ -1734,11 +1614,6 @@ struct_2:
 
   if (x80 == 9) 			/* uint8	*/
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #9\n", rct);
-    }
-
     p2 = strstr(p_string, "[");
     p3 = strstr(p_string, "]");
 
@@ -1764,11 +1639,6 @@ struct_2:
 
     if ((!p2) && (!p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #7\n", rct);
-      }
-
       pi2 = 0;
       while (ch != ';') 
       {
@@ -1816,11 +1686,6 @@ struct_2:
 
     if ((p2) && (p3)) 
     {
-      if (debug_lv >= 3) 
-      {
-        printf("c2z_struct.c c2_struct rct = %d subroutine #17\n", rct);
-      }
-
       pi2 = 0;
       while (ch != '[') 
       {
@@ -1884,11 +1749,6 @@ struct_2:
 
   if (x80 == 10)		/* in_port	*/ 
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #19\n", rct);
-    }
-
     printf("\nc2z_struct.c c2_struc (in_port) struct-006 NEED TO CODE \n");
     printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
@@ -1898,11 +1758,6 @@ struct_2:
 
   if (x80 == 11)		/* struct	*/ 
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #19\n", rct);
-    }
-
     printf("\nc2z_struct.c c2_struc (struct) struct-007NEED TO CODE \n");
     printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
@@ -1912,11 +1767,6 @@ struct_2:
 
   if (x80 == 12)		/* unsigned 	*/ 
   {
-    if (debug_lv >= 3) 
-    {
-      printf("c2z_struct.c c2_struct rct = %d subroutine #19\n", rct);
-    }
-
     printf("\nc2z_struct.c c2_struc (unsigned) struct-008 NEED TO CODE \n");
     printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
@@ -1924,16 +1774,9 @@ struct_2:
     return;
   }
 
-
-
   goto struct_2;
 
 struct_3:
-
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct rct = %d subroutine #18\n", rct);
-  }
 
   for (I = 0; I < m_struc_ct; I++) 
   {
@@ -1955,11 +1798,6 @@ void c2_struct_3()
   {
     strcpy(trace_1, "c2z_struct.c c2_struct_3 START");
     trace_rec_1();
-  }
-
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct_3 rct = %d START\n", rct);
   }
 
   char *p7;
@@ -1991,11 +1829,6 @@ void c2_struct_4()
   {
     strcpy(trace_1, "c2z_struct.c c2_struct_4 START");
     trace_rec_1();
-  }
-
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_struct.c c2_struct_4 rct = %d START\n", rct);
   }
 
   int pi = 0;

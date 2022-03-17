@@ -37,6 +37,7 @@ void c2_func_end()
       if (ret == 0) 
       {
         strcpy(tfield5a, w_function[I].fn_loop);
+        break;
       }
     }
   }
@@ -52,6 +53,7 @@ void c2_func_end()
       strcpy(ar_field9, gw_variable[v1].gv_sv_reg);
       strcpy(ar_field10, gw_variable[v1].gv_wk_reg);
       strcpy(ar_field11, gw_variable[v1].gv_wk_strg);
+      break;
     }
   }
 
@@ -285,7 +287,6 @@ void c2_func_call()
   int if_convert = 0;
   int wk_pass_1 = 0;
   int size = 0;
-
   int fd7_type = 0;
   int fd8_type = 0;
   int ret = 0;
@@ -371,10 +372,10 @@ void c2_func_call()
       {
         strcpy(field1a, w_function[I].fn_cname);
         x3 = 1;
+        break;
       }
     }
   }
-
   if (comma_ct == 1) 
   {
     pi2 = 0;
@@ -417,6 +418,7 @@ void c2_func_call()
           strcpy(field1a, w_function[I].fn_cname);
           strcpy(field7, w_function[I].fn_fd1);
           strcpy(field8, w_function[I].fn_fd2);
+          break;
         }
       }
     }
@@ -431,6 +433,7 @@ void c2_func_call()
         x3 = 1;
         strcpy(field2a, lw_variable[v].lv_cname);
         lw_variable[v].lv_use_ct++;
+        break;
       }
     }
 
@@ -444,6 +447,7 @@ void c2_func_call()
           x3 = 1;
           strcpy(field2a, gw_variable[v].gv_cname);
           gw_variable[v].gv_use_ct++;
+          break;
         }
       }
     }
@@ -467,6 +471,7 @@ void c2_func_call()
         x3 = 1;
         strcpy(field3a, lw_variable[v].lv_cname);
         lw_variable[v].lv_use_ct++;
+        break;
       }
     }
 
@@ -480,6 +485,7 @@ void c2_func_call()
           x3 = 1;
           strcpy(field3a, gw_variable[v].gv_cname);
           gw_variable[v].gv_use_ct++;
+          break;
         }
       }
     }
@@ -493,40 +499,22 @@ void c2_func_call()
       return;
     }
 
-    x3 = 0;
-    v = 0;
-    for (v = 0; v < lv_ct; v++) 
+    s = strlen(field7);
+    if(s != 0)
     {
-      ret = strcmp(field7, lw_variable[v].lv_name);
-      ret1 = strcmp(wk_sv_func, lw_variable[v].lv_func);
-      if ((ret == 0) && (ret1 == 0)) 
+      x3 = 0;
+      v = 0;
+      fd7_type = 0;
+      for (v = 0; v < lv_ct; v++) 
       {
-        x3 = 1;
-        strcpy(field7a, lw_variable[v].lv_cname);
-        lw_variable[v].lv_use_ct++;
-        ret2 = strcmp("C", lw_variable[v].lv_type);
-        if (ret2 == 0) 
-        {
-          fd7_type = 1;
-        } 
-        else 
-        {
-          fd7_type = 2;
-        }
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      for (v = 0; v < gv_ct; v++) 
-      {
-        ret = strcmp(field7, gw_variable[v].gv_name);
-        if (ret == 0) 
+       ret = strcmp(field7, lw_variable[v].lv_name);
+        ret1 = strcmp(wk_sv_func, lw_variable[v].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
         {
           x3 = 1;
-          strcpy(field7a, gw_variable[v].gv_cname);
-          gw_variable[v].gv_use_ct++;
-          ret2 = strcmp("C", gw_variable[v].gv_type);
+          strcpy(field7a, lw_variable[v].lv_cname);
+          lw_variable[v].lv_use_ct++;
+          ret2 = strcmp("C", lw_variable[v].lv_type);
           if (ret2 == 0) 
           {
             fd7_type = 1;
@@ -535,43 +523,59 @@ void c2_func_call()
           {
             fd7_type = 2;
           }
+          break;
         }
+      }
+
+      if (x3 == 0) 
+      {
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(field7, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(field7a, gw_variable[v].gv_cname);
+            gw_variable[v].gv_use_ct++;
+            ret2 = strcmp("C", gw_variable[v].gv_type);
+            if (ret2 == 0) 
+            {
+              fd7_type = 1;
+            } 
+            else 
+            {
+              fd7_type = 2;
+            }
+          }
+          break;
+        }
+      }
+
+      if (x3 == 0) 
+      {
+        printf("\nc2z_function.c c2_func_call function-003 field7 Not Found %s\n", field7);
+        printf("c2z_function.c c2_func_call rct = %d p_string = %s", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
       }
     }
 
-    x3 = 0;
-    for (v = 0; v < lv_ct; v++) 
+    s = strlen(field8);
+    if(s != 0)
     {
-      ret = strcmp(field8, lw_variable[v].lv_name);
-      ret1 = strcmp(wk_sv_func, lw_variable[v].lv_func);
-      if ((ret == 0) && (ret1 == 0)) 
+      fd8_type = 0;
+      x3 = 0;
+      for (v = 0; v < lv_ct; v++) 
       {
-        x3 = 1;
-        strcpy(field8a, lw_variable[v].lv_cname);
-        lw_variable[v].lv_use_ct++;
-        ret2 = strcmp("C", lw_variable[v].lv_type);
-        if (ret2 == 0) 
-        {
-          fd8_type = 1;
-        } 
-        else 
-        {
-          fd8_type = 2;
-        }
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      for (v = 0; v < gv_ct; v++) 
-      {
-        ret = strcmp(field8, gw_variable[v].gv_name);
-        if (ret == 0) 
+        ret = strcmp(field8, lw_variable[v].lv_name);
+        ret1 = strcmp(wk_sv_func, lw_variable[v].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
         {
           x3 = 1;
-          strcpy(field8a, gw_variable[v].gv_cname);
-          gw_variable[v].gv_use_ct++;
-          ret2 = strcmp("C", gw_variable[v].gv_type);
+          strcpy(field8a, lw_variable[v].lv_cname);
+          lw_variable[v].lv_use_ct++;
+          ret2 = strcmp("C", lw_variable[v].lv_type);
           if (ret2 == 0) 
           {
             fd8_type = 1;
@@ -580,17 +584,42 @@ void c2_func_call()
           {
             fd8_type = 2;
           }
+          break;
         }
       }
-    }
 
-    if (x3 == 0) 
-    {
-      printf("\nc2z_function.c c2_func_call function-003 field8 Not Found %s\n", field8);
-      printf("c2z_function.c c2_func_call rct = %d p_string = %s", rct,p_string);
-      erct++;
-      convert = 1;
-      return;
+      if (x3 == 0) 
+      {
+        for (v = 0; v < gv_ct; v++) 
+        {
+          ret = strcmp(field8, gw_variable[v].gv_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(field8a, gw_variable[v].gv_cname);
+            gw_variable[v].gv_use_ct++;
+            ret2 = strcmp("C", gw_variable[v].gv_type);
+            if (ret2 == 0) 
+            {
+              fd8_type = 1;
+            } 
+            else 
+            {
+              fd8_type = 2;
+            }
+            break;
+          }
+        }
+      }
+
+      if (x3 == 0) 
+      {
+        printf("\nc2z_function.c c2_func_call function-003 field8 Not Found %s\n", field8);
+        printf("c2z_function.c c2_func_call rct = %d p_string = %s", rct,p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
     }
 
     if (fd7_type == 1) 
@@ -674,7 +703,6 @@ void c2_func_call()
         strcpy(trace_1, "c2z_strcpy.c #136b");
         trace_rec_3();
       }
-
 
       strcpy(a_string, "         MVC2  ");
       strcat(a_string, field7a);
@@ -867,6 +895,7 @@ void c2_func_call()
         {
           x3 = 1;
           strcpy(field1a, w_function[I].fn_cname);
+          break;
         }
       }
 
@@ -962,6 +991,7 @@ void c2_func_call()
               {
                 strcpy(field3, w_function[I].fn_fd1);
                 wk_pass_1 = w_function[I].fn_pass_1;
+                break;
               }
             }
           }
@@ -977,6 +1007,7 @@ void c2_func_call()
               x3 = 1;
               strcpy(field3a, lw_variable[v].lv_cname);
               lw_variable[v].lv_use_ct++;
+              break;
             }
           }
 
@@ -990,6 +1021,7 @@ void c2_func_call()
                 x3 = 1;
                 strcpy(field3a, gw_variable[v].gv_cname);
                 gw_variable[v].gv_use_ct++;
+                break;
               }
             }
           }
@@ -1039,7 +1071,19 @@ void c2_func_call()
               gw_variable[gv_ct].gv_init = 0;
               strcpy(gw_variable[gv_ct].gv_literal, null_field);
               gw_variable[gv_ct].gv_use_ct = 0;
+              strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+              gw_variable[gv_ct].gv_row = 0;
+              gw_variable[gv_ct].gv_column = 0;
+              strcpy(gw_variable[gv_ct].gv_label, null_field);
+              strcpy(gw_variable[gv_ct].gv_table, null_field);
+              strcpy(gw_variable[gv_ct].gv_aname, null_field);
+              strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+              strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+              strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+              strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+              gw_variable[gv_ct].gv_flag = 0;
               gw_variable[gv_ct].gv_dec = 0;
+              gw_variable[gv_ct].gv_id = 0;
               gv_ct++;
             }
 
@@ -1073,6 +1117,7 @@ void c2_func_call()
             x2 = 1;
             strcpy(field2, w_charlit[I].clit_cname);
             x3 = w_charlit[I].clit_lgth;
+            break;
           }
         }
 
@@ -1181,6 +1226,7 @@ void c2_func_call()
             {
               fd2a_type = 2;
             }
+            break;
           }
         }
 
@@ -1204,6 +1250,7 @@ void c2_func_call()
               {
                 fd2a_type = 2;
               }
+              break;
             }
           }
         }
@@ -1215,6 +1262,7 @@ void c2_func_call()
           {
             x3 = 1;
             strcpy(field4, w_function[I].fn_fd1);
+            break;
           }
         }
 
@@ -1238,6 +1286,7 @@ void c2_func_call()
             {
               fd4a_type = 2;
             }
+            break;
           }
         }
 
@@ -1383,11 +1432,6 @@ void c2_func_call()
 * ************************************************** */
 void c2_func_sub() 
 {
-  if (debug_lv >= 3) 
-  {
-    printf("c2z_function.c c2_func_sub rct = %d L3 START\n", rct);
-  }
-
   if (traceflg == 1) 
   {
     strcpy(trace_1, "c2z_function.c func_sub START");
@@ -1480,6 +1524,7 @@ void c2_func_sub()
         strcpy(ar_field4a, w_function[I].fn_loop);
         strcpy(sv_func, field2);
         x80 = 1;
+        break;
       }
     }
   }
@@ -1626,6 +1671,7 @@ void c2_scan_func()
         if (ret == 0) 
         {
           w_function[I].fn_start = rct;
+          break;
         }
       }
     }
@@ -1657,6 +1703,7 @@ void c2_scan_func()
         if (ret == 0) 
         {
           w_function[I].fn_start = rct;
+          break;
         }
       }
     }
@@ -1895,8 +1942,6 @@ void c2_scan_sub()
     }
     convert = 1;
   }
- /* convert = 1; */
-
 }
 
 void scan_func_name_1() 
@@ -1920,6 +1965,9 @@ void scan_func_name_1()
   char field1a[VAR_LGTH];
   char field4a[VAR_LGTH];
   char field5a[VAR_LGTH];
+
+  field4a[0] = '\0';
+  field5a[0] = '\0';
 
   pi = 0;
   pi2 = 0;
@@ -2016,6 +2064,7 @@ void scan_func_name_1()
     }
     field1[pi2] = '\0';
 
+    x4 = 0;
     c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
     strcpy(field1a, "C37F");
@@ -2023,13 +2072,16 @@ void scan_func_name_1()
     x4 = strlen(field1a);
     field1a[x4] = '\0';
 
+/*
     c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
     strcpy(field1a, "C37F");
     strcat(field1a, wk_strg);
     x4 = strlen(field1a);
     field1a[x4] = '\0';
+*/
 
+    x4 = 0;
     c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
     strcpy(field4a, "C37F");
@@ -2058,6 +2110,17 @@ void scan_func_name_1()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 2;
     gv_ct++;
@@ -2077,9 +2140,10 @@ void scan_func_name_1()
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
     strcpy(w_function[fn_ct].fn_loop, field4a);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, null_field);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -2089,9 +2153,9 @@ void scan_func_name_1()
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, null_field);
-    strcpy(w_function[fn_ct].fn_ret_var,null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var,null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -2101,6 +2165,8 @@ void scan_func_name_1()
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, null_field);
+    w_function[fn_ct].fn_use_ct = 0;
     fn_ct++;
 
     convert = 1;
@@ -2175,6 +2241,17 @@ void scan_func_name_1()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 2;
     gv_ct++;
@@ -2193,10 +2270,10 @@ void scan_func_name_1()
     w_function[fn_ct].fn_rct = rct;
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
-    strcpy(w_function[fn_ct].fn_loop, field4a);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, field4a);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -2206,9 +2283,9 @@ void scan_func_name_1()
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, null_field);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var, null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -2218,6 +2295,8 @@ void scan_func_name_1()
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, null_field);
+    w_function[fn_ct].fn_use_ct = 0;
     fn_ct++;
 
     convert = 1;
@@ -2310,10 +2389,10 @@ void scan_func_name_1()
     w_function[fn_ct].fn_rct = rct;
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
-    strcpy(w_function[fn_ct].fn_loop, field4a);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, field4a);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -2323,9 +2402,9 @@ void scan_func_name_1()
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, field5a);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var, null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -2335,6 +2414,8 @@ void scan_func_name_1()
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, field5a);
+    w_function[fn_ct].fn_use_ct = 0;
 
     p8 = strstr(p_string, "(int");
     if (p8) 
@@ -2354,6 +2435,7 @@ void scan_func_name_1()
       w_function[fn_ct].fn_pass_1 = 2;
     }
     fn_ct++;
+
 
     if (gv_ct == 0) 
     {
@@ -2376,6 +2458,17 @@ void scan_func_name_1()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 1;
     gv_ct++;
@@ -2466,6 +2559,17 @@ void scan_func_name_1()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 1;
     gv_ct++;
@@ -2554,10 +2658,10 @@ void scan_func_name_1()
     w_function[fn_ct].fn_rct = rct;
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
-    strcpy(w_function[fn_ct].fn_loop, field4a);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, field4a);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -2567,9 +2671,9 @@ void scan_func_name_1()
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, field5a);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var, null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -2579,6 +2683,8 @@ void scan_func_name_1()
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, field5a);
+    w_function[fn_ct].fn_use_ct = 0;
 
     p8 = strstr(p_string, "(int");
     if (p8) 
@@ -2620,6 +2726,17 @@ void scan_func_name_1()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 1;
     gv_ct++;
@@ -2706,10 +2823,10 @@ void scan_func_name_1()
     w_function[fn_ct].fn_rct = rct;
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
-    strcpy(w_function[fn_ct].fn_loop, field4a);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, field4a);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -2719,9 +2836,9 @@ void scan_func_name_1()
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, field5a);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var, null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -2731,6 +2848,8 @@ void scan_func_name_1()
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, field5a);
+    w_function[fn_ct].fn_use_ct = 0;
 
     p8 = strstr(p_string, "(int");
     if (p8) 
@@ -2750,6 +2869,7 @@ void scan_func_name_1()
       w_function[fn_ct].fn_pass_1 = 2;
     }
     fn_ct++;
+
 
     if (gv_ct == 0) 
     {
@@ -2772,6 +2892,17 @@ void scan_func_name_1()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 1;
     gv_ct++;
@@ -2789,7 +2920,6 @@ void scan_func_name_1()
 
   if ((p4) && (p2) && (p3) && (!p1) && (!p5) && (convert == 0)) 		/* INT procedure INT get_upper(int, int);	*/
   {
-printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     if (traceflg == 1) 
     {
       strcpy(trace_1, "c2z_pass_1.c #84 scan_func_name_1 INT #100");
@@ -2858,10 +2988,10 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     w_function[fn_ct].fn_rct = rct;
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
-    strcpy(w_function[fn_ct].fn_loop, field4a);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, field4a);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -2871,9 +3001,9 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, field5a);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var, null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -2883,6 +3013,8 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, field5a);
+    w_function[fn_ct].fn_use_ct = 0;
 
     p8 = strstr(p_string, "(int");
     if (p8) 
@@ -2903,6 +3035,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     }
 
     fn_ct++;
+
 
     if (gv_ct == 0) 
     {
@@ -2925,6 +3058,17 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_table, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 1;
     gv_ct++;
@@ -3038,6 +3182,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
         if (ret == 0) 
         {
           w_function[I].fn_start = rct;
+          break;
         }
       }
 
@@ -3101,37 +3246,6 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
         convert = 1;
         return;
       }
-      /*
-               ret = strcmp("char", field2);
-               if(ret == 0)
-               {
-                  fd2_type = 1;
-               }
-               else
-               {
-                  fd2_type = 2;
-               }
-
-               pi2 = 0;
-               ch = p_string[pi];
-               while(ch != ')')
-               {
-                  if(ch != ' ')
-                  {
-                     if(ch != '*')
-                     {
-                        field3[pi2] = ch;
-                        pi2++;
-                     }
-                  }
-                  pi++;
-                  ch = p_string[pi];
-               }
-               field3[pi2] = '\0';
-               s = strlen(field3);
-
-      printf("c2z_function.c p2 p6 rct = %d #1 field3 = %s\n",rct, field3);
-      */
 
       c_name++; /* function compiler name	*/
       snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
@@ -3161,11 +3275,10 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
       w_function[fn_ct].fn_rct = rct;
       strcpy(w_function[fn_ct].fn_name, field1);
       strcpy(w_function[fn_ct].fn_cname, field1a);
-      strcpy(w_function[fn_ct].fn_loop, field4a);
-      strcpy(w_function[fn_ct].fn_ret_var, null_field);
-      w_function[fn_ct].fn_level = 0;
-      w_function[fn_ct].fn_return = 0;
+      strcpy(w_function[fn_ct].fn_func, null_field);
       w_function[fn_ct].fn_start = 0;
+      w_function[fn_ct].fn_return = 0;
+      strcpy(w_function[fn_ct].fn_loop, field4a);
       strcpy(w_function[fn_ct].fn_fd1, null_field);
       strcpy(w_function[fn_ct].fn_fd2, null_field);
       strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -3175,9 +3288,9 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
       strcpy(w_function[fn_ct].fn_fd7, null_field);
       strcpy(w_function[fn_ct].fn_fd8, null_field);
       strcpy(w_function[fn_ct].fn_fd9, null_field);
-      strcpy(w_function[fn_ct].fn_loop_use, field5a);
-      strcpy(w_function[fn_ct].fn_ret_var, null_field);
+      w_function[fn_ct].fn_level = 0;
       w_function[fn_ct].fn_eof = 0;
+      strcpy(w_function[fn_ct].fn_ret_var, null_field);
       w_function[fn_ct].fn_pass_1 = 0;
       w_function[fn_ct].fn_pass_2 = 0;
       w_function[fn_ct].fn_pass_3 = 0;
@@ -3187,6 +3300,9 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
       w_function[fn_ct].fn_pass_7 = 0;
       w_function[fn_ct].fn_pass_8 = 0;
       w_function[fn_ct].fn_pass_9 = 0;
+      strcpy(w_function[fn_ct].fn_loop_use, field5a);
+      w_function[fn_ct].fn_use_ct = 0;
+
       fn_ct++;
 
       if (gv_ct == 0) 
@@ -3210,6 +3326,17 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
       gw_variable[gv_ct].gv_init = 0;
       strcpy(gw_variable[gv_ct].gv_literal, null_field);
       gw_variable[gv_ct].gv_use_ct = 0;
+      strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+      gw_variable[gv_ct].gv_row = 0;
+      gw_variable[gv_ct].gv_column = 0;
+      strcpy(gw_variable[gv_ct].gv_label, null_field);
+      strcpy(gw_variable[gv_ct].gv_table, null_field);
+      strcpy(gw_variable[gv_ct].gv_aname, null_field);
+      strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+      strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+      strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+      strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+      gw_variable[gv_ct].gv_flag = 0;
       gw_variable[gv_ct].gv_dec = 0;
       gw_variable[gv_ct].gv_id = 1;
       gv_ct++;
@@ -3258,6 +3385,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
         {
           w_function[I].fn_start = rct;
           strcpy(w_function[I].fn_fd1, field3);
+          break;
         }
       }
 
@@ -3269,6 +3397,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
         if ((ret == 0) && (ret1 == 0)) 
         {
           x3 = 1;
+          break;
         }
       }
 
@@ -3280,6 +3409,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
           if (ret == 0) 
           {
             x3 = 1;
+            break;
           }
         }
       }
@@ -3297,6 +3427,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
             {
               x6 = 1;
               x7 = lw_variable[I].lv_lgth;
+              break;
             }
           }
 
@@ -3309,6 +3440,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
               {
                 x6 = 1;
                 x7 = gw_variable[I].gv_lgth;
+                break;
               }
             }
           }
@@ -3365,6 +3497,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
             strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+            gw_variable[gv_ct].gv_flag = 0;
             gw_variable[gv_ct].gv_dec = 0;
             gw_variable[gv_ct].gv_id = 3;
             gv_ct++;
@@ -3388,6 +3521,7 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
             strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+            gw_variable[gv_ct].gv_flag = 0;
             gw_variable[gv_ct].gv_dec = 0;
             gw_variable[gv_ct].gv_id = 1;
             gv_ct++;
@@ -3528,6 +3662,16 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    gw_variable[gv_ct].gv_row = 0;
+    gw_variable[gv_ct].gv_column = 0;
+    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+    strcpy(gw_variable[gv_ct].gv_label, null_field);
+    strcpy(gw_variable[gv_ct].gv_aname, null_field);
+    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 2;
     gv_ct++;
@@ -3546,11 +3690,10 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     w_function[fn_ct].fn_rct = rct;
     strcpy(w_function[fn_ct].fn_name, field1);
     strcpy(w_function[fn_ct].fn_cname, field1a);
-    strcpy(w_function[fn_ct].fn_loop, field4a);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
-    w_function[fn_ct].fn_level = 0;
-    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_func, null_field);
     w_function[fn_ct].fn_start = 0;
+    w_function[fn_ct].fn_return = 0;
+    strcpy(w_function[fn_ct].fn_loop, field4a);
     strcpy(w_function[fn_ct].fn_fd1, null_field);
     strcpy(w_function[fn_ct].fn_fd2, null_field);
     strcpy(w_function[fn_ct].fn_fd3, null_field);
@@ -3560,9 +3703,9 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     strcpy(w_function[fn_ct].fn_fd7, null_field);
     strcpy(w_function[fn_ct].fn_fd8, null_field);
     strcpy(w_function[fn_ct].fn_fd9, null_field);
-    strcpy(w_function[fn_ct].fn_loop_use, null_field);
-    strcpy(w_function[fn_ct].fn_ret_var, null_field);
+    w_function[fn_ct].fn_level = 0;
     w_function[fn_ct].fn_eof = 0;
+    strcpy(w_function[fn_ct].fn_ret_var, null_field);
     w_function[fn_ct].fn_pass_1 = 0;
     w_function[fn_ct].fn_pass_2 = 0;
     w_function[fn_ct].fn_pass_3 = 0;
@@ -3572,6 +3715,9 @@ printf("c2z_function.c HERE #10 rct = %d p_string = %s",rct,p_string);
     w_function[fn_ct].fn_pass_7 = 0;
     w_function[fn_ct].fn_pass_8 = 0;
     w_function[fn_ct].fn_pass_9 = 0;
+    strcpy(w_function[fn_ct].fn_loop_use, null_field);
+    w_function[fn_ct].fn_use_ct = 0;
+
     fn_ct++;
 
     convert = 1;

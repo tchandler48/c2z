@@ -34,7 +34,6 @@ void c2_free()
   char fr_type[2];
   char tfield1[VAR_LGTH];
   char tfield1a[VAR_LGTH];
-  char tfield11a[VAR_LGTH];
   char tfield4a[VAR_LGTH];
 
   char ar_field5[VAR_LGTH];
@@ -47,7 +46,6 @@ void c2_free()
 
   int I = 0;
   int v = 0;
-  int xr = 0;
   int x80 = 0;
   int x81 = 0;
 
@@ -109,7 +107,6 @@ void c2_free()
             strcpy(tfield1a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
             strcpy(fr_type, gw_variable[I].gv_type);
-            xr = gw_variable[I].gv_row;
             x2 = gw_variable[I].gv_lgth;
             break;
           }
@@ -179,7 +176,7 @@ void c2_free()
       fr_1 = 6;
     }
 
-    if (fr_1 == 1) 
+    if(fr_1 == 1) 
     {
       strcpy(a_string, "         LARL  R9,");
       strcat(a_string, tfield1a);
@@ -234,7 +231,7 @@ void c2_free()
       }
     }
 
-    if (fr_1 == 2) 				/* integer clear	*/
+    if(fr_1 == 2) 				/* integer clear	*/
     {
       strcpy(a_string, "*         LARL  R9,");
       strcat(a_string, tfield1a);
@@ -264,11 +261,11 @@ void c2_free()
       }
     }
 
-    if (fr_1 == 3) 				/* Array A clear	*/
+    if(fr_1 == 3) 				/* Array A clear	*/
     {
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array-char");
+        strcpy(trace_1, "c2z_free.c c2_free 2D array-char");
         trace_rec_1();
       }
 
@@ -298,39 +295,14 @@ void c2_free()
         }
       }
 
-      fr_3 = 0;
-      fr_2 = 0;
-      for (v = 0; v < lv_ct; v++) 
-      {
-        ret = strcmp(ar_field11, lw_variable[v].lv_name);
-        if (ret == 0) 
-        {
-          fr_3 = 1;
-          strcpy(tfield11a, lw_variable[v].lv_cname);
-        }
-      }
-
-      if (fr_3 == 0) 
-      {
-        for (v = 0; v < gv_ct; v++) 
-        {
-          ret = strcmp(ar_field11, gw_variable[v].gv_name);
-          if (ret == 0) 
-          {
-            fr_3 = 1;
-            strcpy(tfield11a, gw_variable[v].gv_cname);
-          }
-        }
-      }
-
-      if (fr_3 == 0) 
-      {
-        printf("\nc2z_free.c c2_free free-004 ar_field11 Not Found = %s\n",ar_field11);
-        printf("c2z_free.c c2_free rct = %d p_string = %s", rct, p_string);
-        erct++;
-        convert = 1;
-        return;
-      }
+/*
+printf("\nc2z_free.c #1 rct = %d p_string = %s\n",rct,p_string);
+printf("c2z_free.c #1 tfield1 = %s\n",tfield1);
+printf("c2z_free.c #1 ar_field5 = %s\n",ar_field5);
+printf("c2z_free.c #1 ar_field6 = %s\n",ar_field6);
+printf("c2z_free.c #1 ar_field7 = %s\n",ar_field7);
+printf("c2z_free.c #1 ar_field11 = %s\n",ar_field11);
+*/
 
       strcpy(a_string, "FR");
       snprintf(wk_strg, sizeof(wk_strg), "%d", free_loop);
@@ -344,7 +316,7 @@ void c2_free()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         LARL  R6,");
+      strcpy(a_string, "         LAEY  R6,");
       strcat(a_string, ar_field7);
       strcpy(wk_remark, " ");
       strcat(wk_remark, tfield1);
@@ -453,11 +425,11 @@ void c2_free()
       }
     }
 
-    if (fr_1 == 4) 					/* Array G clear	*/
+    if(fr_1 == 4) 					/* Array G clear	*/
     {
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z_free.c c2_free array_numeric");
+        strcpy(trace_1, "c2z_free.c c2_free 2D array_numeric");
         trace_rec_1();
       }
 
@@ -479,6 +451,9 @@ void c2_free()
             strcpy(ar_field9, gw_variable[I].gv_sv_reg);
             strcpy(ar_field10, gw_variable[I].gv_wk_reg);
             strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+            x1 = gw_variable[I].gv_row;
+            x2 = gw_variable[I].gv_column;
+            x3 = gw_variable[I].gv_lgth;
             break;
           }
         }
@@ -556,7 +531,7 @@ void c2_free()
         trace_rec_3();
       }
 
-      strcpy(a_string, "         LARL  R6,");
+      strcpy(a_string, "         LAEY  R6,");
       strcat(a_string, ar_field7);
       strcpy(wk_remark, " ");
       strcat(wk_remark, tfield1);
@@ -568,9 +543,9 @@ void c2_free()
         trace_rec_3();
       }
 
-      xr = 250;
+      x4 = x1 * x2;
       strcpy(a_string, "         LAEY  R5,");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", xr);
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x4);
       strcat(a_string, wk_strg);
       src_line();
       if (puncde == 1) 

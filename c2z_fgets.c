@@ -313,12 +313,16 @@ void c2_fgets()
       strcpy(gw_variable[gv_ct].gv_dsect, null_field);
       gw_variable[gv_ct].gv_row = 0;
       gw_variable[gv_ct].gv_column = 0;
-      strcpy(gw_variable[gv_ct].gv_dsect, null_field);
       strcpy(gw_variable[gv_ct].gv_label, null_field);
+      strcpy(gw_variable[gv_ct].gv_table, null_field);
       strcpy(gw_variable[gv_ct].gv_aname, null_field);
       strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+      strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
       strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+      strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+      gw_variable[gv_ct].gv_flag = 0;
       gw_variable[gv_ct].gv_dec = 0;
+      gw_variable[gv_ct].gv_id = 0;
       gv_ct++;
 
       strcpy(a_string, "         LARL  R8,");

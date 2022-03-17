@@ -17192,7 +17192,7 @@ void if_case_40()
   int x3 = 0;
   int operand_1 = 0;
   int operand_2 = 0;
-  int fd1_type = 0;
+/*  int fd1_type = 0; */
   int fd2_type = 0;
   int fd4_type = 0;
   int fd6_type = 0;
@@ -17233,7 +17233,7 @@ void if_case_40()
 
   pi2 = 0;
   x2 = 0;
-  fd1_type = 0;
+/*  fd1_type = 0; */
   pi++;
   pi++;
   ch = p_string[pi];
@@ -17243,13 +17243,13 @@ void if_case_40()
     {
        if (isdigit(ch)) 
        {
-         fd1_type = 1;
+     /*    fd1_type = 1; */
          x2 = 1;
        }
 
        if (isalpha(ch)) 
        {
-         fd1_type = 2;
+  /*       fd1_type = 2;  */
          x2 = 1;
        }
     }
@@ -23724,7 +23724,6 @@ void if_case_50()
   char field2a[VAR_LGTH];
   char field3[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
   char field6[VAR_LGTH];
   char field6a[VAR_LGTH];
@@ -23833,6 +23832,11 @@ void if_case_50()
   {
     if (x2 == 0) 
     {
+      if(ch == '\'')
+      {
+        fd4_type = 0;
+        x2 = 1;
+      }
       if (isdigit(ch)) 
       {
         fd4_type = 1;
@@ -23956,6 +23960,11 @@ void if_case_50()
   {
     if (x2 == 0) 
     {
+      if(ch == '\'')
+      {
+        fd9_type = 0;
+        x2 = 1;
+      }
       if (isdigit(ch)) 
       {
         fd9_type = 1;
@@ -24069,7 +24078,7 @@ void if_case_50()
     ch = p_string[pi];
   }
   field13[pi2] = '\0';
-
+ 
   while(ch == ' ')
   {
     pi++;
@@ -24612,7 +24621,7 @@ void if_case_50()
       trace_rec_3();
     }
 
-    strcpy(a_string, "         LARL  R9,C370U");
+    strcpy(a_string, "         LARL  R8,C370U");
     src_line();
     if (puncde == 1) 
     {
@@ -24688,7 +24697,7 @@ void if_case_50()
     {
       if(fd4_type == 0)
       {
-        strcpy(a_string, "*         LARL  R9,C370L1");
+        strcpy(a_string, "         LARL  R9,C370L1");
         src_line();
         if (puncde == 1) 
         {
@@ -24697,37 +24706,23 @@ void if_case_50()
         }
         work_use_ct[2]++;
 
-        pi2 = 0;
-        x2 = 0;
-        I = 0;
-        ch = field4[x2];
-        while(ch != ' ')
+        for (I = 0; I < char_ct; I++) 
         {
-          if(ch != '\'')
+          if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 1)) 
           {
-            field4a[I] = ch;
-            I++;
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, w_charlit[I].clit_cname);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_if.c #5012");
+              trace_rec_3();
+            }
+            break;
           }
-          x2++;
-          ch = field4[x2];
         }
-        field4a[I] = '\0';
 
-/*
-        strcpy(a_string, "*         LARL  R8,");
-        strcat(a_string, field4);
-        strcpy(wk_remark, " ");
-        strcat(wk_remark, field4);
-        strcat(wk_remark, " ");
-        write_remark();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_if.c #5012");
-          trace_rec_3();
-        }
-*/
-
-        strcpy(a_string, "*         CLC   0(1,R9),1(1,R8)");
+        strcpy(a_string, "         CLC   0(1,R9),0(R8)");
         src_line();
         if (puncde == 1) 
         {
@@ -24735,11 +24730,10 @@ void if_case_50()
           trace_rec_3();
         }
 
-        strcpy(a_string, "*         JLL   ");
+        strcpy(a_string, "         JLL   ");
         strcat(a_string, "L");
         snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
         strcat(a_string, wk_strg);
-        strcat(a_string, "B");
         src_line();
         if (puncde == 1) 
         {
@@ -24767,6 +24761,442 @@ void if_case_50()
       printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
     }
 
+    strcpy(a_string, "         LARL  R9,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5015");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field2a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field2);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5016");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(8,R9),2(4,R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5017");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5018");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         CVB   R5,0(R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5019");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field1a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field1);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5020");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         IC    R0,0(R8,(R5))");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5021");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370L1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5022");
+      trace_rec_3();
+    }
+    work_use_ct[2]++;
+
+    strcpy(a_string, "         STC   R0,0(0,R9)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5023");
+      trace_rec_3();
+    }
+
+    if(operand_2 == 1)			/* == */
+    {
+      printf("c2z_if.c case_50 operand_1 = 1 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_2 == 2)			/*!= */
+    {
+      printf("c2z_if.c case_50 operand_1 = 2 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_2 == 3)			/*<= */
+    {
+      if(fd9_type == 0)
+      {
+        strcpy(a_string, "         LARL  R9,C370L1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5024");
+          trace_rec_3();
+        }
+        work_use_ct[2]++;
+
+        for (I = 0; I < char_ct; I++) 
+        {
+          if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 2)) 
+          {
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, w_charlit[I].clit_cname);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_if.c #5025");
+              trace_rec_3();
+            }
+            break;
+          }
+        }
+
+        strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5026");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JLH   ");
+        strcat(a_string, "L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5027");
+          trace_rec_3();
+        }
+      }
+    }
+
+    if(operand_2 == 4)			/*>= */
+    {
+      if(fd9_type == 0)
+      {
+        strcpy(a_string, "         LARL  R9,C370L1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5028");
+          trace_rec_3();
+        }
+        work_use_ct[2]++;
+
+        for (I = 0; I < char_ct; I++) 
+        {
+          if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 2)) 
+          {
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, w_charlit[I].clit_cname);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_if.c #5029");
+              trace_rec_3();
+            }
+            break;
+          }
+        }
+
+        strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5030");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JLL   ");
+        strcat(a_string, "L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        strcat(a_string, "B");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5031");
+          trace_rec_3();
+        }
+      }
+    }
+
+    strcpy(a_string, "         LARL  R9,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5032");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field12a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field12);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5033");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         ZAP   0(8,R9),2(4,R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5034");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,C370U");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5035");
+      trace_rec_3();
+    }
+    work_use_ct[48]++;
+
+    strcpy(a_string, "         CVB   R5,0(R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5036");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R8,");
+    strcat(a_string, field11a);
+    strcpy(wk_remark, " ");
+    strcat(wk_remark, field11);
+    strcat(wk_remark, " */");
+    write_remark();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5037");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         IC    R0,0(R8,(R5))");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5038");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370L1");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5039");
+      trace_rec_3();
+    }
+    work_use_ct[2]++;
+
+    strcpy(a_string, "         STC   R0,0(0,R9)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_if.c #5040");
+      trace_rec_3();
+    }
+
+    if(operand_3 == 1)			/* == */
+    {
+      if(fd14_type == 0)
+      {
+        strcpy(a_string, "         LARL  R9,C370L1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5041");
+          trace_rec_3();
+        }
+        work_use_ct[2]++;
+
+        for (I = 0; I < char_ct; I++) 
+        {
+          if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 3)) 
+          {
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, w_charlit[I].clit_cname);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_if.c #5042");
+              trace_rec_3();
+            }
+            break;
+          }
+        }
+
+        strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5043");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JLNE   ");
+        strcat(a_string, "L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5044");
+          trace_rec_3();
+        }
+      }
+    }
+
+    if(operand_3 == 2)			/*!= */
+    {
+      printf("c2z_if.c case_50 operand_1 = 2 NOT CODED\n");
+      printf("c2z_if.c case_50 rct = %d p_string = %s\n",rct,p_string);
+    }
+
+    if(operand_3 == 3)			/*<= */
+    {
+      if(fd9_type == 0)
+      {
+        strcpy(a_string, "         LARL  R9,C370L1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5041");
+          trace_rec_3();
+        }
+        work_use_ct[2]++;
+
+        for (I = 0; I < char_ct; I++) 
+        {
+          if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 3)) 
+          {
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, w_charlit[I].clit_cname);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_if.c #5042");
+              trace_rec_3();
+            }
+            break;
+          }
+        }
+
+        strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5043");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JLH   ");
+        strcat(a_string, "L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5044");
+          trace_rec_3();
+        }
+      }
+    }
+
+    if(operand_3 == 4)			/*>= */
+    {
+      if(fd9_type == 0)
+      {
+        strcpy(a_string, "         LARL  R9,C370L1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5028");
+          trace_rec_3();
+        }
+        work_use_ct[2]++;
+
+        for (I = 0; I < char_ct; I++) 
+        {
+          if ((rct == w_charlit[I].clit_rct) && (w_charlit[I].clit_uct == 2)) 
+          {
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, w_charlit[I].clit_cname);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_if.c #5029");
+              trace_rec_3();
+            }
+            break;
+          }
+        }
+
+        strcpy(a_string, "         CLC   0(1,R9),0(R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5030");
+          trace_rec_3();
+        }
+
+        strcpy(a_string, "         JLL   ");
+        strcat(a_string, "L");
+        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+        strcat(a_string, wk_strg);
+        strcat(a_string, "B");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_if.c #5031");
+          trace_rec_3();
+        }
+      }
+    }
+
     snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
     strcpy(a_string, "L");
     strcat(a_string, wk_strg);
@@ -24776,33 +25206,20 @@ void if_case_50()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_if.c #5001");
+      strcpy(trace_1, "c2z_if.c #YYY");
       trace_rec_3();
     }
   }			/* END OF field5 = &&, field10 = || */
 
 
-/*
-3  1973   c2z_math.c math_2 START                                     	 ch = p_string[pi];
-3  1973   c2z_math.c #76                  L1973A   DS    0H                                                       0009093
-3  1973   c2z_math.c #77                           LARL  R9,C370U                                                 0009094
-3  1973   c2z_math.c #78                           LARL  R8,C37F624                      pi                   0009095
-3  1973   c2z_math.c #79                           ZAP   0(8,R9),2(4,R8)                                          0009096
-3  1973   c2z_math.c #80                           LARL  R8,C370U                                                 0009097
-3  1973   c2z_math.c #81                           CVB   R5,0(R8)                                                 0009098
-3  1973   c2z_math.c #82                           LARL  R8,C37F14                       p_string             0009099
-3  1973   c2z_math.c #83                           IC    R0,0(R8,(R5))                                            0009100
-3  1973   c2z_math.c #84                           LARL  R9,C37F622                      ch                   0009101
-3  1973   c2z_math.c #85                           STC   R0,0(0,R9)                                               0009102
-*/
 
 
-/*
+
 printf("\nc2z_if.c case_50 rct = %d p_string = %s",rct,p_string);
 printf("c2z_if.c case_50 field1 = %s fd1_type = %d\n",field1,fd1_type);
 printf("c2z_if.c case_50 field2 = %s fd2_type = %d\n",field2,fd2_type);
 printf("c2z_if.c case_50 field3 = %s operand_1 = %d\n",field3,operand_1);
-printf("c2z_if.c case_50 field4 = %s field4a = %s fd4_type = %d\n",field4,field4a,fd4_type);
+printf("c2z_if.c case_50 field4 = %s fd4_type = %d\n",field4,fd4_type);
 printf("c2z_if.c case_50 field5 = %s\n",field5);
 printf("c2z_if.c case_50 field6 = %s fd6_type = %d\n",field6,fd6_type);
 printf("c2z_if.c case_50 field7 = %s fd7_type = %d\n",field7,fd7_type);
@@ -24814,7 +25231,7 @@ printf("c2z_if.c case_50 field12 = %s fd12_type = %d\n",field12,fd12_type);
 printf("c2z_if.c case_50 field13 = %s operand_3 = %d\n",field13,operand_3);
 printf("c2z_if.c case_50 field14 = %s fd14_type = %d\n",field14,fd14_type);
 printf("\n");
-*/
+
 
 }
 

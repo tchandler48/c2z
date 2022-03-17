@@ -21,7 +21,6 @@ void c2_pass_3()
   int x3 = 0;
   int x4 = 0;
   int v = 0;
-  int s = 0;
   int I = 0;
   int y0 = 0;
   int y1 = 0;
@@ -448,31 +447,6 @@ void c2_pass_3()
     trace_rec_3();
   }
 
-/*
-2  0      c2z.c pass 3 generated #33      *                                                                       0000033
-2  0      c2z.c pass 3 generated #34      *  This is a modified MVC2 macro.  Modified for baseless code           0000034
-2  0      c2z.c pass 3 generated #35      *  Modified by TCCS 2021                                                0000035
-2  0      c2z.c pass 3 generated #36      *  Performs a MVC operation, using Source Length NOT Target Length      0000036
-2  0      c2z.c pass 3 generated #37      *                                                                       0000037
-2  0      c2z.c pass 3 generated #38                MACRO                                                         0000038
-2  0      c2z.c pass 3 generated #39      &LAB      MVC2   &TARGET,&SOURCE                                        0000039
-2  0      c2z.c pass 3 generated #40      &LAB      LARL   R8,&SOURCE                                             0000040
-2  0      c2z.c pass 3 generated #41                LARL   R9,&TARGET                                             0000041
-2  0      c2z.c pass 3 generated #42                MVC    0(L'&SOURCE,R9),0(R8)                                  0000042
-2  0      c2z.c pass 3 generated #43                MEND                                                          0000043
-2  0      c2z.c pass 3 generated #44      *                                                                       0000044
-2  0      c2z.c pass 3 generated #45      *  This is a modified MVC2 macro.  baseless code                        0000045
-2  0      c2z.c pass 3 generated #46      *  Modified by TCCS 2016                                                0000046
-2  0      c2z.c pass 3 generated #47      *  Performs a MVC operation, using Source Length NOT Target Length      0000047
-2  0      c2z.c pass 3 generated #48      *                                                                       0000048
-2  0      c2z.c pass 3 generated #49                MACRO                                                         0000049
-2  0      c2z.c pass 3 generated #50      &LAB      MVC3   &SOURCE                                                0000050
-2  0      c2z.c pass 3 generated #51      &LAB      LARL   R8,&SOURCE                                             0000051
-2  0      c2z.c pass 3 generated #52                MVC    0(L'&SOURCE,R6),0(R8)                                  0000052
-2  0      c2z.c pass 3 generated #53                MEND                                                          0000053
-2  0      c2z.c pass 3 generated #54      *                                                                       0000054
-*/
-
   x3 = 0;
   for (v = 0; v < gv_ct; v++) 
   {
@@ -687,7 +661,6 @@ void c2_pass_3()
   }
 
   strcpy(a_string, pgm_name);
-  s = strlen(pgm_name);
   check_length();
   strcat(a_string, "SUBENTRY");
   src_line();
@@ -1309,6 +1282,7 @@ void c2_pass_3()
   *  w_variable[I].v_type = I (int) are punched ast PL4'0'     *
   * ********************************************************** */
 
+/*
   c_name++;
   snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
   strcpy(c_wkname, "C37F");
@@ -1340,6 +1314,7 @@ void c2_pass_3()
   gw_variable[gv_ct].gv_dec = 0;
   gw_variable[gv_ct].gv_id = 2;
   gv_ct++;
+*/
 
   strcpy(a_string,"******************************************************************");
   src_line();

@@ -69,7 +69,6 @@ void c2_ctime()
     ch = p_string[pi];
   }
  
-
   strcpy(a_string, "         LARL  R9,C370DTTM");
   src_line();
   if (puncde == 1) 
@@ -219,33 +218,8 @@ void c2_ctime()
     trace_rec_3();
   }
 
-
-
-
   convert = 1;
 }
-
-/*
-         TIME  DEC,TIMEDATE,LINKAGE=SYSTEM,DATETYPE=MMDDYYYY
-         UNPK  DWORK(9),TIMEDATE+8(5)
-         MVC   DDATE(2),DWORK
-         MVC   DDATE+3(2),DWORK+2
-         MVC   DDATE+6(2),DWORK+6
-         WTO   MF=(E,WTOMSG2)       DISPLAY DATE = MM/DD/YY
-         MVC   DTIME,MTIME
-         ED    DTIME,TIMEDATE
-         WTO   MF=(E,WTOMSG3)       DISPLAY TIME = HH:MM:SS:TH
-
-TIMEDATE DC    XL16'00' 
-C370DTTM DC    XL16'00'
-DWORK    DC    XL9'00'
-C370DWRK DC    XL9'00'
-DDATE    DC    C'MM/DD/YY'
-C370DDTE DC    C'MM/DD/YY'
-
-DTIME    DC    C' HH:MM:SS:TH'
-MTIME    DC    C' ',X'2120',C':',X'2020',C':',X'2020',C':',X'2020'
-*/
 
 
 void c2_time_t()

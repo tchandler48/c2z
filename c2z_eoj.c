@@ -1612,6 +1612,7 @@ void c2_eoj()
     c2_isalnum();
   }
 
+
   if (var_use[16] > 0) 
   {
     c2_strlen_punch();
@@ -1661,7 +1662,7 @@ void c2_eoj()
     strcat(a_string, w_charlit[I].clit_value);
     strcat(a_string, "'");
     s = strlen(a_string);
-    x = 37 - s;
+    x = 40 - s;
     for (x4 = 0; x4 < x; x4++) 
     {
       strcat(a_string, " ");
@@ -1988,7 +1989,6 @@ void c2_eoj()
         }
       }
 
-      k7 = 90; 
       strcpy(a_string, gw_variable[I].gv_table);
       check_length();
       strcat(a_string, "DC    ");
@@ -2417,13 +2417,14 @@ void c2_eoj()
         trace_rec_3();
       }
 
+/*
       strcpy(wk_strg, lw_variable[I].lv_cname);
       strcpy(field1, lw_variable[I].lv_cname);
-      strcpy(a_string, wk_strg);
+      strcpy(a_string, wk_strg); 
       s = strlen(wk_strg);
+*/
       strcpy(a_string, lw_variable[I].lv_cname);
       check_length();
-
       strcat(a_string, "DC    ");
       x = atoi(lw_variable[I].lv_value);
       if (x == 0) 
@@ -4138,20 +4139,18 @@ void c2_eoj()
   if (work_use_ct[83] > 0)		/* C370EDW7	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #160");
+      strcpy(trace_1, "c2z_eoj.c #223");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370EDW7 DC    X'40202020212060'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #161");
+      strcpy(trace_1, "c2z_eoj.c #224");
       trace_rec_3();
     }
   }
@@ -4159,20 +4158,18 @@ void c2_eoj()
   if (work_use_ct[84] > 0)		/* C370EDW9	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #162");
+      strcpy(trace_1, "c2z_eoj.c #225");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370EDW9 DC    X'402020202020212060'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #163");
+      strcpy(trace_1, "c2z_eoj.c #226");
       trace_rec_3();
     }
   }
@@ -4180,20 +4177,18 @@ void c2_eoj()
   if (work_use_ct[85] > 0)		/* C370DTTM	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #164");
+      strcpy(trace_1, "c2z_eoj.c #227");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370DTTM DC    XL16'00'"); 
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #165");
+      strcpy(trace_1, "c2z_eoj.c #228");
       trace_rec_3();
     }
   }
@@ -4201,20 +4196,18 @@ void c2_eoj()
   if (work_use_ct[86] > 0)		/* C370M001	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #229");
       trace_rec_3();
     }
 
     strcpy(a_string, "C37M001  DC    PL6'0'");
-    strcpy(wk_remark, "value start_math */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #230");
       trace_rec_3();
     }
   }
@@ -4222,20 +4215,18 @@ void c2_eoj()
   if (work_use_ct[89] > 0)		/* C370M002	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #231");
       trace_rec_3();
     }
 
     strcpy(a_string, "C37M002  DC    CL1' '");
-    strcpy(wk_remark, "ch Exp */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #232");
       trace_rec_3();
     }
   }
@@ -4243,38 +4234,34 @@ void c2_eoj()
   if (work_use_ct[90] > 0) 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #233");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370TUC  DC    C'ABCDEFGHIJKLMNOPQRSTUVWXYZ'");
-    strcpy(wk_remark, "c2z gen variable */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #234");
       trace_rec_3();
     }
 
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #235");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370TLC  DC    C'abcdefghijklmnopqrstuvwxyz'");
-    strcpy(wk_remark, "c2z gen variable */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #236");
       trace_rec_3();
     }
   }
@@ -4282,20 +4269,18 @@ void c2_eoj()
   if (work_use_ct[93] > 0)		/* C370ECB	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #74");
+      strcpy(trace_1, "c2z_eoj.c #237");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370ECB  DC    F'0'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #75");
+      strcpy(trace_1, "c2z_eoj.c #238");
       trace_rec_3();
     }
   }
@@ -4303,20 +4288,18 @@ void c2_eoj()
   if (work_use_ct[94] > 0)		/* C370NWK4	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #96");
+      strcpy(trace_1, "c2z_eoj.c #239");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370NWK4 DC    PL6'0'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #97");
+      strcpy(trace_1, "c2z_eoj.c #240");
       trace_rec_3();
     }
   }
@@ -4324,20 +4307,18 @@ void c2_eoj()
   if (work_use_ct[95] > 0)		/* C370NWK5	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #96");
+      strcpy(trace_1, "c2z_eoj.c #241");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370NWK5 DC    PL6'0'");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #97");
+      strcpy(trace_1, "c2z_eoj.c #242");
       trace_rec_3();
     }
   }
@@ -4345,20 +4326,18 @@ void c2_eoj()
   if (work_use_ct[96] > 0)		/* C370M003	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #243");
       trace_rec_3();
     }
 
     strcpy(a_string, "C37M003  DC    PL6'0'");
-    strcpy(wk_remark, "pi Exp */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #244");
       trace_rec_3();
     }
   }
@@ -4366,20 +4345,18 @@ void c2_eoj()
   if (work_use_ct[97] > 0)		/* C370M004	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #245");
       trace_rec_3();
     }
 
     strcpy(a_string, "C37M004  DC    PL6'0'");
-    strcpy(wk_remark, "Value  Exp */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #246");
       trace_rec_3();
     }
   }
@@ -4387,20 +4364,18 @@ void c2_eoj()
   if (work_use_ct[98] > 0)		/* C370M005	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #247");
       trace_rec_3();
     }
 
     strcpy(a_string, "C37M005  DC    PL6'0'");
-    strcpy(wk_remark, "e_pos  Exp */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #248");
       trace_rec_3();
     }
   }
@@ -4408,20 +4383,18 @@ void c2_eoj()
   if (work_use_ct[99] > 0)		/* C370QUOT	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #142");
+      strcpy(trace_1, "c2z_eoj.c #249");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370QUOT DC    X'\''");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #143");
+      strcpy(trace_1, "c2z_eoj.c #250");
       trace_rec_3();
     }
   }
@@ -4429,11 +4402,10 @@ void c2_eoj()
   if (work_use_ct[100] > 0)		/* TSTUC TSTLC	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #251");
       trace_rec_3();
     }
 
@@ -4441,16 +4413,15 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #252");
       trace_rec_3();
     }
 
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #253");
       trace_rec_3();
     }
 
@@ -4458,7 +4429,7 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #254");
       trace_rec_3();
     }
   } 
@@ -4466,11 +4437,10 @@ void c2_eoj()
   if (work_use_ct[101] > 0)		/* C370DDTE	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #168");
+      strcpy(trace_1, "c2z_eoj.c #255");
       trace_rec_3();
     }
 
@@ -4478,7 +4448,7 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #169");
+      strcpy(trace_1, "c2z_eoj.c #256");
       trace_rec_3();
     }
   }
@@ -4486,20 +4456,18 @@ void c2_eoj()
   if (work_use_ct[102] > 0)		/* C370DWRK	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #166");
+      strcpy(trace_1, "c2z_eoj.c #257");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370DWRK DC    XL9'00'"); 
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #167");
+      strcpy(trace_1, "c2z_eoj.c #258");
       trace_rec_3();
     }
   }
@@ -4507,20 +4475,18 @@ void c2_eoj()
   if (work_use_ct[103] > 0)		/* C370DATE	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #166");
+      strcpy(trace_1, "c2z_eoj.c #259");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370DATE DC    CL29' '"); 
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #167");
+      strcpy(trace_1, "c2z_eoj.c #260");
       trace_rec_3();
     }
   }
@@ -4528,20 +4494,18 @@ void c2_eoj()
   if (work_use_ct[104] > 0)		/* C370NCVT	*/ 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #261");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370NCVT  DC    PL6'0'");
-    strcpy(wk_remark, "Value  Exp */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #262");
       trace_rec_3();
     }
   }
@@ -4551,11 +4515,10 @@ void c2_eoj()
     for(I = 1; I <= for_loop_ct; I++)
     {
       strcpy(a_string, "         DS    0H");
-      strcpy(wk_remark, "c2z gen variable  */");
-      write_short();  
+      src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z Parser Var #154");
+        strcpy(trace_1, "c2z_eoj.c #263");
         trace_rec_3();
       }
 
@@ -4567,7 +4530,7 @@ void c2_eoj()
       write_short();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z Parser Var #155");
+        strcpy(trace_1, "c2z_eoj.c #264");
         trace_rec_3();
       }
     }
@@ -4576,20 +4539,18 @@ void c2_eoj()
   if(tot_localtime > 0)
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();  
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #154");
+      strcpy(trace_1, "c2z_eoj.c #265");
       trace_rec_3();
     }
 
     strcpy(a_string, "C370TIME DC    CL29' '");
-    strcpy(wk_remark, "TIME-DATE */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #155");
+      strcpy(trace_1, "c2z_eoj.c #266");
       trace_rec_3();
     }
   }
@@ -4598,52 +4559,47 @@ void c2_eoj()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #300");
+    strcpy(trace_1, "c2z_eoj.c #267");
     trace_rec_3();
   }
 
   strcpy(a_string, "         DS    0H");
-  strcpy(wk_remark, "c2z gen variable  */");
-  write_short();
+  src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #301");
+    strcpy(trace_1, "c2z_eoj.c #268");
     trace_rec_3();
   }
 
   strcpy(a_string, "C370WTO  DC    AL2(C370WTOE-*,0)");
-  strcpy(wk_remark, "c2z gen variable  */");
-  write_short();
+  src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #302");
+    strcpy(trace_1, "c2z_eoj.c #269");
     trace_rec_3();
   }
 
   strcpy(a_string, "C370WTOB DC    CL132' '");
-  strcpy(wk_remark, "c2z gen variable  */");
-  write_short();
+  src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #302");
+    strcpy(trace_1, "c2z_eoj.c #270");
     trace_rec_3();
   }
 
   strcpy(a_string, "C370WTOE EQU   *");
-  strcpy(wk_remark, "c2z gen variable  */");
-  write_short();
+  src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #303");
+    strcpy(trace_1, "c2z_eoj.c #271");
     trace_rec_3();
   }
 
   strcpy(a_string, "C370WTOL EQU   *-C370WTOB");
-  strcpy(wk_remark, "c2z gen variable  */");
-  write_short();
+  src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #303");
+    strcpy(trace_1, "c2z_eoj.c #272");
     trace_rec_3();
   }
 
@@ -4651,19 +4607,17 @@ void c2_eoj()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #304");
+    strcpy(trace_1, "c2z_eoj.c #273");
     trace_rec_3();
   }
-
 
   for (I = 0; I < cary_ct; I++) 
   {
     strcpy(a_string, "         DS    0H");
-    strcpy(wk_remark, "c2z gen variable  */");
-    write_short();
+    src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #89");
+      strcpy(trace_1, "c2z_eoj.c #274");
       trace_rec_3();
     }
 
@@ -4676,7 +4630,7 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z Parser Var #112");
+      strcpy(trace_1, "c2z_eoj.c #275");
       trace_rec_3();
     }
   }
@@ -4685,7 +4639,7 @@ void c2_eoj()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z Parser Var #112");
+    strcpy(trace_1, "c2z_eoj.c #276");
     trace_rec_3();
   }
 
@@ -4699,12 +4653,12 @@ void c2_eoj()
       check_length();
       strcat(a_string, "DSECT");
       strcpy(wk_remark, " ");
-      strcpy(wk_remark, gw_variable[I].gv_table);
+      strcpy(wk_remark, gw_variable[I].gv_name);
       strcpy(wk_remark, " */");
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj char array #1");
+        strcpy(trace_1, "c2z_eoj.c #277");
         trace_rec_3();
       }
 
@@ -4717,7 +4671,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj char array #2");
+        strcpy(trace_1, "c2z_eoj.c #278");
         trace_rec_3();
       }
 
@@ -4728,7 +4682,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj char array #3");
+        strcpy(trace_1, "c2z_eoj.c #279");
         trace_rec_3();
       }
 
@@ -4736,7 +4690,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj char array #4");
+        strcpy(trace_1, "c2z_eoj.c #280");
         trace_rec_3();
       }
 
@@ -4744,7 +4698,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj char array #5");
+        strcpy(trace_1, "c2z_eoj.c #281");
         trace_rec_3();
       }
     }
@@ -4760,12 +4714,12 @@ void c2_eoj()
       check_length();
       strcat(a_string, "DSECT");
       strcpy(wk_remark, " ");
-      strcpy(wk_remark, gw_variable[I].gv_table);
+      strcpy(wk_remark, gw_variable[I].gv_name);
       strcpy(wk_remark, " */");
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj int array #1");
+        strcpy(trace_1, "c2z_eoj.c #282");
         trace_rec_3();
       }
 
@@ -4775,7 +4729,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj int array #2");
+        strcpy(trace_1, "c2z_eoj.c #283");
         trace_rec_3();
       }
 
@@ -4786,7 +4740,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj int array #3");
+        strcpy(trace_1, "c2z_eoj.c #284");
         trace_rec_3();
       }
 
@@ -4797,7 +4751,7 @@ void c2_eoj()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_eoj.c c2_eoj int array #4");
+          strcpy(trace_1, "c2z_eoj.c #285");
           trace_rec_3();
         }
       }
@@ -4806,7 +4760,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj int array #5");
+        strcpy(trace_1, "c2z_eoj.c #286");
         trace_rec_3();
       }
     }
@@ -4829,7 +4783,7 @@ void c2_eoj()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_eoj.c c2_eoj structure #1");
+          strcpy(trace_1, "c2z_eoj.c #287");
           trace_rec_3();
         }
 
@@ -4837,7 +4791,7 @@ void c2_eoj()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_eoj.c c2_eoj structure #2");
+          strcpy(trace_1, "c2z_eoj.c #288");
           trace_rec_3();
         }
       }
@@ -4850,7 +4804,7 @@ void c2_eoj()
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c c2_eoj structure #3");
+        strcpy(trace_1, "c2z_eoj.c #289");
         trace_rec_3();
       }
     }
@@ -4875,7 +4829,7 @@ void c2_eoj()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_eoj.c c2_eoj structure #4");
+          strcpy(trace_1, "c2z_eoj.c #290");
           trace_rec_3();
         }
       }
@@ -4900,7 +4854,7 @@ void c2_eoj()
         src_line();
         if (puncde == 1) 
         {
-          strcpy(trace_1, "c2z_eoj.c c2_eoj structure #5");
+          strcpy(trace_1, "c2z_eoj.c #291");
           trace_rec_3();
         }
       }
@@ -4918,7 +4872,7 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_eoj.c c2_eoj structure #6");
+      strcpy(trace_1, "c2z_eoj.c #292");
       trace_rec_3();
     }
 
@@ -4926,7 +4880,7 @@ void c2_eoj()
     src_line();
     if (puncde == 1) 
     {
-      strcpy(trace_1, "c2z_eoj.c c2_eoj structure #7");
+      strcpy(trace_1, "c2z_eoj.c #293");
       trace_rec_3();
     }
   }
@@ -4938,7 +4892,7 @@ void c2_eoj()
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_eoj.c c2_eoj End of Parser");
+    strcpy(trace_1, "c2z_eoj.c #294");
     trace_rec_3();
   }
 

@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z  : c2z_define.c                               *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2020                    *
+*  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
 /* ***************************************************
@@ -129,6 +129,7 @@ void c2_define()
           if (ret == 0) 
           {
             x3 = 1;
+            break;
           }
         }
       }
@@ -144,6 +145,7 @@ void c2_define()
             if ((ret == 0) && (ret1 == 0)) 
             {
               x3 = 1;
+              break;
             }
           }
         }
@@ -178,8 +180,22 @@ void c2_define()
         strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
         strcpy(gw_variable[gv_ct].gv_type, "C");
         gw_variable[gv_ct].gv_lgth = atoi(tfield2);
+        gw_variable[gv_ct].gv_current_lgth = 0;
         strcpy(gw_variable[gv_ct].gv_value, tfield2);
+        gw_variable[gv_ct].gv_init = 0;
         strcpy(gw_variable[gv_ct].gv_literal, null_field);
+        gw_variable[gv_ct].gv_use_ct = 0;
+        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+        gw_variable[gv_ct].gv_row = 0;
+        gw_variable[gv_ct].gv_column = 0;
+        strcpy(gw_variable[gv_ct].gv_label, null_field);
+        strcpy(gw_variable[gv_ct].gv_table, null_field);
+        strcpy(gw_variable[gv_ct].gv_aname, null_field);
+        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+        gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 1;
         gv_ct++;
@@ -199,16 +215,15 @@ void c2_define()
         }
 
         lw_variable[lv_ct].lv_rct = rct;
-        strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
         strcpy(lw_variable[lv_ct].lv_name, tfield1);
+        strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         strcpy(lw_variable[lv_ct].lv_type, "C");
-        
         lw_variable[lv_ct].lv_lgth = atoi(tfield2);
         lw_variable[lv_ct].lv_current_lgth = atoi(tfield2);
         strcpy(lw_variable[lv_ct].lv_value, tfield2);
         lw_variable[lv_ct].lv_init = 0;
         strcpy(lw_variable[lv_ct].lv_literal, null_field);
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         lw_variable[lv_ct].lv_use_ct = 0;
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 1;
@@ -267,6 +282,7 @@ void c2_define()
             if (ret == 0) 
             {
               x3 = 1;
+              break;
             }
           }
         }
@@ -282,6 +298,7 @@ void c2_define()
               if ((ret == 0) && (ret1 == 0)) 
               {
                 x3 = 1;
+                break;
               }
             }
           }
@@ -316,8 +333,20 @@ void c2_define()
             strcpy(gw_variable[gv_ct].gv_type, "I");
             gw_variable[gv_ct].gv_lgth = 0;
             strcpy(gw_variable[gv_ct].gv_value, tfield2);
+            gw_variable[gv_ct].gv_init = 0;
             strcpy(gw_variable[gv_ct].gv_literal, null_field);
             gw_variable[gv_ct].gv_use_ct = 0;
+            strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+            gw_variable[gv_ct].gv_row = 0;
+            gw_variable[gv_ct].gv_column = 0;
+            strcpy(gw_variable[gv_ct].gv_label, null_field);
+            strcpy(gw_variable[gv_ct].gv_table, null_field);
+            strcpy(gw_variable[gv_ct].gv_aname, null_field);
+            strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+            strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+            strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+            strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+            gw_variable[gv_ct].gv_flag = 0;
             gw_variable[gv_ct].gv_dec = 0;
             gw_variable[gv_ct].gv_id = 1;
             gv_ct++;
@@ -338,15 +367,15 @@ void c2_define()
           }
 
           lw_variable[lv_ct].lv_rct = rct;
-          strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
           strcpy(lw_variable[lv_ct].lv_name, tfield1);
+          strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           strcpy(lw_variable[lv_ct].lv_type, "I");
           lw_variable[lv_ct].lv_lgth = 0;
           lw_variable[lv_ct].lv_current_lgth = 0;
           strcpy(lw_variable[lv_ct].lv_value, tfield2);
           lw_variable[lv_ct].lv_init = 0;
           strcpy(lw_variable[lv_ct].lv_literal, null_field);
-          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           lw_variable[lv_ct].lv_use_ct = 0;
           lw_variable[lv_ct].lv_dec = 0;
           lw_variable[lv_ct].lv_id = 1;
@@ -379,6 +408,7 @@ void c2_define()
         {
           x3 = 1;
           strcpy(tfield2a, gw_variable[v].gv_value);
+          break;
         }
       }
 
@@ -391,6 +421,7 @@ void c2_define()
           if (ret == 0) 
           {
             x3 = 1;
+            break;
           }
         }
       }
@@ -406,6 +437,7 @@ void c2_define()
             if ((ret == 0) && (ret1 == 0)) 
             {
               x3 = 1;
+              break;
             }
           }
         }
@@ -429,9 +461,22 @@ void c2_define()
         strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
         strcpy(gw_variable[gv_ct].gv_type, "I");
         gw_variable[gv_ct].gv_lgth = 0;
+        gw_variable[gv_ct].gv_current_lgth = 0;
         strcpy(gw_variable[gv_ct].gv_value, tfield2);
+        gw_variable[gv_ct].gv_init = 0;
         strcpy(gw_variable[gv_ct].gv_literal, null_field);
         gw_variable[gv_ct].gv_use_ct = 0;
+        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+        gw_variable[gv_ct].gv_row = 0;
+        gw_variable[gv_ct].gv_column = 0;
+        strcpy(gw_variable[gv_ct].gv_label, null_field);
+        strcpy(gw_variable[gv_ct].gv_table, null_field);
+        strcpy(gw_variable[gv_ct].gv_aname, null_field);
+        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+        gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 1;
         gv_ct++;
@@ -453,13 +498,13 @@ void c2_define()
         lw_variable[lv_ct].lv_rct = rct;
         strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
         strcpy(lw_variable[lv_ct].lv_name, tfield1);
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         strcpy(lw_variable[lv_ct].lv_type, "I");
         lw_variable[lv_ct].lv_lgth = 0;
         lw_variable[lv_ct].lv_current_lgth = 0;
         strcpy(lw_variable[lv_ct].lv_value, tfield2);
         lw_variable[lv_ct].lv_init = 0;
         strcpy(lw_variable[lv_ct].lv_literal, null_field);
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         lw_variable[lv_ct].lv_use_ct = 0;
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 1;
@@ -567,8 +612,22 @@ void c2_define()
       strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
       strcpy(gw_variable[gv_ct].gv_type, "X");
       gw_variable[gv_ct].gv_lgth = 0;
+      gw_variable[gv_ct].gv_current_lgth = 0;
       strcpy(gw_variable[gv_ct].gv_value, tfield2);
+      gw_variable[gv_ct].gv_init = 0;
       strcpy(gw_variable[gv_ct].gv_literal, null_field);
+      gw_variable[gv_ct].gv_use_ct = 0;
+      strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+      gw_variable[gv_ct].gv_row = 0;
+      gw_variable[gv_ct].gv_column = 0;
+      strcpy(gw_variable[gv_ct].gv_label, null_field);
+      strcpy(gw_variable[gv_ct].gv_table, null_field);
+      strcpy(gw_variable[gv_ct].gv_aname, null_field);
+      strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+      strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+      strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+      strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+      gw_variable[gv_ct].gv_flag = 0;
       gw_variable[gv_ct].gv_dec = 0;
       gw_variable[gv_ct].gv_id = 4;
       gv_ct++;
@@ -590,13 +649,13 @@ void c2_define()
       lw_variable[lv_ct].lv_rct = rct;
       strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
       strcpy(lw_variable[lv_ct].lv_name, tfield1);
+      strcpy(lw_variable[lv_ct].lv_func, sv_func);
       strcpy(lw_variable[lv_ct].lv_type, "X");
       lw_variable[lv_ct].lv_lgth = 0;
       lw_variable[lv_ct].lv_current_lgth = 0;
       strcpy(lw_variable[lv_ct].lv_value, tfield2);
       lw_variable[lv_ct].lv_init = 0;
       strcpy(lw_variable[lv_ct].lv_literal, null_field);
-      strcpy(lw_variable[lv_ct].lv_func, sv_func);
       lw_variable[lv_ct].lv_use_ct = 0;
       lw_variable[lv_ct].lv_dec = 0;
       lw_variable[lv_ct].lv_id = 4;
@@ -665,6 +724,7 @@ void c2_ifndef(void)
     {
       gw_variable[I].gv_use_ct++;
       x3 = 1;
+      break;
     }
   }
 
@@ -677,6 +737,7 @@ void c2_ifndef(void)
       {
         lw_variable[I].lv_use_ct++;
         x3 = 1;
+        break;
       }
     }
   }

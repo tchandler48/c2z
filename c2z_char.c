@@ -12,7 +12,7 @@ void c2_char()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_char.c #1 ");
+    strcpy(trace_1, "c2z_char.c #1");
     trace_rec_1();
   }
 
@@ -495,6 +495,7 @@ void c2_char_1()
         x3 = 1;
         strcpy(tfield1a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -508,6 +509,7 @@ void c2_char_1()
           x3 = 1;
           strcpy(tfield1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -534,8 +536,8 @@ void c2_char_1()
         gw_variable[gv_ct].gv_lgth = s;
         gw_variable[gv_ct].gv_current_lgth = 0;
         strcpy(gw_variable[gv_ct].gv_value, null_field);
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
         gw_variable[gv_ct].gv_init = 0;
+        strcpy(gw_variable[gv_ct].gv_literal, null_field);
         gw_variable[gv_ct].gv_use_ct = 0;
         strcpy(gw_variable[gv_ct].gv_dsect, null_field);
         gw_variable[gv_ct].gv_row = 0;
@@ -546,6 +548,8 @@ void c2_char_1()
         strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
         strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
         strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+        gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 3;
         gv_ct++;
@@ -565,15 +569,17 @@ void c2_char_1()
           lw_variable = realloc(lw_variable, size * sizeof(struct var));
         }
         lw_variable[lv_ct].lv_rct = rct;
-        strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
         strcpy(lw_variable[lv_ct].lv_name, tfield1);
+        strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         strcpy(lw_variable[lv_ct].lv_type, "C");
         s = atoi(tfield3a);
         lw_variable[lv_ct].lv_lgth = s;
         lw_variable[lv_ct].lv_current_lgth = s;
         strcpy(lw_variable[lv_ct].lv_value, tfield2);
+        lw_variable[lv_ct].lv_init = 0;
+        strcpy(lw_variable[lv_ct].lv_literal, null_field);
         lw_variable[lv_ct].lv_use_ct = 0;
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 3;
         lv_ct++;
@@ -603,8 +609,8 @@ void c2_char_1()
     w_charlit[char_ct].clit_rct = rct;
     strcpy(w_charlit[char_ct].clit_cname, tfield1a);
     strcpy(w_charlit[char_ct].clit_value, tfield2);
-    w_charlit[char_ct].clit_type = 3;
     w_charlit[char_ct].clit_lgth = x3;
+    w_charlit[char_ct].clit_type = 3;
     w_charlit[char_ct].clit_uct = 1;
     char_ct++;
   }
@@ -639,6 +645,7 @@ void c2_char_1()
           x3 = 1;
           strcpy(tfield1a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
 
@@ -652,6 +659,7 @@ void c2_char_1()
             x3 = 1;
             strcpy(tfield1a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
@@ -679,14 +687,14 @@ void c2_char_1()
             gw_variable = realloc(gw_variable, size * sizeof(struct variables));
           }
           gw_variable[gv_ct].gv_rct = rct;
-          strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
           strcpy(gw_variable[gv_ct].gv_name, tfield1);
+          strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
           strcpy(gw_variable[gv_ct].gv_type, "C");
           gw_variable[gv_ct].gv_lgth = s;
           gw_variable[gv_ct].gv_current_lgth = 2;
           strcpy(gw_variable[gv_ct].gv_value, null_field);
-          strcpy(gw_variable[gv_ct].gv_literal, null_field);
           gw_variable[gv_ct].gv_init = 0;
+          strcpy(gw_variable[gv_ct].gv_literal, null_field);
           gw_variable[gv_ct].gv_use_ct = 0;
           strcpy(gw_variable[gv_ct].gv_dsect, null_field);
           gw_variable[gv_ct].gv_row = 0;
@@ -697,6 +705,8 @@ void c2_char_1()
           strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
           strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
           strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+          strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+          gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
           gw_variable[gv_ct].gv_id = 3;
           gv_ct++;
@@ -716,14 +726,16 @@ void c2_char_1()
             lw_variable = realloc(lw_variable, size * sizeof(struct var));
           }
           lw_variable[lv_ct].lv_rct = rct;
-          strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
           strcpy(lw_variable[lv_ct].lv_name, tfield1);
+          strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           strcpy(lw_variable[lv_ct].lv_type, "C");
           lw_variable[lv_ct].lv_lgth = 2;
           lw_variable[lv_ct].lv_current_lgth = 2;
           strcpy(lw_variable[lv_ct].lv_value, null_field);
+          lw_variable[lv_ct].lv_init = 0;
+          strcpy(lw_variable[lv_ct].lv_literal, null_field);
           lw_variable[lv_ct].lv_use_ct = 0;
-          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           lw_variable[lv_ct].lv_dec = 0;
           lw_variable[lv_ct].lv_id = 3;
           lv_ct++;
@@ -754,6 +766,7 @@ void c2_char_1()
           x3 = 1;
           strcpy(tfield2a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
 
@@ -767,6 +780,7 @@ void c2_char_1()
             x3 = 1;
             strcpy(tfield2a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
@@ -786,15 +800,15 @@ void c2_char_1()
             gw_variable = realloc(gw_variable, size * sizeof(struct variables));
           }
           gw_variable[gv_ct].gv_rct = rct;
-          strcpy(gw_variable[gv_ct].gv_cname, tfield2a);
           strcpy(gw_variable[gv_ct].gv_name, tfield2);
+          strcpy(gw_variable[gv_ct].gv_cname, tfield2a);
           strcpy(gw_variable[gv_ct].gv_type, "C");
           s = atoi(tfield3a);
           gw_variable[gv_ct].gv_lgth = s;
           gw_variable[gv_ct].gv_current_lgth = s;
           strcpy(gw_variable[gv_ct].gv_value, null_field);
-          strcpy(gw_variable[gv_ct].gv_literal, null_field);
           gw_variable[gv_ct].gv_init = 0;
+          strcpy(gw_variable[gv_ct].gv_literal, null_field);
           gw_variable[gv_ct].gv_use_ct = 0;
           strcpy(gw_variable[gv_ct].gv_dsect, null_field);
           gw_variable[gv_ct].gv_row = 0;
@@ -805,6 +819,8 @@ void c2_char_1()
           strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
           strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
           strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+          strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+          gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
           gw_variable[gv_ct].gv_id = 3;
           gv_ct++;
@@ -824,15 +840,17 @@ void c2_char_1()
             lw_variable = realloc(lw_variable, size * sizeof(struct var));
           }
           lw_variable[lv_ct].lv_rct = rct;
-          strcpy(lw_variable[lv_ct].lv_cname, tfield2a);
           strcpy(lw_variable[lv_ct].lv_name, tfield2);
+          strcpy(lw_variable[lv_ct].lv_cname, tfield2a);
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           strcpy(lw_variable[lv_ct].lv_type, "C");
           s = atoi(tfield3a);
           lw_variable[lv_ct].lv_lgth = s;
           lw_variable[lv_ct].lv_current_lgth = s;
           strcpy(lw_variable[lv_ct].lv_value, null_field);
+          lw_variable[lv_ct].lv_init = 0;
+          strcpy(lw_variable[lv_ct].lv_literal, null_field);
           lw_variable[lv_ct].lv_use_ct = 0;
-          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           lw_variable[lv_ct].lv_dec = 0;
           lw_variable[lv_ct].lv_id = 3;
           lv_ct++;
@@ -918,6 +936,7 @@ void c2_char_1()
               strcpy(tfield3a, lw_variable[I].lv_value);
               strcpy(tfield2a, lw_variable[I].lv_cname);
               lw_variable[I].lv_use_ct++;
+              break;
             }
           }
         }
@@ -935,6 +954,7 @@ void c2_char_1()
                 strcpy(tfield3a, gw_variable[I].gv_value);
                 strcpy(tfield2a, gw_variable[I].gv_cname);
                 gw_variable[I].gv_use_ct++;
+                break;
               }
             }
           }
@@ -961,6 +981,7 @@ void c2_char_1()
               x3 = 1;
               strcpy(tfield1a, lw_variable[I].lv_cname);
               lw_variable[I].lv_use_ct++;
+              break;
             }
           }
         }
@@ -977,6 +998,7 @@ void c2_char_1()
                 x3 = 1;
                 strcpy(tfield1a, gw_variable[I].gv_cname);
                 gw_variable[I].gv_use_ct++;
+                break;
               }
             }
           }
@@ -998,15 +1020,15 @@ void c2_char_1()
             }
 
             gw_variable[gv_ct].gv_rct = rct;
-            strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
             strcpy(gw_variable[gv_ct].gv_name, tfield1);
+            strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
             strcpy(gw_variable[gv_ct].gv_type, "C");
             s = atoi(tfield3a);
             gw_variable[gv_ct].gv_lgth = s;
             gw_variable[gv_ct].gv_current_lgth = s;
             strcpy(gw_variable[gv_ct].gv_value, null_field);
-            strcpy(gw_variable[gv_ct].gv_literal, null_field);
             gw_variable[gv_ct].gv_init = 0;
+            strcpy(gw_variable[gv_ct].gv_literal, null_field);
             gw_variable[gv_ct].gv_use_ct = 0;
             strcpy(gw_variable[gv_ct].gv_dsect, null_field);
             gw_variable[gv_ct].gv_row = 0;
@@ -1017,6 +1039,8 @@ void c2_char_1()
             strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+            strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+            gw_variable[gv_ct].gv_flag = 0;
             gw_variable[gv_ct].gv_dec = 0;
             gw_variable[gv_ct].gv_id = 1;
             gv_ct++;
@@ -1036,16 +1060,17 @@ void c2_char_1()
             }
 
             lw_variable[lv_ct].lv_rct = rct;
-            strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
             strcpy(lw_variable[lv_ct].lv_name, tfield1);
+            strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+            strcpy(lw_variable[lv_ct].lv_func, sv_func);
             strcpy(lw_variable[lv_ct].lv_type, "C");
             s = atoi(tfield3a);
             lw_variable[lv_ct].lv_lgth = s;
             lw_variable[lv_ct].lv_current_lgth = s;
             strcpy(lw_variable[lv_ct].lv_value, null_field);
-            lw_variable[lv_ct].lv_use_ct = 0;
-            strcpy(lw_variable[lv_ct].lv_func, sv_func);
+            lw_variable[lv_ct].lv_init = 0;
             strcpy(lw_variable[lv_ct].lv_literal, null_field);
+            lw_variable[lv_ct].lv_use_ct = 0;
             lw_variable[lv_ct].lv_dec = 0;
             lw_variable[lv_ct].lv_id = 1;
             lv_ct++;
@@ -1070,6 +1095,7 @@ void c2_char_1()
               strcpy(tfield3a, lw_variable[I].lv_value);
               strcpy(tfield2a, lw_variable[I].lv_cname);
               lw_variable[I].lv_use_ct++;
+              break;
             }
           }
         }
@@ -1087,6 +1113,7 @@ void c2_char_1()
                 strcpy(tfield3a, gw_variable[I].gv_value);
                 strcpy(tfield2a, gw_variable[I].gv_cname);
                 gw_variable[I].gv_use_ct++;
+                break;
               }
             }
           }
@@ -1113,6 +1140,7 @@ void c2_char_1()
               x3 = 1;
               strcpy(tfield1a, lw_variable[I].lv_cname);
               lw_variable[I].lv_use_ct++;
+              break;
             }
           }
         }
@@ -1129,6 +1157,7 @@ void c2_char_1()
                 x3 = 1;
                 strcpy(tfield1a, gw_variable[I].gv_cname);
                 gw_variable[I].gv_use_ct++;
+                break;
               }
             }
           }
@@ -1150,15 +1179,15 @@ void c2_char_1()
             }
 
             gw_variable[gv_ct].gv_rct = rct;
-            strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
             strcpy(gw_variable[gv_ct].gv_name, tfield1);
+            strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
             strcpy(gw_variable[gv_ct].gv_type, "C");
             s = atoi(tfield2);
             gw_variable[gv_ct].gv_lgth = s;
             gw_variable[gv_ct].gv_current_lgth = s;
             strcpy(gw_variable[gv_ct].gv_value, tfield2);
-            strcpy(gw_variable[gv_ct].gv_literal, null_field);
             gw_variable[gv_ct].gv_init = 0;
+            strcpy(gw_variable[gv_ct].gv_literal, null_field);
             gw_variable[gv_ct].gv_use_ct = 0;
             strcpy(gw_variable[gv_ct].gv_dsect, null_field);
             gw_variable[gv_ct].gv_row = 0;
@@ -1169,6 +1198,8 @@ void c2_char_1()
             strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
             strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+            strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+            gw_variable[gv_ct].gv_flag = 0;
             gw_variable[gv_ct].gv_dec = 0;
             gw_variable[gv_ct].gv_id = 3;
             gv_ct++;
@@ -1188,16 +1219,17 @@ void c2_char_1()
             }
 
             lw_variable[lv_ct].lv_rct = rct;
-            strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
             strcpy(lw_variable[lv_ct].lv_name, tfield1);
+            strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+            strcpy(lw_variable[lv_ct].lv_func, sv_func);
             strcpy(lw_variable[lv_ct].lv_type, "C");
             s = atoi(tfield2);
             lw_variable[lv_ct].lv_lgth = s;
             lw_variable[lv_ct].lv_current_lgth = s;
             strcpy(lw_variable[lv_ct].lv_value, tfield2);
-            lw_variable[lv_ct].lv_use_ct = 0;
-            strcpy(lw_variable[lv_ct].lv_func, sv_func);
+            lw_variable[lv_ct].lv_init = 0;
             strcpy(lw_variable[lv_ct].lv_literal, null_field);
+            lw_variable[lv_ct].lv_use_ct = 0;
             lw_variable[lv_ct].lv_dec = 0;
             lw_variable[lv_ct].lv_id = 3;
             lv_ct++;
@@ -1287,12 +1319,28 @@ void c2_char_1()
             gw_variable = realloc(gw_variable, size * sizeof(struct variables));
           }
           gw_variable[gv_ct].gv_rct = rct;
-          strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
           strcpy(gw_variable[gv_ct].gv_name, tfield1);
+          strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
           strcpy(gw_variable[gv_ct].gv_type, "R");
           gw_variable[gv_ct].gv_lgth = sd_wklg;
+          gw_variable[gv_ct].gv_current_lgth = sd_wklg;
+          strcpy(gw_variable[gv_ct].gv_value, null_field);
+          gw_variable[gv_ct].gv_init = 0;
           strcpy(gw_variable[gv_ct].gv_literal, null_field);
+          gw_variable[gv_ct].gv_use_ct = 0;
+          strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+          gw_variable[gv_ct].gv_row = 0;
+          gw_variable[gv_ct].gv_column = 0;
+          strcpy(gw_variable[gv_ct].gv_label, null_field);
+          strcpy(gw_variable[gv_ct].gv_table, null_field);
+          strcpy(gw_variable[gv_ct].gv_aname, null_field);
+          strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+          strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+          strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+          strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+          gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
+          gw_variable[gv_ct].gv_id = 3;
           gv_ct++;
 
           convert = 1;
@@ -1325,14 +1373,15 @@ void c2_char_1()
           }
 
           gw_variable[gv_ct].gv_rct = rct;
-          strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
           strcpy(gw_variable[gv_ct].gv_name, tfield1);
+          strcpy(gw_variable[gv_ct].gv_cname, tfield1a);
           strcpy(gw_variable[gv_ct].gv_type, "C");
           s = atoi(tfield2);
           gw_variable[gv_ct].gv_lgth = s;
+          gw_variable[gv_ct].gv_current_lgth = 0;
           strcpy(gw_variable[gv_ct].gv_value, tfield2);
-          strcpy(gw_variable[gv_ct].gv_literal, null_field);
           gw_variable[gv_ct].gv_init = 0;
+          strcpy(gw_variable[gv_ct].gv_literal, null_field);
           gw_variable[gv_ct].gv_use_ct = 0;
           strcpy(gw_variable[gv_ct].gv_dsect, null_field);
           gw_variable[gv_ct].gv_row = 0;
@@ -1343,6 +1392,8 @@ void c2_char_1()
           strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
           strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
           strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+          strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+          gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
           gw_variable[gv_ct].gv_id = 3;
           gv_ct++;
@@ -1364,14 +1415,17 @@ void c2_char_1()
           }
 
           lw_variable[lv_ct].lv_rct = rct;
-          strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
           strcpy(lw_variable[lv_ct].lv_name, tfield1);
+          strcpy(lw_variable[lv_ct].lv_cname, tfield1a);
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           strcpy(lw_variable[lv_ct].lv_type, "C");
           s = atoi(tfield2);
           lw_variable[lv_ct].lv_lgth = s;
+          lw_variable[lv_ct].lv_current_lgth = 0;
           strcpy(lw_variable[lv_ct].lv_value, tfield2);
+          lw_variable[lv_ct].lv_init = 0;
+          strcpy(lw_variable[lv_ct].lv_literal, tfield2);
           lw_variable[lv_ct].lv_use_ct = 0;
-          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           lw_variable[lv_ct].lv_dec = 0;
           lw_variable[lv_ct].lv_id = 3;
           lv_ct++;
@@ -1433,6 +1487,7 @@ void c2_char_2()
     {
       y0 = 1;
       strcpy(field1a, lw_variable[y1].lv_value);
+      break;
     }
   }
 
@@ -1445,6 +1500,7 @@ void c2_char_2()
       {
         y0 = 1;
         strcpy(field1a, gw_variable[y1].gv_value);
+        break;
       }
     }
   }
@@ -1473,14 +1529,15 @@ void c2_char_2()
       }
 
       gw_variable[gv_ct].gv_rct = rct;
-      strcpy(gw_variable[gv_ct].gv_cname, field1a);
       strcpy(gw_variable[gv_ct].gv_name, field1);
+      strcpy(gw_variable[gv_ct].gv_cname, field1a);
       strcpy(gw_variable[gv_ct].gv_type, "C");
       s = 1;
       gw_variable[gv_ct].gv_lgth = s;
+      gw_variable[gv_ct].gv_current_lgth = 0;
       strcpy(gw_variable[gv_ct].gv_value, null_field);
-      strcpy(gw_variable[gv_ct].gv_literal, null_field);
       gw_variable[gv_ct].gv_init = 0;
+      strcpy(gw_variable[gv_ct].gv_literal, null_field);
       gw_variable[gv_ct].gv_use_ct = 0;
       strcpy(gw_variable[gv_ct].gv_dsect, null_field);
       gw_variable[gv_ct].gv_row = 0;
@@ -1491,8 +1548,10 @@ void c2_char_2()
       strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
       strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
       strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+      strcpy(gw_variable[gv_ct].gv_st_col, null_field);
       gw_variable[gv_ct].gv_flag = 0;
       gw_variable[gv_ct].gv_dec = 0;
+      gw_variable[gv_ct].gv_id = 0;
       gv_ct++;
     }
 
@@ -1510,14 +1569,16 @@ void c2_char_2()
       }
 
       lw_variable[lv_ct].lv_rct = rct;
-      strcpy(lw_variable[lv_ct].lv_cname, field1a);
       strcpy(lw_variable[lv_ct].lv_name, field1);
+      strcpy(lw_variable[lv_ct].lv_cname, field1a);
+      strcpy(lw_variable[lv_ct].lv_func, sv_func);
       strcpy(lw_variable[lv_ct].lv_type, "C");
       lw_variable[lv_ct].lv_lgth = 1;
+      lw_variable[lv_ct].lv_current_lgth = 0;
       strcpy(lw_variable[lv_ct].lv_value, null_field);
-      lw_variable[lv_ct].lv_use_ct = 0;
-      strcpy(lw_variable[lv_ct].lv_func, sv_func);
+      lw_variable[lv_ct].lv_init = 0;
       strcpy(lw_variable[lv_ct].lv_literal, null_field);
+      lw_variable[lv_ct].lv_use_ct = 0;
       lw_variable[lv_ct].lv_dec = 0;
       lw_variable[lv_ct].lv_id = 3;
       lv_ct++;
@@ -1588,17 +1649,22 @@ void c2_char_3()
     tot_malloc++;
 
     gw_variable[gv_ct].gv_rct = rct;
-    strcpy(gw_variable[gv_ct].gv_cname, field1a);
     strcpy(gw_variable[gv_ct].gv_name, field1);
+    strcpy(gw_variable[gv_ct].gv_cname, field1a);
     strcpy(gw_variable[gv_ct].gv_type, "A");
+
+    gw_variable[gv_ct].gv_lgth = 32;
+    gw_variable[gv_ct].gv_current_lgth = 0;
+
     gw_variable[gv_ct].gv_init = 0;
     gw_variable[gv_ct].gv_use_ct = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_flag = 0;
+    strcpy(gw_variable[gv_ct].gv_value, null_field);
+
     gw_variable[gv_ct].gv_row = 10;
     gw_variable[gv_ct].gv_column = 25;
 
-    gw_variable[gv_ct].gv_lgth = 32;
 
     snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
@@ -1642,10 +1708,9 @@ void c2_char_3()
     strcat(wk_string, "A");
     strcpy(gw_variable[gv_ct].gv_aname, wk_string);
 
-    gw_variable[gv_ct].gv_flag = 0;
-   
-   /*  gw_variable[gv_ct].gv_column = 32;
-    gw_variable[gv_ct].gv_row = 250; */
+/*  gw_variable[gv_ct].gv_column = 32;
+    gw_variable[gv_ct].gv_row = 250; 
+*/
 
     gv_ct++;
 
@@ -1668,13 +1733,14 @@ void c2_char_3()
     }
 
     gw_variable[gv_ct].gv_rct = rct;
-    strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
     strcpy(gw_variable[gv_ct].gv_name, wk_string);
+    strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
     strcpy(gw_variable[gv_ct].gv_type, "B");
     gw_variable[gv_ct].gv_lgth = 0;
+    gw_variable[gv_ct].gv_current_lgth = 0;
     strcpy(gw_variable[gv_ct].gv_value, null_field);
-    strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_init = 0;
+    strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
     strcpy(gw_variable[gv_ct].gv_dsect, null_field);
     gw_variable[gv_ct].gv_row = 0;
@@ -1685,8 +1751,10 @@ void c2_char_3()
     strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-    gw_variable[gv_ct].gv_dec = 0;
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
     gw_variable[gv_ct].gv_flag = 0;
+    gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_id = 0;
     gv_ct++;
 
     c_name++;
@@ -1695,6 +1763,8 @@ void c2_char_3()
     strcat(c_wkname, wk_strg);
     s = strlen(c_wkname);
     c_wkname[s] = '\0';
+
+    tot_malloc++;
 
     if (gv_ct == 0) 
     {
@@ -1731,6 +1801,7 @@ void c2_char_3()
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_flag = 0;
+    gw_variable[gv_ct].gv_id = 0;
     gv_ct++;
   }
 
@@ -1810,13 +1881,14 @@ void c2_char_4()
     }
 
     gw_variable[gv_ct].gv_rct = rct;
-    strcpy(gw_variable[gv_ct].gv_cname, field1a);
     strcpy(gw_variable[gv_ct].gv_name, field1);
+    strcpy(gw_variable[gv_ct].gv_cname, field1a);
     strcpy(gw_variable[gv_ct].gv_type, "C");
     gw_variable[gv_ct].gv_lgth = 32;
+    gw_variable[gv_ct].gv_current_lgth = 0;
     strcpy(gw_variable[gv_ct].gv_value, null_field);
-    strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_init = 0;
+    strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
     strcpy(gw_variable[gv_ct].gv_dsect, null_field);
     gw_variable[gv_ct].gv_row = 0;
@@ -1827,6 +1899,8 @@ void c2_char_4()
     strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
     gw_variable[gv_ct].gv_id = 1;
     gv_ct++;
@@ -1846,13 +1920,16 @@ void c2_char_4()
     }
 
     lw_variable[lv_ct].lv_rct = rct;
-    strcpy(lw_variable[lv_ct].lv_cname, field1a);
     strcpy(lw_variable[lv_ct].lv_name, field1);
+    strcpy(lw_variable[lv_ct].lv_cname, field1a);
+    strcpy(lw_variable[lv_ct].lv_func, sv_func);
     strcpy(lw_variable[lv_ct].lv_type, "C");
     lw_variable[lv_ct].lv_lgth = 32;
+    lw_variable[lv_ct].lv_current_lgth = 0;
     strcpy(lw_variable[lv_ct].lv_value, null_field);
+    lw_variable[lv_ct].lv_init = 0;
+    strcpy(lw_variable[lv_ct].lv_literal, null_field);
     lw_variable[lv_ct].lv_use_ct = 0;
-    strcpy(lw_variable[lv_ct].lv_func, sv_func);
     lw_variable[lv_ct].lv_dec = 0;
     lw_variable[lv_ct].lv_id = 1;
     lv_ct++;
@@ -2071,6 +2148,7 @@ void c2_char_9()
         y0 = 1;
         strcpy(field1a, lw_variable[y1].lv_cname);
         lw_variable[y1].lv_use_ct++;
+        break;
       }
     }
   }
@@ -2087,6 +2165,7 @@ void c2_char_9()
           y0 = 1;
           strcpy(field1a, gw_variable[y1].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -2106,6 +2185,7 @@ void c2_char_9()
           y0 = 1;
           strcpy(field2a, lw_variable[y1].lv_cname);
           lw_variable[y1].lv_use_ct++;
+          break;
         }
       }
     }
@@ -2122,6 +2202,7 @@ void c2_char_9()
             y0 = 1;
             strcpy(field2a, gw_variable[y1].gv_cname);
             gw_variable[y1].gv_use_ct++;
+            break;
           }
         }
       }
@@ -2142,6 +2223,7 @@ void c2_char_9()
           y0 = 1;
           strcpy(field3a, lw_variable[y1].lv_cname);
           lw_variable[y1].lv_use_ct++;
+          break;
         }
       }
     }
@@ -2158,6 +2240,7 @@ void c2_char_9()
             y0 = 1;
             strcpy(field3a, gw_variable[y1].gv_cname);
             gw_variable[y1].gv_use_ct++;
+            break;
           }
         }
       }
@@ -2406,6 +2489,7 @@ void c2_char_9()
         if (y2 == 0) 
         {
           strcpy(field4a, gw_variable[y1].gv_value);
+          break;
         }
       }
     }
@@ -2420,6 +2504,7 @@ void c2_char_9()
         if (y2 == 0) 
         {
           strcpy(field5a, gw_variable[y1].gv_value);
+          break;
         }
       }
     }
@@ -2453,13 +2538,14 @@ void c2_char_9()
     }
 
     gw_variable[gv_ct].gv_rct = rct;
-    strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
     strcpy(gw_variable[gv_ct].gv_name, wk_string);
+    strcpy(gw_variable[gv_ct].gv_cname, c_wkname);
     strcpy(gw_variable[gv_ct].gv_type, "B");
     gw_variable[gv_ct].gv_lgth = 0;
+    gw_variable[gv_ct].gv_current_lgth = 0;
     strcpy(gw_variable[gv_ct].gv_value, null_field);
-    strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_init = 0;
+    strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
     strcpy(gw_variable[gv_ct].gv_dsect, null_field);
     gw_variable[gv_ct].gv_row = 0;
@@ -2470,7 +2556,10 @@ void c2_char_9()
     strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
+    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_id = 0;
     gv_ct++;
 
     c_name++;
@@ -2504,6 +2593,8 @@ void c2_char_9()
     gw_variable[gv_ct].gv_init = 0;
     gw_variable[gv_ct].gv_use_ct = 0;
     gw_variable[gv_ct].gv_dec = 0;
+    gw_variable[gv_ct].gv_flag = 0;
+    gw_variable[gv_ct].gv_id = 0;
     if (fd3_type == 2) 
     {
       y0 = atoi(field5a);
@@ -2641,6 +2732,7 @@ void c2_char_punch()
           strcpy(field1a, lw_variable[I].lv_cname);
           x99 = lw_variable[I].lv_lgth;
           x3 = 1;
+          break;
         }
       }
     }
@@ -2655,6 +2747,7 @@ void c2_char_punch()
           strcpy(field1a, gw_variable[I].gv_cname);
           x99 = gw_variable[I].gv_lgth;
           x3 = 1;
+          break;
         }
       }
     }
@@ -2778,6 +2871,7 @@ void c2_char_punch()
           x3 = 1;
           strcpy(field1a, lw_variable[v].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
     }
@@ -2794,6 +2888,7 @@ void c2_char_punch()
             x3 = 1;
             strcpy(field1a, gw_variable[v].gv_cname);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
@@ -2895,6 +2990,7 @@ void c2_char_punch()
           lw_variable[I].lv_use_ct++;
           x99 = lw_variable[I].lv_lgth;
           x3 = 1;
+          break;
         }
       }
     }
@@ -2910,6 +3006,7 @@ void c2_char_punch()
           gw_variable[I].gv_use_ct++;
           x99 = gw_variable[I].gv_lgth;
           x3 = 1;
+          break;
         }
       }
     }
@@ -3016,6 +3113,8 @@ void c2_char_41()
   char field3a[VAR_LGTH];
   char field4[VAR_LGTH];
   char field4a[VAR_LGTH];
+
+  tot_malloc++;
 
   pi = 0;
   ch = p_string[pi];
@@ -3138,6 +3237,7 @@ void c2_char_41()
     if ((ret == 0) && (ret1 == 0)) 
     {
       x3 = 1;
+      break;
     }
   }
 
@@ -3149,6 +3249,7 @@ void c2_char_41()
       if (ret == 0) 
       {
         x3 = 1;
+        break;
       }
     }
   }
@@ -3173,6 +3274,7 @@ void c2_char_41()
       {
         strcpy(field2a, lw_variable[v].lv_value);
         x3 = 1;
+        break;
       }
     }
 
@@ -3185,6 +3287,7 @@ void c2_char_41()
         {
           strcpy(field2a, gw_variable[v].gv_value);
           x3 = 1;
+          break;
         }
       }
     }
@@ -3210,6 +3313,7 @@ void c2_char_41()
       {
         strcpy(field3a, lw_variable[v].lv_value);
         x3 = 1;
+        break;
       }
     }
 
@@ -3222,6 +3326,7 @@ void c2_char_41()
         {
           strcpy(field3a, gw_variable[v].gv_value);
           x3 = 1;
+          break;
         }
       }
     }
@@ -3247,6 +3352,7 @@ void c2_char_41()
       {
         strcpy(field4a, lw_variable[v].lv_value);
         x3 = 1;
+        break;
       }
     }
 
@@ -3259,6 +3365,7 @@ void c2_char_41()
         {
           strcpy(field4a, gw_variable[v].gv_value);
           x3 = 1;
+          break;
         }
       }
     }
@@ -3382,43 +3489,43 @@ void c2_char_41()
       gw_variable[gv_ct].gv_lgth = x103;
     }
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "T");
     strcpy(gw_variable[gv_ct].gv_table, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "N");
     strcpy(gw_variable[gv_ct].gv_dsect, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "L");
     strcpy(gw_variable[gv_ct].gv_label, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "R");
     strcpy(gw_variable[gv_ct].gv_sv_reg, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "X");
     strcpy(gw_variable[gv_ct].gv_wk_reg, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "W");
     strcpy(gw_variable[gv_ct].gv_wk_strg, wk_string);
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "A");
@@ -3482,7 +3589,7 @@ void c2_char_41()
       size = gv_ct + 1;
       gw_variable = realloc(gw_variable, size * sizeof(struct variables));
     }
-    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_arr);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
     strcat(wk_string, "W");
@@ -3507,7 +3614,7 @@ void c2_char_41()
     strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
     gw_variable[gv_ct].gv_dec = 0;
     gv_ct++;
-    tot_arr++;
+ 
     tot_malloc++;
 
   }

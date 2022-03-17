@@ -70,6 +70,7 @@ void c2_int()
   }
   field1[pi2] = '\0';
 
+
   op_code = 0;
 
   p10 = strstr(field1, "void");
@@ -83,6 +84,7 @@ void c2_int()
   {
     op_code = 2;
   }
+
 
   /* ***********************************
   *  op_code                           *
@@ -145,12 +147,29 @@ void c2_int()
   }
   field1[pi2] = '\0';
 
-  if ((op_code == 2) && (p6) && (p9) && (convert == 0) && (arr_flag == 0)) 
+/*
+if(rct > 855)
+{
+printf("\nc2z_int.c START rct = %d p_string = %s",rct,p_string);
+printf("c2z_int.c #1 field1 = %s\n",field1);
+printf("c2z_int.c #2 x100 = %d\n",x100);
+printf("c2z_int.c #3 op_code = %d\n",op_code);
+printf("c2z_int.c #4 arr_flag = %d\n",arr_flag);
+printf("c2z_int.c #5 field1 = %s\n",field1);
+}
+*/
+
+/*  p6 = ( */
+/*  p9 = ) */
+
+  if ((op_code == 2) && (arr_flag == 0) && (p6) && (p9)) 
   {
     c2_int_3();
+    convert = 1;
+    return;
   }
 
-  if ((op_code == 2) && (convert == 0) && (arr_flag == 0)) /* INT NO VOID	*/
+  if ((op_code == 2) && (arr_flag == 0) && (!p6) && (!p9)) 		/* INT NO VOID	*/
   {
     if (traceflg == 1) 
     {
@@ -296,6 +315,13 @@ void c2_int()
         {
           strcpy(wk_fdwk, wk_fd10);
         }
+/*
+if(rct > 855)
+{
+printf("c2z_int.c #6 rct = %d u1 = %d II = %d wk_fdwk = %s\n",rct,u1,II,wk_fdwk);
+}
+*/
+
 
         p4 = strstr(wk_fdwk, "=");
         p8 = strchr(wk_fdwk, '[');
@@ -306,18 +332,37 @@ void c2_int()
 
         if ((!p4) && (!p11) && (!p8) && (!p5) && (convert == 0) && (arr_flag == 0)) 
         {
+/*
+if(rct > 855)
+{
+printf("c2z_int.c #7 rct = %d wk_fdwk = %s c2_int_1\n",rct,wk_fdwk);
+}
+*/
           c2_int_1(); 			/* single variable ie   INT NROWS;		*/
           convert = 1;
         }
 
         if (p11) 
         {
+/*
+if(rct > 855)
+{
+printf("c2z_int.c #8 rct = %d wk_fdwk = %s c2_int_2\n",rct,wk_fdwk);
+}
+*/
           c2_int_2(); 			/* INT NCOLUMNS=[BUFSIZE]			*/
           convert = 1;
         }
 
         if ((!p4) && (p8) && (p5) && (convert == 0) && (arr_flag == 0)) 		
         {
+/*
+if(rct > 855)
+{
+printf("c2z_int.c #9 rct = %d wk_fdwk = %s c2_int_5\n",rct,wk_fdwk);
+}
+*/
+
           c2_int_5();			/* int iv_stack[MAX_VALUE]	*/
           convert = 1;
         }
@@ -329,12 +374,14 @@ void c2_int()
   {
     c2_int_6();				/* int *in_stack; */
     convert = 1;
+    return;
   }
 
   if ((op_code == 1) && (convert == 0) && (arr_flag == 0)) 
   {
     c2_int_3();   				/* VOID A_BORT(INT CODE, INT LINE_NDX	*/
     convert = 1;
+    return;
   }
 }
 
@@ -387,6 +434,14 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
       }
     }
     field1[pi2] = '\0';
+
+/*
+if(rct > 855)
+{
+printf("c2z_int.c #9 wk_fdwk = %s s = %d field1 = %s pi2 = %d\n",wk_fdwk,s, field1,pi2);
+}
+*/
+
   }
 
   if (equal_found == 1) 
@@ -406,14 +461,6 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
     }
     field1[pi2] = '\0';
   }
-
-  c_name++;
-  snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-  strcpy(c_wkname, "C37F");
-  strcat(c_wkname, wk_strg);
-  s = strlen(c_wkname);
-  c_wkname[s] = '\0';
-  strcpy(field1a, c_wkname);
   
   x3 = 0;
   for (v = 0; v < lv_ct; v++) 
@@ -423,6 +470,7 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
     if ((ret == 0) && (ret1 == 0)) 
     {
       x3 = 1;
+      break;
     }
   }
 
@@ -434,12 +482,23 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
       if (ret == 0) 
       {
         x3 = 1;
+        break;
       }
     }
   }
 
   if (x3 == 0) 
   {
+
+    c_name++;
+    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+    strcpy(c_wkname, "C37F");
+    strcat(c_wkname, wk_strg);
+    s = strlen(c_wkname);
+    c_wkname[s] = '\0';
+    strcpy(field1a, c_wkname);
+
+    size = 0;
     if (global_st == 0) 
     {
       if (gv_ct == 0) 
@@ -480,6 +539,7 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
 
     if (global_st == 1) 
     {
+      size = 0;
       if (lv_ct == 0) 
       {
         size = 1;
@@ -493,17 +553,17 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
 
       lw_variable[lv_ct].lv_rct = rct;
       strcpy(lw_variable[lv_ct].lv_cname, field1a);
-      strcpy(lw_variable[lv_ct].lv_name, field1);
+      strcpy(lw_variable[lv_ct].lv_name, field1);    
+      strcpy(lw_variable[lv_ct].lv_func, sv_func);
       strcpy(lw_variable[lv_ct].lv_type, "I");
       lw_variable[lv_ct].lv_lgth = 0;
-      strcpy(lw_variable[lv_ct].lv_value, "0");
-      lw_variable[lv_ct].lv_use_ct = 0;
-      strcpy(lw_variable[lv_ct].lv_func, sv_func);
-      strcpy(lw_variable[lv_ct].lv_literal, null_field);
       lw_variable[lv_ct].lv_current_lgth = 0;
+      strcpy(lw_variable[lv_ct].lv_value, "0");
+      lw_variable[lv_ct].lv_init = 0;
+      strcpy(lw_variable[lv_ct].lv_literal, null_field);
+      lw_variable[lv_ct].lv_use_ct = 0;
       lw_variable[lv_ct].lv_dec = 0;
       lw_variable[lv_ct].lv_id = 1;
-      lw_variable[lv_ct].lv_init = 0;
       lv_ct++;
     }
   }
@@ -617,6 +677,7 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
         if ((ret == 0) && (ret1 == 0)) 
         {
           x3 = 1;
+          break;
         }
       }
     }
@@ -629,141 +690,16 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
         if (ret == 0) 
         {
           x3 = 1;
+          break;
         }
       }
     }
 
     if (x3 == 0) 
     {
-      if (global_st == 0) 
-      {
-        s = strlen(field2);
-        x99 = 0;
-        p1 = strstr(field2, "-");
-        if (p1) 
-        {
-          x99 = 1;
-        }
-
-        s1 = s + 1;
-        if (x99 == 1) 
-        {
-          strcpy(tfield3b, field2);
-          pi2 = 0;
-          for (I = 0; I < s1; I++) 
-          {
-            ch = tfield3b[I];
-            if (ch != '-') 
-            {
-              if (ch != ' ') 
-              {
-                field2[pi2] = ch;
-                pi2++;
-              }
-            }
-          }
-          field2[pi2] = '\0';
-        }
-
-        strcpy(field2a, field2);
-       
-        x80 = 0;
-        ret = strcmp("0", field2a);
-        if(ret == 0)
-        {
-          x80 = 1;
-        }
-
-        if(x80 == 0)
-        {
-          ret = strcmp("1", field2a);
-          if(ret == 0)
-          {
-            x80 = 1;
-          }
-        }
-
-        if(x80 == 0)
-        {
-/*
-          c_name++;
-          snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-          strcpy(c_wkname, "C37F");
-          strcat(c_wkname, wk_strg);
-          s = strlen(c_wkname);
-          c_wkname[s] = '\0';
-          strcpy(field1a, c_wkname);
-
-          if (math_lit_ct == 0) 
-          {
-            size = 1;
-            w_mathlit = malloc(size * sizeof(struct math_lit));
-          } 
-          else 
-          {
-            size = math_lit_ct + 1;
-            w_mathlit = realloc(w_mathlit, size * sizeof(struct math_lit));
-          }
-
-          w_mathlit[math_lit_ct].lit_rct = rct;
-          w_mathlit[math_lit_ct].lit_use_rct = rct;
-          strcpy(w_mathlit[math_lit_ct].lit_name, field1);
-          strcpy(w_mathlit[math_lit_ct].lit_cname, field1a);
-          strcpy(w_mathlit[math_lit_ct].lit_value, field2a);
-          strcpy(w_mathlit[math_lit_ct].lit_use_cname, field1a);
-          w_mathlit[math_lit_ct].lit_uct = 1;
-          w_mathlit[math_lit_ct].lit_dec = 0;
-          w_mathlit[math_lit_ct].lit_type = 1;
-          math_lit_ct++;
-*/
-        }
-
-        c_name++;
-        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-        strcpy(c_wkname, "C37F");
-        strcat(c_wkname, wk_strg);
-        s = strlen(c_wkname);
-        c_wkname[s] = '\0';
-        strcpy(field1a, c_wkname);
-
-        if (gv_ct == 0) 
-        {
-          size = 1;
-          gw_variable = malloc(size * sizeof(struct variables));
-        } 
-        else 
-        {
-          size = gv_ct + 1;
-          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-        }
-
-        gw_variable[gv_ct].gv_rct = rct;
-        strcpy(gw_variable[gv_ct].gv_name, field1);
-        strcpy(gw_variable[gv_ct].gv_cname, field1a);
-        strcpy(gw_variable[gv_ct].gv_type, "I");
-        gw_variable[gv_ct].gv_lgth = 0;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_value, field2a);
-        gw_variable[gv_ct].gv_init = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
-        gw_variable[gv_ct].gv_use_ct = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_table, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        gw_variable[gv_ct].gv_dec = 0;
-        gw_variable[gv_ct].gv_id = 1;
-        gw_variable[gv_ct].gv_flag = 0;
-        gv_ct++;
-      }
-
-      if (global_st == 1) 
-      {
+     if (global_st == 1) 
+     {
+        size = 0;
         if (lv_ct == 0) 
         {
           size = 1;
@@ -774,7 +710,6 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
           size = lv_ct + 1;
           lw_variable = realloc(lw_variable, size * sizeof(struct var));
         }
-
         lw_variable[lv_ct].lv_rct = rct;
         strcpy(lw_variable[lv_ct].lv_cname, field1a);
         strcpy(lw_variable[lv_ct].lv_name, field1);
@@ -783,10 +718,11 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
         lw_variable[lv_ct].lv_current_lgth = 0;
         strcpy(lw_variable[lv_ct].lv_value, field2);
         lw_variable[lv_ct].lv_use_ct = 0;
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 1;
         lw_variable[lv_ct].lv_init = 0;
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
+
         lv_ct++;
 
         s = strlen(field2);
@@ -839,41 +775,99 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
             x80 = 1;
           }
         }
+      }
 
-/*
+      if (global_st == 0) 
+      {
+        s = strlen(field2);
+        x99 = 0;
+        p1 = strstr(field2, "-");
+        if (p1) 
+        {
+          x99 = 1;
+        }
+
+        s1 = s + 1;
+        if (x99 == 1) 
+        {
+          strcpy(tfield3b, field2);
+          pi2 = 0;
+          for (I = 0; I < s1; I++) 
+          {
+            ch = tfield3b[I];
+            if (ch != '-') 
+            {
+              if (ch != ' ') 
+              {
+                field2[pi2] = ch;
+                pi2++;
+              }
+            }
+          }
+          field2[pi2] = '\0';
+        }
+
+        strcpy(field2a, field2);
+       
+        x80 = 0;
+        ret = strcmp("0", field2a);
+        if(ret == 0)
+        {
+          x80 = 1;
+        }
+
         if(x80 == 0)
         {
-          c_name++;
-          snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
-          strcpy(c_wkname, "C37F");
-          strcat(c_wkname, wk_strg);
-          s = strlen(c_wkname);
-          c_wkname[s] = '\0';
-          strcpy(field1a, c_wkname);
-
-          if (math_lit_ct == 0) 
+          ret = strcmp("1", field2a);
+          if(ret == 0)
           {
-            size = 1;
-            w_mathlit = malloc(size * sizeof(struct math_lit));
-          } 
-          else 
-          {
-            size = math_lit_ct + 1;
-            w_mathlit = realloc(w_mathlit, size * sizeof(struct math_lit));
+            x80 = 1;
           }
-
-          w_mathlit[math_lit_ct].lit_rct = rct;
-          w_mathlit[math_lit_ct].lit_use_rct = rct;
-          strcpy(w_mathlit[math_lit_ct].lit_name, field1);
-          strcpy(w_mathlit[math_lit_ct].lit_cname, field1a);
-          strcpy(w_mathlit[math_lit_ct].lit_value, field2a);
-          strcpy(w_mathlit[math_lit_ct].lit_use_cname, field1a);
-          w_mathlit[math_lit_ct].lit_uct = 1;
-          w_mathlit[math_lit_ct].lit_dec = 0;
-          w_mathlit[math_lit_ct].lit_type = 1;
-          math_lit_ct++;
         }
-*/
+
+        c_name++;
+        snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
+        strcpy(c_wkname, "C37F");
+        strcat(c_wkname, wk_strg);
+        s = strlen(c_wkname);
+        c_wkname[s] = '\0';
+        strcpy(field1a, c_wkname);
+
+        size = 0;
+        if (gv_ct == 0) 
+        {
+          size = 1;
+          gw_variable = malloc(size * sizeof(struct variables));
+        } 
+        else 
+        {
+          size = gv_ct + 1;
+          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
+        }
+
+        gw_variable[gv_ct].gv_rct = rct;
+        strcpy(gw_variable[gv_ct].gv_name, field1);
+        strcpy(gw_variable[gv_ct].gv_cname, field1a);
+        strcpy(gw_variable[gv_ct].gv_type, "I");
+        gw_variable[gv_ct].gv_lgth = 0;
+        gw_variable[gv_ct].gv_current_lgth = 0;
+        strcpy(gw_variable[gv_ct].gv_value, field2a);
+        gw_variable[gv_ct].gv_init = 0;
+        strcpy(gw_variable[gv_ct].gv_literal, null_field);
+        gw_variable[gv_ct].gv_use_ct = 0;
+        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+        gw_variable[gv_ct].gv_row = 0;
+        gw_variable[gv_ct].gv_column = 0;
+        strcpy(gw_variable[gv_ct].gv_label, null_field);
+        strcpy(gw_variable[gv_ct].gv_table, null_field);
+        strcpy(gw_variable[gv_ct].gv_aname, null_field);
+        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
+        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
+        gw_variable[gv_ct].gv_dec = 0;
+        gw_variable[gv_ct].gv_id = 1;
+        gw_variable[gv_ct].gv_flag = 0;
+        gv_ct++;
       }
     }
 
@@ -893,6 +887,7 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
         z3 = 1;
         strcpy(field2a, lw_variable[v].lv_value);
         lw_variable[v].lv_use_ct++;
+        break;
       }
     }
 
@@ -906,6 +901,7 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
           z3 = 1;
           strcpy(field2a, gw_variable[v].gv_value);
           gw_variable[v].gv_use_ct++;
+          break;
         }
       }
     }
@@ -1093,6 +1089,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
       if (ret == 0) 
       {
         w_function[I].fn_start = rct;
+        break;
       }
     }
 
@@ -1318,6 +1315,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
       {
         w_function[I].fn_start = rct;
         strcpy(w_function[I].fn_fd1, field3);
+        break;
       }
     }
 
@@ -1675,6 +1673,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         w_function[I].fn_start = rct;
         strcpy(w_function[I].fn_fd1, field3);
         strcpy(w_function[I].fn_fd2, field5);
+        break;
       }
     }
 
@@ -2173,6 +2172,7 @@ void c2_int_3() 					/* (VOID) or (INT) A_BORT(INT CODE, INT LINE_NDX	*/
         strcpy(w_function[I].fn_fd1, field3);
         strcpy(w_function[I].fn_fd2, field5);
         strcpy(w_function[I].fn_fd3, field7);
+        break;
       }
     }
 
@@ -2888,6 +2888,7 @@ void c2_int_4()
         if (ret == 0) 
         {
           x3 = 1;
+          break;
         }
       }
     }
@@ -2932,6 +2933,7 @@ void c2_int_4()
         if ((ret == 0) && (ret1 == 0)) 
         {
           x3 = 1;
+          break;
         }
       }
     }
@@ -3062,6 +3064,7 @@ void c2_int_5() 			/*  INT IV_STACK[MAX_VALUE]	 int iv_stack[5]	*/
       if ((ret == 0) && (ret1 == 0)) 
       {
         x3 = 1;
+        break;
       }
     }
 
@@ -3073,6 +3076,7 @@ void c2_int_5() 			/*  INT IV_STACK[MAX_VALUE]	 int iv_stack[5]	*/
         if (ret == 0) 
         {
           x3 = 1;
+          break;
         }
       }
     }
@@ -3246,6 +3250,7 @@ void c2_int_5() 			/*  INT IV_STACK[MAX_VALUE]	 int iv_stack[5]	*/
         z3 = 1;
         strcpy(field2a, lw_variable[v].lv_value);
         lw_variable[v].lv_use_ct++;
+        break;
       }
     }
 
@@ -3259,6 +3264,7 @@ void c2_int_5() 			/*  INT IV_STACK[MAX_VALUE]	 int iv_stack[5]	*/
           z3 = 1;
           strcpy(field2a, gw_variable[v].gv_value);
           gw_variable[v].gv_use_ct++;
+          break;
         }
       }
     }
@@ -3278,6 +3284,7 @@ void c2_int_5() 			/*  INT IV_STACK[MAX_VALUE]	 int iv_stack[5]	*/
         if (ret == 0) 
         {
           z3 = 1;
+          break;
         }
       }
 
@@ -3733,6 +3740,8 @@ void c2_int_punch_1()
       {
         x3 = 1;
         strcpy(tfield1a, lw_variable[v].lv_cname);
+        lw_variable[v].lv_use_ct++;
+        break;
       }
     }
 
@@ -3745,6 +3754,8 @@ void c2_int_punch_1()
         {
           x3 = 1;
           strcpy(tfield1a, gw_variable[v].gv_cname);
+          gw_variable[v].gv_use_ct++;
+          break;
         }
       }
     }
@@ -3841,6 +3852,8 @@ void c2_int_punch_1()
       {
         x3 = 1;
         strcpy(tfield1a, lw_variable[v].lv_cname);
+        lw_variable[v].lv_use_ct++;
+        break;
       }
     }
 
@@ -3853,7 +3866,9 @@ void c2_int_punch_1()
         {
           x3 = 1;
           strcpy(tfield1a, gw_variable[v].gv_cname);
-         }
+          gw_variable[v].gv_use_ct++;
+          break;
+        }
       }
     }
 
@@ -3898,6 +3913,8 @@ void c2_int_punch_1()
         {
           x3 = 1;
           strcpy(tfield2a, lw_variable[v].lv_cname);
+          lw_variable[v].lv_use_ct++;
+          break;
         }
       }
 
@@ -3910,7 +3927,9 @@ void c2_int_punch_1()
           {
             x3 = 1;
             strcpy(tfield2a, gw_variable[v].gv_cname);
-           }
+            gw_variable[v].gv_use_ct++;
+            break;
+          }
         }
      
         if (x3 == 0) 
@@ -3990,7 +4009,6 @@ void c2_int_punch_1()
             trace_rec_3();
           }
        
-
           strcpy(a_string, "         LARL  R7,C370U");
           src_line();
           if (puncde == 1) 
@@ -4103,6 +4121,7 @@ void c2_int_punch_2()
         x3 = 1;
         strcpy(field1a, lw_variable[v].lv_cname);
         lw_variable[v].lv_use_ct++;
+        break;
       }
     }
   }
@@ -4119,6 +4138,7 @@ void c2_int_punch_2()
           x3 = 1;
           strcpy(field1a, gw_variable[v].gv_cname);
           gw_variable[v].gv_use_ct++;
+          break;
         }
       }
     }
@@ -4167,6 +4187,7 @@ void c2_int_punch_2()
           if (ret == 0) 
           {
             strcpy(field2a, w_mathlit[I].lit_cname);
+            break;
           }
         }
       }
@@ -4212,6 +4233,7 @@ void c2_int_punch_2()
           {
             x3 = 1;
             strcpy(field2a, w_mathlit[I].lit_use_cname);
+            break;
           }
         }
        */
@@ -4255,6 +4277,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         if (ret == 0) 
         {
           strcpy(wk_store2, gw_variable[v].gv_value);
+          break;
         }
       }
 
@@ -4264,6 +4287,7 @@ printf("rct = %d p_string = %s",rct,p_string);
         if (ret == 0) 
         {
           x3 = 1;
+          break;
         }
       }
       convert = 1;
@@ -4281,6 +4305,7 @@ printf("rct = %d p_string = %s",rct,p_string);
           strcpy(field2a, lw_variable[v].lv_cname);
           lw_variable[v].lv_use_ct++;
           wk_type3 = 1;
+          break;
         }
       }
 
@@ -4294,6 +4319,7 @@ printf("rct = %d p_string = %s",rct,p_string);
             strcpy(field2a, gw_variable[v].gv_cname);
             gw_variable[v].gv_use_ct++;
             wk_type3 = 1;
+            break;
           }
         }
       }
@@ -4411,6 +4437,7 @@ void c2_int_6() 				/*  int *temp_byte;	*/
       if (ret == 0) 
       {
         z3 = 1;
+        break;
       }
     }
 
@@ -4567,7 +4594,6 @@ void c2_int_6() 				/*  int *temp_byte;	*/
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
 
-      tot_malloc++;
       convert = 1;
     }
   }
@@ -4695,6 +4721,7 @@ void c2_int_41()
     if ((ret == 0) && (ret1 == 0)) 
     {
       x3 = 1;
+      break;
     }
   }
 
@@ -4706,6 +4733,7 @@ void c2_int_41()
       if (ret == 0) 
       {
         x3 = 1;
+        break;
       }
     }
   }
@@ -4730,6 +4758,7 @@ void c2_int_41()
       {
         strcpy(field2a, lw_variable[v].lv_value);
         x3 = 1;
+        break;
       }
     }
 
@@ -4742,6 +4771,7 @@ void c2_int_41()
         {
           strcpy(field2a, gw_variable[v].gv_value);
           x3 = 1;
+          break;
         }
       }
     }
@@ -4767,6 +4797,7 @@ void c2_int_41()
       {
         strcpy(field3a, lw_variable[v].lv_value);
         x3 = 1;
+        break;
       }
     }
 
@@ -4779,6 +4810,7 @@ void c2_int_41()
         {
           strcpy(field3a, gw_variable[v].gv_value);
           x3 = 1;
+          break;
         }
       }
     }
@@ -4793,9 +4825,10 @@ void c2_int_41()
     }
   }
 
+  tot_malloc++;
+
   if (global_st == 0) 
   {
-    c_name++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", st_col);
     strcpy(wk_name, "C37FCL");
     strcat(wk_name, wk_strg);
@@ -4885,7 +4918,6 @@ void c2_int_41()
       gw_variable[gv_ct].gv_column = x102;
     }
 
-    tot_malloc++;
     snprintf(wk_strg, sizeof(wk_strg), "%d", tot_malloc);
     strcpy(wk_string, "A37");
     strcat(wk_string, wk_strg);
@@ -5012,8 +5044,6 @@ void c2_int_41()
     gw_variable[gv_ct].gv_dec = 0;
     gv_ct++;
 
-    tot_malloc++;
-    tot_arr++;
   }
   convert = 1;
 }

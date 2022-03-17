@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 
 /* ------ declare constants ------ */
@@ -467,6 +468,7 @@
 	void c2_strcat(void);
        void c2_strcat_500(void);
        void c2_strcat_501(void);
+       void c2_strcat_502(void);
 
 
 /*		c2z_strchr.c 		*/
@@ -776,7 +778,6 @@ int work_use_ct[110];
  int tot_char = 0;
  int tot_goto = 0;
  int tot_float = 0;
- int tot_arr = 1;
  int p_eol = 0;
  int p_ln_ct = 0;
  int tot_for = 0;
@@ -917,6 +918,7 @@ struct defines
 };
 struct defines *w_define;
 
+
 struct variables 
 {
    int gv_rct;
@@ -945,6 +947,7 @@ struct variables
 };
 struct variables *gw_variable;
 
+
 struct var 
 {
    int lv_rct;
@@ -962,6 +965,7 @@ struct var
    int lv_id;
 };
 struct var *lw_variable;
+
 
 struct files 
 {
@@ -5533,6 +5537,8 @@ int main(int argc, char *argv[])
       break;
     }
 
+    pgm_label();
+
     s = strlen(p_string);
     for(I = 0; I < s; I++)
     {
@@ -5552,15 +5558,13 @@ int main(int argc, char *argv[])
       }
     }
 
- printf("c2z.c Pass 3 rct = %d p_string = %s",rct,p_string); 
- 
+/* printf("c2z.c Pass 3 rct = %d p_string = %s",rct,p_string); */
+
     s = strlen(p_string);
     if (s < 1) 
     {
       goto end_pass3;
     }
-
-/*    pgm_label(); */
 
     strcpy(o_string, p_string);
     if (feof(pgm)) 

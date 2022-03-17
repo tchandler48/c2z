@@ -3927,6 +3927,7 @@ void c2_printf_str2()
     }
   }
 
+
   if (pf1 == 0) 
   {
     for (I = 0; I < gv_ct; I++) 
@@ -8809,6 +8810,10 @@ void c2_printf_str4()
     }
   }
 
+printf("\nc2z_print.c #888 rct = %d p_string = %s",rct,p_string);
+printf("c2z_print.c #888 rct = %d field1 = %s\n",rct,field1);
+
+
   if(fd2_type == 2)
   {
     x21 = 0;
@@ -9254,6 +9259,10 @@ printf("c2z_print.c str4 field1 = %s\n",field1);
          }
        }
     }
+
+printf("\nc2z_print.c #1033 rct = %d p_string = %s",rct,p_string);
+printf("c2z_print.c #1033 rct = %d field1 = %s\n",rct,field1);
+
 
     snprintf(wk_strg, sizeof(wk_strg), "%d", x101);
     strcpy(a_string, "         LAEY  R5,");

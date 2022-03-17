@@ -73,7 +73,6 @@ printf("c2z_atof.c x31 = %d\n",x31);
 
 
 
-
 void c2_atoi_00()
 {
   if (traceflg == 1) 
@@ -123,6 +122,7 @@ void c2_atoi_00()
       x3 = 1;
       strcpy(field1a, lw_variable[I].lv_cname);
       lw_variable[I].lv_use_ct++;
+      break;
     }
   }
 
@@ -136,6 +136,7 @@ void c2_atoi_00()
         x3 = 1;
         strcpy(field1a, gw_variable[I].gv_cname);
         gw_variable[I].gv_use_ct++;
+        break;
       }
     }
   }
@@ -1085,6 +1086,7 @@ void c2_atoi_11()
         strcpy(ar_field10, gw_variable[I].gv_wk_reg);
         strcpy(ar_field11, gw_variable[I].gv_wk_strg);
         strcpy(ar_field12, gw_variable[I].gv_type);
+        break;
       }
     }
   }
@@ -1110,6 +1112,7 @@ void c2_atoi_11()
         x3 = 1;
         strcpy(field2a, lw_variable[I].lv_cname);
         x9 = lw_variable[I].lv_current_lgth;
+        break;
       }
     }
 
@@ -1123,6 +1126,7 @@ void c2_atoi_11()
           x3 = 1;
           strcpy(field2a, gw_variable[I].gv_cname);
           x9 = gw_variable[I].gv_current_lgth;
+          break;
         }
       }
     }
@@ -1147,6 +1151,7 @@ void c2_atoi_11()
       x3 = 1;
       strcpy(field3a, lw_variable[I].lv_cname);
       x9 = lw_variable[I].lv_current_lgth;
+      break;
     }
   }
 
@@ -1160,6 +1165,7 @@ void c2_atoi_11()
         x3 = 1;
         strcpy(field3a, gw_variable[I].gv_cname);
         x9 = gw_variable[I].gv_current_lgth;
+        break;
       }
     }
   }
@@ -2012,7 +2018,7 @@ void c2_atoi_11()
       trace_rec_3();
     }
 
-   strcpy(a_string, "         LARL  R9,C370NWK2");
+    strcpy(a_string, "         LARL  R9,C370NWK2");
     src_line();
     if (puncde == 1) 
     {
@@ -2173,6 +2179,7 @@ void c2_atoi_22()
         x3 = 1;
         strcpy(field1a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -2193,6 +2200,7 @@ void c2_atoi_22()
           strcpy(ar_field9, gw_variable[I].gv_sv_reg);
           strcpy(ar_field10, gw_variable[I].gv_wk_reg);
           strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+          break;
         }
       }
     }
@@ -2229,6 +2237,7 @@ void c2_atoi_22()
         strcpy(field2a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
         x9 = lw_variable[I].lv_lgth;
+        break;
       }
     }
 
@@ -2243,6 +2252,7 @@ void c2_atoi_22()
           strcpy(field2a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           x9 = gw_variable[I].gv_lgth;
+          break;
         }
       }
     }
@@ -2280,6 +2290,7 @@ void c2_atoi_22()
         strcpy(field3a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
         x9 = lw_variable[I].lv_lgth;
+        break;
       }
     }
 
@@ -2294,6 +2305,7 @@ void c2_atoi_22()
           strcpy(field3a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           x9 = gw_variable[I].gv_lgth;
+          break;
         }
       }
     }
@@ -2336,6 +2348,7 @@ void c2_atoi_22()
         strcpy(field4a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
         x9 = lw_variable[I].lv_current_lgth;
+        break;
       }
     }
 
@@ -2350,6 +2363,7 @@ void c2_atoi_22()
           strcpy(field4a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           x9 = gw_variable[I].gv_current_lgth;
+          break;
         }
       }
     }
@@ -2726,7 +2740,6 @@ void c2_atoi_22()
       trace_rec_3();
     }
 
-
     if (gv_ct > 0) 
     {
        for (I = 0; I < gv_ct; I++) 
@@ -2744,6 +2757,7 @@ void c2_atoi_22()
            strcpy(ar_field9, gw_variable[I].gv_sv_reg);
            strcpy(ar_field10, gw_variable[I].gv_wk_reg);
            strcpy(ar_field11, gw_variable[I].gv_wk_strg);
+           break;
          }
        }
     }
