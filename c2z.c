@@ -49,9 +49,9 @@
 	void c2_atol(void);
        void c2_atol_punch(void);
 
+
 /*		c2z_case.c		*/
 	void c2_case(void);	
-	void c2_pass2_case(void);
 
 
 /* 	       c2z_char.c		*/
@@ -159,6 +159,7 @@
 	void c2_scan_sub(void);
        void scan_func_name_1(void);
 
+
 /*		c2z_goto.c 		*/
 	void c2_goto(void);
 	void c2_goto_label(void);
@@ -242,6 +243,7 @@
 
 /*		c2z_isdigit.c		*/
 	void c2_isdigit(void);
+
 
 /*		c2z_isspace.c		*/
 	void c2_isspace(void);
@@ -363,54 +365,20 @@
 
 
 /* 	       c2z_pass_2.c		*/
-	void scan_func_name_2(void);
-	void scan_func_name_3(void);
-	void c2_return_2(void);
-	void c2_math_literal(void);
-       void c2_math_literal_1(void);
-	void c2_math_literal_6(void);
-       void c2_math_literal_7(void);
-	void c2_math_literal_8(void);
-	void c2_math_literal_99(void);
-      	void c2_strlen_pass2(void);
-       void c2_pass2_for(void);
-	void c2_pass2_strcat(void);
-	void c2_pass2_if(void);
-	void c2_pass2_if_1(void);
-	void c2_pass2_if_2(void);
-       void c2_pass2_if_4(void);
-       void c2_pass2_if_7(void);
-       void c2_pass2_if_10(void);
-	void c2_pass2_if_13(void);
-	void c2_pass2_if_15(void);
-       void c2_pass2_if_55(void);
-	void c2_pass2_while(void);
-	void c2_pass2_while_1(void);
-	void c2_pass2_while_2(void);
-       void c2_pass2_while_4(void);
-	void c2_pass2_while_5(void);
-	void c2_pass2_while_7(void);
-       void c2_pass2_while_8(void);
-       void c2_pass2_while_11(void);
-       void c2_pass2_while_12(void);
-	void c2_pass2_while_13(void);
-       void c2_pass2_while_14(void);
-       void c2_pass2_while_33(void);
-	void c2_pass2_math(void);
-       void c2_pass2_math_1(void);
-	void c2_pass2_math_5(void);
-       void c2_pass2_math_6(void);
-	void c2_pass2_math_51(void);
-       void c2_pass2_math_99(void);
-	void c2_pass2_strrev(void);
-       void c2_pass2_math_600(void);
+       void c2_pass_2_1(void);
+       void c2_pass_2_2(void);
+       void c2_pass_2_3(void);	/* strchr */
+       void c2_return_2(void);
+
       
 
 /* 	       c2z_pass_3.c		*/
        void c2_pass_3(void);
 
+
 /*                                 */
 	void c2_return(void);
+
 
 /* 	       c2z_print.c		*/
        void c2_printf(void);
@@ -1575,26 +1543,47 @@ int main(int argc, char *argv[])
       {
          goto pass2_skip;
       }
-     /* pgm = fgets(p_string, 266, pgm); */
       rct++;
     }
 
-/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
- 
     convert = 0;
     fprtf_flag = 0;
 
     skip_read = 0;
+
+/* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
+
+    s = strlen(p_string);
+    if(s == 1)
+    {
+       convert = 1;
+    }
+ 
+/*
+if(rct > 1510)
+{
+printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
+    c2_debug();
+    exit(1); 
+}
+*/
+
+ 
 
     if (global_st == 0) 
     {
       sv_func[0] = '\0';
     }
 
-    convert = 0;
     skip_read = 0;
 
     /* Scan for { }  */
+
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
 
     x = 0;
     x1 = 0;
@@ -1640,7 +1629,14 @@ int main(int argc, char *argv[])
     * Scan for MAIN in C program and set sv_funcTest for int or char *
     * ************************************************************** */
  
+
     mainflg = 0;
+
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
     if (mainflg != 1) 
     {
       p8 = strstr(p_string, "int");
@@ -2426,7 +2422,7 @@ int main(int argc, char *argv[])
       }
       convert = 1;
 
-      c2_pass2_while();
+      c2_pass_2_1();
     }
 
 
@@ -3742,8 +3738,9 @@ int main(int argc, char *argv[])
 
   vf_convert:
 
-
-/* Scan for for   */
+  /* ***************************************************************
+   *  Scan for - for                                               *
+   * ************************************************************* */
 
     if (convert == 1) 
     {
@@ -3985,11 +3982,13 @@ int main(int argc, char *argv[])
         for_ct++;
       }
 
-      c2_pass2_for();
+      c2_pass_2_1();
       convert = 1;
     }
 
-/* Scan for fflush  */
+    /* ***************************************************************
+     *  Scan for - fflush                                            *
+     * ************************************************************* */
 
     if (convert == 1) 
     {
@@ -4003,7 +4002,9 @@ int main(int argc, char *argv[])
     }
 
 
-/*  Scan for if  */
+  /* ***************************************************************
+   *  Scan for - if                                                *
+   * ************************************************************* */
 
     if (convert == 1) 
     {
@@ -4252,7 +4253,36 @@ int main(int argc, char *argv[])
       w_if_table[wif_ct].wif_eof2 = 0;
       wif_ct++;
 
-      c2_pass2_if();
+      s = 0;
+      x3 = 0;
+      s = strlen(p_string);
+      I = 0;
+      for(I = 0; I < s; I++)
+      {
+         ch = p_string[I];
+         if(ch == '\'')
+         {
+            x3 = 1;
+         }
+      }
+
+      if(x3 == 1)
+      {
+         c2_pass_2_1();
+      }
+     
+      p = strstr(p_string, "strchr");
+      if(x3 == 0)
+      {
+         if(p) 
+         {
+            c2_pass_2_3();
+         }
+         else
+         {
+            c2_pass_2_2();
+         }
+      }
       convert = 1;
     }
 
@@ -4333,6 +4363,7 @@ int main(int argc, char *argv[])
         trace_rec_1();
       }
 
+      /* c2_pass_2_1(); */
       c2_return_2();
       convert = 1;
     }
@@ -4438,7 +4469,7 @@ int main(int argc, char *argv[])
         trace_rec_1();
       }
 
-      c2_pass2_strcat();
+      c2_pass_2_2();
       convert = 1;
     }
 
@@ -5011,7 +5042,7 @@ int main(int argc, char *argv[])
     p1 = strstr(p_string, "=");
     if ((p) && (!p1)) 
     {
-      c2_pass2_case();
+      c2_pass_2_1();
       convert = 1;
     }
 
@@ -5418,7 +5449,7 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "=");
     if (p)
     {
-      c2_math_literal();
+      c2_pass_2_1();
 
      /* c2_pass2_math(); */
       convert = 1;
@@ -5500,7 +5531,6 @@ int main(int argc, char *argv[])
 
 
   c2_pass_3();
-
 
   rct = 0;
   end_asm = 1;

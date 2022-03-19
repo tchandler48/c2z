@@ -315,13 +315,6 @@ printf("c2z_int.c #5 field1 = %s\n",field1);
         {
           strcpy(wk_fdwk, wk_fd10);
         }
-/*
-if(rct > 855)
-{
-printf("c2z_int.c #6 rct = %d u1 = %d II = %d wk_fdwk = %s\n",rct,u1,II,wk_fdwk);
-}
-*/
-
 
         p4 = strstr(wk_fdwk, "=");
         p8 = strchr(wk_fdwk, '[');
@@ -332,37 +325,18 @@ printf("c2z_int.c #6 rct = %d u1 = %d II = %d wk_fdwk = %s\n",rct,u1,II,wk_fdwk)
 
         if ((!p4) && (!p11) && (!p8) && (!p5) && (convert == 0) && (arr_flag == 0)) 
         {
-/*
-if(rct > 855)
-{
-printf("c2z_int.c #7 rct = %d wk_fdwk = %s c2_int_1\n",rct,wk_fdwk);
-}
-*/
           c2_int_1(); 			/* single variable ie   INT NROWS;		*/
           convert = 1;
         }
 
         if (p11) 
         {
-/*
-if(rct > 855)
-{
-printf("c2z_int.c #8 rct = %d wk_fdwk = %s c2_int_2\n",rct,wk_fdwk);
-}
-*/
           c2_int_2(); 			/* INT NCOLUMNS=[BUFSIZE]			*/
           convert = 1;
         }
 
         if ((!p4) && (p8) && (p5) && (convert == 0) && (arr_flag == 0)) 		
         {
-/*
-if(rct > 855)
-{
-printf("c2z_int.c #9 rct = %d wk_fdwk = %s c2_int_5\n",rct,wk_fdwk);
-}
-*/
-
           c2_int_5();			/* int iv_stack[MAX_VALUE]	*/
           convert = 1;
         }
@@ -434,14 +408,6 @@ void c2_int_1() 				/* single variable ie   INT NROWS;		*/
       }
     }
     field1[pi2] = '\0';
-
-/*
-if(rct > 855)
-{
-printf("c2z_int.c #9 wk_fdwk = %s s = %d field1 = %s pi2 = %d\n",wk_fdwk,s, field1,pi2);
-}
-*/
-
   }
 
   if (equal_found == 1) 
@@ -665,6 +631,7 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
   }
   field2[pi2] = '\0';
 
+
   if (fd2_type == 1) 		/* field2 is numeric ex:  234 */
   {
     x3 = 0;
@@ -722,59 +689,7 @@ void c2_int_2() 				/* INT NCOLUMNS=BUFSIZE	or AB_CODE = 1  or X=LINE_NDX	*/
         lw_variable[lv_ct].lv_id = 1;
         lw_variable[lv_ct].lv_init = 0;
         strcpy(lw_variable[lv_ct].lv_func, sv_func);
-
         lv_ct++;
-
-        s = strlen(field2);
-        x99 = 0;
-        p1 = strstr(field2, "-");
-        if (p1) 
-        {
-          x99 = 1;
-        }
-
-        s1 = s + 1;
-        if (x99 == 1) 
-        {
-          strcpy(tfield3b, field2);
-          pi2 = 0;
-          for (I = 0; I < s1; I++) 
-          {
-            ch = tfield3b[I];
-            if (ch != '-') 
-            {
-              field2[pi2] = ch;
-              pi2++;
-            }
-          }
-          field2[pi2] = '\0';
-        }
-
-        if (x99 == 0) 
-        {
-          strcpy(field2a, field2);
-        } 
-        else 
-        {
-          strcpy(field2a, "-");
-          strcat(field2a, field2);
-        }
-
-        x80 = 0;
-        ret = strcmp("0", field2a);
-        if(ret == 0)
-        {
-          x80 = 1;
-        }
-
-        if(x80 == 0)
-        {
-          ret = strcmp("1", field2a);
-          if(ret == 0)
-          {
-            x80 = 1;
-          }
-        }
       }
 
       if (global_st == 0) 

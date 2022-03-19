@@ -59,6 +59,7 @@ void c2_strchr()
     {
       x3 = 1;
       strcpy(tfield1a, lw_variable[I].lv_cname);
+      break;
     }
   }
 
@@ -69,6 +70,7 @@ void c2_strchr()
     {
       x3 = 1;
       strcpy(tfield1a, gw_variable[I].gv_cname);
+      break;
     }
   }
 
@@ -111,6 +113,7 @@ void c2_strchr()
     {
       x3 = 1;
       strcpy(tfield2a, lw_variable[I].lv_cname);
+      break;
     }
   }
 
@@ -148,6 +151,7 @@ void c2_strchr()
       {
         strcpy(tfield3a, w_charlit[I].clit_cname);
         x3 = w_charlit[I].clit_lgth;
+        break;
       }
     }
 

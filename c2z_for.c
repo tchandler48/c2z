@@ -1875,12 +1875,10 @@ void c2_for_022()
 
    int pi;
    int pi2;
-   int s;
    int x;
    int x2;
    int x3;
    int x99;
-   int size;
    int I;
    int ret;
    int ret1;
@@ -1906,7 +1904,6 @@ void c2_for_022()
   char tfield6[VAR_LGTH];
   char tfield6a[VAR_LGTH];
   char tfield20[VAR_LGTH];
-  char wk_strg1[6];
 
   pi = 0;
   ch = p_string[pi];
@@ -2508,8 +2505,9 @@ skip_for_1:
 
 skip_for_2:
 
-
 /*
+if(rct == 718)
+{
 printf("\nc2z_for.c for_022 rct = %d p_string = %s",rct,p_string);
 printf("c2z_for.c for_022 tfield1 = %s tfield1a = %s fd1_type = %d\n",tfield1,tfield1a,fd1_type);
 printf("c2z_for.c for_022 tfield2 = %s fd2_type = %d\n",tfield2,fd2_type);
@@ -2517,7 +2515,9 @@ printf("c2z_for.c for_022 tfield3 = %s tfield3a = %s fd3_type = %d\n",tfield3,tf
 printf("c2z_for.c for_022 tfield4 = %s\n",tfield4);
 printf("c2z_for.c for_022 tfield5 = %s tfield5a = %s fd5_type = %d\n",tfield5,tfield5a,fd5_type);
 printf("c2z_for.c for_022 tfield6 = %s tfield6a = %s\n",tfield6,tfield6a);
+}
 */
+
 
 /*
   if(fd5_type == 2)
@@ -2526,126 +2526,17 @@ printf("c2z_for.c for_022 INSIDE fd5_type = 2\n");
   }
 */
 
-  if(fd5_type == 1)
+
+  v = 0;
+  for (v = 0; v < for_ct; v++) 
   {
-    c_name++;
-    snprintf(wk_strg1, sizeof(wk_strg1), "%d", c_name);
-    strcpy(c_wkname, "C37F");
-    strcat(c_wkname, wk_strg1);
-    s = strlen(c_wkname);
-    c_wkname[s] = '\0';
-    strcpy(tfield5b, c_wkname);
-  
-    x3 = 0;
-    for (v = 0; v < lv_ct; v++) 
+    if (rct == w_for_table[v].for_rct) 
     {
-      ret = strcmp(tfield5b, lw_variable[v].lv_name);
-      ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-      if ((ret == 0) && (ret1 == 0)) 
-      {
-        x3 = 1;
-        break;
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      for (v = 0; v < gv_ct; v++) 
-      {
-        ret = strcmp(tfield5b, gw_variable[v].gv_name);
-        if (ret == 0) 
-        {
-          x3 = 1;
-          break;
-        }
-      }
-    }
-
-    if (x3 == 0) 
-    {
-      if (global_st == 0) 
-      {
-        size = 0;
-
-        if (gv_ct == 0) 
-        {
-          size = 1;
-          gw_variable = malloc(size * sizeof(struct variables));
-        } 
-        else 
-        {
-          size = gv_ct + 1;
-          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-        }
-
-        gw_variable[gv_ct].gv_rct = rct;
-        strcpy(gw_variable[gv_ct].gv_name, tfield5b);
-        strcpy(gw_variable[gv_ct].gv_cname, tfield5b);
-        strcpy(gw_variable[gv_ct].gv_type, "I");
-        gw_variable[gv_ct].gv_lgth = 0;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_value, "0");
-        gw_variable[gv_ct].gv_init = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
-        gw_variable[gv_ct].gv_use_ct = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_table, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        gw_variable[gv_ct].gv_flag = 0;
-        gw_variable[gv_ct].gv_dec = 0;
-        gw_variable[gv_ct].gv_id = 1;
-        gv_ct++;
-      }
-
-      if (global_st == 1) 
-      {
-        size = 0;
-
-        if (lv_ct == 0) 
-        {
-          size = 1;
-          lw_variable = malloc(size * sizeof(struct var));
-        } 
-        else 
-        {
-          size = gv_ct + 1;
-          lw_variable = realloc(lw_variable, size * sizeof(struct var));
-        }
-
-        lw_variable[lv_ct].lv_rct = rct;
-        strcpy(lw_variable[lv_ct].lv_cname, tfield5b);
-        strcpy(lw_variable[lv_ct].lv_name, tfield5b);
-        strcpy(lw_variable[lv_ct].lv_type, "I");
-        lw_variable[lv_ct].lv_lgth = 0;
-        strcpy(lw_variable[lv_ct].lv_value, "0");
-        lw_variable[lv_ct].lv_use_ct = 0;
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
-        strcpy(lw_variable[lv_ct].lv_literal, null_field);
-        lw_variable[lv_ct].lv_current_lgth = 0;
-        lw_variable[lv_ct].lv_dec = 0;
-        lw_variable[lv_ct].lv_id = 1;
-        lw_variable[lv_ct].lv_init = 0;
-        lv_ct++;
-      }
+      strcpy(w_for_table[v].for_rt_field5b, tfield5b);
+      w_for_table[v].for_type = 0;
+      break;
     }
   }
-
-    v = 0;
-    for (v = 0; v < for_ct; v++) 
-    {
-      if (rct == w_for_table[v].for_rct) 
-      {
-        strcpy(w_for_table[v].for_rt_field5b, tfield5b);
-        w_for_table[v].for_type = 0;
-        break;
-      }
-    }
 
 
 /*
@@ -2691,9 +2582,6 @@ printf("c2z_for.c for_022 INSIDE fd5_type = 2\n");
         w_for_table[v].for_type = 0;
       }
     }
-/*  }  */
-
-
 
   strcpy(a_string, "         LARL  R9,C370LPCT");
   src_line();

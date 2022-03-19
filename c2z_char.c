@@ -1042,7 +1042,7 @@ void c2_char_1()
             strcpy(gw_variable[gv_ct].gv_st_col, null_field);
             gw_variable[gv_ct].gv_flag = 0;
             gw_variable[gv_ct].gv_dec = 0;
-            gw_variable[gv_ct].gv_id = 1;
+            gw_variable[gv_ct].gv_id = 3;
             gv_ct++;
           }
 
@@ -1072,7 +1072,7 @@ void c2_char_1()
             strcpy(lw_variable[lv_ct].lv_literal, null_field);
             lw_variable[lv_ct].lv_use_ct = 0;
             lw_variable[lv_ct].lv_dec = 0;
-            lw_variable[lv_ct].lv_id = 1;
+            lw_variable[lv_ct].lv_id = 3;
             lv_ct++;
           }
           convert = 1;

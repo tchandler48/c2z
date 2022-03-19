@@ -22416,6 +22416,7 @@ void c2_math_504()
           strcpy(tfield9, gw_variable[I].gv_sv_reg);
           strcpy(tfield10, gw_variable[I].gv_wk_reg);
           strcpy(tfield11, gw_variable[I].gv_wk_strg);
+          break;
         }
       }
     }
@@ -23012,7 +23013,6 @@ void c2_math_505()		/* procedure call	pi = get_upper(pi,stlen);	*/
 {
   char ch;
   char *p;
-  char *p1;
   char *p2;
   char *p6;
   char tfield1[VAR_LGTH];
@@ -23075,6 +23075,8 @@ void c2_math_505()		/* procedure call	pi = get_upper(pi,stlen);	*/
   int fd21_type = 0;
   int fd22_type = 0;
   int fd23_type = 0;
+  int fd3_id = 0;
+  int fd5_id = 0;
   int ret = 0;
   int ret1 = 0;
   int ret2 = 0;
@@ -23131,7 +23133,7 @@ void c2_math_505()		/* procedure call	pi = get_upper(pi,stlen);	*/
   {
     if (traceflg == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_505 Proc #1");
+      strcpy(trace_1, "c2z_math.c c2_math_505 ()");
       trace_rec_1();
     }
 
@@ -23182,12 +23184,6 @@ void c2_math_505()		/* procedure call	pi = get_upper(pi,stlen);	*/
     }
     tfield2[pi2] = '\0';
 
-/*
-printf("\nc2z_math.c math_505 rct = %d p_string = %s",rct,p_string);
-printf("c2z_math.c math_505 tfield1 = %s\n",tfield1);
-printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
-*/
-
     if (fn_ct > 0) 
     {
       x3 = 0;
@@ -23201,6 +23197,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
           strcpy(tfield3, w_function[I].fn_ret_var);
           strcpy(tfield4, w_function[I].fn_fd1); 
           strcpy(wk_sv_func, tfield2); 
+          break;
         }
       }
     }
@@ -23423,7 +23420,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
   {
     if (traceflg == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_505 Proc #2");
+      strcpy(trace_1, "c2z_math.c c2_math_505 ('=')");
       trace_rec_1();
     }
 
@@ -23451,6 +23448,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
       {
         strcpy(tfield2, w_charlit[I].clit_cname);
         x3 = w_charlit[I].clit_lgth;
+        break;
       }
     }
 
@@ -23467,6 +23465,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
           strcpy(tfield3, w_function[I].fn_ret_var);
           strcpy(tfield4, w_function[I].fn_fd1);
           strcpy(wk_sv_func, tfield1);
+          break;
         }
       }
     }
@@ -23491,6 +23490,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
         strcpy(tfield4a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
         s = lw_variable[I].lv_lgth;
+        break;
       }
     }
 
@@ -23505,6 +23505,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
           strcpy(tfield4a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           s = gw_variable[I].gv_lgth;
+          break;
         }
       }
     }
@@ -23518,6 +23519,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
       return;
     }
 
+ 
     strcpy(a_string, "         LARL  R9,");
     strcat(a_string, tfield4a);
     strcpy(wk_remark, " ");
@@ -23573,7 +23575,7 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
   {
     if (traceflg == 1) 
     {
-      strcpy(trace_1, "c2z_math.c c2_math_505 Proc #3");
+      strcpy(trace_1, "c2z_math.c c2_math_505 (varname)");
       trace_rec_1();
     }
 
@@ -23589,10 +23591,6 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
 
     while (ch != ' ') 
     {
-      if (ch == '=') 
-      {
-        break;
-      }
       tfield1[pi2] = ch;
       pi2++;
       pi++;
@@ -23600,21 +23598,22 @@ printf("c2z_math.c math_505 tfield2 = %s\n",tfield2);
     }
     tfield1[pi2] = '\0';
 
-    if (ch == '=') 
-    {
-      goto math_skip_6;
-    }
-
     while (ch == ' ') 
     {
       pi++;
       ch = p_string[pi];
     }
 
-math_skip_6:
+    pi++;
+    ch = p_string[pi];
+    while (ch == ' ') 
+    {
+      pi++;
+      ch = p_string[pi];
+    }
 
     pi2 = 0;
-    while (ch != ' ') 
+    while (ch != '(') 
     {
       tfield2[pi2] = ch;
       pi2++;
@@ -23622,6 +23621,8 @@ math_skip_6:
       ch = p_string[pi];
     }
     tfield2[pi2] = '\0';
+
+/*
 
     while (ch == ' ') 
     {
@@ -23646,20 +23647,15 @@ math_skip_6:
       }
     }
 
-    eol = 0;
+*/
+    eol = 1;
     pi2 = 0;
-    while (ch != '(') 
+    pi++;
+    ch = p_string[pi];
+    while (ch != ')') 
     {
-      if (ch == ';') 
-      {
-       eol = 1;
-       break;
-      }
-      if (ch != ';') 
-      {
-        tfield3[pi2] = ch;
-        pi2++;
-      }
+      tfield3[pi2] = ch;
+      pi2++;
       pi++;
       ch = p_string[pi];
     }
@@ -23677,6 +23673,7 @@ math_skip_6:
           x3 = 1;
           strcpy(tfield1a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
 
@@ -23690,6 +23687,7 @@ math_skip_6:
              x3 = 1;
              strcpy(tfield1a, gw_variable[I].gv_cname);
              gw_variable[I].gv_use_ct++;
+             break;
           }
         }
       }
@@ -23703,6 +23701,29 @@ math_skip_6:
         return;
       }
 
+      if (fn_ct > 0) 
+      {
+        x3 = 0;
+        for (I = 0; I < fn_ct; I++) 
+        {
+          ret = strcmp(tfield2, w_function[I].fn_name);
+          if (ret == 0) 
+          {
+            x3 = 1;
+            strcpy(tfield2a, w_function[I].fn_cname);
+            strcpy(tfield4, w_function[I].fn_ret_var);
+            strcpy(tfield5, w_function[I].fn_fd1);
+            strcpy(wk_sv_func, tfield2);
+            break;
+          }
+        }
+      }
+
+/*
+printf("\nc2z_math.c math_505 rct = %d p_string = %s",rct,p_string);
+printf("c2z_math.c math_505 rct = %d SV_REG tfield4 = %s\n",rct,tfield4);
+printf("c2z_math.c math_505 rct = %d FD1 tfield5 = %s\n",rct,tfield5);
+*/
       x3 = 0;
       for (I = 0; I < lv_ct; I++) 
       {
@@ -23713,6 +23734,8 @@ math_skip_6:
           x3 = 1;
           strcpy(tfield3a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          fd3_id = lw_variable[I].lv_id;
+          break;
         }
       }
 
@@ -23726,6 +23749,45 @@ math_skip_6:
              x3 = 1;
              strcpy(tfield3a, gw_variable[I].gv_cname);
              gw_variable[I].gv_use_ct++;
+             break;
+          }
+        }
+      }
+
+      if (x3 == 0) 
+      {
+        printf("\nc2z_math.c c2_math_505 math-043 tfield3 Not Found = %s\n", tfield3);
+        printf("c2z_math.c c2_math_505 rct = %d p_string = %s", rct, p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
+      x3 = 0;
+      for (I = 0; I < lv_ct; I++) 
+      {
+        ret = strcmp(tfield4, lw_variable[I].lv_name);
+        ret1 = strcmp(wk_sv_func, lw_variable[I].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          x3 = 1;
+          strcpy(tfield4a, lw_variable[I].lv_cname);
+          lw_variable[I].lv_use_ct++;
+          break;
+        }
+      }
+
+      if (x3 == 0) 
+      {  
+        for (I = 0; I < gv_ct; I++) 
+        {
+          x6 = strcmp(tfield4, gw_variable[I].gv_name);
+          if (x6 == 0) 
+          {
+             x3 = 1;
+             strcpy(tfield4a, gw_variable[I].gv_cname);
+             gw_variable[I].gv_use_ct++;
+             break;
           }
         }
       }
@@ -23739,10 +23801,80 @@ math_skip_6:
         return;
       }
 
+      fd5_id = 0;
+      x3 = 0;
+      for (I = 0; I < lv_ct; I++) 
+      {
+        ret = strcmp(tfield5, lw_variable[I].lv_name);
+        ret1 = strcmp(wk_sv_func, lw_variable[I].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          x3 = 1;
+          strcpy(tfield5a, lw_variable[I].lv_cname);
+          lw_variable[I].lv_use_ct++;
+          fd5_id = lw_variable[I].lv_id;
+          break;
+        }
+      }
+
+      if (x3 == 0) 
+      {  
+        for (I = 0; I < gv_ct; I++) 
+        {
+          x6 = strcmp(tfield5, gw_variable[I].gv_name);
+          if (x6 == 0) 
+          {
+             x3 = 1;
+             strcpy(tfield5, gw_variable[I].gv_cname);
+             gw_variable[I].gv_use_ct++;
+             break;
+          }
+        }
+      }
+
+
+      x3 = 0;
+      for (I = 0; I < lv_ct; I++) 
+      {
+        ret = strcmp(tfield1, lw_variable[I].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          x3 = 1;
+          strcpy(tfield1a, lw_variable[I].lv_cname);
+          lw_variable[I].lv_use_ct++;
+          break;
+        }
+      }
+
+      if (x3 == 0) 
+      {  
+        for (I = 0; I < gv_ct; I++) 
+        {
+          x6 = strcmp(tfield1, gw_variable[I].gv_name);
+          if (x6 == 0) 
+          {
+             x3 = 1;
+             strcpy(tfield1a, gw_variable[I].gv_cname);
+             gw_variable[I].gv_use_ct++;
+             break;
+          }
+        }
+      }
+
+      if (x3 == 0) 
+      {
+        printf("\nc2z_math.c c2_math_505 math-042 eol = 1 tfield1 Not Found = %s\n", tfield1);
+        printf("c2z_math.c c2_math_505 rct = %d p_string = %s", rct, p_string);
+        erct++;
+        convert = 1;
+        return;
+      }
+
       strcpy(a_string, "         LARL  R9,");
-      strcat(a_string, tfield1a);
+      strcat(a_string, tfield5a);
       strcpy(wk_remark, " ");
-      strcat(wk_remark, tfield1);
+      strcat(wk_remark, tfield5);
       strcat(wk_remark, " */");
       write_remark();
       if (puncde == 1) 
@@ -23763,13 +23895,85 @@ math_skip_6:
         trace_rec_3();
       }
 
+      if((fd3_id == 1) && (fd5_id == 1))
+      {
+        strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_math.c #413");
+          trace_rec_3();
+        }
+      }
+
+      if((fd3_id == 3) && (fd5_id == 3))
+      {
+        strcpy(a_string, "         MVC2  ");
+        strcat(a_string, tfield5a);
+        strcat(a_string, ",");
+        strcat(a_string, tfield3a);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_math.c #413");
+          trace_rec_3();
+        }
+      }
+
+
+    strcpy(a_string, "         LARL  R15,");
+    strcat(a_string, tfield2a);
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c #414");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         BAKR  0,R15");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_math.c #415");
+      trace_rec_3();
+    }
+
+    s = strlen(tfield4);
+    if(s != 0)
+    {
+      strcpy(a_string, "         LARL  R9,");
+      strcat(a_string, tfield1a);
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield1);
+      strcat(wk_remark, " */");
+      write_remark();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_math.c #416");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         LARL  R8,");
+      strcat(a_string, tfield4a);
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield4);
+      strcat(wk_remark, " */");
+      write_remark();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_math.c #417");
+        trace_rec_3();
+      }
+
       strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_math.c #413");
+        strcpy(trace_1, "c2z_math.c #418");
         trace_rec_3();
       }
+    }
+
      return;
     }
 
@@ -23843,6 +24047,7 @@ math_skip_6:
             x3 = 1;
             strcpy(tfield1a, lw_variable[I].lv_cname);
             lw_variable[I].lv_use_ct++;
+            break;
           }
         }
 
@@ -23856,6 +24061,7 @@ math_skip_6:
                x3 = 1;
                strcpy(tfield1a, gw_variable[I].gv_cname);
                gw_variable[I].gv_use_ct++;
+               break;
             }
           }
         }
@@ -23879,6 +24085,7 @@ math_skip_6:
             x3 = 1;
             strcpy(tfield9a, lw_variable[I].lv_cname);
             lw_variable[I].lv_use_ct++;
+            break;
           }
         }
 
@@ -23892,6 +24099,7 @@ math_skip_6:
                x3 = 1;
                strcpy(tfield1a, gw_variable[I].gv_cname);
                gw_variable[I].gv_use_ct++;
+               break;
             }
           }
         }
@@ -24058,6 +24266,7 @@ math_skip_6:
         x3 = 1;
         strcpy(tfield1a, lw_variable[I].lv_cname);
         lw_variable[I].lv_use_ct++;
+        break;
       }
     }
 
@@ -24071,6 +24280,7 @@ math_skip_6:
           x3 = 1;
           strcpy(tfield1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
+          break;
         }
       }
     }
@@ -24099,6 +24309,7 @@ math_skip_6:
             strcpy(tfield5, w_function[I].fn_ret_var);
             strcpy(tfield6, w_function[I].fn_fd1);
             strcpy(wk_sv_func, tfield3);
+            break;
           }
         }
       }
@@ -24126,6 +24337,7 @@ math_skip_6:
             x3 = 1;
             strcpy(tfield5a, lw_variable[I].lv_cname);
             lw_variable[I].lv_use_ct++;
+            break;
           }
         }
 
@@ -24139,6 +24351,7 @@ math_skip_6:
               x3 = 1;
               strcpy(tfield5a, gw_variable[I].gv_cname);
               gw_variable[I].gv_use_ct++;
+              break;
             }
           }
         }
@@ -24169,6 +24382,7 @@ math_skip_6:
             strcpy(tfield5, w_function[I].fn_ret_var);
             strcpy(tfield6, w_function[I].fn_fd1);
             strcpy(wk_sv_func, tfield3);
+            break;
           }
         }
       }
@@ -24192,6 +24406,7 @@ math_skip_6:
           x3 = 1;
           strcpy(tfield5a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
 
@@ -24205,6 +24420,7 @@ math_skip_6:
             x3 = 1;
             strcpy(tfield5a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
@@ -24303,6 +24519,7 @@ math_skip_6:
           x3 = 1;
           strcpy(tfield4a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
+          break;
         }
       }
 
@@ -24316,6 +24533,7 @@ math_skip_6:
             x3 = 1;
             strcpy(tfield4a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
+            break;
           }
         }
       }
