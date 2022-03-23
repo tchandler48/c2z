@@ -5,6 +5,12 @@ from time to time.  Working on it daily.  TC
 *****************************
 
 
+03/23/2022
+c2z is being modified and has some support for the 3270 support using tput/tget.
+the c2z_fs.c is the module that supports this code.  It is a work in progress.
+
+
+
 
 c2z is a parser written in "C" that parses "C" source code into "base-register free" z390.mlc
 
