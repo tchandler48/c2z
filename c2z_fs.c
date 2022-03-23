@@ -165,6 +165,9 @@ void c2_fs_2(void)
    int s;
    int x3;
    int size;
+   int tadd = 0;
+   int w_row = 0;
+   int w_col = 0;
  
   pi = 0;
   ch = p_string[pi];
@@ -258,6 +261,20 @@ void c2_fs_2(void)
   }
   field6[pi2] = '\0';
 
+  w_row = atoi(field5);
+  w_col = atoi(field6);
+  if(w_row == 1)
+  { 
+    tadd = w_col;
+  }
+  else
+  {
+    tadd = (w_row * 80) + w_col;
+  }
+printf("w_row = %d w_col = %d\n",w_row,w_col);
+printf("tadd = %d\n",tadd);
+printf("address = %s\n",T3270[tadd]);
+
   pi2 = 0;
   pi++;
   ch = p_string[pi];
@@ -273,7 +290,8 @@ void c2_fs_2(void)
   }
   field7[pi2] = '\0';
 
-
+  
+/*
 printf("\nc2z_fs.c fs_2 rct = %d p_string = %s",rct,p_string);
 printf("c2z_fs.c fs_2 rct = %d MAP_NAME field1 = %s\n",rct,field1);
 printf("c2z_fs.c fs_2 rct = %d IN/OUT field2 = %s\n",rct,field2);
@@ -282,6 +300,7 @@ printf("c2z_fs.c fs_2 rct = %d FD_NAME/LITERAL field4 = %s\n",rct,field4);
 printf("c2z_fs.c fs_2 rct = %d ROW field5 = %s\n",rct,field5);
 printf("c2z_fs.c fs_2 rct = %d COL field6 = %s\n",rct,field6);
 printf("c2z_fs.c fs_2 rct = %d COLOR field7 = %s\n",rct,field7);
+*/
 
   c_name++;
   snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);
@@ -317,6 +336,7 @@ printf("c2z_fs.c fs_2 rct = %d COLOR field7 = %s\n",rct,field7);
        w_fs_field[fs_field_ct].fs_fd_row = atoi(field5);
        w_fs_field[fs_field_ct].fs_fd_col = atoi(field6);
        strcpy(w_fs_field[fs_field_ct].fs_fd_color, field7);
+       strcpy(w_fs_field[fs_field_ct].fs_fd_address, T3270[tadd]);
        fs_field_ct++;
      }
 
@@ -342,6 +362,7 @@ printf("c2z_fs.c fs_2 rct = %d COLOR field7 = %s\n",rct,field7);
        w_fs_field[fs_field_ct].fs_fd_row = atoi(field5);
        w_fs_field[fs_field_ct].fs_fd_col = atoi(field6);
        strcpy(w_fs_field[fs_field_ct].fs_fd_color, field7);
+       strcpy(w_fs_field[fs_field_ct].fs_fd_address, T3270[tadd]);
        fs_field_ct++;
      }
    }
@@ -354,27 +375,7 @@ printf("c2z_fs.c fs_2 rct = %d COLOR field7 = %s\n",rct,field7);
     "xx"	=  L literal or V variable name
     5		=  row position
    30		=  column position
-
-         L     R0,ROW
-         L     R1,COL
-         BCTR  R0,0 
-         BCTR  R1,0 
-         MH    R0,=H'80' 
-         AR    R1,R0 
-         SLL   R1,2 
-         STCM  R1,B'0010',SBACMD 
-         SRL   R1,2 
-         STCM  R1,B'0001',SBACMD+1 
-         NC    SBACMD(2),=X'3F3F' 
-         TR    SBACMD(2),TBL3270 
-SBACMD   DC    XL2'0000'
-
- 
-
-TBL3270  DC    X'40C1C2C3C4C5C6C7C8C94A4B4C4D4E4F' 
-         DC    X'50D1D2D3D4D5D6D7D8D95A5B5C5D5E5F' 
-         DC    X'6061E2E3E4E5E6E7E8E96A6B6C6D6E6F'       
-         DC    X'F0F1F2F3F4F5F6F7F8F97A7B7C7D7E7F'
+   RED		=  COLOR
 */
 
   convert = 1;
@@ -519,5 +520,190 @@ void c2_fs_4(void)
 
   convert = 1;
 }
+
+
+void c2_fs_5(void)
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z.fs.c c2_fs_5 START");
+    trace_rec_1();
+  }
+
+/* row  1  col 1 thru 80 */
+  strcpy(T3270[1], "4040");			/* 1  */
+  strcpy(T3270[2], "40C1");			/* 2  */
+  strcpy(T3270[3], "40C2");			/* 3  */
+  strcpy(T3270[4], "40C3");			/* 4  */
+  strcpy(T3270[5], "40C4");			/* 5  */
+  strcpy(T3270[6], "40C5");			/* 6  */
+  strcpy(T3270[7], "40C6"); 		/* 7  */
+  strcpy(T3270[8], "40C7");			/* 8  */
+  strcpy(T3270[9], "40C8");			/* 9  */
+  strcpy(T3270[10], "40C9");		/* 10  */
+  strcpy(T3270[11], "404A");		/* 11  */
+  strcpy(T3270[12], "404B");		/* 12  */
+  strcpy(T3270[13], "404C");		/* 13  */
+  strcpy(T3270[14], "404D");		/* 14  */
+  strcpy(T3270[15], "404E");		/* 15  */
+  strcpy(T3270[16], "404F");		/* 16  */
+  strcpy(T3270[17], "4050");		/* 17  */
+  strcpy(T3270[18], "40D1");		/* 18  */
+  strcpy(T3270[19], "40D2");		/* 19  */
+  strcpy(T3270[20], "40D3");		/* 20  */
+  strcpy(T3270[21], "40D4");		/* 21  */
+  strcpy(T3270[22], "40D5");		/* 22  */
+  strcpy(T3270[23], "40D6");		/* 23  */
+  strcpy(T3270[24], "40D7");		/* 24  */
+  strcpy(T3270[25], "40D8");		/* 25  */
+  strcpy(T3270[26], "40D9");		/* 26  */
+  strcpy(T3270[27], "405A");		/* 27  */
+  strcpy(T3270[28], "405B");		/* 28  */
+  strcpy(T3270[29], "405C");		/* 29  */
+  strcpy(T3270[30], "405D");		/* 30  */
+  strcpy(T3270[31], "405E");		/* 31  */
+  strcpy(T3270[32], "405F");		/* 32  */
+  strcpy(T3270[33], "4060");		/* 33  */
+  strcpy(T3270[34], "4061");		/* 34  */
+  strcpy(T3270[35], "40E2");		/* 35  */
+  strcpy(T3270[36], "40E3");		/* 36  */
+  strcpy(T3270[37], "40E4");		/* 37  */
+  strcpy(T3270[38], "40E5");		/* 38  */
+  strcpy(T3270[39], "40E6");		/* 39  */
+  strcpy(T3270[40], "40E7");		/* 40  */
+  strcpy(T3270[41], "40E8");		/* 41  */
+  strcpy(T3270[42], "40E9");		/* 42  */
+  strcpy(T3270[43], "406A");		/* 43  */
+  strcpy(T3270[44], "406B");		/* 44  */
+  strcpy(T3270[45], "406C");		/* 45  */
+  strcpy(T3270[46], "406D");		/* 46  */
+  strcpy(T3270[47], "406E");		/* 47  */
+  strcpy(T3270[48], "406F");		/* 48  */
+  strcpy(T3270[49], "40F0");		/* 49  */
+  strcpy(T3270[50], "40F1");		/* 50  */
+  strcpy(T3270[51], "40F2");		/* 51  */
+  strcpy(T3270[52], "40F3");		/* 52  */
+  strcpy(T3270[53], "40F4");		/* 53  */
+  strcpy(T3270[54], "40F5");		/* 54  */
+  strcpy(T3270[55], "40F6");		/* 55  */
+  strcpy(T3270[56], "40F7");		/* 56  */
+  strcpy(T3270[57], "40F8");		/* 57  */
+  strcpy(T3270[58], "40F9");		/* 58  */
+  strcpy(T3270[59], "407A");		/* 59  */
+  strcpy(T3270[60], "407B");		/* 60  */
+  strcpy(T3270[61], "407C");		/* 61  */
+  strcpy(T3270[62], "407D");		/* 62  */
+  strcpy(T3270[63], "407E");		/* 63  */
+  strcpy(T3270[64], "407F");		/* 64  */
+  strcpy(T3270[65], "C140");		/* 65  */
+  strcpy(T3270[66], "C1C1");		/* 66  */
+  strcpy(T3270[67], "C1C2");		/* 67  */
+  strcpy(T3270[68], "C1C3");		/* 68  */
+  strcpy(T3270[69], "C1C4");		/* 69  */
+  strcpy(T3270[70], "C1C5");		/* 70  */
+  strcpy(T3270[71], "C1C6");		/* 71  */
+  strcpy(T3270[72], "C1C7");		/* 72  */
+  strcpy(T3270[73], "C1C8");		/* 73  */
+  strcpy(T3270[74], "C1C9");		/* 74  */
+  strcpy(T3270[75], "C14A");		/* 75  */
+  strcpy(T3270[76], "C14B");		/* 76  */
+  strcpy(T3270[77], "C14C");		/* 77  */
+  strcpy(T3270[78], "C14D");		/* 78  */
+  strcpy(T3270[79], "C14E");		/* 79  */
+  strcpy(T3270[80], "C14F");		/* 80  */
+
+
+/* row  2  col 1 thru 80 */
+  strcpy(T3270[81], "C150");		/* 1  */
+  strcpy(T3270[82], "C1D1");		/* 2  */
+  strcpy(T3270[83], "C1D2");		/* 3  */
+  strcpy(T3270[84], "C1D3");		/* 4  */
+  strcpy(T3270[85], "C1D4");		/* 5  */
+  strcpy(T3270[86], "C1D5");		/* 6  */
+  strcpy(T3270[87], "C1D6");		/* 7  */
+  strcpy(T3270[88], "C1D7");		/* 8  */
+  strcpy(T3270[89], "C1D8");		/* 9  */
+  strcpy(T3270[90], "C1D9");		/* 10  */
+  strcpy(T3270[91], "404A");		/* 11  */
+  strcpy(T3270[92], "404B");		/* 12  */
+  strcpy(T3270[93], "404C");		/* 13  */
+  strcpy(T3270[94], "404D");		/* 14  */
+  strcpy(T3270[95], "404E");		/* 15  */
+  strcpy(T3270[96], "404F");		/* 16  */
+  strcpy(T3270[97], "4050");		/* 17  */
+  strcpy(T3270[98], "40D1");		/* 18  */
+  strcpy(T3270[99], "40D2");		/* 19  */
+  strcpy(T3270[100], "40D3");		/* 20  */
+  strcpy(T3270[101], "40D4");		/* 21  */
+  strcpy(T3270[102], "40D5");		/* 22  */
+  strcpy(T3270[103], "40D6");		/* 23  */
+  strcpy(T3270[104], "40D7");		/* 24  */
+  strcpy(T3270[105], "40D8");		/* 25  */
+  strcpy(T3270[106], "40D9");		/* 26  */
+  strcpy(T3270[107], "405A");		/* 27  */
+  strcpy(T3270[108], "405B");		/* 28  */
+  strcpy(T3270[109], "405C");		/* 29  */
+  strcpy(T3270[110], "405D");		/* 30  */
+  strcpy(T3270[111], "405E");		/* 31  */
+  strcpy(T3270[112], "405F");		/* 32  */
+  strcpy(T3270[113], "4060");		/* 33  */
+  strcpy(T3270[114], "4061");		/* 34  */
+  strcpy(T3270[115], "40E2");		/* 35  */
+  strcpy(T3270[116], "40E3");		/* 36  */
+  strcpy(T3270[117], "40E4");		/* 37  */
+  strcpy(T3270[118], "40E5");		/* 38  */
+  strcpy(T3270[119], "40E6");		/* 39  */
+  strcpy(T3270[120], "40E7");		/* 40  */
+  strcpy(T3270[121], "40E8");		/* 41  */
+  strcpy(T3270[122], "40E9");		/* 42  */
+  strcpy(T3270[123], "406A");		/* 43  */
+  strcpy(T3270[124], "406B");		/* 44  */
+  strcpy(T3270[125], "406C");		/* 45  */
+  strcpy(T3270[126], "406D");		/* 46  */
+  strcpy(T3270[127], "406E");		/* 47  */
+  strcpy(T3270[128], "406F");		/* 48  */
+  strcpy(T3270[129], "40F0");		/* 49  */
+  strcpy(T3270[130], "40F1");		/* 50  */
+  strcpy(T3270[131], "40F2");		/* 51  */
+  strcpy(T3270[132], "40F3");		/* 52  */
+  strcpy(T3270[133], "40F4");		/* 53  */
+  strcpy(T3270[134], "40F5");		/* 54  */
+  strcpy(T3270[135], "40F6");		/* 55  */
+  strcpy(T3270[136], "40F7");		/* 56  */
+  strcpy(T3270[137], "40F8");		/* 57  */
+  strcpy(T3270[138], "40F9");		/* 58  */
+  strcpy(T3270[139], "407A");		/* 59  */
+  strcpy(T3270[140], "407B");		/* 60  */
+  strcpy(T3270[141], "407C");		/* 61  */
+  strcpy(T3270[142], "407D");		/* 62  */
+  strcpy(T3270[143], "407E");		/* 63  */
+  strcpy(T3270[144], "407F");		/* 64  */
+  strcpy(T3270[145], "C140");		/* 65  */
+  strcpy(T3270[146], "C1C1");		/* 66  */
+  strcpy(T3270[147], "C1C2");		/* 67  */
+  strcpy(T3270[148], "C1C3");		/* 68  */
+  strcpy(T3270[149], "C1C4");		/* 69  */
+  strcpy(T3270[150], "C1C5");		/* 70  */
+  strcpy(T3270[151], "C1C6");		/* 71  */
+  strcpy(T3270[152], "C1C7");		/* 72  */
+  strcpy(T3270[153], "C1C8");		/* 73  */
+  strcpy(T3270[154], "C1C9");		/* 74  */
+  strcpy(T3270[155], "C14A");		/* 75  */
+  strcpy(T3270[156], "C14B");		/* 76  */
+  strcpy(T3270[157], "C14C");		/* 77  */
+  strcpy(T3270[158], "C14D");		/* 78  */
+  strcpy(T3270[159], "C14E");		/* 79  */
+  strcpy(T3270[160], "C14F");		/* 80  */
+
+
+
+/* row 13  col 1 thru 80 */
+  strcpy(T3270[833],"4BF0");  		/* 33 */
+
+/*  row 15 col 1 thru 80 */
+  strcpy(T3270[1210],"D1E9");		/* 10 */
+  
+}
+
 
 

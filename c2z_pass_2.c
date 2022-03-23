@@ -357,28 +357,6 @@ void c2_pass_2_3()
    field3[pi2] = '\0';
 
    s2 = strlen(field3);
-
-printf("\nc2z_pass_2.c pass_2_3 rct = %d p_string = %s",rct,p_string);
-printf("c2z_pass_2.c pass_2_3 rct = %d s2 = %d field3 = %s\n",rct,s2,field3);
-
-/*
-   if((field3[0] == '\\') && (field3[1] == '0'))
-   {
-      strcpy(field3a, field3);
-   }
-   else
-   {
-      if(s2 < 2)
-      {
-        field3a[0] = field3[1];
-        field3a[1] = '\0';
-      }
-      else
-      {
-        strcpy(field3a,field3);
-      }
-   }
-*/
    s3 = 1;
    c_name++;
    snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);

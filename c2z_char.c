@@ -12,7 +12,7 @@ void c2_char()
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z_char.c #1");
+    strcpy(trace_1, "c2z_char.c START");
     trace_rec_1();
   }
 
@@ -365,6 +365,7 @@ void c2_char()
       if ((op_2 == 1) && (op_3 == 0) && (op_4 == 1) && (op_5 == 0) && (op_6 == 0) && (op_7 == 0) && (op_8 == 0) && (convert == 0)) 
       {
         c2_char_1();
+        convert = 1;
       }
 
       if ((convert == 0) && (op_5 == 1) && (op_8 == 0) && (convert == 0)) 

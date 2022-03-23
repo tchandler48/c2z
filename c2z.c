@@ -151,6 +151,14 @@
 	void c2_free(void);
 
 
+/*		c2z_fs.c		*/
+  	void c2_fs_1(void);
+       void c2_fs_2(void);
+       void c2_fs_3(void);
+       void c2_fs_4(void);
+       void c2_fs_5(void);
+
+
 /* 	       c2z_function.c	*/
 	void c2_func_call(void);	
 	void c2_func_end(void);
@@ -383,14 +391,12 @@
 /* 	       c2z_print.c		*/
        void c2_printf(void);
        void c2_printf_literal(void);
-      
-	void c2_printf_str1(void);
+ 	void c2_printf_str1(void);
        void c2_printf_str2(void);
        void c2_printf_str3(void);
 	void c2_printf_str4(void);
        void c2_printf_str5(void);
        void c2_printf_str6(void);
-
        void c2_printf_dec(void);
 	void c2_printf_dec1(void);
 	void c2_printf_dec2(void);
@@ -665,6 +671,8 @@ char from_sv[24];
  int lp_ct = 0;
  int trc_ct = 1;
  int for_loop_ct = 0;
+ int fs_map_ct = 0;
+ int fs_field_ct = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -770,6 +778,7 @@ int work_use_ct[110];
  int p103 = 0;
  int p104 = 0;		/* toupper */
  int v_convert = 0;
+ int zgui = 0;
 
  int array_rows = 17; 				/* array row count			*/
 
@@ -863,6 +872,9 @@ char output_file[24];
  int goto_label_ct = 0;
  int use_strchr = 0;
  int skip_read = 0;
+
+
+  char T3270[1922][5];
 
 
 struct w_tm 
@@ -1106,6 +1118,32 @@ struct goto_label
 };
 struct goto_label *w_goto_label;
 
+struct fs_map
+{
+    int fs_rct;
+   char fs_name[VAR_LGTH];
+   char fs_cname[VAR_LGTH];
+};
+struct fs_map *w_fs_map;
+
+
+struct fs_field
+{
+   int fs_fd_rct;
+  char fs_fd_map[VAR_LGTH];
+  char fs_fd_name[VAR_LGTH];
+  char fs_fd_cname[VAR_LGTH];
+  char fs_fd_io[2];
+  char fs_fd_type[2];
+  char fs_fd_field[VAR_LGTH];  
+   int fs_fd_row;		   
+   int fs_fd_col;		   
+  char fs_fd_color[VAR_LGTH];
+  char fs_fd_address[5];
+};
+struct fs_field *w_fs_field;
+
+
 
 /* ----- includes ---------------- */
 
@@ -1133,6 +1171,7 @@ struct goto_label *w_goto_label;
 #include "c2z_for.c"
 #include "c2z_fputs.c"
 #include "c2z_free.c"
+#include "c2z_fs.c"
 #include "c2z_function.c"
 #include "c2z_goto.c"
 #include "c2z_if.c"
@@ -3456,6 +3495,30 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
       v_convert = 1;
     }
 
+    p = strstr(p_string, "fsscr");
+    if ((s == 0) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "fsfield");
+    if ((s == 0) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "fsdisplay");
+    if ((s == 0) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "fsrd");
+    if ((s == 0) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
     s = strcmp(tfield1, "getchar");
     if ((s == 0) && (v_convert == 0))
     {
@@ -5513,7 +5576,10 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
   * *********************************************************** */
 
   printf("*  c2z Z390 Pass 3 Started                    *\n");
- 
+
+  c2_fs_5();
+  
+
   cc370 = fopen(asm_file, "w"); 
   
   rct = 0;
@@ -5525,10 +5591,11 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
   inside_main = 0;
   erct = 0;
 
+
+
   /* ************************************************************
   *  Punch START Pass 3                                         *
   * *********************************************************** */
-
 
   c2_pass_3();
 
@@ -6052,31 +6119,6 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
         global_st = 1;
         mainflg = 1;
         main_set = 1;
-
-/*        strcpy(a_string, "         LARL  R1,C370HEAD");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c Heading #1");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R0,C370HL");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c Heading #2");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         TPUT  (R1),(R0),R");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c Heading #3");
-          trace_rec_3();
-        }
-*/
 
         for (I = 0; I < gv_ct; I++) 
         {  
@@ -8581,6 +8623,121 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     }
 
 
+    /* **********************************************************
+    *  Punch out fsscr                                          *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsscr");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsscr Start");
+        trace_rec_1();
+      }
+
+      zgui = 1;
+
+      strcpy(a_string, "         STFSMODE ON,INITIAL=YES");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 STFSMODE");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         STTMPMD ON");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 STFSMPMD");
+        trace_rec_3();
+      }
+     
+      c2_fs_1();
+     
+      convert = 1; 
+    }
+
+
+    /* **********************************************************
+    *  Punch out fsfield                                        *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsfield");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsfield pass 3");
+        trace_rec_1();
+      }
+
+   
+     
+      c2_fs_2();
+     
+      convert = 1; 
+    }
+
+
+   /* **********************************************************
+    *  Punch out fsdisplay                                     *
+    * ******************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsdisplay");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsdisplay pass 3");
+        trace_rec_1();
+      }
+
+      c2_fs_3();
+     
+      convert = 1; 
+    }
+
+
+   /* **********************************************************
+    *  Punch out fsrd                                          *
+    * ******************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsrd");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsrd pass 3");
+        trace_rec_1();
+      }
+
+      c2_fs_4();
+     
+      convert = 1; 
+    }
+
 
     /* **********************************************************
     *      Math functions ( =, +, -, *, / ) MUST BE LAST CALL   * 
@@ -8679,11 +8836,27 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     {
       inside_main = 0;
 
+      strcpy(a_string, "         STFSMODE OFF");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         STTMPMD OFF");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3");
+        trace_rec_3();
+      }
+
       strcpy(a_string, "C370EXIT DS    0H");
       src_line();
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z.c pass 3 punch C370EXIT");
+        strcpy(trace_1, "c2z.c pass 3");
         trace_rec_3();
       }
 
@@ -8692,7 +8865,7 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
       var_use[1]++;
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z.c pass 3 punch subexit");
+        strcpy(trace_1, "c2z.c pass 3");
         trace_rec_3();
       }
 
