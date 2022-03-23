@@ -5579,7 +5579,6 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
 
   c2_fs_5();
   
-
   cc370 = fopen(asm_file, "w"); 
   
   rct = 0;

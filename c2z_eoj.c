@@ -13,7 +13,6 @@ void c2_eoj()
   char tfield2[VAR_LGTH];
   char tfield3[VAR_LGTH];
   char tfield4[VAR_LGTH];
-  char tfield4a[VAR_LGTH];
   char tfield6[VAR_LGTH];
   char tfield9[VAR_LGTH];
   char w_address[5];
@@ -24,7 +23,6 @@ void c2_eoj()
   int x3 = 0;
   int x4 = 0;
   int x5 = 0;
-  int x6 = 0;
   int x7 = 0;
   int x10 = 0;
   int ret = 0;
@@ -1831,7 +1829,7 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
             strcpy(a_string, "          DC    X'42F3'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "PINK");
-            strcat(wk_remark, " ");
+            strcat(wk_remark, "*/ ");
             write_remark();
             if (puncde == 1) 
             {
@@ -1846,7 +1844,7 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
             strcpy(a_string, "          DC    X'42F4'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "GREEN");
-            strcat(wk_remark, " ");
+            strcat(wk_remark, "*/ ");
             write_remark();
             if (puncde == 1) 
             {

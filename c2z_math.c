@@ -22817,7 +22817,7 @@ printf("c2z_math.c math_504 field3 = %s fd3_type = %d\n",field3,fd3_type);
       strcpy(field3a, "C370NWK2");
     }
 
-    strcpy(a_string, "         LARL  R6,");
+    strcpy(a_string, "         LAEY  R6,");
     strcat(a_string, tfield7);
     src_line();
     if (puncde == 1) 
@@ -23735,6 +23735,14 @@ printf("c2z_math.c math_505 rct = %d FD1 tfield5 = %s\n",rct,tfield5);
           strcpy(tfield3a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
           fd3_id = lw_variable[I].lv_id;
+          if(ret2 == 0)
+          {
+            fd3_id = 1;
+          }
+          else
+          {
+            fd3_id = 3;
+          }
           break;
         }
       }
@@ -23749,6 +23757,16 @@ printf("c2z_math.c math_505 rct = %d FD1 tfield5 = %s\n",rct,tfield5);
              x3 = 1;
              strcpy(tfield3a, gw_variable[I].gv_cname);
              gw_variable[I].gv_use_ct++;
+             ret2 = strcmp(gw_variable[I].gv_type, "I");
+             if(ret2 == 0)
+             {
+               fd3_id = 1;
+             }
+             else
+             {
+               fd3_id = 3;
+             }
+
              break;
           }
         }
@@ -23906,7 +23924,7 @@ printf("c2z_math.c math_505 rct = %d FD1 tfield5 = %s\n",rct,tfield5);
         }
       }
 
-      if((fd3_id == 3) && (fd5_id == 3))
+      if((fd3_id == 1) && (fd5_id == 3))
       {
         strcpy(a_string, "         MVC2  ");
         strcat(a_string, tfield5a);

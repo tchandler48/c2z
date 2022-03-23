@@ -7544,7 +7544,6 @@ void if_case_10() 						/* if(strcmp(token, "END") == 0)	*/
 
   char *p, *p1;
   char ch;
-  char field1a[VAR_LGTH];
   char tfield1[VAR_LGTH];
   char tfield1a[VAR_LGTH];
   char tfield2[VAR_LGTH];
@@ -7948,23 +7947,76 @@ void if_case_10() 						/* if(strcmp(token, "END") == 0)	*/
       return;
     }
 
-    for (I = 0; I < char_ct; I++) 
+
+  if_4 = 0;
+    if (lv_ct > 0) 
     {
-      if (w_charlit[I].clit_rct == rct) 
+      for (I = 0; I < lv_ct; I++) 
       {
-        strcpy(field1a, w_charlit[I].clit_cname);
-        x3 = w_charlit[I].clit_lgth;
+        ret = strcmp(tfield1, lw_variable[I].lv_name);
+        ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+        if ((ret == 0) && (ret1 == 0)) 
+        {
+          if_4 = 1;
+          strcpy(tfield1a, lw_variable[I].lv_cname);
+          lw_variable[I].lv_use_ct++;
+        }
       }
     }
 
-    strcpy(a_string, "         LARL  R9,");
-    strcat(a_string, field1a);
-    src_line();
-    if (puncde == 1) 
+    if (if_4 == 0) 
     {
-      strcpy(trace_1, "c2z_if.c #209");
-      trace_rec_3();
+      if (gv_ct > 0) 
+      {
+        for (I = 0; I < gv_ct; I++) 
+        {
+          if_2 = strcmp(tfield1, gw_variable[I].gv_name);
+          if (if_2 == 0) 
+          {
+            if_4 = 1;
+            strcpy(tfield1a, gw_variable[I].gv_cname);
+            gw_variable[I].gv_use_ct++;
+          }
+        }
+      }
     }
+
+    if (if_4 == 0) 
+    {
+      printf("\nc2z_if.c c2_if_10 if_1 = 0 if-067 tfield1 Not Found = %s\n", tfield1);
+      printf("c2z_if.c c2_if_10 if_1 = 0 rct = %d p_string = %s", rct,p_string);
+      erct++;
+      convert = 1;
+      return;
+    }
+
+
+/*
+    if((if_1 != 0) && (if_4 != 1))
+    {
+      for (I = 0; I < char_ct; I++) 
+      {
+        if (w_charlit[I].clit_rct == rct) 
+        {
+          strcpy(field1a, w_charlit[I].clit_cname);
+          x3 = w_charlit[I].clit_lgth;
+        }
+      }
+    }
+*/
+
+      strcpy(a_string, "         LARL  R9,");
+      strcat(a_string, tfield1a);
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield1);
+      strcat(wk_remark, " */");
+      write_remark();
+      if (puncde == 1) 
+      {
+        strcpy(trace_1, "c2z_if.c #209");
+        trace_rec_3();
+      }
+    
 
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, tfield2a);
