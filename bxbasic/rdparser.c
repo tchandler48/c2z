@@ -12,7 +12,8 @@ int rdp_start()
 int Expression()
 {
   char ch;
-  int pi, Value;
+  int pi;
+  int Value;
 
   pi = e_pos;
   ch = p_string[pi];
@@ -26,6 +27,7 @@ int Expression()
     Value = Term();
     pi = e_pos;
     ch = p_string[pi];
+    e_pos = pi;
   }
 
   while(IsAddop(ch))  
@@ -34,22 +36,17 @@ int Expression()
     {
       case '+':
         Match('+');
-        e_pos++;
-        SkipWhite();
         Value = Value + Term();
         break;
       case '-':
         Match('-');
-        e_pos++;
-        SkipWhite();
         Value = Value - Term();
         break;
       default:
         break;
     }
-   
     pi = e_pos;
-    ch = p_string[pi];
+    ch = p_string[e_pos];
   }
   return Value;
 }
@@ -58,34 +55,31 @@ int Expression()
 int Term()
 {
   char ch;
-  int pi, Value;
+  int pi;
+  int Value;
 
   Value = Factor();
+ 
   pi = e_pos;
   ch = p_string[pi];
-
+ 
   while(IsMultop(ch))
   {
     switch(ch)
     {
       case '*':
         Match('*');
-        e_pos++;
-        SkipWhite();
         Value = Value * Factor();
         break;
       case '/':
         Match('/');
-        e_pos++;
-        SkipWhite();
         Value = Value / Factor();
         break;
       default:
         break;
     }
-   
     pi = e_pos;
-    ch = p_string[pi];
+    ch = p_string[e_pos];
   }
   return Value;
 }
@@ -99,7 +93,6 @@ int Factor()
 
   pi = e_pos;
   ch = p_string[pi];
-
   if(ch == '(')
   {
     Match('(');
@@ -110,12 +103,12 @@ int Factor()
   {
       if(isalpha(ch))
       {
-        value = get_varvalue();
-        SkipWhite();
+         value = get_varvalue();
+         SkipWhite();
       }
       else
       {
-        value = GetNum();
+         value = GetNum();
       }
   }
   return value;
@@ -124,12 +117,16 @@ int Factor()
 
 void Match(char x)
 {
-  char ch, string[6];
-  int ab_code=12, ln=line_ndx;
+  char ch;
+  char string[6];
+
+  int ab_code = 12;
+  int ln = line_ndx;
   int pi;
 
   pi = e_pos;
   ch = p_string[pi];
+
   if(ch != x)
   {
     strcpy(string, "\");
@@ -171,11 +168,11 @@ void SkipWhite()
   
   pi = e_pos;
   ch = p_string[pi];
-  while(Is_White(ch))
+  while(ch == ' ')
   {
     _GetChar();
     pi = e_pos;
-    ch = p_string[pi];
+    ch = p_string[e_pos];
   }
 }
 
@@ -183,13 +180,12 @@ void SkipWhite()
 int GetNum()
 {
   char ch;
-  int pi, Value=0, ab_code=13, ln=line_ndx;
+  int pi, Value=0, ab_code = 13, ln = line_ndx;
   int si;
   char cvalue[6];
 
   pi = e_pos;
   ch = p_string[pi];
-
   if(!isdigit(ch))
   {
     strcpy(t_holder, "Integer");
@@ -200,9 +196,9 @@ int GetNum()
   while(isdigit(ch))
   {
     cvalue[si] = ch;
-    si++;
-    _GetChar();
-    pi =  e_pos;
+    si++; 
+    e_pos++;
+    pi = e_pos;
     ch = p_string[pi];
   }
   cvalue[si] = '\0';

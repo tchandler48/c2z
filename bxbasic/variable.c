@@ -1,62 +1,72 @@
+/*	variable.c	*/
+
 
 void parse_let()
 {
-  char ch;
-  char varname[VAR_NAME];
-  int pi;
-  int si=0;
-  int stlen;
-  int ndx=0;
-  int ab_code = 13;
-  int x=line_ndx;
-  int process = 0;
+   char ch;
+   char varname[VAR_NAME];
+  
+   int pi, si = 0, stlen;
+   int ndx = 0, x = line_ndx;
+   int ab_code = 11;
+   int process = 0;
+   int I;
 
-  stlen = strlen(p_string);
-  pi = e_pos;
-  pi = get_alpha(pi, stlen);
+   stlen = strlen(p_string);
+   pi = e_pos;
+/*  retrieve variable name from statement */
+   pi = get_alpha(pi, stlen);
+   ch = p_string[pi];
+   if(pi == stlen)
+   {
+     a_bort(ab_code, x);
+   }
 
+   e_pos = pi;
+   strcpy(varname, get_varname());
 
-  if(pi == stlen)
-  {
-    ab_code = 11;
-    a_bort(ab_code, x);
-  }
+   pi = e_pos;
+   ch = p_string[pi];
 
-  e_pos = pi;
-  strcpy(varname, get_varname());
+/*  we now have arname and type */
+/* compare name to double array */
 
-  pi = e_pos;
-  ch = p_string[pi];
+   if(ch == '#')
+   {
+      process = 1;
+      ndx = get_dblndx(varname);
+      pi++;
+      pi = iswhite(pi);
+      e_pos = pi;
+      Match('=');
+      dv_stack[ndx] = rdp_start();
+    }
 
-  process = 0;
-  if((ch == '#') && (process == 0))
-  {
-    ndx = get_dblndx(varname);
-    pi++;
-    pi = iswhite(pi);
-    e_pos = pi;
-    Match('=');
-    dv_stack[ndx] = rdp_start();
-    process = 1;
-  }
- 
-  if((ch == '$') && (process == 0))
-  {
-    e_pos = pi;
-    parse_str(varname);
-    process = 1;
-  }
-
-  if(process == 0)
-  {
-    ndx = get_intndx(varname);
-    pi = iswhite(pi);
-    e_pos = pi;
-    Match('=');
-    iv_stack[ndx] = rdp_start();
-    process = 1;
-  }
+    if(ch == '$')
+    {
+      process = 1;
+      init_str();
+      ndx = get_varndx(varname);
+      pi++;
+      pi = iswhite(pi);
+      e_pos = pi;
+      Match('=');
+      strng_assgn(ndx);
+    }
+    
+    if(process == 0)
+    {
+      process = 1;
+      ndx = get_intndx(varname);
+      pi = iswhite(pi);
+      e_pos = pi;
+/*  now get assignment value */
+      Match('=');
+      iv_stack[ndx] = rdp_start();
+    }
 }
+
+
 
 int get_intndx(char *name)
 {
@@ -90,7 +100,6 @@ int get_intndx(char *name)
       ndx = imax_vars;
       ndx--;
       strcpy(in_stack[ndx], varname);
-      imax_vars++;
     }
     else
     {
@@ -106,6 +115,7 @@ int get_dblndx(char *name)
   int ndx = 0, vflag = 0, vi_pos = 0;
 
   strcpy(varname, name);
+
   while((strcmp(dn_stack[ndx], varname) != 0) && (ndx < dmax_vars))
   {
     if(vflag == 0)
@@ -119,7 +129,7 @@ int get_dblndx(char *name)
     ndx++;
   }
 
-  if(ndx == imax_vars)
+  if(ndx == dmax_vars)
   {
     ndx = vi_pos;
     if(vflag == 0)
@@ -137,6 +147,8 @@ int get_dblndx(char *name)
   return ndx;
 }
 
+
+
 char get_varname()
 {
   char ch;
@@ -144,8 +156,8 @@ char get_varname()
    int pi, si = 0;
 
   pi = e_pos;
-
   ch = p_string[pi];
+
   while(isalnum(ch) != 0)
   {
     varname[si] = ch;
@@ -153,11 +165,11 @@ char get_varname()
     pi++;
     ch = p_string[pi];
   }
-  varname[pi] = '0';
-
+  varname[pi] = '\0';
   e_pos = pi;
   return varname;
 }
+
 
 
 int get_varvalue()
@@ -206,71 +218,36 @@ int get_varvalue()
   return value;
 }
 
-void clr_vars()
-{
-  clr_int();
-  clr_dbl();
-  clr_str();
-}
 
 void init_int()
 {
-  int ndx;
-  unsigned size;
+   int ndx;
 
-  if(imax_vars == 0)
-  {
-    ndx = imax_vars;
-    imax_vars++;
-    size = imax_vars;
-  }
-  else
-  {
-    ndx = imax_vars;
-    imax_vars++;
-    size = imax_vars;
-  }
-}
-
-void clr_int()
-{
-  int ndx;
-
-  if(imax_vars > 0)
-  {
-    imax_vars = 0;
-  }
+   ndx = imax_vars;
+   imax_vars++;
 }
 
 
 void init_dbl()
 {
-  int ndx;
-  unsigned size;
+   int ndx;
 
-  if(dmax_vars == 0)
-  {
-    ndx = dmax_vars;
-    dmax_vars++;
-    size = dmax_vars;
-  }
-  else
-  {
-    ndx = dmax_vars;
-    dmax_vars++;
-    size = dmax_vars;
-  }
+   ndx = dmax_vars;
+   dmax_vars++;
 }
-    
 
-void clr_dbl()
+
+void clr_vars()
 {
-  int ndx;
+   clr_int();
 
-  if(dmax_vars > 0)
-  {
-    dmax_vars = 0;
-  }
+}
+
+
+void clr_int()
+{
+   int ndx;
+
 }
 
 
@@ -292,6 +269,7 @@ void init_str()
     size = smax_vars;
   }
 }
+
 
 
 void clr_str()
@@ -321,6 +299,7 @@ void strng_assgn(int ndx)
   stlen = strlen(p_string);
   e_pos++;
   pi = e_pos;
+ 
   ch = p_string[pi];
 
   si = 0;
@@ -341,7 +320,6 @@ void strng_assgn(int ndx)
   size = strlen(s_holder);
   size++;
   strcpy(sv_stack[ndx], s_holder);
-  smax_vars++;
 }
 
 
@@ -357,7 +335,7 @@ int get_varndx(char *name)
   {
     if(vflag == 0)
     {
-      if(sn_stack[ndx][0] == '\0')
+      if(sn_stack[ndx] == '\0')
       {
         vi_pos = ndx;
         vflag = 1;
@@ -386,4 +364,49 @@ int get_varndx(char *name)
   }
   return ndx;
 }
+
+
+
+int get_avalue()
+{
+  char ch, varname[VAR_NAME];
+   int pi, si=0;
+   int value = 0;
+
+
+  pi = e_pos;
+  ch = p_string[pi];
+  if(isalpha(ch))
+  {
+    e_pos = pi;
+    value = get_varvalue();
+    pi = e_pos;
+  }
+  else
+  {
+    if((isdigit(ch)) || (IsAddop(ch))
+    {
+      if(IsAddop(ch))
+      {
+        varname[si] = ch;
+ 	 si++;
+	 pi++;
+	 ch = p_string[pi];
+      }
+      while(isdigit(ch) != 0)
+      {
+	 varname[si] = ch;
+	 pi++;
+	 si++;
+	 ch = p_string[pi];
+      }
+      varname[si] = '\0';
+      value = atoi(varname);
+    }
+  }
+  pi = iswhite(pi);
+  e_pos = pi;
+  return value;
+}
+
 

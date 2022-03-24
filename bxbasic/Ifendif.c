@@ -10,6 +10,7 @@ void do_iloop()
     end_ndx = find_endf(line_ndx);
 
     line_ndx++;
+
     while(line_ndx < els_ndx)
     {
       s_pos = 0;
@@ -52,6 +53,7 @@ int find_els(int ndx)
       ndx = find_endf(ndx);
     }
   }
+
   return ndx;
 }
 
@@ -98,6 +100,7 @@ int bolexpress()
   }
 
   op = IsAndOrOp();
+
   while(op != 0)
   {
     if(op == 1)

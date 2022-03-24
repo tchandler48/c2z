@@ -1,11 +1,9 @@
-
-/* 	utility.c	*/
-
+/* utility.c	*/
 
 int get_upper(int pi, int stlen)
 {
   char ch;
-
+  
   ch = p_string[pi];
   while((isupper(ch) == 0) && (pi < stlen))
   {
@@ -14,6 +12,7 @@ int get_upper(int pi, int stlen)
   }
   return pi;
 }
+
 
 int get_alpha(int pi, int stlen)
 {
@@ -41,6 +40,7 @@ int get_digit(int pi, int stlen)
   return pi;
 }
 
+
 int iswhite(int pi)
 {
   char ch;
@@ -53,6 +53,8 @@ int iswhite(int pi)
   }
   return pi;
 }
+
+
 
 void clr_arrays()
 {
@@ -69,10 +71,11 @@ void clr_arrays()
 }
 
 
+
 int iswhiter(int pi)
 {
   char ch;
-
+ 
   ch = p_string[pi];
   while(ch == ' ')
   {
@@ -81,6 +84,7 @@ int iswhiter(int pi)
   }
   return pi;
 }
+
 
 
 int find_strng(char *tmp)

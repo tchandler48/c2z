@@ -1,6 +1,4 @@
-
 /*	output.c	*/
-
 
 void beep()
 {
@@ -15,117 +13,107 @@ void cls()
 }
 
 
+void locate()
+{
+
+}
+
+   
 void get_prnstring()
 {
   char ch;
   int pi;
-  int si = 0;
-  int stlen;
-  int ab_code, x = line_ndx;
+  int si = 0;;
+  char holder[BUFSIZE];
+  char type;
 
   pi = e_pos;
-  pi = iswhite(pi);
   ch = p_string[pi];
-  e_pos = pi;
-
-
   if(ch == ':')
   {
-    printf(" \n");
+    printf("\n");
     return;
   }
 
   if(isalpha(ch))
   {
-    strcpy(s_holder, get_varname());
-
-    pi = e_pos;
-    ch = p_string[pi];
-
-    if(ch == '$')
-    {
-      pi = 0;
-      e_pos = 0;
-      get_strvar();
-    }
-    else
-    { 
-      pi = 0;
-      e_pos = 0;
-      get_prnvar();
-    }
-    return;
+     type = get_vartype();
+     if(type == '$')
+     {
+       get_strvar();
+     }
+     else
+     {
+       get_prnvar();
+     }
+     return;
   }
 
-  stlen = strlen(p_string);
-  if((ch != '\"') || (pi == stlen))
-  {
-    ab_code = 9;
-    a_bort(ab_code, x);
-  }
-  else
-  {
-    pi++;
-    ch = p_string[pi]; 
-    while((ch != '\"') && (pi < stlen))
-    {
-      xstring[si] = ch;
-      si++; 
-      pi++;
-      ch = p_string[pi];
-    }
-    xstring[si] = '\0';
-
-    if(pi >= stlen)
-    {
-      ab_code = 6;
-      a_bort(ab_code, x);
-    }
-  }
-  
   pi++;
-  pi = iswhite(pi);
   ch = p_string[pi];
-
+  while(ch != '\"')
+  {
+    xstring[si] = ch;
+    si++; 
+    pi++;
+    ch = p_string[pi];
+  }
+  xstring[si] = '\0';
+  pi++;
+  ch = p_string[pi];
+  
   printf(" %s\n",xstring);
 }
 
 
 void get_prnvar()
 {
-  char ch;
-  int pi, value;
+   char ch;
+   int pi, ivalue;
+   int process;
 
-  pi = e_pos;
-  pi = iswhite(pi);
-  e_pos = pi;
-  value = get_varvalue();
-  pi = e_pos;
-  pi = iswhite(pi);
-  ch = p_string[pi];
+   pi = e_pos;
+   pi = iswhite(pi);
+   e_pos = pi;
+   ivalue = get_varvalue();
+   pi = e_pos;
+   pi = iswhite(pi);
+   ch = p_string[pi];
+/*  comma = tab  semi-colon = no */
+   process = 0;
 
-  printf(" %d\n",value);
+   if(ch == ',')
+   {
+      printf(" %d",ivalue);
+      process = 1;
+   }
+   
+   if((ch == ':') && (process == 0))
+   {
+      printf(" %d\n",ivalue);
+      process = 1;
+   }
+
+   if(process == 0)
+   {
+      printf(" %d\n",ivalue);
+   }
 }
 
-
-void locate()
-{
-
-}
 
 char get_vartype()
 {
-  char ch;
-   int pi;
+   char ch;
+    int pi;
 
-  pi = e_pos;
-  ch = p_string[pi];
-  while(isalnum(ch))
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-  return ch;
+   pi = e_pos;
+   ch = p_string[pi];
+   while(isalnum(ch))
+   {
+     pi++;
+     ch = p_string[pi];
+   }
+   return ch;
 }
 
 
@@ -153,5 +141,6 @@ void get_strvar()
 
   printf(" %s\n", sv_stack[ndx]);
 }
+
 
 

@@ -1,11 +1,13 @@
+/*	loops.c	*/
 
 void do_loop()
 {
   char ch, varname[VAR_NAME];
-  int pi, f_ndx, Inc=1;
+  int pi, f_ndx, Inc = 1;
   int ab_code;
-  int start, next_tru, x=line_ndx;
+  int start, next_tru, x = line_ndx;
   int From, Final;
+  int I;
 		
   f_ndx = get_From();
 
@@ -20,14 +22,13 @@ void do_loop()
   }
 
   From = iv_stack[f_ndx];
-
   start = line_ndx;
 
   frnxt_flg++;
 
   if(From < Final)
   {
-    for(; From <= Final; From += Inc)
+    for(; From < Final; From += Inc)
     {
       next_tru = 1;
       line_ndx = start + 1;
@@ -44,7 +45,7 @@ void do_loop()
 	 }
 	 else
 	 {
-	       line_ndx++;
+          line_ndx++;
 	 }
       }
     }
@@ -68,7 +69,7 @@ void do_loop()
 	 }
 	 else
 	 {
-	  line_ndx++;
+	   line_ndx++;
 	 }
       }
     }
@@ -80,7 +81,7 @@ int get_From()
 {
   char ch, varname[VAR_NAME];
    int f_ndx, pi,sav_pi;
-   int ab_code, x=line_ndx;
+   int ab_code, x = line_ndx;
 		
   pi = e_pos;
   sav_pi = pi;
@@ -99,7 +100,7 @@ int get_From()
 int get_To()
 {
   char ch, varname[VAR_NAME];
-  int pi, ab_code, x=line_ndx;
+  int pi, ab_code, x = line_ndx;
   int Final;
 
   pi = e_pos;
@@ -117,7 +118,7 @@ int get_To()
     ch = p_string[pi];
     if(strcmp(varname, "TO") != 0)
     {
-      ab_code=7;
+      ab_code = 7;
       a_bort(ab_code,x);
     }
   }
@@ -130,7 +131,7 @@ int get_To()
   }
   else
   {
-    ab_code=15;
+    ab_code = 15;
     a_bort(ab_code,x);
   }
   return Final;
@@ -147,7 +148,7 @@ int get_Step()
   strcpy(varname, get_varname());
   if(strcmp(varname, "STEP") != 0)
   {
-    ab_code=7;
+    ab_code = 7;
     a_bort(ab_code,x);
   }
   pi = e_pos;
@@ -181,57 +182,11 @@ int get_Step()
 
 void do_next()
 {
-  int ab_code=16, x=line_ndx;
+  int ab_code = 16, x = line_ndx;
 
   if(frnxt_flg == 0)
   {
     a_bort(ab_code,x);
   }
-}
-
-
-int get_avalue()
-{
-  char ch, varname[VAR_NAME];
-   int pi, si=0;
-   int value = 0;
-
-  pi = e_pos;
-  ch = p_string[pi];
-
-  if(isalpha(ch))
-  {
-    e_pos = pi;
-    strcpy(s_holder, get_varname());
-    pi = 0;
-    e_pos = 0;
-    value = get_varvalue();
-    pi = e_pos;
-  }
-  else
-  {
-    if((isdigit(ch)) || (IsAddop(ch))
-    {
-      if(IsAddop(ch))
-      {
-        varname[si] = ch;
- 	 si++;
-	 pi++;
-	 ch = p_string[pi];
-      }
-      while(isdigit(ch) != 0)
-      {
-	 varname[si] = ch;
-	 pi++;
-	 si++;
-	 ch = p_string[pi];
-      }
-      varname[si] = '\0';
-      value = atoi(varname);
-    }
-  }
-  pi = iswhite(pi);
-  e_pos = pi;
-  return value;
 }
 
