@@ -1,3 +1,4 @@
+/*	input.c	*/
 
 void line_cnt(char *argv[])
 {
@@ -15,14 +16,9 @@ void line_cnt(char *argv[])
   prog_name = malloc(fnam_len * sizeof(char));
   
   pi = len - 4;
-  for(; pi < len; pi++)
-  {
-    p_string[ii] = prog_name[pi];
-    ii++;
-  }
   if(strcmp(p_string, ".bas") != 0)         
   {
-    strcat(prog_name, ".bas");
+    strcat(prog_name, "bas");
   }
   p_string[0] = '\0';
   strcpy(s_holder, prog_name);
@@ -67,6 +63,7 @@ void load_src()
   fclose(f_in);
   fclose(f_out);
 }
+
 
 
 void save_tmp()
@@ -119,6 +116,8 @@ void save_tmp()
   }
 }
 
+
+
 void loader_1()
 {
   char ch, ln_holder[LLEN];
@@ -133,7 +132,7 @@ void loader_1()
   while(!feof(f_in))
   {
     fgets(p_string, BUFSIZE, f_in);
-/* printf("loader_1 p_string = %s \n",p_string); */
+printf("loader_1 p_string = %s\n",p_string);
     if(!feof(f_in))
     {	
       len = strlen(p_string);
@@ -143,7 +142,7 @@ void loader_1()
       if(ch == ':')
       {
         temp_byte[ii] = -1;
-        strcpy(temp_prog[ii],"\0";
+        strcpy(temp_prog[ii],"\0");
       }
       else
       {
@@ -154,8 +153,8 @@ void loader_1()
     ii++;
   }
   fclose(f_in);
-
 }
+
 
 void tmp_label(int ii)
 {
@@ -178,7 +177,7 @@ void tmp_label(int ii)
   }
   else
   {
-    strcpy(temp_label[ii], "";
+    strcpy(temp_label[ii], " ");
   }
   e_pos = pi;
 }
@@ -188,7 +187,7 @@ void tmp_byte(int ii)
 {
   char ch;
   int pi, si, byte;
-  int x=ii, ab_code=4;
+  int x = ii, ab_code = 4;
 
   pi = e_pos;
   pi = iswhite(pi);
@@ -226,6 +225,7 @@ void tmp_byte(int ii)
   temp_byte[ii] = byte;
   e_pos = pi;
 }	
+
 
 int get_byte(int ii)
 {
@@ -347,12 +347,6 @@ int get_byte(int ii)
     x1 = 1;
   }
 
-  if(strcmp(keyword, "INPUT") == 0)
-  {
-    byte = 17;
-    x1 = 1;
-  }
-
   if(x1 == 0)
   {
     pi = iswhite(pi);
@@ -370,6 +364,7 @@ int get_byte(int ii)
   e_pos = pi;
   return byte;
 }
+
 
 void tmp_prog(int ii)
 {
@@ -395,6 +390,7 @@ void tmp_prog(int ii)
   strcpy(temp_prog[ii], prog);
 }
 
+
 void loader_2()
 {
   int ndx, ii, line_count=0, lines=nrows;
@@ -409,11 +405,6 @@ void loader_2()
     if((temp_byte[ndx] == 13) || (temp_byte[ndx] == 14))
     {
       token_ix(ndx);
-    }
-
-    if(temp_byte[ndx] == 1)
-    {
-      str_functn(ndx);
     }
   }
 
@@ -436,60 +427,6 @@ void loader_2()
   }
 }
 
-void program_array()
-{
-  int ii;
-  int len;
-  int pi;
-  int pi2;
-  int I;
-  char ch;
-  char ln_holder[LINE_NUM];
-
-  free(array1);
-
-  array1 = malloc(nrows * sizeof(char *));
-  for(ii = 0; ii < nrows; ii++)
-  {
-    array1[ii] = malloc(ncolumns * sizeof(char));
-  }
-
-  array2 = malloc(nrows * sizeof(char *));
-  for(ii = 0; ii < nrows; ii++)
-  {
-    array2[ii] = malloc(LINE_NUM * sizeof(char));
-  }
-  ii = 0;
-  f_src = fopen(prog_name, "r");
-  while(!feof(f_src))
-  {
-    fgets(p_string, BUFSIZE, f_src);
-    if(!feof(f_src)
-    {
-      len = strlen(p_string);
-      strcpy(array1[ii], p_string);
-      array1[ii][len] = '\0';
-      pi = 0;
-      pi2 = 0;
-      ch = p_string[pi];
-      while(isdigit(ch))
-      {
-         ln_holder[pi2] = ch;
-         pi2++;
-         pi++;
-         ch = p_string[pi];
-      }
-      ln_holder[pi2] = '\0';
-      strcpy(array2[ii], ln_holder);
-    }
-    ii++;
-  }
-  fclose(f_src);
-  for(I=0; I < 17; I++)
-  {
-     printf("array1 = %s\n",array1[I]);
-  }
-}
 
 
 void token_ix(int ndx)
@@ -540,6 +477,4 @@ void token_ix(int ndx)
 
   strcpy(temp_prog[ndx], p_string);
 }
-
-
 
