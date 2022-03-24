@@ -1,4 +1,4 @@
- 
+  
 #define MAX_VARS     12
 #define VAR_NAME     16
 	
@@ -54,7 +54,7 @@ struct variables
 	
 int main(int argc, char *argv[])
 	{
-		printf("Hello Z390 World ctest8\n");
+		printf("Hello Z390 World ctest9\n");
 
               if(ch == ':')
               {
@@ -90,11 +90,12 @@ int main(int argc, char *argv[])
                 printf("Here #6 gv_ct > 7\n");
               }
 
+              ch = '+';
               if((ch == '+') || (ch == '-'))
               {
                    gv_ct = 1;
               }
-
+              printf("gv_ct = %d\n",gv_ct);
 
 
 

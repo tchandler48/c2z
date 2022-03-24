@@ -1,7 +1,7 @@
    #define BUFSIZE     100
    #define MAX_VARS    90
    #define VAR_NAME    33
-
+ 
    char r_string[BUFSIZE];
    char fielda[10];
    char fieldc[10];
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
   printf("Hello Z390 World\n");
 
   strcpy(fielda, "abcdefghi");
-  printf("fielda = %s",fielda);
+  printf("fielda = %s ",fielda);
 
   len = strlen(fielda);
   printf("len fielda = %d\n",len);
@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
   strcpy(varname, "fielda");
   strcpy(sv_stack[I], varname);
   strcpy(sv_stack[I],fielda);
+
 
   xyz = 12;
   printf("xyz = %d\n",xyz);
@@ -90,12 +91,9 @@ int main(int argc, char *argv[])
 
   for(I=0; I < 6; I++)
   {
-    printf("sv_stack = %s\n",sv_stack[I]);
+    printf("in_stack = %s\n",in_stack[I]);
   }
 
-
-
-
-
+  printf("End of ctest2\n");
 
 }

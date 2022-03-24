@@ -2,7 +2,7 @@
 #define MAX_VARS     12
 #define VAR_NAM      16
 #define VAR_NAME     16
-	
+ 	
 	int t;
 	int x;
 	int y;
@@ -22,7 +22,7 @@
 
 
 struct variables
-{
+  {
    int gv_rct;
   char gv_name[VAR_NAME];
   char gv_cname[VAR_NAME];
@@ -49,7 +49,7 @@ struct variables    *gw_variable;
 	
 int main(int argc, char *argv[])
 	{
-		printf("Hello Z390 World ctest6\n");
+		printf("Hello Z390 World ctest5\n");
 		
               strcpy(a, "123456");
               printf("a = %s\n",a);
@@ -92,16 +92,7 @@ int main(int argc, char *argv[])
               strcpy(gw_variable[gv_ct].gv_name, varname);
               strcpy(gw_variable[3].gv_name, varname);
 
-              gv_ct = 2;
-              strcpy(gw_variable[gv_ct].gv_name, "123456");
-              strcpy(gw_variable[3].gv_name, "123456");
-
-              x = 4;
-              strcpy(in_stack[x], gw_variable[gv_ct].gv_name);
-
-              gv_ct = 0;
-              strcpy(gw_variable[gv_ct].gv_name, in_stack[x]);
-
+           
               x = 5;
 		for(I=0; I < x; I++)
 			{

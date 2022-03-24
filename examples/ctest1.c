@@ -9,11 +9,10 @@
 int test;
 
 int main()
-	{
-		printf("Hello Z390 World\n");
-		printf("Hope you enjoy!\n");
-		printf("End of ctest_1\n");
-		
-	}
+{
+  printf("Hello Z390 World\n");
+  printf("Hope you enjoy!\n");
+  printf("End of ctest_1\n");
+}
 
 

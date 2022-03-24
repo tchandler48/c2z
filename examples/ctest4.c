@@ -1,4 +1,4 @@
-
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -13,7 +13,7 @@
 int main(int argc, char *argv[])
 	{
 		printf("Hello Z390 World\n");
-		printf("ctest5 strcpy test");
+		printf("ctest4 strcpy test");
 
 		strcpy(a, "abcdefghijklmnopq");
 		printf("a = %s\n",a);
@@ -35,6 +35,6 @@ int main(int argc, char *argv[])
                  printf("xyz not found in string a\n");
               }
 		
-		printf("End of ctest5\n");
+		printf("End of ctest4\n");
 		
 	}

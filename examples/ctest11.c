@@ -5,19 +5,18 @@
 int main () 
 {
    char str[50];
-   char age[5];
+   char cage[8];
+   int age;
 
    printf("ctest11 test program\n");
 
    printf("Enter a string : \n");
-   gets(str);
-
+   scanf("%s",str);
    printf("You entered: %s \n", str);
 
    printf("Enter your age: \n");
-   scanf("%s", age);
-
-   printf("Your age is %s: \n", age);
+   scanf("%d", age);
+   printf("Your age is %d: \n", age);
  
    return(0);
 
