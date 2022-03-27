@@ -7,6 +7,6 @@
 8 LET tuv = 7
 10 PRINT xyz
 12 PRINT tuv
-14 LET def = tuv + xyz
-16 PRINT def
-18 END
+13 LET def = tuv + xyz
+14 PRINT def
+15 END

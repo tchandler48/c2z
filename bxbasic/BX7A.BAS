@@ -5,23 +5,22 @@
   sam$ = "stephanie"
   dog = 1
   cat = 2
-  pet = dog + cat
   bird = 5 + 3
-  def = 5678
+  defa = 5678
   PRINT don$
-  GOSUB Loop1
+  GOSUB Loop
   PRINT tom$
   PRINT sam$
-  GOSUB Loop2
-  PRINT def
-  PRINT pet
+  GOSUB Second
   PRINT bird
+  PRINT cat
+  PRINT dog
   PRINT "End of bx7a.bas"
   GOTO TheEnd
-Loop2:
+Second:
   PRINT "Subroutne TWO"
   RETURN
-Loop1:
+Loop:
   PRINT "Subroutine One"
   RETURN
 TheEnd:
