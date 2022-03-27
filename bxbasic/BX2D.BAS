@@ -1,0 +1,13 @@
+1 REM BX2D.BAS
+2 CLS
+3 PRINT "Hello Z390 World"
+4 LET abc = 2
+5 LET xyz = 10
+6 LOCATE abc,xyz
+7 PRINT "FIRST LOCATE"
+8 LET abc = 4
+9 LET xyz = 20
+10 LOCATE abc,xyz
+11 PRINT "SECOND LOCATE"
+12 END
+
