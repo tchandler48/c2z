@@ -1,10 +1,14 @@
 1 REM BX2C.BAS
 2 CLS
-3 PRINT "bx2c.bas START"
-4 LET abc = 2
-5 LET xyz = 11
-7 PRINT "Hello World 2"
-8 LET abc = 46
-9 LET xyz = 22
-11 PRINT "Hello World 3"
-12 END
+3 PRINT "Hello Z390 World"
+4 LET abc = 100
+5 PRINT abc
+6 LET xyz = 999
+7 LET qwerty = 1234
+8 LET abc = 32123
+9 PRINT xyz
+10 PRINT qwerty
+11 CLEAR
+12 PRINT abc
+13 PRINT "The End."
+14 END

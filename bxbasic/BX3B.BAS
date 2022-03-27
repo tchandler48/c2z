@@ -5,7 +5,5 @@
 5 LET ghi = 10
 6 LET bbb = 6 + 4
 7 PRINT bbb
-11 LET aaa = 100 / 10
-13 PRINT aaa
 15 PRINT "hello world2"
 16 END

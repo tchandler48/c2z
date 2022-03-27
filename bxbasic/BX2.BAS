@@ -9,7 +9,7 @@
 9 PRINT "Now at line #9"
 10 BEEP
 11 GOTO 6
-12 LET abc = 123
-13 PRINT "abc = 123"
+12 LET abc = 100
+13 PRINT "abc = 100"
 14 GOTO 9
-15 END
+

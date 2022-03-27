@@ -9,11 +9,8 @@
 9 PRINT "Now at line #9"
 10 BEEP
 11 GOTO 6
-12 PRINT "line 12a" 
-13 PRINT 'LINE 12B"
-14 LET abc = 100
-15 LET xyz = 999
-16 LET qwerty = 1234
-17 LET abc = 32123
-18 GOTO 9
-19 END
+12 LET abc = 100
+13 LET xyz = 999
+14 LET qwerty = 1234
+15 LET abc = 32123
+16 GOTO 9

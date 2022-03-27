@@ -1,6 +1,7 @@
    CLS
    PRINT "BX10 Starting..."
-   abc$ = "testing"
+   abc$ = "testing"  
+   PRINT abc$
    xyz$ = abc$
    PRINT abc$
    PRINT xyz$

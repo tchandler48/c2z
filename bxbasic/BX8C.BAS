@@ -1,4 +1,4 @@
-  REM  bx8a.bas
+  REM  bx8c.bas
   PRINT "Hello Z390 World bx8a"
   LET abc = 99
   xyz = 33
@@ -10,7 +10,7 @@
   IF abc < xyz THEN
      PRINT "#2 abc "
   ELSE
-     PRINT "#2 xyz"
+     PRINT "#3 xyz"
   ENDIF
   PRINT "done"
 TheEnd:
