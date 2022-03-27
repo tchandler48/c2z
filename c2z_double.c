@@ -218,7 +218,7 @@ void c2_double()
         strcpy(gw_variable[gv_ct].gv_st_col, null_field);
         gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
-        gw_variable[gv_ct].gv_id = 0;
+        gw_variable[gv_ct].gv_id = 2;
         gv_ct++;
 
 
@@ -269,7 +269,7 @@ void c2_double()
         strcpy(lw_variable[lv_ct].lv_literal, null_field);
         lw_variable[lv_ct].lv_use_ct = 0;
         lw_variable[lv_ct].lv_dec = 0;
-        lw_variable[lv_ct].lv_id = 0;
+        lw_variable[lv_ct].lv_id = 2;
         lv_ct++;
       }
     } 			/* global_st == 1 */
@@ -338,7 +338,7 @@ void c2_double()
           strcpy(gw_variable[gv_ct].gv_st_col, null_field);
           gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
-          gw_variable[gv_ct].gv_id = 0;
+          gw_variable[gv_ct].gv_id = 2;
         }
       } 			/* global_st == 0   */
 
@@ -386,7 +386,7 @@ void c2_double()
           strcpy(lw_variable[lv_ct].lv_literal, null_field);
           lw_variable[lv_ct].lv_use_ct = 0;
           lw_variable[lv_ct].lv_dec = 0;
-          lw_variable[lv_ct].lv_id = 0;
+          lw_variable[lv_ct].lv_id = 2;
           lv_ct++;
         }
       } 				/* global_st == 1 */
@@ -505,6 +505,7 @@ void c2_double()
         strcat(wk_string, wk_strg);
         strcat(wk_string, "A");
         strcpy(gw_variable[gv_ct].gv_aname, wk_string);
+	 gw_variable[gv_ct].gv_id = 4;
 
         gv_ct++;
 
@@ -755,7 +756,7 @@ void c2_double()
           strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
           gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
-          gw_variable[gv_ct].gv_id = 0;
+          gw_variable[gv_ct].gv_id = 1;
           gv_ct++;
         }
       } 			/* global_st == 0   */
@@ -804,6 +805,7 @@ void c2_double()
           strcpy(lw_variable[lv_ct].lv_literal, null_field);
           lw_variable[lv_ct].lv_use_ct = 0;
           lw_variable[lv_ct].lv_dec = 0;
+          lw_variable[lv_ct].lv_id = 1;
           lv_ct++;
         }
       } 			/* global_st == 1 */
@@ -1380,6 +1382,7 @@ void c2_dbl_41()
     strcat(wk_string, wk_strg);
     strcat(wk_string, "A");
     strcpy(gw_variable[gv_ct].gv_aname, wk_string);
+    gw_variable[gv_ct].gv_id = 4;
     gv_ct++;
 
     c_name++;

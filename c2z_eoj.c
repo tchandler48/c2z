@@ -10,6 +10,8 @@
 void c2_eoj() 
 {
   char field1[VAR_LGTH];
+  char field1a[VAR_LGTH];
+  char field4[VAR_LGTH];
   char tfield2[VAR_LGTH];
   char tfield3[VAR_LGTH];
   char tfield4[VAR_LGTH];
@@ -31,6 +33,7 @@ void c2_eoj()
   int II = 0;
   int s = 0;
   int p_ct = 0;
+  int x99 = 0;
 
   if(zgui == 0)
   {
@@ -1643,27 +1646,16 @@ void c2_eoj()
   {
     for(II = 0; II < fs_field_ct; II++)
     {
+/*
       printf("\nfs_fd_rct = %d\n",w_fs_field[II].fs_fd_rct);
       printf("fs_fd_map = %s\n",w_fs_field[II].fs_fd_map);
       printf("fs_fd_color = %s\n",w_fs_field[II].fs_fd_color);
-/*
-   int fs_fd_rct;
-  char fs_fd_map[VAR_LGTH];
-  char fs_fd_name[VAR_LGTH];
-  char fs_fd_cname[VAR_LGTH];
-  char fs_fd_io[2];
-  char fs_fd_type[2];
-  char fs_fd_field[VAR_LGTH];  
-   int fs_fd_row;		   
-   int fs_fd_col;		   
-  char fs_fd_color[VAR_LGTH];
-  char fs_fd_address[5];
 */
 
     }
   }
-printf("\n");
   
+  x99 = 1;
   if(fs_map_ct > 0)
   {
     x3 = 0;
@@ -1678,7 +1670,7 @@ printf("\n");
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c");
+        strcpy(trace_1, "c2z_eoj.c #9000");
         trace_rec_3();
       }
 
@@ -1689,7 +1681,7 @@ printf("\n");
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c");
+        strcpy(trace_1, "c2z_eoj.c #9001");
         trace_rec_3();
       }
 
@@ -1700,7 +1692,7 @@ printf("\n");
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c");
+        strcpy(trace_1, "c2z_eoj.c #9002");
         trace_rec_3();
       }
 
@@ -1711,12 +1703,10 @@ printf("\n");
       write_remark();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c");
+        strcpy(trace_1, "c2z_eoj.c #9003");
         trace_rec_3();
       }
 
-printf("fs_field_ct = %d\n",fs_field_ct);
-       
       while(p_ct < fs_field_ct)
       {
         x7 = 0;
@@ -1726,8 +1716,10 @@ printf("fs_field_ct = %d\n",fs_field_ct);
            strcpy(tfield4, w_fs_field[p_ct].fs_fd_field);
            strcpy(w_address, w_fs_field[p_ct].fs_fd_address);
            x7 = 1;
+/*
 printf("\n #3 rct = %d fs_fd_map = %s fs_name = %s\n",rct,w_fs_field[s].fs_fd_map, w_fs_map[I].fs_name);
 printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tfield4,w_address);
+*/
         }
        
         if(x7 == 1)
@@ -1741,54 +1733,43 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_eoj.c");
+            strcpy(trace_1, "c2z_eoj.c #9004");
             trace_rec_3();
           }
 
-          strcpy(a_string, "          DC    X'2903'");
-          strcpy(wk_remark, " ");
-          strcat(wk_remark, "SFE 3 ATTR");
-          strcat(wk_remark, " ");
-          write_remark();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z_eoj.c");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "          DC    X'C0F0'");
+          strcpy(a_string, "          DC    X'1DF0'");
           strcpy(wk_remark, " ");
           strcat(wk_remark, "BASIC = PROTECTED");
           strcat(wk_remark, " ");
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_eoj.c");
+            strcpy(trace_1, "c2z_eoj.c #9005");
             trace_rec_3();
           }
   
-          strcpy(a_string, "          DC    X'41F2'");
+          strcpy(a_string, "          DC    X'2841F2'");
           strcpy(wk_remark, " ");
           strcat(wk_remark, "REVERSE");
           strcat(wk_remark, " ");
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_eoj.c");
+            strcpy(trace_1, "c2z_eoj.c #9006"); 
             trace_rec_3();
           }
 
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "DEFAULT");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'4200'");
+            strcpy(a_string, "          DC    X'284200'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "DEFAULT");
             strcat(wk_remark, " ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9007");
               trace_rec_3();
             }
           }
@@ -1796,14 +1777,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "BLUE");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F1'");
+            strcpy(a_string, "          DC    X'2842F1'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "BLUE");
             strcat(wk_remark, " ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9008");
               trace_rec_3();
             }
           }
@@ -1811,14 +1792,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "RED");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F2'");
+            strcpy(a_string, "          DC    X'2842F2'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "RED");
             strcat(wk_remark, " ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9009");
               trace_rec_3();
             }
           }
@@ -1826,14 +1807,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "PINK");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F3'");
+            strcpy(a_string, "          DC    X'2842F3'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "PINK");
             strcat(wk_remark, "*/ ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9010");
               trace_rec_3();
             }
           }
@@ -1841,14 +1822,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "GREEN");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F4'");
+            strcpy(a_string, "          DC    X'2842F4'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "GREEN");
             strcat(wk_remark, "*/ ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9011");
               trace_rec_3();
             }
           }
@@ -1856,14 +1837,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "TURQUOISE");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F5'");
+            strcpy(a_string, "          DC    X'2842F5'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "TURQUOISE");
             strcat(wk_remark, " ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9012");
               trace_rec_3();
             }
           }
@@ -1871,14 +1852,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "YELLOW");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F6'");
+            strcpy(a_string, "          DC    X'2842F6'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "YELLOW");
             strcat(wk_remark, " ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9013");
               trace_rec_3();
             }
           }
@@ -1886,14 +1867,14 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           ret = strcmp(w_fs_field[p_ct].fs_fd_color, "WHITE");
           if(ret == 0)
           {
-            strcpy(a_string, "          DC    X'42F7'");
+            strcpy(a_string, "          DC    X'2842F7'");
             strcpy(wk_remark, " ");
             strcat(wk_remark, "WHITE");
             strcat(wk_remark, " ");
             write_remark();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9014");
               trace_rec_3();
             }
           }
@@ -1907,7 +1888,85 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
             src_line();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c");
+              strcpy(trace_1, "c2z_eoj.c #9015");
+              trace_rec_3();
+            }
+          }
+
+          ret = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+          if(ret == 0)
+          {
+            strcpy(field1, w_fs_field[p_ct].fs_fd_field);
+/*
+struct fs_scr_field
+{
+   char fs_scr_name[VAR_LGTH];
+   char fs_scr_cname[VAR_LGTH];
+};
+struct fs_scr_field *w_fs_scr_field;
+*/
+ 
+            for(v = 0; v < T3270_ct; v++)
+            {
+              ret = strcmp(field1, w_fs_scr_field[v].fs_scr_name);
+              if(ret == 0)
+              {
+                strcpy(field4, w_fs_scr_field[v].fs_scr_cname);
+              }
+            }
+
+            strcpy(field1, w_fs_field[p_ct].fs_fd_field);
+            x3 = 0;
+            for (v = 0; v < lv_ct; v++) 
+            {
+               ret = strcmp(field1, lw_variable[v].lv_name);
+               ret1 = strcmp(sv_func, lw_variable[v].lv_func);
+               if ((ret == 0) && (ret1 == 0)) 
+               {
+                  strcpy(field1a, lw_variable[v].lv_cname);
+                  x5 = lw_variable[v].lv_current_lgth;
+                  x3 = 1;
+                  break;
+               }
+            }
+
+            if (x3 == 0) 
+            {
+               for (v = 0; v < gv_ct; v++) 
+               {
+                  ret = strcmp(field1, gw_variable[v].gv_name);
+                  if (ret == 0) 
+                  {
+                     strcpy(field1a, gw_variable[v].gv_cname);
+                     x5 = gw_variable[v].gv_current_lgth;
+                     x3 = 1;
+                     break;
+                  }
+               }
+            }
+
+            if(x99 > 1)
+            {
+               strcpy(a_string, "          DC    CL' '");
+               src_line();
+               if (puncde == 1) 
+               {
+                 strcpy(trace_1, "c2z_eoj.c #9017");
+                 trace_rec_3();
+               }
+            }
+            x99++; 
+           
+            strcpy(a_string, field4);
+            check_length();
+            strcat(a_string, " DC    CL");
+            snprintf(wk_strg, sizeof(wk_strg), "%d", x5);
+            strcat(a_string, wk_strg);
+            strcat(a_string, "' '");
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_eoj.c #9016");
               trace_rec_3();
             }
           }
@@ -1919,12 +1978,9 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_eoj.c");
+            strcpy(trace_1, "c2z_eoj.c #9017");
             trace_rec_3();
           }
-
-
-
         }
         x7 = 0;
         p_ct++;
@@ -1939,7 +1995,7 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c");
+        strcpy(trace_1, "c2z_eoj.c #9018");
         trace_rec_3();
       }
 

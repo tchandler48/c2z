@@ -2762,13 +2762,11 @@ void c2_str_3(int str1, int str2)
       }
       tfield3[pi2] = '\0';
 
-/*
 printf("\nc2z_strcpy.c s < s rct = %d p_string = %s",rct,p_string);
 printf("c2z_strcpy.c s < s tfield1 = %s\n",tfield1);
 printf("c2z_strcpy.c s < s tfield2 = %s\n",tfield2);
 printf("c2z_strcpy.c s < s tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
 printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
-*/
 
       if(fd2_type == 1)
       {
@@ -2789,6 +2787,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
               str2 = 1;
               strcpy(tfield2a, lw_variable[I].lv_cname);
               lw_variable[I].lv_use_ct++;
+              break;
             }
           }
         }
@@ -2805,6 +2804,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
                 str2 = 1;
                 strcpy(tfield2a, gw_variable[I].gv_cname);
                 gw_variable[I].gv_use_ct++;
+                break;
               }
             }
           }
@@ -2824,6 +2824,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
             strcpy(tfield1b, lw_variable[I].lv_cname);
             lw_variable[I].lv_use_ct++;
             strcpy(tfield4, lw_variable[I].lv_type);
+            break;
           }
         }
       }
@@ -2840,6 +2841,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
               strcpy(tfield4, gw_variable[I].gv_type);
               strcpy(tfield1b, gw_variable[I].gv_cname);
               str2 = 1;
+              break;
             }
           }
         }
@@ -2863,6 +2865,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
               strcpy(tfield10, gw_variable[I].gv_wk_reg);
               strcpy(tfield11, gw_variable[I].gv_wk_strg);
               gw_variable[I].gv_flag = 0;
+              break;
             }
           }
         }
@@ -2922,6 +2925,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
             }
           }
         }
+printf("c2z_strcpy.c s < s #2 x5 = %d\n",x5);
 
         if(fd2_type == 1)
         {
@@ -3202,9 +3206,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
             strcpy(trace_1, "c2z_strcpy.c #119");
             trace_rec_3();
           }
-
         }
-
 
         if((x6 == 0) && (fd3_type == 2))
         {
@@ -3225,6 +3227,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
             x5 = 16;
           }
     
+          x5 = 31;
           snprintf(wk_strg, sizeof(wk_strg), "%d", x5);
           strcpy(a_string, "         MVC   0(");
           strcat(a_string, wk_strg);
@@ -3277,7 +3280,7 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
         }
       }
 
-      ret1 = strcmp(tfield2, "C");
+/*      ret1 = strcmp(tfield2, "C");
       if (ret1 == 0) 
       {
         if (gv_ct > 0) 
@@ -3297,6 +3300,8 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
           }
         }
       }
+*/
+
     }
   }
 

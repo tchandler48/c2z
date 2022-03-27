@@ -569,6 +569,14 @@
 	void c2_while_16(void);
        void c2_while_17(void);
        void c2_while_20(void);
+
+/* ****************************************************
+ *  lv_id/gv_id                                       *
+ *  1		=	I	integer       	     *
+ *  2		=	D	double			     *
+ *  3		=   	C	char			     *
+ *  4		=	G	Double 		     *
+ * ************************************************** */
 			
 
 /* ------ global vars ------------ */
@@ -673,6 +681,7 @@ char from_sv[24];
  int for_loop_ct = 0;
  int fs_map_ct = 0;
  int fs_field_ct = 0;
+ int T3270_ct = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -1143,6 +1152,12 @@ struct fs_field
 };
 struct fs_field *w_fs_field;
 
+struct fs_scr_field
+{
+   char fs_scr_name[VAR_LGTH];
+   char fs_scr_cname[VAR_LGTH];
+};
+struct fs_scr_field *w_fs_scr_field;
 
 
 /* ----- includes ---------------- */
@@ -3495,7 +3510,7 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
       v_convert = 1;
     }
 
-    p = strstr(p_string, "fsscr");
+    p = strstr(p_string, "fsdefine");
     if ((s == 0) && (v_convert == 0))
     {
       v_convert = 1;
@@ -3513,7 +3528,7 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
       v_convert = 1;
     }
 
-    p = strstr(p_string, "fsrd");
+    p = strstr(p_string, "fsread");
     if ((s == 0) && (v_convert == 0))
     {
       v_convert = 1;
@@ -8623,20 +8638,20 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
 
 
     /* **********************************************************
-    *  Punch out fsscr                                          *
+    *  Punch out fsdefine                                       *
     * ********************************************************* */
     if (convert == 1) 
     {
       goto end_pass3;
     }
 
-    p = strstr(p_string, "fsscr");
+    p = strstr(p_string, "fsdefine");
   
     if (p) 
     {
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z.c fsscr Start");
+        strcpy(trace_1, "c2z.c fsdefine Start");
         trace_rec_1();
       }
 
@@ -8715,20 +8730,20 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
 
 
    /* **********************************************************
-    *  Punch out fsrd                                          *
+    *  Punch out fsread                                        *
     * ******************************************************** */
     if (convert == 1) 
     {
       goto end_pass3;
     }
 
-    p = strstr(p_string, "fsrd");
+    p = strstr(p_string, "fsread");
   
     if (p) 
     {
       if (traceflg == 1) 
       {
-        strcpy(trace_1, "c2z.c fsrd pass 3");
+        strcpy(trace_1, "c2z.c fsread pass 3");
         trace_rec_1();
       }
 
