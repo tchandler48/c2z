@@ -212,6 +212,8 @@ void goto_label_scan()
   }
   field1[pi2] = '\0';
 
+  x3 = 0;
+
   if (global_st == 0) 
   {
     if (goto_label_ct == 0) 
@@ -233,18 +235,18 @@ void goto_label_scan()
     x3 = 1;
   }
 
-    if ((global_st == 1) && (x3 == 0)) 
-    {
+  if ((global_st == 1) && (x3 == 0)) 
+  {
       if (x3 == 0) 
       {
-        if (lv_ct == 0) 
+        if (goto_label_ct == 0) 
         {
           size = 1;
           w_goto_label = malloc(size * sizeof(struct goto_label));
         } 
         else 
         {
-          size = lv_ct + 1;
+          size = goto_label_ct + 1;
           w_goto_label = realloc(w_goto_label, size * sizeof(struct goto_label));
         }
         w_goto_label[goto_label_ct].goto_label_rct = rct;
@@ -255,6 +257,7 @@ void goto_label_scan()
         goto_label_ct++;
       }
     }
+
   convert = 1;
   return; 
 }

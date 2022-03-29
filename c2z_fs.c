@@ -1,7 +1,6 @@
 /* ***************************************************
 *  c2z : c2z_fs.c :                                  *
 *                                                    *
-*                                                    *
 *  Copyright TCCS (c) 2015 - 2022                    *
 **************************************************** */
 
@@ -14,7 +13,7 @@ void c2_fs_1(void)
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.fs.c c2_fs_1 START");
+    strcpy(trace_1, "c2z.fs.c c2_fs_1 fsdefine START");
     trace_rec_1();
   }
 
@@ -33,28 +32,19 @@ void c2_fs_1(void)
 
    pi = 0;
    ch = p_string[pi];
-   while(ch != '=')
-   {
-     pi++;
-     ch = p_string[pi];
-   }
-
-   pi++;
-   ch = p_string[pi];
-   while(ch == ' ')
+   while(ch != '(')
    {
      pi++;
      ch = p_string[pi];
    }
 
    pi2 = 0;
-   while(ch != ';')
+   pi++;
+   ch = p_string[pi];
+   while(ch != ')')
    {
-     if(ch != '\"')
-     {
-       field1[pi2] = ch;
-       pi2++;
-     }
+     field1[pi2] = ch;
+     pi2++;
      pi++;
      ch = p_string[pi];
    }
@@ -146,21 +136,23 @@ void c2_fs_2(void)
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.fs.c c2_fs_2 START");
+    strcpy(trace_1, "c2z.fs.c c2_fs_2 fsfield START");
     trace_rec_1();
   }
 
   char ch;
+  char *p;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
   char field2[VAR_LGTH];
   char field3[VAR_LGTH];
   char field4[VAR_LGTH];
-  char field4a[VAR_LGTH];
   char field5[VAR_LGTH];
   char field6[VAR_LGTH];
   char field7[VAR_LGTH];
   char field8[VAR_LGTH];
+  char field10[VAR_LGTH];
+  char field11[VAR_LGTH];
 
    int pi;
    int pi2;
@@ -171,20 +163,8 @@ void c2_fs_2(void)
    int w_row = 0;
    int w_col = 0;
    int ret2;
-   int ret1;
-   int ret;
-   int v;
-   int x5;
  
   pi = 0;
-  ch = p_string[pi];
-  while(ch != '=')
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
-  pi++;
   ch = p_string[pi];
   while(ch == ' ')
   {
@@ -193,111 +173,180 @@ void c2_fs_2(void)
   }
 
   pi2 = 0;
-  while(ch != ',')
+  while(ch != ' ')
   {
-    if(ch != '\"')
+    pi++;
+    ch = p_string[pi];
+  }
+
+field_loop:
+  
+  fgets(p_string, BUFSIZE, pgm);
+  rct++;
+
+  p = strstr(p_string, "{");
+  if(p)
+  {
+    goto field_loop;
+  }
+
+  pi = 0;
+  ch = p_string[pi];
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  while(ch != '(')
+  {
+    field10[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field10[pi2] = '\0';
+
+  p = strstr(field10, "fsmap");
+  if(p)
+  {
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
     {
-      field1[pi2] = ch;
+      field11[pi2] = ch;
       pi2++;
+      pi++;
+      ch = p_string[pi];
     }
+    field11[pi2] = '\0';
+    strcpy(field1,field11);
+    goto field_end;
+  }
+  
+  p = strstr(field10, "fsio");
+  if(p)
+  {
     pi++;
     ch = p_string[pi];
-  }
-  field1[pi2] = '\0';
-
-  pi2 = 0;
-  pi++;
-  ch = p_string[pi];
-  while(ch != ',')
-  {
-    field2[pi2] = ch;
-    pi2++;
-    pi++;
-    ch = p_string[pi];
-  }
-  field2[pi2] = '\0';
-
-  pi2 = 0;
-  pi++;
-  ch = p_string[pi];
-  while(ch != ',')
-  {
-    field3[pi2] = ch;
-    pi2++;
-    pi++;
-    ch = p_string[pi];
-  }
-  field3[pi2] = '\0';
-
-  pi2 = 0;
-  pi++;
-  ch = p_string[pi];
-  while(ch != ',')
-  {
-    if(ch != '\"')
+    pi2 = 0;
+    while(ch != ')')
     {
-      field4[pi2] = ch;
+      field11[pi2] = ch;
       pi2++;
+      pi++;
+      ch = p_string[pi];
     }
+    field11[pi2] = '\0';
+    strcpy(field2,field11);
+    goto field_end;
+  }
+
+  p = strstr(field10, "fstype");
+  if(p)
+  {
     pi++;
     ch = p_string[pi];
-  }
-  field4[pi2] = '\0';
-
-  pi2 = 0;
-  pi++;
-  ch = p_string[pi];
-  while(ch != ',')
-  {
-    field5[pi2] = ch;
-    pi2++;
-    pi++;
-    ch = p_string[pi];
-  }
-  field5[pi2] = '\0';
-
-  pi2 = 0;
-  pi++;
-  ch = p_string[pi];
-  while(ch != ',')
-  {
-    field6[pi2] = ch;
-    pi2++;
-    pi++;
-    ch = p_string[pi];
-  }
-  field6[pi2] = '\0';
-
-  w_row = atoi(field5);
-  w_col = atoi(field6);
-  if(w_row == 1)
-  { 
-    tadd = w_col;
-  }
-  if(w_row > 1)
-  {
-    tadd = ((w_row - 1) * 80)  + w_col;
-  }
-
-  pi2 = 0;
-  pi++;
-  ch = p_string[pi];
-  while(ch != ';')
-  {
-    if(ch != '\"')
+    pi2 = 0;
+    while(ch != ')')
     {
-      field7[pi2] = ch;
+      field11[pi2] = ch;
       pi2++;
+      pi++;
+      ch = p_string[pi];
     }
+    field11[pi2] = '\0';
+    strcpy(field3,field11);
+    goto field_end;
+  }
+
+  p = strstr(field10, "fsname");
+  if(p)
+  {
     pi++;
     ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    strcpy(field4,field11);
+    goto field_end;
   }
-  field7[pi2] = '\0';
 
-printf("\nw_row = %d w_col = %d\n",w_row,w_col);
-printf("tadd = %d\n",tadd);
-printf("address = %s\n",T3270[tadd]);
-printf("color = %s\n",field7);
+  p = strstr(field10, "fsloc");
+  if(p)
+  {
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ',')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    w_row = atoi(field11);
+    strcpy(field5,field11);
+
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    w_col = atoi(field11);
+    strcpy(field6,field11);
+ 
+    if(w_row == 1)
+    { 
+      tadd = w_col;
+    }
+    if(w_row > 1)
+    {
+      tadd = ((w_row - 1) * 80)  + w_col;
+    }
+    goto field_end;
+  }
+
+  p = strstr(field10, "fscolor");
+  if(p)
+  {
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    strcpy(field7,field11);
+    goto field_end;
+  }
+
+field_end:
+
+  p = strstr(p_string, "};");
+  if(!p)
+  {
+     goto field_loop;
+  }
 
   
 /*
@@ -376,18 +425,9 @@ printf("c2z_fs.c fs_2 rct = %d COLOR field7 = %s\n",rct,field7);
      }
    }
 
-printf("field3 = %s\n",field2);
    ret2 = strcmp(field3, "V");
    if(ret2 == 0)
    {
-/*
-struct fs_scr_field
-{
-   char fs_scr_name[VAR_LGTH];
-   char fs_scr_cname[VAR_LGTH];
-};
-struct fs_scr_field *w_fs_scr_field;
-*/
      size = 0;
      if (T3270_ct == 0) 
      {
@@ -399,67 +439,13 @@ struct fs_scr_field *w_fs_scr_field;
        size = T3270_ct + 1;
        w_fs_scr_field = realloc(w_fs_scr_field, size * sizeof(struct fs_scr_field));
      }
+     strcpy(w_fs_scr_field[T3270_ct].fs_scr_map, field1);
      strcpy(w_fs_scr_field[T3270_ct].fs_scr_name, field4);
      strcpy(field8,"T3270_");
      snprintf(wk_strg, sizeof(wk_strg), "%d", T3270_ct);
      strcat(field8, wk_strg);
      strcpy(w_fs_scr_field[T3270_ct].fs_scr_cname, field8);
      T3270_ct++;
-     
-     x3 = 0;
-     for (v = 0; v < lv_ct; v++) 
-     {
-       ret = strcmp(field4, lw_variable[v].lv_name);
-       ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-       if ((ret == 0) && (ret1 == 0)) 
-       {
-         strcpy(field4a, lw_variable[v].lv_cname);
-         x5 = lw_variable[v].lv_current_lgth;
-         x3 = 1;
-         break;
-       }
-     }
-
-     if (x3 == 0) 
-     {
-       for (v = 0; v < gv_ct; v++) 
-       {
-         ret = strcmp(field4, gw_variable[v].gv_name);
-         if (ret == 0) 
-         {
-           strcpy(field4a, gw_variable[v].gv_cname);
-           x5 = gw_variable[v].gv_current_lgth;
-           x3 = 1;
-           break;
-         }
-       }
-     }
-
-     strcpy(a_string, "          LARL  R9,");
-     strcat(a_string, field4a);
-     src_line();
-     if (puncde == 1) 
-     {
-       strcpy(trace_1, "c2z_eoj.c #9015");
-       trace_rec_3();
-     }
-
-     strcpy(a_string, "          LARL  R8,");
-     strcat(a_string, field8);
-     src_line();
-     if (puncde == 1) 
-     {
-       strcpy(trace_1, "c2z_eoj.c #9016");
-       trace_rec_3();
-     }
-
-     strcpy(a_string, "          MVC   0(14,R8),0(R9)");
-     src_line();
-     if (puncde == 1) 
-     {
-       strcpy(trace_1, "c2z_eoj.c #9017");
-       trace_rec_3();
-     }
    }
 
    convert = 1;
@@ -470,41 +456,43 @@ void c2_fs_3(void)
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.fs.c c2_fs_3 START");
+    strcpy(trace_1, "c2z.fs.c c2_fs_3 fsdisplay START");
     trace_rec_1();
   }
 
   char ch;
   char field1[VAR_LGTH];
   char field2[VAR_LGTH];
+  char field4[VAR_LGTH];
+  char field4a[VAR_LGTH];
+  char field8[VAR_LGTH];
 
    int pi;
    int pi2;
- 
+   int x3;
+   int p_ct;
+   int ret;
+   int ret1;
+   int v;
+   int x5;
+   int x99;
+   int x7;
+
   pi = 0;
   ch = p_string[pi];
-  while(ch != '=')
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
-  pi++;
-  ch = p_string[pi];
-  while(ch == ' ')
+  while(ch != '(')
   {
     pi++;
     ch = p_string[pi];
   }
 
   pi2 = 0;
-  while(ch != ';')
+  pi++;
+  ch = p_string[pi];
+  while(ch != ')')
   {
-    if(ch != '\"')
-    {
-      field1[pi2] = ch;
-      pi2++;
-    }
+    field1[pi2] = ch;
+    pi2++;
     pi++;
     ch = p_string[pi];
   }
@@ -512,6 +500,188 @@ void c2_fs_3(void)
 
   strcpy(field2, field1);
   strcat(field2, "OL");
+
+  if(fs_map_ct > 0)
+  {
+    x3 = 0;
+    p_ct = 0;
+
+    while(p_ct < fs_field_ct)
+    {
+      x7 = 0;
+      ret =  strcmp(w_fs_field[p_ct].fs_fd_map, field1);
+      ret1 = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+      if((ret == 0) && (ret1 == 0))
+      {
+         strcpy(field4, w_fs_field[p_ct].fs_fd_field);
+         x7 = 1;
+      }
+
+      if(x7 == 1)
+      {
+        ret = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+        if(ret == 0)
+        {
+          x3 = 0;
+          for (v = 0; v < lv_ct; v++) 
+          {
+            ret = strcmp(field4, lw_variable[v].lv_name);
+            ret1 = strcmp(sv_func, lw_variable[v].lv_func);
+            if ((ret == 0) && (ret1 == 0)) 
+            {
+              strcpy(field4a, lw_variable[v].lv_cname);
+              x5 = lw_variable[v].lv_current_lgth;
+              x99 = lw_variable[v].lv_id;
+              x3 = 1;
+              break;
+            }
+          }
+
+          if (x3 == 0) 
+          {
+            for (v = 0; v < gv_ct; v++) 
+            {
+              ret = strcmp(field4, gw_variable[v].gv_name);
+              if (ret == 0) 
+              {
+                strcpy(field4a, gw_variable[v].gv_cname);
+                x5 = gw_variable[v].gv_current_lgth;
+                x99 = gw_variable[v].gv_id;
+                x3 = 1;
+                break;
+              }
+            }
+          }
+
+          if (x3 == 0) 
+          {
+            printf("\nc2z_fs.c c2_fs_2_2 fs_2-001 field4 Not Found = %s\n", field4);
+            printf("c2z_fs.c c2_fs_2_2 rct = %d p_string = %s", rct, p_string);
+            erct++;
+            convert = 1;
+            return;
+          }
+
+          for(v = 0; v < T3270_ct; v++)
+          {
+            ret = strcmp(field4, w_fs_scr_field[v].fs_scr_name);
+            ret1 = strcmp(field1, w_fs_scr_field[v].fs_scr_map);
+            if((ret == 0) && (ret1 == 0))
+            {
+              strcpy(field8, w_fs_scr_field[v].fs_scr_cname);
+            }
+          }
+     
+          if(x99 == 3)
+          {
+            strcpy(a_string, "         LARL  R9,");
+            strcat(a_string, field4a);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_eoj.c #9001");
+              trace_rec_3();
+            }
+
+            strcpy(a_string, "         LARL  R8,");
+            strcat(a_string, field8);
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_eoj.c #9002");
+              trace_rec_3();
+            }
+ 
+            strcpy(a_string, "         MVC   0(");
+            snprintf(wk_strg, sizeof(wk_strg), "%d", x5);
+            strcat(a_string, wk_strg);
+            strcat(a_string, ",R8),0(R9)");
+            src_line();
+            if (puncde == 1) 
+            {
+              strcpy(trace_1, "c2z_eoj.c #9003");
+              trace_rec_3();
+            }
+          }
+
+          if(x99 == 1)
+          {
+             strcpy(a_string, "         LARL  R9,C370EDN");
+             src_line();
+             if (puncde == 1) 
+             {
+               strcpy(trace_1, "c2z_eoj.c #9004");
+               trace_rec_3();
+             }
+
+             strcpy(a_string, "         LARL  R8,");
+             strcat(a_string, field4a);
+             src_line();
+             if (puncde == 1) 
+             {
+                strcpy(trace_1, "c2z_eoj.c #9005");
+                trace_rec_3();
+             }
+
+             strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+             src_line();
+             if (puncde == 1) 
+             {
+                strcpy(trace_1, "c2z_eoj.c #9006");
+                trace_rec_3();
+             }
+
+             strcpy(a_string, "         LARL  R15,WTOIMVC");
+             src_line();
+             if (puncde == 1) 
+             {
+               strcpy(trace_1, "c2z_eoj.c #9007");
+               trace_rec_3();
+             }
+
+             strcpy(a_string, "         BAKR  0,R15");
+             src_line();
+             if (puncde == 1) 
+             {
+                strcpy(trace_1, "c2z_eoj.c #9008");
+                trace_rec_3();
+             }
+
+             strcpy(a_string, "         LARL  R9,C370L10");
+             src_line();
+             if (puncde == 1) 
+             {
+                strcpy(trace_1, "c2z_eoj.c #9009");
+                trace_rec_3();
+             }
+
+             strcpy(a_string, "         LARL  R8,");
+             strcat(a_string, field8);
+             src_line();
+             if (puncde == 1) 
+             {
+                strcpy(trace_1, "c2z_eoj.c #9010");
+                trace_rec_3();
+             }
+
+             x5 = 10;
+             strcpy(a_string, "         MVC   0(");
+             snprintf(wk_strg, sizeof(wk_strg), "%d", x5);
+             strcat(a_string, wk_strg);
+             strcat(a_string, ",R8),0(R9)");
+             src_line();
+             if (puncde == 1) 
+             {
+                strcpy(trace_1, "c2z_eoj.c #9011");
+                trace_rec_3();
+             }
+          }
+        }
+      }
+      p_ct++;
+      x7 = 0;
+    }
+  }
 
   strcpy(a_string, "         TPUT  ");
   strcat(a_string, field1);
@@ -526,8 +696,6 @@ void c2_fs_3(void)
     trace_rec_3();
   }
 
-/*        TPUT  STREAM,STREAMLN,FULLSCR  */
-
   convert = 1;
 }
 
@@ -536,7 +704,7 @@ void c2_fs_4(void)
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.fs.c c2_fs_4 START");
+    strcpy(trace_1, "c2z.fs.c c2_fs_4 fsread START");
     trace_rec_1();
   }
 
@@ -546,10 +714,14 @@ void c2_fs_4(void)
 
    int pi;
    int pi2;
+   int I;
+   int J;
+   int x3;
+   int ret;
 
   pi = 0;
   ch = p_string[pi];
-  while(ch != '=')
+  while(ch != '(')
   {
     pi++;
     ch = p_string[pi];
@@ -557,20 +729,11 @@ void c2_fs_4(void)
 
   pi++;
   ch = p_string[pi];
-  while(ch == ' ')
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
   pi2 = 0;
-  while(ch != ';')
+  while(ch != ')')
   {
-    if(ch != '\"')
-    {
-      field1[pi2] = ch;
-      pi2++;
-    }
+    field1[pi2] = ch;
+    pi2++;
     pi++;
     ch = p_string[pi];
   }
@@ -588,9 +751,531 @@ void c2_fs_4(void)
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_fs.c c2_fs_3 #1");
+    strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
     trace_rec_3();
   }
+
+  for(I = 0; I < fsaid_ct; I++)
+  {
+    if(strcmp(w_fs_fsaid[I].fs_fsaid_map, field1) == 0)
+    {
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF1") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF1");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF2") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF2");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE    ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF3") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF3");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF4") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF4");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF5") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF5");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF6") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF6");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF7") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF7");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_3 #1");
+          trace_rec_3();
+        }
+     
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_label-002 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_3 #1");
+          trace_rec_3();
+        }
+      }
+    }
+  }
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF8") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF8");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      }
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF9") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF9");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+ 
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF10") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF10");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF11") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF11");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
+
+      if(strcmp(w_fs_fsaid[I].fs_fsaid_attr, "PF12") == 0)
+      {
+        strcpy(a_string, "         CLI   ");
+        strcat(a_string, field1);
+        strcat(a_string, "I");
+        strcat(a_string, ",PF12");
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+
+        x3 = 0;
+        for(J = 0; J < goto_label_ct; J++)
+        {
+          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          if(ret == 0)
+          {
+            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            x3 = 1;
+          }
+        }
+   
+        if(x3 == 0)
+        {
+          printf("\nc2z_fs.c c2_fs_4 label-001 Label Not Foundr\n");
+          printf("c2z_fs.c rct = %d p_string = %s", rct, p_string);
+          erct++;
+          convert = 1;
+          return;
+        }
+
+        strcpy(a_string, "         JLE   ");
+        strcat(a_string, wk_strg);
+        src_line();
+        if (puncde == 1) 
+        {
+          strcpy(trace_1, "c2z_fs.c c2_fs_4 #1");
+          trace_rec_3();
+        }
+      } 
 
   strcpy(a_string, "         STLINENO LINE=1");
   src_line();
@@ -600,17 +1285,196 @@ void c2_fs_4(void)
     trace_rec_3();
   }
 
-/*       TGET  INBUF,INBUFLN,ASIS */
-
   convert = 1;
 }
+
+
+void c2_fs_6(void)
+{
+  if (traceflg == 1) 
+  {
+    strcpy(trace_1, "c2z.fs.c c2_fs_6 fsaid START");
+    trace_rec_1();
+  }
+
+  char ch;
+  char *p;
+  char field1[VAR_LGTH];
+  char field2[VAR_LGTH];
+  char field3[VAR_LGTH];
+  char field10[VAR_LGTH];
+  char field11[VAR_LGTH];
+
+   int pi;
+   int pi2;
+   int x3;
+   int size;
+ 
+  pi = 0;
+  ch = p_string[pi];
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  while(ch != ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+field_loop:
+  
+  fgets(p_string, BUFSIZE, pgm);
+  rct++;
+
+  p = strstr(p_string, "{");
+  if(p)
+  {
+    goto field_loop;
+  }
+
+  pi = 0;
+  ch = p_string[pi];
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  while(ch != '(')
+  {
+    field10[pi2] = ch;
+    pi2++;
+    pi++;
+    ch = p_string[pi];
+  }
+  field10[pi2] = '\0';
+
+  p = strstr(field10, "fsaid_map");
+  if(p)
+  {
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    strcpy(field1,field11);
+    goto field_end;
+  }
+  
+  p = strstr(field10, "fsaid_attr");
+  if(p)
+  {
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    strcpy(field2,field11);
+    goto field_end;
+  }
+
+  p = strstr(field10, "fsaid_label");
+  if(p)
+  {
+    pi++;
+    ch = p_string[pi];
+    pi2 = 0;
+    while(ch != ')')
+    {
+      field11[pi2] = ch;
+      pi2++;
+      pi++;
+      ch = p_string[pi];
+    }
+    field11[pi2] = '\0';
+    strcpy(field3,field11);
+    goto field_end;
+  }
+
+field_end:
+
+  p = strstr(p_string, "};");
+  if(!p)
+  {
+     goto field_loop;
+  }
+
+/*  
+printf("c2z_fs.c fs_2 rct = %d MAP_NAME field1 = %s\n",rct,field1);
+printf("c2z_fs.c fs_2 rct = %d ATTR field2 = %s\n",rct,field2);
+printf("c2z_fs.c fs_2 rct = %d LABEL field3 = %s\n",rct,field3);
+*/
+
+  x3 = 0;
+  if (x3 == 0) 
+  {
+    if (global_st == 0) 
+    {
+      size = 0;
+      if (fsaid_ct == 0) 
+      {
+        size = 1;
+        w_fs_fsaid = malloc(size * sizeof(struct fs_fsaid));
+      } 
+      else 
+      {
+        size = fsaid_ct + 1;
+        w_fs_fsaid = realloc(w_fs_fsaid, size * sizeof(struct fs_fsaid));
+      }
+      strcpy(w_fs_fsaid[fsaid_ct].fs_fsaid_map, field1);
+      strcpy(w_fs_fsaid[fsaid_ct].fs_fsaid_attr, field2);
+      strcpy(w_fs_fsaid[fsaid_ct].fs_fsaid_label, field3);
+      fsaid_ct++;
+    }
+
+    if (global_st == 1) 
+    {
+      size = 0;
+      if (fsaid_ct == 0) 
+      {
+        size = 1;
+        w_fs_fsaid = malloc(size * sizeof(struct fs_fsaid));
+      } 
+      else 
+      {
+        size = fsaid_ct + 1;
+        w_fs_fsaid = realloc(w_fs_fsaid, size * sizeof(struct fs_fsaid));
+      }
+      strcpy(w_fs_fsaid[fsaid_ct].fs_fsaid_map, field1);
+      strcpy(w_fs_fsaid[fsaid_ct].fs_fsaid_attr, field2);
+      strcpy(w_fs_fsaid[fsaid_ct].fs_fsaid_label, field3);
+      fsaid_ct++;
+    }
+  }
+
+  convert = 1;
+
+}
+
 
 
 void c2_fs_5(void)
 {
   if (traceflg == 1) 
   {
-    strcpy(trace_1, "c2z.fs.c c2_fs_5 START");
+    strcpy(trace_1, "c2z.fs.c c2_fs_5 3270 Table START");
     trace_rec_1();
   }
 
@@ -1372,82 +2236,410 @@ void c2_fs_5(void)
   strcpy(T3270[728], "4BD7");		/* 8  */
   strcpy(T3270[729], "4BD8");		/* 9  */
   strcpy(T3270[730], "4BD9");		/* 10  */
-  strcpy(T3270[731], "4A4A");		/* 11  */
-  strcpy(T3270[732], "4A4B");		/* 12  */
-  strcpy(T3270[733], "4A4C");		/* 13  */
-  strcpy(T3270[734], "4A4D");		/* 14  */
-  strcpy(T3270[735], "4A4E");		/* 15  */
-  strcpy(T3270[736], "4A4F");		/* 16  */
-  strcpy(T3270[737], "4A50");		/* 17  */
-  strcpy(T3270[738], "4AD1");		/* 18  */
-  strcpy(T3270[739], "4AD2");		/* 19  */
-  strcpy(T3270[740], "4AD3");		/* 20  */
-  strcpy(T3270[741], "4AD4");		/* 21  */
-  strcpy(T3270[742], "4AD5");		/* 22  */
-  strcpy(T3270[743], "4AD6");		/* 23  */
-  strcpy(T3270[744], "4AD7");		/* 24  */
-  strcpy(T3270[745], "4AD8");		/* 25  */
-  strcpy(T3270[746], "4AD9");		/* 26  */
-  strcpy(T3270[747], "4A5A");		/* 27  */
-  strcpy(T3270[748], "4A5B");		/* 28  */
-  strcpy(T3270[749], "4A5C");		/* 29  */
-  strcpy(T3270[750], "4A5D");		/* 30  */
-  strcpy(T3270[751], "4A5E");		/* 31  */
-  strcpy(T3270[752], "4A5F");		/* 32  */
-  strcpy(T3270[753], "4A60");		/* 33  */
-  strcpy(T3270[754], "4A61");		/* 34  */
-  strcpy(T3270[755], "4AE2");		/* 35  */
-  strcpy(T3270[756], "4AE3");		/* 36  */
-  strcpy(T3270[757], "4AE4");		/* 37  */
-  strcpy(T3270[758], "4AE5");		/* 38  */
-  strcpy(T3270[759], "4AE6");		/* 39  */
-  strcpy(T3270[760], "4AE7");		/* 40  */
-  strcpy(T3270[761], "4AE8");		/* 41  */
-  strcpy(T3270[762], "4AE9");		/* 42  */
-  strcpy(T3270[763], "4A6A");		/* 43  */
-  strcpy(T3270[764], "4A6B");		/* 44  */
-  strcpy(T3270[765], "4A6C");		/* 45  */
-  strcpy(T3270[766], "4A6D");		/* 46  */
-  strcpy(T3270[767], "4A6E");		/* 47  */
-  strcpy(T3270[768], "4A6F");		/* 48  */
-  strcpy(T3270[769], "4AF0");		/* 49  */
-  strcpy(T3270[770], "4AF1");		/* 50  */
-  strcpy(T3270[771], "4AF2");		/* 51  */
-  strcpy(T3270[772], "4AF3");		/* 52  */
-  strcpy(T3270[773], "4AF4");		/* 53  */
-  strcpy(T3270[774], "4AF5");		/* 54  */
-  strcpy(T3270[775], "4AF6");		/* 55  */
-  strcpy(T3270[776], "4AF7");		/* 56  */
-  strcpy(T3270[777], "4AF8");		/* 57  */
-  strcpy(T3270[778], "4AF9");		/* 58  */
-  strcpy(T3270[779], "4A7A");		/* 59  */
-  strcpy(T3270[780], "4A7B");		/* 60  */
-  strcpy(T3270[781], "C96C");		/* 61  */
-  strcpy(T3270[782], "C96D");		/* 62  */
-  strcpy(T3270[783], "C96E");		/* 63  */
-  strcpy(T3270[784], "C96F");		/* 64  */
-  strcpy(T3270[785], "C9F0");		/* 65  */
-  strcpy(T3270[786], "C9F1");		/* 66  */
-  strcpy(T3270[787], "C9F2");		/* 67  */
-  strcpy(T3270[788], "C9F3");		/* 68  */
-  strcpy(T3270[789], "C9F4");		/* 69  */
-  strcpy(T3270[790], "C9F5");		/* 70  */
-  strcpy(T3270[791], "C9F6");		/* 71  */
-  strcpy(T3270[792], "C9F7");		/* 72  */
-  strcpy(T3270[793], "C9F8");		/* 73  */
-  strcpy(T3270[794], "C9F9");		/* 74  */
-  strcpy(T3270[795], "C97A");		/* 75  */
-  strcpy(T3270[796], "C97B");		/* 76  */
-  strcpy(T3270[797], "C97C");		/* 77  */
-  strcpy(T3270[798], "C97D");		/* 78  */
-  strcpy(T3270[799], "C97E");		/* 79  */
-  strcpy(T3270[800], "C97F");		/* 80  */
+  strcpy(T3270[731], "4B5A");		/* 11  */
+  strcpy(T3270[732], "4B5B");		/* 12  */
+  strcpy(T3270[733], "4B5C");		/* 13  */
+  strcpy(T3270[734], "4B5D");		/* 14  */
+  strcpy(T3270[735], "4B5E");		/* 15  */
+  strcpy(T3270[736], "4B5F");		/* 16  */
+  strcpy(T3270[737], "4B60");		/* 17  */
+  strcpy(T3270[738], "4B61");		/* 18  */
+  strcpy(T3270[739], "4BE2");		/* 19  */
+  strcpy(T3270[740], "4BE3");		/* 20  */
+  strcpy(T3270[741], "4BE4");		/* 21  */
+  strcpy(T3270[742], "4BE5");		/* 22  */
+  strcpy(T3270[743], "4BE6");		/* 23  */
+  strcpy(T3270[744], "4BE7");		/* 24  */
+  strcpy(T3270[745], "4BE8");		/* 25  */
+  strcpy(T3270[746], "4BE9");		/* 26  */
+  strcpy(T3270[747], "4B6A");		/* 27  */
+  strcpy(T3270[748], "4B6B");		/* 28  */
+  strcpy(T3270[749], "4B6C");		/* 29  */
+  strcpy(T3270[750], "4B6D");		/* 30  */
+  strcpy(T3270[751], "4B6E");		/* 31  */
+  strcpy(T3270[752], "4B6F");		/* 32  */
+  strcpy(T3270[753], "4BF0");		/* 33  */
+  strcpy(T3270[754], "4BF1");		/* 34  */
+  strcpy(T3270[755], "4BF2");		/* 35  */
+  strcpy(T3270[756], "4BF3");		/* 36  */
+  strcpy(T3270[757], "4BF4");		/* 37  */
+  strcpy(T3270[758], "4BF5");		/* 38  */
+  strcpy(T3270[759], "4BF6");		/* 39  */
+  strcpy(T3270[760], "4BF7");		/* 40  */
+  strcpy(T3270[761], "4BF8");		/* 41  */
+  strcpy(T3270[762], "4BF9");		/* 42  */
+  strcpy(T3270[763], "4B7A");		/* 43  */
+  strcpy(T3270[764], "4B7B");		/* 44  */
+  strcpy(T3270[765], "4B7C");		/* 45  */
+  strcpy(T3270[766], "4B7D");		/* 46  */
+  strcpy(T3270[767], "4B7E");		/* 47  */
+  strcpy(T3270[768], "4B7F");		/* 48  */
+  strcpy(T3270[769], "4C40");		/* 49  */
+  strcpy(T3270[770], "4CC1");		/* 50  */
+  strcpy(T3270[771], "4CC2");		/* 51  */
+  strcpy(T3270[772], "4CC3");		/* 52  */
+  strcpy(T3270[773], "4CC4");		/* 53  */
+  strcpy(T3270[774], "4CC5");		/* 54  */
+  strcpy(T3270[775], "4CC6");		/* 55  */
+  strcpy(T3270[776], "4CC7");		/* 56  */
+  strcpy(T3270[777], "4CC8");		/* 57  */
+  strcpy(T3270[778], "4CC9");		/* 58  */
+  strcpy(T3270[779], "4C4A");		/* 59  */
+  strcpy(T3270[780], "4C4B");		/* 60  */
+  strcpy(T3270[781], "4C4C");		/* 61  */
+  strcpy(T3270[782], "4C4D");		/* 62  */
+  strcpy(T3270[783], "4C4E");		/* 63  */
+  strcpy(T3270[784], "4C4F");		/* 64  */
+  strcpy(T3270[785], "4C50");		/* 65  */
+  strcpy(T3270[786], "4CD1");		/* 66  */
+  strcpy(T3270[787], "4CD2");		/* 67  */
+  strcpy(T3270[788], "4CD3");		/* 68  */
+  strcpy(T3270[789], "4CD4");		/* 69  */
+  strcpy(T3270[790], "4CD5");		/* 70  */
+  strcpy(T3270[791], "4CD6");		/* 71  */
+  strcpy(T3270[792], "4CD7");		/* 72  */
+  strcpy(T3270[793], "4CD8");		/* 73  */
+  strcpy(T3270[794], "4CD9");		/* 74  */
+  strcpy(T3270[795], "4C5A");		/* 75  */
+  strcpy(T3270[796], "4C5B");		/* 76  */
+  strcpy(T3270[797], "4C5C");		/* 77  */
+  strcpy(T3270[798], "4C5D");		/* 78  */
+  strcpy(T3270[799], "4C5E");		/* 79  */
+  strcpy(T3270[800], "4C5F");		/* 80  */
 
 
+/* row  11  col 1 thru 80 */
+  strcpy(T3270[801], "4C60");		/* 1  */
+  strcpy(T3270[802], "4C61");		/* 2  */
+  strcpy(T3270[803], "4CE2");		/* 3  */
+  strcpy(T3270[804], "4CE3");		/* 4  */
+  strcpy(T3270[805], "4CE4");		/* 5  */
+  strcpy(T3270[806], "4CE5");		/* 6  */
+  strcpy(T3270[807], "4CE6");		/* 7  */
+  strcpy(T3270[808], "4CE7");		/* 8  */
+  strcpy(T3270[809], "4CE8");		/* 9  */
+  strcpy(T3270[810], "4CE9");		/* 10  */
+  strcpy(T3270[811], "4C6A");		/* 11  */
+  strcpy(T3270[812], "4C6B");		/* 12  */
+  strcpy(T3270[813], "4C6C");		/* 13  */
+  strcpy(T3270[814], "4C6D");		/* 14  */
+  strcpy(T3270[815], "4C6E");		/* 15  */
+  strcpy(T3270[816], "4C6F");		/* 16  */
+  strcpy(T3270[817], "4CF0");		/* 17  */
+  strcpy(T3270[818], "4CF1");		/* 18  */
+  strcpy(T3270[819], "4CF2");		/* 19  */
+  strcpy(T3270[820], "4CF3");		/* 20  */
+  strcpy(T3270[821], "4CF4");		/* 21  */
+  strcpy(T3270[822], "4CF5");		/* 22  */
+  strcpy(T3270[823], "4CF6");		/* 23  */
+  strcpy(T3270[824], "4CF7");		/* 24  */
+  strcpy(T3270[825], "4CF8");		/* 25  */
+  strcpy(T3270[826], "4CF9");		/* 26  */
+  strcpy(T3270[827], "4C7A");		/* 27  */
+  strcpy(T3270[828], "4C7B");		/* 28  */
+  strcpy(T3270[829], "4C7C");		/* 29  */
+  strcpy(T3270[830], "4C7D");		/* 30  */
+  strcpy(T3270[831], "4C7E");		/* 31  */
+  strcpy(T3270[832], "4C7F");		/* 32  */
+  strcpy(T3270[833], "4D40");		/* 33  */
+  strcpy(T3270[834], "4DC1");		/* 34  */
+  strcpy(T3270[835], "4DC2");		/* 35  */
+  strcpy(T3270[836], "4DC3");		/* 36  */
+  strcpy(T3270[837], "4DC4");		/* 37  */
+  strcpy(T3270[838], "4DC5");		/* 38  */
+  strcpy(T3270[839], "4DC6");		/* 39  */
+  strcpy(T3270[840], "4DC7");		/* 40  */
+  strcpy(T3270[841], "4DC8");		/* 41  */
+  strcpy(T3270[842], "4DC9");		/* 42  */
+  strcpy(T3270[843], "4D4A");		/* 43  */
+  strcpy(T3270[844], "4D4B");		/* 44  */
+  strcpy(T3270[845], "4D4C");		/* 45  */
+  strcpy(T3270[846], "4D4D");		/* 46  */
+  strcpy(T3270[847], "4D4E");		/* 47  */
+  strcpy(T3270[848], "4D4F");		/* 48  */
+  strcpy(T3270[849], "4D50");		/* 49  */
+  strcpy(T3270[850], "4DD1");		/* 50  */
+  strcpy(T3270[851], "4DD2");		/* 51  */
+  strcpy(T3270[852], "4DD3");		/* 52  */
+  strcpy(T3270[853], "4DD4");		/* 53  */
+  strcpy(T3270[854], "4DD5");		/* 54  */
+  strcpy(T3270[855], "4DD6");		/* 55  */
+  strcpy(T3270[856], "4DD7");		/* 56  */
+  strcpy(T3270[857], "4DD8");		/* 57  */
+  strcpy(T3270[858], "4DD9");		/* 58  */
+  strcpy(T3270[859], "4D5A");		/* 59  */
+  strcpy(T3270[860], "4D5B");		/* 60  */
+  strcpy(T3270[861], "4D5C");		/* 61  */
+  strcpy(T3270[862], "4D5D");		/* 62  */
+  strcpy(T3270[863], "4D5E");		/* 63  */
+  strcpy(T3270[864], "4D5F");		/* 64  */
+  strcpy(T3270[865], "4D60");		/* 65  */
+  strcpy(T3270[866], "4D61");		/* 66  */
+  strcpy(T3270[867], "4DE2");		/* 67  */
+  strcpy(T3270[868], "4DE3");		/* 68  */
+  strcpy(T3270[869], "4DE4");		/* 69  */
+  strcpy(T3270[870], "4DE5");		/* 70  */
+  strcpy(T3270[871], "4DE6");		/* 71  */
+  strcpy(T3270[872], "4DE7");		/* 72  */
+  strcpy(T3270[873], "4DE8");		/* 73  */
+  strcpy(T3270[874], "4DE9");		/* 74  */
+  strcpy(T3270[875], "4D6A");		/* 75  */
+  strcpy(T3270[876], "4D6B");		/* 76  */
+  strcpy(T3270[877], "4D6C");		/* 77  */
+  strcpy(T3270[878], "4D6D");		/* 78  */
+  strcpy(T3270[879], "4D6E");		/* 79  */
+  strcpy(T3270[880], "4D6F");		/* 80  */
 
 
-/* row 13  col 1 thru 80 */
-  strcpy(T3270[833],"4BF0");  		/* 33 */
+/* row  12  col 1 thru 80 */
+  strcpy(T3270[881], "4DF0");		/* 1  */
+  strcpy(T3270[882], "4DF1");		/* 2  */
+  strcpy(T3270[883], "4DF2");		/* 3  */
+  strcpy(T3270[884], "4DF3");		/* 4  */
+  strcpy(T3270[885], "4DF4");		/* 5  */
+  strcpy(T3270[886], "4DF5");		/* 6  */
+  strcpy(T3270[887], "4DF6");		/* 7  */
+  strcpy(T3270[888], "4DF7");		/* 8  */
+  strcpy(T3270[889], "4DF8");		/* 9  */
+  strcpy(T3270[890], "4DF9");		/* 10  */
+  strcpy(T3270[891], "4D7A");		/* 11  */
+  strcpy(T3270[892], "4D7B");		/* 12  */
+  strcpy(T3270[893], "4D7C");		/* 13  */
+  strcpy(T3270[894], "4D7D");		/* 14  */
+  strcpy(T3270[895], "4D7E");		/* 15  */
+  strcpy(T3270[896], "4D7F");		/* 16  */
+  strcpy(T3270[897], "4E40");		/* 17  */
+  strcpy(T3270[898], "4EC1");		/* 18  */
+  strcpy(T3270[899], "4EC2");		/* 19  */
+  strcpy(T3270[900], "4EC3");		/* 20  */
+  strcpy(T3270[901], "4EC4");		/* 21  */
+  strcpy(T3270[902], "4EC5");		/* 22  */
+  strcpy(T3270[903], "4EC6");		/* 23  */
+  strcpy(T3270[904], "4EC7");		/* 24  */
+  strcpy(T3270[905], "4EC8");		/* 25  */
+  strcpy(T3270[906], "4EC9");		/* 26  */
+  strcpy(T3270[907], "4E4A");		/* 27  */
+  strcpy(T3270[908], "4E4B");		/* 28  */
+  strcpy(T3270[909], "4E4C");		/* 29  */
+  strcpy(T3270[910], "4E4D");		/* 30  */
+  strcpy(T3270[911], "4E4E");		/* 31  */
+  strcpy(T3270[912], "4E4F");		/* 32  */
+  strcpy(T3270[913], "4E50");		/* 33  */
+  strcpy(T3270[914], "4ED1");		/* 34  */
+  strcpy(T3270[915], "4ED2");		/* 35  */
+  strcpy(T3270[916], "4ED3");		/* 36  */
+  strcpy(T3270[917], "4ED4");		/* 37  */
+  strcpy(T3270[918], "4ED5");		/* 38  */
+  strcpy(T3270[919], "4ED6");		/* 39  */
+  strcpy(T3270[920], "4ED7");		/* 40  */
+  strcpy(T3270[921], "4ED8");		/* 41  */
+  strcpy(T3270[922], "4ED9");		/* 42  */
+  strcpy(T3270[923], "4E5A");		/* 43  */
+  strcpy(T3270[924], "4E5B");		/* 44  */
+  strcpy(T3270[925], "4E5C");		/* 45  */
+  strcpy(T3270[926], "4E5D");		/* 46  */
+  strcpy(T3270[927], "4E5E");		/* 47  */
+  strcpy(T3270[928], "4E5F");		/* 48  */
+  strcpy(T3270[929], "4E60");		/* 49  */
+  strcpy(T3270[930], "4E61");		/* 50  */
+  strcpy(T3270[931], "4EE2");		/* 51  */
+  strcpy(T3270[932], "4EE3");		/* 52  */
+  strcpy(T3270[933], "4EE4");		/* 53  */
+  strcpy(T3270[934], "4EE5");		/* 54  */
+  strcpy(T3270[935], "4EE6");		/* 55  */
+  strcpy(T3270[936], "4EE7");		/* 56  */
+  strcpy(T3270[937], "4EE8");		/* 57  */
+  strcpy(T3270[938], "4EE9");		/* 58  */
+  strcpy(T3270[939], "4E6A");		/* 59  */
+  strcpy(T3270[940], "4E6B");		/* 60  */
+  strcpy(T3270[941], "4E6C");		/* 61  */
+  strcpy(T3270[942], "4E6D");		/* 62  */
+  strcpy(T3270[943], "4E6E");		/* 63  */
+  strcpy(T3270[944], "4E6F");		/* 64  */
+  strcpy(T3270[945], "4EF0");		/* 65  */
+  strcpy(T3270[946], "4EF1");		/* 66  */
+  strcpy(T3270[947], "4EF2");		/* 67  */
+  strcpy(T3270[948], "4EF3");		/* 68  */
+  strcpy(T3270[949], "4EF4");		/* 69  */
+  strcpy(T3270[950], "4EF5");		/* 70  */
+  strcpy(T3270[951], "4EF6");		/* 71  */
+  strcpy(T3270[952], "4EF7");		/* 72  */
+  strcpy(T3270[953], "4EF8");		/* 73  */
+  strcpy(T3270[954], "4EF9");		/* 74  */
+  strcpy(T3270[955], "4E7A");		/* 75  */
+  strcpy(T3270[956], "4E7B");		/* 76  */
+  strcpy(T3270[957], "4E7C");		/* 77  */
+  strcpy(T3270[958], "4E7D");		/* 78  */
+  strcpy(T3270[959], "4E7E");		/* 79  */
+  strcpy(T3270[960], "4E7F");		/* 80  */
+
+
+/* row  13  col 1 thru 80 */
+  strcpy(T3270[961], "4F40");		/* 1  */
+  strcpy(T3270[962], "4FC1");		/* 2  */
+  strcpy(T3270[963], "4FC2");		/* 3  */
+  strcpy(T3270[964], "4FC3");		/* 4  */
+  strcpy(T3270[965], "4FC4");		/* 5  */
+  strcpy(T3270[966], "4FC5");		/* 6  */
+  strcpy(T3270[967], "4FC6");		/* 7  */
+  strcpy(T3270[968], "4FC7");		/* 8  */
+  strcpy(T3270[969], "4FC8");		/* 9  */
+  strcpy(T3270[970], "4FC9");		/* 10  */
+  strcpy(T3270[971], "4F4A");		/* 11  */
+  strcpy(T3270[972], "4F4B");		/* 12  */
+  strcpy(T3270[973], "4F4C");		/* 13  */
+  strcpy(T3270[974], "4F4D");		/* 14  */
+  strcpy(T3270[975], "4F4E");		/* 15  */
+  strcpy(T3270[976], "4F4F");		/* 16  */
+  strcpy(T3270[977], "4F50");		/* 17  */
+  strcpy(T3270[978], "4DF1");		/* 18  */
+  strcpy(T3270[979], "4FD2");		/* 19  */
+  strcpy(T3270[980], "4FD3");		/* 20  */
+  strcpy(T3270[981], "4FD4");		/* 21  */
+  strcpy(T3270[982], "4FD5");		/* 22  */
+  strcpy(T3270[983], "4FD6");		/* 23  */
+  strcpy(T3270[984], "4FD7");		/* 24  */
+  strcpy(T3270[985], "4FD8");		/* 25  */
+  strcpy(T3270[986], "4FD9");		/* 26  */
+  strcpy(T3270[987], "4F5A");		/* 27  */
+  strcpy(T3270[988], "4F5B");		/* 28  */
+  strcpy(T3270[989], "4F5C");		/* 29  */
+  strcpy(T3270[990], "4F5D");		/* 30  */
+  strcpy(T3270[991], "4F5E");		/* 31  */
+  strcpy(T3270[992], "4F5F");		/* 32  */
+  strcpy(T3270[993], "4F60");		/* 33  */
+  strcpy(T3270[994], "4F61");		/* 34  */
+  strcpy(T3270[995], "4FE2");		/* 35  */
+  strcpy(T3270[996], "4FE3");		/* 36  */
+  strcpy(T3270[997], "4FE4");		/* 37  */
+  strcpy(T3270[998], "4FE5");		/* 38  */
+  strcpy(T3270[999], "4FE6");		/* 39  */
+  strcpy(T3270[1000], "4FE7");		/* 40  */
+  strcpy(T3270[1001], "4FE8");		/* 41  */
+  strcpy(T3270[1002], "4FE9");		/* 42  */
+  strcpy(T3270[1003], "4F6A");		/* 43  */
+  strcpy(T3270[1004], "4F6B");		/* 44  */
+  strcpy(T3270[1005], "4F6C");		/* 45  */
+  strcpy(T3270[1006], "4F6D");		/* 46  */
+  strcpy(T3270[1007], "4F6E");		/* 47  */
+  strcpy(T3270[1008], "4F6F");		/* 48  */
+  strcpy(T3270[1009], "4FF0");		/* 49  */
+  strcpy(T3270[1010], "4FF1");		/* 50  */
+  strcpy(T3270[1011], "4FF2");		/* 51  */
+  strcpy(T3270[1012], "4FF3");		/* 52  */
+  strcpy(T3270[1013], "4FF4");		/* 53  */
+  strcpy(T3270[1014], "4FF5");		/* 54  */
+  strcpy(T3270[1015], "4FF6");		/* 55  */
+  strcpy(T3270[1016], "4FF7");		/* 56  */
+  strcpy(T3270[1017], "4FF8");		/* 57  */
+  strcpy(T3270[1018], "4FF9");		/* 58  */
+  strcpy(T3270[1019], "4F7A");		/* 59  */
+  strcpy(T3270[1020], "4F7B");		/* 60  */
+  strcpy(T3270[1021], "4F7C");		/* 61  */
+  strcpy(T3270[1022], "4F7D");		/* 62  */
+  strcpy(T3270[1023], "4F7E");		/* 63  */
+  strcpy(T3270[1024], "4F7F");		/* 64  */
+  strcpy(T3270[1025], "5040");		/* 65  */
+  strcpy(T3270[1026], "50C1");		/* 66  */
+  strcpy(T3270[1027], "50C2");		/* 67  */
+  strcpy(T3270[1028], "50C3");		/* 68  */
+  strcpy(T3270[1029], "50C4");		/* 69  */
+  strcpy(T3270[1030], "50C5");		/* 70  */
+  strcpy(T3270[1031], "50C6");		/* 71  */
+  strcpy(T3270[1032], "50C7");		/* 72  */
+  strcpy(T3270[1033], "50C8");		/* 73  */
+  strcpy(T3270[1034], "50C9");		/* 74  */
+  strcpy(T3270[1035], "504A");		/* 75  */
+  strcpy(T3270[1036], "504B");		/* 76  */
+  strcpy(T3270[1037], "504C");		/* 77  */
+  strcpy(T3270[1038], "504D");		/* 78  */
+  strcpy(T3270[1039], "504E");		/* 79  */
+  strcpy(T3270[1040], "504F");		/* 80  */
+
+
+/* row  14  col 1 thru 80 */
+  strcpy(T3270[1041], "5050");		/* 1  */
+  strcpy(T3270[1042], "50D1");		/* 2  */
+  strcpy(T3270[1043], "50D2");		/* 3  */
+  strcpy(T3270[1044], "50D3");		/* 4  */
+  strcpy(T3270[1045], "50D4");		/* 5  */
+  strcpy(T3270[1046], "50D5");		/* 6  */
+  strcpy(T3270[1047], "50D6");		/* 7  */
+  strcpy(T3270[1048], "50D7");		/* 8  */
+  strcpy(T3270[1049], "50D8");		/* 9  */
+  strcpy(T3270[1050], "50D9");		/* 10  */
+  strcpy(T3270[1051], "505A");		/* 11  */
+  strcpy(T3270[1052], "505B");		/* 12  */
+  strcpy(T3270[1053], "505C");		/* 13  */
+  strcpy(T3270[1054], "505D");		/* 14  */
+  strcpy(T3270[1055], "505E");		/* 15  */
+  strcpy(T3270[1056], "505F");		/* 16  */
+  strcpy(T3270[1057], "5060");		/* 17  */
+  strcpy(T3270[1058], "5061");		/* 18  */
+  strcpy(T3270[1059], "50E2");		/* 19  */
+  strcpy(T3270[1060], "50E3");		/* 20  */
+  strcpy(T3270[1061], "50E4");		/* 21  */
+  strcpy(T3270[1062], "50E5");		/* 22  */
+  strcpy(T3270[1063], "50E6");		/* 23  */
+  strcpy(T3270[1064], "50E7");		/* 24  */
+  strcpy(T3270[1065], "50E8");		/* 25  */
+  strcpy(T3270[1066], "50E9");		/* 26  */
+  strcpy(T3270[1067], "506A");		/* 27  */
+  strcpy(T3270[1068], "506B");		/* 28  */
+  strcpy(T3270[1069], "506C");		/* 29  */
+  strcpy(T3270[1070], "506D");		/* 30  */
+  strcpy(T3270[1071], "506E");		/* 31  */
+  strcpy(T3270[1072], "506F");		/* 32  */
+  strcpy(T3270[1073], "50F0");		/* 33  */
+  strcpy(T3270[1074], "50F1");		/* 34  */
+  strcpy(T3270[1075], "50F2");		/* 35  */
+  strcpy(T3270[1076], "50F3");		/* 36  */
+  strcpy(T3270[1077], "50F4");		/* 37  */
+  strcpy(T3270[1078], "50F5");		/* 38  */
+  strcpy(T3270[1079], "50F6");		/* 39  */
+  strcpy(T3270[1080], "50F7");		/* 40  */
+  strcpy(T3270[1081], "50F8");		/* 41  */
+  strcpy(T3270[1082], "50F9");		/* 42  */
+  strcpy(T3270[1083], "507A");		/* 43  */
+  strcpy(T3270[1084], "507B");		/* 44  */
+  strcpy(T3270[1085], "507C");		/* 45  */
+  strcpy(T3270[1086], "507D");		/* 46  */
+  strcpy(T3270[1087], "507E");		/* 47  */
+  strcpy(T3270[1088], "507F");		/* 48  */
+  strcpy(T3270[1089], "D140");		/* 49  */
+  strcpy(T3270[1090], "D1C1");		/* 50  */
+  strcpy(T3270[1091], "D1C2");		/* 51  */
+  strcpy(T3270[1092], "D1C3");		/* 52  */
+  strcpy(T3270[1093], "D1C4");		/* 53  */
+  strcpy(T3270[1094], "D1C5");		/* 54  */
+  strcpy(T3270[1095], "D1C6");		/* 55  */
+  strcpy(T3270[1096], "D1C7");		/* 56  */
+  strcpy(T3270[1097], "D1C8");		/* 57  */
+  strcpy(T3270[1098], "D1C9");		/* 58  */
+  strcpy(T3270[1099], "D14A");		/* 59  */
+  strcpy(T3270[1100], "D14B");		/* 60  */
+  strcpy(T3270[1101], "D14C");		/* 61  */
+  strcpy(T3270[1102], "D14D");		/* 62  */
+  strcpy(T3270[1103], "D14E");		/* 63  */
+  strcpy(T3270[1104], "D14F");		/* 64  */
+  strcpy(T3270[1105], "D150");		/* 65  */
+  strcpy(T3270[1106], "D1D1");		/* 66  */
+  strcpy(T3270[1107], "D1D2");		/* 67  */
+  strcpy(T3270[1108], "D1D3");		/* 68  */
+  strcpy(T3270[1109], "D1D4");		/* 69  */
+  strcpy(T3270[1110], "D1D5");		/* 70  */
+  strcpy(T3270[1111], "D1D6");		/* 71  */
+  strcpy(T3270[1112], "D1D7");		/* 72  */
+  strcpy(T3270[1113], "D1D8");		/* 73  */
+  strcpy(T3270[1114], "D1D9");		/* 74  */
+  strcpy(T3270[1115], "D15A");		/* 75  */
+  strcpy(T3270[1116], "D15B");		/* 76  */
+  strcpy(T3270[1117], "D15C");		/* 77  */
+  strcpy(T3270[1118], "D15D");		/* 78  */
+  strcpy(T3270[1119], "D15E");		/* 79  */
+  strcpy(T3270[1120], "D15F");		/* 80  */
+
+
 
 /*  row 15 col 1 thru 80 */
   strcpy(T3270[1210],"D1E9");		/* 10 */

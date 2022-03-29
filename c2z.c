@@ -157,6 +157,7 @@
        void c2_fs_3(void);
        void c2_fs_4(void);
        void c2_fs_5(void);
+       void c2_fs_6(void);
 
 
 /* 	       c2z_function.c	*/
@@ -575,7 +576,7 @@
  *  1		=	I	integer       	     *
  *  2		=	D	double			     *
  *  3		=   	C	char			     *
- *  4		=	G	Double 		     *
+ *  4		=	G	Double Structure	     *
  * ************************************************** */
 			
 
@@ -682,6 +683,7 @@ char from_sv[24];
  int fs_map_ct = 0;
  int fs_field_ct = 0;
  int T3270_ct = 0;
+ int fsaid_ct = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -1154,10 +1156,20 @@ struct fs_field *w_fs_field;
 
 struct fs_scr_field
 {
+   char fs_scr_map[VAR_LGTH];
    char fs_scr_name[VAR_LGTH];
    char fs_scr_cname[VAR_LGTH];
 };
 struct fs_scr_field *w_fs_scr_field;
+
+struct fs_fsaid
+{
+   char fs_fsaid_map[VAR_LGTH];
+   char fs_fsaid_attr[VAR_LGTH];
+   char fs_fsaid_label[VAR_LGTH];
+};
+struct fs_fsaid *w_fs_fsaid;
+
 
 
 /* ----- includes ---------------- */
@@ -3510,26 +3522,32 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
       v_convert = 1;
     }
 
+    p = strstr(p_string, "fsaid");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
     p = strstr(p_string, "fsdefine");
-    if ((s == 0) && (v_convert == 0))
+    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
 
     p = strstr(p_string, "fsfield");
-    if ((s == 0) && (v_convert == 0))
+    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
 
     p = strstr(p_string, "fsdisplay");
-    if ((s == 0) && (v_convert == 0))
+    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
 
     p = strstr(p_string, "fsread");
-    if ((s == 0) && (v_convert == 0))
+    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
@@ -5606,12 +5624,19 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
   erct = 0;
 
 
-
   /* ************************************************************
   *  Punch START Pass 3                                         *
   * *********************************************************** */
 
   c2_pass_3();
+
+  strcpy(a_string, "         TN3270 SYMBOLS");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z.c pass 3");
+    trace_rec_3();
+  }
 
   rct = 0;
   end_asm = 1;
@@ -5702,6 +5727,31 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     if(parm_ct < 1)
     {
       parm_ct = 0;
+    }
+
+
+   /* **********************************************************
+    *  Punch #defines  (skip)                                   *
+    * ********************************************************* */
+
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "#define");
+    if (p) 
+    {
+      convert = 1;
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 #define");
+        trace_rec_1();
+        if (return_on == 1) 
+        {
+          return_ct++;
+        }
+      }
     }
 
 
@@ -6184,6 +6234,11 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     /* **********************************************************
     *  Test for prototypes                                      *
     * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    } 
+
     p = strstr(p_string, "void");
     p1 = strstr(p_string, ";");
     p2 = strstr(p_string, "int");
@@ -6528,30 +6583,7 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     }
 
   
-    /* **********************************************************
-    *  Punch #defines  (skip)                                   *
-    * ********************************************************* */
-
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "#define");
-    if (p) 
-    {
-      convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 #define");
-        trace_rec_1();
-        if (return_on == 1) 
-        {
-          return_ct++;
-        }
-      }
-    }
-
+ 
     /* **********************************************************
     *  Punch #ifndef  (skip)                                    *
     * ********************************************************* */
@@ -7417,6 +7449,157 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
 
 
     /* **********************************************************
+    *  Punch out fsaid                                          *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsaid");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsaid pass 3");
+        trace_rec_1();
+      }
+     
+      c2_fs_6();
+     
+      convert = 1; 
+    }
+
+
+
+    /* **********************************************************
+    *  Punch out fsdefine                                       *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsdefine");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsdefine Start");
+        trace_rec_1();
+      }
+
+      zgui = 1;
+
+      strcpy(a_string, "         STFSMODE ON,INITIAL=YES");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 STFSMODE");
+        trace_rec_3();
+      }
+
+      strcpy(a_string, "         STTMPMD ON");
+      src_line();
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c pass 3 STFSMPMD");
+        trace_rec_3();
+      }
+     
+      c2_fs_1();
+     
+      convert = 1; 
+    }
+
+
+    /* **********************************************************
+    *  Punch out fsfield                                        *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsfield");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsfield pass 3");
+        trace_rec_1();
+      }
+
+   
+     
+      c2_fs_2();
+     
+      convert = 1; 
+    }
+
+
+   /* **********************************************************
+    *  Punch out fsdisplay                                     *
+    * ******************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsdisplay");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsdisplay pass 3");
+        trace_rec_1();
+      }
+
+      c2_fs_3();
+     
+      convert = 1; 
+    }
+
+
+   /* **********************************************************
+    *  Punch out fsread                                        *
+    * ******************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "fsread");
+  
+    if (p) 
+    {
+      if (traceflg == 1) 
+      {
+        strcpy(trace_1, "c2z.c fsread pass 3");
+        trace_rec_1();
+      }
+
+      c2_fs_4();
+     
+      convert = 1; 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* **********************************************************
     *  Punch back from function                                 *
     * ********************************************************* */
     if (convert == 1) 
@@ -8055,6 +8238,7 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     }
 
 
+
     /* **********************************************************
     *  Punch out goto statement                                 *
     * ********************************************************* */
@@ -8636,121 +8820,6 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
       convert = 1; 
     }
 
-
-    /* **********************************************************
-    *  Punch out fsdefine                                       *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsdefine");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsdefine Start");
-        trace_rec_1();
-      }
-
-      zgui = 1;
-
-      strcpy(a_string, "         STFSMODE ON,INITIAL=YES");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 STFSMODE");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         STTMPMD ON");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 STFSMPMD");
-        trace_rec_3();
-      }
-     
-      c2_fs_1();
-     
-      convert = 1; 
-    }
-
-
-    /* **********************************************************
-    *  Punch out fsfield                                        *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsfield");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsfield pass 3");
-        trace_rec_1();
-      }
-
-   
-     
-      c2_fs_2();
-     
-      convert = 1; 
-    }
-
-
-   /* **********************************************************
-    *  Punch out fsdisplay                                     *
-    * ******************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsdisplay");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsdisplay pass 3");
-        trace_rec_1();
-      }
-
-      c2_fs_3();
-     
-      convert = 1; 
-    }
-
-
-   /* **********************************************************
-    *  Punch out fsread                                        *
-    * ******************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsread");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsread pass 3");
-        trace_rec_1();
-      }
-
-      c2_fs_4();
-     
-      convert = 1; 
-    }
 
 
     /* **********************************************************

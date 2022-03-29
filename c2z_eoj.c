@@ -33,7 +33,7 @@ void c2_eoj()
   int II = 0;
   int s = 0;
   int p_ct = 0;
-  int x99 = 0;
+  int x98 = 0;
 
   if(zgui == 0)
   {
@@ -1655,7 +1655,6 @@ void c2_eoj()
     }
   }
   
-  x99 = 1;
   if(fs_map_ct > 0)
   {
     x3 = 0;
@@ -1924,8 +1923,9 @@ struct fs_scr_field *w_fs_scr_field;
                if ((ret == 0) && (ret1 == 0)) 
                {
                   strcpy(field1a, lw_variable[v].lv_cname);
-                  x5 = lw_variable[v].lv_current_lgth;
+                  x5 = lw_variable[v].lv_lgth;
                   x3 = 1;
+                  x98 = lw_variable[v].lv_id;
                   break;
                }
             }
@@ -1938,24 +1938,18 @@ struct fs_scr_field *w_fs_scr_field;
                   if (ret == 0) 
                   {
                      strcpy(field1a, gw_variable[v].gv_cname);
-                     x5 = gw_variable[v].gv_current_lgth;
+                     x5 = gw_variable[v].gv_lgth;
+                     x98 = gw_variable[v].gv_id;
                      x3 = 1;
                      break;
                   }
                }
             }
 
-            if(x99 > 1)
+            if(x98 == 1)
             {
-               strcpy(a_string, "          DC    CL' '");
-               src_line();
-               if (puncde == 1) 
-               {
-                 strcpy(trace_1, "c2z_eoj.c #9017");
-                 trace_rec_3();
-               }
+               x5 = 10;
             }
-            x99++; 
            
             strcpy(a_string, field4);
             check_length();
@@ -1966,8 +1960,19 @@ struct fs_scr_field *w_fs_scr_field;
             src_line();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c #9016");
+              strcpy(trace_1, "c2z_eoj.c #9017");
               trace_rec_3();
+            }
+
+            if(x5 % 2 == 0)
+            {
+               strcpy(a_string, "          DC    CL' '");
+               src_line();
+               if (puncde == 1) 
+               {
+                 strcpy(trace_1, "c2z_eoj.c #9016");
+                 trace_rec_3();
+               }
             }
           }
 
@@ -1978,7 +1983,7 @@ struct fs_scr_field *w_fs_scr_field;
           write_remark();
           if (puncde == 1) 
           {
-            strcpy(trace_1, "c2z_eoj.c #9017");
+            strcpy(trace_1, "c2z_eoj.c #9018");
             trace_rec_3();
           }
         }
@@ -1995,7 +2000,7 @@ struct fs_scr_field *w_fs_scr_field;
       src_line();
       if (puncde == 1) 
       {
-        strcpy(trace_1, "c2z_eoj.c #9018");
+        strcpy(trace_1, "c2z_eoj.c #9019");
         trace_rec_3();
       }
 
