@@ -684,6 +684,7 @@ char from_sv[24];
  int fs_field_ct = 0;
  int T3270_ct = 0;
  int fsaid_ct = 0;
+ int scr_loop_ct = 0;
  
 /* usage counters	*/
  int var_use[24];
@@ -757,7 +758,7 @@ int work_use_ct[110];
 *  99		=	C370QUOT	100	=	TSTUC		*
 *  100		=	TSTLC		101	=	C370DDTE      *
 *  102		=	C370DWRK	103	=	C370DATE      *
-*  104        =      C370NCVT                                  *
+*  104        =      C370NCVT	105	=	C370PFK	*
 * ************************************************************ */
 
  int tot_localtime = 0;
@@ -1151,6 +1152,7 @@ struct fs_field
    int fs_fd_col;		   
   char fs_fd_color[VAR_LGTH];
   char fs_fd_address[5];
+  char fs_fd_attr[3];
 };
 struct fs_field *w_fs_field;
 
@@ -1633,8 +1635,78 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     exit(1); 
 }
 */
-
- 
+    p = strstr(p_string, "fsdefine");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsfield");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsdefine");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsaid");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsmap");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsio");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fstype");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsname");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsloc");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fscolor");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "fsattr");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
+    p = strstr(p_string, "};");
+    if(p)
+    { 
+      convert = 1;
+      goto pass2_skip;
+    }
 
     if (global_st == 0) 
     {
@@ -3238,8 +3310,10 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
     }
 
 
-/* Scan for #endif  */
 
+    /* ***************************************************************
+     *   Scan for #endif                                             *
+     * ************************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5629,14 +5703,6 @@ printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
   * *********************************************************** */
 
   c2_pass_3();
-
-  strcpy(a_string, "         TN3270 SYMBOLS");
-  src_line();
-  if (puncde == 1) 
-  {
-    strcpy(trace_1, "c2z.c pass 3");
-    trace_rec_3();
-  }
 
   rct = 0;
   end_asm = 1;

@@ -5,24 +5,36 @@ from time to time.  Working on it daily.  TC
 *****************************
 
 
-03/23/2022
+04/7/2022
 c2z is being modified and has some support for the 3270 support using tput/tget.
-the c2z_fs.c is the module that supports this code.  It is a work in progress.
+the c2z_fs.c is the module that supports this code.  It now can produce screen
+based I/O under "C".  The documentation manual is being updated with the
+new "C" functions.
+		fsdefine
+		fsfield
+		fsdisplay
+		fsread
+		fsaid
 
 
 
-
-c2z is a parser written in "C" that parses "C" source code into "base-register free" z390.mlc
+c2z is a parser written in "C" and it parses "C" source code into "base-register free" z390.mlc
 
 The z390.mlc then can be compiled/executed by the z390 emulator found at
 www.z390.org
 
-c2z runs under Linux.  Below is the command line to compile.
+c2z runs under Linux and/or MinGW under Windows.  Below is the command line to compile.
 
 
 Linux   (gcc)
 
     gcc -fno-stack-protector -falign-functions=16 -falign-jumps -falign-labels -falign-loops -o c2z c2z.c
+
+Windows  (minGW)
+
+    gcc -o c2z c2z.c
+
+
 
 c2z is release under GPL 2.0
 

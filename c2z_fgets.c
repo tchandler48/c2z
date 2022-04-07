@@ -1067,7 +1067,7 @@ void c2_gets()
   }
 
 /* LARL  R9,C370U   */
-  strcpy(a_string, "         LARL   R7,C370U");
+  strcpy(a_string, "         LARL   R9,C370U");
   src_line();
   if (puncde == 1) 
   {

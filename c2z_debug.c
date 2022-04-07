@@ -918,19 +918,58 @@ void c2_debug()
   }
   fprintf(c_src, "\n");
 
+  fprintf(c_src, "\n\n------------ FS Fields ------------\n");
+  fprintf(c_src, "Map       Name       CName \n");
+          
+  fprintf(c_src, "-----     ---------  ----------\n");
+                
+  for (I = 0; I < T3270_ct; I++) 
+  {
 
+    strcpy(a_string, w_fs_scr_field[I].fs_scr_map);
+    s = strlen(a_string);
+    if (s < 10) 
+    {
+      for (v = s; v < 10; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
 
-  fprintf(c_src, "\n\n---------- TM Value -----------\n");
+    strcat(a_string, w_fs_scr_field[I].fs_scr_name);
+    s = strlen(a_string);
+    if (s < 20) 
+    {
+      for (v = s; v < 20; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
 
-  strcpy(a_string, "\nRct  = ");
-  strcat(a_string, "\n");
-  fputs(a_string,c_src);
- 
-  strcpy(a_string, "Month = ");
- /* strcat(a_string, tm[0].tm_mon); */
-  strcat(a_string, "\n");
-  fputs(a_string, c_src);
- 
+    strcat(a_string, w_fs_scr_field[I].fs_scr_cname);
+    s = strlen(a_string);
+    if (s < 35) 
+    {
+      for (v = s; v < 35; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+
+   strcat(a_string, "\n");
+   fputs(a_string, c_src);
+
+/*
+    snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_rct);
+    strcpy(w_fs_scr_field[T3270_ct].fs_scr_map, field1);
+     strcpy(w_fs_scr_field[T3270_ct].fs_scr_name, field4);
+     strcpy(field8,"T3270_");
+     snprintf(wk_strg, sizeof(wk_strg), "%d", T3270_ct);
+     strcat(field8, wk_strg);
+     strcpy(w_fs_scr_field[T3270_ct].fs_scr_cname, field8);
+*/
+
+  }
 
 
   fclose(c_src);
