@@ -2762,11 +2762,13 @@ void c2_str_3(int str1, int str2)
       }
       tfield3[pi2] = '\0';
 
+/*
 printf("\nc2z_strcpy.c s < s rct = %d p_string = %s",rct,p_string);
 printf("c2z_strcpy.c s < s tfield1 = %s\n",tfield1);
 printf("c2z_strcpy.c s < s tfield2 = %s\n",tfield2);
 printf("c2z_strcpy.c s < s tfield3 = %s fd3_type = %d\n",tfield3,fd3_type);
 printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
+*/
 
       if(fd2_type == 1)
       {
@@ -2880,18 +2882,6 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
           }
         }
 
-/*
-        if(fd3_type == 0)
-        {
-          p = strstr(tfield3, "\0");
-          if (p) 
-          {
-            x6 = 1;
-          }
-        }
-*/
-
-    
         if((x6 == 0) && (fd3_type == 2)) 
         {
           str6 = 0;
@@ -2925,11 +2915,10 @@ printf("c2z_strcpy.c s < s #1 x6 = %d\n",x6);
             }
           }
         }
-printf("c2z_strcpy.c s < s #2 x5 = %d\n",x5);
 
         if(fd2_type == 1)
         {
-          strcpy(a_string, "         LA    R5,");
+          strcpy(a_string, "         LAEY  R5,");
           strcat(a_string, tfield2);
           src_line();
           if (puncde == 1) 
@@ -4136,13 +4125,6 @@ void c2_str_4()
   {
     if(!p)
     {
-     strcpy(a_string, "*         LHI   R0,X'0'");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_strcpy.c #136b");
-        trace_rec_3();
-      }
 
       strcpy(a_string, "         LARL  R8,");
       strcat(a_string, tfield2a);
@@ -4164,55 +4146,6 @@ void c2_str_4()
       if (puncde == 1) 
       {
         strcpy(trace_1, "c2z_strcpy.c #136a");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*         LR    R3,1");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_strcpy.c #136b");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "A");
-      check_length();
-      strcat(a_string, "DS    0H");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_strcpy.c #142");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*         MVST  R2,R1");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_strcpy.c #136b");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*         JO    ");
-      strcat(a_string, "L");
-      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-      strcat(a_string, wk_strg);
-      strcat(a_string, "A");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_strcpy.c #142");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*         SR    R1,R3");
-      src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_strcpy.c #136b");
         trace_rec_3();
       }
 

@@ -8,6 +8,7 @@
 
 void c2_pass_2_1()
 {
+
    if (traceflg == 1) 
    {
      strcpy(trace_1, "c2z_pass_2.c c2_pass_2_1");
@@ -15,6 +16,7 @@ void c2_pass_2_1()
    }
 
    char ch;
+   char *p;
    char field3[VAR_LGTH];
    char field3a[VAR_LGTH];
 
@@ -23,6 +25,27 @@ void c2_pass_2_1()
     int s1;
     int pi2;
     int size;
+
+   p = strstr(p_string, "fsfield");
+   if(p)
+   {
+      convert = 1;
+      return;
+   }
+
+   p = strstr(p_string, "fsname");
+   if(p)
+   {
+      convert = 1;
+      return;
+   }
+
+   p = strstr(p_string, "fsaid");
+   if(p)
+   {
+      convert = 1;
+      return;
+   }
 
    I = 0;
    s = strlen(p_string);
