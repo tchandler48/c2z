@@ -724,10 +724,59 @@ pass2_on:
     }
   }
 
-  strcpy(p_string, "          END");
+  for (I = 0; I < lv_ct; I++) 
+  {
+    ret = strcmp(lw_variable[I].lv_type, "I");
+    if (ret == 0) 
+    {
+      strcpy(a_string, "         DS    0H");
+      src_line();
+
+      strcpy(a_string, lw_variable[I].lv_cname);
+      check_length();
+      strcat(a_string, "DC    ");
+      x = atoi(lw_variable[I].lv_value);
+      if (x == 0) 
+      {
+        strcat(a_string, "PL6'0'");
+      } 
+      else 
+      {
+        strcat(a_string, "PL6'");
+        strcat(a_string, lw_variable[I].lv_value);
+        strcat(a_string, "'");
+      }
+
+      s = strlen(a_string);
+      x = 37 - s;
+      for (x4 = 0; x4 < x; x4++) 
+      {
+        strcat(a_string, " ");
+      }
+      strcat(a_string, "/* ");
+      strcat(a_string, lw_variable[I].lv_name);
+      strcat(a_string, "  - ");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", lw_variable[I].lv_rct);
+      strcat(a_string, wk_strg);
+      strcat(a_string, "  */");
+      src_line();
+    }
+  }
+
+  strcpy(a_string, "          DS    0H");
+  src_line();
+  
+  strcpy(a_string, "C370B1    DC    C' '");
+  src_line();
+
+  strcpy(a_string, "*");
+  src_line();
+
+  strcpy(p_string, "          EQUREGS\n");
   fputs(p_string, f_out);
 
-
+  strcpy(p_string, "          END");
+  fputs(p_string, f_out);
 
   fclose(f_in);
   fclose(f_out);
@@ -817,7 +866,6 @@ void c2_fs_2(void)
    int tadd = 0;
    int w_row = 0;
    int w_col = 0;
-   int ret2;
  
   pi = 0;
   ch = p_string[pi];
@@ -1117,30 +1165,43 @@ printf("fs_2 #88 field3 = %s\n",field3);
   
 
 printf("fs_2 field1 = %s field1a = %s\n",field1,field1a);
-
-    if (lv_ct == 0) 
+    x3 = 0;
+    for (v = 0; v < lv_ct; v++) 
     {
-       size = 1;
-       lw_variable = malloc(size * sizeof(struct var));
-    } 
-    else 
-    {
-       size = lv_ct + 1;
-       lw_variable = realloc(lw_variable, size * sizeof(struct var));
+       ret = strcmp(field4, lw_variable[v].lv_name);
+       if(ret == 0)
+       {
+          x3 = 1;
+          break;
+       }
     }
-    lw_variable[lv_ct].lv_rct = rct;
-    strcpy(lw_variable[lv_ct].lv_name, field4);
-    strcpy(lw_variable[lv_ct].lv_cname, field1a);
-    strcpy(lw_variable[lv_ct].lv_type, "C");
-    lw_variable[lv_ct].lv_lgth = w_lgth;
-    lw_variable[lv_ct].lv_current_lgth = w_lgth;
-    strcpy(lw_variable[lv_ct].lv_value, null_field);
-    lw_variable[lv_ct].lv_init = 0;
-    strcpy(lw_variable[lv_ct].lv_literal, null_field);
-    lw_variable[lv_ct].lv_use_ct = 0;
-    lw_variable[lv_ct].lv_dec = 0;
-    lw_variable[lv_ct].lv_id = 3;
-    lv_ct++;
+
+    if(x3 == 0)
+    {
+      if (lv_ct == 0) 
+      {
+         size = 1;
+         lw_variable = malloc(size * sizeof(struct var));
+      } 
+      else 
+      {
+         size = lv_ct + 1;
+         lw_variable = realloc(lw_variable, size * sizeof(struct var));
+      }
+      lw_variable[lv_ct].lv_rct = rct;
+      strcpy(lw_variable[lv_ct].lv_name, field4);
+      strcpy(lw_variable[lv_ct].lv_cname, field1a);
+      strcpy(lw_variable[lv_ct].lv_type, "C");
+      lw_variable[lv_ct].lv_lgth = w_lgth;
+      lw_variable[lv_ct].lv_current_lgth = w_lgth;
+      strcpy(lw_variable[lv_ct].lv_value, null_field);
+      lw_variable[lv_ct].lv_init = 0;
+      strcpy(lw_variable[lv_ct].lv_literal, null_field);
+      lw_variable[lv_ct].lv_use_ct = 0;
+      lw_variable[lv_ct].lv_dec = 0;
+      lw_variable[lv_ct].lv_id = 3;
+      lv_ct++;
+    }
   }
 
   w_lgth = 0;
@@ -1193,6 +1254,9 @@ void c2_fs_3(void)
   strcpy(field2, field1);
   strcat(field2, "OL");
 
+printf("fs_3 #100 fs_map_ct = %d field2 = %s\n",fs_map_ct,field2);
+
+
   if(fs_map_ct > 0)
   {
     x3 = 0;
@@ -1203,16 +1267,27 @@ void c2_fs_3(void)
       x7 = 0;
 
       ret =  strcmp(w_fs_field[p_ct].fs_fd_map, field1);
-      ret1 = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+      ret1 = strcmp(w_fs_field[p_ct].fs_fd_type, "C");
       if((ret == 0) && (ret1 == 0))
       {
          strcpy(field4, w_fs_field[p_ct].fs_fd_field);
          x7 = 1;
       }
 
+      if(x7 == 0)
+      {
+        ret =  strcmp(w_fs_field[p_ct].fs_fd_map, field1);
+        ret1 = strcmp(w_fs_field[p_ct].fs_fd_type, "N");
+        if((ret == 0) && (ret1 == 0))
+        {
+           strcpy(field4, w_fs_field[p_ct].fs_fd_field);
+           x7 = 1;
+        }
+      }
+
       if(x7 == 1)
       {
-        ret = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+        ret = strcmp(w_fs_field[p_ct].fs_fd_type, "C");
         if(ret == 0)
         {
           x3 = 0;
@@ -1230,6 +1305,27 @@ void c2_fs_3(void)
             }
           }
 
+          if(x3 == 0)
+          {
+            ret = strcmp(w_fs_field[p_ct].fs_fd_type, "N");
+            if(ret == 0)
+            {
+               for (v = 0; v < lv_ct; v++) 
+               {
+                 ret = strcmp(field4, lw_variable[v].lv_name);
+                 if (ret == 0) 
+                 {
+                   strcpy(field4a, lw_variable[v].lv_cname);
+                   x5 = lw_variable[v].lv_current_lgth;
+                   x98 = lw_variable[v].lv_lgth;
+                   x99 = lw_variable[v].lv_id;
+                   x3 = 1;
+                   break;
+                 }
+               }
+            }
+          }
+
           if (x3 == 0) 
           {
             printf("\nc2z_fs.c c2_fs_2_2 fs_2-001 field4 Not Found = %s\n", field4);
@@ -1238,6 +1334,7 @@ void c2_fs_3(void)
             convert = 1;
             return;
           }
+printf("fs_3 #101 x3 = %d x99 = %d field4 = %s\n",x3,x99,field4);
 
           for(v = 0; v < T3270_ct; v++)
           {
@@ -1249,12 +1346,15 @@ void c2_fs_3(void)
               break;
             }
           }
+printf("fs_3 #102 x3 = %d field4 = %s field8 = %s\n",x3,field4,field8);
      
           if(x99 == 3)
           {
+printf("fs_3 #103 INSIDE 3\n");
             strcpy(a_string, "         LARL  R9,");
             strcat(a_string, field8);
             src_line();
+printf("fs_3 #104 a_string = %s\n",a_string);
  
             strcpy(a_string, "         LARL  R8,C370B1");
             src_line();
@@ -1933,7 +2033,7 @@ void c2_fs_4(void)
   {
      x7 = 0;
      ret =  strcmp(w_fs_field[p_ct].fs_fd_map, field1);
-     ret1 = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+     ret1 = strcmp(w_fs_field[p_ct].fs_fd_type, "C");
      ret2 = strcmp(w_fs_field[p_ct].fs_fd_io, "I");
      if((ret == 0) && (ret1 == 0) && (ret2 == 0))
      {
@@ -1944,15 +2044,14 @@ void c2_fs_4(void)
      if(x7 == 1)
      {
 
-       ret = strcmp(w_fs_field[p_ct].fs_fd_type, "V");
+       ret = strcmp(w_fs_field[p_ct].fs_fd_type, "C");
        if(ret == 0)
        {
          x3 = 0;
          for (v = 0; v < lv_ct; v++) 
          {
            ret = strcmp(field4, lw_variable[v].lv_name);
-           ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-           if ((ret == 0) && (ret1 == 0)) 
+           if(ret == 0) 
            {
              strcpy(field4a, lw_variable[v].lv_cname);
              x5 = lw_variable[v].lv_current_lgth;
@@ -2030,11 +2129,6 @@ void c2_fs_4(void)
 
   convert = 1;
 }
-
-
-
-
-
 
 
 
