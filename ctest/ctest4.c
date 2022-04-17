@@ -5,7 +5,7 @@
 #include <string.h>
 #include <malloc.h>
 #include <math.h>
-
+ 
 	int x;
       char a[20];
       char *p;

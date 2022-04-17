@@ -10,7 +10,7 @@
       char e;
       char f[48];
 
-
+ 
  		
 int main(int argc, char *argv[])
 	{

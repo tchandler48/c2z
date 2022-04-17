@@ -1,7 +1,7 @@
   
 #define MAX_VARS     12
 #define VAR_NAME     16
-	
+ 	
 	int t;
 	int x;
 	int y;
