@@ -1,4 +1,3 @@
-USERID GCCCMS
 /*
  * rpilot.c -- A simple PILOT interpretor in ANSI C
  * Copyright 1998, 2000 Rob Linwood (rob@auntfloyd.com)

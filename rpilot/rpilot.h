@@ -1,4 +1,3 @@
-USERID GCCCMS
 /*  rpilot.h - universal macros and the like. */
 
 #ifndef _rpilot_h_
