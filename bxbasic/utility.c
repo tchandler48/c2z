@@ -1,3 +1,4 @@
+
 /* utility.c	*/
 
 int get_upper(int pi, int stlen)

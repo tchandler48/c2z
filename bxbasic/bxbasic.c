@@ -1,4 +1,4 @@
- 
+   
 /*	bxbasic.c	*/
 
 #define BUFSIZE             78
@@ -58,6 +58,13 @@
 
 /*	error.c	*/
 	void a_bort(int, int);
+
+
+/*	getinput.c	*/
+       void get_input(void);
+       void input_str(char *, int);
+       void input_val(char *, int);
+       void set_TabNl(char *);
 
 
 /*     Ifendif.c	*/
@@ -124,6 +131,27 @@
        int Is_White(char);
       void SkipWhite(void);
 
+
+
+/*	strings.c	*/
+	void parse_str(char *);
+       void strng_assgn(int);
+       void strvar_assgn(int);
+   	void asn_function(void);
+       void leftstr(void);
+       void rightstr(void);
+	void midstr(void);
+       void spacestr(void);
+       void strsval(void);
+  	void stringstr(void);
+       void str_functn(int);
+        int IsEqu(int);
+       void get_strfunc(char *, int);
+       void str_copy(char *, int);
+        int get_strndx(void);
+       char *value2strng(int);
+
+
 /*	utility.c	*/
        int get_upper(int, int);
        int get_alpha(int, int);
@@ -140,7 +168,6 @@
        int get_intndx(char *);
        int get_dblndx(char *);
        int get_varndx(char *);
-      void strng_assgn(int);
        int get_avalue(void);
 
       void clr_vars(void);
@@ -153,11 +180,13 @@
 
 
 #include "error.c"
+#include "getinput.c"
 #include "Ifendif.c"
 #include "input.c"
 #include "loops.c"
 #include "output.c"
 #include "rdparser.c"
+#include "strings.c"
 #include "utility.c"
 #include "variable.c"
 
@@ -216,7 +245,7 @@ void parser()
       break;
 
     case 4:
-      xstring_array();
+ /*     xstring_array(); */
       get_prnstring();
       break;
 
@@ -267,6 +296,10 @@ void parser()
       return;
       break;
 
+    case 17:
+      get_input();
+      break;
+
     case -1:
       break;
 
@@ -285,6 +318,8 @@ void xstring_array()
   int ab_code;
   int stlen;
   int x = line_ndx;
+
+printf("xstring START\n");
 
   pi = e_pos;
   pi = iswhite(pi);

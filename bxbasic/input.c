@@ -1,3 +1,4 @@
+
 /*	input.c	*/
 
 void line_cnt(char *argv[])
@@ -347,6 +348,12 @@ int get_byte(int ii)
     x1 = 1;
   }
 
+  if(strcmp(keyword, "INPUT") == 0)
+  {
+    byte = 17;
+    x1 = 1;
+  }
+
   if(x1 == 0)
   {
     pi = iswhite(pi);
@@ -406,6 +413,11 @@ void loader_2()
     {
       token_ix(ndx);
     }
+
+    if(temp_byte[ndx] == 1)
+    {
+      str_functn(ndx);
+    }
   }
 
   nrows = line_count;
@@ -424,6 +436,7 @@ void loader_2()
       ndx++;
       I++; 
     } 
+
   }
 }
 

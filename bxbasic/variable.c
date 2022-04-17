@@ -1,3 +1,4 @@
+
 /*	variable.c	*/
 
 
@@ -6,7 +7,7 @@ void parse_let()
    char ch;
    char varname[VAR_NAME];
   
-   int pi, si = 0, stlen;
+   int pi, stlen;
    int ndx = 0, x = line_ndx;
    int ab_code = 11;
    int process = 0;
@@ -45,13 +46,8 @@ void parse_let()
     if(ch == '$')
     {
       process = 1;
-      init_str();
-      ndx = get_varndx(varname);
-      pi++;
-      pi = iswhite(pi);
       e_pos = pi;
-      Match('=');
-      strng_assgn(ndx);
+      parse_str(varname);
     }
     
     if(process == 0)
@@ -285,44 +281,6 @@ void clr_str()
 }
 
 
-void strng_assgn(int ndx)
-{
-  char ch;
-  int pi;
-  int stlen;
-  int si=0;
-  int ab_code=6;
-  int x=line_ndx;
-  unsigned size;
-  int I;
-
-  stlen = strlen(p_string);
-  e_pos++;
-  pi = e_pos;
- 
-  ch = p_string[pi];
-
-  si = 0;
-  while((ch != '\"') && (pi < stlen))
-  {
-    s_holder[si] = ch;
-    si++;
-    pi++;
-    ch = p_string[pi];
-  }
-  s_holder[si] = '\0';
-
-  if(pi > stlen)
-  {
-    a_bort(ab_code, x);
-  }
-
-  size = strlen(s_holder);
-  size++;
-  strcpy(sv_stack[ndx], s_holder);
-}
-
-
 int get_varndx(char *name) 
 {
 
@@ -331,7 +289,7 @@ int get_varndx(char *name)
 
   strcpy(varname, name);
 
-  while((strcmp(sn_stack[ndx], varname) != 0) && (ndx < imax_vars))
+  while((strcmp(sn_stack[ndx], varname) != 0) && (ndx < smax_vars))
   {
     if(vflag == 0)
     {
@@ -350,8 +308,8 @@ int get_varndx(char *name)
 
     if(vflag == 0)
     {
-      init_int();
-      ndx = imax_vars;
+      init_str();
+      ndx = smax_vars;
       ndx--;
       strcpy(sn_stack[ndx], varname);
      

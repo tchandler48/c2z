@@ -1,3 +1,4 @@
+
 /*	output.c	*/
 
 void beep()
@@ -37,6 +38,7 @@ void get_prnstring()
 
   if(isalpha(ch))
   {
+
      type = get_vartype();
      if(type == '$')
      {
@@ -51,6 +53,7 @@ void get_prnstring()
 
   pi++;
   ch = p_string[pi];
+
   while(ch != '\"')
   {
     xstring[si] = ch;

@@ -1,4 +1,4 @@
-
+ 
 void a_bort(int code, int line_ndx)
 {
   switch(code)
@@ -58,6 +58,12 @@ void a_bort(int code, int line_ndx)
    case 13:
      printf("Case 13 Variable Not Found p_string = %s\n",p_string);
      break;
+
+   case 19:
+     printf("Case 19 Syntax error:\n");
+     printf("Case 19 Variable p_string = %s\n",p_string);
+     break;
+
 
    default:
      printf("Program aborted, undefined error.");
