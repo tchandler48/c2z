@@ -607,7 +607,7 @@ void c2_fs_3(void)
             src_line();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c #3000");
+              strcpy(trace_1, "c2z_fs.c c2_fs_3 #3000");
               trace_rec_3();
             }
 
@@ -615,7 +615,7 @@ void c2_fs_3(void)
             src_line();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c #3001");
+              strcpy(trace_1, "c2z_fs.c c2_fs_3 #3001");
               trace_rec_3();
             }
 
@@ -623,7 +623,7 @@ void c2_fs_3(void)
             src_line();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c #3002");
+              strcpy(trace_1, "c2z_fs.c c2_fs_3 #3002");
               trace_rec_3();
             }
 
@@ -635,40 +635,80 @@ void c2_fs_3(void)
             src_line();
             if (puncde == 1) 
             {
-              strcpy(trace_1, "c2z_eoj.c #3003");
+              strcpy(trace_1, "c2z_fs.c c2_fs_3 #3003");
               trace_rec_3();
             }
 
-            strcpy(a_string, "         LARL  R9,");
-            strcat(a_string, field4a);
-            strcpy(wk_remark, " ");
-            strcat(wk_remark, field4);
-            strcat(wk_remark, " */");
-            write_remark();
-            if (puncde == 1) 
+            ret = strcmp(w_fs_field[p_ct].fs_fd_io, "O");
+            if(ret == 0)
             {
-              strcpy(trace_1, "c2z_eoj.c #3004");
-              trace_rec_3();
-            }
+              strcpy(a_string, "         LARL  R9,");
+              strcat(a_string, field4a);
+              strcpy(wk_remark, " ");
+              strcat(wk_remark, field4);
+              strcat(wk_remark, " ");
+              write_remark();
+              if (puncde == 1) 
+              {
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3004");
+                trace_rec_3();
+              }
 
-            strcpy(a_string, "         LARL  R8,");
-            strcat(a_string, field8);
-            src_line();
-            if (puncde == 1) 
-            {
-              strcpy(trace_1, "c2z_eoj.c #3005");
-              trace_rec_3();
-            }
+              strcpy(a_string, "         LARL  R8,");
+              strcat(a_string, field8);
+              src_line();
+              if (puncde == 1) 
+              {
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3005");
+                trace_rec_3();
+              }
  
-            strcpy(a_string, "         MVC   0(");
-            snprintf(wk_strg, sizeof(wk_strg), "%d", x98);
-            strcat(a_string, wk_strg);
-            strcat(a_string, ",R8),0(R9)");
-            src_line();
-            if (puncde == 1) 
+              strcpy(a_string, "         MVC   0(");
+              snprintf(wk_strg, sizeof(wk_strg), "%d", x98);
+              strcat(a_string, wk_strg);
+              strcat(a_string, ",R8),0(R9)");
+              src_line();
+              if (puncde == 1) 
+              {
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3006");
+                trace_rec_3();
+              }
+            }
+
+            ret = strcmp(w_fs_field[p_ct].fs_fd_io, "C");
+            if(ret == 0)
             {
-              strcpy(trace_1, "c2z_eoj.c #3006");
-              trace_rec_3();
+              strcpy(a_string, "         LARL  R9,");
+              strcat(a_string, field4a);
+              strcpy(wk_remark, " ");
+              strcat(wk_remark, field4);
+              strcat(wk_remark, " ");
+              write_remark();
+              if (puncde == 1) 
+              {
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3007");
+                trace_rec_3();
+              }
+
+              strcpy(a_string, "         LARL  R8,");
+              strcat(a_string, field8);
+              src_line();
+              if (puncde == 1) 
+              {
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3008");
+                trace_rec_3();
+              }
+ 
+              strcpy(a_string, "         MVC   0(");
+              snprintf(wk_strg, sizeof(wk_strg), "%d", x98);
+              strcat(a_string, wk_strg);
+              strcat(a_string, ",R8),0(R9)");
+              src_line();
+              if (puncde == 1) 
+              {
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3009");
+                trace_rec_3();
+              }
             }
           }
 
@@ -678,7 +718,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-               strcpy(trace_1, "c2z_eoj.c #3007");
+               strcpy(trace_1, "c2z_fs.c c2_fs_3 #3010");
                trace_rec_3();
              }
 
@@ -687,7 +727,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-                strcpy(trace_1, "c2z_eoj.c #3008");
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3011");
                 trace_rec_3();
              }
 
@@ -695,7 +735,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-                strcpy(trace_1, "c2z_eoj.c #3009");
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3012");
                 trace_rec_3();
              }
 
@@ -703,7 +743,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-               strcpy(trace_1, "c2z_eoj.c #3010");
+               strcpy(trace_1, "c2z_fs.c c2_fs_3 #3013");
                trace_rec_3();
              }
 
@@ -711,7 +751,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-                strcpy(trace_1, "c2z_eoj.c #3011");
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3014");
                 trace_rec_3();
              }
 
@@ -719,7 +759,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-                strcpy(trace_1, "c2z_eoj.c #3012");
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3015");
                 trace_rec_3();
              }
 
@@ -728,7 +768,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-                strcpy(trace_1, "c2z_eoj.c #3013");
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3016");
                 trace_rec_3();
              }
 
@@ -740,7 +780,7 @@ void c2_fs_3(void)
              src_line();
              if (puncde == 1) 
              {
-                strcpy(trace_1, "c2z_eoj.c #3014");
+                strcpy(trace_1, "c2z_fs.c c2_fs_3 #3017");
                 trace_rec_3();
              }
           }
@@ -760,7 +800,7 @@ void c2_fs_3(void)
   src_line();
   if (puncde == 1) 
   {
-    strcpy(trace_1, "c2z_fs.c c2_fs_3 #3015");
+    strcpy(trace_1, "c2z_fs.c c2_fs_3 #3018");
     trace_rec_3();
   }
 
@@ -797,6 +837,7 @@ void c2_fs_4(void)
    int x5;
    int x98;
    int x99;
+   int i_in = 0;
 
   pi = 0;
   ch = p_string[pi];
@@ -1609,6 +1650,7 @@ void c2_fs_4(void)
   }
 
   p_ct = 0;
+  i_in = 0;
   while(p_ct < fs_field_ct)
   {
      x7 = 0;
@@ -1710,16 +1752,28 @@ printf("field4 = %s field4a = %s x98 = %d x5 = %d\n",field4,field4a,x98,x5);
               trace_rec_3();
             }
 
-            strcpy(a_string, "         MVC   0(");
+            strcpy(a_string, "         MVC   ");
+            strcat(a_string, "0(");
             snprintf(wk_strg, sizeof(wk_strg), "%d", x98);
             strcat(a_string, wk_strg);
-            strcat(a_string, ",R9),0(R8)");
+            strcat(a_string, ",R9),");
+            if(i_in == 0)
+            {
+              strcat(a_string, "3(R8)");
+            }
+            else
+            {
+              snprintf(wk_strg, sizeof(wk_strg), "%d", i_in - 1);
+              strcat(a_string, wk_strg);
+              strcat(a_string, "(R8)");
+            }
             src_line();
             if (puncde == 1) 
             {
               strcpy(trace_1, "c2z_fs.c c2_fs_4 #53");
               trace_rec_3();
             }
+            i_in = i_in + x98;
           }
         }
      }

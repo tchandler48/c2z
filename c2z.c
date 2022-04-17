@@ -1627,82 +1627,86 @@ int main(int argc, char *argv[])
        convert = 1;
     }
  
-/*
-if(rct > 1510)
-{
-printf("rct = %d s = %d p_string = %s\n",rct,s,p_string);
-    c2_debug();
-    exit(1); 
-}
-*/
     p = strstr(p_string, "fsdefine");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsfield");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsdefine");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsaid");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsmap");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsio");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fstype");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsname");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsloc");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fscolor");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "fsattr");
     if(p)
     { 
       convert = 1;
       goto pass2_skip;
     }
+
     p = strstr(p_string, "};");
-    if(p)
+    p1 = strstr(p_string, "[");
+    if((p) && (!p1))
     { 
       convert = 1;
       goto pass2_skip;

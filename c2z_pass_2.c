@@ -202,7 +202,7 @@ void c2_pass_2_1()
       return;
    }
 
-printf("\nc22_pass_2.c c2_pass_2_if  NONE rct = %d p_string = %s\n",rct,p_string);
+/* printf("\nc22_pass_2.c c2_pass_2_if  NONE rct = %d p_string = %s\n",rct,p_string); */
 
    convert = 1;
    return;

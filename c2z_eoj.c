@@ -1806,7 +1806,7 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
           {
             strcpy(a_string, "          DC    X'1DF0'");
             strcpy(wk_remark, " ");
-            strcat(wk_remark, "BASIC = PROTECTED");
+            strcat(wk_remark, "SF START FIELD");
             strcat(wk_remark, " */");
             write_remark();
             if (puncde == 1) 
@@ -1832,7 +1832,6 @@ printf(" #4 p_ct = %d I = %d x7 = %d tfield4 = %s w_address = %s\n",p_ct,I,x7,tf
             }
             x97 = x97 + 2;
           }
-
 
           ret =  strcmp(w_fs_field[p_ct].fs_fd_attr, "IC");
           if(ret == 0)
@@ -2141,7 +2140,7 @@ printf("field2 = %s fd_field = %s\n",field2,w_fs_field[p_ct].fs_fd_field);
 
           strcpy(a_string, "          DC    X'1DF0'");
           strcpy(wk_remark, " ");
-          strcat(wk_remark, "SF END FIELD)");
+          strcat(wk_remark, "SF END FIELD");
           strcat(wk_remark, " ");
           write_remark();
           if (puncde == 1) 
@@ -2153,39 +2152,6 @@ printf("field2 = %s fd_field = %s\n",field2,w_fs_field[p_ct].fs_fd_field);
         }
         x7 = 0;
         p_ct++;
-      }
-
-      strcpy(a_string, "          DC    X'114040'");
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, "ERASE UNPROTECT)");
-      strcat(wk_remark, " ");
-      write_remark();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_eoj.c #9025");
-        trace_rec_3();
-      }
-         
-      strcpy(a_string, "          DC    X'125D7D'");
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, "ERASE UNPROTECT)");
-      strcat(wk_remark, " ");
-      write_remark();
-      if (puncde == 1) 
-      {
-         strcpy(trace_1, "c2z_eoj.c #9026");
-         trace_rec_3();
-      }
-
-      strcpy(a_string, "          DC    X'1D40'");
-      strcpy(wk_remark, " ");
-      strcat(wk_remark, "ERASE UNPROTECT)");
-      strcat(wk_remark, " ");
-      write_remark();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_eoj.c #9027");
-        trace_rec_3();
       }
 
       strcpy(a_string, w_fs_map[I].fs_name);
@@ -2227,7 +2193,7 @@ printf("field2 = %s fd_field = %s\n",field2,w_fs_field[p_ct].fs_fd_field);
       strcpy(a_string, w_fs_map[I].fs_name);
       strcat(a_string, "I");
       check_length();
-      strcat(a_string, " DS    XL2048");
+      strcat(a_string, " DS    XL1930");
       src_line();
       if (puncde == 1) 
       {

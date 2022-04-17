@@ -394,7 +394,7 @@ printf("c2z_scanf.c tfield1 = %s x4 = %d\n",tfield1,x4);
       trace_rec_3();
     }
 
-    snprintf(wk_strg, sizeof(wk_strg), "%d", x6);
+    snprintf(wk_strg, sizeof(wk_strg), "%d", x6 - 1);
     strcpy(a_string, "         LAEY  R5,");
     strcat(a_string, wk_strg);
     src_line();
@@ -616,6 +616,31 @@ printf("c2z_scanf.c tfield1 = %s x4 = %d\n",tfield1,x4);
     if (puncde == 1) 
     {
       strcpy(trace_1, "c2z_scanf.c #37");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         LARL  R9,C370NWK2");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_scanf.c #39");
+      trace_rec_3();
+    }
+    work_use_ct[50]++;
+
+    strcpy(a_string, "         LARL  R8,C370ONE");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_scanf.c #38");
+      trace_rec_3();
+    }
+
+    strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
+    src_line();
+    if (puncde == 1) 
+    {
+      strcpy(trace_1, "c2z_scanf.c #40");
       trace_rec_3();
     }
 
