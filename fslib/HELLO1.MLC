@@ -1,0 +1,112 @@
+* 1ST map DEFINITIONS 
+* END 1ST MAP DEFINITIONS 
+* START MAP1 DEFINITIONS
+* END MAP1 DEFINITIONS
+HELLO1   SUBENTRY         
+*
+         LARL  R9,T3270_0                                               0000000
+         LARL  R8,C370B1                                                0000000
+         MVC   0(1,R9),0(R8)                                            0000000
+         MVC   1(14,R9),0(R9)                                           0000000
+         TPUT  MAP0O,MAP0OL,FULLSCR                                     0000000
+         TGET  MAP0I,MAP0IL,ASIS,WAIT                                   0000000
+         LARL  R9,C37F5                      /*  name */                0000001
+         LARL  R8,MAP0I                      /*  MAP0 */                0000002
+         MVC   0(15,R9),3(R8)                                           0000002
+         STLINENO LINE=1                                                0000002
+*
+         LARL  R9,T3270_1                                               0000002
+         LARL  R8,C370B1                                                0000002
+         MVC   0(1,R9),0(R8)                                            0000002
+         MVC   1(14,R9),0(R9)                                           0000002
+         LARL  R9,C37F5                      /*  name                   0000003
+         LARL  R8,T3270_1                                               0000003
+         MVC   0(14,R8),0(R9)                                           0000003
+         TPUT  MAP1O,MAP1OL,FULLSCR                                     0000003
+         TGET  MAP1I,MAP1IL,ASIS,WAIT                                   0000003
+         STLINENO LINE=1                                                0000003
+*
+         SUBEXIT  
+*                                                                       0000003
+MAP0O     DS    0C                                                      0000003
+          DC    X'27'                        /*  ESCAPE CHAR            0000004
+          DC    X'F1'                        /*  ERASE/WRITE            0000005
+          DC    X'C3'                        /*  WCC                    0000006
+          DC    X'114040'                    /*  CLEAR SCR              0000007
+          DC    X'3C4040'                    /*  CLEAR SCR              0000008
+          DC    C' '                         /*  CLEAR SCR              0000009
+          DC    X'1140401DF0'                /*  WCC                    0000010
+          DC    X'1DF8'                      /*  WCC                    0000011
+          DC    X'11405D'                    /*  SBA                    0000012
+          DC    X'1DF0'                      /*  SF START FIELD         0000013
+          DC    X'2842F7'                    /*  WHITE                  0000014
+          DC    C'C Test Program'                                       0000014
+          DC    X'11C16B'                    /*  SBA                    0000015
+          DC    X'1DF0'                      /*  SF START FIELD         0000016
+          DC    X'2842F1'                    /*  BLUE                   0000017
+          DC    C'Test MLC Program'                                     0000017
+          DC    X'11C3F9'                    /*  SBA                    0000018
+          DC    X'1DF0'                      /*  SF START FIELD         0000019
+          DC    X'2842F1'                    /*  BLUE                   0000020
+          DC    C'Name:'                                                0000020
+          DC    X'11C4C3'                    /*  SBA                    0000021
+          DC    X'1D40'                      /*  BASIC = UNPROTECTED    0000022
+          DC    X'13'                        /*  IC                     0000023
+          DC    X'05'                        /*  TAB                    0000024
+          DC    X'2842F1'                    /*  BLUE                   0000025
+T3270_0   DC    CL15' '                                                 0000025
+          DC    X'1DF0'                      /*  SF END FIELD           0000026
+          DC    X'115BE9'                    /*  SBA                    0000027
+          DC    X'1DF0'                      /*  SF START FIELD         0000028
+          DC    X'2842F2'                    /*  RED                    0000029
+          DC    C'PF3 - Exit'                                           0000029
+MAP0OL    EQU   *-MAP0O                                                 0000029
+*                                                                       0000029
+          DC    C' '                                                    0000029
+MAP0I     DS    XL1930                                                  0000029
+MAP0IL    EQU   *-MAP0I                                                 0000029
+*                                                                       0000029
+MAP1O     DS    0C                                                      0000029
+          DC    X'27'                        /*  ESCAPE CHAR            0000030
+          DC    X'F1'                        /*  ERASE/WRITE            0000031
+          DC    X'C3'                        /*  WCC                    0000032
+          DC    X'114040'                    /*  CLEAR SCR              0000033
+          DC    X'3C4040'                    /*  CLEAR SCR              0000034
+          DC    C' '                         /*  CLEAR SCR              0000035
+          DC    X'1140401DF0'                /*  WCC                    0000036
+          DC    X'1DF8'                      /*  WCC                    0000037
+          DC    X'11405D'                    /*  SBA                    0000038
+          DC    X'1DF0'                      /*  SF START FIELD         0000039
+          DC    X'2842F7'                    /*  WHITE                  0000040
+          DC    C'C Test Program'                                       0000040
+          DC    X'11C16A'                    /*  SBA                    0000041
+          DC    X'1DF0'                      /*  SF START FIELD         0000042
+          DC    X'2842F1'                    /*  BLUE                   0000043
+          DC    C'Test MAP1 MLC Program'                                0000043
+          DC    X'11C3F9'                    /*  SBA                    0000044
+          DC    X'1DF0'                      /*  SF START FIELD         0000045
+          DC    X'2842F7'                    /*  WHITE                  0000046
+          DC    C'Name:'                                                0000046
+          DC    X'11C6E3'                    /*  SBA                    0000047
+          DC    X'1DF0'                      /*  SF START FIELD         0000048
+          DC    X'2842F7'                    /*  WHITE                  0000049
+          DC    C' '                                                    0000049
+T3270_1   DC    CL15' '                                                 0000049
+          DC    X'1DF0'                      /*  SF END FIELD           0000050
+          DC    X'115BE9'                    /*  SBA                    0000051
+          DC    X'1DF0'                      /*  SF START FIELD         0000052
+          DC    X'2842F2'                    /*  RED                    0000053
+          DC    C'PF3 - Exit'                                           0000053
+MAP1OL    EQU   *-MAP1O                                                 0000053
+*                                                                       0000053
+          DC    C' '                                                    0000053
+MAP1I     DS    XL1930                                                  0000053
+MAP1IL    EQU   *-MAP1I                                                 0000053
+*                                                                       0000053
+          DS    0H                                                      0000053
+C37F5     DC    CL15' '          /* name  - 45  */                      0000053
+          DS    0H                                                      0000053
+C370B1    DC    C' '                                                    0000053
+*                                                                       0000053
+          EQUREGS
+          END

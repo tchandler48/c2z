@@ -1,0 +1,129 @@
+
+* 1ST map DEFINITIONS 
+fsdefine(MAP0);
+
+fsfield =
+{
+    fsmap(MAP0)
+    fsio(O)
+    fstype(L)
+    fsname(C Test Program)
+    fsloc(1,30)
+    fscolor(WHITE)
+};
+
+fsfield =
+{
+    fsmap(MAP0)
+    fsio(O)
+    fstype(L)
+    fsname(Test MLC Program)
+    fsloc(2,28)
+    fscolor(BLUE)
+};
+
+fsfield =
+{
+    fsmap(MAP0)
+    fsio(O)
+    fstype(L)
+    fsname(Name:)
+    fsloc(4,10)
+    fscolor(BLUE)
+};
+
+fsfield =
+{
+    fsmap(MAP0)
+    fsio(I)
+    fstype(C)
+    fslgth(15)
+    fsname(name)
+    fsloc(4,20)
+    fscolor(BLUE)
+    fsattr(IC)
+};
+
+
+fsfield =
+{
+    fsmap(MAP0)
+    fsio(O)
+    fstype(L)
+    fsname(PF3 - Exit)
+    fsloc(23,10)
+    fscolor(RED)
+};
+
+* END 1ST MAP DEFINITIONS 
+
+* START MAP1 DEFINITIONS
+
+fsdefine(MAP1);
+
+fsfield =
+{
+    fsmap(MAP1)
+    fsio(O)
+    fstype(L)
+    fsname(C Test Program)
+    fsloc(1,30)
+    fscolor(WHITE)
+};
+
+fsfield =
+{
+    fsmap(MAP1)
+    fsio(O)
+    fstype(L)
+    fsname(Test MAP1 MLC Program)
+    fsloc(2,27)
+    fscolor(BLUE)
+};
+
+fsfield =
+{
+    fsmap(MAP1)
+    fsio(O)
+    fstype(L)
+    fsname(Name:)
+    fsloc(4,10)
+    fscolor(WHITE)
+};
+
+fsfield =
+{
+    fsmap(MAP1)
+    fsio(O)
+    fstype(C)
+    fslgth(15)
+    fsname(name)
+    fsloc(6,20)
+    fscolor(WHITE)
+};
+
+fsfield =
+{
+    fsmap(MAP1)
+    fsio(O)
+    fstype(L)
+    fsname(PF3 - Exit)
+    fsloc(23,10)
+    fscolor(RED)
+};
+
+* END MAP1 DEFINITIONS
+
+ 
+HELLO1   SUBENTRY         
+*
+ 
+         fsdisplay(MAP0)
+         fsread(MAP0)
+*
+         fsdisplay(MAP1)
+         fsread(MAP1)
+*
+         SUBEXIT  
+         END  
+ 
