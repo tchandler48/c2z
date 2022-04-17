@@ -6,7 +6,7 @@
 
    int I;
    int x;
-
+ 
 
 int main () 
 {

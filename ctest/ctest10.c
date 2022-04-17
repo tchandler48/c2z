@@ -3,7 +3,7 @@
       char b[20];
       char c[20];
       char d[20];
-
+ 
       int x;
       int I;
       int t;
