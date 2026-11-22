@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_fopen.c :                               *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2026                    *
 **************************************************** */
 
 /* ***************************************************
@@ -9,12 +9,9 @@
 * ************************************************** */
 void c2_scan_fopen(void) 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_fopen.c c2_scan_fopen START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_fopen c2_scan_fopen");
+  trace_rec_1();
+  
   char ch;
   char field1[VAR_LGTH];
   char field1a[VAR_LGTH];
@@ -157,12 +154,9 @@ void c2_scan_fopen(void)
 * ************************************************** */
 void c2_open() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_fopen.c c2_open START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_fopen c2_open");
+  trace_rec_1();
+  
   char ch;
   char tfield1[VAR_LGTH];
 
@@ -198,19 +192,13 @@ void c2_open()
       snprintf(wk_strg, sizeof(wk_strg), "%d", w_file[I].f_buf_ct);
       strcat(a_string, wk_strg);
       src_line();
-      if(puncde == 1)
-      {
-        strcpy(trace_1, "c2z_fopen.c #1");
+      if (puncde == 1)
         trace_rec_3();
-      }
 
       strcpy(a_string, "         BAKR  0,R15");
       src_line();
-      if(puncde == 1)
-      {
-        strcpy(trace_1, "c2z_fopen.c #2");
+      if (puncde == 1)
         trace_rec_3();
-      }
     }
   }
 }

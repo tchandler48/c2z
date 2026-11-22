@@ -1,0 +1,143 @@
+
+
+3.	strcpy(in_stack[x], gw_variable[gv_ct].gv_name);
+		NOT CODED c2z_strcpy.c str_5
+
+4.	scanf("%d",age)
+		Only supports up to a 5 digit number
+		increase to 10(?)
+
+5.	gets(string)    test code 1st......move code from scanf("%s", (ctest11)) to gets code.
+			c2z_scanf.c #5 thru #47
+
+6.	add edit to printf to test define format %d %s to variable type to be printed
+		to insure correct match.....
+
+7.	add lv_id or gv_id to arrays and structures     
+       CONVERT C2Z from lv_type/gv_type to lv_id/gv_Id
+
+8.	create c2z_options.h 
+		Add compile time options to c2z
+
+
+
+8.	rewrite date/time routines
+struct tm {
+   int tm_sec;         /* seconds,  range 0 to 59          */
+   int tm_min;         /* minutes, range 0 to 59           */
+   int tm_hour;        /* hours, range 0 to 23             */
+   int tm_mday;        /* day of the month, range 1 to 31  */
+   int tm_mon;         /* month, range 0 to 11             */
+   int tm_year;        /* The number of years since 1900   */
+   int tm_wday;        /* day of the week, range 0 to 6    */
+   int tm_yday;        /* day in the year, range 0 to 365  */
+   int tm_isdst;       /* daylight saving time             */
+};
+	create "time.h"
+
+9.	BUG in the following:
+	       strcpy(temp_byte[ndx],p_string)
+		need to check for EOF to get length of p_string...
+
+
+
+
+BXBASIC
+
+
+2.	FOR/NEXT loops only work with numeric literal from to to
+	  Need to modify ofr variables
+	  bx7c.bas
+
+
+Listed below are improvements that need to be made.
+
+
+1.	Add continutation lines to all functions.
+
+2.	Modify if processing to handle the following:
+		if(p)
+		   x = 1;
+	Currently if processing requires an opening and
+	closing {  }.
+
+3.	Add continuation code '\' for every line.
+
+4.	FIX:	x = strlen(input);
+          	input[x-1] = '\0';
+	Allow math inside of [   ].
+
+5.	Need to add run time errors.  (have parser time errors)
+
+6.	Rewrite c2_while_17 to handle all math operands then
+	delete while_4.  ( ex:  while(x operand y)    )
+
+
+
+Edit of c2z modules
+
+Module		Renum		Use_ct
+c2z.c
+c2z_arth.c
+c2z_atof.c
+c2z_atoi.c
+c2z_atol.c
+c2z_break.c
+c2z_case.c
+c2z_char.c
+
+Bxbasic Examples Programs
+
+Program     Works
+BX1A		Y
+BX2		Y
+BX2A		Y
+BX2B		Y
+BX2C		Y
+BX3		Y
+BX3A		Y
+BX3B		Y
+BX3C		N		** Variable NOT FOUND **
+BX3D		Y
+BX4A		Y
+BX4B		Y
+BX6		Y
+BX6A		Y
+BX7A		Y
+BX7B		Y
+BX8B		N		** ERROR 13	**
+BX8C		N		** ERROR 13 	**
+BX10		N		** not working **
+BX10A		Y
+BX10B		Y
+BX10C		Y
+BX10D		Y
+BX10E		Y
+BX11B		N		** input needs to change to scanf code **
+BX13A		N		** similar to bx11b issues **
+BX14		N		** printf(LEFT%  NOT WORKING **
+
+
+
+CTEST PROGRAMS
+
+Program     Works
+CTEST0		Y
+CTEST1		Y
+CTEST2		Y
+CTEST3		Y
+CTEST4		Y
+CTEST5		Y
+CTEST6		Y
+CTEST7		Y
+CTEST8		Y
+CTEST9		Y		
+CTEST10	Y
+CTEST11	Y
+CTEST12	Y
+CTEST13	Y
+CTEST15	Y
+CTEST16	Y
+CTEST17	Y		
+CTEST18	Y
+

@@ -1,0 +1,410 @@
+2  4      c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  4      c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  4      c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  4      c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  4      c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  4      c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  4      c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  5      c2z.c Pass 2 { }                                              {
+2  5      c2z_parameter.c c2_param_ct START                             {
+2  12     c2z.c Pass 2 { }                                              };
+2  12     c2z_parameter.c c2_param_ct START                             };
+2  14     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  14     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  14     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  14     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  14     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  14     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  14     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  15     c2z.c Pass 2 { }                                              {
+2  15     c2z_parameter.c c2_param_ct START                             {
+2  22     c2z.c Pass 2 { }                                              };
+2  22     c2z_parameter.c c2_param_ct START                             };
+2  24     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  24     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  24     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  24     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  24     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  24     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  24     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  25     c2z.c Pass 2 { }                                              {
+2  25     c2z_parameter.c c2_param_ct START                             {
+2  32     c2z.c Pass 2 { }                                              };
+2  32     c2z_parameter.c c2_param_ct START                             };
+2  34     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  34     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  34     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  34     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  34     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  34     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  34     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  35     c2z.c Pass 2 { }                                              {
+2  35     c2z_parameter.c c2_param_ct START                             {
+2  42     c2z.c Pass 2 { }                                              };
+2  42     c2z_parameter.c c2_param_ct START                             };
+2  44     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  44     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  44     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  44     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  44     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  44     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  44     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  45     c2z.c Pass 2 { }                                              {
+2  45     c2z_parameter.c c2_param_ct START                             {
+2  52     c2z.c Pass 2 { }                                              };
+2  52     c2z_parameter.c c2_param_ct START                             };
+2  55     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  55     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  55     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  55     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  55     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  55     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  55     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  56     c2z.c Pass 2 { }                                              {
+2  56     c2z_parameter.c c2_param_ct START                             {
+2  63     c2z.c Pass 2 { }                                              };
+2  63     c2z_parameter.c c2_param_ct START                             };
+2  66     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  66     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  66     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  66     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  66     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  66     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  66     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  67     c2z.c Pass 2 { }                                              {
+2  67     c2z_parameter.c c2_param_ct START                             {
+2  74     c2z.c Pass 2 { }                                              };
+2  74     c2z_parameter.c c2_param_ct START                             };
+2  76     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  76     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  76     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  76     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  76     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  76     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  76     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  77     c2z.c Pass 2 { }                                              {
+2  77     c2z_parameter.c c2_param_ct START                             {
+2  85     c2z.c Pass 2 { }                                              };
+2  85     c2z_parameter.c c2_param_ct START                             };
+2  87     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  87     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  87     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  87     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  87     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  87     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  87     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  88     c2z.c Pass 2 { }                                              {
+2  88     c2z_parameter.c c2_param_ct START                             {
+2  95     c2z.c Pass 2 { }                                              };
+2  95     c2z_parameter.c c2_param_ct START                             };
+2  97     c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  97     c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  97     c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  97     c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  97     c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  97     c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  97     c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  98     c2z.c Pass 2 { }                                              {
+2  98     c2z_parameter.c c2_param_ct START                             {
+2  105    c2z.c Pass 2 { }                                              };
+2  105    c2z_parameter.c c2_param_ct START                             };
+2  107    c2z_pass_2.c c2_math_literal STAFT                           fsfield =
+2  107    c2z_pass_2.c c2_math_literal_1                               fsfield =
+2  107    c2z_pass_2.c c2_pass2_math START                             fsfield =
+2  107    c2z_pass_2.c c2_pass2_math subroutine #1                     fsfield =
+2  107    c2z_pass_2.c c2_pass2_math subroutine #2                     fsfield =
+2  107    c2z_pass_2.c c2_pass2_math1 Branch                           fsfield =
+2  107    c2z_pass_2.c c2_pass2_math_1 START                           fsfield =
+2  108    c2z.c Pass 2 { }                                              {
+2  108    c2z_parameter.c c2_param_ct START                             {
+2  112    c2z_pass_2.c c2_math_literal STAFT                              fsname(PF3 = Exit)
+2  112    c2z_pass_2.c c2_pass2_math START                                fsname(PF3 = Exit)
+2  112    c2z_pass_2.c c2_pass2_math subroutine #1                        fsname(PF3 = Exit)
+2  112    c2z_pass_2.c c2_pass2_math subroutine #2                        fsname(PF3 = Exit)
+2  112    c2z_pass_2.c c2_pass2_math_6 BRANCH                             fsname(PF3 = Exit)
+2  112    c2z_pass_2.c c2_pass2_math_6 START                              fsname(PF3 = Exit)
+2  115    c2z.c Pass 2 { }                                              };
+2  115    c2z_parameter.c c2_param_ct START                             };
+2  117    c2z_pass_2.c c2_math_literal STAFT                            fsaid = 
+2  117    c2z_pass_2.c c2_math_literal_1                                fsaid = 
+2  117    c2z_pass_2.c c2_pass2_math START                              fsaid = 
+2  117    c2z_pass_2.c c2_pass2_math subroutine #1                      fsaid = 
+2  117    c2z_pass_2.c c2_pass2_math subroutine #2                      fsaid = 
+2  117    c2z_pass_2.c c2_pass2_math1 Branch                            fsaid = 
+2  117    c2z_pass_2.c c2_pass2_math_1 START                            fsaid = 
+2  118    c2z.c Pass 2 { }                                              {
+2  118    c2z_parameter.c c2_param_ct START                             {
+2  122    c2z.c Pass 2 { }                                              };
+2  122    c2z_parameter.c c2_param_ct START                             };
+2  128    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  128    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  128    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  128    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  128    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  128    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  128    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  129    c2z.c Pass 2 { }                                              {
+2  129    c2z_parameter.c c2_param_ct START                             {
+2  136    c2z.c Pass 2 { }                                              };
+2  136    c2z_parameter.c c2_param_ct START                             };
+2  138    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  138    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  138    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  138    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  138    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  138    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  138    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  139    c2z.c Pass 2 { }                                              {
+2  139    c2z_parameter.c c2_param_ct START                             {
+2  146    c2z.c Pass 2 { }                                              };
+2  146    c2z_parameter.c c2_param_ct START                             };
+2  149    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  149    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  149    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  149    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  149    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  149    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  149    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  150    c2z.c Pass 2 { }                                              {
+2  150    c2z_parameter.c c2_param_ct START                             {
+2  157    c2z.c Pass 2 { }                                              };
+2  157    c2z_parameter.c c2_param_ct START                             };
+2  159    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  159    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  159    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  159    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  159    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  159    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  159    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  160    c2z.c Pass 2 { }                                              {
+2  160    c2z_parameter.c c2_param_ct START                             {
+2  167    c2z.c Pass 2 { }                                              };
+2  167    c2z_parameter.c c2_param_ct START                             };
+2  169    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  169    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  169    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  169    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  169    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  169    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  169    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  170    c2z.c Pass 2 { }                                              {
+2  170    c2z_parameter.c c2_param_ct START                             {
+2  177    c2z.c Pass 2 { }                                              };
+2  177    c2z_parameter.c c2_param_ct START                             };
+2  180    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  180    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  180    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  180    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  180    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  180    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  180    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  181    c2z.c Pass 2 { }                                              {
+2  181    c2z_parameter.c c2_param_ct START                             {
+2  188    c2z.c Pass 2 { }                                              };
+2  188    c2z_parameter.c c2_param_ct START                             };
+2  190    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  190    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  190    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  190    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  190    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  190    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  190    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  191    c2z.c Pass 2 { }                                              {
+2  191    c2z_parameter.c c2_param_ct START                             {
+2  198    c2z.c Pass 2 { }                                              };
+2  198    c2z_parameter.c c2_param_ct START                             };
+2  200    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  200    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  200    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  200    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  200    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  200    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  200    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  201    c2z.c Pass 2 { }                                              {
+2  201    c2z_parameter.c c2_param_ct START                             {
+2  208    c2z.c Pass 2 { }                                              };
+2  208    c2z_parameter.c c2_param_ct START                             };
+2  210    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  210    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  210    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  210    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  210    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  210    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  210    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  211    c2z.c Pass 2 { }                                              {
+2  211    c2z_parameter.c c2_param_ct START                             {
+2  218    c2z.c Pass 2 { }                                              };
+2  218    c2z_parameter.c c2_param_ct START                             };
+2  220    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  220    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  220    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  220    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  220    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  220    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  220    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  221    c2z.c Pass 2 { }                                              {
+2  221    c2z_parameter.c c2_param_ct START                             {
+2  228    c2z.c Pass 2 { }                                              };
+2  228    c2z_parameter.c c2_param_ct START                             };
+2  230    c2z_pass_2.c c2_math_literal STAFT                            fsfield =
+2  230    c2z_pass_2.c c2_math_literal_1                                fsfield =
+2  230    c2z_pass_2.c c2_pass2_math START                              fsfield =
+2  230    c2z_pass_2.c c2_pass2_math subroutine #1                      fsfield =
+2  230    c2z_pass_2.c c2_pass2_math subroutine #2                      fsfield =
+2  230    c2z_pass_2.c c2_pass2_math1 Branch                            fsfield =
+2  230    c2z_pass_2.c c2_pass2_math_1 START                            fsfield =
+2  231    c2z.c Pass 2 { }                                              {
+2  231    c2z_parameter.c c2_param_ct START                             {
+2  235    c2z_pass_2.c c2_math_literal STAFT                              fsname(PF7 = SCREEN)
+2  235    c2z_pass_2.c c2_pass2_math START                                fsname(PF7 = SCREEN)
+2  235    c2z_pass_2.c c2_pass2_math subroutine #1                        fsname(PF7 = SCREEN)
+2  235    c2z_pass_2.c c2_pass2_math subroutine #2                        fsname(PF7 = SCREEN)
+2  235    c2z_pass_2.c c2_pass2_math_6 BRANCH                             fsname(PF7 = SCREEN)
+2  235    c2z_pass_2.c c2_pass2_math_6 START                              fsname(PF7 = SCREEN)
+2  238    c2z.c Pass 2 { }                                              };
+2  238    c2z_parameter.c c2_param_ct START                             };
+2  240    c2z_pass_2.c c2_math_literal STAFT                            fsaid = 
+2  240    c2z_pass_2.c c2_math_literal_1                                fsaid = 
+2  240    c2z_pass_2.c c2_pass2_math START                              fsaid = 
+2  240    c2z_pass_2.c c2_pass2_math subroutine #1                      fsaid = 
+2  240    c2z_pass_2.c c2_pass2_math subroutine #2                      fsaid = 
+2  240    c2z_pass_2.c c2_pass2_math1 Branch                            fsaid = 
+2  240    c2z_pass_2.c c2_pass2_math_1 START                            fsaid = 
+2  241    c2z.c Pass 2 { }                                              {
+2  241    c2z_parameter.c c2_param_ct START                             {
+2  245    c2z.c Pass 2 { }                                              };
+2  245    c2z_parameter.c c2_param_ct START                             };
+2  247    c2z pass 2 MAIN                                             int main(int argc, char *argv[])
+2  247    c2z_main.c c2_main                                          int main(int argc, char *argv[])
+2  248    c2z.c Pass 2 { }                                            {
+2  248    c2z_parameter.c c2_param_ct START                           {
+2  250    c2z scan printf                                               printf("Start of tom2\n");
+2  250    c2z printf-strtmp                                             printf("Start of tom2\n");
+2  258    c2z.c Pass 2 { }                                            }
+2  258    c2z_parameter.c c2_param_ct START                           }
+2  0      c2z_pass_3 c2_pass_3 START                                  
+2  0      c2z_pass_3 generated #1         *                                                                       0000001
+2  0      c2z_pass_3 generated #2         *  This program was generated by c2z parser.                            0000002
+2  0      c2z_pass_3 generated #3         *  Generated code is for the z390 MLC.                                  0000003
+2  0      c2z_pass_3 generated #4         *  Copyright (c) TCCS 2015 - 2026                                       0000004
+2  0      c2z_pass_3 generated #5         *                                                                       0000005
+2  0      c2z_pass_3 generated #6         BNO       OPSYN  JNO                                                    0000006
+2  0      c2z_pass_3 generated #7         BAL       OPSYN  JAS                                                    0000007
+2  0      c2z_pass_3 generated #8         *                                                                       0000008
+2  0      c2z_pass_3 generated #9                   MACRO                                                         0000009
+2  0      c2z_pass_3 generated #10        &N        SUBENTRY                                                      0000010
+2  0      c2z_pass_3 generated #11        &N        CSECT                                                         0000011
+2  0      c2z_pass_3 generated #12                  STM    14,12,12(13)                                           0000012
+2  0      c2z_pass_3 generated #13                  JAS    15,CONTINUE                                            0000013
+2  0      c2z_pass_3 generated #14                  DC     18F'0'                                                 0000014
+2  0      c2z_pass_3 generated #15                  DC     CL8'&N'                                                0000015
+2  0      c2z_pass_3 generated #16                  DC     CL8'&SYSDATE'                                          0000016
+2  0      c2z_pass_3 generated #17                  DC     CL8'&SYSTIME'                                          0000017
+2  0      c2z_pass_3 generated #19        CONTINUE  DS     0H                                                     0000018
+2  0      c2z_pass_3 generated #20                  ST     15,8(13)                                               0000019
+2  0      c2z_pass_3 generated #21                  ST     13,4(15)                                               0000020
+2  0      c2z_pass_3 generated #22                  LR     13,15                                                  0000021
+2  0      c2z pass 3 generated #23                  USING  &N+8,13                                                0000022
+2  0      c2z pass 3 generated #24                  MEND                                                          0000023
+2  0      c2z pass 3 generated #25        *                                                                       0000024
+2  0      c2z pass 3 generated #26                  MACRO                                                         0000025
+2  0      c2z pass 3 generated #27                  SUBEXIT                                                       0000026
+2  0      c2z pass 3 generated #28                  LAEY   15,0                                                   0000027
+2  0      c2z pass 3 generated #29                  L      13,4(,13)                                              0000028
+2  0      c2z pass 3 generated #30                  L      14,12(,13)                                             0000029
+2  0      c2z pass 3 generated #31                  LM     2,12,28(13)                                            0000030
+2  0      c2z pass 3 generated #32                  BR     14                                                     0000031
+2  0      c2z pass 3 generated #33                  MEND                                                          0000032
+2  0      c2z pass 3 generated #34        *                                                                       0000033
+2  0      c2z pass 3 generated #35        *  This is a modified MVC2 macro.  Modified for baseless code           0000034
+2  0      c2z pass 3 generated #36        *  Modified by TCCS 2016 - 2026                                         0000035
+2  0      c2z pass 3 generated #37        *  Performs a MVC operation, using Source Length NOT Target Length      0000036
+2  0      c2z pass 3 generated #38        *                                                                       0000037
+2  0      c2z pass 3 generated #39                  MACRO                                                         0000038
+2  0      c2z pass 3 generated #40        &LAB      MVC2   &TARGET,&SOURCE                                        0000039
+2  0      c2z pass 3 generated #41        &LAB      LARL   R8,&SOURCE                                             0000040
+2  0      c2z pass 3 generated #42                  LARL   R9,&TARGET                                             0000041
+2  0      c2z pass 3 generated #43                  MVC    0(L'&SOURCE,R9),0(R8)                                  0000042
+2  0      c2z pass 3 generated #44                  MEND                                                          0000043
+2  0      c2z pass 3 generated #45        *                                                                       0000044
+2  0      c2z pass 3 generated #46        *  This is a modified MVC2 macro.  baseless code                        0000045
+2  0      c2z pass 3 generated #47        *  Modified by TCCS 2016 - 2020                                         0000046
+2  0      c2z pass 3 generated #48        *  Performs a MVC operation, using Source Length NOT Target Length      0000047
+2  0      c2z pass 3 generated #49        *                                                                       0000048
+2  0      c2z pass 3 generated #50                  MACRO                                                         0000049
+2  0      c2z pass 3 generated #51        &LAB      MVC3   &SOURCE                                                0000050
+2  0      c2z pass 3 generated #52        &LAB      LARL   R8,&SOURCE                                             0000051
+2  0      c2z pass 3 generated #53                  MVC    0(L'&SOURCE,R6),0(R8)                                  0000052
+2  0      c2z pass 3 generated #54                  MEND                                                          0000053
+2  0      c2z pass 3 generated #55        *                                                                       0000054
+2  0      c2z pass 3 Generated #56        tom2     SUBENTRY                                                       0000055
+2  0      c2z pass 3 Generated #57                 GUAML WINDOW,TITLE,'c2z V1.0'                                  0000056
+2  0      c2z pass 3 Generated #58                 JLU   START                    /* Ln#- 0 R5 parm lg */         0000057
+2  0      c2z pass 3 Generated #59                 DS    0H                              /* c2z gen variable  */  0000058
+2  0      c2z pass 3 Generated #60        GETFLGS  EQU   B'10000000'                     /* c2z gen variable  */  0000059
+2  0      c2z pass 3 Generated #61        WTOINP   DS    0H                                                       0000060
+2  0      c2z pass 3 Generated #62                 LARL  4,GETFLGS                                                0000061
+2  0      c2z pass 3 Generated #63                 SLL   4,24                                                     0000062
+2  0      c2z pass 3 Generated #64                 OR    11,4                                                     0000063
+2  0      c2z pass 3 Generated #65                 TGETL  (R11),(R10),R                                           0000064
+2  0      c2z pass 3 Generated #66                 PR                                                             0000065
+2  0      c2z pass 3 Generated #67        *********************************************************               0000066
+2  0      c2z pass 3 Generated #68        *  open/close macro code goes here                      *               0000067
+2  0      c2z pass 3 Generated #69        *********************************************************               0000068
+2  0      c2z pass 3 Generated #70        C370END  DS    0H                                                       0000071
+2  0      c2z pass 3 Generated #71                 SUBEXIT                                                        0000072
+2  0      c2z pass 3 Generated #72        ******************************************************************      0000073
+2  0      c2z pass 3 Generated #73        *                                                                *      0000074
+2  0      c2z pass 3 Generated #74        * STATIC STORAGE AREA FOR CSECT - NO BASE REG REQUIRED.          *      0000075
+2  0      c2z pass 3 Generated #75        *                               - LARL ADDRESSING IS USED        *      0000076
+2  0      c2z pass 3 Generated #76        *                                                                *      0000077
+2  0      c2z pass 3 Generated #77        ******************************************************************      0000078
+2  0      c2z pass 3 Generated #43        ******************************************************************      0000079
+2  0      c2z pass 3 Generated #44        *                                                                *      0000080
+2  0      c2z pass 3 Generated #45        * CODE AREA FOR CSECT -DOESN'T REQUIRE BASE REGISTER COVERAGE    *      0000081
+2  0      c2z pass 3 Generated #46        *                     -USE RELATIVE BRANCHES HERE                *      0000082
+2  0      c2z pass 3 Generated #47        *                     -DON'T CODE LITERALS HERE                  *      0000083
+2  0      c2z pass 3 Generated #48        *                                                                *      0000084
+2  0      c2z pass 3 Generated #49        ******************************************************************      0000085
+2  0      c2z pass 3 Generated #50        START    DS    0H                                                       0000086
+2  2      c2z_function.c c2_func_call START                             fsdefine(STREAM);
+2  2      c2_func_call ARGV                                             fsdefine(STREAM);
+2  4      c2z_math c2_math START                                        fsfield =
+2  4      c2z_math c2_math_1 START                                      fsfield =
+2  6      c2z_function.c c2_func_call START                               fsmap(STREAM)
+2  6      c2_func_call ARGV                                               fsmap(STREAM)
+2  7      c2z_function.c c2_func_call START                               fsio(O)
+2  7      c2_func_call ARGV                                               fsio(O)
+2  8      c2z_function.c c2_func_call START                               fstype(L)
+2  8      c2_func_call ARGV                                               fstype(L)
+2  9      c2z_function.c c2_func_call START                               fsname(Date: )
+2  9      c2_func_call ARGV                                               fsname(Date: )
+2  10     c2z_function.c c2_func_call START                               fsloc(1,03)
+2  11     c2z_function.c c2_func_call START                               fscolor(WHITE)
+2  11     c2_func_call ARGV                                               fscolor(WHITE)
+2  12     c2z_function.c c2_func_call START                             };
+2  12     c2_func_call ARGV                                             };
+2  14     c2z_math c2_math START                                        fsfield =
+2  14     c2z_math c2_math_1 START                                      fsfield =
+2  16     c2z_function.c c2_func_call START                               fsmap(STREAM)
+2  16     c2_func_call ARGV                                               fsmap(STREAM)
+2  17     c2z_function.c c2_func_call START                               fsio(O)
+2  17     c2_func_call ARGV                                               fsio(O)
+2  18     c2z_function.c c2_func_call START                               fstype(V)
+2  18     c2_func_call ARGV                                               fstype(V)
+2  19     c2z_function.c c2_func_call START                               fsname(f_date)
+2  19     c2_func_call ARGV                                               fsname(f_date)
+2  20     c2z_function.c c2_func_call START                               fsloc(1,09)
+2  21     c2z_function.c c2_func_call START                               fscolor(WHITE)
+2  21     c2_func_call ARGV                                               fscolor(WHITE)
+2  22     c2z_function.c c2_func_call START                             };
+2  22     c2_func_call ARGV                                             };
+2  24     c2z_math c2_math START                                        fsfield =
+2  24     c2z_math c2_math_1 START                                      fsfield =
+2  26     c2z_function.c c2_func_call START                               fsmap(STREAM)
+2  26     c2_func_call ARGV                                               fsmap(STREAM)
+2  27     c2z_function.c c2_func_call START                               fsio(O)
+2  27     c2_func_call ARGV                                               fsio(O)
+2  28     c2z_function.c c2_func_call START                               fstype(L)
+2  28     c2_func_call ARGV                                               fstype(L)
+2  29     c2z_function.c c2_func_call START                               fsname(C Test Program)

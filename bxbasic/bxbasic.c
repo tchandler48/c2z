@@ -6,7 +6,6 @@
 #define TOKEN_LEN           21
 #define VAR_NAME            32
 #define LLEN                33
-#define TOKEN_LEN           21
 
 	FILE *pgm, *f_out,*f_in;
 	char prog_name[32];

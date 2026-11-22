@@ -1,0 +1,32 @@
+TN3270EX START     0
+         STM       14,12,12(13)        Standard Entry Linkage
+         BALR      12,0
+         USING     *,12
+*
+* 1. TRANSMIT THE AUTO-COMPUTED DATA STREAM TO THE EMULATOR SCREEN
+         TPUT      SCRNBUFF,SCRNLEN,FULLSCR
+*
+* 2. AWAIT AND READ RESPONSE DATA 
+         TGET      INBUFF,8,ASIS
+*
+* 3. RETURN TO OPERATING SYSTEM
+         LM        14,12,12(13)        Standard Exit Linkage
+         XR        15,15
+         BR        14
+*
+* 4. GENERATE THE DATA STREAM USING THE AUTOMATED TN3270 MACRO
+SCRNBUFF DS        0X
+*
+* Field 1: Label at Row 1, Column 30 (Will generate 11405D dynamically)
+         TN3270    CMD=WRITE,WCC=X'F1',                                X
+               SBA=(1,30),                                             X
+               SF=(PROT,NORM),                                         X
+               TEXT='USER ID:'
+*
+* Field 2: Input Field at Row 1, Column 40 (Will generate 114067 
+         TN3270    SBA=(1,40),                                         X
+               SF=(UNPROT,NORM)
+*
+SCRNLEN  EQU       *-SCRNBUFF          Dynamic total length calculation
+INBUFF   DS        CL8                 Receiving data field
+         END       TN3270EX

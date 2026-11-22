@@ -1,0 +1,2 @@
+gcc -Wall -Wextra -fno-stack-protector -falign-functions=16 -falign-jumps -falign-labels -falign-loops -g -o c2z c2z.c
+

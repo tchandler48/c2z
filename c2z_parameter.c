@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2_parameter.c                              *
 *                                                    *
-*  Copyright (c) 2015 - 2022                         *
+*  Copyright (c) 2015 - 2026                         *
 **************************************************** */
 
 /* ***************************************************
@@ -9,12 +9,9 @@
 * ************************************************** */
 void c2_param_ct() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_parameter.c c2_param_ct START");
-    trace_rec_1();
-  }
-  
+  strcpy(trace_1, "c2z_parameter c2_param_ct START");
+  trace_rec_1();
+    
   int I = 0;
   int s = 0;
   int ret = 0;
@@ -55,7 +52,7 @@ printf("c2z_parameter.c rct = %d l_start[6] = %d l_start[7] = %d l_start[8] = %d
 
 printf("c2z_parameter.c rct = %d l_type[1] = %d l_type[2] = %d l_type[3] = %d l_type[4] = %d l_type[5] = %d\n",rct,l_type[1],l_type[2],l_type[3],l_type[4],l_type[5]);
 printf("c2z_parameter.c rct = %d l_type[6] = %d l_type[7] = %d l_type[8] = %d l_type[9] = %d l_type[10] = %d\n",rct,l_type[6],l_type[7],l_type[8],l_type[9],l_type[10]);
-*/
+*/ 
 
 /************************************************
 *  Start Level 10                               *
@@ -147,12 +144,9 @@ printf("c2z_parameter.c rct = %d l_type[6] = %d l_type[7] = %d l_type[8] = %d l_
 
       if(l_type[10] == 3)
       {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2.c FOR/End Loop #10");
-          trace_rec_1();
-        }
-
+        strcpy(trace_1, "c2.parameter FOR/End Loop #10");
+        trace_rec_1();
+        
         for (I = 0; I < for_ct; I++) 
         {
           ret = w_for_table[I].for_rct;
@@ -168,12 +162,9 @@ printf("c2z_parameter.c rct = %d l_type[6] = %d l_type[7] = %d l_type[8] = %d l_
 
      if(l_type[10] == 4)
       {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2.c Switch Loop #10");
-          trace_rec_1();
-        }
-
+        strcpy(trace_1, "c2.parameter Switch Loop #10");
+        trace_rec_1();
+        
         for (I = 0; I < switch_ct; I++) 
         {
           ret = w_switch_table[I].switch_rct;

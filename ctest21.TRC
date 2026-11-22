@@ -1,0 +1,1420 @@
+2  2      c2z_define.c c2_define START                                #define BUFSIZE             80
+2  2      c2z_define.c c2_define x90 = 0                              #define BUFSIZE             80
+2  3      c2z_define.c c2_define START                                #define LINE_NUM            6
+2  3      c2z_define.c c2_define x90 = 0                              #define LINE_NUM            6
+2  4      c2z_define.c c2_define START                                #define TOKEN_LEN           21
+2  4      c2z_define.c c2_define x90 = 0                              #define TOKEN_LEN           21
+2  5      c2z_define.c c2_define START                                #define VAR_NAME            64
+2  5      c2z_define.c c2_define x90 = 0                              #define VAR_NAME            64
+2  6      c2z_define.c c2_define START                                #define LLEN                33
+2  6      c2z_define.c c2_define x90 = 0                              #define LLEN                33
+2  7      c2z_define.c c2_define START                                #define TOKEN_LEN           21
+2  7      c2z_define.c c2_define x90 = 0                              #define TOKEN_LEN           21
+2  8      c2z_define.c c2_define START                                #define MAX_VARS            30
+2  8      c2z_define.c c2_define x90 = 0                              #define MAX_VARS            30
+2  10     c2z scan char c2_char START                                    char r_string[BUFSIZE];
+2  10     c2z_char c2_char START                                         char r_string[BUFSIZE];
+2  10     c2z_char c2_char CHAR                                          char r_string[BUFSIZE];
+2  10     c2z_char c2_char_1 START                                       char r_string[BUFSIZE];
+2  11     c2z scan char c2_char START                                    char fielda[32];
+2  11     c2z_char c2_char START                                         char fielda[32];
+2  11     c2z_char c2_char CHAR                                          char fielda[32];
+2  11     c2z_char c2_char_1 START                                       char fielda[32];
+2  12     c2z scan char c2_char START                                    char fieldc[10];
+2  12     c2z_char c2_char START                                         char fieldc[10];
+2  12     c2z_char c2_char CHAR                                          char fieldc[10];
+2  12     c2z_char c2_char_1 START                                       char fieldc[10];
+2  13     c2z scan char c2_char START                                    char varname[32];
+2  13     c2z_char c2_char START                                         char varname[32];
+2  13     c2z_char c2_char CHAR                                          char varname[32];
+2  13     c2z_char c2_char_1 START                                       char varname[32];
+2  14     c2z scan char c2_int START                                     int  fieldb;
+2  14     c2z_int c2_int START                                           int  fieldb;
+2  14     c2z_int pass 2 int #1                                          int  fieldb;
+2  14     c2z_int.c c2_int_1 #2    fieldb                                int  fieldb;
+2  15     c2z scan char c2_int START                                     int  I;
+2  15     c2z_int c2_int START                                           int  I;
+2  15     c2z_int pass 2 int #1                                          int  I;
+2  15     c2z_int.c c2_int_1 #2    I                                     int  I;
+2  16     c2z scan char c2_int START                                     int  len;
+2  16     c2z_int c2_int START                                           int  len;
+2  16     c2z_int pass 2 int #1                                          int  len;
+2  16     c2z_int.c c2_int_1 #2    len                                   int  len;
+2  17     c2z scan char c2_int START                                     int  xyz;
+2  17     c2z_int c2_int START                                           int  xyz;
+2  17     c2z_int pass 2 int #1                                          int  xyz;
+2  17     c2z_int.c c2_int_1 #2    xyz                                   int  xyz;
+2  18     c2z scan char c2_int START                                     int  def;
+2  18     c2z_int c2_int START                                           int  def;
+2  18     c2z_int pass 2 int #1                                          int  def;
+2  18     c2z_int.c c2_int_1 #2    def                                   int  def;
+2  19     c2z scan char c2_int START                                     int  ghi;
+2  19     c2z_int c2_int START                                           int  ghi;
+2  19     c2z_int pass 2 int #1                                          int  ghi;
+2  19     c2z_int.c c2_int_1 #2    ghi                                   int  ghi;
+2  20     c2z scan char c2_int START                                     int  jkl;
+2  20     c2z_int c2_int START                                           int  jkl;
+2  20     c2z_int pass 2 int #1                                          int  jkl;
+2  20     c2z_int.c c2_int_1 #2    jkl                                   int  jkl;
+2  21     c2z scan char c2_int START                                     int  mno;
+2  21     c2z_int c2_int START                                           int  mno;
+2  21     c2z_int pass 2 int #1                                          int  mno;
+2  21     c2z_int.c c2_int_1 #2    mno                                   int  mno;
+2  22     c2z scan char c2_int START                                     int  pqr;
+2  22     c2z_int c2_int START                                           int  pqr;
+2  22     c2z_int pass 2 int #1                                          int  pqr;
+2  22     c2z_int.c c2_int_1 #2    pqr                                   int  pqr;
+2  23     c2z scan char c2_int START                                     int  ii;
+2  23     c2z_int c2_int START                                           int  ii;
+2  23     c2z_int pass 2 int #1                                          int  ii;
+2  23     c2z_int.c c2_int_1 #2    ii                                    int  ii;
+2  25     c2z scan char c2_char START                                    char sn_stack[MAX_VARS][VAR_NAME];
+2  25     c2z_char c2_char START                                         char sn_stack[MAX_VARS][VAR_NAME];
+2  25     c2z_char c2_char CHAR                                          char sn_stack[MAX_VARS][VAR_NAME];
+2  25     c2z_char c2_char_9 START                                       char sn_stack[MAX_VARS][VAR_NAME];
+2  26     c2z scan char c2_int START                                      int sv_stack[MAX_VARS];
+2  26     c2z_int c2_int START                                            int sv_stack[MAX_VARS];
+2  26     c2z_int pass 2 int #1                                           int sv_stack[MAX_VARS];
+2  26     c2z_int.c c2_int_5                                              int sv_stack[MAX_VARS];
+2  28     c2z scan char c2_char START                                    char in_stack[MAX_VARS][VAR_NAME];
+2  28     c2z_char c2_char START                                         char in_stack[MAX_VARS][VAR_NAME];
+2  28     c2z_char c2_char CHAR                                          char in_stack[MAX_VARS][VAR_NAME];
+2  28     c2z_char c2_char_9 START                                       char in_stack[MAX_VARS][VAR_NAME];
+2  29     c2z scan char c2_int START                                      int iv_stack[MAX_VARS];
+2  29     c2z_int c2_int START                                            int iv_stack[MAX_VARS];
+2  29     c2z_int pass 2 int #1                                           int iv_stack[MAX_VARS];
+2  29     c2z_int.c c2_int_5                                              int iv_stack[MAX_VARS];
+2  31     c2z scan char c2_char START                                    char array1[MAX_VARS][VAR_NAME];
+2  31     c2z_char c2_char START                                         char array1[MAX_VARS][VAR_NAME];
+2  31     c2z_char c2_char CHAR                                          char array1[MAX_VARS][VAR_NAME];
+2  31     c2z_char c2_char_9 START                                       char array1[MAX_VARS][VAR_NAME];
+2  34     c2z pass 2 MAIN                                             int main(int argc, char *argv[])
+2  34     c2z_main.c c2_main                                          int main(int argc, char *argv[])
+2  35     c2z.c Pass 2 { }                                            {
+2  35     c2z_parameter.c c2_param_ct START                           {
+2  37     c2z scan printf                                               printf("Hello Z390 World\n");
+2  37     c2z printf-strtmp                                             printf("Hello Z390 World\n");
+2  39     c2z pass_2 scan strcpy                                        strcpy(fielda, "abcdefghi");
+2  39     c2z_strcpy.c c2_strcpy_pass2 START                            strcpy(fielda, "abcdefghi");
+2  39     c2z_strcpy c2_strcpy_pass2 subroutine #1                      strcpy(fielda, "abcdefghi");
+2  39     c2z_strcpy c2_pass2_strcpy_2 START                            strcpy(fielda, "abcdefghi");
+2  40     c2z scan printf                                               printf("fielda = %s ",fielda);
+2  40     c2z printf-strtmp                                             printf("fielda = %s ",fielda);
+2  42     c2z pass 2 scan strlen                                        len = strlen(fielda);
+2  42     c2z_strlen.c c2_strlen_pass2                                  len = strlen(fielda);
+2  43     c2z scan printf                                               printf("len fielda = %d\n",len);
+2  43     c2z printf-strtmp                                             printf("len fielda = %d\n",len);
+2  45     c2z_pass_2.c c2_math_literal STAFT                            I = 0;
+2  45     c2z_pass_2.c c2_math_literal_1                                I = 0;
+2  45     c2z_pass_2.c c2_pass2_math START                              I = 0;
+2  45     c2z_pass_2.c c2_pass2_math subroutine #1                      I = 0;
+2  45     c2z_pass_2.c c2_pass2_math subroutine #2                      I = 0;
+2  45     c2z_pass_2.c c2_pass2_math1 Branch                            I = 0;
+2  45     c2z_pass_2.c c2_pass2_math_1 START                            I = 0;
+2  45     c2z_pass_2.c c2_pass2_math_1 START                            I = 0;
+2  46     c2z pass_2 scan strcpy                                        strcpy(varname, "fielda");
+2  46     c2z_strcpy.c c2_strcpy_pass2 START                            strcpy(varname, "fielda");
+2  46     c2z_strcpy c2_strcpy_pass2 subroutine #1                      strcpy(varname, "fielda");
+2  46     c2z_strcpy c2_pass2_strcpy_2 START                            strcpy(varname, "fielda");
+2  47     c2z pass_2 scan strcpy                                        strcpy(sn_stack[I], varname);
+2  47     c2z_strcpy.c c2_strcpy_pass2 START                            strcpy(sn_stack[I], varname);
+2  47     c2z_strcpy.c c2_strcpy_pass2 subroutine #3                    strcpy(sn_stack[I], varname);
+2  48     c2z scan printf                                               printf("sn_stack 0 = %s\n",sn_stack[0]);
+2  48     c2z printf-strtmp                                             printf("sn_stack 0 = %s\n",sn_stack[0]);
+2  50     c2z pass 2 scan ++                                            I++;
+2  51     c2z pass_2 scan strcpy                                        strcpy(sn_stack[I],fielda);
+2  51     c2z_strcpy.c c2_strcpy_pass2 START                            strcpy(sn_stack[I],fielda);
+2  51     c2z_strcpy.c c2_strcpy_pass2 subroutine #3                    strcpy(sn_stack[I],fielda);
+2  52     c2z scan printf                                               printf("sn_stack 1 = %s\n",sn_stack[1]);
+2  52     c2z printf-strtmp                                             printf("sn_stack 1 = %s\n",sn_stack[1]);
+2  55     c2z_pass_2.c c2_math_literal STAFT                            ii = 0;
+2  55     c2z_pass_2.c c2_math_literal_1                                ii = 0;
+2  55     c2z_pass_2.c c2_pass2_math START                              ii = 0;
+2  55     c2z_pass_2.c c2_pass2_math subroutine #1                      ii = 0;
+2  55     c2z_pass_2.c c2_pass2_math subroutine #2                      ii = 0;
+2  55     c2z_pass_2.c c2_pass2_math1 Branch                            ii = 0;
+2  55     c2z_pass_2.c c2_pass2_math_1 START                            ii = 0;
+2  55     c2z_pass_2.c c2_pass2_math_1 START                            ii = 0;
+2  56     c2z pass_2 scan strcpy                                        strcpy(array1[ii], fielda);
+2  56     c2z_strcpy.c c2_strcpy_pass2 START                            strcpy(array1[ii], fielda);
+2  56     c2z_strcpy.c c2_strcpy_pass2 subroutine #3                    strcpy(array1[ii], fielda);
+2  57     c2z scan printf                                               printf("array1 = %s\n",array1[ii]);
+2  57     c2z printf-strtmp                                             printf("array1 = %s\n",array1[ii]);
+2  59     c2z_pass_2.c c2_math_literal STAFT                            ii = 1;
+2  59     c2z_pass_2.c c2_math_literal_1                                ii = 1;
+2  59     c2z_pass_2.c c2_pass2_math START                              ii = 1;
+2  59     c2z_pass_2.c c2_pass2_math subroutine #1                      ii = 1;
+2  59     c2z_pass_2.c c2_pass2_math subroutine #2                      ii = 1;
+2  59     c2z_pass_2.c c2_pass2_math1 Branch                            ii = 1;
+2  59     c2z_pass_2.c c2_pass2_math_1 START                            ii = 1;
+2  59     c2z_pass_2.c c2_pass2_math_1 START                            ii = 1;
+2  60     c2z pass_2 scan strcpy                                        strcpy(array1[ii], "98765");
+2  60     c2z_strcpy.c c2_strcpy_pass2 START                            strcpy(array1[ii], "98765");
+2  60     c2z_strcpy c2_strcpy_pass2 subroutine #1                      strcpy(array1[ii], "98765");
+2  60     c2z_strcpy c2_pass2_strcpy_2 START                            strcpy(array1[ii], "98765");
+2  60     c2z_strcpy c2_pass2_strcpy_2 subroutine 200                   strcpy(array1[ii], "98765");
+2  61     c2z scan printf                                               printf("array1 = %s\n",array1[ii];
+2  61     c2z printf-strtmp                                             printf("array1 = %s\n",array1[ii];
+2  63     c2z_pass_2.c c2_math_literal STAFT                            xyz = 12;
+2  63     c2z_pass_2.c c2_math_literal_1                                xyz = 12;
+2  63     c2z_pass_2.c c2_pass2_math START                              xyz = 12;
+2  63     c2z_pass_2.c c2_pass2_math subroutine #1                      xyz = 12;
+2  63     c2z_pass_2.c c2_pass2_math subroutine #2                      xyz = 12;
+2  63     c2z_pass_2.c c2_pass2_math1 Branch                            xyz = 12;
+2  63     c2z_pass_2.c c2_pass2_math_1 START                            xyz = 12;
+2  63     c2z_pass_2.c c2_pass2_math_1 START                            xyz = 12;
+2  64     c2z scan printf                                               printf("xyz = %d\n",xyz);
+2  64     c2z printf-strtmp                                             printf("xyz = %d\n",xyz);
+2  66     c2z_pass_2.c c2_math_literal STAFT                            I = 0;
+2  66     c2z_pass_2.c c2_math_literal_1                                I = 0;
+2  66     c2z_pass_2.c c2_pass2_math START                              I = 0;
+2  66     c2z_pass_2.c c2_pass2_math subroutine #1                      I = 0;
+2  66     c2z_pass_2.c c2_pass2_math subroutine #2                      I = 0;
+2  66     c2z_pass_2.c c2_pass2_math1 Branch                            I = 0;
+2  66     c2z_pass_2.c c2_pass2_math_1 START                            I = 0;
+2  66     c2z_pass_2.c c2_pass2_math_1 START                            I = 0;
+2  67     c2z_pass_2.c c2_math_literal STAFT                            iv_stack[I] = 98;
+2  67     c2z_pass_2.c c2_pass2_math START                              iv_stack[I] = 98;
+2  67     c2z_pass_2.c c2_pass2_math subroutine #1                      iv_stack[I] = 98;
+2  67     c2z_pass_2.c c2_pass2_math subroutine #2                      iv_stack[I] = 98;
+2  67     c2z_pass_2.c c2_pass2_math_5 Branch                           iv_stack[I] = 98;
+2  67     c2z_pass_2.c c2_pass2_math_5 START                            iv_stack[I] = 98;
+2  69     c2z scan printf                                               printf("iv_stack = %d\n",iv_stack[I]);
+2  69     c2z printf-strtmp                                             printf("iv_stack = %d\n",iv_stack[I]);
+2  71     c2z_pass_2.c c2_math_literal STAFT                            I = 3;
+2  71     c2z_pass_2.c c2_math_literal_1                                I = 3;
+2  71     c2z_pass_2.c c2_pass2_math START                              I = 3;
+2  71     c2z_pass_2.c c2_pass2_math subroutine #1                      I = 3;
+2  71     c2z_pass_2.c c2_pass2_math subroutine #2                      I = 3;
+2  71     c2z_pass_2.c c2_pass2_math1 Branch                            I = 3;
+2  71     c2z_pass_2.c c2_pass2_math_1 START                            I = 3;
+2  71     c2z_pass_2.c c2_pass2_math_1 START                            I = 3;
+2  72     c2z_pass_2.c c2_math_literal STAFT                            iv_stack[I] = 6758;
+2  72     c2z_pass_2.c c2_pass2_math START                              iv_stack[I] = 6758;
+2  72     c2z_pass_2.c c2_pass2_math subroutine #1                      iv_stack[I] = 6758;
+2  72     c2z_pass_2.c c2_pass2_math subroutine #2                      iv_stack[I] = 6758;
+2  72     c2z_pass_2.c c2_pass2_math_5 Branch                           iv_stack[I] = 6758;
+2  72     c2z_pass_2.c c2_pass2_math_5 START                            iv_stack[I] = 6758;
+2  73     c2z scan printf                                               printf("iv_stack = %d\n",iv_stack[I]);
+2  73     c2z printf-strtmp                                             printf("iv_stack = %d\n",iv_stack[I]);
+2  76     c2z_pass_2.c c2_pass2_for START                               for(I = 0; I < 5; I++)
+2  76     c2z_pass_2.c c2_pass2_for subroutine #1 START                 for(I = 0; I < 5; I++)
+2  77     c2z.c Pass 2 { }                                              {
+2  77     c2z_parameter.c c2_param_ct START                             {
+2  78     c2z scan printf                                                  printf("I = %d\n",iv_stack[I]);
+2  78     c2z printf-strtmp                                                printf("I = %d\n",iv_stack[I]);
+2  79     c2z.c Pass 2 { }                                              }
+2  79     c2z_parameter.c c2_param_ct START                             }
+2  79     c2.c FOR/End Loop #1                                          }
+2  81     c2z_pass_2.c c2_math_literal STAFT                             I = 0;
+2  81     c2z_pass_2.c c2_math_literal_1                                 I = 0;
+2  81     c2z_pass_2.c c2_pass2_math START                               I = 0;
+2  81     c2z_pass_2.c c2_pass2_math subroutine #1                       I = 0;
+2  81     c2z_pass_2.c c2_pass2_math subroutine #2                       I = 0;
+2  81     c2z_pass_2.c c2_pass2_math1 Branch                             I = 0;
+2  81     c2z_pass_2.c c2_pass2_math_1 START                             I = 0;
+2  81     c2z_pass_2.c c2_pass2_math_1 START                             I = 0;
+2  82     c2z_pass_2.c c2_math_literal STAFT                             sv_stack[I] = 11123;
+2  82     c2z_pass_2.c c2_pass2_math START                               sv_stack[I] = 11123;
+2  82     c2z_pass_2.c c2_pass2_math subroutine #1                       sv_stack[I] = 11123;
+2  82     c2z_pass_2.c c2_pass2_math subroutine #2                       sv_stack[I] = 11123;
+2  82     c2z_pass_2.c c2_pass2_math_5 Branch                            sv_stack[I] = 11123;
+2  82     c2z_pass_2.c c2_pass2_math_5 START                             sv_stack[I] = 11123;
+2  84     c2z scan printf                                                printf("sv_stack = %d\n",sv_stack[I]);
+2  84     c2z printf-strtmp                                              printf("sv_stack = %d\n",sv_stack[I]);
+2  88     c2z scan printf                                               printf("End of ctest21\n");
+2  88     c2z printf-strtmp                                             printf("End of ctest21\n");
+2  90     c2z.c Pass 2 { }                                            }
+2  90     c2z_parameter.c c2_param_ct START                           }
+2  91     c2z.c Pass 2 { }                                            }
+2  91     c2z_parameter.c c2_param_ct START                           }
+2  0      c2z_pass_3 c2_pass_3 START                                  }
+2  0      c2z_pass_3 generated #1         *                                                                       0000001
+2  0      c2z_pass_3 generated #2         *  This program was generated by c2z parser.                            0000002
+2  0      c2z_pass_3 generated #3         *  Generated code is for the z390 MLC.                                  0000003
+2  0      c2z_pass_3 generated #4         *  Copyright (c) TCCS 2015 - 2026                                       0000004
+2  0      c2z_pass_3 generated #5         *                                                                       0000005
+2  0      c2z_pass_3 generated #9                   MACRO                                                         0000006
+2  0      c2z_pass_3 generated #10        &N        SUBENTRY                                                      0000007
+2  0      c2z_pass_3 generated #11        &N        CSECT                                                         0000008
+2  0      c2z_pass_3 generated #12                  STM    14,12,12(13)                                           0000009
+2  0      c2z_pass_3 generated #13                  JAS    15,CONTINUE                                            0000010
+2  0      c2z_pass_3 generated #14                  DC     18F'0'                                                 0000011
+2  0      c2z_pass_3 generated #15                  DC     CL8'&N'                                                0000012
+2  0      c2z_pass_3 generated #16                  DC     CL8'&SYSDATE'                                          0000013
+2  0      c2z_pass_3 generated #17                  DC     CL8'&SYSTIME'                                          0000014
+2  0      c2z_pass_3 generated #19        CONTINUE  DS     0H                                                     0000015
+2  0      c2z_pass_3 generated #20                  ST     15,8(13)                                               0000016
+2  0      c2z_pass_3 generated #21                  ST     13,4(15)                                               0000017
+2  0      c2z_pass_3 generated #22                  LR     13,15                                                  0000018
+2  0      c2z pass 3 generated #23                  USING  &N+8,13                                                0000019
+2  0      c2z pass 3 generated #24                  MEND                                                          0000020
+2  0      c2z pass 3 generated #25        *                                                                       0000021
+2  0      c2z pass 3 generated #26                  MACRO                                                         0000022
+2  0      c2z pass 3 generated #27                  SUBEXIT                                                       0000023
+2  0      c2z pass 3 generated #28                  LAEY   15,0                                                   0000024
+2  0      c2z pass 3 generated #29                  L      13,4(,13)                                              0000025
+2  0      c2z pass 3 generated #30                  L      14,12(,13)                                             0000026
+2  0      c2z pass 3 generated #31                  LM     2,12,28(13)                                            0000027
+2  0      c2z pass 3 generated #32                  BR     14                                                     0000028
+2  0      c2z pass 3 generated #33                  MEND                                                          0000029
+2  0      c2z pass 3 generated #34        *                                                                       0000030
+2  0      c2z pass 3 generated #35        *  This is a modified MVC2 macro.  Modified for baseless code           0000031
+2  0      c2z pass 3 generated #36        *  Modified by TCCS 2016 - 2026                                         0000032
+2  0      c2z pass 3 generated #37        *  Performs a MVC operation, using Source Length NOT Target Length      0000033
+2  0      c2z pass 3 generated #38        *                                                                       0000034
+2  0      c2z pass 3 generated #39                  MACRO                                                         0000035
+2  0      c2z pass 3 generated #40        &LAB      MVC2   &TARGET,&SOURCE                                        0000036
+2  0      c2z pass 3 generated #41        &LAB      LARL   R8,&SOURCE                                             0000037
+2  0      c2z pass 3 generated #42                  LARL   R9,&TARGET                                             0000038
+2  0      c2z pass 3 generated #43                  MVC    0(L'&SOURCE,R9),0(R8)                                  0000039
+2  0      c2z pass 3 generated #44                  MEND                                                          0000040
+2  0      c2z pass 3 generated #45        *                                                                       0000041
+2  0      c2z pass 3 generated #46        *  This is a modified MVC2 macro.  baseless code                        0000042
+2  0      c2z pass 3 generated #47        *  Modified by TCCS 2016 - 2020                                         0000043
+2  0      c2z pass 3 generated #48        *  Performs a MVC operation, using Source Length NOT Target Length      0000044
+2  0      c2z pass 3 generated #49        *                                                                       0000045
+2  0      c2z pass 3 generated #50                  MACRO                                                         0000046
+2  0      c2z pass 3 generated #51        &LAB      MVC3   &SOURCE                                                0000047
+2  0      c2z pass 3 generated #52        &LAB      LARL   R8,&SOURCE                                             0000048
+2  0      c2z pass 3 generated #53                  MVC    0(L'&SOURCE,R6),0(R8)                                  0000049
+2  0      c2z pass 3 generated #54                  MEND                                                          0000050
+2  0      c2z pass 3 generated #55        *                                                                       0000051
+2  0      c2z pass 3 Generated #56        ctest21  SUBENTRY                                                       0000052
+2  0      c2z pass 3 Generated #57                 GUAML WINDOW,TITLE,'c2z V1.0'                                  0000053
+2  0      c2z pass 3 Generated #58                 JLU   START                    /* Ln#- 0 R5 parm lg */         0000054
+2  0      c2z pass 3 Generated #59                 DS    0H                              /* c2z gen variable  */  0000055
+2  0      c2z pass 3 Generated #60        GETFLGS  EQU   B'10000000'                     /* c2z gen variable  */  0000056
+2  0      c2z pass 3 Generated #61        WTOINP   DS    0H                                                       0000057
+2  0      c2z pass 3 Generated #62                 LARL  4,GETFLGS                                                0000058
+2  0      c2z pass 3 Generated #63                 SLL   4,24                                                     0000059
+2  0      c2z pass 3 Generated #64                 OR    11,4                                                     0000060
+2  0      c2z pass 3 Generated #65                 TGETL  (R11),(R10),R                                           0000061
+2  0      c2z pass 3 Generated #66                 PR                                                             0000062
+2  0      c2z pass 3 Generated #67        *********************************************************               0000063
+2  0      c2z pass 3 Generated #68        *  open/close macro code goes here                      *               0000064
+2  0      c2z pass 3 Generated #69        *********************************************************               0000065
+2  0      c2z pass 3 Generated #70        C370END  DS    0H                                                       0000068
+2  0      c2z pass 3 Generated #71                 SUBEXIT                                                        0000069
+2  0      c2z pass 3 Generated #72        ******************************************************************      0000070
+2  0      c2z pass 3 Generated #73        *                                                                *      0000071
+2  0      c2z pass 3 Generated #74        * STATIC STORAGE AREA FOR CSECT - NO BASE REG REQUIRED.          *      0000072
+2  0      c2z pass 3 Generated #75        *                               - LARL ADDRESSING IS USED        *      0000073
+2  0      c2z pass 3 Generated #76        *                                                                *      0000074
+2  0      c2z pass 3 Generated #77        ******************************************************************      0000075
+2  0      c2z pass 3 Generated #43        ******************************************************************      0000076
+2  0      c2z pass 3 Generated #44        *                                                                *      0000077
+2  0      c2z pass 3 Generated #45        * CODE AREA FOR CSECT -DOESN'T REQUIRE BASE REGISTER COVERAGE    *      0000078
+2  0      c2z pass 3 Generated #46        *                     -USE RELATIVE BRANCHES HERE                *      0000079
+2  0      c2z pass 3 Generated #47        *                     -DON'T CODE LITERALS HERE                  *      0000080
+2  0      c2z pass 3 Generated #48        *                                                                *      0000081
+2  0      c2z pass 3 Generated #49        ******************************************************************      0000082
+2  0      c2z pass 3 Generated #50        START    DS    0H                                                       0000083
+2  2      c2z.c pass 3 #define                                        #define BUFSIZE             80
+2  3      c2z.c pass 3 #define                                        #define LINE_NUM            6
+2  4      c2z.c pass 3 #define                                        #define TOKEN_LEN           21
+2  5      c2z.c pass 3 #define                                        #define VAR_NAME            64
+2  6      c2z.c pass 3 #define                                        #define LLEN                33
+2  7      c2z.c pass 3 #define                                        #define TOKEN_LEN           21
+2  8      c2z.c pass 3 #define                                        #define MAX_VARS            30
+2  10     c2z_char c2_char_punch START                                   char r_string[BUFSIZE];
+2  10     c2z_char c2_char_punch #1                LARL  R8,C37F7                 /* Ln#- 10 r_string             0000084
+2  10     c2z_char c2_char_punch #2                MVI   0(R8),C' '                                               0000085
+2  10     c2z_char c2_char_punch #3                MVC   1(L'C37F7-1,R8),0(R8)                                    0000086
+2  11     c2z_char c2_char_punch START                                   char fielda[32];
+2  11     c2z_char c2_char_punch #1                LARL  R8,C37F9                 /* Ln#- 11 fielda               0000087
+2  11     c2z_char c2_char_punch #2                MVI   0(R8),C' '                                               0000088
+2  11     c2z_char c2_char_punch #3                MVC   1(L'C37F9-1,R8),0(R8)                                    0000089
+2  12     c2z_char c2_char_punch START                                   char fieldc[10];
+2  12     c2z_char c2_char_punch #1                LARL  R8,C37F11                /* Ln#- 12 fieldc               0000090
+2  12     c2z_char c2_char_punch #2                MVI   0(R8),C' '                                               0000091
+2  12     c2z_char c2_char_punch #3                MVC   1(L'C37F11-1,R8),0(R8)                                   0000092
+2  13     c2z_char c2_char_punch START                                   char varname[32];
+2  13     c2z_char c2_char_punch #1                LARL  R8,C37F13                /* Ln#- 13 varname              0000093
+2  13     c2z_char c2_char_punch #2                MVI   0(R8),C' '                                               0000094
+2  13     c2z_char c2_char_punch #3                MVC   1(L'C37F13-1,R8),0(R8)                                   0000095
+2  14     c2z_int c2_int_punch START                                     int  fieldb;
+2  14     c2z_int c2_int_punch_1 START                                   int  fieldb;
+2  14     c2z_int c2_int_punch_1 #1                LARL  R8,C37F14                /* Ln#- 14 fieldb */            0000096
+2  14     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 14 C370ZERO */          0000097
+2  14     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000098
+2  15     c2z_int c2_int_punch START                                     int  I;
+2  15     c2z_int c2_int_punch_1 START                                   int  I;
+2  15     c2z_int c2_int_punch_1 #1                LARL  R8,C37F15                /* Ln#- 15 I */                 0000099
+2  15     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 15 C370ZERO */          0000100
+2  15     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000101
+2  16     c2z_int c2_int_punch START                                     int  len;
+2  16     c2z_int c2_int_punch_1 START                                   int  len;
+2  16     c2z_int c2_int_punch_1 #1                LARL  R8,C37F16                /* Ln#- 16 len */               0000102
+2  16     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 16 C370ZERO */          0000103
+2  16     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000104
+2  17     c2z_int c2_int_punch START                                     int  xyz;
+2  17     c2z_int c2_int_punch_1 START                                   int  xyz;
+2  17     c2z_int c2_int_punch_1 #1                LARL  R8,C37F17                /* Ln#- 17 xyz */               0000105
+2  17     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 17 C370ZERO */          0000106
+2  17     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000107
+2  18     c2z_int c2_int_punch START                                     int  def;
+2  18     c2z_int c2_int_punch_1 START                                   int  def;
+2  18     c2z_int c2_int_punch_1 #1                LARL  R8,C37F18                /* Ln#- 18 def */               0000108
+2  18     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 18 C370ZERO */          0000109
+2  18     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000110
+2  19     c2z_int c2_int_punch START                                     int  ghi;
+2  19     c2z_int c2_int_punch_1 START                                   int  ghi;
+2  19     c2z_int c2_int_punch_1 #1                LARL  R8,C37F19                /* Ln#- 19 ghi */               0000111
+2  19     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 19 C370ZERO */          0000112
+2  19     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000113
+2  20     c2z_int c2_int_punch START                                     int  jkl;
+2  20     c2z_int c2_int_punch_1 START                                   int  jkl;
+2  20     c2z_int c2_int_punch_1 #1                LARL  R8,C37F20                /* Ln#- 20 jkl */               0000114
+2  20     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 20 C370ZERO */          0000115
+2  20     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000116
+2  21     c2z_int c2_int_punch START                                     int  mno;
+2  21     c2z_int c2_int_punch_1 START                                   int  mno;
+2  21     c2z_int c2_int_punch_1 #1                LARL  R8,C37F21                /* Ln#- 21 mno */               0000117
+2  21     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 21 C370ZERO */          0000118
+2  21     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000119
+2  22     c2z_int c2_int_punch START                                     int  pqr;
+2  22     c2z_int c2_int_punch_1 START                                   int  pqr;
+2  22     c2z_int c2_int_punch_1 #1                LARL  R8,C37F22                /* Ln#- 22 pqr */               0000120
+2  22     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 22 C370ZERO */          0000121
+2  22     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000122
+2  23     c2z_int c2_int_punch START                                     int  ii;
+2  23     c2z_int c2_int_punch_1 START                                   int  ii;
+2  23     c2z_int c2_int_punch_1 #1                LARL  R8,C37F23                /* Ln#- 23 ii */                0000123
+2  23     c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 23 C370ZERO */          0000124
+2  23     c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000125
+2  25     c2z_char c2_char_punch START                                   char sn_stack[MAX_VARS][VAR_NAME];
+2  26     c2z_int c2_int_punch START                                      int sv_stack[MAX_VARS];
+2  26     c2z_int c2_int_punch_2                                          int sv_stack[MAX_VARS];
+2  28     c2z_char c2_char_punch START                                   char in_stack[MAX_VARS][VAR_NAME];
+2  29     c2z_int c2_int_punch START                                      int iv_stack[MAX_VARS];
+2  29     c2z_int c2_int_punch_2                                          int iv_stack[MAX_VARS];
+2  31     c2z_char c2_char_punch START                                   char array1[MAX_VARS][VAR_NAME];
+2  34     c2z pass 3 punch MAIN                                       int main(int argc, char *argv[])
+2  34     c2z_free c2_free array-char                                     free(sn_stack)
+2  34     c2z_free c2_free array_char #1  FR1      DS    0H                                                       0000126
+2  34     c2z_free c2_free array_char #2           LHI   R5,30                                                    0000127
+2  34     c2z_free c2_free array_char #3           LARL  R6,A371T                 /* Ln#- 34 sn_stack */          0000128
+2  34     c2z_free c2_free array_char #5  FR1L     DS    0H                                                       0000129
+2  34     c2z_free c2_free array_char #6           LARL  R8,C370B1                                                0000130
+2  34     c2z_free c2_free array_char #7           MVC   0(1,R6),0(R8)                                            0000131
+2  34     c2z_free c2_free array_char #8           MVC   1(63,R6),0(R6)                                           0000132
+2  34     c2z_free c2_free array_char #9           LARL  R8,C370EOF                                               0000133
+2  34     c2z_free c2_free array_char #10          MVC   0(1,R6),0(R8)                                            0000134
+2  34     c2z_free c2_free array_char #11          LAEY  R6,A371L(R0,R6)                                          0000135
+2  34     c2z_free c2_free array_char #12          JCT   R5,FR1L                                                  0000136
+2  34     c2z_free c2_free array_char #13 *                                                                       0000137
+2  34     c2z_free c2_free array_numeric                                  free(sv_stack)
+2  34     c2z_free c2_free array_num #1   FR2      DS    0H                       /* Ln#- 34 free */              0000138
+2  34     c2z_free c2_free array_num #2            LHI   R5,30                                                    0000139
+2  34     c2z_free c2_free array_num #3            LARL  R6,A372T                 /* Ln#- 34 sv_stack */          0000140
+2  34     c2z_free c2_free array_num #4   FR2L     DS    0H                                                       0000141
+2  34     c2z_free c2_free array_num #5            LARL  R8,C370ZERO                                              0000142
+2  34     c2z_free c2_free array_num #6            ZAP   0(6,R6),0(6,R8)                                          0000143
+2  34     c2z_free c2_free array_num #7            LAEY  R6,A372L(R0,R6)                                          0000144
+2  34     c2z_free c2_free array_num #8            JCT   R5,FR2L                                                  0000145
+2  34     c2z_free c2_free array_num #9   *                                                                       0000146
+2  34     c2z_free c2_free array-char                                     free(in_stack)
+2  34     c2z_free c2_free array_char #1  FR3      DS    0H                                                       0000147
+2  34     c2z_free c2_free array_char #2           LHI   R5,30                                                    0000148
+2  34     c2z_free c2_free array_char #3           LARL  R6,A373T                 /* Ln#- 34 in_stack */          0000149
+2  34     c2z_free c2_free array_char #5  FR3L     DS    0H                                                       0000150
+2  34     c2z_free c2_free array_char #6           LARL  R8,C370B1                                                0000151
+2  34     c2z_free c2_free array_char #7           MVC   0(1,R6),0(R8)                                            0000152
+2  34     c2z_free c2_free array_char #8           MVC   1(63,R6),0(R6)                                           0000153
+2  34     c2z_free c2_free array_char #9           LARL  R8,C370EOF                                               0000154
+2  34     c2z_free c2_free array_char #10          MVC   0(1,R6),0(R8)                                            0000155
+2  34     c2z_free c2_free array_char #11          LAEY  R6,A373L(R0,R6)                                          0000156
+2  34     c2z_free c2_free array_char #12          JCT   R5,FR3L                                                  0000157
+2  34     c2z_free c2_free array_char #13 *                                                                       0000158
+2  34     c2z_free c2_free array_numeric                                  free(iv_stack)
+2  34     c2z_free c2_free array_num #1   FR4      DS    0H                       /* Ln#- 34 free */              0000159
+2  34     c2z_free c2_free array_num #2            LHI   R5,30                                                    0000160
+2  34     c2z_free c2_free array_num #3            LARL  R6,A374T                 /* Ln#- 34 iv_stack */          0000161
+2  34     c2z_free c2_free array_num #4   FR4L     DS    0H                                                       0000162
+2  34     c2z_free c2_free array_num #5            LARL  R8,C370ZERO                                              0000163
+2  34     c2z_free c2_free array_num #6            ZAP   0(6,R6),0(6,R8)                                          0000164
+2  34     c2z_free c2_free array_num #7            LAEY  R6,A374L(R0,R6)                                          0000165
+2  34     c2z_free c2_free array_num #8            JCT   R5,FR4L                                                  0000166
+2  34     c2z_free c2_free array_num #9   *                                                                       0000167
+2  34     c2z_free c2_free array-char                                     free(array1)
+2  34     c2z_free c2_free array_char #1  FR5      DS    0H                                                       0000168
+2  34     c2z_free c2_free array_char #2           LHI   R5,30                                                    0000169
+2  34     c2z_free c2_free array_char #3           LARL  R6,A375T                 /* Ln#- 34 array1 */            0000170
+2  34     c2z_free c2_free array_char #5  FR5L     DS    0H                                                       0000171
+2  34     c2z_free c2_free array_char #6           LARL  R8,C370B1                                                0000172
+2  34     c2z_free c2_free array_char #7           MVC   0(1,R6),0(R8)                                            0000173
+2  34     c2z_free c2_free array_char #8           MVC   1(63,R6),0(R6)                                           0000174
+2  34     c2z_free c2_free array_char #9           LARL  R8,C370EOF                                               0000175
+2  34     c2z_free c2_free array_char #10          MVC   0(1,R6),0(R8)                                            0000176
+2  34     c2z_free c2_free array_char #11          LAEY  R6,A375L(R0,R6)                                          0000177
+2  34     c2z_free c2_free array_char #12          JCT   R5,FR5L                                                  0000178
+2  34     c2z_free c2_free array_char #13 *                                                                       0000179
+2  37     c2z_print c2_printf_literal                                   printf("Hello Z390 World\n");
+2  37     c2z_print c2_printf_literal #6           MVC2  C370WTOB,L37                                             0000180
+2  37     c2z_print c2_printf_literal #7           LARL  R11,C370WTOB                                             0000181
+2  37     c2z_print c2_printf_literal #8           LHI   R10,16                                                   0000182
+2  37     c2z_print c2_printf_literal #9           TPUTL (R11),(R10),R,ASIS                                       0000183
+2  37     c2z_print c2_printf_literal #10          XC    0(75,R11),0(R11)                                         0000184
+2  39     c2z_strcpy c2_str_1 #100                 LARL  R9,C37F9                 /* Ln#- 39 fielda */            0000185
+2  39     c2z_strcpy c2_str_1 #101                 LARL  R8,C370B1                                                0000186
+2  39     c2z_strcpy c2_str_1 #102                 MVC   0(1,R9),0(R8)                                            0000187
+2  39     c2z_strcpy c2_str_1 #103                 MVC   1(31,R9),0(R9)                                           0000188
+2  39     c2z_strcpy c2_str_1 #104                 LARL  R9,C37F9                 /* Ln#- 39 fielda */            0000189
+2  39     c2z_strcpy c2_str_1 #105                 LARL  R8,C37F40                                                0000190
+2  39     c2z_strcpy c2_str_1 #106                 MVC   0(9,R9),0(R8)                                            0000191
+2  39     c2z_strcpy c2_str_1 #107                 LARL  R9,C37F9                 /* Ln#- 39 fielda */            0000192
+2  39     c2z_strcpy c2_str_1 #108                 LARL  R8,C370EOF                                               0000193
+2  39     c2z_strcpy c2_str_1 #109                 MVC   10(1,R9),0(R8)                                           0000194
+2  40     c2z_printf c2_printf_string                                   printf("fielda = %s ",fielda);
+2  40     c2z_printf c2_printf_str #1              LARL  R8,C370WTOB                                              0000195
+2  40     c2z_printf c2_printf_str #2              LARL  R7,L40                                                   0000196
+2  40     c2z_printf c2_printf_str #3              MVC   0(9,R8),0(R7)                                            0000197
+2  40     c2z_printf c2_printf_str #4              LHI   R10,9                                                    0000198
+2  40     c2z_printf c2_printf NO[] #7             SR    R1,R1                                                    0000199
+2  40     c2z_printf c2_printf NO[] #8             SR    R2,R2                                                    0000200
+2  40     c2z_printf c2_printf NO[] #9             LARL  R8,C37F9                 /* Ln#- 40 fielda */            0000201
+2  40     c2z_printf c2_printf NO[] #10            LARL  R7,SPCTBL                                                0000202
+2  40     c2z_printf c2_printf NO[] #11            TRT   0(L'C37F9,R8),0(R7)                                      0000203
+2  40     c2z_printf c2_printf NO[] #12            BRC   8,L40A                                                   0000204
+2  40     c2z_printf c2_printf NO[] #13            LARL  R2,C37F9                 /* Ln#- 40 fielda */            0000205
+2  40     c2z_printf c2_printf NO[] #14            SR    R1,R2                                                    0000206
+2  40     c2z_printf c2_printf NO[] #15            LR    R2,R1                                                    0000207
+2  40     c2z_printf c2_printf NO[] #16            J     L40B                                                     0000208
+2  40     c2z_printf c2_printf NO[] #17   L40A     DS    0H                                                       0000209
+2  40     c2z_printf c2_printf NO[] #18            LHI   R2,L'C37F9                                               0000210
+2  40     c2z_printf c2_printf NO[] #19   L40B     DS    0H                                                       0000211
+2  40     c2z_printf c2_printf NO[] #20            LR    R5,R2                                                    0000212
+2  40     c2z_printf c2_printf NO[] #21            LARL  R3,WKAR1                                                 0000213
+2  40     c2z_printf c2_printf NO[] #22            ST    R5,4(,R3)                                                0000214
+2  40     c2z_printf c2_printf NO[] #23            CVD   R5,0(R3)                                                 0000215
+2  40     c2z_printf c2_printf NO[] #24            LARL  R4,C370NWK2                                              0000216
+2  40     c2z_printf c2_printf NO[] #24            ZAP   0(6,R4),0(8,R3)                                          0000217
+2  40     c2z_printf c2_printf NO[] #41   L40C     DS    0H                                                       0000218
+2  40     c2z_printf c2_printf NO[] #42            LARL  R9,C370WTOB                                              0000219
+2  40     c2z_printf c2_printf NO[] #43            LARL  R8,C37F9                 /* Ln#- 40 fielda */            0000220
+2  40     c2z_printf c2_printf NO[] #44            MVC   9(32,R9),0(R8)                                           0000221
+2  40     c2z_printf c2_printf NO[] #45            AHI   R10,32                                                   0000222
+2  40     c2z_printf c2_printf NO[] #46            LARL  R11,C370WTOB                                             0000223
+2  40     c2z_printf c2_printf NO[] #47            TPUTL (R11),(R10),R,ASIS                                       0000224
+2  40     c2z_printf c2_printf NO[] #48            XC    0(75,R11),0(R11)                                         0000225
+2  42     c2z_strlen c2_strlen START                                    len = strlen(fielda);
+2  42     c2z_strlen c2_strlen #2                  SR    R1,R1                                                    0000226
+2  42     c2z_strlen c2_strlen #3                  SR    R2,R2                                                    0000227
+2  42     c2z_strlen c2_strlen #4                  LARL  R8,C37F9                 /* Ln#- 42 fielda */            0000228
+2  42     c2z_strlen c2_strlen #5                  LARL  R7,SPCTBL                                                0000229
+2  42     c2z_strlen c2_strlen #6                  TRT   0(L'C37F9,R8),0(R7)                                      0000230
+2  42     c2z_strlen c2_strlen #7                  BRC   8,L42A                                                   0000231
+2  42     c2z_strlen c2_strlen #8                  LARL  R2,C37F9                 /* Ln#- 42 fielda */            0000232
+2  42     c2z_strlen c2_strlen #9                  SR    R1,R2                                                    0000233
+2  42     c2z_strlen c2_strlen #10                 LR    R2,R1                                                    0000234
+2  42     c2z_strlen c2_strlen #11                 J     L42B                                                     0000235
+2  42     c2z_strlen c2_strlen #12        L42A     DS    0H                                                       0000236
+2  42     c2z_strlen c2_strlen #13                 LHI   R2,L'C37F9                                               0000237
+2  42     c2z_strlen c2_strlen #14        L42B     DS    0H                                                       0000238
+2  42     c2z_strlen c2_strlen #15                 LR    R5,R2                                                    0000239
+2  42     c2z_strlen c2_strlen #16                 LARL  R3,WKAR1                                                 0000240
+2  42     c2z_strlen c2_strlen #17                 ST    R5,4(,R3)                                                0000241
+2  42     c2z_strlen c2_strlen #18                 CVD   R5,0(R3)                                                 0000242
+2  42     c2z_strlen c2_strlen #19                 LARL  R4,C37F16                /* Ln#- 42 len */               0000243
+2  42     c2z_strlen c2_strlen #20                 ZAP   0(6,R4),0(8,R3)                                          0000244
+2  43     c2z_print c2_printf_numeric                                   printf("len fielda = %d\n",len);
+2  43     c2z_print c2_printf %d #43               LARL  R9,L43                                                   0000245
+2  43     c2z_print c2_printf %d #44               LARL  R8,C370WTOB                                              0000246
+2  43     c2z_print c2_printf %d #45               MVC   0(13,R8),0(R9)           /* Ln#- 43 printf   */          0000247
+2  43     c2z_print c2_printf %d #46               LHI   R10,13                                                   0000248
+2  43     c2z_print c2_printf %d #47               LARL  R4,OUTBIG0                                               0000249
+2  43     c2z_print c2_printf %d #48               LARL  R5,EDMASK                                                0000250
+2  43     c2z_print c2_printf %d #49               MVC   0(15,R4),0(R5)                                           0000251
+2  43     c2z_print c2_printf %d #50               LARL  R4,OUTBIG0                                               0000252
+2  43     c2z_print c2_printf %d #51               LARL  R5,C37F16                                                0000253
+2  43     c2z_print c2_printf %d #52               ED    0(15,R4),0(R5)                                           0000254
+2  43     c2z_print c2_printf %d #53               LARL  R9,C370WTOB                                              0000255
+2  43     c2z_print c2_printf %d #54               LARL  R8,OUTBIG0                                               0000256
+2  43     c2z_print c2_printf %d #55               MVC   13(15,R9),0(R8)                                          0000257
+2  43     c2z_print c2_printf %d #56               AHI   R10,15                                                   0000258
+2  43     c2z_print c2_printf %d #57               TPUTL (R9),(R10),R,ASIS                                        0000259
+2  43     c2z_print c2_printf %d #58               XC    0(75,R11),0(R11)                                         0000260
+2  45     c2z_math c2_math_1 START                                      I = 0;
+2  45     c2z_math c2_math_1 #12                   LARL  R9,C37F15                /* Ln#- 45 I */                 0000261
+2  45     c2z_math c2_math_1 #13                   LHI   R5,0                                                     0000262
+2  45     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000263
+2  45     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000264
+2  45     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000265
+2  45     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000266
+2  45     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000267
+2  45     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000268
+2  46     c2z_strcpy c2_str_1 #100                 LARL  R9,C37F13                /* Ln#- 46 varname */           0000269
+2  46     c2z_strcpy c2_str_1 #101                 LARL  R8,C370B1                                                0000270
+2  46     c2z_strcpy c2_str_1 #102                 MVC   0(1,R9),0(R8)                                            0000271
+2  46     c2z_strcpy c2_str_1 #103                 MVC   1(31,R9),0(R9)                                           0000272
+2  46     c2z_strcpy c2_str_1 #104                 LARL  R9,C37F13                /* Ln#- 46 varname */           0000273
+2  46     c2z_strcpy c2_str_1 #105                 LARL  R8,C37F41                                                0000274
+2  46     c2z_strcpy c2_str_1 #106                 MVC   0(6,R9),0(R8)                                            0000275
+2  46     c2z_strcpy c2_str_1 #107                 LARL  R9,C37F13                /* Ln#- 46 varname */           0000276
+2  46     c2z_strcpy c2_str_1 #108                 LARL  R8,C370EOF                                               0000277
+2  46     c2z_strcpy c2_str_1 #109                 MVC   7(1,R9),0(R8)                                            0000278
+2  47     c2z_strcpy.c c2_str_3 s < s                                   strcpy(sn_stack[I], varname);
+2  47     c2z_strcpy c2_str_3 #6                   LARL  R8,C370NWK1                                              0000279
+2  47     c2z_strcpy c2_str_3 #7                   LARL  R7,C370ZERO                                              0000280
+2  47     c2z_strcpy c2_str_3 #8                   ZAP   0(6,R8),0(6,R7)                                          0000281
+2  47     c2z_strcpy c2_str_3 #9                   LARL  R6,A371T                 /* Ln#- 47 sn_stack */          0000282
+2  47     c2z_strcpy c2_str_3 #10         L47B     DS    0H                       /* Ln#- 47 str_3    */          0000283
+2  47     c2z_strcpy c2_str_3 #11                  LARL  R8,C370NWK1                                              0000284
+2  47     c2z_strcpy c2_str_3 #12b                 LARL  R7,C37F15                /* Ln#- 47 I */                 0000285
+2  47     c2z_strcpy c2_str_3 #13                  CP    0(6,R8),0(6,R7)                                          0000286
+2  47     c2z_strcpy c2_str_3 #14                  JLE   L47F                                                     0000287
+2  47     c2z_strcpy c2_str_3 #15                  LARL  R8,C370NWK1                                              0000288
+2  47     c2z_strcpy c2_str_3 #16                  LARL  R7,C370ONE                                               0000289
+2  47     c2z_strcpy c2_str_3 #17                  AP    0(6,R8),0(6,R7)                                          0000290
+2  47     c2z_strcpy c2_str_3 #18                  LAEY  R6,A371L(R0,R6)                                          0000291
+2  47     c2z_strcpy c2_str_3 #19                  JLU   L47B                                                     0000292
+2  47     c2z_strcpy c2_str_3 #20         L47F     DS    0H                       /* Ln#- 47 str_3    */          0000293
+2  47     c2z_strcpy c2_str_3 #21                  LARL  R8,C37F13                /* Ln#- 47 varname */           0000294
+2  47     c2z_strcpy c2_str_3 #22                  MVC   0(64,R6),0(R8)                                           0000295
+2  48     c2z_printf c2_printf_string                                   printf("sn_stack 0 = %s\n",sn_stack[0]);
+2  48     c2z_printf c2_printf_str #1              LARL  R8,C370WTOB                                              0000296
+2  48     c2z_printf c2_printf_str #2              LARL  R7,L48                                                   0000297
+2  48     c2z_printf c2_printf_str #3              MVC   0(13,R8),0(R7)                                           0000298
+2  48     c2z_printf c2_printf_str #4              LHI   R10,13                                                   0000299
+2  48     c2z_print c2_printf_str[] #7             LARL  R6,A371T                                                 0000300
+2  48     c2z_print c2_printf_str[] #8             LARL  R9,C370NWK1                                              0000301
+2  48     c2z_print c2_printf_str[] #9             LARL  R8,C370ZERO                                              0000302
+2  48     c2z_print c2_printf_str[] #10            ZAP   0(6,R9),0(6,R8)                                          0000303
+2  48     c2z_print c2_printf_str[] #11   PR48A    DS    0H                                                       0000305
+2  48     c2z_print c2_printf_str[] #12            LAEY  R5,0                                                     0000306
+2  48     c2z_print c2_printf_str[] #13            LARL  R9,C370U                                                 0000307
+2  48     c2z_print c2_printf_str[] #14            CVD   R5,0(R9)                                                 0000308
+2  48     c2z_print c2_printf_str[] #15            LARL  R9,C370NWK2                                              0000309
+2  48     c2z_print c2_printf_str[] #16            LARL  R8,C370U                                                 0000310
+2  48     c2z_print c2_printf_str[] #17            ZAP   0(6,R9),0(8,R8)                                          0000311
+2  48     c2z_print c2_printf_str[] #19            LARL  R8,C370NWK1                                              0000312
+2  48     c2z_print c2_printf_str[] #20            CP    0(6,R9),0(6,R8)                                          0000313
+2  48     c2z_print c2_printf_str[] #21            JLE   PR48E                                                    0000314
+2  48     c2z_print c2_printf_str[] #22            LARL  R9,C370NWK1                                              0000316
+2  48     c2z_print c2_printf_str[] #23            LARL  R8,C370ONE                                               0000317
+2  48     c2z_print c2_printf_str[] #24            AP    0(6,R9),0(6,R8)                                          0000318
+2  48     c2z_print c2_printf_str[] #25            LAEY  R6,A371L(R0,R6)                                          0000319
+2  48     c2z_print c2_printf_str[] #26            JLU   PR48A                                                    0000320
+2  48     c2z_print c2_printf_str[] #27   PR48E    DS    0H                                                       0000321
+2  48     c2z_print c2_printf_str[] #28            LARL  R9,C370WTOB                                              0000322
+2  48     c2z_print c2_printf_str[] #29            MVC   13(64,R9),0(R6)                                          0000323
+2  48     c2z_print c2_printf_str[] #30            AHI   R10,32                                                   0000324
+2  48     c2z_print c2_printf_str[] #32            LARL  R11,C370WTOB                                             0000325
+2  48     c2z_print c2_printf_str[] #33            TPUTL (R11),(R10),R,ASIS                                       0000326
+2  48     c2z_printf c2_printf_str[] #34           XC    0(78,R11),0(R11)                                         0000327
+2  50     c2z.incr c2_plus #1 START                                     I++;
+2  50     c2z_incr c2_plus #1                      LARL  R8,C37F15                /* Ln#- 50 I */                 0000328
+2  50     c2z_incr c2_plus #2                      LARL  R7,C370ONE               /* Ln#- 50 C370ONE */           0000329
+2  50     c2z_incr c2_plus #3                      AP    0(6,R8),0(6,R7)          /* Ln#- 50 ++       */          0000330
+2  51     c2z_strcpy.c c2_str_3 s < s                                   strcpy(sn_stack[I],fielda);
+2  51     c2z_strcpy c2_str_3 #6                   LARL  R8,C370NWK1                                              0000331
+2  51     c2z_strcpy c2_str_3 #7                   LARL  R7,C370ZERO                                              0000332
+2  51     c2z_strcpy c2_str_3 #8                   ZAP   0(6,R8),0(6,R7)                                          0000333
+2  51     c2z_strcpy c2_str_3 #9                   LARL  R6,A371T                 /* Ln#- 51 sn_stack */          0000334
+2  51     c2z_strcpy c2_str_3 #10         L51B     DS    0H                       /* Ln#- 51 str_3    */          0000335
+2  51     c2z_strcpy c2_str_3 #11                  LARL  R8,C370NWK1                                              0000336
+2  51     c2z_strcpy c2_str_3 #12b                 LARL  R7,C37F15                /* Ln#- 51 I */                 0000337
+2  51     c2z_strcpy c2_str_3 #13                  CP    0(6,R8),0(6,R7)                                          0000338
+2  51     c2z_strcpy c2_str_3 #14                  JLE   L51F                                                     0000339
+2  51     c2z_strcpy c2_str_3 #15                  LARL  R8,C370NWK1                                              0000340
+2  51     c2z_strcpy c2_str_3 #16                  LARL  R7,C370ONE                                               0000341
+2  51     c2z_strcpy c2_str_3 #17                  AP    0(6,R8),0(6,R7)                                          0000342
+2  51     c2z_strcpy c2_str_3 #18                  LAEY  R6,A371L(R0,R6)                                          0000343
+2  51     c2z_strcpy c2_str_3 #19                  JLU   L51B                                                     0000344
+2  51     c2z_strcpy c2_str_3 #20         L51F     DS    0H                       /* Ln#- 51 str_3    */          0000345
+2  51     c2z_strcpy c2_str_3 #21                  LARL  R8,C37F9                 /* Ln#- 51 fielda */            0000346
+2  51     c2z_strcpy c2_str_3 #22                  MVC   0(64,R6),0(R8)                                           0000347
+2  52     c2z_printf c2_printf_string                                   printf("sn_stack 1 = %s\n",sn_stack[1]);
+2  52     c2z_printf c2_printf_str #1              LARL  R8,C370WTOB                                              0000348
+2  52     c2z_printf c2_printf_str #2              LARL  R7,L52                                                   0000349
+2  52     c2z_printf c2_printf_str #3              MVC   0(13,R8),0(R7)                                           0000350
+2  52     c2z_printf c2_printf_str #4              LHI   R10,13                                                   0000351
+2  52     c2z_print c2_printf_str[] #7             LARL  R6,A371T                                                 0000352
+2  52     c2z_print c2_printf_str[] #8             LARL  R9,C370NWK1                                              0000353
+2  52     c2z_print c2_printf_str[] #9             LARL  R8,C370ZERO                                              0000354
+2  52     c2z_print c2_printf_str[] #10            ZAP   0(6,R9),0(6,R8)                                          0000355
+2  52     c2z_print c2_printf_str[] #11   PR52A    DS    0H                                                       0000357
+2  52     c2z_print c2_printf_str[] #12            LAEY  R5,1                                                     0000358
+2  52     c2z_print c2_printf_str[] #13            LARL  R9,C370U                                                 0000359
+2  52     c2z_print c2_printf_str[] #14            CVD   R5,0(R9)                                                 0000360
+2  52     c2z_print c2_printf_str[] #15            LARL  R9,C370NWK2                                              0000361
+2  52     c2z_print c2_printf_str[] #16            LARL  R8,C370U                                                 0000362
+2  52     c2z_print c2_printf_str[] #17            ZAP   0(6,R9),0(8,R8)                                          0000363
+2  52     c2z_print c2_printf_str[] #19            LARL  R8,C370NWK1                                              0000364
+2  52     c2z_print c2_printf_str[] #20            CP    0(6,R9),0(6,R8)                                          0000365
+2  52     c2z_print c2_printf_str[] #21            JLE   PR52E                                                    0000366
+2  52     c2z_print c2_printf_str[] #22            LARL  R9,C370NWK1                                              0000368
+2  52     c2z_print c2_printf_str[] #23            LARL  R8,C370ONE                                               0000369
+2  52     c2z_print c2_printf_str[] #24            AP    0(6,R9),0(6,R8)                                          0000370
+2  52     c2z_print c2_printf_str[] #25            LAEY  R6,A371L(R0,R6)                                          0000371
+2  52     c2z_print c2_printf_str[] #26            JLU   PR52A                                                    0000372
+2  52     c2z_print c2_printf_str[] #27   PR52E    DS    0H                                                       0000373
+2  52     c2z_print c2_printf_str[] #28            LARL  R9,C370WTOB                                              0000374
+2  52     c2z_print c2_printf_str[] #29            MVC   13(64,R9),0(R6)                                          0000375
+2  52     c2z_print c2_printf_str[] #30            AHI   R10,32                                                   0000376
+2  52     c2z_print c2_printf_str[] #32            LARL  R11,C370WTOB                                             0000377
+2  52     c2z_print c2_printf_str[] #33            TPUTL (R11),(R10),R,ASIS                                       0000378
+2  52     c2z_printf c2_printf_str[] #34           XC    0(78,R11),0(R11)                                         0000379
+2  55     c2z_math c2_math_1 START                                      ii = 0;
+2  55     c2z_math c2_math_1 #12                   LARL  R9,C37F23                /* Ln#- 55 ii */                0000380
+2  55     c2z_math c2_math_1 #13                   LHI   R5,0                                                     0000381
+2  55     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000382
+2  55     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000383
+2  55     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000384
+2  55     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000385
+2  55     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000386
+2  55     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000387
+2  56     c2z_strcpy.c c2_str_3 s < s                                   strcpy(array1[ii], fielda);
+2  56     c2z_strcpy c2_str_3 #6                   LARL  R8,C370NWK1                                              0000388
+2  56     c2z_strcpy c2_str_3 #7                   LARL  R7,C370ZERO                                              0000389
+2  56     c2z_strcpy c2_str_3 #8                   ZAP   0(6,R8),0(6,R7)                                          0000390
+2  56     c2z_strcpy c2_str_3 #9                   LARL  R6,A375T                 /* Ln#- 56 array1 */            0000391
+2  56     c2z_strcpy c2_str_3 #10         L56B     DS    0H                       /* Ln#- 56 str_3    */          0000392
+2  56     c2z_strcpy c2_str_3 #11                  LARL  R8,C370NWK1                                              0000393
+2  56     c2z_strcpy c2_str_3 #12b                 LARL  R7,C37F23                /* Ln#- 56 ii */                0000394
+2  56     c2z_strcpy c2_str_3 #13                  CP    0(6,R8),0(6,R7)                                          0000395
+2  56     c2z_strcpy c2_str_3 #14                  JLE   L56F                                                     0000396
+2  56     c2z_strcpy c2_str_3 #15                  LARL  R8,C370NWK1                                              0000397
+2  56     c2z_strcpy c2_str_3 #16                  LARL  R7,C370ONE                                               0000398
+2  56     c2z_strcpy c2_str_3 #17                  AP    0(6,R8),0(6,R7)                                          0000399
+2  56     c2z_strcpy c2_str_3 #18                  LAEY  R6,A375L(R0,R6)                                          0000400
+2  56     c2z_strcpy c2_str_3 #19                  JLU   L56B                                                     0000401
+2  56     c2z_strcpy c2_str_3 #20         L56F     DS    0H                       /* Ln#- 56 str_3    */          0000402
+2  56     c2z_strcpy c2_str_3 #21                  LARL  R8,C37F9                 /* Ln#- 56 fielda */            0000403
+2  56     c2z_strcpy c2_str_3 #22                  MVC   0(64,R6),0(R8)                                           0000404
+2  57     c2z_printf c2_printf_string                                   printf("array1 = %s\n",array1[ii]);
+2  57     c2z_printf c2_printf_str #1              LARL  R8,C370WTOB                                              0000405
+2  57     c2z_printf c2_printf_str #2              LARL  R7,L57                                                   0000406
+2  57     c2z_printf c2_printf_str #3              MVC   0(9,R8),0(R7)                                            0000407
+2  57     c2z_printf c2_printf_str #4              LHI   R10,9                                                    0000408
+2  57     c2z_print c2_printf_str[] #7             LARL  R6,A375T                                                 0000409
+2  57     c2z_print c2_printf_str[] #8             LARL  R9,C370NWK1                                              0000410
+2  57     c2z_print c2_printf_str[] #9             LARL  R8,C370ZERO                                              0000411
+2  57     c2z_print c2_printf_str[] #10            ZAP   0(6,R9),0(6,R8)                                          0000412
+2  57     c2z_print c2_printf_str[] #11   PR57A    DS    0H                                                       0000414
+2  57     c2z_print c2_printf_str[] #18            LARL  R9,C37F23                /* Ln#- 57 ii */                0000415
+2  57     c2z_print c2_printf_str[] #19            LARL  R8,C370NWK1                                              0000416
+2  57     c2z_print c2_printf_str[] #20            CP    0(6,R9),0(6,R8)                                          0000417
+2  57     c2z_print c2_printf_str[] #21            JLE   PR57E                                                    0000418
+2  57     c2z_print c2_printf_str[] #22            LARL  R9,C370NWK1                                              0000420
+2  57     c2z_print c2_printf_str[] #23            LARL  R8,C370ONE                                               0000421
+2  57     c2z_print c2_printf_str[] #24            AP    0(6,R9),0(6,R8)                                          0000422
+2  57     c2z_print c2_printf_str[] #25            LAEY  R6,A375L(R0,R6)                                          0000423
+2  57     c2z_print c2_printf_str[] #26            JLU   PR57A                                                    0000424
+2  57     c2z_print c2_printf_str[] #27   PR57E    DS    0H                                                       0000425
+2  57     c2z_print c2_printf_str[] #28            LARL  R9,C370WTOB                                              0000426
+2  57     c2z_print c2_printf_str[] #29            MVC   9(64,R9),0(R6)                                           0000427
+2  57     c2z_print c2_printf_str[] #30            AHI   R10,32                                                   0000428
+2  57     c2z_print c2_printf_str[] #32            LARL  R11,C370WTOB                                             0000429
+2  57     c2z_print c2_printf_str[] #33            TPUTL (R11),(R10),R,ASIS                                       0000430
+2  57     c2z_printf c2_printf_str[] #34           XC    0(78,R11),0(R11)                                         0000431
+2  59     c2z_math c2_math_1 START                                      ii = 1;
+2  59     c2z_math c2_math_1 #12                   LARL  R9,C37F23                /* Ln#- 59 ii */                0000432
+2  59     c2z_math c2_math_1 #13                   LHI   R5,1                                                     0000433
+2  59     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000434
+2  59     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000435
+2  59     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000436
+2  59     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000437
+2  59     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000438
+2  59     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000439
+2  60     c2z_strcpy c2_str_1 #900                 LARL  R9,C370NWK1                                              0000440
+2  60     c2z_strcpy c2_str_1 #901                 LARL  R8,C370ZERO                                              0000441
+2  60     c2z_strcpy c2_str_1 #902                 ZAP   0(6,R9),0(6,R8)                                          0000442
+2  60     c2z_strcpy c2_str_1 #903                 LARL  R6,A375T                 /* Ln#- 60 array1 */            0000443
+2  60     c2z_strcpy c2_str_1 #904        L60A     DS    0H                                                       0000444
+2  60     c2z_strcpy c2_str_1 #905                 LARL  R9,C370NWK1                                              0000445
+2  60     c2z_strcpy c2_str_1 #906                 LARL  R8,C37F23                /* Ln#- 60 ii */                0000446
+2  60     c2z_strcpy c2_str_1 #907                 CP    0(6,R9),0(6,R8)                                          0000447
+2  60     c2z_strcpy c2_str_1 #908                 JLE   L60B                                                     0000448
+2  60     c2z_strcpy c2_str_1 #909                 LARL  R9,C370NWK1                                              0000449
+2  60     c2z_strcpy c2_str_1 #910                 LARL  R8,C370ONE                                               0000450
+2  60     c2z_strcpy c2_str_1 #911                 AP    0(6,R9),0(6,R8)                                          0000451
+2  60     c2z_strcpy c2_str_1 #912                 LAEY  R6,A375L(R0,R6)          /* Ln#- 60 A375L */             0000452
+2  60     c2z_strcpy c2_str_1 #913                 JLU   L60A                                                     0000453
+2  60     c2z_strcpy c2_str_1 #914        L60B     DS    0H                                                       0000454
+2  60     c2z_strcpy c2_str_1 #914a                XC    0(32,R6),0(R6)                                           0000455
+2  60     c2z_strcpy c2_str_1 #915                 LARL  R9,C37F42                                                0000456
+2  60     c2z_strcpy c2_str_1 #916                 MVC   0(5,R6),0(R9)                                            0000457
+2  60     c2z_strcpy c2_str_1 #916a                LARL  R8,C370EOF                                               0000458
+2  60     c2z_strcpy c2_str_1 #916b                MVC   5(1,R6),0(R8)                                            0000459
+2  61     c2z_printf c2_printf_string                                   printf("array1 = %s\n",array1[ii];
+2  61     c2z_printf c2_printf_str #1              LARL  R8,C370WTOB                                              0000460
+2  61     c2z_printf c2_printf_str #2              LARL  R7,L57                                                   0000461
+2  61     c2z_printf c2_printf_str #3              MVC   0(9,R8),0(R7)                                            0000462
+2  61     c2z_printf c2_printf_str #4              LHI   R10,9                                                    0000463
+2  61     c2z_print c2_printf_str[] #7             LARL  R6,A375T                                                 0000464
+2  61     c2z_print c2_printf_str[] #8             LARL  R9,C370NWK1                                              0000465
+2  61     c2z_print c2_printf_str[] #9             LARL  R8,C370ZERO                                              0000466
+2  61     c2z_print c2_printf_str[] #10            ZAP   0(6,R9),0(6,R8)                                          0000467
+2  61     c2z_print c2_printf_str[] #11   PR61A    DS    0H                                                       0000469
+2  61     c2z_print c2_printf_str[] #18            LARL  R9,C37F23                /* Ln#- 61 ii */                0000470
+2  61     c2z_print c2_printf_str[] #19            LARL  R8,C370NWK1                                              0000471
+2  61     c2z_print c2_printf_str[] #20            CP    0(6,R9),0(6,R8)                                          0000472
+2  61     c2z_print c2_printf_str[] #21            JLE   PR61E                                                    0000473
+2  61     c2z_print c2_printf_str[] #22            LARL  R9,C370NWK1                                              0000475
+2  61     c2z_print c2_printf_str[] #23            LARL  R8,C370ONE                                               0000476
+2  61     c2z_print c2_printf_str[] #24            AP    0(6,R9),0(6,R8)                                          0000477
+2  61     c2z_print c2_printf_str[] #25            LAEY  R6,A375L(R0,R6)                                          0000478
+2  61     c2z_print c2_printf_str[] #26            JLU   PR61A                                                    0000479
+2  61     c2z_print c2_printf_str[] #27   PR61E    DS    0H                                                       0000480
+2  61     c2z_print c2_printf_str[] #28            LARL  R9,C370WTOB                                              0000481
+2  61     c2z_print c2_printf_str[] #29            MVC   9(64,R9),0(R6)                                           0000482
+2  61     c2z_print c2_printf_str[] #30            AHI   R10,32                                                   0000483
+2  61     c2z_print c2_printf_str[] #32            LARL  R11,C370WTOB                                             0000484
+2  61     c2z_print c2_printf_str[] #33            TPUTL (R11),(R10),R,ASIS                                       0000485
+2  61     c2z_printf c2_printf_str[] #34           XC    0(78,R11),0(R11)                                         0000486
+2  63     c2z_math c2_math_1 START                                      xyz = 12;
+2  63     c2z_math c2_math_1 #12                   LARL  R9,C37F17                /* Ln#- 63 xyz */               0000487
+2  63     c2z_math c2_math_1 #13                   LHI   R5,12                                                    0000488
+2  63     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000489
+2  63     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000490
+2  63     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000491
+2  63     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000492
+2  63     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000493
+2  63     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000494
+2  64     c2z_print c2_printf_numeric                                   printf("xyz = %d\n",xyz);
+2  64     c2z_print c2_printf %d #43               LARL  R9,L64                                                   0000495
+2  64     c2z_print c2_printf %d #44               LARL  R8,C370WTOB                                              0000496
+2  64     c2z_print c2_printf %d #45               MVC   0(6,R8),0(R9)            /* Ln#- 64 printf   */          0000497
+2  64     c2z_print c2_printf %d #46               LHI   R10,6                                                    0000498
+2  64     c2z_print c2_printf %d #47               LARL  R4,OUTBIG0                                               0000499
+2  64     c2z_print c2_printf %d #48               LARL  R5,EDMASK                                                0000500
+2  64     c2z_print c2_printf %d #49               MVC   0(15,R4),0(R5)                                           0000501
+2  64     c2z_print c2_printf %d #50               LARL  R4,OUTBIG0                                               0000502
+2  64     c2z_print c2_printf %d #51               LARL  R5,C37F17                                                0000503
+2  64     c2z_print c2_printf %d #52               ED    0(15,R4),0(R5)                                           0000504
+2  64     c2z_print c2_printf %d #53               LARL  R9,C370WTOB                                              0000505
+2  64     c2z_print c2_printf %d #54               LARL  R8,OUTBIG0                                               0000506
+2  64     c2z_print c2_printf %d #55               MVC   6(15,R9),0(R8)                                           0000507
+2  64     c2z_print c2_printf %d #56               AHI   R10,15                                                   0000508
+2  64     c2z_print c2_printf %d #57               TPUTL (R9),(R10),R,ASIS                                        0000509
+2  64     c2z_print c2_printf %d #58               XC    0(75,R11),0(R11)                                         0000510
+2  66     c2z_math c2_math_1 START                                      I = 0;
+2  66     c2z_math c2_math_1 #12                   LARL  R9,C37F15                /* Ln#- 66 I */                 0000511
+2  66     c2z_math c2_math_1 #13                   LHI   R5,0                                                     0000512
+2  66     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000513
+2  66     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000514
+2  66     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000515
+2  66     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000516
+2  66     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000517
+2  66     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000518
+2  67     c2z_math c2_math_5 BRANCH                                     iv_stack[I] = 98;
+2  67     c2z_math c2_math_5                                            iv_stack[I] = 98;
+2  67     c2z_math_c c2_math_5 #200                LHI   R5,98                                                    0000519
+2  67     c2z_math_c c2_math_5 #201                LARL  R9,C370U                                                 0000520
+2  67     c2z_math_c c2_math_5 #202                CVD   R5,0(R9)                                                 0000521
+2  67     c2z_math_c c2_math_5 #203                LARL  R9,C370NWK2                                              0000522
+2  67     c2z_math_c c2_math_5 #204                LARL  R8,C370U                                                 0000523
+2  67     c2z_math_c c2_math_5 #205                ZAP   0(6,R9),0(8,R8)                                          0000524
+2  67     c2z_math_c c2_math_5 #206                LARL  R9,C370NWK1                                              0000525
+2  67     c2z_math.c c2_math_5 #207                LARL  R8,C370ZERO                                              0000526
+2  67     c2z_math.c c2_math_5 #208                ZAP   0(6,R9),0(6,R8)                                          0000527
+2  67     c2z_math.c c2_math_5 #209                LARL  R6,A374T                                                 0000528
+2  67     c2z_math.c c2_math_5 #210       L67A     DS    0H                                                       0000529
+2  67     c2z_math_c c2_math_5 #211                LARL  R9,C370NWK1                                              0000530
+2  67     c2z_math.c c2_math_5 #212                LARL  R8,C37F15                                                0000531
+2  67     c2z_math.c c2_math_5 #213                CP    0(6,R9),0(6,R8)                                          0000532
+2  67     c2z_math.c c2_math_5 #214                JLE   L67B                                                     0000533
+2  67     c2z_math_c c2_math_5 #215                LARL  R9,C370NWK1                                              0000534
+2  67     c2z_math.c c2_math_5 #216                LARL  R8,C370ONE                                               0000535
+2  67     c2z_math.c c2_math_5 #217                AP    0(6,R9),0(6,R8)                                          0000536
+2  67     c2z_math.c c2_math_5 #218                LAEY  R6,A374L(R0,R6)          /* Ln#- 67 A374L */             0000537
+2  67     c2z_math.c c2_math_5 #219                JLU   L67A                                                     0000538
+2  67     c2z_math.c c2_math_5 #220       L67B     DS    0H                                                       0000539
+2  67     c2z_math.c c2_math_5 #221                LARL  R9,C370NWK2                                              0000540
+2  67     c2z_math.c c2_math_5 #222                ZAP   0(6,R6),0(6,R9)                                          0000541
+2  69     c2z_print c2_printf_numeric                                   printf("iv_stack = %d\n",iv_stack[I]);
+2  69     c2z_print c2_printf %d ARRAY                                  printf("iv_stack = %d\n",iv_stack[I]);
+2  69     c2z_print ARRAY %d #1                    LARL  R9,C370WTOB                                              0000542
+2  69     c2z_print ARRAY %d #2                    LARL  R8,L69                                                   0000543
+2  69     c2z_print ARRAY %d #3                    MVC   0(11,R9),0(R8)                                           0000544
+2  69     c2z_print ARRAY %d #4                    LHI   R10,11                                                   0000545
+2  69     c2z_print ARRAY %d #5                    LARL  R8,C370NWK3                                              0000546
+2  69     c2z_print ARRAY %d #6                    LARL  R7,C370ZERO                                              0000547
+2  69     c2z_print ARRAY %d #7                    ZAP   0(6,R8),0(6,R7)                                          0000548
+2  69     c2z_print ARRAY %d #7a                   LARL  R8,C370NWK2                                              0000549
+2  69     c2z_print ARRAY %d #7b                   LARL  R7,C370ZERO                                              0000550
+2  69     c2z_print ARRAY %d #7c                   ZAP   0(6,R8),0(6,R7)                                          0000551
+2  69     c2z_print ARRAY %d #8                    LARL  R6,A374T                 /* Ln#- 69 iv_stack */          0000552
+2  69     c2z_print ARRAY %d #15          AR69G    DS    0H                                                       0000553
+2  69     c2z_print ARRAY %d #16                   LARL  R9,C370NWK3                                              0000554
+2  69     c2z_print ARRAY %d #17                   LARL  R8,C37F15                /* Ln#- 69 I */                 0000555
+2  69     c2z_print ARRAY %d #19                   CP    0(6,R9),0(6,R8)                                          0000556
+2  69     c2z_print ARRAY %d #20                   JLE   AR69L                                                    0000557
+2  69     c2z_print ARRAY %d #21                   LARL  R9,C370NWK3                                              0000558
+2  69     c2z_print ARRAY %d #22                   LARL  R8,C370ONE                                               0000559
+2  69     c2z_print ARRAY %d #23                   AP    0(6,R9),0(6,R8)                                          0000560
+2  69     c2z_print ARRAY %d #24                   LAEY  R6,A374L(R0,R6)                                          0000561
+2  69     c2z_print ARRAY %d #25                   JLU   AR69G                                                    0000562
+2  69     c2z_print ARRAY %d #26          AR69L    DS    0H                                                       0000563
+2  69     c2z_print ARRAY %d #27                   LARL  R9,C370NWK2                                              0000564
+2  69     c2z_print ARRAY %d #28                   ZAP   0(6,R9),0(6,R6)                                          0000565
+2  69     c2z_print ARRAY %d #29                   LARL  R4,OUTBIG0                                               0000566
+2  69     c2z_print ARRAY %d #30                   LARL  R5,EDMASK                                                0000567
+2  69     c2z_print ARRAY %d #31                   MVC   0(15,R4),0(R5)                                           0000568
+2  69     c2z_print ARRAY %d #32                   LARL  R4,OUTBIG0                                               0000569
+2  69     c2z_print ARRAY %d #33                   LARL  R5,C370NWK2                                              0000570
+2  69     c2z_print ARRAY %d #34                   ED    0(15,R4),0(R5)                                           0000571
+2  69     c2z_print ARRAY %d #35                   LARL  R9,C370WTOB                                              0000572
+2  69     c2z_print ARRAY %d #36                   LARL  R8,OUTBIG0                                               0000573
+2  69     c2z_print ARRAY %d #37                   MVC   11(15,R9),0(R8)                                          0000574
+2  69     c2z_print ARRAY %d #38                   AHI  R10,15                                                    0000575
+2  69     c2z_print ARRAY %d #39                   TPUTL (R9),(R10),R,ASIS                                        0000576
+2  69     c2z_print ARRAY %d #40                   XC    0(78,R11),0(R11)                                         0000577
+2  71     c2z_math c2_math_1 START                                      I = 3;
+2  71     c2z_math c2_math_1 #12                   LARL  R9,C37F15                /* Ln#- 71 I */                 0000578
+2  71     c2z_math c2_math_1 #13                   LHI   R5,3                                                     0000579
+2  71     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000580
+2  71     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000581
+2  71     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000582
+2  71     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000583
+2  71     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000584
+2  71     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000585
+2  72     c2z_math c2_math_5 BRANCH                                     iv_stack[I] = 6758;
+2  72     c2z_math c2_math_5                                            iv_stack[I] = 6758;
+2  72     c2z_math_c c2_math_5 #200                LHI   R5,6758                                                  0000586
+2  72     c2z_math_c c2_math_5 #201                LARL  R9,C370U                                                 0000587
+2  72     c2z_math_c c2_math_5 #202                CVD   R5,0(R9)                                                 0000588
+2  72     c2z_math_c c2_math_5 #203                LARL  R9,C370NWK2                                              0000589
+2  72     c2z_math_c c2_math_5 #204                LARL  R8,C370U                                                 0000590
+2  72     c2z_math_c c2_math_5 #205                ZAP   0(6,R9),0(8,R8)                                          0000591
+2  72     c2z_math_c c2_math_5 #206                LARL  R9,C370NWK1                                              0000592
+2  72     c2z_math.c c2_math_5 #207                LARL  R8,C370ZERO                                              0000593
+2  72     c2z_math.c c2_math_5 #208                ZAP   0(6,R9),0(6,R8)                                          0000594
+2  72     c2z_math.c c2_math_5 #209                LARL  R6,A374T                                                 0000595
+2  72     c2z_math.c c2_math_5 #210       L72A     DS    0H                                                       0000596
+2  72     c2z_math_c c2_math_5 #211                LARL  R9,C370NWK1                                              0000597
+2  72     c2z_math.c c2_math_5 #212                LARL  R8,C37F15                                                0000598
+2  72     c2z_math.c c2_math_5 #213                CP    0(6,R9),0(6,R8)                                          0000599
+2  72     c2z_math.c c2_math_5 #214                JLE   L72B                                                     0000600
+2  72     c2z_math_c c2_math_5 #215                LARL  R9,C370NWK1                                              0000601
+2  72     c2z_math.c c2_math_5 #216                LARL  R8,C370ONE                                               0000602
+2  72     c2z_math.c c2_math_5 #217                AP    0(6,R9),0(6,R8)                                          0000603
+2  72     c2z_math.c c2_math_5 #218                LAEY  R6,A374L(R0,R6)          /* Ln#- 72 A374L */             0000604
+2  72     c2z_math.c c2_math_5 #219                JLU   L72A                                                     0000605
+2  72     c2z_math.c c2_math_5 #220       L72B     DS    0H                                                       0000606
+2  72     c2z_math.c c2_math_5 #221                LARL  R9,C370NWK2                                              0000607
+2  72     c2z_math.c c2_math_5 #222                ZAP   0(6,R6),0(6,R9)                                          0000608
+2  73     c2z_print c2_printf_numeric                                   printf("iv_stack = %d\n",iv_stack[I]);
+2  73     c2z_print c2_printf %d ARRAY                                  printf("iv_stack = %d\n",iv_stack[I]);
+2  73     c2z_print ARRAY %d #1                    LARL  R9,C370WTOB                                              0000609
+2  73     c2z_print ARRAY %d #2                    LARL  R8,L69                                                   0000610
+2  73     c2z_print ARRAY %d #3                    MVC   0(11,R9),0(R8)                                           0000611
+2  73     c2z_print ARRAY %d #4                    LHI   R10,11                                                   0000612
+2  73     c2z_print ARRAY %d #5                    LARL  R8,C370NWK3                                              0000613
+2  73     c2z_print ARRAY %d #6                    LARL  R7,C370ZERO                                              0000614
+2  73     c2z_print ARRAY %d #7                    ZAP   0(6,R8),0(6,R7)                                          0000615
+2  73     c2z_print ARRAY %d #7a                   LARL  R8,C370NWK2                                              0000616
+2  73     c2z_print ARRAY %d #7b                   LARL  R7,C370ZERO                                              0000617
+2  73     c2z_print ARRAY %d #7c                   ZAP   0(6,R8),0(6,R7)                                          0000618
+2  73     c2z_print ARRAY %d #8                    LARL  R6,A374T                 /* Ln#- 73 iv_stack */          0000619
+2  73     c2z_print ARRAY %d #15          AR73G    DS    0H                                                       0000620
+2  73     c2z_print ARRAY %d #16                   LARL  R9,C370NWK3                                              0000621
+2  73     c2z_print ARRAY %d #17                   LARL  R8,C37F15                /* Ln#- 73 I */                 0000622
+2  73     c2z_print ARRAY %d #19                   CP    0(6,R9),0(6,R8)                                          0000623
+2  73     c2z_print ARRAY %d #20                   JLE   AR73L                                                    0000624
+2  73     c2z_print ARRAY %d #21                   LARL  R9,C370NWK3                                              0000625
+2  73     c2z_print ARRAY %d #22                   LARL  R8,C370ONE                                               0000626
+2  73     c2z_print ARRAY %d #23                   AP    0(6,R9),0(6,R8)                                          0000627
+2  73     c2z_print ARRAY %d #24                   LAEY  R6,A374L(R0,R6)                                          0000628
+2  73     c2z_print ARRAY %d #25                   JLU   AR73G                                                    0000629
+2  73     c2z_print ARRAY %d #26          AR73L    DS    0H                                                       0000630
+2  73     c2z_print ARRAY %d #27                   LARL  R9,C370NWK2                                              0000631
+2  73     c2z_print ARRAY %d #28                   ZAP   0(6,R9),0(6,R6)                                          0000632
+2  73     c2z_print ARRAY %d #29                   LARL  R4,OUTBIG0                                               0000633
+2  73     c2z_print ARRAY %d #30                   LARL  R5,EDMASK                                                0000634
+2  73     c2z_print ARRAY %d #31                   MVC   0(15,R4),0(R5)                                           0000635
+2  73     c2z_print ARRAY %d #32                   LARL  R4,OUTBIG0                                               0000636
+2  73     c2z_print ARRAY %d #33                   LARL  R5,C370NWK2                                              0000637
+2  73     c2z_print ARRAY %d #34                   ED    0(15,R4),0(R5)                                           0000638
+2  73     c2z_print ARRAY %d #35                   LARL  R9,C370WTOB                                              0000639
+2  73     c2z_print ARRAY %d #36                   LARL  R8,OUTBIG0                                               0000640
+2  73     c2z_print ARRAY %d #37                   MVC   11(15,R9),0(R8)                                          0000641
+2  73     c2z_print ARRAY %d #38                   AHI  R10,15                                                    0000642
+2  73     c2z_print ARRAY %d #39                   TPUTL (R9),(R10),R,ASIS                                        0000643
+2  73     c2z_print ARRAY %d #40                   XC    0(78,R11),0(R11)                                         0000644
+2  76     c2z_for c2_for START                                          for(I = 0; I < 5; I++)
+2  76     c2z_for c2_for #1                        LARL  R8,C370LPCT                                              0000645
+2  76     c2z_for c2_for #2                        LARL  R7,C370ZERO                                              0000646
+2  76     c2z_for c2_for #3                        ZAP   0(6,R8),0(6,R7)                                          0000647
+2  76     c2z_for c2_for #4                        LARL  R8,C37F15                /* Ln#- 76 I */                 0000648
+2  76     c2z_for c2_for #6                        LARL  R7,C370ZERO                                              0000649
+2  76     c2z_for c2_for #8                        ZAP   0(6,R8),0(6,R7)                                          0000650
+2  76     c2z_for c2_for #9                        LARL  R8,C370NWK3                                              0000651
+2  76     c2z_for c2_for #10                       LARL  R7,C370ZERO                                              0000652
+2  76     c2z_for c2_for #11                       ZAP   0(6,R8),0(6,R7)                                          0000653
+2  76     c2z_for c2_for #17              L76      DS    0H                                                       0000654
+2  76     c2z_for c2_for #18                       LARL  R6,C37F15                /* Ln#- 76 I */                 0000655
+2  76     c2z_for c2_for #19                       LHI   R5,5                                                     0000656
+2  76     c2z_for c2_for #20                       LARL  R8,C370U                                                 0000657
+2  76     c2z_for c2_for #21                       CVD   R5,0(R8)                                                 0000658
+2  76     c2z_for c2_for #22                       LARL  R8,C370NWK1                                              0000659
+2  76     c2z_for c2_for #23                       LARL  R7,C370U                                                 0000660
+2  76     c2z_for c2_for #24                       ZAP   0(6,R8),0(8,R7)                                          0000661
+2  76     c2z_for c2_for #26                       CP    0(6,R8),0(6,R6)                                          0000662
+2  76     c2z_for c2_for #28                       JLE   L76E                                                     0000663
+2  78     c2z_print c2_printf_numeric                                      printf("I = %d\n",iv_stack[I]);
+2  78     c2z_print c2_printf %d ARRAY                                     printf("I = %d\n",iv_stack[I]);
+2  78     c2z_print ARRAY %d #1                    LARL  R9,C370WTOB                                              0000664
+2  78     c2z_print ARRAY %d #2                    LARL  R8,L78                                                   0000665
+2  78     c2z_print ARRAY %d #3                    MVC   0(4,R9),0(R8)                                            0000666
+2  78     c2z_print ARRAY %d #4                    LHI   R10,4                                                    0000667
+2  78     c2z_print ARRAY %d #5                    LARL  R8,C370NWK3                                              0000668
+2  78     c2z_print ARRAY %d #6                    LARL  R7,C370ZERO                                              0000669
+2  78     c2z_print ARRAY %d #7                    ZAP   0(6,R8),0(6,R7)                                          0000670
+2  78     c2z_print ARRAY %d #7a                   LARL  R8,C370NWK2                                              0000671
+2  78     c2z_print ARRAY %d #7b                   LARL  R7,C370ZERO                                              0000672
+2  78     c2z_print ARRAY %d #7c                   ZAP   0(6,R8),0(6,R7)                                          0000673
+2  78     c2z_print ARRAY %d #8                    LARL  R6,A374T                 /* Ln#- 78 iv_stack */          0000674
+2  78     c2z_print ARRAY %d #15          AR78G    DS    0H                                                       0000675
+2  78     c2z_print ARRAY %d #16                   LARL  R9,C370NWK3                                              0000676
+2  78     c2z_print ARRAY %d #17                   LARL  R8,C37F15                /* Ln#- 78 I */                 0000677
+2  78     c2z_print ARRAY %d #19                   CP    0(6,R9),0(6,R8)                                          0000678
+2  78     c2z_print ARRAY %d #20                   JLE   AR78L                                                    0000679
+2  78     c2z_print ARRAY %d #21                   LARL  R9,C370NWK3                                              0000680
+2  78     c2z_print ARRAY %d #22                   LARL  R8,C370ONE                                               0000681
+2  78     c2z_print ARRAY %d #23                   AP    0(6,R9),0(6,R8)                                          0000682
+2  78     c2z_print ARRAY %d #24                   LAEY  R6,A374L(R0,R6)                                          0000683
+2  78     c2z_print ARRAY %d #25                   JLU   AR78G                                                    0000684
+2  78     c2z_print ARRAY %d #26          AR78L    DS    0H                                                       0000685
+2  78     c2z_print ARRAY %d #27                   LARL  R9,C370NWK2                                              0000686
+2  78     c2z_print ARRAY %d #28                   ZAP   0(6,R9),0(6,R6)                                          0000687
+2  78     c2z_print ARRAY %d #29                   LARL  R4,OUTBIG0                                               0000688
+2  78     c2z_print ARRAY %d #30                   LARL  R5,EDMASK                                                0000689
+2  78     c2z_print ARRAY %d #31                   MVC   0(15,R4),0(R5)                                           0000690
+2  78     c2z_print ARRAY %d #32                   LARL  R4,OUTBIG0                                               0000691
+2  78     c2z_print ARRAY %d #33                   LARL  R5,C370NWK2                                              0000692
+2  78     c2z_print ARRAY %d #34                   ED    0(15,R4),0(R5)                                           0000693
+2  78     c2z_print ARRAY %d #35                   LARL  R9,C370WTOB                                              0000694
+2  78     c2z_print ARRAY %d #36                   LARL  R8,OUTBIG0                                               0000695
+2  78     c2z_print ARRAY %d #37                   MVC   4(15,R9),0(R8)                                           0000696
+2  78     c2z_print ARRAY %d #38                   AHI  R10,15                                                    0000697
+2  78     c2z_print ARRAY %d #39                   TPUTL (R9),(R10),R,ASIS                                        0000698
+2  78     c2z_print ARRAY %d #40                   XC    0(78,R11),0(R11)                                         0000699
+2  79     c2z FOR/End Loop #1                      LARL  R8,C37F15                /* Ln#- 79 C37F15 */            0000700
+2  79     c2z FOR/End Loop #2                      LARL  R7,C370ONE               /* Ln#- 79 C370ONE */           0000701
+2  79     c2z FOR/End Loop #3                      AP    0(6,R8),0(6,R7)                                          0000702
+2  79     c2z FOR/End Loop #4                      JLU   L76                                                      0000703
+2  79     c2z FOR/End Loop #5             L76E     DS    0H                                                       0000704
+2  79     c2z FOR/End Loop #6                      LARL  R8,C370LPCT                                              0000705
+2  79     c2z FOR/End Loop #7                      LARL  R7,C370ZERO              /* Ln#- 79 C370ZERO */          0000706
+2  79     c2z FOR/End Loop #8                      ZAP   0(6,R8),0(6,R7)                                          0000707
+2  81     c2z_math c2_math_1 START                                       I = 0;
+2  81     c2z_math c2_math_1 #12                   LARL  R9,C37F15                /* Ln#- 81 I */                 0000708
+2  81     c2z_math c2_math_1 #13                   LHI   R5,0                                                     0000709
+2  81     c2z_math c2_math_1 #14                   LARL  R7,C370U                                                 0000710
+2  81     c2z_math c2_math_1 #15                   CVD   R5,0(R7)                                                 0000711
+2  81     c2z_math c2_math_1 #16                   LARL  R8,C370NWK1                                              0000712
+2  81     c2z_math c2_math_1 #17                   LARL  R7,C370U                                                 0000713
+2  81     c2z_math c2_math_1 #18                   ZAP   0(6,R8),0(8,R7)                                          0000714
+2  81     c2z_math c2_math_1 #19                   ZAP   0(6,R9),0(6,R8)                                          0000715
+2  82     c2z_math c2_math_5 BRANCH                                      sv_stack[I] = 11123;
+2  82     c2z_math c2_math_5                                             sv_stack[I] = 11123;
+2  82     c2z_math_c c2_math_5 #200                LHI   R5,11123                                                 0000716
+2  82     c2z_math_c c2_math_5 #201                LARL  R9,C370U                                                 0000717
+2  82     c2z_math_c c2_math_5 #202                CVD   R5,0(R9)                                                 0000718
+2  82     c2z_math_c c2_math_5 #203                LARL  R9,C370NWK2                                              0000719
+2  82     c2z_math_c c2_math_5 #204                LARL  R8,C370U                                                 0000720
+2  82     c2z_math_c c2_math_5 #205                ZAP   0(6,R9),0(8,R8)                                          0000721
+2  82     c2z_math_c c2_math_5 #206                LARL  R9,C370NWK1                                              0000722
+2  82     c2z_math.c c2_math_5 #207                LARL  R8,C370ZERO                                              0000723
+2  82     c2z_math.c c2_math_5 #208                ZAP   0(6,R9),0(6,R8)                                          0000724
+2  82     c2z_math.c c2_math_5 #209                LARL  R6,A372T                                                 0000725
+2  82     c2z_math.c c2_math_5 #210       L82A     DS    0H                                                       0000726
+2  82     c2z_math_c c2_math_5 #211                LARL  R9,C370NWK1                                              0000727
+2  82     c2z_math.c c2_math_5 #212                LARL  R8,C37F15                                                0000728
+2  82     c2z_math.c c2_math_5 #213                CP    0(6,R9),0(6,R8)                                          0000729
+2  82     c2z_math.c c2_math_5 #214                JLE   L82B                                                     0000730
+2  82     c2z_math_c c2_math_5 #215                LARL  R9,C370NWK1                                              0000731
+2  82     c2z_math.c c2_math_5 #216                LARL  R8,C370ONE                                               0000732
+2  82     c2z_math.c c2_math_5 #217                AP    0(6,R9),0(6,R8)                                          0000733
+2  82     c2z_math.c c2_math_5 #218                LAEY  R6,A372L(R0,R6)          /* Ln#- 82 A372L */             0000734
+2  82     c2z_math.c c2_math_5 #219                JLU   L82A                                                     0000735
+2  82     c2z_math.c c2_math_5 #220       L82B     DS    0H                                                       0000736
+2  82     c2z_math.c c2_math_5 #221                LARL  R9,C370NWK2                                              0000737
+2  82     c2z_math.c c2_math_5 #222                ZAP   0(6,R6),0(6,R9)                                          0000738
+2  84     c2z_print c2_printf_numeric                                    printf("sv_stack = %d\n",sv_stack[I]);
+2  84     c2z_print c2_printf %d ARRAY                                   printf("sv_stack = %d\n",sv_stack[I]);
+2  84     c2z_print ARRAY %d #1                    LARL  R9,C370WTOB                                              0000739
+2  84     c2z_print ARRAY %d #2                    LARL  R8,L84                                                   0000740
+2  84     c2z_print ARRAY %d #3                    MVC   0(11,R9),0(R8)                                           0000741
+2  84     c2z_print ARRAY %d #4                    LHI   R10,11                                                   0000742
+2  84     c2z_print ARRAY %d #5                    LARL  R8,C370NWK3                                              0000743
+2  84     c2z_print ARRAY %d #6                    LARL  R7,C370ZERO                                              0000744
+2  84     c2z_print ARRAY %d #7                    ZAP   0(6,R8),0(6,R7)                                          0000745
+2  84     c2z_print ARRAY %d #7a                   LARL  R8,C370NWK2                                              0000746
+2  84     c2z_print ARRAY %d #7b                   LARL  R7,C370ZERO                                              0000747
+2  84     c2z_print ARRAY %d #7c                   ZAP   0(6,R8),0(6,R7)                                          0000748
+2  84     c2z_print ARRAY %d #8                    LARL  R6,A372T                 /* Ln#- 84 sv_stack */          0000749
+2  84     c2z_print ARRAY %d #15          AR84G    DS    0H                                                       0000750
+2  84     c2z_print ARRAY %d #16                   LARL  R9,C370NWK3                                              0000751
+2  84     c2z_print ARRAY %d #17                   LARL  R8,C37F15                /* Ln#- 84 I */                 0000752
+2  84     c2z_print ARRAY %d #19                   CP    0(6,R9),0(6,R8)                                          0000753
+2  84     c2z_print ARRAY %d #20                   JLE   AR84L                                                    0000754
+2  84     c2z_print ARRAY %d #21                   LARL  R9,C370NWK3                                              0000755
+2  84     c2z_print ARRAY %d #22                   LARL  R8,C370ONE                                               0000756
+2  84     c2z_print ARRAY %d #23                   AP    0(6,R9),0(6,R8)                                          0000757
+2  84     c2z_print ARRAY %d #24                   LAEY  R6,A372L(R0,R6)                                          0000758
+2  84     c2z_print ARRAY %d #25                   JLU   AR84G                                                    0000759
+2  84     c2z_print ARRAY %d #26          AR84L    DS    0H                                                       0000760
+2  84     c2z_print ARRAY %d #27                   LARL  R9,C370NWK2                                              0000761
+2  84     c2z_print ARRAY %d #28                   ZAP   0(6,R9),0(6,R6)                                          0000762
+2  84     c2z_print ARRAY %d #29                   LARL  R4,OUTBIG0                                               0000763
+2  84     c2z_print ARRAY %d #30                   LARL  R5,EDMASK                                                0000764
+2  84     c2z_print ARRAY %d #31                   MVC   0(15,R4),0(R5)                                           0000765
+2  84     c2z_print ARRAY %d #32                   LARL  R4,OUTBIG0                                               0000766
+2  84     c2z_print ARRAY %d #33                   LARL  R5,C370NWK2                                              0000767
+2  84     c2z_print ARRAY %d #34                   ED    0(15,R4),0(R5)                                           0000768
+2  84     c2z_print ARRAY %d #35                   LARL  R9,C370WTOB                                              0000769
+2  84     c2z_print ARRAY %d #36                   LARL  R8,OUTBIG0                                               0000770
+2  84     c2z_print ARRAY %d #37                   MVC   11(15,R9),0(R8)                                          0000771
+2  84     c2z_print ARRAY %d #38                   AHI  R10,15                                                    0000772
+2  84     c2z_print ARRAY %d #39                   TPUTL (R9),(R10),R,ASIS                                        0000773
+2  84     c2z_print ARRAY %d #40                   XC    0(78,R11),0(R11)                                         0000774
+2  88     c2z_print c2_printf_literal                                   printf("End of ctest21\n");
+2  88     c2z_print c2_printf_literal #6           MVC2  C370WTOB,L88                                             0000775
+2  88     c2z_print c2_printf_literal #7           LARL  R11,C370WTOB                                             0000776
+2  88     c2z_print c2_printf_literal #8           LHI   R10,14                                                   0000777
+2  88     c2z_print c2_printf_literal #9           TPUTL (R11),(R10),R,ASIS                                       0000778
+2  88     c2z_print c2_printf_literal #10          XC    0(75,R11),0(R11)                                         0000779
+2  90     c2z pass 3 punch C370EXIT #1    C370EXIT DS    0H                                                       0000780
+2  90     c2z pass 3 punch C370EXIT #5             WTORL '>...',REPLY,1,ECB                                       0000781
+2  90     c2z pass 3 punch C370EXIT #6             WAITL ECB=ECB                                                  0000782
+2  90     c2z pass 3 punch SUBEXIT #7              SUBEXIT                                                        0000783
+2  90     c2z pass 3 punch SUBEXIT #8     *                                                                       0000784
+2  91     c2z_eoj EQUREGS #1              *                                                                       0000785
+2  91     c2z_eoj EQUREGS #2              R0       EQU   0                                                        0000786
+2  91     c2z_eoj EQUREGS #3              R1       EQU   1                                                        0000787
+2  91     c2z_eoj EQUREGS #4              R2       EQU   2                                                        0000788
+2  91     c2z_eoj EQUREGS #5              R3       EQU   3                                                        0000789
+2  91     c2z_eoj EQUREGS #6              R4       EQU   4                                                        0000790
+2  91     c2z_eoj EQUREGS #7              R5       EQU   5                                                        0000791
+2  91     c2z_eoj EQUREGS #8              R6       EQU   6                                                        0000792
+2  91     c2z_eoj EQUREGS #9              R7       EQU   7                                                        0000793
+2  91     c2z_eoj EQUREGS #10             R8       EQU   8                                                        0000794
+2  91     c2z_eoj EQUREGS #11             R9       EQU   9                                                        0000795
+2  91     c2z_eoj EQUREGS #12             R10      EQU   10                                                       0000796
+2  91     c2z_eoj EQUREGS #13             R11      EQU   11                                                       0000797
+2  91     c2z_eoj EQUREGS #14             R12      EQU   12                                                       0000798
+2  91     c2z_eoj EQUREGS #15             R13      EQU   13                                                       0000799
+2  91     c2z_eoj EQUREGS #16             R14      EQU   14                                                       0000800
+2  91     c2z_eoj EQUREGS #17             R15      EQU   15                                                       0000801
+2  91     c2z_eoj EQUREGS #18             *                                                                       0000802
+2  91     c2z_eoj WTOR #1                 REPLY    DC    C' '                                                     0000803
+2  91     c2z_eoj WTOR #2                 ECB      DC    F'0'                                                     0000804
+2  91     c2z_eoj STRLEN #1                        DC    0D                                                       0000805
+2  91     c2z_eoj STRLEN #2               SPCTBL   DC    256X'00'                                                 0000806
+2  91     c2z_eoj STRLEN #3                        ORG   SPCTBL+X'40'                                             0000807
+2  91     c2z_eoj STRLEN #4                        DC    X'FF'                                                    0000808
+2  91     c2z_eoj STRLEN #5                        ORG   ,                                                        0000809
+2  91     c2z_eoj OUTBIG0 #20                      DS    0H                              /* /* c2a gen variable   0000810
+2  91     c2z_eoj OUTBIG0 #21             OUTBIG0  DS    CL15                            /* /* c2a gen variable   0000811
+2  91     c2z_eoj OUTBIG0 #22                      DS    0H                              /* /* c2a gen variable   0000812
+2  91     c2z_eoj EDMASK #23              EDMASK   DC    X'40'                           /* /* c2a gen variable   0000813
+2  91     c2z_eoj EDMASK #24                       DC    X'20',X'20'                     /* /* c2a gen variable   0000814
+2  91     c2z_eoj EDMASK #25                       DC    X'6B'                           /* /* c2a gen variable   0000815
+2  91     c2z_eoj EDMASK #26                       DC    X'20',X'20',X'20'               /* /* c2a gen variable   0000816
+2  91     c2z_eoj EDMASK #27                       DC    X'6B'                           /* /* c2a gen variable   0000817
+2  91     c2z_eoj EDMASK #28                       DC    X'20',X'20',X'20'               /* /* c2a gen variable   0000818
+2  91     c2z_eoj EDMASK #29                       DC    X'6B'                           /* /* c2a gen variable   0000819
+2  91     c2z_eoj EDMASK #30                       DC    X'20',X'21'                     /* /* c2a gen variable   0000820
+2  91     c2z_eoj EDMASK #31                       DC    X'20'                           /* /* c2a gen variable   0000821
+2  91     c2z_eoj EDMASK #32                       DC    X'C3D9'                         /* /* c2a gen variable   0000822
+2  91     c2z_eoj EDMASK #33                       DS    0H                              /* /* c2a gen variable   0000823
+2  91     c2z_eoj EDMASK #34              *                                                                       0000824
+2  91     c2z Parser Var #23              WKAR1    DS    D                                                        0000825
+2  91     c2z_eoj Char Literal #1         * Character Literals                                                    0000826
+2  91     c2z_eoj Char Literal #2         *                                                                       0000827
+2  91     c2z_eoj Char Literal #3         C37F40   DC    C'abcdefghi'                                             0000828
+2  91     c2z_eoj Cbar Literal #4                  DS    0H                                                       0000829
+2  91     c2z_eoj Char Literal #3         C37F41   DC    C'fielda'                                                0000830
+2  91     c2z_eoj Cbar Literal #4                  DS    0H                                                       0000831
+2  91     c2z_eoj Char Literal #3         C37F42   DC    C'98765'                                                 0000832
+2  91     c2z_eoj Cbar Literal #4                  DS    0H                                                       0000833
+2  91     c2z_eoj Math Literal #7         *                                                                       0000834
+2  91     c2z_eoj Math Literal #8         C37F1    DC    PL6'80'               /* BUFSIZE  */                     0000835
+2  91     c2z_eoj Math Literal #8         C37F2    DC    PL6'6'                /* LINE_NUM  */                    0000836
+2  91     c2z_eoj Math Literal #8         C37F3    DC    PL6'21'               /* TOKEN_LEN  */                   0000837
+2  91     c2z_eoj Math Literal #8         C37F4    DC    PL6'64'               /* VAR_NAME  */                    0000838
+2  91     c2z_eoj Math Literal #8         C37F5    DC    PL6'33'               /* LLEN  */                        0000839
+2  91     c2z_eoj Math Literal #8         C37F6    DC    PL6'30'               /* MAX_VARS  */                    0000840
+2  91     c2z_eoj Math Literal #8         C37F14   DC    PL6'0'                /* fieldb  */                      0000841
+2  91     c2z_eoj Math Literal #8         C37F15   DC    PL6'0'                /* I  */                           0000842
+2  91     c2z_eoj Math Literal #8         C37F16   DC    PL6'0'                /* len  */                         0000843
+2  91     c2z_eoj Math Literal #8         C37F17   DC    PL6'0'                /* xyz  */                         0000844
+2  91     c2z_eoj Math Literal #8         C37F18   DC    PL6'0'                /* def  */                         0000845
+2  91     c2z_eoj Math Literal #8         C37F19   DC    PL6'0'                /* ghi  */                         0000846
+2  91     c2z_eoj Math Literal #8         C37F20   DC    PL6'0'                /* jkl  */                         0000847
+2  91     c2z_eoj Math Literal #8         C37F21   DC    PL6'0'                /* mno  */                         0000848
+2  91     c2z_eoj Math Literal #8         C37F22   DC    PL6'0'                /* pqr  */                         0000849
+2  91     c2z_eoj Math Literal #8         C37F23   DC    PL6'0'                /* ii  */                          0000850
+2  91     c2z_eoj Math Literal #8         C37F29   DC    PL6'0'                /* A372W  */                       0000851
+2  91     c2z_eoj Math Literal #8         C37F35   DC    PL6'0'                /* A374W  */                       0000852
+2  91     c2z_eoj Math Literal #8         argc     DC    PL6'0'                /* argc  */                        0000853
+2  91     c2z_eoj Math Literal #8         NULL     DC    PL6'-1'               /* NULL  */                        0000854
+2  91     c2z_eoj GLOBAL #1                        DS    0H                                                       0000855
+2  91     c2z_eoj GLOBAL #2               *                                                                       0000856
+2  91     c2z_eoj GLOBAL #3               * Global Variables                                                      0000857
+2  91     c2z_eoj GLOBAL #4               *                                                                       0000858
+2  91     c2z_eoj c2_eoj GLOBAL #5        L37      DC    C'Hello Z390 World'                                      0000859
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000860
+2  91     c2z_eoj c2_eoj GLOBAL #5        L40      DC    C'fielda = '                                             0000861
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000862
+2  91     c2z_eoj c2_eoj GLOBAL #5        L43      DC    C'len fielda = '                                         0000863
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000864
+2  91     c2z_eoj c2_eoj GLOBAL #5        L48      DC    C'sn_stack 0 = '                                         0000865
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000866
+2  91     c2z_eoj c2_eoj GLOBAL #5        L52      DC    C'sn_stack 1 = '                                         0000867
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000868
+2  91     c2z_eoj c2_eoj GLOBAL #5        L57      DC    C'array1 = '                                             0000869
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000870
+2  91     c2z_eoj c2_eoj GLOBAL #5        L64      DC    C'xyz = '                                                0000871
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000872
+2  91     c2z_eoj c2_eoj GLOBAL #5        L69      DC    C'iv_stack = '                                           0000873
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000874
+2  91     c2z_eoj c2_eoj GLOBAL #5        L78      DC    C'I = '                                                  0000875
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000876
+2  91     c2z_eoj c2_eoj GLOBAL #5        L84      DC    C'sv_stack = '                                           0000877
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000878
+2  91     c2z_eoj c2_eoj GLOBAL #5        L88      DC    C'End of ctest21'                                        0000879
+2  91     c2z_eoj c2_eoj GLOBAL #6                 DS    0H                                                       0000880
+2  91     c2z_eoj c2_eoj GLOBAL #11       A371T    DS    30CL(A371L)                                              0000881
+2  91     c2z_eoj c2_eoj GLOBAL #12       *                                                                       0000882
+2  91     c2z_eoj c2_eoj GLOBAL #12a      C37F24   DS    PL6'0'                                                   0000883
+2  91     c2z_eoj c2_eoj GLOBAL #11       A373T    DS    30CL(A373L)                                              0000884
+2  91     c2z_eoj c2_eoj GLOBAL #12       *                                                                       0000885
+2  91     c2z_eoj c2_eoj GLOBAL #12a      C37F30   DS    PL6'0'                                                   0000886
+2  91     c2z_eoj c2_eoj GLOBAL #11       A375T    DS    30CL(A375L)                                              0000887
+2  91     c2z_eoj c2_eoj GLOBAL #12       *                                                                       0000888
+2  91     c2z_eoj c2_eoj GLOBAL #12a      C37F36   DS    PL6'0'                                                   0000889
+2  91     c2z_eoj c2_eoj GLOBAL #13                DS    0H                                                       0000890
+2  91     c2z_eoj c2_eoj GLOBAL #14       A372T    DC    30PL6'0'                                                 0000891
+2  91     c2z_eoj c2_eoj GLOBAL #15       *                                                                       0000892
+2  91     c2z_eoj c2_eoj GLOBAL #13                DS    0H                                                       0000893
+2  91     c2z_eoj c2_eoj GLOBAL #14       A374T    DC    30PL6'0'                                                 0000894
+2  91     c2z_eoj c2_eoj GLOBAL #15       *                                                                       0000895
+2  91     c2z_eoj c2_eoj STRUCTURE #3              DS    0H                                                       0000896
+2  91     c2z_eoj c2_eoj GLOBAL #20       *                                                                       0000897
+2  91     c2z_eoj c2_eoj GLOBAL #22       *                                                                       0000898
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F7    DC    CL80' '                                                  0000899
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F9    DC    CL32' '                                                  0000900
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F11   DC    CL10' '                                                  0000901
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F13   DC    CL32' '                                                  0000902
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F26   DC    CL64' '                                                  0000903
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F32   DC    CL64' '                                                  0000904
+2  91     c2z_eoj c2_eoj GLOBAL #23       C37F38   DC    CL64' '                                                  0000905
+2  91     c2z_eoj c2_eoj GLOBAL #23       argv     DC    CL32' '                                                  0000906
+2  91     c2z_eoj c2_eoj Local Varialbles *                                                                       0000907
+2  91     c2z_eoj c2_eoj Local Varialbles * Local Variables                                                       0000908
+2  91     c2z_eoj c2_eoj Local Varialbles *                                                                       0000909
+2  91     c2z_eoj c2_eoj Local Varialbles          DS    0H                                                       0000910
+2  91     c2z_eoj c2_eoj Local Varialbles *                                                                       0000911
+2  91     c2z Parser Var #1                        LTORG                                                          0000912
+2  91     c2z Parser Var #60                       DS    0H                              /* c2z gen variable  */  0000913
+2  91     c2z Parser Var #61              C370ZERO DC    PL6'0'                          /* c2z gen variable  */  0000914
+2  91     c2z Parser Var #62                       DS    0H                              /* c2z gen variable  */  0000915
+2  91     c2z Parser Var #63              C370ONE  DC    PL6'1'                          /* c2z gen variable  */  0000916
+2  91     c2z Parser Var #94                       DS    0H                              /* c2z gen variable  */  0000917
+2  91     c2z Parser Var #95              C370U    DS    D                               /* c2z gen variable  */  0000918
+2  91     c2z Parser Var #96                       DS    0H                              /* c2z gen variable  */  0000919
+2  91     c2z Parser Var #97              C370NWK1 DC    PL6'0'                          /* c2z gen variable  */  0000920
+2  91     c2z Parser Var #98                       DS    0H                              /* c2z gen variable  */  0000921
+2  91     c2z Parser Var #99              C370NWK2 DC    PL6'0'                          /* c2z gen variable  */  0000922
+2  91     c2z Parser Var #102                      DS    0H                              /* c2z gen variable  */  0000923
+2  91     c2z Parser Var #103             C370B1   DC    C' '                            /* c2z gen variable  */  0000924
+2  91     c2z Parser Var #140                      DS    0H                              /* c2z gen variable  */  0000925
+2  91     c2z Parser Var #141             C370LPCT DC    PL6'0'                          /* c2z gen variable  */  0000926
+2  91     c2z Parser Var #142                      DS    0H                              /* c2z gen variable  */  0000927
+2  91     c2z Parser Var #143             C370EOF  DC    X'0'                            /* c2z gen variable  */  0000928
+2  91     c2z Parser Var #142                      DS    0H                              /* c2z gen variable  */  0000929
+2  91     c2z Parser Var #143             C370QUOT DC    X'''                            /* c2z gen variable  */  0000930
+2  91     c2z Parser Var #150                      DS    0H                              /* c2z gen variable  */  0000931
+2  91     c2z Parser Var #151             C370NWK3 DC    PL6'0'                          /* c2z gen variable  */  0000932
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000933
+2  91     c2z Parser Var #155             C37FLPAR DC    C'('                            /* value start_math */   0000934
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000935
+2  91     c2z Parser Var #155             C37FCOMA DC    C','                            /* value start_math */   0000936
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000937
+2  91     c2z Parser Var #155             C37M001  DC    PL6'0'                          /* value start_math */   0000938
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000939
+2  91     c2z Parser Var #155             C37M003  DC    PL6'0'                          /* pi Exp */             0000940
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000941
+2  91     c2z Parser Var #155             C37M004  DC    PL6'0'                          /* Value  Exp */         0000942
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000943
+2  91     c2z Parser Var #155             C37M005  DC    PL6'0'                          /* e_pos  Exp */         0000944
+2  91     c2z Parser Var #154                      DS    0H                              /* c2z gen variable  */  0000945
+2  91     c2z Parser Var #155             C37M002  DC    CL1' '                          /* ch Exp */             0000946
+2  91     c2z Parser Var #300             *                                                                       0000947
+2  91     c2z Parser Var #301                      DS    0H                              /* c2z gen variable  */  0000948
+2  91     c2z Parser Var #302             C370WTO  DC    AL2(C370WTOE-*,0)               /* c2z gen variable  */  0000949
+2  91     c2z Parser Var #302             C370WTOB DC    CL78' '                         /* c2z gen variable  */  0000950
+2  91     c2z Parser Var #303             C370WTOE EQU   *                               /* c2z gen variable  */  0000951
+2  91     c2z Parser Var #303             C370WTOL EQU   *-C370WTOB                      /* c2z gen variable  */  0000952
+2  91     c2z Parser Var #304             *                                                                       0000953
+2  91     c2z Parser Var #112             *                                                                       0000954
+2  91     c2z_eoj.c c2_eoj char array #1  A371N    DSECT                          /* Ln#- 91 */                   0000955
+2  91     c2z_eoj.c c2_eoj char array #2  A371A    DS    CL64' '                                                  0000956
+2  91     c2z_eoj.c c2_eoj char array #3  A371L    EQU   *-A371N                                                  0000957
+2  91     c2z_eoj.c c2_eoj char array #4           DS    0H                                                       0000958
+2  91     c2z_eoj.c c2_eoj char array #5  *                                                                       0000959
+2  91     c2z_eoj.c c2_eoj char array #1  A373N    DSECT                          /* Ln#- 91 */                   0000960
+2  91     c2z_eoj.c c2_eoj char array #2  A373A    DS    CL64' '                                                  0000961
+2  91     c2z_eoj.c c2_eoj char array #3  A373L    EQU   *-A373N                                                  0000962
+2  91     c2z_eoj.c c2_eoj char array #4           DS    0H                                                       0000963
+2  91     c2z_eoj.c c2_eoj char array #5  *                                                                       0000964
+2  91     c2z_eoj.c c2_eoj char array #1  A375N    DSECT                          /* Ln#- 91 */                   0000965
+2  91     c2z_eoj.c c2_eoj char array #2  A375A    DS    CL64' '                                                  0000966
+2  91     c2z_eoj.c c2_eoj char array #3  A375L    EQU   *-A375N                                                  0000967
+2  91     c2z_eoj.c c2_eoj char array #4           DS    0H                                                       0000968
+2  91     c2z_eoj.c c2_eoj char array #5  *                                                                       0000969
+2  91     c2z_eoj.c c2_eoj int array #1   A372N    DSECT                          /* Ln#- 91 */                   0000970
+2  91     c2z_eoj.c c2_eoj int array #2   A372A    DS    PL6'0'                                                   0000971
+2  91     c2z_eoj.c c2_eoj int array #3   A372L    EQU   *-A372N                                                  0000972
+2  91     c2z_eoj.c c2_eoj int array #5   *                                                                       0000973
+2  91     c2z_eoj.c c2_eoj int array #1   A374N    DSECT                          /* Ln#- 91 */                   0000974
+2  91     c2z_eoj.c c2_eoj int array #2   A374A    DS    PL6'0'                                                   0000975
+2  91     c2z_eoj.c c2_eoj int array #3   A374L    EQU   *-A374N                                                  0000976
+2  91     c2z_eoj.c c2_eoj int array #5   *                                                                       0000977
+2  91     c2z_eoj c2_eoj TN3270                    TN3270 SYMBOLS DEFINE TN3290 CONTROL AND ATTRIBUTE CODES       0000978
+2  91     c2z_eoj c2_eoj GUAM                      GUAM   SYMBOLS DEFINE GUI MCS, SCREEN, AND GRAPH CODES         0000979
+2  91     c2z_eoj c2_eoj End of Parser             END                                                            0000980
+2  91     c2_debug                                                    }
+
+
+---------- Define -------------------
+
+
+---------- fopen --------------------
+
+
+---------- fclose -------------------
+
+
+---------- functions ----------------
+
+Rct   Function                 CName          Start  Sv_Var    fd1         fd2          fd3
+----  -----------------------  -------------  -----  --------  ----------  -----------  ------------
+
+
+---------- constant -----------------
+
+Rec - 37   Current  - L37   Use      - L37
+Rec - 40   Current  - L40   Use      - L40
+Rec - 43   Current  - L43   Use      - L43
+Rec - 48   Current  - L48   Use      - L48
+Rec - 52   Current  - L52   Use      - L52
+Rec - 57   Current  - L57   Use      - L57
+Rec - 61   Current  - L61   Use      - L57
+Rec - 64   Current  - L64   Use      - L64
+Rec - 69   Current  - L69   Use      - L69
+Rec - 73   Current  - L73   Use      - L69
+Rec - 78   Current  - L78   Use      - L78
+Rec - 84   Current  - L84   Use      - L84
+Rec - 88   Current  - L88   Use      - L88
+
+-----------  Dynamic Character Literals  ---------
+Rct     Cname       Value     Lgth  Literal
+
+
+
+----------------  Character Literals  --------------
+Rct     Cname       Value               Lgth     Type
+39      C37F40      abcdefghi             9       3         0
+46      C37F41      fielda                6       3         0
+60      C37F42      98765                 5       3         1
+
+
+
+------------------------------ Global Variables -------------------------------
+Rec     Name                   CName         Type  Lgth  Clgth   ID   Value   Literal
+-----  ----------------------  ------------  ----  ----  ----    --   ------  -------------
+2      BUFSIZE                 C37F1           I     0     0      1    80        
+3      LINE_NUM                C37F2           I     0     0      1    6         
+4      TOKEN_LEN               C37F3           I     0     0      1    21        
+5      VAR_NAME                C37F4           I     0     0      1    64        
+6      LLEN                    C37F5           I     0     0      1    33        
+8      MAX_VARS                C37F6           I     0     0      1    30        
+10     r_string                C37F7           C     80    80     1              
+11     fielda                  C37F9           C     32    9      3    32        
+12     fieldc                  C37F11          C     10    0      3    10        
+13     varname                 C37F13          C     32    6      3    32        
+14     fieldb                  C37F14          I     0     0      1    0         
+15     I                       C37F15          I     0     1      1    0         
+16     len                     C37F16          I     0     0      1    0         
+17     xyz                     C37F17          I     0     0      1    0         
+18     def                     C37F18          I     0     0      1    0         
+19     ghi                     C37F19          I     0     0      1    0         
+20     jkl                     C37F20          I     0     0      1    0         
+21     mno                     C37F21          I     0     0      1    0         
+22     pqr                     C37F22          I     0     0      1    0         
+23     ii                      C37F23          I     0     0      1    0         
+25     sn_stack                C37F24          A     64    0      0              
+25     A371A                   C37F25          B     0     0      0              
+25     A371W                   C37F26          C     64    0      0              
+26     sv_stack                C37F27          G     0     0      0              
+26     A372A                   C37F28          B     0     0      0              
+26     A372W                   C37F29          I     0     0      0              
+28     in_stack                C37F30          A     64    0      0              
+28     A373A                   C37F31          B     0     0      0              
+28     A373W                   C37F32          C     64    0      0              
+29     iv_stack                C37F33          G     0     0      0              
+29     A374A                   C37F34          B     0     0      0              
+29     A374W                   C37F35          I     0     0      0              
+31     array1                  C37F36          A     64    0      0              
+31     A375A                   C37F37          B     0     0      0              
+31     A375W                   C37F38          C     64    0      0              
+34     argc                    argc            I     0     0      0              
+34     argv                    argv            C     32    0      0              
+37     L37                                     L     16    0      5              Hello Z390 World
+40     L40                                     L     9     0      5              fielda = 
+43     L43                                     L     13    0      5              len fielda = 
+48     L48                                     L     13    0      5              sn_stack 0 = 
+52     L52                                     L     13    0      5              sn_stack 1 = 
+57     L57                                     L     9     0      5              array1 = 
+64     L64                                     L     6     0      5              xyz = 
+69     L69                                     L     11    0      5              iv_stack = 
+78     L78                                     L     4     0      5              I = 
+84     L84                                     L     11    0      5              sv_stack = 
+88     L88                                     L     14    0      5              End of ctest21
+91     NULL                    NULL            I     0     0      1    -1        
+
+Total Global Variables = 49
+
+
+------------------------------------ Local Variables ------------------------------------------
+Rec     Name                   CName          Function         Type  Lgth  Clgth   ID      Value/Literal
+-----  ----------------------  -------------  ---------------  ----  ----  -----   ---     -------------
+
+Total Local Variables = 0
+
+
+---------- includes -----------------
+
+
+-------------------------------- IF table -----------------------------------
+Rec     Level    EOF1    ELSE1   EOF2   ELSE2   Code 
+-----  -------  ------  ------  ------ -------  -------------------------------
+
+
+---------- while table --------------
+
+
+----------   for table --------------
+FOR  = 76 Level - 1 EOF - 79 RCT -   for(I = 0; I < 5; I++)
+
+
+----------   switch table --------------
+
+
+---------- Structure Usages -----------
+gw_variables         Global Variables   - 49
+lw_variables         Local Variables    - 0
+Function Usage     - 0
+Structure Usage    - 0
+Constant Usage     - 13
+Character literals - 3
+File Open's        - 0
+fs_map             -  Map defines       - 0
+fs_field           -  Field defines     - 0
+

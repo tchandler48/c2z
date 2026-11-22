@@ -1,0 +1,2 @@
+gcc -o bxbasic bxbasic.c
+

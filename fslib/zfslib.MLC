@@ -102,12 +102,12 @@ C370OPN4 DS    0H                                                       0000095
 *                                                                       0000102
 C370EF1  DS    0H                                                       0000103
          CLOSE pgm                                                      0000104
-         JLU   L214                                                     0000105
+         JLU   L211                                                     0000105
 CL00     DS    0H                                                       0000106
          JLU   C370EXIT                                                 0000107
 C370EF2  DS    0H                                                       0000108
          CLOSE mlc                                                      0000109
-         JLU   L215                                                     0000110
+         JLU   L212                                                     0000110
 CL10     DS    0H                                                       0000111
          JLU   C370EXIT                                                 0000112
 C370EF3  DS    0H                                                       0000113
@@ -174,243 +174,242 @@ f_out    DCB   DSORG=PS,                                               x0000158
 START    DS    0H                                                       0000174
 *  1  
 *  2  
-*  3  
-*  4  void c2_fs_1(void);
-*  5  void c2_fs_2(void);
-*  6  void c2_fs_3(void);
-*  7  void c2_fs_4(void);
-*  8  void c2_fs_5(void);
-*  9  void c2_fs_6(void);
-*  10  void src_line(void);
-*  11  void write_remark(void);
-*  12  void check_length(void); 
-*  13  
-*  14  FILE *pgm;
-*  15  FILE *mlc;
-*  16  FILE *f_in;
-*  17  FILE *f_out;
-*  18  
-*  19  #define BUFSIZE    128
-*  20  #define VAR_LGTH    32
-*  21  
-*  22  char ch;
+*  3  void c2_fs_1(void);
+*  4  void c2_fs_2(void);
+*  5  void c2_fs_3(void);
+*  6  void c2_fs_4(void);
+*  7  void c2_fs_5(void);
+*  8  void c2_fs_6(void);
+*  9  void src_line(void);
+*  10  void write_remark(void);
+*  11  void check_length(void); 
+*  12  
+*  13  FILE *pgm;
+*  14  FILE *mlc;
+*  15  FILE *f_in;
+*  16  FILE *f_out;
+*  17  
+*  18  #define BUFSIZE    128
+*  19  #define VAR_LGTH    32
+*  20  
+*  21  char ch;
          LARL  R9,C37F25                     /*  ch */                  0000175
          LARL  R8,C370B1                                                0000176
          MVC   0(1,R9),0(R8)                                            0000177
          LARL  R8,C370EOF                                               0000178
          MVC   0(1,R9),0(R8)                                            0000179
-*  23  char *p;
+*  22  char *p;
          LARL  R9,C37F26                     /*  p */                   0000180
          LARL  R8,C370B1                                                0000181
          MVC   0(1,R9),0(R8)                                            0000182
          MVC   1(31,R9),0(R9)                                           0000183
          LARL  R8,C370EOF                                               0000184
          MVC   0(1,R9),0(R8)                                            0000185
-*  24  char p_string[128];
+*  23  char p_string[128];
          LARL  R9,C37F28                     /*  p_string */            0000186
          LARL  R8,C370B1                                                0000187
          MVC   0(1,R9),0(R8)                                            0000188
          MVC   1(127,R9),0(R9)                                          0000189
          LARL  R8,C370EOF                                               0000190
          MVC   0(1,R9),0(R8)                                            0000191
-*  25  char a_string[128];
+*  24  char a_string[128];
          LARL  R9,C37F30                     /*  a_string */            0000192
          LARL  R8,C370B1                                                0000193
          MVC   0(1,R9),0(R8)                                            0000194
          MVC   1(127,R9),0(R9)                                          0000195
          LARL  R8,C370EOF                                               0000196
          MVC   0(1,R9),0(R8)                                            0000197
-*  26  char filename[18];
+*  25  char filename[18];
          LARL  R9,C37F32                     /*  filename */            0000198
          LARL  R8,C370B1                                                0000199
          MVC   0(1,R9),0(R8)                                            0000200
          MVC   1(17,R9),0(R9)                                           0000201
          LARL  R8,C370EOF                                               0000202
          MVC   0(1,R9),0(R8)                                            0000203
-*  27  char wk_strg[6];
+*  26  char wk_strg[6];
          LARL  R9,C37F34                     /*  wk_strg */             0000204
          LARL  R8,C370B1                                                0000205
          MVC   0(1,R9),0(R8)                                            0000206
          MVC   1(5,R9),0(R9)                                            0000207
          LARL  R8,C370EOF                                               0000208
          MVC   0(1,R9),0(R8)                                            0000209
-*  28  char c_wkname[8];
+*  27  char c_wkname[8];
          LARL  R9,C37F36                     /*  c_wkname */            0000210
          LARL  R8,C370B1                                                0000211
          MVC   0(1,R9),0(R8)                                            0000212
          MVC   1(7,R9),0(R9)                                            0000213
          LARL  R8,C370EOF                                               0000214
          MVC   0(1,R9),0(R8)                                            0000215
-*  29  char sv_func[12];
+*  28  char sv_func[12];
          LARL  R9,C37F38                     /*  sv_func */             0000216
          LARL  R8,C370B1                                                0000217
          MVC   0(1,R9),0(R8)                                            0000218
          MVC   1(11,R9),0(R9)                                           0000219
          LARL  R8,C370EOF                                               0000220
          MVC   0(1,R9),0(R8)                                            0000221
-*  30  char wk_remark[22];
+*  29  char wk_remark[22];
          LARL  R9,C37F40                     /*  wk_remark */           0000222
          LARL  R8,C370B1                                                0000223
          MVC   0(1,R9),0(R8)                                            0000224
          MVC   1(21,R9),0(R9)                                           0000225
          LARL  R8,C370EOF                                               0000226
          MVC   0(1,R9),0(R8)                                            0000227
-*  31  char w_address[5];
+*  30  char w_address[5];
          LARL  R9,C37F42                     /*  w_address */           0000228
          LARL  R8,C370B1                                                0000229
          MVC   0(1,R9),0(R8)                                            0000230
          MVC   1(4,R9),0(R9)                                            0000231
          LARL  R8,C370EOF                                               0000232
          MVC   0(1,R9),0(R8)                                            0000233
-*  32  char null_field[2];
+*  31  char null_field[2];
          LARL  R9,C37F44                     /*  null_field */          0000234
          LARL  R8,C370B1                                                0000235
          MVC   0(1,R9),0(R8)                                            0000236
          MVC   1(1,R9),0(R9)                                            0000237
          LARL  R8,C370EOF                                               0000238
          MVC   0(1,R9),0(R8)                                            0000239
+*  32  
 *  33  
-*  34  
-*  35  char field1[VAR_LGTH];
+*  34  char field1[VAR_LGTH];
          LARL  R9,C37F45                     /*  field1 */              0000240
          LARL  R8,C370B1                                                0000241
          MVC   0(1,R9),0(R8)                                            0000242
          MVC   1(31,R9),0(R9)                                           0000243
          LARL  R8,C370EOF                                               0000244
          MVC   0(1,R9),0(R8)                                            0000245
-*  36  char field1a[VAR_LGTH];
+*  35  char field1a[VAR_LGTH];
          LARL  R9,C37F46                     /*  field1a */             0000246
          LARL  R8,C370B1                                                0000247
          MVC   0(1,R9),0(R8)                                            0000248
          MVC   1(31,R9),0(R9)                                           0000249
          LARL  R8,C370EOF                                               0000250
          MVC   0(1,R9),0(R8)                                            0000251
-*  37  char field2[VAR_LGTH];
+*  36  char field2[VAR_LGTH];
          LARL  R9,C37F47                     /*  field2 */              0000252
          LARL  R8,C370B1                                                0000253
          MVC   0(1,R9),0(R8)                                            0000254
          MVC   1(31,R9),0(R9)                                           0000255
          LARL  R8,C370EOF                                               0000256
          MVC   0(1,R9),0(R8)                                            0000257
-*  38  char field4[VAR_LGTH];
+*  37  char field4[VAR_LGTH];
          LARL  R9,C37F48                     /*  field4 */              0000258
          LARL  R8,C370B1                                                0000259
          MVC   0(1,R9),0(R8)                                            0000260
          MVC   1(31,R9),0(R9)                                           0000261
          LARL  R8,C370EOF                                               0000262
          MVC   0(1,R9),0(R8)                                            0000263
-*  39  char tfield4[VAR_LGTH];
+*  38  char tfield4[VAR_LGTH];
          LARL  R9,C37F49                     /*  tfield4 */             0000264
          LARL  R8,C370B1                                                0000265
          MVC   0(1,R9),0(R8)                                            0000266
          MVC   1(31,R9),0(R9)                                           0000267
          LARL  R8,C370EOF                                               0000268
          MVC   0(1,R9),0(R8)                                            0000269
+*  39  
 *  40  
-*  41  
-*  42  int rct;
+*  41  int rct;
          LARL  R9,C37F50                     /*  rct */                 0000270
          LARL  R8,C370ZERO                                              0000271
          ZAP   0(6,R9),0(6,R8)                                          0000272
-*  43  int convert;
+*  42  int convert;
          LARL  R9,C37F51                     /*  convert */             0000273
          LARL  R8,C370ZERO                                              0000274
          ZAP   0(6,R9),0(6,R8)                                          0000275
-*  44  int traceflg;
+*  43  int traceflg;
          LARL  R9,C37F52                     /*  traceflg */            0000276
          LARL  R8,C370ZERO                                              0000277
          ZAP   0(6,R9),0(6,R8)                                          0000278
-*  45  int c_name;
+*  44  int c_name;
          LARL  R9,C37F53                     /*  c_name */              0000279
          LARL  R8,C370ZERO                                              0000280
          ZAP   0(6,R9),0(6,R8)                                          0000281
-*  46  int s;
+*  45  int s;
          LARL  R9,C37F54                     /*  s */                   0000282
          LARL  R8,C370ZERO                                              0000283
          ZAP   0(6,R9),0(6,R8)                                          0000284
-*  47  int global_st;
+*  46  int global_st;
          LARL  R9,C37F55                     /*  global_st */           0000285
          LARL  R8,C370ZERO                                              0000286
          ZAP   0(6,R9),0(6,R8)                                          0000287
-*  48  int erct;
+*  47  int erct;
          LARL  R9,C37F56                     /*  erct */                0000288
          LARL  R8,C370ZERO                                              0000289
          ZAP   0(6,R9),0(6,R8)                                          0000290
-*  49  int var_use;
+*  48  int var_use;
          LARL  R9,C37F57                     /*  var_use */             0000291
          LARL  R8,C370ZERO                                              0000292
          ZAP   0(6,R9),0(6,R8)                                          0000293
-*  50  int I;
+*  49  int I;
          LARL  R9,C37F58                     /*  I */                   0000294
          LARL  R8,C370ZERO                                              0000295
          ZAP   0(6,R9),0(6,R8)                                          0000296
-*  51  int x;
+*  50  int x;
          LARL  R9,C37F59                     /*  x */                   0000297
          LARL  R8,C370ZERO                                              0000298
          ZAP   0(6,R9),0(6,R8)                                          0000299
-*  52  int x3;
+*  51  int x3;
          LARL  R9,C37F60                     /*  x3 */                  0000300
          LARL  R8,C370ZERO                                              0000301
          ZAP   0(6,R9),0(6,R8)                                          0000302
-*  53  int x4;
+*  52  int x4;
          LARL  R9,C37F61                     /*  x4 */                  0000303
          LARL  R8,C370ZERO                                              0000304
          ZAP   0(6,R9),0(6,R8)                                          0000305
-*  54  int x5;
+*  53  int x5;
          LARL  R9,C37F62                     /*  x5 */                  0000306
          LARL  R8,C370ZERO                                              0000307
          ZAP   0(6,R9),0(6,R8)                                          0000308
-*  55  int x7;
+*  54  int x7;
          LARL  R9,C37F63                     /*  x7 */                  0000309
          LARL  R8,C370ZERO                                              0000310
          ZAP   0(6,R9),0(6,R8)                                          0000311
-*  56  int x97;
+*  55  int x97;
          LARL  R9,C37F64                     /*  x97 */                 0000312
          LARL  R8,C370ZERO                                              0000313
          ZAP   0(6,R9),0(6,R8)                                          0000314
-*  57  int x98;
+*  56  int x98;
          LARL  R9,C37F65                     /*  x98 */                 0000315
          LARL  R8,C370ZERO                                              0000316
          ZAP   0(6,R9),0(6,R8)                                          0000317
-*  58  int ret;
+*  57  int ret;
          LARL  R9,C37F66                     /*  ret */                 0000318
          LARL  R8,C370ZERO                                              0000319
          ZAP   0(6,R9),0(6,R8)                                          0000320
-*  59  int ret1;
+*  58  int ret1;
          LARL  R9,C37F67                     /*  ret1 */                0000321
          LARL  R8,C370ZERO                                              0000322
          ZAP   0(6,R9),0(6,R8)                                          0000323
-*  60  int v;
+*  59  int v;
          LARL  R9,C37F68                     /*  v */                   0000324
          LARL  R8,C370ZERO                                              0000325
          ZAP   0(6,R9),0(6,R8)                                          0000326
-*  61  int k1;
+*  60  int k1;
          LARL  R9,C37F69                     /*  k1 */                  0000327
          LARL  R8,C370ZERO                                              0000328
          ZAP   0(6,R9),0(6,R8)                                          0000329
-*  62  int k;
+*  61  int k;
          LARL  R9,C37F70                     /*  k */                   0000330
          LARL  R8,C370ZERO                                              0000331
          ZAP   0(6,R9),0(6,R8)                                          0000332
-*  63  int p_ct;
+*  62  int p_ct;
          LARL  R9,C37F71                     /*  p_ct */                0000333
          LARL  R8,C370ZERO                                              0000334
          ZAP   0(6,R9),0(6,R8)                                          0000335
-*  64  int II;
+*  63  int II;
          LARL  R9,C37F72                     /*  II */                  0000336
          LARL  R8,C370ZERO                                              0000337
          ZAP   0(6,R9),0(6,R8)                                          0000338
+*  64  
 *  65  
-*  66  
-*  67  int lv_ct;
+*  66  int lv_ct;
          LARL  R9,C37F73                     /*  lv_ct */               0000339
          LARL  R8,C370ZERO                                              0000340
          ZAP   0(6,R9),0(6,R8)                                          0000341
-*  68  int gv_ct;
+*  67  int gv_ct;
          LARL  R9,C37F74                     /*  gv_ct */               0000342
          LARL  R8,C370ZERO                                              0000343
          ZAP   0(6,R9),0(6,R8)                                          0000344
-*  69  int w_lgth = 0;
+*  68  int w_lgth = 0;
          LARL  R9,C37F76                     /*  w_lgth */              0000345
          LAEY  R5,0                          /*  0 */                   0000346
          LARL  R7,C370U                                                 0000347
@@ -419,8 +418,7 @@ START    DS    0H                                                       0000174
          LARL  R7,C370U                                                 0000350
          ZAP   0(6,R8),0(8,R7)                                          0000351
          ZAP   0(6,R9),0(6,R8)                                          0000352
-*  70  
-*  71  int fs_map_ct = 0;
+*  69  int fs_map_ct = 0;
          LARL  R9,C37F78                     /*  fs_map_ct */           0000353
          LAEY  R5,0                          /*  0 */                   0000354
          LARL  R7,C370U                                                 0000355
@@ -429,7 +427,7 @@ START    DS    0H                                                       0000174
          LARL  R7,C370U                                                 0000358
          ZAP   0(6,R8),0(8,R7)                                          0000359
          ZAP   0(6,R9),0(6,R8)                                          0000360
-*  72  int fs_field_ct = 0;
+*  70  int fs_field_ct = 0;
          LARL  R9,C37F80                     /*  fs_field_ct */         0000361
          LAEY  R5,0                          /*  0 */                   0000362
          LARL  R7,C370U                                                 0000363
@@ -438,7 +436,7 @@ START    DS    0H                                                       0000174
          LARL  R7,C370U                                                 0000366
          ZAP   0(6,R8),0(8,R7)                                          0000367
          ZAP   0(6,R9),0(6,R8)                                          0000368
-*  73  int T3270_ct = 0;
+*  71  int T3270_ct = 0;
          LARL  R9,C37F82                     /*  T3270_ct */            0000369
          LAEY  R5,0                          /*  0 */                   0000370
          LARL  R7,C370U                                                 0000371
@@ -447,8 +445,7 @@ START    DS    0H                                                       0000174
          LARL  R7,C370U                                                 0000374
          ZAP   0(6,R8),0(8,R7)                                          0000375
          ZAP   0(6,R9),0(6,R8)                                          0000376
-*  74  int fsaid_ct = 0;
-*  75  int scr_loop_ct = 0;
+*  72  int scr_loop_ct = 0;
          LARL  R9,C37F84                     /*  scr_loop_ct */         0000377
          LAEY  R5,0                          /*  0 */                   0000378
          LARL  R7,C370U                                                 0000379
@@ -457,7 +454,7 @@ START    DS    0H                                                       0000174
          LARL  R7,C370U                                                 0000382
          ZAP   0(6,R8),0(8,R7)                                          0000383
          ZAP   0(6,R9),0(6,R8)                                          0000384
-*  76  int goto_label_ct = 0;
+*  73  int goto_label_ct = 0;
          LARL  R9,C37F86                     /*  goto_label_ct */       0000385
          LAEY  R5,0                          /*  0 */                   0000386
          LARL  R7,C370U                                                 0000387
@@ -466,31 +463,31 @@ START    DS    0H                                                       0000174
          LARL  R7,C370U                                                 0000390
          ZAP   0(6,R8),0(8,R7)                                          0000391
          ZAP   0(6,R9),0(6,R8)                                          0000392
+*  74  
+*  75  char T3270[1922][5];
+*  76  
 *  77  
-*  78  char T3270[1922][5];
-*  79  
-*  80  
-*  81  struct var 
-*  97  struct var *lw_variable;
-*  98  
-*  99  struct fs_map
-*  105  struct fs_map *w_fs_map;
-*  106  
-*  107  
-*  108  struct fs_field
-*  124  struct fs_field *w_fs_field;
-*  125  
-*  126  struct fs_scr_field
-*  132  struct fs_scr_field *w_fs_scr_field;
-*  133  
-*  134  struct fs_fsaid
-*  140  struct fs_fsaid *w_fs_fsaid;
-*  141  
-*  142  struct goto_label 
-*  148  struct goto_label *w_goto_label;
-*  149  
-*  150  
-*  151  int main(int argc, char *argv[]) 
+*  78  struct var 
+*  94  struct var *lw_variable;
+*  95  
+*  96  struct fs_map
+*  102  struct fs_map *w_fs_map;
+*  103  
+*  104  
+*  105  struct fs_field
+*  121  struct fs_field *w_fs_field;
+*  122  
+*  123  struct fs_scr_field
+*  129  struct fs_scr_field *w_fs_scr_field;
+*  130  
+*  131  struct fs_fsaid
+*  137  struct fs_fsaid *w_fs_fsaid;
+*  138  
+*  139  struct goto_label 
+*  145  struct goto_label *w_goto_label;
+*  146  
+*  147  
+*  148  int main(int argc, char *argv[]) 
 FR1      DS    0H                                                       0000393
          LAEY  R6,A371T                      /*  T3270 */               0000394
          LAEY  R5,9610                                                  0000395
@@ -736,9 +733,9 @@ FR11     DS    0H                                                       0000627
          MVC   38(32,R6),37(R6)                                         0000635
          LAEY  R6,C37F166L(R0,R6)                                       0000636
          JCT   R5,FR11                                                  0000637
-*  152  {
-*  153  
-*  154  if(argc > 2)
+*  149  {
+*  150  
+*  151  if(argc > 2)
          LARL  R9,argc                       /*  argc */                0000638
          LAEY  R5,2                                                     0000639
          LARL  R7,C370U                                                 0000640
@@ -747,21 +744,21 @@ FR11     DS    0H                                                       0000627
          LARL  R7,C370U                                                 0000643
          ZAP   0(6,R8),0(8,R7)                                          0000644
          CP    0(6,R9),0(6,R8)                                          0000645
-         JLE   L154                                                     0000646
-         JLL   L154                                                     0000647
-*  155  {
-*  156  printf("ERROR\n");
+         JLE   L151                                                     0000646
+         JLL   L151                                                     0000647
+*  152  {
+*  153  printf("ERROR\n");
          LARL  R9,C370NWK1                                              0000648
          LARL  R8,C370ZERO                                              0000649
          ZAP   0(6,R9),0(6,R8)                                          0000650
          LAEY  R4,5                                                     0000651
-L156A    DS    0H                                                       0000652
+L153A    DS    0H                                                       0000652
          LARL  R9,C370U                                                 0000653
          LARL  R8,C370NWK1                                              0000654
          ZAP   0(8,R9),2(4,R8)                                          0000655
          LARL  R8,C370U                                                 0000656
          CVB   R5,0(R8)                                                 0000657
-         LARL  R8,L156                                                  0000658
+         LARL  R8,L153                                                  0000658
          IC    R0,0(R8,(R5))                                            0000659
          LARL  R9,C370L1                                                0000660
          STC   R0,0(0,R9)                                               0000661
@@ -781,20 +778,20 @@ L156A    DS    0H                                                       0000652
          LARL  R9,C370PBUF                                              0000675
          LARL  R8,C370ONE                                               0000676
          AP    0(6,R9),0(6,R8)                                          0000677
-         JCT   R4,L156A                                                 0000678
-L156T    DS    0H                                                       0000679
+         JCT   R4,L153A                                                 0000678
+L153T    DS    0H                                                       0000679
          LARL  R15,WTOALPHA                                             0000680
          BAKR  0,R15                                                    0000681
          LARL  R9,C370PBUF                                              0000682
          LARL  R8,C370ZERO                                              0000683
          ZAP   0(6,R9),0(6,R8)                                          0000684
-*  157  }
-L154     DS    0H                                                       0000685
-*  158  
-*  159  c2_fs_5();
+*  154  }
+L151     DS    0H                                                       0000685
+*  155  
+*  156  c2_fs_5();
          LARL  R15,C37F9                     /*  c2_fs_5 */             0000686
          BAKR  0,R15                                                    0000687
-*  160  null_field[0] = '\0';
+*  157  null_field[0] = '\0';
          LARL  R9,C370U                                                 0000688
          LAEY  R5,0                                                     0000689
          LARL  R7,C370U                                                 0000690
@@ -811,36 +808,36 @@ L154     DS    0H                                                       0000685
          AR    R1,R2                                                    0000701
          LARL  R8,C370EOF                    /*  C370EOF */             0000702
          MVC   0(1,R1),0(R8)                                            0000703
-*  161  
-*  162  strcpy(filename, argv[1]);
-*  163  
-*  164  pgm = fopen(filename, "rb");
+*  158  
+*  159  strcpy(filename, argv[1]);
+*  160  
+*  161  pgm = fopen(filename, "rb");
          LARL  R15,C370OPN1                                             0000704
          BAKR  0,R15                                                    0000705
-*  165  
-*  166  mlc = fopen("HELLO1.TMP", "w");
+*  162  
+*  163  mlc = fopen("HELLO1.TMP", "w");
          LARL  R15,C370OPN2                                             0000706
          BAKR  0,R15                                                    0000707
-*  167  
-*  168  while (1) 
-L168     DS    0H                                                       0000708
-*  169  {
-*  170  if (feof(pgm)) 
-*  171  {
-*  172  break;
-*  173  }
-L170     DS    0H                                                       0000709
-*  174  
-*  175  fgets(p_string, BUFSIZE, pgm);
+*  164  
+*  165  while (1) 
+L165     DS    0H                                                       0000708
+*  166  {
+*  167  if (feof(pgm)) 
+*  168  {
+*  169  break;
+*  170  }
+L167     DS    0H                                                       0000709
+*  171  
+*  172  fgets(p_string, BUFSIZE, pgm);
          LARL  R9,pgm                                                   0000710
          GET   (R9)                          /*  fgets    */            0000711
          LARL  R9,C37F28                     /*  p_string */            0000712
          LARL  R8,C370PB1                                               0000713
          MVC   0(128,R9),0(R8)                                          0000714
          LARL  R9,C370NWK1                                              0000715
-         LARL  R8,C37F2158                                              0000716
+         LARL  R8,C37F2146                                              0000716
          ZAP   0(6,R9),0(6,R8)                                          0000717
-L175A    DS    0H                                                       0000718
+L172A    DS    0H                                                       0000718
          LARL  R9,C370U                                                 0000719
          LARL  R8,C370NWK1                                              0000720
          ZAP   0(8,R9),2(4,R8)                                          0000721
@@ -853,12 +850,12 @@ L175A    DS    0H                                                       0000718
          LARL  R9,C370L1                                                0000728
          LARL  R8,C370B1                                                0000729
          CLC   0(1,R9),0(R8)                                            0000730
-         JLNE  L175B                                                    0000731
+         JLNE  L172B                                                    0000731
          LARL  R9,C370NWK1                                              0000732
          LARL  R8,C370ONE                                               0000733
          SP    0(6,R9),0(6,R8)                                          0000734
-         JLU    L175A                                                   0000735
-L175B    DS    0H                                                       0000736
+         JLU    L172A                                                   0000735
+L172B    DS    0H                                                       0000736
          LARL  R9,C370NWK1                                              0000737
          LARL  R8,C370ONE                                               0000738
          AP    0(6,R9),0(6,R8)                                          0000739
@@ -872,30 +869,30 @@ L175B    DS    0H                                                       0000736
          AR    R1,R2                                                    0000747
          LARL  R8,C370EOF                                               0000748
          MVC   0(1,R1),0(R8)                                            0000749
-*  176  rct++;
+*  173  rct++;
          LARL  R9,C37F50                     /*  rct */                 0000750
          LARL  R8,C370ONE                                               0000751
          AP    0(6,R9),0(6,R8)                                          0000752
-*  177  
-*  178  if(p_string[0] == '*')
-*  179  {
-*  180  fputs(p_string, mlc);
-*  181  goto read_on;
-         JLU   L208                          /*  goto     */            0000753
+*  174  
+*  175  if(p_string[0] == '*')
+*  176  {
+*  177  fputs(p_string, mlc);
+*  178  goto read_on;
+         JLU   L205                          /*  goto     */            0000753
 *                                                                       0000754
-*  182  }
-L178     DS    0H                                                       0000755
-*  183  
-*  184  p = strstr(p_string, "fsdefine");
+*  179  }
+L175     DS    0H                                                       0000755
+*  180  
+*  181  p = strstr(p_string, "fsdefine");
          STFSMODE ON,INITIAL=YES                                        0000756
          STTMPMD ON                                                     0000757
-*  185  if(!p)
+*  182  if(!p)
          LARL  R9,C37F26                                                0000758
          LARL  R8,C370ONE                                               0000759
          CP    0(6,R9),0(6,R8)                                          0000760
-         JLE   L185                                                     0000761
-*  186  {
-*  187  p = strstr(p_string, "FSDEFINE");
+         JLE   L182                                                     0000761
+*  183  {
+*  184  p = strstr(p_string, "FSDEFINE");
          LARL  R9,C37F26                     /*  p */                   0000762
          LARL  R8,C370ONE                                               0000763
          ZAP   0(6,R9),0(6,R8)                                          0000764
@@ -903,7 +900,7 @@ L178     DS    0H                                                       0000755
          LARL  R9,C370NWK1                                              0000766
          LARL  R8,C370ZERO                                              0000767
          ZAP   0(6,R9),0(6,R8)                                          0000768
-L187A    DS    0H                                                       0000769
+L184A    DS    0H                                                       0000769
          LARL  R9,C370U                                                 0000770
          LARL  R8,C370NWK1                                              0000771
          ZAP   0(8,R9),2(4,R8)                                          0000772
@@ -916,40 +913,40 @@ L187A    DS    0H                                                       0000769
          LARL  R9,C370EOF                                               0000779
          LARL  R8,C370L1                                                0000780
          CLC   0(1,R9),0(R8)                                            0000781
-         JLE   L187B                                                    0000782
+         JLE   L184B                                                    0000782
          LARL  R9,C37F175                                               0000783
          LARL  R8,C370L1                                                0000784
          CLC   0(1,R9),0(R8)                                            0000785
-         JLE   L187C                                                    0000786
+         JLE   L184C                                                    0000786
          LARL  R9,C370NWK1                                              0000787
          LARL  R8,C370ONE                                               0000788
          AP    0(6,R9),0(6,R8)                                          0000789
-         JCT   R7,L187A                                                 0000790
-L187B    DS    0H                                                       0000791
+         JCT   R7,L184A                                                 0000790
+L184B    DS    0H                                                       0000791
          LARL  R9,C37F26                     /*  p                      0000792
          LARL  R8,C370ZERO                                              0000793
          ZAP   0(6,R9),0(6,R8)                                          0000794
-         JLU   L187Z                                                    0000795
-L187C    DS    0H                                                       0000796
+         JLU   L184Z                                                    0000795
+L184C    DS    0H                                                       0000796
          LARL  R9,C37F26                     /*  p                      0000797
          LARL  R8,C370ONE                                               0000798
          ZAP   0(6,R9),0(6,R8)                                          0000799
-L187Z    DS    0H                                                       0000800
-*  188  }
-L185     DS    0H                                                       0000801
-*  189  if(p)
+L184Z    DS    0H                                                       0000800
+*  185  }
+L182     DS    0H                                                       0000801
+*  186  if(p)
          LARL  R9,C37F26                     /*  p */                   0000802
          LARL  R8,C370ZERO                                              0000803
          CP    0(6,R9),0(6,R8)                                          0000804
-         JLE   L189                                                     0000805
-*  190  {
-*  191  c2_fs_1();
+         JLE   L186                                                     0000805
+*  187  {
+*  188  c2_fs_1();
          LARL  R15,C37F1                     /*  c2_fs_1 */             0000806
          BAKR  0,R15                                                    0000807
-*  192  goto read_on;
-         JLU   L208                          /*  goto     */            0000808
+*  189  goto read_on;
+         JLU   L205                          /*  goto     */            0000808
 *                                                                       0000809
-*  193  }
-L189     DS    0H                                                       0000810
-*  194  
-*  195  p = strstr(p_string, "fsfield");
+*  190  }
+L186     DS    0H                                                       0000810
+*  191  
+*  192  p = strstr(p_string, "fsfield");

@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_fclose.c :                              *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2021                    *
+*  Copyright TCCS (c) 2015 - 2026                    *
 **************************************************** */
 
 /* ***************************************************
@@ -9,14 +9,9 @@
 * ************************************************** */
 void c2_close() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_close.c c2_close");
-    trace_rec_1();
-  }
-
-  /* pgm_label(); */
-
+  strcpy(trace_1, "c2z_close.c c2_close");
+  trace_rec_1();
+  
   int pi;
   int y0 = 0;
 
@@ -49,12 +44,10 @@ void c2_close()
         strcat(a_string, wk_strg);
         check_length();
         strcat(a_string, "DS    0H");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z_fclose.c c2_close #1");
-          trace_rec_3();
-        }
+        strcpy(wk_remark, " fclose   */");
+        write_remark();
+        strcpy(trace_1, "c2z_fclose c2_close #1");
+        trace_rec_3();
       }
     }
   }

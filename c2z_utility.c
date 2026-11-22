@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_utility.c :                             *
 *                                                    *
-*  Copyright (c) 2015 - 2021                         *
+*  Copyright (c) 2015 - 2019                         *
 **************************************************** */
 
 void write_remark() 
@@ -9,7 +9,6 @@ void write_remark()
   int x = 0;
   int I = 0;
   int s = 0;
-  int s1 = 0;
 
   char tfield2[VAR_LGTH];
   char tfield2a[VAR_LGTH];
@@ -19,20 +18,16 @@ void write_remark()
   s = strlen(a_string);
   if (s < 40) 
   {
-    x = 45 - s;
+    x = 40 - s;
 
     for (I = 0; I < x; I++) 
     {
       strcat(a_string, " ");
     }
 
-    s1 = strlen(wk_remark);
-    if(s1 > 21)
-    {
-      wk_remark[21] = '\0';
-    }
-
-    strcat(a_string, "/* ");
+    strcat(a_string, "/* Ln#- ");
+    snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+    strcat(a_string, wk_strg);
     strcat(a_string, wk_remark);
   }
 
@@ -98,7 +93,6 @@ void write_remark()
 
   strcat(a_string, "\n");
   fputs(a_string, cc370);
-  fflush(cc370);
 }
 
 void src_line() 
@@ -171,7 +165,6 @@ void src_line()
 
   strcat(a_string, "\n");
   fputs(a_string, cc370);
-  fflush(cc370);
 }
 
 void write_variable() 
@@ -191,7 +184,6 @@ void write_variable()
   strcat(a_string, "/* ");
   strcat(a_string, wk_remark);
   fputs(a_string, cc370);
-  fflush(cc370);
 }
 
 void write_short() 
@@ -277,7 +269,6 @@ void write_short()
 
   strcat(a_string, "\n");
   fputs(a_string, cc370);
-  fflush(cc370);
 }
 
 void check_blank(void) 
@@ -380,8 +371,6 @@ void verbose()
   printf("%s", a_string);
 }
 
-
-
 void trace_rec_1() 
 {
   char t_string[150];
@@ -440,7 +429,6 @@ void trace_rec_2()
   strcat(t_string, p_string);
 
   fprintf(c_src, "%s", t_string);
-  fflush(c_src);
 }
 
 void trace_rec_3() 
@@ -470,7 +458,6 @@ void trace_rec_3()
   strcat(t_string, a_string);
 
   fprintf(c_src, "%s", t_string);
-  fflush(c_src);
 }
 
 void c2_white() 
@@ -490,6 +477,7 @@ void c2_white()
 void c2_error() 
 {
   printf("rct = %d p_string = %s", rct, p_string);
+  fflush(stdout);
   c2_debug();
   exit(1);
 }
@@ -552,52 +540,6 @@ void c2_count_paren()
     c2_debug();
     exit(1);
   }
-}
-
-void pgm_label() 
-{
-  int s = 0;
-  int x;
-  int x1;
-  int I;
-
-  char ch;
-  char tmp_rct[6];
-
-  s = strlen(p_string);
-
-  x = 0;
-  ch = p_string[x];
-  while ((ch == ' ') || (p_string[x] == '\t'))
-  {
-    x++;
-    ch = p_string[x];
-  }
-
-  x1 = 0;
-  for(I = x; I < s; I++)
-  {
-    ch = p_string[I];
-    o_string[x1] = ch;
-    x1++;
-  }
-  o_string[x1] = '\0';
-
-  snprintf(tmp_rct, sizeof(tmp_rct), "%d", rct);
-
-  strcpy(a_string, "*  ");
-  strcat(a_string, tmp_rct);
-  strcat(a_string, "  ");
-  strcat(a_string, o_string);
-  s = strlen(a_string);
-  if(s > 72)
-  {
-    a_string[71] = '\n';
-    a_string[72] = '\0';
-  }
- 
-  fputs(a_string, cc370);
-  fflush(cc370);
 }
 
 

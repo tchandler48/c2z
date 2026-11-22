@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2z_return.c :                              *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2020                    *
 **************************************************** */
 
 /* ***************************************************
@@ -9,12 +9,9 @@
 * ************************************************** */
 void c2_return() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_return.c c2_return START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_return c2_return START");
+  trace_rec_1();
+ 
   char ch;
   char *p1;
   char tfield1[VAR_LGTH];
@@ -78,11 +75,8 @@ void c2_return()
     strcpy(a_string, "         PR");
     strcpy(wk_remark, " sub rtn  */");
     write_remark();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_return.c #1");
-      trace_rec_3();
-    }
+    strcpy(trace_1, "c2z_return c2_return #1");
+    trace_rec_3();
   }
 
   convert = 1;

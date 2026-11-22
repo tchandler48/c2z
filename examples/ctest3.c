@@ -1,6 +1,8 @@
 	
 	int a;
- 	
+ 	int b;
+
+       char def[20];
 	
 int main(int argc, char *argv[])
 {

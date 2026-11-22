@@ -2,7 +2,7 @@
 *  c2z : c2z_sizeof.c :                              *
 *                                                    *
 *  next error - sizeof-010                           *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 20208                   *
 **************************************************** */
 
 /* ***************************************************
@@ -509,7 +509,7 @@ void c2_pass2_sizeof()
   if (s == 6) 
   {
     strcpy(field2a, "0");
-    strcat(field2, field2);
+    strcat(field2a, field2);
   }
 
   if (s == 7) 

@@ -1,14 +1,14 @@
 /* *************************************************************
 *  c2z.c Parser                                                *
-*  Copyright TCCS (c) 2015 - 2022                              *
+*  Copyright TCCS (c) 2015 - 2026                              *
 * ************************************************************ */
 
 /* *************************************************************
-*  GENERAL NOTES                                               *
-*									*
+*  GENERAL NOTES -                                             *
+*							       *
 *  Dsect Arrarys MUST have the gw_variable[x].gv_flag to 1 so  *
-*  	Dsect address reset will take place.                    *
-*									*
+*  	Dsect address reset will take place.                   *
+*							       *
 * ************************************************************ */
 
 #include <ctype.h>
@@ -17,41 +17,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
 
 
-/* ------ declare constants ------ */
-#define IOARRAY 99
-#define PATH 129
-#define BUFSIZE 128
-#define VAR_LGTH 33
 
-/*            c2z_arth.c           */
-       double c2_math_start(void);
-       double c2_Expression(void);
+/*            c2z_arth.c                */
+       void c2z_math_startxx(void);
 
 
 /* 	       c2z_atof.c		*/
 	void c2_atof(void);
-       void c2_atof_00(void);
-       void c2_atof_11(void);
-       void c2_atof_22(void);
+        void c2_atof_punch(void);
 
 
 /* 	       c2z_atoi.c		*/
 	void c2_atoi(void);
-       void c2_atoi_00(void);
-       void c2_atoi_11(void);
-       void c2_atoi_22(void);
 
+
+/* 	       c2z_atof.c		*/
+	void c2_atof(void);
+        void c2_atof_punch(void);
 
 /* 	       c2z_atol.c		*/
 	void c2_atol(void);
-       void c2_atol_punch(void);
-
+        void c2_atol_punch(void);
 
 /*		c2z_case.c		*/
 	void c2_case(void);	
+	void c2_pass2_case(void);
 
 
 /* 	       c2z_char.c		*/
@@ -63,8 +55,8 @@
 	void c2_char_5(void);
 	void c2_char_6(void);
 	void c2_char_9(void);
-       void c2_char_41(void);
-       void c2_char_punch(void);
+        void c2_char_10(void);
+        void c2_char_punch(void);
 
 
 /*		c2z_const.c		*/
@@ -72,16 +64,18 @@
 
 
 /*		c2z_ctime.c		*/
-	void c2_ctime(void);
-       void c2_time_t(void);
-       void c2_time_t_punch(void);
-
+	void c2_date(void);
+        void c2_time(void);
+ 
 
 /* 	       c2z_debug.c		*/
 	void c2_debug(void);
 	void c2_dump(void);
 	void c2_print_files(void);
 
+
+/*		c2z_decr.c		*/
+	void c2_minus(void);
 
 
 /*		c2z_define.c 		*/
@@ -92,9 +86,8 @@
 
 /* 	       c2z_double.c		*/
 	void c2_double(void);
-       void c2_pass_2_double(void);
-       void c2_double_punch(void);
-       void c2_dbl_41(void);
+        void c2_pass_2_double(void);
+        void c2_double_punch(void);
 
 
 /*		c2z_enum.c		*/
@@ -122,12 +115,12 @@
 	void c2_file(void);
 	void c2_puts(void);
 	void c2_gets(void);
-       void c2_file_remove(void);
-       void c2_fgets_pass2(void);
-       void c2_fgets_punch(void);
-       void c2_getchar_pass2(void);
-       void c2_getchar_punch(void);
-
+        void c2_file_remove(void);
+        void c2_fgets_pass2(void);
+        void c2_fgets_punch(void);
+        void c2_getchar_pass2(void);
+        void c2_getchar_punch(void);
+ 
 
 /*		c2z_fopen.c		*/
 	void c2_open(void);
@@ -136,11 +129,6 @@
 
 /* 	       c2z_for.c		*/
 	void c2_for(void);
- 	void c2_for_021(void);
-       void c2_for_022(void);
-       void c2_for_023(void);
-       void c2_for_024(void);
-	void c2_for_222(void);
 
 
 /*		c2z_fputs.c		*/
@@ -151,31 +139,31 @@
 	void c2_free(void);
 
 
-/*		c2z_fs.c		*/
-  	void c2_fs_1(void);
-       void c2_fs_2(void);
-       void c2_fs_3(void);
-       void c2_fs_4(void);
-       void c2_fs_5(void);
-       void c2_fs_6(void);
+/*             c2z_fs.c                 */
+        void c2_fs_1(void);
+        void c2_fs_2(void);
+        void c2_fs_3(void);
+        void c2_fs_4(void); 
+        void c2_fs_5(void);
 
 
-/* 	       c2z_function.c	*/
+/* 	       c2z_function.c           */
 	void c2_func_call(void);	
 	void c2_func_end(void);
 	void c2_func_sub(void);
 	void c2_scan_func(void);
 	void c2_scan_sub(void);
-       void scan_func_name_1(void);
-
+        void scan_func_name_1(void);
 
 /*		c2z_goto.c 		*/
 	void c2_goto(void);
 	void c2_goto_label(void);
-       void c2_goto_scan(void);
+        void c2_goto_pass2(); 
+        void c2_goto_pass2_label(); 
 
 
-/* 	       c2z_if.c		*/
+
+/* 	       c2z_if.c                 */
 	void c2_if(void);
 	void c2_switch(void);
 	void c2_case_end(void);
@@ -196,31 +184,14 @@
 	void if_case_15(void);
 	void if_case_22(void);
 	void if_case_23(void);
-       void if_case_24(void);
+        void if_case_24(void);
 	void if_case_30(void);
-       void if_case_40(void);
-       void if_case_41(void);
-       void if_case_42(void);
-       void if_case_43(void);
-       void if_case_44(void);
-       void if_case_45(void);
-       void if_case_46(void);
-       void if_case_47(void);
-       void if_case_48(void);
-       void if_case_49(void);
-       void if_case_50(void);
-       void if_case_51(void);
-	void if_case_55(void);
-       void if_case_56(void);
-	void if_case_57(void);
+        void if_case_40(void);
+        void if_case_41(void);
 
 
 /*		c2z_incr.c		*/
 	void c2_plus(void);
-       void c2_plus_00(void);
-       void c2_plus_01(void);
-	void c2_plus_04(void);
-	void c2_plus_05(void);
 
 
 /* 	       c2z_int.c		*/
@@ -228,19 +199,12 @@
 	void c2_int_1(void);
 	void c2_int_2(void);
 	void c2_int_3(void);
-      	void c2_int_5(void);
+	void c2_int_5(void);
 	void c2_int_6(void);
-       void c2_int_41(void);
+        void c2_int_10(void);
 	void c2_int_punch(void);
 	void c2_int_punch_1(void);
 	void c2_int_punch_2(void);
-
-
-/*            c2z_internet.c       */
-       void c2_bind(void);
-       void c2_listen(void);      
-       void c2_send(void);
-
 
 /*		c2z_isalpha.c		*/
 	void c2_isalpha(void);
@@ -253,22 +217,16 @@
 /*		c2z_isdigit.c		*/
 	void c2_isdigit(void);
 
-
 /*		c2z_isspace.c		*/
 	void c2_isspace(void);
 
 
 /*		c2z_isupper.c		*/
 	void c2_isupper(void);
-       void c2_toupper(void);
 
 
-/*		c2z_localtime.c	*/
-       void c2_localtime_time(void);
-
-
-/*            c2z_main.c           */
-       void c2_main(void);
+/*            c2z_main.c                */
+        void c2_main(void);
 
 	
 /*		c2z_malloc.c 		*/
@@ -276,11 +234,16 @@
 
 
 /* 	       c2z_math.c		*/
+	void c2_math(void);
 	void c2_reg_math(void);
- 	void c2_math_5(void);
+	void c2_math_1(void);
+	void c2_math_2(void);
+	void c2_math_5(void);
 	void c2_math_51(void);
-       void c2_math_58(void);
+        void c2_math_52(void);
+        void c2_math_58(void);
 	void c2_math_6(void);
+	void c2_math_7(void);
 	void c2_math_8(void);
 	void c2_math_9(void);
 	void c2_math_add(void);
@@ -288,30 +251,14 @@
 	void c2_math_mult(void);
 	void c2_math_div(void);
 	void c2_math_98(void);
-	void c2_math_99(void);
-       void c2_math_100(void);
-       void c2_math_600(void);
-       void c2_math_601(void);
-       void c2_math_700(void);
-       void c2_math_820(void);
-       void c2_math_830(void);
-       void c2_math_920(void);
+        void c2_math_100(void);
 
 
-/* new code */
-	void c2_math(void);
-       void c2_math_500(void);
-       void c2_math_501(void);
-	void c2_math_502(void);
-	void c2_math_503(void);
-       void c2_math_504(void);
- 	void c2_math_505(void);
-       void c2_math_506(void);
-	void c2_math_507(void);
-       void c2_math_508(void);
-       void c2_math_509(void);
-       void c2_math_510(void);
-       void c2_math_511(void);
+/*              c2z_mthst.c            */
+        void c2_math_start(void);
+        void c2_math_rdp(void);
+        void c2_RDO001(void);		/* Expression */
+
 
 
 /*		c2z_math_parser.c	*/
@@ -327,23 +274,21 @@
 	 int c2_msth_08(char);
 	 int c2_math_09(char);
 	void c2_math_10(void);
- 
- 
 
 
-/* 	       c2z_math_func.c	*/
+/* 	       c2z_math_func.c          */
 	void c2_cos_pass2(void);
-       void c2_cos_punch(void);
-       void c2_pow_pass2(void);
-       void c2_pow_punch(void);
+        void c2_cos_punch(void);
+        void c2_pow_pass2(void);
+        void c2_pow_punch(void);
 	void c2_rand_pass2(void);
-       void c2_rand_punch(void);
+        void c2_rand_punch(void);
 	void c2_sin_pass2(void);
-       void c2_sin_punch(void);
+        void c2_sin_punch(void);
 	void c2_sqrt_pass2(void);
-       void c2_sqrt_punch(void);
+        void c2_sqrt_punch(void);
 	void c2_tan_pass2(void);
-       void c2_tan_punch(void);
+        void c2_tan_punch(void);
 
 /* 	       c2z_mem.c		*/
 	void c2_mempy(void);
@@ -355,11 +300,11 @@
 	void c2_main(void);
 	
 
-/*            c2z_mparser.c        */
-       void c2_mparser(void);
+/*            c2z_mparser.c             */
+        void c2_mparser(void);
 
 
-/* 	       c2z_paramaters.c	*/
+/* 	       c2z_paramaters.c         */
 	void c2_param_ct(void);
 	void c2_param_ct_2(void);
 	void c2_param_ct_3(void);
@@ -374,56 +319,68 @@
 
 
 /* 	       c2z_pass_2.c		*/
-       void c2_pass_2_1(void);
-       void c2_pass_2_2(void);
-       void c2_pass_2_3(void);	/* strchr */
-       void c2_return_2(void);
-
+	void scan_func_name_2(void);
+	void scan_func_name_3(void);
+	void c2_return_2(void);
+	void c2_math_literal(void);
+        void c2_math_literal_1(void);
+	void c2_math_literal_6(void);
+        void c2_math_literal_7(void);
+	void c2_math_literal_8(void);
+	void c2_math_literal_99(void);
+      	void c2_strlen_pass2(void);
+        void c2_pass2_for(void);
+	void c2_pass2_strcat(void);
+	void c2_pass2_if(void);
+	void c2_pass2_if_1(void);
+	void c2_pass2_if_2(void);
+        void c2_pass2_if_4(void);
+        void c2_pass2_if_6(void);
+        void c2_pass2_if_7(void);
+        void c2_pass2_if_10(void);
+	void c2_pass2_if_13(void);
+	void c2_pass2_if_15(void);
+	void c2_pass2_while(void);
+	void c2_pass2_while_1(void);
+	void c2_pass2_while_2(void);
+        void c2_pass2_while_4(void);
+	void c2_pass2_while_5(void);
+        void c2_pass2_while_7a(void);
+        void c2_pass2_while_8(void);
+        void c2_pass2_while_11(void);
+        void c2_pass2_while_12(void);
+	void c2_pass2_while_13(void);
+        void c2_pass2_while_14(void);
+        void c2_pass2_while_33(void);
+	void c2_pass2_math(void);
+        void c2_pass2_math_1(void);
+	void c2_pass2_math_5(void);
+        void c2_pass2_math_6(void);
+	void c2_pass2_math_51(void);
+        void c2_pass2_math_99(void);
+	void c2_pass2_strrev(void);
       
 
 /* 	       c2z_pass_3.c		*/
-       void c2_pass_3(void);
+        void c2_pass_3(void);
 
-
-/*                                 */
+/*                                      */
 	void c2_return(void);
 
-
 /* 	       c2z_print.c		*/
-       void c2_printf(void);
-       void c2_printf_literal(void);
- 	void c2_printf_str1(void);
-       void c2_printf_str2(void);
-       void c2_printf_str3(void);
-	void c2_printf_str4(void);
-       void c2_printf_str5(void);
-       void c2_printf_str6(void);
-       void c2_printf_dec(void);
-	void c2_printf_dec1(void);
-	void c2_printf_dec2(void);
-       void c2_printf_dec4(void);
-       void c2_printf_dec5(void);
-       void c2_printf_dec6(void);
-
-
-
 	void c2_fprintf(void);
+	void c2_printf(void);
+        void c2_printf_literal(void);
 	void c2_printf_numeric(void);
 	void c2_printf_string(void);
 	void c2_printf_dec_only(int);
 	void c2_snprintf(void);
-       void c2_printf_float(void);
-       void c2_printf_literal(void);
-       void c2_printf_2ds(void);
-       void c2_printf_toupper(void);
-       void c2_printf_array_string(void);
-       void c2_sprintf(void);
+        void c2_printf_float(void);
 
 
-/* 	       c2z_punch_macro.c	
+/* 	       c2z_punch_macro.c	*/
 	void c2_punch_eoj(void);
 	void c2_isupper(void);
-*/
 
 
 /* 	       c2z_realloc.c		*/
@@ -441,9 +398,6 @@
 
 /*		c2z_strcat.c		*/
 	void c2_strcat(void);
-       void c2_strcat_500(void);
-       void c2_strcat_501(void);
-       void c2_strcat_502(void);
 
 
 /*		c2z_strchr.c 		*/
@@ -457,9 +411,6 @@
 	void c2_strcmp_2(void);
 	void c2_strcmp_3(void);
 
-/*		c2z_strncmp.c		*/
-	void c2_strncmp_2(void);
-
 
 /* 	       c2z_strcpy.c		*/
 	void c2_strcpy(void);
@@ -468,17 +419,12 @@
 	void c2_str_3(int,int);
 	void c2_str_4(void);
 	void c2_str_5(void);
-       void c2_str_6(void);
-       void c2_str_7(void);
-       void c2_str_8(void);
-       void c2_str_9(void);
-       void c2_str_10(void);
-       void c2_str_11(void);
-       void c2_str_12(void);
-       void c2_str_13(void);
-       void c2_str_14(void);
-       void c2_str_15(void);
-       void c2_str_16(void);
+        void c2_str_6(void);
+        void c2_str_7(void);
+        void c2_str_8(void);
+        void c2_str_9(void);
+        void c2_str_10(void);
+        void c2_str_11(void);
 	void c2_strcpy_pass2(void);
 	void c2_pass2_strcpy_2(int,int);
 
@@ -504,37 +450,18 @@
 	void c2_strrchr(void);
 
 
-/*            c2z_strstr.c		*/
-       void c2_strstr(void);
-       void c2_strstr_scan(void);
-       void c2_strstr_41(void);
-
- 
 /*		c2z_struct.c		*/
 	void c2z_struct(void);
 	void c2_struct_3(void);
-       void c2_struct_4(void);
+        void c2_struct_4(void);
 
 
-/* 	       c2z_time.c		*/
-	void c2_ctime(void);
-	void c2_time(void);
-	void c2_compute_time(void);
-       void c2_clock_pass2(void);
-       void c2_clock_punch(void);
-
-
-/*            c2z_u_short.c        */
-       void c2_u_short(void);
-
-
-
-/* 	       c2z_unsigned.c	*/
+/* 	       c2z_unsigned.c           */
 	void c2_unsigned(void);
-       void c2_unsigned_punch(void);
+        void c2_unsigned_punch(void);
 
 
-/*            c2z_utility.c         */
+/*            c2z_utility.c             */
 	void write_remark();	
 	void write_remark_long();
 	void write_short(); 
@@ -549,15 +476,19 @@
 	void trace_rec_3(void);
 	void c2_white(void);
 	void src_line(void);
-       void c2_error(void);
-       void c2_count_bracket(void);
-       void c2_count_paren(void);
-       void pgm_label(void);
+        void c2_error(void);
+        void c2_count_bracket(void);
+        void c2_count_paren(void);
 
 
 /* 	       c2z_while.c		*/
 	void c2_while(void);
 	void c2_while_1(void);
+	void c2_while_2(void);
+	void c2_while_3(void);
+	void c2_while_4(void);
+	void c2_while_5(void);
+	void c2_while_6(void);
 	void c2_while_7(void);
 	void c2_while_8(void);
 	void c2_while_9(void);
@@ -568,30 +499,161 @@
 	void c2_while_14(void);
 	void c2_while_15(void);
 	void c2_while_16(void);
-       void c2_while_17(void);
-       void c2_while_20(void);
+        void c2_while_20(void);
 
-/* ****************************************************
- *  lv_id/gv_id                                       *
- *  1		=	I	integer       	     *
- *  2		=	D	double			     *
- *  3		=   	C	char			     *
- *  4		=	G	Double Structure	     *
- * ************************************************** */
-			
+/* 	       math processing           */
+
+       void c2_rdp_main(void);
+        int Term(void);
+        int Factor(void);
+       void _GetChar(void);
+       void Match(char);
+        int Is_White(char);
+       void SkipWhite(void);
+        int GetNum(void);
+        int IsAddop(char);
+        int IsMultop(char);
+        int get_varvalue(void);
+
+
+/* ------ SYSTEM CONSTANTS ------- */
+#define IOARRAY	        99
+#define PATH		129
+#define BUFSIZE	        80
+#define VAR_LGTH	64        /* lGth of field/procedure names */
+#define IBMSZ           9         /* size of IBM 370 fields */
+
+#define ARRAY_SIZE      30        /* # of array rcds */
+
+
+/* ------ STRUCTURE COUNTERS ----- */
+ int lit_ct = 0;                  /* variable count - w_char_lit */
+ int f_ct = 0;                    /* variable count - w_file opens */
+ int fn_ct = 0;                   /* variable count - w_function */
+ int fs_field_ct = 0;             /* variable count - w_fs_field */
+ int fs_aid_ct = 0;               /* varialbe count - w_fs_aid */
+ int fs_map_ct = 0;               /* variable count - w_fs_map */
+ int w_gtolabel_ct = 0;
+ int gv_ct = 0;                   /* variable count - gw_variable */
+ int lv_ct = 0;                   /* variable count - lw_variable */
+ int m_struc_ct = 0;              /* m_struct counter */
+ int v_const = 0;                 /* variable count - w_constant */
+ int T32_ct = 0;
+
+
+ int arry_sz = 30;                /* array records total */
+
+
+
+/* ------ FILE POINTERS ---------- */
+FILE *c_h; 
+FILE *c_src;                      /* generated source file */
+FILE *c_tmp;
+FILE *cc370;                      /* asm output file */
+FILE *err;                        /* generated error message file */
+FILE *pgm;
+FILE *src_cp;                     /* copy source file into ASM file */
+FILE *src_out;                    /* output of source file copy */
+FILE *c_nc;                       /* not sure may remove as used in fs */
+
+
+/* ------ global INT vars -------- */
+int convert = 0;                  /* flag converted line */
+int rct = 0;                      /* record count */
+int wh_ct_1 = 0;
+int wh_ct_2 = 0;
+int wh_ct_3 = 0;
+int wh_ct_4 = 0;
+int wh_ct_5 = 0;
+int wh_ct_6 = 0;
+int wh_ct_7 = 0;
+int wh_ct_8 = 0;
+int wh_ct_9 = 0;
+int wh_ct_10 = 0;
+
+int if_ct_1 = 0;
+int if_ct_2 = 0;
+int if_ct_3 = 0;
+int if_ct_4 = 0;
+int if_ct_5 = 0;
+int if_ct_6 = 0;
+int if_ct_7 = 0;
+int if_ct_8 = 0;
+int if_ct_9 = 0;
+int if_ct_10 = 0;
+
+int sv_ct = 0;			  /* sv r14 return ct  */
+int tcxyz = 0;
+
+/*  full screen (fs) */
+  int fsaid_ct = 0;
+  int w_lgth = 0;
+  int T3270_ct = 0;
+  int scr_loop_ct = 0;
+ char T3270[1922][5];
+
+
+/* ------ global CHAR vars ------- */
+char a_string[BUFSIZE];           /* file output string */
+char p_string[BUFSIZE];           /* file input string */
+char start_whle[12];
+char sv_func[VAR_LGTH];           /* save the func var is in */
+char wh_lb_1[12];
+char wh_lb_2[12];
+char wh_lb_3[12];
+char wh_lb_4[12];
+char wh_lb_5[12];
+char wh_lb_6[12];
+char wh_lb_7[12];
+char wh_lb_8[12];
+char wh_lb_9[12];
+char wh_lb_10[12];
+
+char start_lb_1[12];
+char start_lb_2[12];
+char start_lb_3[12];
+char start_lb_4[12];
+char start_lb_5[12];
+char start_lb_6[12];
+char start_lb_7[12];
+char start_lb_8[12];
+char start_lb_9[12];
+char start_lb_10[12];
+
+char if_lb_1[12];
+char if_lb_2[12];
+char if_lb_3[12];
+char if_lb_4[12];
+char if_lb_5[12];
+char if_lb_6[12];
+char if_lb_7[12];
+char if_lb_8[12];
+char if_lb_9[12];
+char if_lb_10[12];
+
+char if_end_1[12];
+char if_end_2[12];
+
+char t_holder[VAR_LGTH];
+
+char o_string[12];
+
+/* remove after conversion */
+ int traceflg = 0; 					
+ int puncde = 0;   	
+ int debug_lv = 0;
+/* end of removal          */
+
+
+
+/* ------ global array/structures- */
+      int *iv_stack;
+     char **in_stack;
+
+
 
 /* ------ global vars ------------ */
-FILE *pgm;
-FILE *c_src;
-FILE *cc370;
-FILE *c_tmp;
-FILE *c_h; 
-
-		                 	              /* these are the i/o file handles 		*/
 char s_holder[BUFSIZE];   				/* xstring (print) data holder  		*/
-char p_string[BUFSIZE];   				/* file input string  			*/
-char a_string[BUFSIZE];   				/* file output string                 	*/
-char o_string[BUFSIZE];   				/* original C code				*/
 char wk_string[BUFSIZE];  				/* work string				*/
 char x_string[BUFSIZE];   					
 char save_case_break[12]; 				/* save field for storing case break	*/
@@ -605,19 +667,14 @@ char while_array_table[VAR_LGTH]; 			/* while array table */
 char sv_prt_string[80]; 				/* work string in print numeric		*/
 char pgm_name[8];
 char ret_fn[VAR_LGTH];
-char tfield99[VAR_LGTH];
-char for_2nd[VAR_LGTH];
-char ptr_lgth[6];
 char strtmp[128];
 char c_output_file[24];
 char c_wkname[24];
-char start_while[12];
-char sv_func[VAR_LGTH];
 char sv_print_lit[VAR_LGTH];
 char null_field[2];
 char wk_fdwk[24];
 char sub_name[24];
-char wk_strg[8];     
+char wk_strg[8];     /* [24] */
 char wk_remark[22];
 char sv_if_branch[24];
 char err_msg[242];
@@ -629,37 +686,23 @@ char sv_for_incr[8];
 char sv_while[VAR_LGTH];
 char wk_file[VAR_LGTH];
 char asm_file[VAR_LGTH];
-
+char output_file[24];
 char from_sv[24];
 
 /* variables used for pointers into functions			*/
- int traceflg = 0; 					/* trace flag 0 = mo, 1 = yes		*/
- int puncde = 0;   					
- int gv_ct = 0;    					/* variable count - global			*/
- int lv_ct = 0;    					/* variable count - local			*/
- int f_ct = 0;     					/* variable count - file opens		*/
- int fn_ct = 0;    					/* variable count - function 		*/
+				
  int main_set = 0;
- int debug = 1; 					/* Turn on debug 0 = No, 1 = Yes	       */
  int global_st = 0;
- int z390 = 0;           				/* s390 flag                              */
- int rct = 0;            				/* record count				*/
- int convert = 0;        				/* flag to indicate the line is convert   */
  int convert_ignore = 0; 				/* flag for comments & {} only		*/
  int if_convert = 0;     				/* if flag used in if_case routines	*/
  int return_on = 0;      				/* return flag				*/
  int return_ct = 0;      				/* count lines after return			*/
- int char_ct = 0;        				/* count for char_lit table			*/
  int func_x1 = 0;        				/* function count start			*/
  int func_x2 = 0;        				/* function count stop			*/
- int m_struc_ct = 0;     				/* m_struct counter				*/
  int def_it = 1;         				/* ifndef flag				*/
  int cary_ct = 0;
  int stru_ct = 0;
  int fake = 0;
- int k7 = 0;
- int k8 = 0;
- int k9 = 0;
  int math_lit_ct = 0;
  int param_l = 0;
  int param_r = 0;
@@ -667,107 +710,85 @@ char from_sv[24];
  int for_convert = 0;
  int for_level = 0;
  int bracket_convert = 0;
+ int bad_rec_ct = 0;
  int free_loop = 0;
  int erct = 0;
+ char ptr_lgth[6];
  int e_pos = 0;
  int line_ndx = 0;
- int fd_test = 0;
- int st_col = 0;
- int quote_1 = 0;
- int quote_2 = 0;
- int quote_3 = 0;
- int for_2nd_ct = 0;
- int lp_ct = 0;
- int trc_ct = 1;
- int for_loop_ct = 0;
- int fs_map_ct = 0;
- int fs_field_ct = 0;
- int T3270_ct = 0;
- int fsaid_ct = 0;
- int scr_loop_ct = 0;
+ int x1001 = 0;
  
 /* usage counters	*/
  int var_use[24];
+/* **************************************************************
+*  1	=	asmct			2	=	printf	*
+*  3  	=       fprintf			4	=	branch	*
+*  5	=	fopen			6	=	fclose	*
+*  7	=	if			8	=	strcpy	*
+*  9 	=	isalpha			10	=	isdigit	*
+*  11 	=	isspace			12	=	isalnum	*
+*  13 	=	atoi			14	=	free	*
+*  15 	=	strcat			16	=	strlen	*
+*  17 	=	define	        	18	=	fgets	*
+*  19 	=	unsigned		20   	=	isupper	*
+*  21   =       rdparser                                        *
+*************************************************************** */
 
-/* *************************************************************
-*  1	=	asmct			2	=	printf		*
-*  3  	=      fprintf		4	=	branch		*
-*  5	=	fopen			6	=	fclose		*
-*  7	=	if			8	=	strcpy		*
-*  9 	=	isalpha		*10	=	isdigit	*
-*  11 =	isspace		12	=	isalnum	*
-*  13 =	atoi			14	=	free		*
-*  15 =	strcat			16	=	strlen		*
-*  17 =	define	        	18	=	fgets		*
-*  19 =	unsigned		20   	=	isupper	*
-************************************************************** */
+/* compiler generated fields usage counter */
 
-/* compiler generated fields usage counter			*/
-
-int work_use_ct[110];
-
-/* *************************************************************
-*   1		=	C370ISAL	2	=	C370L1	       *
-*   3 		=	C370L2		4	=	C370L3	       *
-*   5 		=	C370L4		6	=	C370L5	       *
-*   7		=	C370L6		8	=	C370L8A       *
-*   9		=	C370L8		10	=	C370L80       *
-*  11		=	C370MTOT	12	=	C370THR       *
-*  13		=	C370FOUR     	14	=	C370MT3       *
-*  15		=	C370MT4	16	=	C370MT5	*
-*  17		=	C370PTOT	18	=	C370PT1	*
-*  19		=	C370PT2	20	=	C370PT3	*
-*  21		=	C370PT4	22	=	C370PT5	*
-*  23  	=	C370CLCT	24	=      C370FIVE      *
-*  25		=	C370EDW2	26	=	C370EDW3	*
-*  27		=	C370EDW4	28	=	C370TDD2	*
-*  29		=	C370PN2	30	=	C370PN3	*
-*  31		=	C370DDW2     	32	= 	C370ZERO	*
-*  33		=	C370ONE	34	=	C370TWO	*
-*  35		=	  	       36	=	 	       *
-*  37		=			38	=			*
-*  39		=	C370MATH     	40	=	C370DEND	*
-*  41		=	C370IENT	42	=	REMAINDER	*
-*  43		=	C370ISOR	44	=	C370MLT1	*
-*  45		=	C370MLT2	46	=	C370MLT3	*
-*  47		=	C370D2DW    	48	=	C370U		*
-*  49		=	C370NWK1	50	=	C370NWK2	*
-*  51		=	C370EDN	52	=	C370B1 	*
-*  53		=	C370B8		54	=	C370TDW2	*
-*  55		=	C370TDW3	56	=	C370TDW4	*
-*  57		=	C370N3		58	=	C370N5		*
-*  59		=	C370L1A	60	=	C370TDD3     	*
-*  61		=	C370D3DW     	62	=	C370LZER	*
-*  63		=	C370LNIN	64	=	FW00XX004	*
-*  65		=	C370NN3      	66	=	C370NN5      	*
-*  67		=	C370DEC	68	=	C370TDW5     	*
-*  69		= 	C370B10      	70	=	C370TDW7     	*
-*  71 		=	C370L10	72	=	C370XXX	*
-*  73		=	C370LPCT	74	=	C370EOF	*
-*  75		=	C370PER	76	=	C370TDW9     	*
-*  77		=	C370EDW5     	78	=	C370NWK3  	*
-*  79		=	C370FONE	80	=      C370DIGT	*
-*  81		=	C370COLN      82     =      C370NONE      *
-*  83         =      C370EDW7      84     =      C370EDW9      *
-*  85         =      C370DTTM	86	=	C370M001      *
-*  89         =      C370M002      90     =      C370TUP       *
-*  91         =      C370TLC                                   *
-*  93		=	C370ECB	94	=	C370NWK4	*
-*  95		=	C370NWK5	96	=	C370M003	*
-*  97		=	C370M004	98	=	C370M005	*
-*  99		=	C370QUOT	100	=	TSTUC		*
-*  100		=	TSTLC		101	=	C370DDTE      *
-*  102		=	C370DWRK	103	=	C370DATE      *
-*  104        =      C370NCVT	105	=	C370PFK	*
-* ************************************************************ */
+int work_use_ct[88];
+/* ****************************************************************
+*   1		=	C370ISAL	2	=	C370L1    *
+*   3 		=	C370L2		4	=	C370L3    *
+*   5 		=	C370L4		6	=	C370L5	  *
+*   7		=	C370L6		8	=	C370L8A   *
+*   9		=	C370L8		10	=	C370L80   *
+*  11		=	C370MTOT	12	=	C370THR   *
+*  13		=	C370FOUR     	14	=	C370MT3   *
+*  15		=	C370MT4		16	=	C370MT5	  *
+*  17		=	C370PTOT	18	=	C370PT1	  *
+*  19		=	C370PT2		20	=	C370PT3	  *
+*  21		=	C370PT4		22	=	C370PT5	  *
+*  23  		=	C370CLCT	24	=       C370FIVE  *
+*  25		=	C370EDW2	26      =       C370RET   *
+*  27	        =       DATE            28	=	TIME      *
+*  29		=	SAVEAREA	30	=	C370DTIM  *
+*  31		=	C370PTIM	32	=	C370ZERO  *
+*  33		=	C370ONE		34	=	C370TWO	  *
+*  35		=	C370UCA		36	=	C370UCZ	  *
+*  37		=	C370LCA		38	=	C370LCZ	  *
+*  39		=	C370MATH     	40	=	C370DEND  *
+*  41		=	C370IENT	42	=	REMAINDER *
+*  43		=	C370ISOR	44	=	C370MLT1  *
+*  45		=	C370MLT2	46	=	C370MLT3  *
+*  47		=	C370TWRK	48	=	C370U	  *
+*  49		=	C370NWK1	50	=	C370NWK2  *
+*  51     	=			52	=	C370B1 	  *
+*  53		=	C370B8		54	=	C370L10	  *
+*  55					56	                  *
+*  57					58			  *
+*  59		=	C370L1A		60	=	C370TDD3  *
+*  61		=	C370D3DW     	62	=	WKAR1     *
+*  63		=	C370LNIN	64	=	FW00XX004 *
+*  65		=	C370NN3      	66	=	MLF001    *
+*  67		=	MLF002		68	=	MLF003    *
+*  69		=	MLF004		70	=	MLF005    *
+*  71 		                        72	=	C370XXX	  *
+*  73		=	C370LPCT	74	=	C370EOF	  *
+*  75		=	C370PER		76	     	          *
+*  77			    		78	=	C370NWK3  *
+*  79		=	C370FONE	80	=       C370DIGT  *
+*  81		=	C370COLN      	82      =       C370NONE  *
+*  83         	      			84                        *
+*  85         	=       C370DTTM      	86      =       C370ECB   *
+***************************************************************** */
 
  int tot_localtime = 0;
  int tot_int = 0;
  int tot_char = 0;
  int tot_goto = 0;
  int tot_float = 0;
- int p_eol = 0;
- int p_ln_ct = 0;
+
  int tot_for = 0;
  int tot_while = 0;
  int tot_strchr = 0;
@@ -782,15 +803,8 @@ int work_use_ct[110];
  int tot_memmove = 0;
  int tot_case = 0;
  int tot_switch = 0;
- int p100 = 0;
- int p101 = 0;
- int p101d = 0;
- int p101s = 0;
- int p102 = 0;
- int p103 = 0;
- int p104 = 0;		/* toupper */
- int v_convert = 0;
- int zgui = 0;
+ int strx30 = 0;
+
 
  int array_rows = 17; 				/* array row count			*/
 
@@ -799,13 +813,10 @@ int work_use_ct[110];
  int l_type[22];
  int l_else[22];
 
+
  int if_level = 0;
-
-char output_file[24];
-
  int array_clear = 0; 				/* flag to reset array address		*/
  int case_parm_ct = 0;
- int v_const = 0;
  int fld_ct = 0;           				/* field working count			*/
  int found_space = 0;       			/* used in field search			*/
  int found_space2 = 0;      			/* used in field search			*/
@@ -819,36 +830,28 @@ char output_file[24];
  int while_convert = 0;     			/* used in while to track processing	*/
  int print_array = 0;       			/* flag for array printing			*/
  int while_array = 0;       			/* flage for while array processing	*/
-
  int wif_ct = 0;
  int while_level = 0;
  int wh_ct = 0;
-
  int tot_sizeof = 0;
  int char_malloc = 0;
  int tot_malloc = 0;
-
  int left_parm = 0;
  int right_parm = 0;
  int op_code = 0;
  int equal_found = 0;
-
  int fclose_ct = 0;
  int buf_ct = 0;
  int function_ct = 0;  /*  can be removed */
-
  int if_case = 0;
  int inside_fn = 0;
- int if_ct = 0;
- int c_name = 0;
+ int if_ct = 0, c_name = 0;
  int if_opr = 0;
  int if_active = 0;
  int else_active = 0;
  int if_else_ct = 0;
  int else_flag = 0;
- int void_ct = 0;
- int math_case = 0;
- int comma_found = 0;
+ int void_ct = 0, math_case = 0, comma_found = 0;
  int inside_void = 0;
  int fprintf_lit = 0;
  int math_convert = 0;
@@ -856,66 +859,39 @@ char output_file[24];
  int atoi_pass = 0;
  int branch_done = 0;
  int sv_if_else_rec = 0;
- int sv_else_ct = 0;
- int end_strg = 0;
+ int sv_else_ct = 0, end_strg = 0;
  int ab_code = 0;
-
  int inside_while = 0;
  int while_opr = 0;
  int while_parm = 0; 
-
  int switch_convert = 0;
  int switch_level = 0;
  int switch_ct = 0;
-
  int inside_for = 0;
  int for_opr = 0;
  int for_parm = 0;
  int console_flag = 0;
- int fprtf_flag = 0;
+ int fprintf_flag = 0;
  int non_process = 0;
- int open_ct = 0;
- int end_input = 0;
- int use_atoi = 0;
- int use_mult = 0;
- int localtime_usect = 0;
- int loop_strcmp = 0;
- int i_ct = 0;
- int goto_label_ct = 0;
+ int open_ct = 0, end_input = 0;
+ int use_atoi = 0, use_mult = 0, localtime_usect = 0;
+ int loop_strcmp = 0, i_ct = 0;
  int use_strchr = 0;
  int skip_read = 0;
 
-
-  char T3270[1922][5];
-
-
-struct w_tm 
-{
-   int tm_rct;
-   char tm_sec[3];  
-   char tm_min[3];     
-   char tm_hour[3];  
-   char tm_mday[3]; 
-   char tm_mon[3];
-   char tm_year[5];
-};
-struct w_tm *tm;
-
-
 struct defines 
 {
-  int d_rct;
+   int d_rct;
   char d_name[VAR_LGTH];
   char d_value[VAR_LGTH];
 };
 struct defines *w_define;
 
-
 struct variables 
 {
    int gv_rct;
   char gv_name[VAR_LGTH];
-  char gv_cname[9];
+  char gv_cname[IBMSZ];
   char gv_type[2];
    int gv_lgth;
    int gv_current_lgth;
@@ -923,22 +899,20 @@ struct variables
    int gv_init;
   char gv_literal[BUFSIZE];
    int gv_use_ct;
-  char gv_dsect[VAR_LGTH];
+  char gv_dsect[IBMSZ];    /* A371T */
    int gv_row;
    int gv_column;
-  char gv_label[VAR_LGTH];
-  char gv_table[VAR_LGTH];
-  char gv_aname[VAR_LGTH];
-  char gv_sv_reg[VAR_LGTH];
-  char gv_wk_reg[VAR_LGTH];
-  char gv_wk_strg[VAR_LGTH];
-  char gv_st_col[VAR_LGTH];
+  char gv_label[IBMSZ];
+  char gv_table[IBMSZ];    
+  char gv_aname[IBMSZ];
+  char gv_sv_reg[IBMSZ];
+  char gv_wk_reg[IBMSZ];
+  char gv_wk_strg[IBMSZ];  /* A371N */
    int gv_flag;
    int gv_dec;
    int gv_id;
 };
 struct variables *gw_variable;
-
 
 struct var 
 {
@@ -957,7 +931,6 @@ struct var
    int lv_id;
 };
 struct var *lw_variable;
-
 
 struct files 
 {
@@ -1004,7 +977,6 @@ struct functions
    int fn_pass_8;
    int fn_pass_9;
   char fn_loop_use[12];
-   int fn_use_ct;
 };
 struct functions *w_function;
 
@@ -1047,12 +1019,7 @@ struct for_table
    int for_rct;
    int for_level;
    int for_eof1;
-  char for_rt_field[VAR_LGTH];
-  char for_rt_field2[VAR_LGTH];
   char for_p_string[BUFSIZE];
-  char for_rt_field5b[VAR_LGTH];
-  char for_rt_field5c[VAR_LGTH];
-   int for_type;
 };
 struct for_table *w_for_table;
 
@@ -1121,20 +1088,12 @@ struct carry
 };
 struct carry *w_carry;
 
-
-struct goto_label 
-{
-   int goto_label_rct;
-  char goto_org_lb[VAR_LGTH];
-  char goto_label_1[VAR_LGTH];
-};
-struct goto_label *w_goto_label;
-
 struct fs_map
 {
     int fs_rct;
    char fs_name[VAR_LGTH];
    char fs_cname[VAR_LGTH];
+   char fs_map_func[VAR_LGTH];
 };
 struct fs_map *w_fs_map;
 
@@ -1149,10 +1108,12 @@ struct fs_field
   char fs_fd_type[2];
   char fs_fd_field[VAR_LGTH];  
    int fs_fd_row;		   
-   int fs_fd_col;		   
+   int fs_fd_col;
+   int fs_fd_lgth;		   
   char fs_fd_color[VAR_LGTH];
   char fs_fd_address[5];
   char fs_fd_attr[3];
+  char fs_fd_func[VAR_LGTH];
 };
 struct fs_field *w_fs_field;
 
@@ -1173,6 +1134,24 @@ struct fs_fsaid
 struct fs_fsaid *w_fs_fsaid;
 
 
+struct gto_label 
+{
+   int gto_label_rct;
+  char gto_org_lb[VAR_LGTH];
+  char gto_label_1[VAR_LGTH];
+};
+struct gto_label *w_gto_label;
+
+
+struct bad_rec 
+{
+   int bad_rct;
+  char bad_string[BUFSIZE];
+};
+struct bad_rec *w_bad_rec;
+
+
+
 
 /* ----- includes ---------------- */
 
@@ -1186,6 +1165,7 @@ struct fs_fsaid *w_fs_fsaid;
 #include "c2z_const.c"
 #include "c2z_ctime.c"
 #include "c2z_debug.c"
+#include "c2z_decr.c"
 #include "c2z_define.c"
 #include "c2z_double.c"
 #include "c2z_enum.c"
@@ -1206,12 +1186,8 @@ struct fs_fsaid *w_fs_fsaid;
 #include "c2z_if.c"
 #include "c2z_incr.c"
 #include "c2z_int.c"
-#include "c2z_internet.c"
 #include "c2z_isalnum.c"
-#include "c2z_isalpha.c"
-#include "c2z_isdigit.c"
 #include "c2z_isspace.c"
-#include "c2z_isupper.c"
 #include "c2z_localtime.c"
 #include "c2z_long.c"
 #include "c2z_main.c"
@@ -1223,6 +1199,7 @@ struct fs_fsaid *w_fs_fsaid;
 #include "c2z_parameter.c"
 #include "c2z_pass_2.c"
 #include "c2z_pass_3.c"
+#include "c2z_rdparser.c"
 #include "c2z_print.c"
 #include "c2z_realloc.c"
 #include "c2z_return.c"
@@ -1231,7 +1208,6 @@ struct fs_fsaid *w_fs_fsaid;
 #include "c2z_strcat.c"
 #include "c2z_strchr.c"
 #include "c2z_strcmp.c"
-#include "c2z_strncmp.c"
 #include "c2z_strcpy.c"
 #include "c2z_strlen.c"
 #include "c2z_strncpy.c"
@@ -1240,8 +1216,6 @@ struct fs_fsaid *w_fs_fsaid;
 #include "c2z_strset.c"
 #include "c2z_strstr.c"
 #include "c2z_struct.c"
-#include "c2z_time.c"
-#include "c2z_u_short.c"
 #include "c2z_unsigned.c"
 #include "c2z_utility.c"
 #include "c2z_while.c"
@@ -1249,26 +1223,12 @@ struct fs_fsaid *w_fs_fsaid;
 int main(int argc, char *argv[]) 
 {
   char *p;
+  char *p1, *p2, *p3, *p4, *p5, *p6, *p7, *p8, *p9, *p10;
   char ch;
-  char *p1;
-  char *p2;
-  char *p3;
-  char *p4;
-  char *p5;
-  char *p6;
-  char *p7;
-  char *p8;
-  char *p9;
-  char *p10;
   char filename[VAR_LGTH];
   char asm_file_1[VAR_LGTH];
-  char ar_field6[VAR_LGTH];
-  char ar_field7[VAR_LGTH];
-  char ar_field8[VAR_LGTH];
-  char ar_field9[VAR_LGTH];
-  char ar_field10[VAR_LGTH];
-  char ar_field11[VAR_LGTH];
   char tfield1[VAR_LGTH];
+  char tfield1a[VAR_LGTH];
   char tfield2[VAR_LGTH];
   char trcfile[VAR_LGTH];
 
@@ -1297,32 +1257,21 @@ int main(int argc, char *argv[])
   int x43 = 0;
   int x44 = 0;
   int y0 = 0;
-  int v1 = 0;
   int bk1 = 0;
   int bk2 = 0;
   int bk3 = 0;
-
-
-  if (argc < 2) 
-  {
-    printf("\n ****** ERROR *******  NO INPUT FILE NAME ENTERED\n");
-    exit(0);
-  }
-
+  
   if (argc > 2) 
   {
     p = strstr(argv[2], "-d");
     if (p) 
     {
       strcpy(tfield1, argv[2]);
+      tfield1a[0] = tfield1[2];
+      tfield1a[1] = '\0';
     }
   }
 
-  for(s = 0; s < 110; s++)
-  {
-    work_use_ct[s] = 0;
-  }
-  
   traceflg = 1;
   puncde = 1;
 
@@ -1398,24 +1347,16 @@ int main(int argc, char *argv[])
     strcpy(asm_file, wk_file);
   }
 
-  z390 = 1;
   strcat(asm_file, ".MLC");
   strcpy(asm_file_1, asm_file);
-  z390 = 1;
-  
+   
   printf("***********************************************\n");
   printf("*  c2z Starting Execution                     *\n");
-  printf("*  Version 0.0.25 - 01/05/2022                *\n");
-  printf("*  Copyright (C) TCCS 2015 - 2022             *\n");
+  printf("*  Version 0.1.00 - 11/01/2026                *\n");
+  printf("*  Copyright (C) TCCS 2015 - 2026             *\n");
   printf("*  c2z Z390 Pass 1 Started                    *\n");
 
-
   pgm = fopen(filename, "rb");
-  if(pgm == NULL)
-  {
-    printf("\n\n***** ERROR *****  INPUT FILE NOT FOUND\n");
-    exit(0);
-  }
   c_tmp = fopen("tmp.c", "wb");
 
   strcpy(trcfile, wk_file);
@@ -1427,10 +1368,10 @@ int main(int argc, char *argv[])
   while (1) 
   {
     fgets(p_string, BUFSIZE, pgm);
+
+/* printf("c2z.c Pass 1 rct = %d p_string = %s",rct,p_string); */
+
     rct++;
-
-/* printf("c2z.c PASS 1 rct = %d p_string = %s",rct,p_string); */
-
 
     if (feof(pgm)) 
     {
@@ -1439,8 +1380,7 @@ int main(int argc, char *argv[])
 
     p1 = strstr(p_string, "\"");
     ret = strncmp("#include", p_string, 8);
-   
-    if((ret == 0) && (p1)) 
+    if ((ret == 0) && (p1)) 
     {
       pi = 0;
       ch = p_string[pi];
@@ -1467,10 +1407,9 @@ int main(int argc, char *argv[])
       {
         y0 = 1;
         c_h = fopen(tfield1, "r");
-        while(fgets(p_string, BUFSIZE, c_h) != NULL) 
+        while (fgets(p_string, BUFSIZE, c_h) != NULL) 
         {
-          scan_func_name_1();
-          fputs(p_string, c_tmp);
+          scan_func_name_1(); 
         }
         fclose(c_h);
       }
@@ -1496,18 +1435,16 @@ int main(int argc, char *argv[])
   }
 
   fclose(pgm);
+
   if (i_ct > 0) 
   {
     for (I = 0; I < i_ct; I++) 
     {
       strcpy(tfield1, w_include[I].include_name);
-
-
       pgm = fopen(tfield1, "r");
       while (1) 
       {
         fgets(p_string, BUFSIZE, pgm);
-/* printf("c2z.c Pass 1a p_string = %s",p_string); */
         rct++;
         if (feof(pgm)) 
         {
@@ -1529,7 +1466,6 @@ int main(int argc, char *argv[])
   while (fgets(p_string, BUFSIZE, pgm) != NULL) 
   {
     rct++;
-
     convert = 0;
     pi = 0;
     x2 = 0;
@@ -1605,128 +1541,32 @@ int main(int argc, char *argv[])
 
   while(!feof(pgm))
   {
-    if(skip_read == 0)
-    {
-      if(fgets(p_string, 255,pgm) == NULL )
-      {
-         goto pass2_skip;
-      }
+    if (skip_read == 0) 
+    { 
+      fgets(p_string, BUFSIZE, pgm); 
       rct++;
-    }
-
-    convert = 0;
-    fprtf_flag = 0;
-
-    skip_read = 0;
+    }  
 
 /* printf("c2z Pass 2 rct = %d erct = %d p_string = %s\n",rct,erct,p_string); */
 
-    s = strlen(p_string);
-    if(s == 1)
-    {
-       convert = 1;
-    }
- 
-    p = strstr(p_string, "fsdefine");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
+    x1001 = strlen(p_string);
 
-    p = strstr(p_string, "fsfield");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
+    convert = 0;
+    fprintf_flag = 0;
 
-    p = strstr(p_string, "fsdefine");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fsaid");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fsmap");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fsio");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fstype");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fsname");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fsloc");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fscolor");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "fsattr");
-    if(p)
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "};");
-    p1 = strstr(p_string, "[");
-    if((p) && (!p1))
-    { 
-      convert = 1;
-      goto pass2_skip;
-    }
+    skip_read = 0;
 
     if (global_st == 0) 
     {
       sv_func[0] = '\0';
     }
 
+    convert = 0;
     skip_read = 0;
 
-    /* Scan for { }  */
-
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-
+    /* **********************************************************
+    *  Scan for { }                                             *
+    * ********************************************************* */
     x = 0;
     x1 = 0;
     pi = 0;
@@ -1754,11 +1594,8 @@ int main(int argc, char *argv[])
 
     if ((x > 0) || (x1 > 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c Pass 2 { }");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z.c Pass 2 { }");
+      trace_rec_1();
       c2_param_ct();
     }
 
@@ -1767,18 +1604,11 @@ int main(int argc, char *argv[])
        goto pass2_skip;
     }
 
-    /* ***************************************************************
-    * Scan for MAIN in C program and set sv_funcTest for int or char *
-    * ************************************************************** */
- 
 
+    /* **********************************************************
+    *  Scan for MAIN in C program and set sv_func               *
+    * ********************************************************* */
     mainflg = 0;
-
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
     if (mainflg != 1) 
     {
       p8 = strstr(p_string, "int");
@@ -1795,12 +1625,9 @@ int main(int argc, char *argv[])
       p2 = strstr(p_string, "_main");
       if ((p) && (p1) && (!p8) && (!p2)) 
       {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass 2 MAIN");
-          trace_rec_1();
-        }
-
+   
+        strcpy(trace_1, "c2z pass 2 MAIN");
+        trace_rec_1();
         inside_main = 1;
         strcpy(sv_func, "main");
         c2_main();
@@ -1810,9 +1637,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-    * Scan for malloc                                                *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for malloc                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1828,9 +1655,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-    * Scan for realloc                                                *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for realloc                                         *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1839,61 +1666,15 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "realloc");
     p1 = strstr(p_string, "#include");
 
-    if ((p) && (!p1))
-    {
+    if ((p) && (!p1)) {
       /* c2_scan_realloc();  */
       convert = 1;
     }
 
 
-
-    /* ***************************************************************
-     *  Scan for bind                                                *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "bind");
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 bind");
-        trace_rec_1();
-      }
-
-      /* c2_bind();   */
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-     *  Scan for listen                                              *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "listen");
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 listen");
-        trace_rec_1();
-      }
-
-      /* c2_listen();   */
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-    * Scan for struct                                                *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for struct                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -1906,44 +1687,38 @@ int main(int argc, char *argv[])
 
     if ((p) && (!p1) && (!p2) && (!p3)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 struct #1");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z.c pass 2 struct #1");
+      trace_rec_1();
       c2z_struct();
       convert = 1;
     }
 
     if ((p) && (!p1) && (!p2) && (p3)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 struct #2");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z.c pass 2 struct #2");
+      trace_rec_1();
       c2_struct_4();     
       convert = 1;
     }
 
 
-    /* ***************************************************************
-    * Scan for prototypes                                            *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for prototypes                                      *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
     pi = 0;
+    pi2 = 0;
     ch = p_string[pi];
     while ((ch == ' ') || (ch == '\t') || (ch == '{')) 
     {
       pi++;
       ch = p_string[pi];
     }
- 
-    pi2 = 0;
+
     while (ch != ' ') 
     {
       tfield1[pi2] = ch;
@@ -1995,11 +1770,8 @@ int main(int argc, char *argv[])
 
     if ((x1 == 1) && (p1) && (!p3) && (!p4) && (p5) && (p6) && (!p7) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 prototype (char) #101");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass_2 prototype (char) #101");
+      trace_rec_1();
       scan_func_name_1();
       convert = 1;
     }
@@ -2011,11 +1783,8 @@ int main(int argc, char *argv[])
 
     if ((x1 == 2) && (p1) && (p5) && (p6) && (!p8) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 prototype (int) #102");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass_2 prototype (int) #102");
+      trace_rec_1();
       scan_func_name_1();
       convert = 1;
     }
@@ -2027,12 +1796,8 @@ int main(int argc, char *argv[])
 
     if ((x1 == 3) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
-
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 prototype (void) #103");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass_2 prototype (void) #103");
+      trace_rec_1();
       scan_func_name_1();
       convert = 1;
     }
@@ -2044,11 +1809,8 @@ int main(int argc, char *argv[])
 
     if ((x1 == 4) && (p1) && (p5) && (p6) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 prototype (double) #104");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass_2 prototype (double) #104");
+      trace_rec_1();
       scan_func_name_1();
       convert = 1;
     }
@@ -2060,19 +1822,16 @@ int main(int argc, char *argv[])
 
     if ((x1 == 5) && (p1) && (p5) && (p6)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 prototype (long) #105");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass_2 prototype (long) #105");
+      trace_rec_1();
       scan_func_name_1();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-    * Scan for subroutines                                           *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for subroutines                                     *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2136,27 +1895,21 @@ int main(int argc, char *argv[])
 
     if ((x1 == 1) && (!p1) && (!p3) && (!p4) && (p5) && (p6) && (!p7) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 subroutine #200");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass_2 subroutine #200");
+      trace_rec_1();
       c2_int_3();
       convert = 1;
     }
 
     if (convert == 1)
+    {
       goto pass2_skip;
+    }
 
     if ((x1 == 2) && (!p1) && (p5) && (p6) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 subroutine #202");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass_2 subroutine #202");
+      trace_rec_1();
       c2_int_3();
       convert = 1;
     }
@@ -2168,12 +1921,8 @@ int main(int argc, char *argv[])
 
     if ((x1 == 3) && (!p1) && (p5) && (p6) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 subroutine #203");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass_2 subroutine #203");
+      trace_rec_1();
       c2_int_3();
       convert = 1;
     }
@@ -2185,12 +1934,8 @@ int main(int argc, char *argv[])
 
     if ((x1 == 4) && (!p1) && (p5) && (p6) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 subroutine #204");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass_2 subroutine #204");
+      trace_rec_1();
       c2_int_3();
       convert = 1;
     }
@@ -2202,20 +1947,16 @@ int main(int argc, char *argv[])
 
     if ((x1 == 5) && (!p1) && (p5) && (p6)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 subroutine #205");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass_2 subroutine #205");
+      trace_rec_1();
       c2_int_3();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-    * Scan for INT (NOT MAIN)                                        *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for INT (NOT MAIN)                                  *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2268,12 +2009,8 @@ int main(int argc, char *argv[])
       p6 = strstr(p_string, ".");
       if (!p6) 
       {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c scan char c2_int START");
-          trace_rec_1();
-        }
-
+        strcpy(trace_1, "c2z scan char c2_int START");
+        trace_rec_1();
         c2_int();
         convert = 1;
       }
@@ -2282,20 +2019,16 @@ int main(int argc, char *argv[])
     ret = strcmp(tfield1, "cha");
     if (ret == 0) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c scan char c2_char START");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z scan char c2_char START");
+      trace_rec_1();
       c2_char();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-    * Scan for size_t                                                *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for size_t                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2304,46 +2037,13 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "size_t");
     if(p)
     {
-
       convert = 1;
     }
 
 
-    /* ***************************************************************
-    * Scan for time_t                                                *
-    * ************************************************************** */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "time_t");
-    if (p) 
-    {
-      c2_time_t();
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-    * Scan for u_short                                               *
-    * ************************************************************** */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "u_short");
-    if(p)
-    {
-      c2_u_short();
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-    * Scan for while                                                 *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for while                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2352,15 +2052,11 @@ int main(int argc, char *argv[])
     while_convert = 0;
 
     p = strstr(p_string, "while");
-    p1 = strstr(p_string, "\"while");
-    if ((p) && (!p1)) 
+    if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 while");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 while");
+      trace_rec_1();
+      
       if(l_start[1] == 0)
       {
         l_start[1] = rct;
@@ -2564,13 +2260,13 @@ int main(int argc, char *argv[])
       }
       convert = 1;
 
-      c2_pass_2_1();
+      c2_pass2_while();
     }
 
 
-    /* ***************************************************************
-    * Scan for switch                                                *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for switch                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2581,12 +2277,9 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "switch");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 switch");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 switch");
+      trace_rec_1();
+      
       if(l_start[1] == 0)
       {
         l_start[1] = rct;
@@ -2789,33 +2482,13 @@ int main(int argc, char *argv[])
         switch_ct++;
       }
       convert = 1;
-    }
+
+     }
 
 
-    /* ***************************************************************
-     * Scan for sprintf                                              *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "sprintf");
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 sprintf");
-        trace_rec_1();
-      }
-      convert = 1;
-    }
-
-
-
-    /* ***************************************************************
-     * Scan for fprintf                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for fprintf                                         *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -2824,12 +2497,9 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "fprintf");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 fprintf");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 fprintf");
+      trace_rec_1();
+      
       s = strlen(p_string);
       pi = 0;
       pi2 = 0;
@@ -2895,8 +2565,10 @@ int main(int argc, char *argv[])
         pi++;
       }
 
-/* copy from strstart to strstop into storage  */
 
+      /* ********************************************************
+      *  copy from strstart to strstop into storage             *
+      * ******************************************************* */
       s = 0;
       x4 = 0;
       x2 = 0;
@@ -2906,6 +2578,12 @@ int main(int argc, char *argv[])
         for (indx = strstart; indx < strstop; indx++) 
         {
           ch = p_string[indx];
+          /* *******************************************************************
+          *  Test of c format charater '\' if, found do not copy and then      *
+          *  skip the next character.  ex (print\n). Drop the \n as it is      *
+          *  c formating string.                                               *
+          * ****************************************************************** */
+
           if (ch == '%') 
           {
             indx++;
@@ -2928,8 +2606,11 @@ int main(int argc, char *argv[])
         strtmp[s] = '\0';
       }
 
-/* Optimize LXX table  */
 
+      /* ********************************************************
+      *  Optimize LXX table                                     *
+      * ******************************************************* */
+/*
       x3 = 0;
       if (gv_ct != 0) 
       {
@@ -2991,10 +2672,11 @@ int main(int argc, char *argv[])
           v_const++;
         }
       }
+*/
 
-
-/* update the struct with literal  */
-
+      /* ********************************************************
+      *  update the struct with literal                         *
+      * ******************************************************* */
       if (gv_ct == 0) 
       {
         size = 1;
@@ -3013,19 +2695,18 @@ int main(int argc, char *argv[])
       strcpy(gw_variable[gv_ct].gv_name, wk_string);
       strcpy(gw_variable[gv_ct].gv_type, "L");
       gw_variable[gv_ct].gv_lgth = x4;
-      gw_variable[gv_ct].gv_current_lgth = x4;
       strcpy(gw_variable[gv_ct].gv_literal, strtmp);
       gw_variable[gv_ct].gv_dec = 0;
       gv_ct++;
 
-      fprtf_flag = 1;
+      fprintf_flag = 1;
       convert = 1;
     }
 
 
-    /* ***************************************************************
-    *  Scan for printf                                               *
-    * ************************************************************** */
+    /* **********************************************************
+    *  Scan for printf                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3035,12 +2716,9 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "printf");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c scan printf");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z scan printf");
+      trace_rec_1();
+      
       y0 = 0;
       y0 = strlen(p_string);
       pi = 0;
@@ -3065,8 +2743,10 @@ int main(int argc, char *argv[])
         pi++;
       }
 
-/* copy from strstart to strstop into storage  */
 
+      /* ********************************************************
+      *  copy from strstart to strstop into storage             *
+      * ******************************************************* */
       y0 = 0;
       x4 = 0;
       if ((strstart > 0) & (strstop > 0)) 
@@ -3092,144 +2772,36 @@ int main(int argc, char *argv[])
         }
         strtmp[y0] = '\0';
       }
-
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c printf-strtmp");
-        trace_rec_1();
-      }
-
+      
       y0 = 0;
 
-/* Optimize LXX table  */
-
-      x3 = 0;
-      x1 = 0;
-      x = 0;
-
-      if (gv_ct > 0) 
-      {
-        for (I = 0; I < gv_ct; I++) 
-        {
-          x2 = 0;
-          ret = strcmp(gw_variable[I].gv_type, "L");
-          if (ret == 0) 
-          {
-            strcpy(a_string, gw_variable[I].gv_literal);
-            x = strcmp(a_string, strtmp);
-            x3++;
-            if (x == 0) 
-            {
-              x1 = 1;
-              strcpy(tfield1, gw_variable[I].gv_name);
-              if (v_const == 0) 
-              {
-                size = 1;
-                w_constant = malloc(size * sizeof(struct constant));
-              } 
-              else 
-              {
-                size = v_const + 1;
-                w_constant =
-                    realloc(w_constant, size * sizeof(struct constant));
-              }
-
-              w_constant[v_const].const_rct = rct;
-              strcpy(wk_string, "L");
-              snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-              strcat(wk_string, wk_strg);
-              strcpy(w_constant[v_const].const_current, wk_string);
-              strcpy(w_constant[v_const].const_use, tfield1);
-              v_const++;
-              x2 = 1;
-              break;
-            }
-          }
-        }
-
-        if (x1 == 0) 		
-        {
-          if (v_const == 0) 
-          {
-            size = 1;
-            w_constant = malloc(size * sizeof(struct constant));
-          } 
-          else 
-          {
-            size = v_const + 1;
-            w_constant = realloc(w_constant, size * sizeof(struct constant));
-          }
-
-          w_constant[v_const].const_rct = rct;
-          strcpy(wk_file, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-          strcat(wk_file, wk_strg);
-          strcpy(w_constant[v_const].const_current, wk_file);
-          strcpy(w_constant[v_const].const_use, wk_file);
-          v_const++;
-        }
-      }
-
+      /* ********************************************************
+      *  update the struct with literal                         *
+      * ******************************************************* */
       if (gv_ct == 0) 
       {
-        if (v_const == 0) 
-        {
-          size = 1;
-          w_constant = malloc(size * sizeof(struct constant));
-        } 
-        else 
-        {
-          size = v_const + 1;
-          w_constant = realloc(w_constant, size * sizeof(struct constant));
-        }
-
-        w_constant[v_const].const_rct = rct;
-        strcpy(wk_file, "L");
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcat(wk_file, wk_strg);
-        strcpy(w_constant[v_const].const_current, wk_file);
-        strcpy(w_constant[v_const].const_use, wk_file);
-        v_const++;
-
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass2 scan printf-strtmp #1");
-          trace_rec_1();
-        }
-      }
-
-/* update the struct with literal  */
-
-      x1 = strlen(strtmp);
-
-      if (x2 != 1) 
+        size = 1;
+        gw_variable = malloc(size * sizeof(struct variables));
+      } 
+      else 
       {
-        if (gv_ct == 0) 
-        {
-          size = 1;
-          gw_variable = malloc(size * sizeof(struct variables));
-        } 
-        else 
-        {
-          size = gv_ct + 1;
-          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-        }
-
-        strcpy(wk_string, "L");
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcat(wk_string, wk_strg);
-        gw_variable[gv_ct].gv_rct = rct;
-        strcpy(gw_variable[gv_ct].gv_name, wk_string);
-        strcpy(gw_variable[gv_ct].gv_type, "L");
-        gw_variable[gv_ct].gv_lgth = x4;
-        strcpy(gw_variable[gv_ct].gv_literal, strtmp);
-        gw_variable[gv_ct].gv_current_lgth = x1;
-        gw_variable[gv_ct].gv_dec = 0;
-        gw_variable[gv_ct].gv_id = 5;
-        gv_ct++;
-        strcpy(strtmp, null_field);
+        size = gv_ct + 1;
+        gw_variable = realloc(gw_variable, size * sizeof(struct variables));
       }
 
+      strcpy(wk_string, "L");
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcat(wk_string, wk_strg);
+      gw_variable[gv_ct].gv_rct = rct;
+      strcpy(gw_variable[gv_ct].gv_name, wk_string);
+      strcpy(gw_variable[gv_ct].gv_type, "L");
+      gw_variable[gv_ct].gv_lgth = x4;
+      strcpy(gw_variable[gv_ct].gv_literal, strtmp);
+      gw_variable[gv_ct].gv_dec = 0;
+      gw_variable[gv_ct].gv_id = 5;
+      gv_ct++;
+      strcpy(strtmp, null_field);
+    
       convert = 1;
       y0 = strlen(p_string);
       strstop++;
@@ -3254,9 +2826,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for free                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for free                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3266,17 +2838,34 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan free");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 2 scan free");
+      trace_rec_1();
     }
 
 
-    /* ***************************************************************
-     *  Scan for #define                                             *
-     * ************************************************************* */
+
+    /* **********************************************************
+    *  Scan for goto label  :                                   *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    p = strstr(p_string, ":");
+    p1 = strstr(p_string, "case");
+    p2 = strstr(p_string, "default:");
+    p3 = strstr(p_string, "':");
+    if((p) && (!p1) && (!p2) && (!p3)) 
+    {
+       c2_goto_pass2_label();
+       convert = 1;
+    }
+
+
+    /* **********************************************************
+    *  Scan for #define                                         *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3292,9 +2881,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* ***************************************************************
-     *  Scan for #ifndef                                             *
-     * ************************************************************* */
+
+    /* **********************************************************
+    *  Scan for #ifndef                                         *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3303,21 +2893,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "#ifndef");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 #ifndef");
-        trace_rec_1();
-      }
- 
+      strcpy(trace_1, "c2z pass_2 #ifndef");
+      trace_rec_1();
       c2_ifndef();
       convert = 1;
     }
 
 
-
-    /* ***************************************************************
-     *   Scan for #endif                                             *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for #endif                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3326,21 +2911,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "#endif");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 #endif");
-        trace_rec_1();
-      }
-      
+      strcpy(trace_1, "c2z pass_2 #endif");
+      trace_rec_1();
       c2_endif();
       convert = 1;
     }
 
-    v_convert = 0;
 
-    /* ***************************************************************
-     *  Scan for user VOID FUNCTION code                             *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for user VOID FUNCTION code                         *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -3352,6 +2932,7 @@ int main(int argc, char *argv[])
       goto vf_convert;
     }
 
+    int v_convert = 0;
     pi = 0;
     pi2 = 0;
     ch = p_string[pi];
@@ -3406,12 +2987,11 @@ int main(int argc, char *argv[])
       s = 9999;
     }
 
-/*
     if ((p) && (s < v))
     {
       v_convert = 1;
     }
-*/
+
     p = strstr(p_string, "#define");
     if ((p) && (v_convert == 0))
     {
@@ -3460,12 +3040,6 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "bind");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
     p = strstr(p_string, "bool");
     if ((p) && (v_convert == 0))
     {
@@ -3508,7 +3082,7 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "ctime");
+    p = strstr(p_string, "date");
     if ((p) && (v_convert == 0))
     {
       v_convert = 1;
@@ -3547,12 +3121,6 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "fclose");
     p1 = strstr(p_string, "_fclose");
     if ((p) && (!p1) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
-    p = strstr(p_string, "fflush");
-    if ((p) && (v_convert == 0))
     {
       v_convert = 1;
     }
@@ -3600,36 +3168,6 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "fsaid");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
-    p = strstr(p_string, "fsdefine");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
-    p = strstr(p_string, "fsfield");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
-    p = strstr(p_string, "fsdisplay");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
-    p = strstr(p_string, "fsread");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
     s = strcmp(tfield1, "getchar");
     if ((s == 0) && (v_convert == 0))
     {
@@ -3664,18 +3202,6 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "listen");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
-    p = strstr(p_string, "localtime");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
     p = strstr(p_string, "long");
     if ((p) && (v_convert == 0))
     {
@@ -3694,12 +3220,6 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "sprintf");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
     p = strstr(p_string, "print");
     p1 = strstr(p_string, "_print");
     if ((p) && (!p1) && (v_convert == 0))
@@ -3708,6 +3228,12 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "pthread_create");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "puts");
     if ((p) && (v_convert == 0))
     {
       v_convert = 1;
@@ -3786,12 +3312,6 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "strncmp");
-    if ((p) && (v_convert == 0))
-    {
-      v_convert = 1;
-    }
-
     p = strstr(p_string, "strcpy");
     if ((p) && (v_convert == 0))
     {
@@ -3858,7 +3378,13 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    p = strstr(p_string, "time_t");
+    p = strstr(p_string, "time");
+    if ((p) && (v_convert == 0))
+    {
+      v_convert = 1;
+    }
+
+    p = strstr(p_string, "tolower");
     if ((p) && (v_convert == 0))
     {
       v_convert = 1;
@@ -3894,28 +3420,33 @@ int main(int argc, char *argv[])
       v_convert = 1;
     }
 
-    /* test for goto label */
-    x = 0;
-    s = strlen(p_string);
-    for(x = 0; x < s; x++)
-    {
-      if(p_string[x] == ':')
-      {
-        v_convert = 1;
-      }
-    }
-
     if (v_convert == 0) 
     {
-      c2_scan_sub();
+       c2_scan_sub();
     }
 
   vf_convert:
 
-  /* ***************************************************************
-   *  Scan for - for                                               *
-   * ************************************************************* */
 
+    /* **********************************************************
+    *  Scan for enum                                            *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    p = strstr(p_string, "enum");
+    if (p) 
+    {
+      c2_enum_scan();
+      convert = 1;
+    }
+
+
+    /* **********************************************************
+    *  Scan for for                                             *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4025,7 +3556,6 @@ int main(int argc, char *argv[])
         for_level = 8;
         goto skip_for_77;
       }
-
 
       if(l_start[9] == 0)
       {
@@ -4149,6 +3679,7 @@ int main(int argc, char *argv[])
           size = for_ct + 1;
           w_for_table = realloc(w_for_table, (size * sizeof(struct for_table)));
         }
+
         w_for_table[for_ct].for_rct = rct;
         w_for_table[for_ct].for_level = for_level;
         w_for_table[for_ct].for_eof1 = 0;
@@ -4156,44 +3687,17 @@ int main(int argc, char *argv[])
         for_ct++;
       }
 
-      c2_pass_2_1();
-      convert = 1;
-    }
-
-    /* ***************************************************************
-     *  Scan for - fflush                                            *
-     * ************************************************************* */
-
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p8 = strstr(p_string, "fflush");
-    if(p8)
-    {
+      c2_pass2_for();
       convert = 1;
     }
 
 
-  /* ***************************************************************
-   *  Scan for - if                                                *
-   * ************************************************************* */
-
+    /* **********************************************************
+    *  Scan for if                                              *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
-    }
-
-    p8 = strstr(p_string, "if");
-    if(p8)
-    {
-      p = strstr(p_string, "(");
-      if(!p)
-      {
-        convert = 1;
-        goto pass2_skip;
-      }
     }
 
     p8 = strstr(p_string, "if");
@@ -4204,6 +3708,12 @@ int main(int argc, char *argv[])
     if (v < 0) 
     {
       v = 9999;
+    }
+
+    p = strstr(p_string, "_if");
+    if(p)
+    {
+      goto if_loop_67;
     }
 
     pi = 0;
@@ -4242,12 +3752,9 @@ int main(int argc, char *argv[])
 
     if (x2 == 0) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan IF");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2.c pass 2 scan IF");
+      trace_rec_1();
+      
       if(l_start[1] == 0)
       {
         l_start[1] = rct;
@@ -4420,6 +3927,7 @@ int main(int argc, char *argv[])
         size = (wif_ct + 1);
         w_if_table = realloc(w_if_table, (size * sizeof(struct if_table)));
       }
+
       w_if_table[wif_ct].wif_rct = rct;
       w_if_table[wif_ct].wif_level = if_level;
       w_if_table[wif_ct].wif_eof1 = 0;
@@ -4427,42 +3935,16 @@ int main(int argc, char *argv[])
       w_if_table[wif_ct].wif_eof2 = 0;
       wif_ct++;
 
-      s = 0;
-      x3 = 0;
-      s = strlen(p_string);
-      I = 0;
-      for(I = 0; I < s; I++)
-      {
-         ch = p_string[I];
-         if(ch == '\'')
-         {
-            x3 = 1;
-         }
-      }
+      c2_pass2_if();
 
-      if(x3 == 1)
-      {
-         c2_pass_2_1();
-      }
-     
-      p = strstr(p_string, "strchr");
-      if(x3 == 0)
-      {
-         if(p) 
-         {
-            c2_pass_2_3();
-         }
-         else
-         {
-            c2_pass_2_2();
-         }
-      }
+    if_loop_67:
       convert = 1;
     }
 
-    /* ***************************************************************
-     *  Scan for malloc (skip)                                       *
-     * ************************************************************* */
+
+    /* **********************************************************
+    *  Scan for malloc  (skip)                                  *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4478,9 +3960,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for remove                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for remove                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4489,20 +3971,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "remove");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c scan remove");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z scan remove");
+      trace_rec_1();
       c2_file_remove();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for break                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for break                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4512,40 +3990,38 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan break");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 2 scan break");
+      trace_rec_1();
     }
 
 
-    /* ***************************************************************
-     *  Scan for return                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for return                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
-    p = strstr(p_string, "return");
-    if (p) 
+    p = strstr(p_string, "return;");
+    if(p)
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan return");
-        trace_rec_1();
-      }
+      convert = 1;
+    }
 
-      /* c2_pass_2_1(); */
+    p = strstr(p_string, "return ");
+    if((p)  && (convert == 0))
+    {
+      strcpy(trace_1, "c2z pass 2 scan return");
+      trace_rec_1();
       c2_return_2();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for exit                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for exit                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4555,36 +4031,66 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan exit");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 2 scan exit");
+      trace_rec_1();
     }
 
 
-    /* ***************************************************************
-     *  Scan for ++                                                  *
-     * ************************************************************* */
+
+    /* **********************************************************
+    *  Scan for tolower                                         *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    p = strstr(p_string, "tolower");
+    if (p) 
+    {
+      convert = 1;
+      strcpy(trace_1, "c2z pass 2 tolower");
+      trace_rec_1();
+    }
+
+
+    /* **********************************************************
+    *  Scan for toupper                                         *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    p = strstr(p_string, "toupper");
+    if (p) 
+    {
+      convert = 1;
+      strcpy(trace_1, "c2z pass 2 toupper");
+      trace_rec_1();
+    }
+
+
+    /* **********************************************************
+    *  Scan for ++                                              *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
     p = strstr(p_string, "++;");
-    if (p) {
+    if (p) 
+    {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan ++");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 2 scan ++");
+      trace_rec_1();
     }
 
 
-    /* ***************************************************************
-     *  Scan for --                                                  *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for --                                              *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4594,17 +4100,14 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan --");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 2 scan --");
+      trace_rec_1();
     }
 
 
-    /* ***************************************************************
-     *  Scan for strcpy                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for strcpy                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4614,20 +4117,16 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass_2 scan strcpy");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass_2 scan strcpy");
+      trace_rec_1();
       c2_strcpy_pass2();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for strcat                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for strcat                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4637,57 +4136,34 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan strcat");
-        trace_rec_1();
-      }
-
-      c2_pass_2_2();
+      strcpy(trace_1, "c2z pass 2 scan strcat");
+      trace_rec_1();
+      c2_pass2_strcat();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for strstr                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for strstr                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
     p = strstr(p_string, "strstr");
-       
     if (p) 
     {
       convert = 1;
-      
+      printf("c2z Pass 2 rct = %d c2_strstr #100\n", rct);
       c2_strstr_scan();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for enum                                                *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "enum");
-    p1 = strstr(p_string, "()");
-
-    if((p) && (!p1))
-    {
-      c2_enum_scan(); 
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-     *  Scan for FILE                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for FILE                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4696,20 +4172,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "FILE");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c scan FILE");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z scan FILE");
+      trace_rec_1();
       c2_file();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for fopen                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for fopen                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4719,21 +4191,17 @@ int main(int argc, char *argv[])
     p1 = strstr(p_string, "fopen_");
     if ((p) && (!p1)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan fopen");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan fopen");
+      trace_rec_1();
       c2_scan_fopen();
       open_ct++;
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for fclose                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for fclose                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4771,12 +4239,9 @@ int main(int argc, char *argv[])
     s = strcmp(tfield1, "fclose");
     if (s == 0) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan fclose");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan fclose");
+      trace_rec_1();
+      
       open_ct--;
       s = strlen(p_string);
       pi = 0;
@@ -4816,8 +4281,7 @@ int main(int argc, char *argv[])
 
       if (x == 0) 
       {
-        printf("c2z.c C2 SCAN FCLOSE ERROR! rct = %d tfield1 = %s!\n",rct,tfield1);
-        /*  exit(1); */
+        printf("c2z.c C2 SCAN FCLOSE ERROR!!\n");
       }
 
       if (fclose_ct == 0) 
@@ -4839,9 +4303,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for fgetc                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for fgetc                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4850,20 +4314,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "fgetc");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan fgetc");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan fgetc");
+      trace_rec_1();
       c2_fgetc_pass2();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for fgets                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for fgets                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4872,62 +4332,34 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "fgets");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan fgets");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan fgets");
+      trace_rec_1();
       c2_scan_fgets();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for gets                                                *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "gets");
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan gets");
-        trace_rec_1();
-      }
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-     *  Scan for fputs                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for fputs                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
     p = strstr(p_string, "fputs");
-    if (p) 
+    if (p)
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan fputs");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2.c pass 2 scan fputs");
+      trace_rec_1();
       c2_scan_fputs();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for getchar                                             *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for getchar                                         *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4936,20 +4368,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "getchar");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan getchar");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan getchar");
+      trace_rec_1();
       c2_getchar_pass2();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for int main                                            *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for int main                                        *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4970,9 +4398,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for double                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for double                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -4993,20 +4421,16 @@ int main(int argc, char *argv[])
 
     if ((p) && (!p1) && (!p2) && (!p3) && (v < s)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan double");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan double");
+      trace_rec_1();
       c2_double();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for float                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for float                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5020,14 +4444,14 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "float");
     if ((p) && (s < v)) 
     {
-      c2_float();
+     c2_float();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for lonh                                                *
-     * ************************************************************* */
+   /* ***********************************************************
+    *  Scan for long                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5047,9 +4471,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for cos                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for cos                                             *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5067,9 +4491,10 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
-    /* ***************************************************************
-     *  Scan for rand                                                *
-     * ************************************************************* */
+
+    /* **********************************************************
+    *  Scan for rand                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5088,9 +4513,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for pw                                                  *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for pow                                             *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5109,9 +4534,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for sin                                                 *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for sin                                             *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5130,9 +4555,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for sqrt                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for sqrt                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5151,9 +4576,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for tan                                                 *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for tan                                             *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5172,9 +4597,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for unsigned                                            *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for unsigned                                        *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5188,25 +4613,25 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for atof                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for atof                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
     p = strstr(p_string, "atof");
-    if (p) 
+    if (p)
     {
-      /* c2_atof(); */
+      c2_atof();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for case                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for case                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5216,14 +4641,16 @@ int main(int argc, char *argv[])
     p1 = strstr(p_string, "=");
     if ((p) && (!p1)) 
     {
-      c2_pass_2_1();
+      strcpy(trace_1, "c2z pass 2 scan case");
+      trace_rec_1();
+      c2_pass2_case();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for strcmp                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for strcmp                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5235,12 +4662,9 @@ int main(int argc, char *argv[])
       p1 = strstr(p_string, "\"");
       if (p1) 
       {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass 2 scan strcmp");
-          trace_rec_1();
-        }
-
+        strcpy(trace_1, "c2z pass 2 scan strcmp");
+        trace_rec_1();
+        
         pi = 0;
         ch = p_string[pi];
         while (ch != '"') 
@@ -5263,8 +4687,10 @@ int main(int argc, char *argv[])
         }
         a_string[pi2] = '\0';
 
-/*  update the struct with literal  */
 
+        /* ******************************************************
+        *  update the struct with literal                       *
+        * ***************************************************** */
         if (gv_ct == 0) 
         {
           size = 1;
@@ -5293,93 +4719,9 @@ int main(int argc, char *argv[])
     }
 
 
-    /* ***************************************************************
-     *  Scan for strncmp                                             *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "strncmp");
-    if (p) 
-    {
-      p1 = strstr(p_string, "\"");
-      if (p1) 
-      {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass 2 scan strncmp");
-          trace_rec_1();
-        }
-
-        pi = 0;
-        ch = p_string[pi];
-        while (ch != '"') 
-        {
-          pi++;
-          ch = p_string[pi];
-        }
-
-        x3 = 0;
-        pi2 = 0;
-        pi++;
-        ch = p_string[pi];
-        while (ch != '"') 
-        {
-          a_string[pi2] = ch;
-          pi2++;
-          x3++;
-          pi++;
-          ch = p_string[pi];
-        }
-        a_string[pi2] = '\0';
-
-/*  update the struct with literal  */
-
-        if (gv_ct == 0) 
-        {
-          size = 1;
-          gw_variable = malloc(size * sizeof(struct variables));
-        } 
-        else 
-        {
-          size = gv_ct + 1;
-          gw_variable = realloc(gw_variable, size * sizeof(struct variables));
-        }
-
-        strcpy(wk_string, "L");
-        snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
-        strcat(wk_string, wk_strg);
-
-        gw_variable[gv_ct].gv_rct = rct;
-        strcpy(gw_variable[gv_ct].gv_name, wk_string);
-        strcpy(gw_variable[gv_ct].gv_cname, null_field);
-        strcpy(gw_variable[gv_ct].gv_type, "L");
-        gw_variable[gv_ct].gv_lgth = x3;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, a_string);
-        gw_variable[gv_ct].gv_dec = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        gw_variable[gv_ct].gv_use_ct = 0;
-        gw_variable[gv_ct].gv_dec = 0;
-
-        gv_ct++;
-
-        convert = 1;
-      }
-    }
-
-
-    /* ***************************************************************
-     *  Scan for feof                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for feof                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5388,19 +4730,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "feof");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan feof");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 2 scan feof");
+      trace_rec_1();
       c2_scan_feof();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for pid_t                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for pid_t                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5409,20 +4748,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "pid_t");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan pid_t");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan pid_t");
+      trace_rec_1();
       /* c2_scan_pid_t();   */
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for accept                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for accept                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5431,20 +4766,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "accept");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan accept");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan accept");
+      trace_rec_1();
       /* c2_scan_accept();   */
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for send                                                *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for send                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5453,20 +4784,34 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "send");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan send");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan send");
+      trace_rec_1();
       /* c2_scan_send();   */
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for strlen                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for pthread_create                                  *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto pass2_skip;
+    }
+
+    p = strstr(p_string, "pthread_create");
+    if (p) 
+    {
+      strcpy(trace_1, "c2z pass 2 scan pthread_create");
+      trace_rec_1();
+      /* c2_scan_pthread_create();   */
+      convert = 1;
+    }
+
+
+    /* **********************************************************
+    *  Scan for strlen                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5475,20 +4820,15 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "strlen");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan strlen");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan strlen");
+      trace_rec_1();
       c2_strlen_pass2();
       convert = 1;
     }
 
-
-    /* ***************************************************************
-     *  Scan for sizeof                                              *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for sizeof                                          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5497,63 +4837,16 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "sizeof");
     if (p) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan sizeof");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 2 scan sizeof");
+      trace_rec_1();
       c2_pass2_sizeof();
       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for GOTO                                                *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "goto");
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 2 scan goto");
-        trace_rec_1();
-      }
-
-      /* c2_pass2_sizeof(); */
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-     *  Scan for GOTO LABEL                                          *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    x = 0;
-    s = strlen(p_string);
-    for(x = 0; x < s; x++)
-    {
-      if(p_string[x] == ':')
-      {
-         goto_label_scan();
-         convert = 1;
-         break;
-      }
-    }
-
-
-    /* ***************************************************************
-     *  Scan for CLOCK                                               *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for clock                                           *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5562,45 +4855,29 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "clock");
     if (p) 
     {
-      c2_clock_pass2();
-      convert = 1;
+        convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Scan for TOUPPER                                             *
-     * ************************************************************* */
+    /* **********************************************************
+    *  Scan for goto                                            *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
     }
 
-    p = strstr(p_string, "toupper");
+    p = strstr(p_string, "goto");
     if (p) 
     {
-      work_use_ct[90]++;
-      convert = 1;
+       c2_goto_pass2(); 
+       convert = 1;
     }
 
 
-    /* ***************************************************************
-     *  Math literal  = MUST BE LAST CALL IN PARSER                  *
-     * ************************************************************* */
-    if (convert == 1) 
-    {
-      goto pass2_skip;
-    }
-
-    p = strstr(p_string, "localtime");
-    if (p) 
-    {
-      convert = 1;
-    }
-
-
-    /* ***************************************************************
-     *  Math literal  = MUST BE LAST CALL IN PARSER                  *
-     * ************************************************************* */
+    /* **********************************************************
+    *      Math literal  = MUST BE LAST CALL IN PARSER          *
+    * ********************************************************* */
     if (convert == 1) 
     {
       goto pass2_skip;
@@ -5608,10 +4885,6 @@ int main(int argc, char *argv[])
 
     p8 = strstr(p_string, "=");
     s = p8 - p_string;
-    if(s < 0)
-    {
-      s = 0;
-    }
     p8 = strstr(p_string, "/*");
     v = p8 - p_string;
 
@@ -5621,30 +4894,39 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "=");
-    if (p)
+    if ((p) && (s < v)) 
     {
-      c2_pass_2_1();
 
-     /* c2_pass2_math(); */
+      c2_math_literal();
+
+
+      c2_pass2_math();
       convert = 1;
     }
 
-/* End of while loop for PASS 2  */
+
+  /* ************************************************************
+  *  End of while loop for PASS 2                               *
+  * *********************************************************** */
 
     pass2_skip:
     ch = '\0';
 
-  } 		
+  } 			/* end of first while */
 
 
 
-/* Test for balanced fopen & fclose  */
+  /* ************************************************************
+  *  Test for balanced fopen & fclose                           *
+  * *********************************************************** */
 
-/*   if (open_ct != 0) */ 
-/*   {  */
-/*     printf("Unbalanced fopen and fclose statements\n"); */
-/*     printf("      Error at Line # - %d\n", rct); */
-/*   }  */
+/*
+  if (open_ct != 0) 
+  {
+    printf("Unbalanced fopen and fclose statements\n");
+    printf("      Error at Line # - %d\n", rct);
+   }
+*/
 
   fclose(pgm);
 
@@ -5672,15 +4954,16 @@ int main(int argc, char *argv[])
   gw_variable[gv_ct].gv_id = 1;
   gv_ct++;
 
-/* End of Pass 2 - scan parser  */
+  /* ************************************************************
+  *  End of Pass 2 - scan parser                                *
+  * *********************************************************** */
 
   if(erct != 0)
   {
-    printf("\nPass 2 Failed with %d errors.\n\n",erct);
-/*    c2_debug();  */
-/*    exit(1);  */
+    printf("\nPass 2 Failed with %d errors.\n",erct);
+/*    c2_debug();
+    exit(1);  */
   }
-
 
   /* ************************************************************
   *  -- Code Generation - creating the xxxx.mlc file        *
@@ -5688,8 +4971,7 @@ int main(int argc, char *argv[])
 
   printf("*  c2z Z390 Pass 3 Started                    *\n");
 
-  c2_fs_5();
-  
+  pgm = fopen("srcformat.c", "r");
   cc370 = fopen(asm_file, "w"); 
   
   rct = 0;
@@ -5700,7 +4982,6 @@ int main(int argc, char *argv[])
   main_set = 0;
   inside_main = 0;
   erct = 0;
-
 
   /* ************************************************************
   *  Punch START Pass 3                                         *
@@ -5714,6 +4995,7 @@ int main(int argc, char *argv[])
   else_flag = 0;
   inside_for = 0;
 
+/*
   if (traceflg == 1) 
   {
     strcpy(trace_2, "\n");
@@ -5721,8 +5003,7 @@ int main(int argc, char *argv[])
     trace_rec_1();
     strcpy(trace_2, "3");
   }
-
-  pgm = fopen("srcformat.c", "r");
+*/
 
   while (1) 
   {
@@ -5730,49 +5011,26 @@ int main(int argc, char *argv[])
     bracket_convert = 0;
     fprintf_lit = 0;
     math_convert = 0;
-    fprtf_flag = 0;
+    fprintf_flag = 0;
     convert_ignore = 0;
-    quote_1 = 0;
-    quote_2 = 0;
-
     fgets(p_string, BUFSIZE, pgm);
     rct++;
+
+/* printf("c2z pass 3 rct = %d p_string = %s",rct,p_string); */
 
     if (feof(pgm)) 
     {
       break;
     }
 
-    pgm_label();
-
     s = strlen(p_string);
-    for(I = 0; I < s; I++)
-    {
-      if(p_string[I] == '\"')
-      {
-        if(p_string[I - 1] != '\\')
-        {
-          if(quote_1 == 0)
-          {
-            quote_1 = I;
-          }
-          else
-          {
-            quote_2 = I;
-          }
-        }
-      }
-    }
 
-/* printf("c2z.c Pass 3 rct = %d p_string = %s",rct,p_string); */
-
-    s = strlen(p_string);
-    if (s < 1) 
+    if (s == 1) 
     {
       goto end_pass3;
     }
 
-    strcpy(o_string, p_string);
+/*    strcpy(o_string, p_string); */
     if (feof(pgm)) 
     {
       end_input = 1;
@@ -5794,437 +5052,6 @@ int main(int argc, char *argv[])
       bracket_convert = 1;
     }
 
-    if(parm_ct < 1)
-    {
-      parm_ct = 0;
-    }
-
-
-   /* **********************************************************
-    *  Punch #defines  (skip)                                   *
-    * ********************************************************* */
-
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "#define");
-    if (p) 
-    {
-      convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 #define");
-        trace_rec_1();
-        if (return_on == 1) 
-        {
-          return_ct++;
-        }
-      }
-    }
-
-
-    /* **********************************************************
-    *  FOR loop END                                             * 
-    *  If inside_for == 1 & for_parm == 0, end if loop of the C *
-    *  for loop has been reached.  Punch out branch   equ label *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    if(for_2nd_ct == 1)
-    {
-      v = 0;
-      for (v = 0; v < for_ct; v++) 
-      {
-        if (rct == w_for_table[v].for_eof1) 
-        {
-          strcpy(a_string, "         LARL  R9,");
-          strcat(a_string, w_for_table[v].for_rt_field2);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c FOR/End #1");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         LARL  R8,C370ONE");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c FOR/End #2");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c FOR/End #3");
-            trace_rec_3();
-          }
-          for_2nd_ct = 0;
-        }
-      }
-    }
-
-    v = 0;
-    for (v = 0; v < for_ct; v++) 
-    {
-      if (rct == w_for_table[v].for_eof1) 
-      {
-        strcpy(a_string, "         LARL  R9,");
-        strcat(a_string, w_for_table[v].for_rt_field);
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #4");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R8,C370ONE");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #5");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         AP    0(6,R9),0(6,R8)");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #6");
-          trace_rec_3();
-        }
-
-        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
-        strcpy(a_string, "         JLU   L");
-        strcat(a_string, wk_strg);
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #7");
-          trace_rec_3();
-        }
-
-        snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[v].for_rct);
-        strcpy(a_string, "L");
-        strcat(a_string, wk_strg);
-        strcat(a_string, "E");
-        check_length();
-        strcat(a_string, "DS    0H");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #8");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R9,C370LPCT");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #9");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         LARL  R8,C370ZERO");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #10");
-          trace_rec_3();
-        }
-
-        strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-        src_line();
-        if (puncde == 1) 
-        {
-          strcpy(trace_1, "c2z.c FOR/End #11");
-          trace_rec_3();
-        }
-
-        if(w_for_table[v].for_type == 1)
-        {
-          strcpy(a_string, "         LARL  R9,");
-          strcat(a_string, w_for_table[v].for_rt_field5c);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c FOR/End #12");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         LARL  R8,");
-          strcat(a_string, w_for_table[v].for_rt_field5b);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c FOR/End #13");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c FOR/End #14");
-            trace_rec_3();
-          }
-          lp_ct--;
-          if(lp_ct < 0)
-          {
-            lp_ct = 0;
-          }
-        }
-
-        for_2nd_ct = 0;
-        convert = 1;
-        break;
-      }
-   }
-
-
-    /* ***********************************************************
-    *  test rct against wif_table eof1 & eof2                    *
-    * ********************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "{");
-    if (p) 
-    {
-      goto wif_skip;
-    }
-
-    p = strstr(p_string, "}");
-    if (!p) 
-    {
-      goto wif_skip;
-    }
-
-    if (wif_ct > 0) 
-    {
-
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2.c IF End Label");
-      }
-
-      v = 0;
-      for (v = 0; v < wif_ct; v++) 
-      {
-        if ((rct == w_if_table[v].wif_eof1) && (w_if_table[v].wif_else1 == 0)) 
-        {
-          strcpy(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_rct);
-          strcat(a_string, wk_strg);
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End #1");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-          convert = 1;
-        }
-
-        if ((rct == w_if_table[v].wif_eof1) && (w_if_table[v].wif_else1 != 0)) 
-        {
-          strcpy(a_string, "         JLU   ");
-          strcat(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_eof2);
-          strcat(a_string, wk_strg);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End #2");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_rct);
-          strcat(a_string, wk_strg);
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End #3");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-          convert = 1;
-        }
-
-        if (rct == w_if_table[v].wif_eof2) 		/* punch out branch using eof2 */
-        {
-          strcpy(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_if_table[v].wif_eof2);
-          strcat(a_string, wk_strg);
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "Pass3 c2.c IF End #4");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-          convert = 1;
-        }
-      }
-    }
-
-    if (wh_ct > 0) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c while end label");
-        trace_rec_1();
-      }
-
-      for (v = 0; v < wh_ct; v++) 
-      {
-        if (rct == w_while_table[v].wh_eof1) 
-        {
-          for (v1 = 0; v1 < gv_ct; v1++) 
-          {
-            ret = strcmp("A", gw_variable[v1].gv_type);
-            if (ret == 0) 
-            {
-              strcpy(ar_field6, gw_variable[v1].gv_label);
-              strcpy(ar_field7, gw_variable[v1].gv_table);
-              strcpy(ar_field8, gw_variable[v1].gv_aname);
-              strcpy(ar_field9, gw_variable[v1].gv_sv_reg);
-              strcpy(ar_field10, gw_variable[v1].gv_wk_reg);
-              strcpy(ar_field11, gw_variable[v1].gv_wk_strg);
-              convert = 1;
-
-              if (gw_variable[v1].gv_flag > 0) 
-              {
-/*
-                strcpy(a_string, "*         LAEY  R6,");
-                strcat(a_string, ar_field6);
-                strcat(a_string, "(R0,R6)");
-                src_line();
-                if (puncde == 1) 
-                {
-                  strcpy(trace_1, "c2z.c while End #1");
-                  trace_rec_3();
-                }
- */
-                gw_variable[v1].gv_flag = 0;
-                convert = 1;
-              }
-            }
-          }
-
-          strcpy(a_string, "         JLU   ");
-          strcat(a_string, "L");
-          snprintf(wk_strg, sizeof(wk_strg), "%d", w_while_table[v].wh_rct);
-          strcpy(o_string, wk_strg);
-          strcat(a_string, wk_strg);
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #2");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "L");
-          strcat(a_string, o_string);
-          strcat(a_string, "E");
-          check_length();
-          strcat(a_string, "DS    0H");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #3");
-            trace_rec_3();
-          }
-
-          if (return_on == 1) 
-          {
-            return_ct++;
-          }
-
-          strcpy(a_string, "         LARL  R9,C370NWK2");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #4");
-            trace_rec_3();
-          }
-          work_use_ct[50]++;
-
-          strcpy(a_string, "         LARL  R8,C370ZERO");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #5");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #6");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         LARL  R9,C370LPCT");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #7");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         LARL  R8,C370ZERO");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #8");
-            trace_rec_3();
-          }
-
-          strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
-          src_line();
-          if (puncde == 1) 
-          {
-            strcpy(trace_1, "c2z.c while End #9");
-            trace_rec_3();
-          }
-          work_use_ct[73]++;
-          convert = 1;
-        }
-      }
-    }
-
-  wif_skip:
-
 
     /* **********************************************************
     *  Test for MAIN in C program and if found punch to to ASM  *
@@ -6241,12 +5068,9 @@ int main(int argc, char *argv[])
       p1 = strstr(p_string, "int");
       if ((p) && (p1)) 
       {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass 3 punch MAIN");
-          trace_rec_1();
-        }
-
+        strcpy(trace_1, "c2z pass 3 punch MAIN");
+        trace_rec_1();
+        
         inside_main = 1;
         strcpy(sv_func, "main");
         strcpy(from_sv, "main");
@@ -6281,7 +5105,7 @@ int main(int argc, char *argv[])
           if(ret == 0)
           {
             strcpy(p_string, "    free(");
-            strcat(p_string, w_struc[I].st_wname);
+            strcat(p_string, w_struc[I].st_cwname);
             strcat(p_string, ")\n");
             c2_free();
           }
@@ -6291,24 +5115,352 @@ int main(int argc, char *argv[])
       }
     }
 
-   /* **********************************************************
-    *  Test for fflush                                         *
-    * ******************************************************** */
-    p = strstr(p_string, "fflush");
-    if(p)
+
+
+   /* ***********************************************************
+    *  Punch tolower                                            *
+    * ********************************************************* */
+    if (convert == 1) 
     {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "tolower");
+    if (p) 
+    {
+      pi2 = 0;
+      pi = 0;
+      ch = p_string[pi];
+      while (ch != '(') 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+ 
+      pi2 = 0;
+      pi++;
+      ch = p_string[pi];
+      while (ch != ')') 
+      {
+        tfield1[pi2] = ch;
+        pi2++;
+        pi++;
+        ch = p_string[pi];
+      }
+     tfield1[pi2] = '\0';
+printf("c2z_lower tfield1 = %s\n",tfield1);
+
+
+     x3 = 0;
+     for(I = 0; I < lv_ct; I++) 
+     {
+       ret = strcmp(tfield1, lw_variable[I].lv_name);
+       if (ret == 0)
+       {
+         x3 = 1;
+         strcpy(tfield1a, lw_variable[I].lv_cname);
+         x1 = lw_variable[I].lv_lgth;
+         lw_variable[I].lv_use_ct++;
+       }
+     }
+
+     if(x3 == 0) 
+     {
+       for (I = 0; I < gv_ct; I++) 
+       {
+         ret = strcmp(tfield1, gw_variable[I].gv_name);
+         if (ret == 0) 
+         {
+            x3 = 1;
+            strcpy(tfield1a, gw_variable[I].gv_cname);
+            x1 = gw_variable[I].gv_lgth;
+            gw_variable[I].gv_use_ct++;
+         }
+       }
+     }
+
+     if (x3 == 0) 
+     {
+        printf("\nc2z #002 tfield1 Not Found = %s\n", tfield1);
+        printf("c2zi rct = %d p_string = %s", rct, p_string);
+        erct++;
+        convert = 1;
+      }
+
+      strcpy(a_string, "         LARL  R1,");
+      strcat(a_string, tfield1a);
+      strcat(a_string, " ");
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield1);
+      strcat(wk_remark, " */");
+      write_remark();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #1");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcpy(a_string, "L");
+      strcat(a_string, wk_strg);
+      strcat(a_string, "A");
+      strcat(a_string, "     DS    0H");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #2");
+      trace_rec_3();
+
+      strcpy(a_string, "         ICM   R2,B'0001',0(R1)");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #3");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcpy(a_string, "         JZ    L");
+      strcat(a_string, wk_strg);
+      strcat(a_string, "Z");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #4");
+      trace_rec_3();
+
+      strcpy(a_string, "* Check Block 1: 'A' (X'C1') through 'I' (X'C9')");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #5");
+      trace_rec_3();
+
+      strcpy(a_string, "         CHI   R2,X'C1'           Compare with 'A'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #6");
+      trace_rec_3();
+
+      strcpy(a_string, "         JL    L14B   If lower than 'A', skip");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #7");
+      trace_rec_3();
+
+      strcpy(a_string, "         CHI   R2,X'C9'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #8");
+      trace_rec_3();
+
+      strcpy(a_string, "         JH    L14B");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #9");
+      trace_rec_3();
+
+      strcpy(a_string, "         J     L14C");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #10");
+      trace_rec_3();
+
+      strcpy(a_string, "* Check Block 2: 'J' (X'D1') through 'R' (X'D9')");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #11");
+      trace_rec_3();
+
+      strcpy(a_string, "         CHI   R2,X'D1'           Compare with 'J'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #11");
+      trace_rec_3();
+
+      strcpy(a_string, "         JL    L14B   lower than 'J' skip");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #12");
+      trace_rec_3();
+
+      strcpy(a_string, "         CHI   R2,X'D9'           Compare with 'Z'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #13");
+      trace_rec_3();
+
+      strcpy(a_string, "         JH    L14C    If 'J' through 'R', convert");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #14");
+      trace_rec_3();
+
+      strcpy(a_string, "* Check Block 3: 'S' (X'E2') through 'Z' (X'E9')");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #15");
+      trace_rec_3();
+
+      strcpy(a_string, "         CHI   R2,X'E2'         Compare with 'S'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #16");
+      trace_rec_3();
+
+      strcpy(a_string, "         JL    L14B");         
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #17");
+      trace_rec_3();
+
+      strcpy(a_string, "         CHI   R2,X'E9'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #18");
+      trace_rec_3();
+
+      strcpy(a_string, "         JH    L14B");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #19");
+      trace_rec_3();
+
+      strcpy(a_string, "L14C     DS    0H");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #20");
+      trace_rec_3();
+
+      strcpy(a_string, "         NILF  R2,X'000000BF'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #21");
+      trace_rec_3();
+
+      strcpy(a_string, "         STC   R2,0(R1)");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #22");
+      trace_rec_3();
+
+      strcpy(a_string, "L14B     DS    0H");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #23");
+      trace_rec_3();
+
+      strcpy(a_string, "         LA    R1,1(,R1)");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #24");
+      trace_rec_3();
+
+      strcpy(a_string, "         J     L14A");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #25");
+      trace_rec_3();
+
+      strcpy(a_string, "L14Z     DS    0H");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 TOLOWER #26");
+      trace_rec_3();
+
+      convert = 1;
+    }
+
+
+   /* ***********************************************************
+    *  Punch toupper                                            *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "toupper");
+    if (p) 
+    {
+      pi2 = 0;
+      pi = 0;
+      ch = p_string[pi];
+      while (ch != '(') 
+      {
+        pi++;
+        ch = p_string[pi];
+      }
+ 
+      pi2 = 0;
+      pi++;
+      ch = p_string[pi];
+      while (ch != ')') 
+      {
+        tfield1[pi2] = ch;
+        pi2++;
+        pi++;
+        ch = p_string[pi];
+      }
+     tfield1[pi2] = '\0';
+
+     x3 = 0;
+     for(I = 0; I < lv_ct; I++) 
+     {
+       ret = strcmp(tfield1, lw_variable[I].lv_name);
+       if (ret == 0)
+       {
+         x3 = 1;
+         strcpy(tfield1a, lw_variable[I].lv_cname);
+         x1 = lw_variable[I].lv_lgth;
+         lw_variable[I].lv_use_ct++;
+       }
+     }
+
+     if(x3 == 0) 
+     {
+       for (I = 0; I < gv_ct; I++) 
+       {
+         ret = strcmp(tfield1, gw_variable[I].gv_name);
+         if (ret == 0) 
+         {
+            x3 = 1;
+            strcpy(tfield1a, gw_variable[I].gv_cname);
+            x1 = gw_variable[I].gv_lgth;
+            gw_variable[I].gv_use_ct++;
+         }
+       }
+     }
+
+     if (x3 == 0) 
+     {
+        printf("\nc2z    #001 tfield1 Not Found = %s\n", tfield1);
+        printf("c2zi rct = %d p_string = %s", rct, p_string);
+        erct++;
+        convert = 1;
+      }
+
+      strcpy(a_string, "         LARL  R2,");
+      strcat(a_string, tfield1a);
+      strcat(a_string, " ");
+      strcpy(wk_remark, " ");
+      strcat(wk_remark, tfield1);
+      strcat(wk_remark, " */");
+      write_remark();
+      strcpy(trace_1, "c2z pass 3 toupper #1");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x1);
+      strcpy(a_string, "         LHI   R3,");
+      strcat(a_string, wk_strg);
+      src_line();
+      strcpy(trace_1, "c2z pass 3 toupper #2");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcpy(a_string, "L");
+      strcat(a_string, wk_strg);
+      strcat(a_string, "F");
+      strcat(a_string, "     OI    0(R2),X'40'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 toupper #3");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", x1);
+      strcpy(a_string, "         LA    R2,1(,R2)");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 toupper #4");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcpy(a_string, "         BRCT  R3,L");
+      strcat(a_string, wk_strg);
+      strcat(a_string, "F");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 toupper #5");
+      trace_rec_3();
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
+      strcpy(a_string, "L");
+      strcat(a_string, wk_strg);
+      strcat(a_string, "Z");
+      strcat(a_string, "     DS    0H");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 toupper #6");
+      trace_rec_3();
       convert = 1;
     }
 
 
     /* **********************************************************
     *  Test for prototypes                                      *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    } 
-
+    *********************************************************** */
     p = strstr(p_string, "void");
     p1 = strstr(p_string, ";");
     p2 = strstr(p_string, "int");
@@ -6318,12 +5470,8 @@ int main(int argc, char *argv[])
 
     if ((p) && (!p1) && (!p5) && (p3) && (p4)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #1");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 3 Prototype #1");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
     }
@@ -6359,14 +5507,10 @@ int main(int argc, char *argv[])
 
     if ((p2) && (p3) && (p4) && (!p1) && (v < s) && (!p5) && (!p6) && (!p7) && (!p8)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #2");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 Prototype #2");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
-   
     }
 
     if (convert == 1) 
@@ -6380,107 +5524,13 @@ int main(int argc, char *argv[])
     p3 = strstr(p_string, "(");
     p4 = strstr(p_string, ")");
     p5 = strstr(p_string, "printf");
-  
-    if ((p) && (p3) && (p4) && (!p5) && (convert == 0)) 
-    {
-      convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #3");
-        trace_rec_1();
-      }
-
-      pi = 0;
-      pi2 = 0;
-      ch = p_string[pi];
-      while ((ch == ' ') || (ch == '\t')) 
-      {
-        pi++;
-        ch = p_string[pi];
-      }
-
-      while (ch != ' ') 
-      {
-        pi++;
-        ch = p_string[pi];
-      }
-
-      while (ch != '(') 
-      {
-        if (ch != ' ') 
-        {
-          tfield1[pi2] = ch;
-          pi2++;
-        }
-        pi++;
-        ch = p_string[pi];
-      }
-      tfield1[pi2] = '\0';
-      strcpy(sv_func, tfield1);
-    }
-
-    p = strstr(p_string, "void");
-    p1 = strstr(p_string, ";");
-    p2 = strstr(p_string, "int");
-    p3 = strstr(p_string, "(");
-    p4 = strstr(p_string, ")");
-    p5 = strstr(p_string, "printf");
 
     if ((p) && (p3) && (p4) && (!p5) && (convert == 0)) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #3");
-        trace_rec_1();
-      }
-
-      pi = 0;
-      pi2 = 0;
-      ch = p_string[pi];
-      while ((ch == ' ') || (ch == '\t')) 
-      {
-        pi++;
-        ch = p_string[pi];
-      }
-
-      while (ch != ' ') 
-      {
-        pi++;
-        ch = p_string[pi];
-      }
-
-      while (ch != '(') 
-      {
-        if (ch != ' ') 
-        {
-          tfield1[pi2] = ch;
-          pi2++;
-        }
-        pi++;
-        ch = p_string[pi];
-      }
-      tfield1[pi2] = '\0';
-      strcpy(sv_func, tfield1);
-    }
-
-    p = strstr(p_string, "void");
-    p1 = strstr(p_string, ";");
-    p2 = strstr(p_string, "int");
-    p3 = strstr(p_string, "(");
-    p4 = strstr(p_string, ")");
-    p5 = strstr(p_string, "printf");
-    p6 = strstr(p_string, "(double");
-
-    if ((p2) && (p3) && (p4) && (p6) && (!p5) && (convert == 0)) 
-    {
-      convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #3");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 3 Prototype #3");
+      trace_rec_1();
+      
       pi = 0;
       pi2 = 0;
       ch = p_string[pi];
@@ -6528,11 +5578,8 @@ int main(int argc, char *argv[])
 
     if ((p2) && (p3) && (p4) && (!p) && (!p1) && (!p5) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #4");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 Prototype #4");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
    
@@ -6540,11 +5587,8 @@ int main(int argc, char *argv[])
 
 /*   if ((p2) && (p3) && (p4) && (!p) && (p1) && (!p5) && (convert == 0) && (s < v)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #4c");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 Prototype #4c");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
     }
@@ -6573,11 +5617,8 @@ int main(int argc, char *argv[])
 
     if ((!p6) && (p2) && (p3) && (p4) && (!p) && (!p1) && (!p5) && (s < v) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #5");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 Prototype #5");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
     }
@@ -6603,22 +5644,8 @@ int main(int argc, char *argv[])
 
     if ((p) && (p1) && (p3) && (p4) && (p6) && (s < v) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #6");
-        trace_rec_1();
-      }
-      c2_func_sub();
-      convert = 1;
-    }
-
-    if ((p) && (p3) && (p4) && (p4) && (s < v) && (convert == 0)) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #6d");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 Prototype #6");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
     }
@@ -6643,17 +5670,31 @@ int main(int argc, char *argv[])
 
     if ((p) && (!p1) && (p3) && (p4) && (s < v) && (convert == 0)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 Prototype #7");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 Prototype #7");
+      trace_rec_1();
       c2_func_sub();
       convert = 1;
     }
 
-  
- 
+    
+    /* **********************************************************
+    *  Punch #defines  (skip)                                   *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "#define");
+    if (p) 
+    {
+      convert = 1;
+      strcpy(trace_1, "c2z.c pass 3 #define");
+      trace_rec_1();
+      return_ct++;
+    }
+
+
     /* **********************************************************
     *  Punch #ifndef  (skip)                                    *
     * ********************************************************* */
@@ -6666,16 +5707,14 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
+      strcpy(trace_1, "c2z pass 3 #ifndef");
+      trace_rec_1();
+      if (return_on == 1) 
       {
-        strcpy(trace_1, "c2z.c pass 3 #ifndef");
-        trace_rec_1();
-        if (return_on == 1) 
-        {
           return_ct++;
-        }
       }
     }
+
 
     /* **********************************************************
     *  Punch #endif  (skip)                                     *
@@ -6689,16 +5728,15 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
+      strcpy(trace_1, "c2z.c pass 3 #endif");
+      trace_rec_1();
+   
+      if (return_on == 1) 
       {
-        strcpy(trace_1, "c2z.c pass 3 #endif");
-        trace_rec_1();
-        if (return_on == 1) 
-        {
-          return_ct++;
-        }
+        return_ct++;
       }
     }
+
 
     /* **********************************************************
     *  Punch #include  (skip)                                   *
@@ -6712,12 +5750,10 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test #include");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 test #include");
+      trace_rec_1();
     }
+
 
     /* **********************************************************
     *  Punch FILE  (skip)                                       * 
@@ -6728,62 +5764,11 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "FILE");
-    if (p) {
+    if (p) 
+    {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test file");
-        trace_rec_1();
-      }
-    }
-
-
-    /* **********************************************************
-    *  Punch bind                                               *
-    * ********************************************************* */
-
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "bind");
-    if (p)
-    {
-      c2_bind();
-      convert = 1;
-    }
-
-
-    /* **********************************************************
-    *  Punch listen                                             *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "listen");
-    if (p)
-    {
-      c2_listen();
-      convert = 1;
-    }
-
-
-    /* **********************************************************
-    *  Punch send                                               *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "send");
-    if (p)
-    {
-      c2_send();
-      convert = 1;
+      strcpy(trace_1, "c2z pass 3 test file");
+      trace_rec_1();
     }
 
 
@@ -6796,12 +5781,12 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "struct");
-    p1 = strstr(p_string, "localtime");
-    if((p) && (!p1)) 
+    if (p) 
     {
       c2_struct_3();
       convert = 1;
     }
+
 
     /* **********************************************************
     * Punch remove                                              *
@@ -6818,6 +5803,7 @@ int main(int argc, char *argv[])
       convert = 1;
     }
 
+
     /* **********************************************************
     *  Punch malloc                                             *
     * ********************************************************* */
@@ -6832,12 +5818,8 @@ int main(int argc, char *argv[])
     if ((p) && (!p1)) 
     {
       /* c2_scan_malloc(); */
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test malloc");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 3 test malloc");
+      trace_rec_1();
       convert = 1;
     }
 
@@ -6856,11 +5838,8 @@ int main(int argc, char *argv[])
     if ((p) && (!p1)) 
     {
       /* c2_scan_malloc(); */
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test realloc");
-        trace_rec_1();
-      }
+      strcpy(trace_1, "c2z pass 3 test realloc");
+      trace_rec_1();
       convert = 1;
     }
 
@@ -6944,7 +5923,6 @@ int main(int argc, char *argv[])
     if ((p) && (!p2) && (!p3) && (!p4) && (!p6) && (!p7) && (s < v)) 
     {
       convert = 1;
-     
       c2_int_punch();
 
       if (return_on == 1) 
@@ -6956,7 +5934,6 @@ int main(int argc, char *argv[])
     if ((p1) && (!p)) 
     {
       convert = 1;
-      
       c2_char_punch();
 
       if (return_on == 1) 
@@ -7006,20 +5983,8 @@ int main(int argc, char *argv[])
       goto end_pass3;
     }
 
-    quote_3 = 0;
     p = strstr(p_string, "case");
-    v = p - p_string;
-    if((quote_1 != 0) && (quote_2 != 0))
-    {
-      if((v > quote_1) && (v < quote_2))	/*  case enclosed inside of quotes NO PROCESS */
-      {
-        printf("c2z.c rct = %d p_string = %s",rct,p_string);
-        printf("c2z.c NOT PROCESSED\n");
-        quote_3 = 1;
-      }
-    }
-
-    if((p) && (quote_3 == 0)) 
+    if (p) 
     {
       c2_case();
       tot_case++;
@@ -7042,12 +6007,8 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "default");
     if ((p) && (if_case == 1)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test default");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 3 test default");
+      trace_rec_1();
       c2_case_default();
       tot_case++;
       convert = 1;
@@ -7077,6 +6038,60 @@ int main(int argc, char *argv[])
       }
     }
 
+
+    /* **********************************************************
+    *  FOR loop END                                             * 
+    *  If inside_for == 1 & for_parm == 0, end if loop of the C *
+    *  for loop has been reached.  Punch out branch   equ label *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    v = 0;
+    for (v = 0; v < for_ct; v++) 
+    {
+      if (rct == w_for_table[v].for_eof1) 
+      {
+        strcpy(a_string, "         LARL  R8,");
+        strcat(a_string, sv_for_incr);
+        strcpy(wk_remark, " ");
+        strcat(wk_remark, sv_for_incr);
+        strcat(wk_remark, " */");
+        write_remark();
+        strcpy(trace_1, "c2z FOR/End Loop #1");
+        trace_rec_3();
+        
+        strcpy(a_string, "         LARL  R7,C370ONE");
+        strcpy(wk_remark, " C370ONE */");
+        write_remark();
+        strcpy(trace_1, "c2z FOR/End Loop #2");
+        trace_rec_3();
+        work_use_ct[33]++;
+        
+        strcpy(a_string, "         AP    0(6,R8),0(6,R7)");
+        src_line();
+        strcpy(trace_1, "c2z FOR/End Loop #3");
+        trace_rec_3();
+        
+        strcpy(a_string, "         JLU   ");
+        strcat(a_string, sv_for_return);
+        src_line();
+        strcpy(trace_1, "c2z FOR/End Loop #4");
+        trace_rec_3();
+        
+        strcpy(a_string, sv_for_return);
+        strcat(a_string, "E");
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z FOR/End Loop #5");
+        trace_rec_3();
+        
+        convert = 1;
+      }
+    }
 
 
     /* **********************************************************
@@ -7151,12 +6166,165 @@ int main(int argc, char *argv[])
     if ((x == 1) && (s < v) && (s < x3) && (!p5))
     {
       c2_for();
-
       convert = 1;
-
       if (return_on == 1) 
       {
         return_ct++;
+      }
+    }
+
+
+    /* **********************************************************
+    *  test for { & }                                           *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    if(convert == 0)
+    {
+      x1 = 0;
+      x2 = 0;
+
+      s = strlen(p_string);
+      for (I = 0; I < s; I++) 
+      {
+        ch = p_string[I];
+        if (ch == '{') 
+        {
+          x1++;
+        }
+
+        if (ch == '}') 
+        {
+          x2++;
+        }
+      }
+
+      if ((x1 > 0) || (x2 > 0)) 
+      {
+        if (inside_void == 2) 
+        {
+          function_ct = function_ct + x1;
+          function_ct = function_ct - x2;
+
+          strcpy(trace_1, "c2z pass 3 test function_ct ");
+          trace_rec_1();
+               
+          s = strlen(p_string);
+          for (I = 0; I < s; I++) 
+          {
+            ch = p_string[I];
+            if (ch == '{') 
+            {
+              bk1++;
+            }
+
+            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+            {
+              bk2++;
+            }
+          }
+
+          if (bk1 > 0) 
+          {
+            bk3 = bk1 + bk2;
+            s--;
+            if (s == bk3) 
+            {
+              /* convert = 1; */
+            }
+          }
+
+          bk1 = 0;
+          bk2 = 0;
+          bk3 = 0;
+          s = strlen(p_string);
+          for (I = 0; I < s; I++) 
+          {
+            ch = p_string[I];
+            if (ch == '}') 
+            {
+              bk1++;
+            }
+
+            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+            {
+              bk2++;
+            }
+          }
+
+          if (bk1 > 0) 
+          {
+            bk3 = bk1 + bk2;
+            s--;
+            if (s == bk3) 
+            {
+              /* convert = 1; */
+            }
+          }
+        }
+      }
+
+      if (if_case == 1) 
+      {
+        strcpy(trace_1, "c2z pass 3 test if_case { }");
+        trace_rec_1();
+        
+        case_parm_ct = case_parm_ct + x1;
+        case_parm_ct = case_parm_ct - x2;
+
+        s = strlen(p_string);
+        for (I = 0; I < s; I++) 
+        {
+          ch = p_string[I];
+          if (ch == '{') 
+          {
+            bk1++;
+          }
+          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+          {
+            bk2++;
+          }
+        }
+
+        if (bk1 > 0) 
+        {
+          bk3 = bk1 + bk2;
+          s--;
+          if (s == bk3) 
+          {
+            /* convert = 1; */
+          }
+        }
+
+        bk1 = 0;
+        bk2 = 0;
+        bk3 = 0;
+        s = strlen(p_string);
+        for (I = 0; I < s; I++) 
+        {
+          ch = p_string[I];
+          if (ch == '}') 
+          {
+            bk1++;
+          }
+          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
+          {
+            bk2++;
+          }
+        }
+
+        if (bk1 > 0) 
+        {
+          bk3 = bk1 + bk2;
+          s--;
+          if (s == bk3) 
+          {
+            /*	convert = 1; */
+          }
+        }
       }
     }
 
@@ -7232,12 +6400,8 @@ int main(int argc, char *argv[])
 
     if ((p) && (p2) && (!p1) && (!p4) && (!p5) && (convert == 0) && (s < v)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 test if #1");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z pass 3 test if #1");
+      trace_rec_1();
       c2_if();
       var_use[7]++;
       convert = 1;
@@ -7264,28 +6428,6 @@ int main(int argc, char *argv[])
     }
 
     skip_for_99:
-
-
-    /* **********************************************************
-    *  Punch sprintf                                            *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "sprintf");
-    p1 = strstr(p_string, "snprintf");
-    if ((p) && (!p1)) 
-    {
-      c2_sprintf();
-      convert = 1;
-      if (return_on == 1) 
-      {
-        return_ct++;
-      }
-    }
-
 
 
     /* **********************************************************
@@ -7320,7 +6462,7 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "printf");
     p1 = strstr(p_string, "snprintf");
     printf_convert = 0;
-    if ((p) && (!p1) && (fprtf_flag != 1)) 
+    if ((p) && (!p1) && (fprintf_flag != 1)) 
     {
       c2_printf();
       convert = 1;
@@ -7362,6 +6504,8 @@ int main(int argc, char *argv[])
     p1 = strstr(p_string, "scanf");
     if (p1) 
     {
+      strcpy(trace_1, "c2z pass 3 test scanf");
+      trace_rec_1();
       c2_scanf();
       convert = 1;
     }
@@ -7379,12 +6523,6 @@ int main(int argc, char *argv[])
     if (p) 
     {
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "Punch RETURN");
-        trace_rec_1();
-      }
-
       c2_return();
     }
 
@@ -7403,12 +6541,9 @@ int main(int argc, char *argv[])
       c2_switch();
       tot_switch++;
       convert = 1;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "Punch SWITCH");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z Punch SWITCH");
+      trace_rec_1();
+      
       if (return_on == 1) 
       {
         return_ct++;
@@ -7441,7 +6576,6 @@ int main(int argc, char *argv[])
     /* **********************************************************
     *  Punch close                                              *
     * ********************************************************* */
-/*
     if (convert == 1) 
     {
       goto end_pass3;
@@ -7450,9 +6584,8 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "close");
     if (p)
     {
-      convert = 1;
+       convert = 1;
     }
-*/
 
 
     /* **********************************************************
@@ -7491,6 +6624,451 @@ int main(int argc, char *argv[])
     }
 
 
+    /* ************************************************************************
+    *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
+    *  program has been reached.  Punch out the end statement and all defines *
+    *  before processing an functions that may be defined.                    *
+    * *********************************************************************** */
+    if (parm_ct < 0)
+    {
+      parm_ct = 0;
+    }
+
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+    
+    if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
+    {
+      inside_main = 0;
+
+      strcpy(a_string, "C370EXIT DS    0H");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch C370EXIT #1");
+      trace_rec_3();
+
+      strcpy(a_string, "         LARL  R11,INBUF");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch TGET #2");
+      trace_rec_3();
+      work_use_ct[51]++;
+
+      strcpy(a_string, "         LHI   R10,L'INBUF");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch TGET #3");
+      trace_rec_3();
+      work_use_ct[51]++;
+
+      strcpy(a_string, "         LR    R1,R11");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch TGET #4");
+      trace_rec_3();
+
+      strcpy(a_string, "         OILH  R1,X'8000'");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch TGET #5");
+      trace_rec_3();
+
+      strcpy(a_string, "         LR    R0,R10");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch TGET #6");
+      trace_rec_3();
+
+      strcpy(a_string, "         SVC   93");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch TGET #7");
+      trace_rec_3();
+
+      strcpy(a_string, "         SUBEXIT");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch SUBEXIT #1");
+      trace_rec_3();
+  
+      strcpy(a_string, "*");
+      src_line();
+      strcpy(trace_1, "c2z pass 3 punch SUBEXIT #2");
+      trace_rec_3();
+ 
+      inside_main = 0;
+      convert = 1;
+    }
+
+
+    /* ***********************************************************
+    *  test rct against wif_table eof1 & eof2                    *
+    * ********************************************************** */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "{");
+    if (p) 
+    {
+      goto wif_skip;
+    }
+
+    p = strstr(p_string, "}");
+    if (!p) 
+    {
+      goto wif_skip;
+    }
+
+    if (wif_ct > 0) 
+    {
+      if(if_ct_10 == 1)
+      {
+        strcpy(a_string, if_lb_10);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-10 #3-10");
+        trace_rec_3();
+        if_lb_10[0] = '\0';
+        if_ct_10 = 0;
+        goto end_if_exit;
+      }
+
+      if(if_ct_9 == 1)
+      {
+        strcpy(a_string, if_lb_9);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-9 #3-9");
+        trace_rec_3();
+        if_lb_9[0] = '\0';
+        if_ct_9 = 0;
+        goto end_if_exit;
+      }
+
+      if(if_ct_8 == 1)
+      {
+        strcpy(a_string, if_lb_8);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-8 #3-8");
+        trace_rec_3();
+        if_lb_8[0] = '\0';
+        if_ct_8 = 0;
+        goto end_if_exit;
+      }
+
+      if(if_ct_7 == 1)
+      {
+        strcpy(a_string, if_lb_7);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-7 #3-7");
+        trace_rec_3();
+        if_lb_7[0] = '\0';
+        if_ct_7 = 0;
+        goto end_if_exit;
+      }
+
+      if(if_ct_6 == 1)
+      {
+        strcpy(a_string, if_lb_6);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-6 #3-6");
+        trace_rec_3();
+        if_lb_6[0] = '\0';
+        if_ct_6 = 0;
+        goto end_if_exit;
+      }
+
+      if(if_ct_5 == 1)
+      {
+        strcpy(a_string, if_lb_5);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-5 #3-5");
+        trace_rec_3();
+        if_lb_5[0] = '\0';
+        if_ct_5 = 0;
+        goto end_if_exit;
+      }
+
+      if(if_ct_4 == 1)
+      {
+        strcpy(a_string, if_lb_4);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-4 #3-4");
+        trace_rec_3();
+        if_ct_4 = 0;
+        if_lb_4[0] = '\0';
+        goto end_if_exit;
+      }
+
+      if(if_ct_3 == 1)
+      {
+        strcpy(a_string, if_lb_3);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-3 #3-3");
+        trace_rec_3();
+        if_ct_3 = 0;
+        if_lb_3[0] = '\0';
+        goto end_if_exit;
+      }
+
+      if(if_ct_2 == 1)
+      {
+
+         strcpy(a_string, if_lb_2);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-2 #3-2a");
+        trace_rec_3();
+        if_ct_2 = 0;
+        if_lb_2[0] = '\0';
+        goto end_if_exit;
+      }
+
+      if(if_ct_1 == 1)
+      {
+        strcpy(a_string, if_lb_1);
+        check_length();
+        strcat(a_string, "DS    0H");
+        src_line();
+        strcpy(trace_1, "c2z if end label-1 #3-1");
+        trace_rec_3();
+        if_ct_1 = 0;
+        if_lb_1[0] = '\0';
+      }
+
+ end_if_exit:
+
+    }
+
+    if (wh_ct > 0) 
+    {
+      for (v = 0; v < wh_ct; v++) 
+      {
+        if (rct == w_while_table[v].wh_eof1) 
+        {
+          if(wh_ct_10 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_10);
+             src_line();
+             strcpy(trace_1, "c2z while end label-10 #41-b");
+             trace_rec_3();
+             start_lb_10[0] = '\0';
+
+             strcpy(a_string, wh_lb_10);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-10 #41-a");
+             trace_rec_3();
+             wh_ct_10 = 0;
+             wh_lb_10[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_9 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_9);
+             src_line();
+             strcpy(trace_1, "c2z while end label-9 #41-b");
+             trace_rec_3();
+             start_lb_9[0] = '\0';
+
+             strcpy(a_string, wh_lb_9);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-9 #41-a");
+             trace_rec_3();
+             wh_ct_9 = 0;
+             wh_lb_9[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_8 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_8);
+             src_line();
+             strcpy(trace_1, "c2z while end label-8 #41-b");
+             trace_rec_3();
+             start_lb_8[0] = '\0';
+
+             strcpy(a_string, wh_lb_8);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-8 #41-a");
+             trace_rec_3();
+             wh_ct_8 = 0;
+             wh_lb_8[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_7 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_7);
+             src_line();
+             strcpy(trace_1, "c2z while end label-7 #41-b");
+             trace_rec_3();
+             start_lb_7[0] = '\0';
+
+             strcpy(a_string, wh_lb_7);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-7 #41-a");
+             trace_rec_3();
+             wh_ct_7 = 0;
+             wh_lb_7[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_6 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_6);
+             src_line();
+             strcpy(trace_1, "c2z while end label-6 #41-b");
+             trace_rec_3();
+             start_lb_6[0] = '\0';
+
+             strcpy(a_string, wh_lb_6);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-6 #41-a");
+             trace_rec_3();
+             wh_ct_6 = 0;
+             wh_lb_6[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_5 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_5);
+             src_line();
+             strcpy(trace_1, "c2z while end label-5 #41-b");
+             trace_rec_3();
+             start_lb_5[0] = '\0';
+
+             strcpy(a_string, wh_lb_5);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-5 #41-a");
+             trace_rec_3();
+             wh_ct_5 = 0;
+             wh_lb_5[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_4 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_4);
+             src_line();
+             strcpy(trace_1, "c2z while end label-4 #41-b");
+             trace_rec_3();
+             start_lb_4[0] = '\0';
+
+             strcpy(a_string, wh_lb_4);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-4 #41-a");
+             trace_rec_3();
+             wh_ct_4 = 0;
+             wh_lb_4[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_3 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_3);
+             src_line();
+             strcpy(trace_1, "c2z while end label-3 #41-b");
+             trace_rec_3();
+             start_lb_3[0] = '\0';
+
+             strcpy(a_string, wh_lb_3);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-3 #41-a");
+             trace_rec_3();
+             wh_ct_3 = 0;
+             wh_lb_3[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_2 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_2);
+             src_line();
+             strcpy(trace_1, "c2z while end label-2 #41-b");
+             trace_rec_3();
+             start_lb_2[0] = '\0';
+          
+             strcpy(a_string, wh_lb_2);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-2 #41-a");
+             trace_rec_3();
+             wh_ct_2 = 0;
+             wh_lb_2[0] = '\0';
+             goto end_while_exit;
+          }
+
+          if(wh_ct_1 == 1)
+          {
+             strcpy(a_string, "         J     ");
+             strcat(a_string, start_lb_1);
+             src_line();
+             strcpy(trace_1, "c2z while end label-1 #41-b");
+             trace_rec_3();
+             start_lb_1[0] = '\0';
+   
+             strcpy(a_string, wh_lb_1);
+             check_length();
+             strcat(a_string, "DS    0H");
+             src_line();
+             strcpy(trace_1, "c2z while end label-1 #41-a");
+             trace_rec_3();
+             wh_ct_1 = 0;
+             wh_lb_1[0] = '\0';
+          }
+
+ end_while_exit:
+ 
+        }
+      }
+    }
+
+ wif_skip:
+
+    if (return_on == 1) 
+    {
+        return_ct++;
+    }
+
 
     /* **********************************************************
     *   Switch label punch out                                  *
@@ -7519,158 +7097,7 @@ int main(int argc, char *argv[])
 
 
     /* **********************************************************
-    *  Punch out fsaid                                          *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsaid");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsaid pass 3");
-        trace_rec_1();
-      }
-     
-      c2_fs_6();
-     
-      convert = 1; 
-    }
-
-
-
-    /* **********************************************************
-    *  Punch out fsdefine                                       *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsdefine");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsdefine Start");
-        trace_rec_1();
-      }
-
-      zgui = 1;
-
-      strcpy(a_string, "         STFSMODE ON,INITIAL=YES");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 STFSMODE");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         STTMPMD ON");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3 STFSMPMD");
-        trace_rec_3();
-      }
-     
-      c2_fs_1();
-     
-      convert = 1; 
-    }
-
-
-    /* **********************************************************
-    *  Punch out fsfield                                        *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsfield");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsfield pass 3");
-        trace_rec_1();
-      }
-
-   
-     
-      c2_fs_2();
-     
-      convert = 1; 
-    }
-
-
-   /* **********************************************************
-    *  Punch out fsdisplay                                     *
-    * ******************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsdisplay");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsdisplay pass 3");
-        trace_rec_1();
-      }
-
-      c2_fs_3();
-     
-      convert = 1; 
-    }
-
-
-   /* **********************************************************
-    *  Punch out fsread                                        *
-    * ******************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "fsread");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c fsread pass 3");
-        trace_rec_1();
-      }
-
-      c2_fs_4();
-     
-      convert = 1; 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    /* **********************************************************
-    *  Punch back from function                                 *
+    *  Punch B back from function                               *
     * ********************************************************* */
     if (convert == 1) 
     {
@@ -7678,7 +7105,6 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "}");
-
     if ((p) && (inside_void == 2) && (parm_ct == 0)) 
     {
       c2_func_end();
@@ -7708,165 +7134,6 @@ int main(int argc, char *argv[])
             return_ct++;
           }
           break;
-        }
-      }
-    }
-
-    /* **********************************************************
-    *  test for { & }                                           *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    if(convert == 0)
-    {
-      x1 = 0;
-      x2 = 0;
-
-      s = strlen(p_string);
-      for (I = 0; I < s; I++) 
-      {
-        ch = p_string[I];
-        if (ch == '{') 
-        {
-          x1++;
-        }
-
-        if (ch == '}') 
-        {
-          x2++;
-        }
-      }
-
-      if ((x1 > 0) || (x2 > 0)) 
-      {
-        if (inside_void == 2) 
-        {
-          function_ct = function_ct + x1;
-          function_ct = function_ct - x2;
-          if (traceflg == 1) 
-          {
-            strcpy(trace_1, "c2z.c pass 3 test function_ct ");
-            trace_rec_1();
-          }
-         
-          s = strlen(p_string);
-          for (I = 0; I < s; I++) 
-          {
-            ch = p_string[I];
-            if (ch == '{') 
-            {
-              bk1++;
-            }
-
-            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-            {
-              bk2++;
-            }
-          }
-
-          if (bk1 > 0) 
-          {
-            bk3 = bk1 + bk2;
-            s--;
-            if (s == bk3) 
-            {
-              /* convert = 1; */
-            }
-          }
-
-          bk1 = 0;
-          bk2 = 0;
-          bk3 = 0;
-          s = strlen(p_string);
-          for (I = 0; I < s; I++) 
-          {
-            ch = p_string[I];
-            if (ch == '}') 
-            {
-              bk1++;
-            }
-
-            if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-            {
-              bk2++;
-            }
-          }
-
-          if (bk1 > 0) 
-          {
-            bk3 = bk1 + bk2;
-            s--;
-            if (s == bk3) 
-            {
-              /* convert = 1; */
-            }
-          }
-        }
-      }
-
-      if (if_case == 1) 
-      {
-        if (traceflg == 1) 
-        {
-          strcpy(trace_1, "c2z.c pass 3 test if_case { }");
-          trace_rec_1();
-        }
-
-        case_parm_ct = case_parm_ct + x1;
-        case_parm_ct = case_parm_ct - x2;
-
-        s = strlen(p_string);
-        for (I = 0; I < s; I++) 
-        {
-          ch = p_string[I];
-          if (ch == '{') 
-          {
-            bk1++;
-          }
-          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-          {
-            bk2++;
-          }
-        }
-
-        if (bk1 > 0) 
-        {
-          bk3 = bk1 + bk2;
-          s--;
-          if (s == bk3) 
-          {
-            /* convert = 1; */
-          }
-        }
-
-        bk1 = 0;
-        bk2 = 0;
-        bk3 = 0;
-        s = strlen(p_string);
-        for (I = 0; I < s; I++) 
-        {
-          ch = p_string[I];
-          if (ch == '}') 
-          {
-            bk1++;
-          }
-          if ((ch == ' ') || (ch == '\n') || (ch == '\0')) 
-          {
-            bk2++;
-          }
-        }
-
-        if (bk1 > 0) 
-        {
-          bk3 = bk1 + bk2;
-          s--;
-          if (s == bk3) 
-          {
-            /*	convert = 1; */
-          }
         }
       }
     }
@@ -8008,8 +7275,10 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "long");
-    if (p) 
+    p1 = strstr(p_string, "(long)");
+    if ((p) && (!p1)) 
     {
+      c2_long();
       convert = 1;
     }
 
@@ -8152,7 +7421,6 @@ int main(int argc, char *argv[])
       }
     }
 
-
     /* **********************************************************
     *  Punch while                                              *
     * ********************************************************* */
@@ -8208,27 +7476,6 @@ int main(int argc, char *argv[])
     if (p) 
     {
       c2_strcmp();
-      tot_strcmp++;
-      convert = 1;
-      if (return_on == 1) 
-      {
-        return_ct++;
-      }
-    }
-
-
-    /* **********************************************************
-    *  Punch strncmp                                             *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "strncmp");
-    if (p) 
-    {
-      c2_strncmp_2();
       tot_strcmp++;
       convert = 1;
       if (return_on == 1) 
@@ -8299,14 +7546,13 @@ int main(int argc, char *argv[])
 
     if ((p) && (s < v)) 
     {
-      c2_plus();
+      c2_minus();
       convert = 1;
       if (return_on == 1) 
       {
         return_ct++;
       }
     }
-
 
 
     /* **********************************************************
@@ -8377,6 +7623,7 @@ int main(int argc, char *argv[])
 
     if ((p) && (!p1) && (v < s)) 
     {
+
       c2_goto_label();
       convert = 1;
       if (return_on == 1) 
@@ -8470,26 +7717,6 @@ int main(int argc, char *argv[])
 
 
     /* **********************************************************
-    *  Punch out gets                                           *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "gets");
-    if (p) 
-    {
-      c2_gets();
-      convert = 1;
-      if (return_on == 1) 
-      {
-        return_ct++;
-      }
-    }
-
-
-    /* **********************************************************
     *  Punch out fputs                                          *
     * ********************************************************* */
     if (convert == 1) 
@@ -8531,6 +7758,46 @@ int main(int argc, char *argv[])
 
 
     /* **********************************************************
+    *  Punch out gets                                           *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "gets");
+    if (p) 
+    {
+      c2_gets();
+      convert = 1;
+      if (return_on == 1) 
+      {
+        return_ct++;
+      }
+    }
+
+
+    /* **********************************************************
+    *  Punch out puts                                           *
+    * ********************************************************* */
+    if (convert == 1) 
+    {
+      goto end_pass3;
+    }
+
+    p = strstr(p_string, "puts");
+    if (p) 
+    {
+      c2_puts();
+      convert = 1;
+      if (return_on == 1) 
+      {
+        return_ct++;
+      }
+    }
+
+
+    /* **********************************************************
     *  Punch out atoi                                           *
     * ********************************************************* */
     if (convert == 1) 
@@ -8562,7 +7829,7 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "atof");
     if (p) 
     {
-      c2_atof();
+      c2_atof_punch();
       var_use[13]++;
       convert = 1;
       if (return_on == 1) 
@@ -8590,7 +7857,7 @@ int main(int argc, char *argv[])
         return_ct++;
       }
     }
-
+\
 
     /* **********************************************************
     *  Punch out double                                         *
@@ -8618,8 +7885,7 @@ int main(int argc, char *argv[])
     if ((p) && (v < s)) 
     {
       c2_double_punch();
-     
-      if (return_on == 1) 
+       if (return_on == 1) 
       {
         return_ct++;
       }
@@ -8634,7 +7900,7 @@ int main(int argc, char *argv[])
       goto end_pass3;
     }
 
-    p = strstr(p_string, "strnccpy");
+    p = strstr(p_string, "strncpy");
     if (p) 
     {
       c2_strncpy();
@@ -8691,35 +7957,9 @@ int main(int argc, char *argv[])
     }
 
     p = strstr(p_string, "localtime");
-    p1 = strstr(p_string, "date");
-    p2 = strstr(p_string, "time");
-   
-    if(p) 
-    {
-      c2_localtime_time();
-      tot_localtime++;
-      convert = 1;
-
-      if (return_on == 1) 
-      {
-        return_ct++;
-      }
-    }
-
-
-
-    /* **********************************************************
-    *  Punch out CTIME                                          *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "ctime");
     if (p) 
     {
-      c2_ctime();
+      c2_localtime();
       tot_localtime++;
       convert = 1;
       if (return_on == 1) 
@@ -8730,17 +7970,17 @@ int main(int argc, char *argv[])
 
 
     /* **********************************************************
-    *  Punch out time_t                                         *
+    *  Punch out DATE                                           *
     * ********************************************************* */
     if (convert == 1) 
     {
       goto end_pass3;
     }
 
-    p = strstr(p_string, "time_t");
+    p = strstr(p_string, "date");
     if (p) 
     {
-      c2_time_t_punch();
+      c2_date();
       convert = 1;
       if (return_on == 1) 
       {
@@ -8761,7 +8001,6 @@ int main(int argc, char *argv[])
     if (p) 
     {
       c2_time();
-      tot_time++;
       convert = 1;
       if (return_on == 1) 
       {
@@ -8781,7 +8020,7 @@ int main(int argc, char *argv[])
     p = strstr(p_string, "clock");
     if (p) 
     {
-      c2_clock_punch();
+     
       convert = 1;
     }
 
@@ -8810,7 +8049,7 @@ int main(int argc, char *argv[])
       s = 9999;
     }
 
-    if (p)  
+    if ((p) && (v < s))  
     {
       c2_exit();
       convert = 1;
@@ -8834,12 +8073,9 @@ int main(int argc, char *argv[])
 
     if ((p) && (p1)) 
     {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c Function Start");
-        trace_rec_1();
-      }
-
+      strcpy(trace_1, "c2z Function Start");
+      trace_rec_1();
+      
       /* convert = 1; */
     }
 
@@ -8865,31 +8101,6 @@ int main(int argc, char *argv[])
         break;
       }
     }
-
-
-    /* **********************************************************
-    *  Punch out toupper                                        *
-    * ********************************************************* */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    p = strstr(p_string, "toupper");
-  
-    if (p) 
-    {
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c toupper Start");
-        trace_rec_1();
-      }
-   
-      c2_toupper();
-      work_use_ct[90]++;
-      convert = 1; 
-    }
-
 
 
     /* **********************************************************
@@ -8945,9 +8156,12 @@ int main(int argc, char *argv[])
 
       if((p) && (v < s) && (x > 0) && (convert == 0)) 
       {
-        c2_math();   
-        /* rdp_parser(); */
-     
+        if (debug_lv >= 2) 
+        {
+          printf("c2z.c Pass 3 rct = %d c2_math #100\n", rct);
+        }
+       /* c2_math();   */
+        c2z_math_start(); 
         convert = 1;
         if (return_on == 1) 
         {
@@ -8955,81 +8169,29 @@ int main(int argc, char *argv[])
         }
       }
 
-      if((p) && (v < s) && (x == 0) && (convert == 0)) 
+
+      if((p) && (!p1) && (x == 0))
       {
         c2_math(); 
         convert = 1;
+      }
+/*
+      if((p) && (p1) && (x > 0) && (convert == 0)) 
+      {
+        var_use[21]++;
+
+        strcpy(a_string, "         BRAS  R14,RDP_MAIN");
+        src_line();
+        strcpy(trace_1, "c2z_eoj rdp_main #1");
+        trace_rec_3();
+        convert = 1;
         if (return_on == 1) 
         {
           return_ct++;
         }
-
-       /* c2_math_start(); */
-
       }
-
+*/
     }
-
-    /* ************************************************************************
-    *  If inside_main == 0 & parm_ct == 0, then the end of main loop of the C *
-    *  program has been reached.  Punch out the end statement and all defines *
-    *  before processing an functions that may be defined.                    *
-    * *********************************************************************** */
-    if (convert == 1) 
-    {
-      goto end_pass3;
-    }
-
-    if (parm_ct < 0)
-    {
-      parm_ct = 0;
-    }
-  
-    if ((convert == 0) && (inside_main == 1) && (parm_ct == 0)) 
-    {
-      inside_main = 0;
-
-      strcpy(a_string, "         STFSMODE OFF");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         STTMPMD OFF");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "C370EXIT DS    0H");
-      src_line();
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "         SUBEXIT");
-      src_line();
-      var_use[1]++;
-      if (traceflg == 1) 
-      {
-        strcpy(trace_1, "c2z.c pass 3");
-        trace_rec_3();
-      }
-
-      strcpy(a_string, "*");
-      src_line();
-      var_use[1]++;
-      inside_main = 0;
-
-      convert = 1;
-    }
-
 
 
   /* ************************************************************
@@ -9038,12 +8200,29 @@ int main(int argc, char *argv[])
 
   end_pass3:
 
-
     if (end_input == 1) 
     {
       break;
     }
-  } 
+
+    if((convert == 0) && (bracket_convert == 0))
+    {
+       if (bad_rec_ct == 0) 
+       {
+         size = 1;
+         w_bad_rec = malloc(size * sizeof(struct bad_rec));
+       } 
+       else 
+       {
+         size = bad_rec_ct + 1;
+         w_bad_rec = realloc(w_bad_rec, size * sizeof(struct bad_rec));
+       }
+
+       w_bad_rec[bad_rec_ct].bad_rct = rct;
+       strcpy(w_bad_rec[bad_rec_ct].bad_string, p_string);
+       bad_rec_ct++;
+    }
+  }
 
 
   /**************************************************************
@@ -9054,8 +8233,11 @@ int main(int argc, char *argv[])
 
   if(erct != 0)
   {
-    printf("\nPass 3 FAILED with %d erros.\n\n",erct);
+    printf("\nPass 3 FAILED with %d errors.\n\n",erct);
   }
+
+
+
 
   exit(0);
 }

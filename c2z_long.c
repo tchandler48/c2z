@@ -15,7 +15,119 @@ void c2_long()
     trace_rec_1();
   }
 
+  char ch;
+  char field2[VAR_LGTH];
+  char field2a[VAR_LGTH];
+
+  int pi = 0;
+  int pi2 = 0;
+  int x3 = 0;
+  int I = 0;
+  int ret = 0;
+  int ret1 = 0;
+
+  ch = p_string[pi];
+  while ((ch == ' ') || (ch == '\t') || (ch == '{')) 
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  while (ch != ' ') 
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  pi2 = 0;
+  pi++;
+  ch = p_string[pi];
+  while (ch != ';') 
+  {
+    if (ch != '*') 
+    {
+      if(ch != ' ')
+      {
+        field2[pi2] = ch;
+        pi2++;
+      }
+    }
+    pi++;
+    ch = p_string[pi];
+  }
+  field2[pi2] = '\0';
+
+  x3 = 0;
+  if (lv_ct > 0) 
+  {
+    for (I = 0; I < lv_ct; I++) 
+    {
+      ret = strcmp(field2, lw_variable[I].lv_name);
+      ret1 = strcmp(sv_func, lw_variable[I].lv_func);
+      if ((ret == 0) && (ret1 == 0)) 
+      {
+        strcpy(field2a, lw_variable[I].lv_cname);
+        lw_variable[I].lv_use_ct++;
+        x3 = 1;
+      }
+    }
+  }
+
+  if (x3 == 0) 
+  {
+    for (I = 0; I < gv_ct; I++) 
+    {
+      ret = strcmp(field2, gw_variable[I].gv_name);
+      if (ret == 0) 
+      {
+        strcpy(field2a, gw_variable[I].gv_cname);
+        gw_variable[I].gv_use_ct++;
+        x3 = 1;
+      }
+    }
+  }
+
+  if (x3 == 0) 
+  {
+    printf("\nc2z_long.c c2_long long-001 field2 Not Found = %s\n", field2);
+    printf("c2z_long.c c2_long rct = %d p_string = %s", rct, p_string);
+    erct++;
+    convert = 1;
+    return;
+  }
+
+  strcpy(a_string, "         LARL  R9,");
+  strcat(a_string, field2a);
+  strcpy(wk_remark, " ");
+  strcat(wk_remark, field2);
+  strcat(wk_remark, " */");
+  write_remark();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_long.c c2_long #1");
+    trace_rec_3();
+  }
+  work_use_ct[49]++;
+
+  strcpy(a_string, "         LARL  R8,C370ZERO");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_long.c c2_long #2");
+    trace_rec_3();
+  }
+  work_use_ct[32]++;
+
+  strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
+  src_line();
+  if (puncde == 1) 
+  {
+    strcpy(trace_1, "c2z_long.c c2_long #3");
+    trace_rec_3();
+  }
+
   convert = 1;
+  return;
 }
 
 void c2_long_pass2() 
@@ -52,6 +164,7 @@ void c2_long_pass2()
   {
     comma_ct = 1;
   }
+
   pi = 0;
   pi2 = 0;
   ch = p_string[pi];

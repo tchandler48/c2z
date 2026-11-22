@@ -1,13 +1,12 @@
 /* ***************************************************
 *  c2z : c2z_fs.c :                                  *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2026                    *
 **************************************************** */
 
 /* ***************************************************
 *  Scan fsscr                                        *
 * ************************************************** */
-
 
 void c2_fs_1(void)
 {
@@ -914,12 +913,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -978,12 +977,12 @@ void c2_fs_4(void)
         }
  
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1042,12 +1041,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1106,12 +1105,12 @@ void c2_fs_4(void)
         }
        
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1170,12 +1169,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1234,12 +1233,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1298,12 +1297,12 @@ void c2_fs_4(void)
         }
  
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1362,12 +1361,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1426,12 +1425,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1490,12 +1489,12 @@ void c2_fs_4(void)
         }
  
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1554,12 +1553,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }
@@ -1618,12 +1617,12 @@ void c2_fs_4(void)
         }
 
         x3 = 0;
-        for(J = 0; J < goto_label_ct; J++)
+        for(J = 0; J < w_gtolabel_ct; J++)
         {
-          ret = strcmp(w_goto_label[J].goto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
+          ret = strcmp(w_gto_label[J].gto_org_lb, w_fs_fsaid[I].fs_fsaid_label);
           if(ret == 0)
           {
-            strcpy(wk_strg, w_goto_label[J].goto_label_1);
+            strcpy(wk_strg, w_gto_label[J].gto_label_1);
             x3 = 1;
           }
         }

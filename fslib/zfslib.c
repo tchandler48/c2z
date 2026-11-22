@@ -1,6 +1,4 @@
 
-/*  fslib.c                                          */
-
 #include <ctype.h>
 #include <malloc.h>
 #include <math.h>
@@ -75,11 +73,9 @@ FILE *f_out;
   int lv_ct;
   int gv_ct;
   int w_lgth = 0;
-
   int fs_map_ct = 0;
   int fs_field_ct = 0;
   int T3270_ct = 0;
-  int fsaid_ct = 0;
   int scr_loop_ct = 0;
   int goto_label_ct = 0;
 

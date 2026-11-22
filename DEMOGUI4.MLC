@@ -1,0 +1,82 @@
+*********************************************************************
+* z390 - Mainframe assembler emulator and run-time engine
+* Copyright (C) 2021 z390 Assembler LLC
+*
+* This file is part of z390.
+*
+* z390 is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation; either version 2 of the License, or
+* (at your option) any later version.
+* z390 is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License 
+* along with this program; if not, see https://www.gnu.org/licenses.
+
+* Author - Don Higgins                                              *
+* Date   - 11/30/05                                                 *
+*********************************************************************
+*
+* RUN DEMOGUI4 WITH GUI OPTION TO DEMO GUI SCREEN TN3270 SUPPORT
+*
+* DEMOGUI4 DISPLAYS MESSAGES AT SPECIFIED ROW AND COLUMN USING
+* TN3270 SUPPORT FOR 3270 DATA STREAMS WHICH CAN BE READ AND
+* WRITTEN TO GUI SCREEN VIEW VIA TGET AND TPUT MACROS WITH ASIS
+* AND FULLSCR OPTIONS.
+*********************************************************************
+* 11/30/05 RPI47 ADD DEMO OF TN3270 TPUT AND TGET GUI SUPPORT
+* 02/16/06 RPI136 UPDATE TO CONFORM WITH TN3270 SPECS.
+* 02/23/06 RPI212 UPDATE TO REMOVE ESC,ERASE/WRITE,WCC FROM 2ND TPUT
+* 02/25/06 RPI219 TEST REGISTER FORM OF TGET AND TPUT, ADD REQ'D WCC 
+* 03/13/06 RPI 220 USE ESC,WRT_EW TO CLEAR, REMOVE WCC_CKD    
+*********************************************************************
+DEMOGUI4 SUBENTRY
+         GUAM  WINDOW,TITLE,'DEMOGUI4 TN3270 SUPPORT VIA TGET/TPUT'
+         TPUT  MSG1,MSG1L,FULLSCR
+         LA    R6,MSG2
+         LA    R7,MSG2L
+         ICM   R6,8,=AL1(TPUT_FULLSCR)
+         LA    R8,INPUT
+         LA    R9,L'INPUT
+         ICM   R8,8,=AL1(TGET_ASIS_WAIT)
+LOOP     EQU   *
+         TPUT  (6),(7),R
+         TGET  (8),(9),R
+         CLI   INPUT,PF3     EXIT ON PF3
+         BE    EXIT
+         CLI   INPUT,ENTER   IGNORE IF NOT ENTRY WITH TEXT FIELD
+         BNE   LOOP
+         LA    R2,REPLY
+         LA    R3,REPLYL
+         LA    R4,INPUT+3+3  FIRST FIELD DATA AFTER (KEY,SBA,SF,SBA)
+         LR    R5,R1
+         AHI   R5,-6
+         ICM   R5,8,=C' '    PAD REPLY WITH SPACES
+         MVCL  R2,R4
+         TPUT  MSG3,MSG3L,FULLSCR
+         CLC   REPLY(3),=C'END'
+         BNE   LOOP          EXIT IF REPLY IS END
+EXIT     EQU   *
+         SUBEXIT
+INPUT    DS    XL100
+         PRINT DATA
+MSG1     TN3270 ESC,WRT_EW,WCC_KD,(SBA,2,10),(SF,ATT_PA)
+         DC    C'DEMOGUI4 TEST TN3270 GUI INTERFACE'
+MSG1L    EQU   *-MSG1
+MSG2     TN3270 WCC_KD
+         TN3270 (SBA,4,10),(SF,ATT_PA,C'TEXT OR END=')
+         TN3270 (SF,ATT_UA,C'???'),(SF,ATT_PA)
+         TN3270 (SBA,4,24),IC
+MSG2L    EQU   *-MSG2
+MSG3     TN3270 WCC_KD,(SBA,6,10),(SF,ATT_PA)       
+REPLY    DC    CL40' '
+         TN3270 (SF,ATT_PA)
+REPLYL   EQU   *-REPLY
+MSG3L    EQU   *-MSG3
+         TN3270 SYMBOLS DEFINE TN3290 CONTROL AND ATTRIBUTE CODES
+         GUAM   SYMBOLS DEFINE GUI MCS, SCREEN, AND GRAPH CODES
+         EQUREGS
+         END

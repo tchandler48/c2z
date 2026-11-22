@@ -2,15 +2,12 @@
 *  c2z : c2z_struct.c :                              *
 *                                                    *
 *  next error - struct-009                           *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2026                    *
 **************************************************** */
 void c2z_struct(void) 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_struct.c c2z_struct");
-    trace_rec_1();
-  }
+  strcpy(trace_1, "c2z_struct c2z_struct");
+  trace_rec_1();
 
   char *p, *p2, *p3, *p4, *p6, *p7;
   char ch;
@@ -23,6 +20,7 @@ void c2z_struct(void)
   char tfield8a[VAR_LGTH];
   char tfield9[VAR_LGTH];
   char tfield9a[VAR_LGTH];
+  char tfield99[VAR_LGTH];
 
   int pi;
   int pi2;
@@ -122,7 +120,7 @@ void c2z_struct(void)
   strcpy(w_struc[m_struc_ct].st_field_value, null_field);
   m_struc_ct++;
 
-  strcpy(tfield99,tfield2a);
+  strcpy(tfield99,tfield2a); 
   
   if (gv_ct == 0) 
   {
@@ -148,11 +146,9 @@ void c2z_struct(void)
   strcpy(gw_variable[gv_ct].gv_dsect, null_field);
   gw_variable[gv_ct].gv_row = 0;
   gw_variable[gv_ct].gv_column = 0;
-  strcpy(gw_variable[gv_ct].gv_dsect, c_wkname);
-
-  strcpy(gw_variable[gv_ct].gv_table, c_wkname);
-  strcat(gw_variable[gv_ct].gv_table, "T");
-
+  strcpy(gw_variable[gv_ct].gv_dsect, null_field);
+  strcpy(gw_variable[gv_ct].gv_label, null_field);
+  strcpy(gw_variable[gv_ct].gv_aname, null_field);
   strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
   strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
   strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
@@ -160,7 +156,6 @@ void c2z_struct(void)
   gv_ct++;
 
   goto struct_2;
-
 
 /* *********************************************************
 *  parse the following: struct variables    *gw_variables  *
@@ -457,8 +452,8 @@ struct_1:
 
   if (x3 == 0) 
   {
-    printf("\nc2z_struct.c c2_struc struct-001 tfield2 Not Found = %s\n", tfield2);
-    printf("c2z_struct.c c2_struc rct = %d p_string = %s\n",rct,p_string);
+    printf("\nc2z_struct c2_struc #001 tfield2 = %s\n", tfield2);
+    printf("c2z_struct c2_struc rct = %d p_string = %s\n",rct,p_string);
     erct++;
     convert = 1;
     return;
@@ -472,7 +467,7 @@ struct_1:
 *************************************************** */
 struct_2:
 
-  fgets(p_string, 255, pgm);
+  fgets(p_string, BUFSIZE, pgm);
   rct++;
 
   p7 = strstr(p_string, "};");
@@ -1146,41 +1141,6 @@ struct_2:
       strcpy(w_struc[m_struc_ct].st_func, null_field);
       strcpy(w_struc[m_struc_ct].st_type, "C");
 
-      /*
-               if(fd5_type == 1)
-               {
-                  w_struc[m_struc_ct].st_field_lgth = atoi(tfield5);
-                  x20 = atoi(tfield5);
-                  w_struc[m_struc_ct].st_field_cur_lgth = atoi(tfield5);
-               }
-
-               if(fd5_type == 2)
-               {
-                  x3 = 0;
-                  for(v = 0; v < lv_ct; v++)
-                  {
-                     ret = strcmp(tfield5, lw_variable[v].lv_name);
-                     ret1 = strcmp(sv_func, lw_variable[v].lv_func);
-                     if((ret == 0) && (ret1 == 0))
-                     {
-                        x3 = 1;
-                        x20 = atoi(lw_variable[v].lv_value);
-                     }
-                  }
-
-                  if(x3 == 0)
-                  {
-                     for(v = 0; v < gv_ct; v++)
-                     {
-                        ret = strcmp(tfield5, gw_variable[v].gv_name);
-                        if(ret == 0)
-                        {
-                           x3 = 1;
-                           x20 = atoi(gw_variable[v].gv_value);
-                        }
-                     }
-                  }
-      */
       x20 = 250 * 33;
       w_struc[m_struc_ct].st_field_lgth = x20;
       w_struc[m_struc_ct].st_field_cur_lgth = x20;
@@ -1268,8 +1228,8 @@ struct_2:
 
     if ((p2) && (p3)) 
     {
-      printf("\nc2z_struct.c c2_struc (long) struct-002 NEED TO CODE [] \n");
-      printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_struct c2_struc (long) #002 NEED TO CODE [] \n");
+      printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -1353,8 +1313,8 @@ struct_2:
 
     if ((p2) && (p3)) 
     {
-      printf("\nc2z_struct.c c2_struc (floaat) struct-003 NEED TO CODE [] \n");
-      printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_struct c2_struc (floaat) #003 NEED TO CODE [] \n");
+      printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -1438,8 +1398,8 @@ struct_2:
 
     if ((p2) && (p3)) 
     {
-      printf("\nc2z_struct.c c2_struc (double) struct-004 NEED TO CODE [] \n");
-      printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+      printf("\nc2z_struct c2_struc (double) #004 NEED TO CODE [] \n");
+      printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
       erct++;
       convert = 1;
       return;
@@ -1471,7 +1431,6 @@ struct_2:
         ch = p_string[pi];
       }
       tfield4[pi2] = '\0';
-
 
     while (ch != ' ') 
     {
@@ -1604,8 +1563,8 @@ struct_2:
 
   if (x80 == 8)		/* sa_family_t	*/ 
   {
-    printf("\nc2z_struct.c c2_struc (sa_familty_t) struct-005 NEED TO CODE  \n");
-    printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_struct c2_struc (sa_familty_t) #005 NEED TO CODE  \n");
+    printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -1749,8 +1708,8 @@ struct_2:
 
   if (x80 == 10)		/* in_port	*/ 
   {
-    printf("\nc2z_struct.c c2_struc (in_port) struct-006 NEED TO CODE \n");
-    printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_struct c2_struc (in_port) #006 NEED TO CODE\n");
+    printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -1758,8 +1717,8 @@ struct_2:
 
   if (x80 == 11)		/* struct	*/ 
   {
-    printf("\nc2z_struct.c c2_struc (struct) struct-007NEED TO CODE \n");
-    printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_struct c2_struc (struct) #007 NEED TO CODE\n");
+    printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -1767,8 +1726,8 @@ struct_2:
 
   if (x80 == 12)		/* unsigned 	*/ 
   {
-    printf("\nc2z_struct.c c2_struc (unsigned) struct-008 NEED TO CODE \n");
-    printf("c2z_struct.c c2_struc rct = %d p_string = %s", rct, p_string);
+    printf("\nc2z_struct.c c2_struc (unsigned) #008 NEED TO CODE\n");
+    printf("c2z_struct c2_struc rct = %d p_string = %s", rct, p_string);
     erct++;
     convert = 1;
     return;
@@ -1794,12 +1753,9 @@ struct_3:
 
 void c2_struct_3() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_struct.c c2_struct_3 START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_struct c2_struct_3 START");
+  trace_rec_1();
+  
   char *p7;
 
   p7 = strstr(p_string, ";");
@@ -1810,7 +1766,7 @@ void c2_struct_3()
 
 struct_10:
 
-  fgets(p_string, 255, pgm);
+  fgets(p_string, BUFSIZE, pgm);
   rct++;
 
   p7 = strstr(p_string, "};");
@@ -1825,12 +1781,9 @@ struct_10:
 
 void c2_struct_4() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_struct.c c2_struct_4 START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_struct c2_struct_4 START");
+  trace_rec_1();
+  
   int pi = 0;
   int pi2 = 0;
   int p99 = 0;
@@ -1849,16 +1802,26 @@ void c2_struct_4()
   char field4a[VAR_LGTH];
 
   pi = 0;
-  ch = p_string[pi];
-
-
   while((ch == ' ') || (ch == '\t') || (ch == '{'))
   {
     pi++;
     ch = p_string[pi];
   }
 
+  while(ch != ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
+  while(ch == ' ')
+  {
+    pi++;
+    ch = p_string[pi];
+  }
+
   pi2 = 0;
+  ch = p_string[pi];
   while(ch != ' ')
   {
     field1[pi2] = ch;
@@ -1867,13 +1830,7 @@ void c2_struct_4()
     ch = p_string[pi];
   }
   field1[pi2] = '\0';
-
-  while(ch == ' ')
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-
+ 
   while(ch == ' ')
   {
     pi++;
@@ -1908,22 +1865,13 @@ void c2_struct_4()
   {
     for (I = 0; I < m_struc_ct; I++) 
     {
+      
       ret = strcmp(field1, w_struc[I].st_name);
       if(ret == 0)
       {
          strcpy(w_struc[I].st_name, field2);
       }
     }
-
-    for(I = 0; I < gv_ct; I++)
-    {
-      ret = strcmp(field1, gw_variable[I].gv_name);
-      if(ret == 0)
-      {
-         strcpy(gw_variable[I].gv_name, field2);
-      }
-    }
-
     convert = 1;
     return;
   }

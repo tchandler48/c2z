@@ -1,0 +1,217 @@
+2  3      c2z scan char c2_char START                                    char ch;
+2  3      c2z_char c2_char START                                         char ch;
+2  3      c2z_char c2_char CHAR                                          char ch;
+2  3      c2z_char c2_char_2 STARTch                                     char ch;
+2  4      c2z scan char c2_char START                                    char ln_holder[20];
+2  4      c2z_char c2_char START                                         char ln_holder[20];
+2  4      c2z_char c2_char CHAR                                          char ln_holder[20];
+2  4      c2z_char c2_char_1 START                                       char ln_holder[20];
+2  5      c2z scan char c2_int START                                      int x;
+2  5      c2z_int c2_int START                                            int x;
+2  5      c2z_int pass 2 int #1                                           int x;
+2  5      c2z_int.c c2_int_1 #2   x                                       int x;
+2  7      c2z pass 2 MAIN                                             int main(int argc, char *argv[])
+2  7      c2z_main.c c2_main                                          int main(int argc, char *argv[])
+2  8      c2z.c Pass 2 { }                                            {
+2  8      c2z_parameter.c c2_param_ct START                           {
+2  10     c2z scan printf                                                printf("ctest20 test program\n");
+2  10     c2z printf-strtmp                                              printf("ctest20 test program\n");
+2  11     c2z pass_2 scan strcpy                                         strcpy(ch, "a");
+2  11     c2z_strcpy.c c2_strcpy_pass2 START                             strcpy(ch, "a");
+2  11     c2z_strcpy c2_strcpy_pass2 subroutine #1                       strcpy(ch, "a");
+2  11     c2z_strcpy c2_pass2_strcpy_2 START                             strcpy(ch, "a");
+2  11     c2z_strcpy c2_pass2_strcpy_2 subroutine 200                    strcpy(ch, "a");
+2  12     c2z_pass_2.c c2_math_literal STAFT                             ln_holder[2] = ch;
+2  12     c2z_pass_2.c c2_pass2_math START                               ln_holder[2] = ch;
+2  12     c2z_pass_2.c c2_pass2_math subroutine #1                       ln_holder[2] = ch;
+2  12     c2z_pass_2.c c2_pass2_math subroutine #2                       ln_holder[2] = ch;
+2  12     c2z_pass_2.c c2_pass2_math_5 Branch                            ln_holder[2] = ch;
+2  12     c2z_pass_2.c c2_pass2_math_5 START                             ln_holder[2] = ch;
+2  13     c2z scan printf                                                printf("ch = %s\n",ch);
+2  13     c2z printf-strtmp                                              printf("ch = %s\n",ch);
+2  14     c2z scan printf                                                printf(ln_holder[2] = %s\n",ln_holder[2]);
+2  14     c2z printf-strtmp                                              printf(ln_holder[2] = %s\n",ln_holder[2]);
+2  17     c2z_pass_2.c c2_math_literal STAFT                             x = 5;
+2  17     c2z_pass_2.c c2_math_literal_1                                 x = 5;
+2  17     c2z_pass_2.c c2_pass2_math START                               x = 5;
+2  17     c2z_pass_2.c c2_pass2_math subroutine #1                       x = 5;
+2  17     c2z_pass_2.c c2_pass2_math subroutine #2                       x = 5;
+2  17     c2z_pass_2.c c2_pass2_math1 Branch                             x = 5;
+2  17     c2z_pass_2.c c2_pass2_math_1 START                             x = 5;
+2  17     c2z_pass_2.c c2_pass2_math_1 START                             x = 5;
+2  18     c2z pass_2 scan strcpy                                         strcpy(ch, "a");
+2  18     c2z_strcpy.c c2_strcpy_pass2 START                             strcpy(ch, "a");
+2  18     c2z_strcpy c2_strcpy_pass2 subroutine #1                       strcpy(ch, "a");
+2  18     c2z_strcpy c2_pass2_strcpy_2 START                             strcpy(ch, "a");
+2  18     c2z_strcpy c2_pass2_strcpy_2 subroutine 200                    strcpy(ch, "a");
+2  19     c2z_pass_2.c c2_math_literal STAFT                             ln_holder[x] = ch;
+2  19     c2z_pass_2.c c2_pass2_math START                               ln_holder[x] = ch;
+2  19     c2z_pass_2.c c2_pass2_math subroutine #1                       ln_holder[x] = ch;
+2  19     c2z_pass_2.c c2_pass2_math subroutine #2                       ln_holder[x] = ch;
+2  19     c2z_pass_2.c c2_pass2_math_5 Branch                            ln_holder[x] = ch;
+2  19     c2z_pass_2.c c2_pass2_math_5 START                             ln_holder[x] = ch;
+2  20     c2z scan printf                                                printf("ch = %s\n",ch);
+2  20     c2z printf-strtmp                                              printf("ch = %s\n",ch);
+2  21     c2z_pass_2.c c2_math_literal STAFT                             x = 5;
+2  21     c2z_pass_2.c c2_math_literal_1                                 x = 5;
+2  21     c2z_pass_2.c c2_pass2_math START                               x = 5;
+2  21     c2z_pass_2.c c2_pass2_math subroutine #1                       x = 5;
+2  21     c2z_pass_2.c c2_pass2_math subroutine #2                       x = 5;
+2  21     c2z_pass_2.c c2_pass2_math1 Branch                             x = 5;
+2  21     c2z_pass_2.c c2_pass2_math_1 START                             x = 5;
+2  21     c2z_pass_2.c c2_pass2_math_1 START                             x = 5;
+2  22     c2z scan printf                                                printf(ln_holder[x] = %s\n",ln_holder[x]);
+2  22     c2z printf-strtmp                                              printf(ln_holder[x] = %s\n",ln_holder[x]);
+2  24     c2z scan printf                                                printf("ctest20 end program\n");
+2  24     c2z printf-strtmp                                              printf("ctest20 end program\n");
+2  25     c2z.c Pass 2 { }                                            }
+2  25     c2z_parameter.c c2_param_ct START                           }
+2  26     c2z.c Pass 2 { }                                            }
+2  26     c2z_parameter.c c2_param_ct START                           }
+2  0      c2z_pass_3 c2_pass_3 START                                  }
+2  0      c2z_pass_3 generated #1         *                                                                       0000001
+2  0      c2z_pass_3 generated #2         *  This program was generated by c2z parser.                            0000002
+2  0      c2z_pass_3 generated #3         *  Generated code is for the z390 MLC.                                  0000003
+2  0      c2z_pass_3 generated #4         *  Copyright (c) TCCS 2015 - 2026                                       0000004
+2  0      c2z_pass_3 generated #5         *                                                                       0000005
+2  0      c2z_pass_3 generated #9                   MACRO                                                         0000006
+2  0      c2z_pass_3 generated #10        &N        SUBENTRY                                                      0000007
+2  0      c2z_pass_3 generated #11        &N        CSECT                                                         0000008
+2  0      c2z_pass_3 generated #12                  STM    14,12,12(13)                                           0000009
+2  0      c2z_pass_3 generated #13                  JAS    15,CONTINUE                                            0000010
+2  0      c2z_pass_3 generated #14                  DC     18F'0'                                                 0000011
+2  0      c2z_pass_3 generated #15                  DC     CL8'&N'                                                0000012
+2  0      c2z_pass_3 generated #16                  DC     CL8'&SYSDATE'                                          0000013
+2  0      c2z_pass_3 generated #17                  DC     CL8'&SYSTIME'                                          0000014
+2  0      c2z_pass_3 generated #19        CONTINUE  DS     0H                                                     0000015
+2  0      c2z_pass_3 generated #20                  ST     15,8(13)                                               0000016
+2  0      c2z_pass_3 generated #21                  ST     13,4(15)                                               0000017
+2  0      c2z_pass_3 generated #22                  LR     13,15                                                  0000018
+2  0      c2z pass 3 generated #23                  USING  &N+8,13                                                0000019
+2  0      c2z pass 3 generated #24                  MEND                                                          0000020
+2  0      c2z pass 3 generated #25        *                                                                       0000021
+2  0      c2z pass 3 generated #26                  MACRO                                                         0000022
+2  0      c2z pass 3 generated #27                  SUBEXIT                                                       0000023
+2  0      c2z pass 3 generated #28                  LAEY   15,0                                                   0000024
+2  0      c2z pass 3 generated #29                  L      13,4(,13)                                              0000025
+2  0      c2z pass 3 generated #30                  L      14,12(,13)                                             0000026
+2  0      c2z pass 3 generated #31                  LM     2,12,28(13)                                            0000027
+2  0      c2z pass 3 generated #32                  BR     14                                                     0000028
+2  0      c2z pass 3 generated #33                  MEND                                                          0000029
+2  0      c2z pass 3 generated #34        *                                                                       0000030
+2  0      c2z pass 3 generated #35        *  This is a modified MVC2 macro.  Modified for baseless code           0000031
+2  0      c2z pass 3 generated #36        *  Modified by TCCS 2016 - 2026                                         0000032
+2  0      c2z pass 3 generated #37        *  Performs a MVC operation, using Source Length NOT Target Length      0000033
+2  0      c2z pass 3 generated #38        *                                                                       0000034
+2  0      c2z pass 3 generated #39                  MACRO                                                         0000035
+2  0      c2z pass 3 generated #40        &LAB      MVC2   &TARGET,&SOURCE                                        0000036
+2  0      c2z pass 3 generated #41        &LAB      LARL   R8,&SOURCE                                             0000037
+2  0      c2z pass 3 generated #42                  LARL   R9,&TARGET                                             0000038
+2  0      c2z pass 3 generated #43                  MVC    0(L'&SOURCE,R9),0(R8)                                  0000039
+2  0      c2z pass 3 generated #44                  MEND                                                          0000040
+2  0      c2z pass 3 generated #45        *                                                                       0000041
+2  0      c2z pass 3 generated #46        *  This is a modified MVC2 macro.  baseless code                        0000042
+2  0      c2z pass 3 generated #47        *  Modified by TCCS 2016 - 2020                                         0000043
+2  0      c2z pass 3 generated #48        *  Performs a MVC operation, using Source Length NOT Target Length      0000044
+2  0      c2z pass 3 generated #49        *                                                                       0000045
+2  0      c2z pass 3 generated #50                  MACRO                                                         0000046
+2  0      c2z pass 3 generated #51        &LAB      MVC3   &SOURCE                                                0000047
+2  0      c2z pass 3 generated #52        &LAB      LARL   R8,&SOURCE                                             0000048
+2  0      c2z pass 3 generated #53                  MVC    0(L'&SOURCE,R6),0(R8)                                  0000049
+2  0      c2z pass 3 generated #54                  MEND                                                          0000050
+2  0      c2z pass 3 generated #55        *                                                                       0000051
+2  0      c2z pass 3 Generated #56        ctest20  SUBENTRY                                                       0000052
+2  0      c2z pass 3 Generated #57                 GUAML WINDOW,TITLE,'c2z V1.0'                                  0000053
+2  0      c2z pass 3 Generated #58                 JLU   START                    /* Ln#- 0 R5 parm lg */         0000054
+2  0      c2z pass 3 Generated #59                 DS    0H                              /* c2z gen variable  */  0000055
+2  0      c2z pass 3 Generated #60        GETFLGS  EQU   B'10000000'                     /* c2z gen variable  */  0000056
+2  0      c2z pass 3 Generated #61        WTOINP   DS    0H                                                       0000057
+2  0      c2z pass 3 Generated #62                 LARL  4,GETFLGS                                                0000058
+2  0      c2z pass 3 Generated #63                 SLL   4,24                                                     0000059
+2  0      c2z pass 3 Generated #64                 OR    11,4                                                     0000060
+2  0      c2z pass 3 Generated #65                 TGETL  (R11),(R10),R                                           0000061
+2  0      c2z pass 3 Generated #66                 PR                                                             0000062
+2  0      c2z pass 3 Generated #67        *********************************************************               0000063
+2  0      c2z pass 3 Generated #68        *  open/close macro code goes here                      *               0000064
+2  0      c2z pass 3 Generated #69        *********************************************************               0000065
+2  0      c2z pass 3 Generated #70        C370END  DS    0H                                                       0000068
+2  0      c2z pass 3 Generated #71                 SUBEXIT                                                        0000069
+2  0      c2z pass 3 Generated #72        ******************************************************************      0000070
+2  0      c2z pass 3 Generated #73        *                                                                *      0000071
+2  0      c2z pass 3 Generated #74        * STATIC STORAGE AREA FOR CSECT - NO BASE REG REQUIRED.          *      0000072
+2  0      c2z pass 3 Generated #75        *                               - LARL ADDRESSING IS USED        *      0000073
+2  0      c2z pass 3 Generated #76        *                                                                *      0000074
+2  0      c2z pass 3 Generated #77        ******************************************************************      0000075
+2  0      c2z pass 3 Generated #43        ******************************************************************      0000076
+2  0      c2z pass 3 Generated #44        *                                                                *      0000077
+2  0      c2z pass 3 Generated #45        * CODE AREA FOR CSECT -DOESN'T REQUIRE BASE REGISTER COVERAGE    *      0000078
+2  0      c2z pass 3 Generated #46        *                     -USE RELATIVE BRANCHES HERE                *      0000079
+2  0      c2z pass 3 Generated #47        *                     -DON'T CODE LITERALS HERE                  *      0000080
+2  0      c2z pass 3 Generated #48        *                                                                *      0000081
+2  0      c2z pass 3 Generated #49        ******************************************************************      0000082
+2  0      c2z pass 3 Generated #50        START    DS    0H                                                       0000083
+2  3      c2z_char c2_char_punch START                                   char ch;
+2  3      c2z_char c2_char_punch #1                LARL  R8,C37F1                 /* Ln#- 3 ch                    0000084
+2  3      c2z_char c2_char_punch #2                MVI   0(R8),C' '                                               0000085
+2  3      c2z_char c2_char_punch #3                MVC   1(L'C37F1-1,R8),0(R8)                                    0000086
+2  4      c2z_char c2_char_punch START                                   char ln_holder[20];
+2  4      c2z_char c2_char_punch #1                LARL  R8,C37F3                 /* Ln#- 4 ln_holder             0000087
+2  4      c2z_char c2_char_punch #2                MVI   0(R8),C' '                                               0000088
+2  4      c2z_char c2_char_punch #3                MVC   1(L'C37F3-1,R8),0(R8)                                    0000089
+2  5      c2z_int c2_int_punch START                                      int x;
+2  5      c2z_int c2_int_punch_1 START                                    int x;
+2  5      c2z_int c2_int_punch_1 #1                LARL  R8,C37F4                 /* Ln#- 5 x */                  0000090
+2  5      c2z_int c2_int_punch_1 #2                LARL  R7,C370ZERO              /* Ln#- 5 C370ZERO */           0000091
+2  5      c2z_int c2_int_punch_1 #3                ZAP   0(6,R8),0(6,R7)                                          0000092
+2  7      c2z pass 3 punch MAIN                                       int main(int argc, char *argv[])
+2  10     c2z_print c2_printf_literal                                    printf("ctest20 test program\n");
+2  10     c2z_print c2_printf_literal #6           MVC2  C370WTOB,L10                                             0000093
+2  10     c2z_print c2_printf_literal #7           LARL  R11,C370WTOB                                             0000094
+2  10     c2z_print c2_printf_literal #8           LHI   R10,20                                                   0000095
+2  10     c2z_print c2_printf_literal #9           TPUTL (R11),(R10),R,ASIS                                       0000096
+2  10     c2z_print c2_printf_literal #10          XC    0(75,R11),0(R11)                                         0000097
+2  11     c2z_strcpy c2_str_1 START                                      strcpy(ch, "a");
+2  11     c2z_strcpy c2_str_1 #100                 LARL  R9,C37F1                 /* Ln#- 11 ch */                0000098
+2  11     c2z_strcpy c2_str_1 #101                 LARL  R8,C370B1                                                0000099
+2  11     c2z_strcpy c2_str_1 #102                 MVC   0(1,R9),0(R8)                                            0000100
+2  11     c2z_strcpy c2_str_1 #103                 MVC   1(0,R9),0(R9)                                            0000101
+2  11     c2z_strcpy c2_str_1 #104                 LARL  R9,C37F1                 /* Ln#- 11 ch */                0000102
+2  11     c2z_strcpy c2_str_1 #105                 LARL  R8,C37F6                                                 0000103
+2  11     c2z_strcpy c2_str_1 #106                 MVC   0(1,R9),0(R8)                                            0000104
+2  11     c2z_strcpy c2_str_1 #107                 LARL  R9,C37F1                 /* Ln#- 11 ch */                0000105
+2  11     c2z_strcpy c2_str_1 #108                 LARL  R8,C370EOF                                               0000106
+2  11     c2z_strcpy c2_str_1 #109                 MVC   2(1,R9),0(R8)                                            0000107
+2  12     c2z_math c2_math_5                                             ln_holder[2] = ch;
+2  13     c2z_printf c2_printf_string                                    printf("ch = %s\n",ch);
+2  13     c2z_print c2_printf_str #1               LARL  R8,C370WTOB                                              0000108
+2  13     c2z_print c2_printf_str #2               LARL  R7,L13                                                   0000109
+2  13     c2z_print c2_printf_str #3               MVC   0(5,R8),0(R7)                                            0000110
+2  13     c2z_print c2_printf_str #4               LHI   R10,5                                                    0000111
+2  13     c2z_printf c2_printf NO[] #7             SR    R1,R1                                                    0000112
+2  13     c2z_printf c2_printf NO[] #8             SR    R2,R2                                                    0000113
+2  13     c2z_printf c2_printf NO[] #9             LARL  R8,C37F1                 /* Ln#- 13 ch */                0000114
+2  13     c2z_printf c2_printf NO[] #10            LARL  R7,SPCTBL                                                0000115
+2  13     c2z_printf c2_printf NO[] #11            TRT   0(L'C37F1,R8),0(R7)                                      0000116
+2  13     c2z_printf c2_printf NO[] #12            BRC   8,L13A                                                   0000117
+2  13     c2z_printf c2_printf NO[] #13            LARL  R2,C37F1                 /* Ln#- 13 ch */                0000118
+2  13     c2z_printf c2_printf NO[] #14            SR    R1,R2                                                    0000119
+2  13     c2z_printf c2_printf NO[] #15            LR    R2,R1                                                    0000120
+2  13     c2z_printf c2_printf NO[] #16            J     L13B                                                     0000121
+2  13     c2z_printf c2_printf NO[] #17   L13A     DS    0H                                                       0000122
+2  13     c2z_printf c2_printf NO[] #18            LHI   R2,L'C37F1                                               0000123
+2  13     c2z_printf c2_printf NO[] #19   L13B     DS    0H                                                       0000124
+2  13     c2z_printf c2_printf NO[] #20            LR    R5,R2                                                    0000125
+2  13     c2z_printf c2_printf NO[] #21            LARL  R3,WKAR1                                                 0000126
+2  13     c2z_printf c2_printf NO[] #22            ST    R5,4(,R3)                                                0000127
+2  13     c2z_printf c2_printf NO[] #23            CVD   R5,0(R3)                                                 0000128
+2  13     c2z_printf c2_printf NO[] #24            LARL  R4,C370NWK2                                              0000129
+2  13     c2z_printf c2_printf NO[] #24            ZAP   0(6,R4),0(8,R3)                                          0000130
+2  13     c2z_printf c2_printf NO[] #41   L13C     DS    0H                                                       0000131
+2  13     c2z_printf c2_printf NO[] #42            LARL  R9,C370WTOB                                              0000132
+2  13     c2z_printf c2_printf NO[] #43            LARL  R8,C37F1                 /* Ln#- 13 ch */                0000133
+2  13     c2z_printf c2_printf NO[] #44            MVC   5(1,R9),0(R8)                                            0000134
+2  13     c2z_printf c2_printf NO[] #45            AHI   R10,1                                                    0000135
+2  13     c2z_printf c2_printf NO[] #46            LARL  R11,C370WTOB                                             0000136
+2  13     c2z_printf c2_printf NO[] #47            TPUTL (R11),(R10),R,ASIS                                       0000137
+2  13     c2z_printf c2_printf NO[] #48            XC    0(75,R11),0(R11)                                         0000138
+2  14     c2z_printf c2_printf_string                                    printf(ln_holder[2] = %s\n",ln_holder[2]);

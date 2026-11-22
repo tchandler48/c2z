@@ -2,7 +2,7 @@
 *  c2z  : c2z_unsigned.c                             *
 *                                                    *
 *  next error - unsigned-005                         *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2026                    *
 **************************************************** */
 
 /* ***************************************************
@@ -10,12 +10,9 @@
 **************************************************** */
 void c2_unsigned() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_unsigned.c c2_unsigned START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_unsigned c2_unsigned START");
+  trace_rec_1();
+ 
   int s = 0;
   int size = 0;
   int pi;
@@ -150,22 +147,6 @@ void c2_unsigned()
         strcpy(gw_variable[gv_ct].gv_name, tfield1);
         strcpy(gw_variable[gv_ct].gv_type, "I");
         gw_variable[gv_ct].gv_lgth = 0;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_value, null_field);
-        gw_variable[gv_ct].gv_init = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
-        gw_variable[gv_ct].gv_use_ct = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_table, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        strcpy(gw_variable[gv_ct].gv_st_col, null_field);
-        gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 1;
         gv_ct++;
@@ -187,14 +168,11 @@ void c2_unsigned()
         lw_variable[lv_ct].lv_rct = rct;
         strcpy(lw_variable[lv_ct].lv_cname, c_wkname);
         strcpy(lw_variable[lv_ct].lv_name, tfield1);
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         strcpy(lw_variable[lv_ct].lv_type, "I");
         lw_variable[lv_ct].lv_lgth = 0;
-        lw_variable[lv_ct].lv_current_lgth = 0;
-        strcpy(lw_variable[lv_ct].lv_value, null_field);
-        lw_variable[lv_ct].lv_init = 0;
-        strcpy(lw_variable[lv_ct].lv_literal, null_field);
         lw_variable[lv_ct].lv_use_ct = 0;
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
+        lw_variable[lv_ct].lv_current_lgth = 0;
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 1;
         lv_ct++;
@@ -229,26 +207,9 @@ void c2_unsigned()
         strcpy(gw_variable[gv_ct].gv_name, tfield2);
         strcpy(gw_variable[gv_ct].gv_type, "I");
         gw_variable[gv_ct].gv_lgth = 0;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_value, null_field);
-        gw_variable[gv_ct].gv_init = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
-        gw_variable[gv_ct].gv_use_ct = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_table, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        strcpy(gw_variable[gv_ct].gv_st_col, null_field);
-        gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 1;
         gv_ct++;
-
       }
 
       if (global_st == 1) 
@@ -267,14 +228,11 @@ void c2_unsigned()
         lw_variable[lv_ct].lv_rct = rct;
         strcpy(lw_variable[lv_ct].lv_cname, c_wkname);
         strcpy(lw_variable[lv_ct].lv_name, tfield2);
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         strcpy(lw_variable[lv_ct].lv_type, "I");
         lw_variable[lv_ct].lv_lgth = 0;
-        lw_variable[lv_ct].lv_current_lgth = 0;
-        strcpy(lw_variable[lv_ct].lv_value, null_field);
-        lw_variable[lv_ct].lv_init = 0;
-        strcpy(lw_variable[lv_ct].lv_literal, null_field);
         lw_variable[lv_ct].lv_use_ct = 0;
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
+        lw_variable[lv_ct].lv_current_lgth = 0;
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 1;
         lv_ct++;
@@ -353,8 +311,8 @@ void c2_unsigned()
 
     if (m5fd1_type == 1) 
     {
-      printf("\nc2z_unsigned.c c2_unsigned unsigned-001 m5fd1_type == 1 NEED TO CODE\n");
-      printf("c2z_unsigned.c c2_unsigned rct = %d p_string = %s",rct,p_string);
+      printf("\nc2z_unsigned c2_unsigned #001 m5fd1_type == 1 NEED TO CODE\n");
+      printf("c2z_unsigned c2_unsigned rct = %d p_string = %s",rct,p_string);
       erct++;
       convert = 1;
       return;
@@ -398,26 +356,9 @@ void c2_unsigned()
           strcpy(gw_variable[gv_ct].gv_name, tfield1);
           strcpy(gw_variable[gv_ct].gv_type, "I");
           gw_variable[gv_ct].gv_lgth = 0;
-          gw_variable[gv_ct].gv_current_lgth = 0;
-          strcpy(gw_variable[gv_ct].gv_value, null_field);
-          gw_variable[gv_ct].gv_init = 0;
-          strcpy(gw_variable[gv_ct].gv_literal, null_field);
-          gw_variable[gv_ct].gv_use_ct = 0;
-          strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-          gw_variable[gv_ct].gv_row = 0;
-          gw_variable[gv_ct].gv_column = 0;
-          strcpy(gw_variable[gv_ct].gv_label, null_field);
-          strcpy(gw_variable[gv_ct].gv_table, null_field);
-          strcpy(gw_variable[gv_ct].gv_aname, null_field);
-          strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-          strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-          strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-          strcpy(gw_variable[gv_ct].gv_st_col, null_field);
-          gw_variable[gv_ct].gv_flag = 0;
           gw_variable[gv_ct].gv_dec = 0;
           gw_variable[gv_ct].gv_id = 1;
           gv_ct++;
-
         }
       } /* if((global_st == 0)  */
 
@@ -460,18 +401,14 @@ void c2_unsigned()
           lw_variable[lv_ct].lv_rct = rct;
           strcpy(lw_variable[lv_ct].lv_cname, c_wkname);
           strcpy(lw_variable[lv_ct].lv_name, tfield1);
-          strcpy(lw_variable[lv_ct].lv_func, sv_func);
           strcpy(lw_variable[lv_ct].lv_type, "I");
           lw_variable[lv_ct].lv_lgth = 0;
-          lw_variable[lv_ct].lv_current_lgth = 0;
-          strcpy(lw_variable[lv_ct].lv_value, null_field);
-          lw_variable[lv_ct].lv_init = 0;
-          strcpy(lw_variable[lv_ct].lv_literal, null_field);
           lw_variable[lv_ct].lv_use_ct = 0;
+          strcpy(lw_variable[lv_ct].lv_func, sv_func);
+          lw_variable[lv_ct].lv_current_lgth = 0;
           lw_variable[lv_ct].lv_dec = 0;
           lw_variable[lv_ct].lv_id = 1;
           lv_ct++;
-
           convert = 1;
         }
       } 			/* if((global_st == 1)  */
@@ -519,22 +456,6 @@ void c2_unsigned()
         strcpy(gw_variable[gv_ct].gv_name, tfield1);
         strcpy(gw_variable[gv_ct].gv_type, "I");
         gw_variable[gv_ct].gv_lgth = 0;
-        gw_variable[gv_ct].gv_current_lgth = 0;
-        strcpy(gw_variable[gv_ct].gv_value, null_field);
-        gw_variable[gv_ct].gv_init = 0;
-        strcpy(gw_variable[gv_ct].gv_literal, null_field);
-        gw_variable[gv_ct].gv_use_ct = 0;
-        strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-        gw_variable[gv_ct].gv_row = 0;
-        gw_variable[gv_ct].gv_column = 0;
-        strcpy(gw_variable[gv_ct].gv_label, null_field);
-        strcpy(gw_variable[gv_ct].gv_table, null_field);
-        strcpy(gw_variable[gv_ct].gv_aname, null_field);
-        strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-        strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-        strcpy(gw_variable[gv_ct].gv_st_col, null_field);
-        gw_variable[gv_ct].gv_flag = 0;
         gw_variable[gv_ct].gv_dec = 0;
         gw_variable[gv_ct].gv_id = 1;
         gv_ct++;
@@ -576,21 +497,18 @@ void c2_unsigned()
           size = lv_ct + 1;
           lw_variable = realloc(lw_variable, size * sizeof(struct var));
         }
+
         lw_variable[lv_ct].lv_rct = rct;
         strcpy(lw_variable[lv_ct].lv_cname, c_wkname);
         strcpy(lw_variable[lv_ct].lv_name, tfield2);
-        strcpy(lw_variable[lv_ct].lv_func, sv_func);
         strcpy(lw_variable[lv_ct].lv_type, "I");
         lw_variable[lv_ct].lv_lgth = 0;
-        lw_variable[lv_ct].lv_current_lgth = 0;
-        strcpy(lw_variable[lv_ct].lv_value, null_field);
-        lw_variable[lv_ct].lv_init = 0;
-        strcpy(lw_variable[lv_ct].lv_literal, null_field);
         lw_variable[lv_ct].lv_use_ct = 0;
+        strcpy(lw_variable[lv_ct].lv_func, sv_func);
+        lw_variable[lv_ct].lv_current_lgth = 0;
         lw_variable[lv_ct].lv_dec = 0;
         lw_variable[lv_ct].lv_id = 1;
         lv_ct++;
-
         convert = 1;
       }
     } 				/* if((global_st == 1)  */
@@ -601,12 +519,9 @@ void c2_unsigned()
 
 void c2_unsigned_punch() 
 {
-  if (traceflg == 1) 
-  {
-    strcpy(trace_1, "c2z_unsigned.c c2_unsigned_punch START");
-    trace_rec_1();
-  }
-
+  strcpy(trace_1, "c2z_unsigned c2_unsigned_punch START");
+  trace_rec_1();
+  
   char ch;
   char *p;
   char field1[VAR_LGTH];
@@ -712,7 +627,6 @@ void c2_unsigned_punch()
           strcpy(field1a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
@@ -727,15 +641,14 @@ void c2_unsigned_punch()
           strcpy(field1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
 
     if (x3 == 0) 
     {
-      printf("\nc2z_unsigned.c c2_unsigned unsigned-012 field1 = %s NOT Found\n",field1);
-      printf("c2z_unsigned.c c2_unsigned rct = %d p_string = %s",rct,p_string);
+      printf("\nc2z_unsigned c2_unsigned #012 field1 = %s\n",field1);
+      printf("c2z_unsigned c2_unsigned rct = %d p_string = %s",rct,p_string);
       erct++;
       convert = 1;
       return;
@@ -753,7 +666,6 @@ void c2_unsigned_punch()
           strcpy(field2a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
@@ -768,15 +680,14 @@ void c2_unsigned_punch()
           strcpy(field2a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
 
     if (x3 == 0) 
     {
-      printf("\nc2z_unsigned.c c2_unsigned unsigned-013 field2 = %s NOT Found\n",field2);
-      printf("c2z_unsigned.c c2_unsigned rct = %d p_string = %s",rct,p_string);
+      printf("\nc2z_unsigned c2_unsigned #013 field2 = %s\n",field2);
+      printf("c2z_unsigned c2_unsigned rct = %d p_string = %s",rct,p_string);
       erct++;
       convert = 1;
       return;
@@ -788,32 +699,23 @@ void c2_unsigned_punch()
     strcat(wk_remark, field1);
     strcat(wk_remark, " */");
     write_remark();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #1");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #20");
+    trace_rec_3();
+    
     strcpy(a_string, "         LARL  R8,");
     strcat(a_string, field2a);
     strcpy(wk_remark, " ");
     strcat(wk_remark, field2);
     strcat(wk_remark, " */");
     write_remark();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #2");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #21");
+    trace_rec_3();
+    
     strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
     src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #3");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #22");
+    trace_rec_3();
+    
     convert = 1;
     return;
   }
@@ -885,7 +787,6 @@ void c2_unsigned_punch()
           strcpy(field1a, lw_variable[I].lv_cname);
           lw_variable[I].lv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
@@ -900,15 +801,14 @@ void c2_unsigned_punch()
           strcpy(field1a, gw_variable[I].gv_cname);
           gw_variable[I].gv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
 
     if (x3 == 0) 
     {
-      printf("\nc2z_unsigned.c c2_unsigned unsigned-002 field1 = %s NOT Found\n",field1);
-      printf("c2z_unsigned.c c2_unsigned rct = %d p_string = %s",rct,p_string);
+      printf("\nc2z_unsigned c2_unsigned #002 field1 = %s\n",field1);
+      printf("c2z_unsigned c2_unsigned rct = %d p_string = %s",rct,p_string);
       erct++;
       convert = 1;
       return;
@@ -928,7 +828,6 @@ void c2_unsigned_punch()
             strcpy(field2a, lw_variable[I].lv_cname);
             lw_variable[I].lv_use_ct++;
             x3 = 1;
-            break;
           }
         }
       }
@@ -943,15 +842,14 @@ void c2_unsigned_punch()
             strcpy(field2a, gw_variable[I].gv_cname);
             gw_variable[I].gv_use_ct++;
             x3 = 1;
-            break;
           }
         }
       }
 
       if (x3 == 0) 
       {
-        printf("\nc2z_unsigned.c c2_unsigned unsigned-003 field2 = %s NOT Found\n",field2);
-        printf("c2z_unsigned.c c2_unsigned rct = %d p_string = %s",rct,p_string);
+        printf("\nc2z_unsigned c2_unsigned #003 field2 = %s\n",field2);
+        printf("c2z_unsigned c2_unsigned rct = %d p_string = %s",rct,p_string);
         erct++;
         convert = 1;
         return;
@@ -964,12 +862,9 @@ void c2_unsigned_punch()
     strcat(wk_remark, field1);
     strcat(wk_remark, " */");
     write_remark();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #4");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #1");
+    trace_rec_3();
+    
     if(fd2_type == 1)
     {
       strcpy(a_string, "         LARL  R8,");
@@ -978,11 +873,8 @@ void c2_unsigned_punch()
       strcat(wk_remark, field2);
       strcat(wk_remark, " */");
       write_remark();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #5");
-        trace_rec_3();
-       }
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #2");
+      trace_rec_3();
     }
 
     if(fd2_type == 2)
@@ -994,64 +886,40 @@ void c2_unsigned_punch()
       strcat(wk_remark, field2);
       strcat(wk_remark, " */");
       write_remark();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #6");
-        trace_rec_3();
-      }
-
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #3");
+      trace_rec_3();
+      
       strcpy(a_string, "         LARL  R7,C370U");
       src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #7");
-        trace_rec_3();
-      }
-      work_use_ct[48]++;
-
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #4");
+      trace_rec_3();
+      
       strcpy(a_string, "         CVD   R5,0(R7)");
       src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #8");
-        trace_rec_3();
-      }
- 
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #4");
+      trace_rec_3();
+       
       strcpy(a_string, "         LARL  R8,C370NWK1");
       src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #9");
-        trace_rec_3();
-      }
-      work_use_ct[49]++;
-
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #5");
+      trace_rec_3();
+      
       strcpy(a_string, "         LARL  R7,C370U");
       src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #10");
-        trace_rec_3();
-      }
-      work_use_ct[48]++;
-
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #6");
+      trace_rec_3();
+      
       strcpy(a_string, "         ZAP   0(6,R8),0(8,R7)");
       src_line();
-      if (puncde == 1) 
-      {
-        strcpy(trace_1, "c2z_unsigned.c #11");
-        trace_rec_3();
-      }
+      strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #7");
+      trace_rec_3();
     }
 
     strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
     src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #12");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #8");
+    trace_rec_3();
+    
     convert = 1;
     return;
   }
@@ -1094,8 +962,8 @@ void c2_unsigned_punch()
         if ((ret == 0) && (ret1 == 0)) 
         {
           strcpy(field1a, lw_variable[I].lv_cname);
+          lw_variable[I].lv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
@@ -1108,16 +976,16 @@ void c2_unsigned_punch()
         if (ret == 0) 
         {
           strcpy(field1a, gw_variable[I].gv_cname);
+          gw_variable[I].gv_use_ct++;
           x3 = 1;
-          break;
         }
       }
     }
 
     if (x3 == 0) 
     {
-      printf("\nc2z_unsigned.c c2_unsigned unsigned-004 field1 = %s NOT Found\n",field1);
-      printf("c2z_unsigned.c c2_unsigned rct = %d p_string = %s",rct,p_string);
+      printf("\nc2z_unsigned c2_unsigned #004 field1 = %s\n",field1);
+      printf("c2z_unsigned c2_unsigned rct = %d p_string = %s",rct,p_string);
       erct++;
       convert = 1;
       return;
@@ -1129,29 +997,19 @@ void c2_unsigned_punch()
     strcat(wk_remark, field1);
     strcat(wk_remark, " */");
     write_remark();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #13");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #11");
+    trace_rec_3();
+    
     strcpy(a_string, "         LARL  R8,C370ZERO");
     src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #14");
-      trace_rec_3();
-    }
-    work_use_ct[32]++;
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #12");
+    trace_rec_3();
+    
     strcpy(a_string, "         ZAP   0(6,R9),0(6,R8)");
     src_line();
-    if (puncde == 1) 
-    {
-      strcpy(trace_1, "c2z_unsigned.c #15");
-      trace_rec_3();
-    }
-
+    strcpy(trace_1, "c2z_unsigned c2_unsigned_punch #13");
+    trace_rec_3();
+    
     convert = 1;
     return;
   }

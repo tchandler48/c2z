@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2z : c2_enum.c :                                 *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2020                    *
 **************************************************** */
 
 /* ***************************************************
@@ -153,7 +153,6 @@ void c2_enum_scan()
       if (ret == 0) 
       {
         xf = 1;
-        break;
       }
     }
   }
@@ -168,7 +167,6 @@ void c2_enum_scan()
       if ((ret == 0) && (ret1 == 0)) 
       {
         xf = 1;
-        break;
       }
     }
   }
@@ -339,19 +337,7 @@ void c2_enum_scan()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
-    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-    gw_variable[gv_ct].gv_row = 0;
-    gw_variable[gv_ct].gv_column = 0;
-    strcpy(gw_variable[gv_ct].gv_label, null_field);
-    strcpy(gw_variable[gv_ct].gv_table, null_field);
-    strcpy(gw_variable[gv_ct].gv_aname, null_field);
-    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
-    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
-    gw_variable[gv_ct].gv_id = 0;
     gv_ct++;
   }
 
@@ -373,14 +359,11 @@ void c2_enum_scan()
     strcpy(lw_variable[lv_ct].lv_name, tfield2);
     strcpy(lw_variable[lv_ct].lv_type, "I");
     lw_variable[lv_ct].lv_lgth = 0;
-    lw_variable[lv_ct].lv_current_lgth = 0;
     strcpy(lw_variable[lv_ct].lv_value, tfield3a);
     lw_variable[lv_ct].lv_use_ct = 0;
     strcpy(lw_variable[lv_ct].lv_func, sv_func);
     lw_variable[lv_ct].lv_current_lgth = 0;
-    lw_variable[lv_ct].lv_init = 0;
     lw_variable[lv_ct].lv_dec = 0;
-    lw_variable[lv_ct].lv_id = 0;
     lv_ct++;
   }
 
@@ -439,7 +422,6 @@ void c2_enum_scan()
       if (ret == 0) 
       {
         xf = 1;
-        break;
       }
     }
   }
@@ -454,7 +436,6 @@ void c2_enum_scan()
       if ((ret == 0) && (ret1 == 0)) 
       {
         xf = 1;
-        break;
       }
     }
   }
@@ -625,21 +606,8 @@ void c2_enum_scan()
     gw_variable[gv_ct].gv_init = 0;
     strcpy(gw_variable[gv_ct].gv_literal, null_field);
     gw_variable[gv_ct].gv_use_ct = 0;
-    strcpy(gw_variable[gv_ct].gv_dsect, null_field);
-    gw_variable[gv_ct].gv_row = 0;
-    gw_variable[gv_ct].gv_column = 0;
-    strcpy(gw_variable[gv_ct].gv_label, null_field);
-    strcpy(gw_variable[gv_ct].gv_table, null_field);
-    strcpy(gw_variable[gv_ct].gv_aname, null_field);
-    strcpy(gw_variable[gv_ct].gv_sv_reg, null_field);
-    strcpy(gw_variable[gv_ct].gv_wk_reg, null_field);
-    strcpy(gw_variable[gv_ct].gv_wk_strg, null_field);
-    strcpy(gw_variable[gv_ct].gv_st_col, null_field);
-    gw_variable[gv_ct].gv_flag = 0;
     gw_variable[gv_ct].gv_dec = 0;
-    gw_variable[gv_ct].gv_id = 0;
     gv_ct++;
-
   }
 
   if (global_st == 1) 
@@ -665,7 +633,6 @@ void c2_enum_scan()
     strcpy(lw_variable[lv_ct].lv_func, sv_func);
     lw_variable[lv_ct].lv_current_lgth = 0;
     lw_variable[lv_ct].lv_dec = 0;
-    lw_variable[lv_ct].lv_id = 0;
     lv_ct++;
   }
 
@@ -746,7 +713,6 @@ void c2_enum_scan()
       if (ret == 0) 
       {
         xf = 1;
-        break;
       }
     }
   }
@@ -761,7 +727,6 @@ void c2_enum_scan()
       if ((ret == 0) && (ret1 == 0)) 
       {
         xf = 1;
-        break;
       }
     }
   }
@@ -900,9 +865,6 @@ void c2_enum_scan()
     convert = 1;
     return;
   }
-
-/*  STOP HERE CHECKING LW & GW & BREAK */
-
 
   c_name++;
   snprintf(wk_strg, sizeof(wk_strg), "%d", c_name);

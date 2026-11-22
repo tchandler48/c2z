@@ -2,7 +2,7 @@
 *  c2z : c2z_strchr.c :                              *
 *                                                    *
 *  next error = strchr-005                           *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2020                    *
 **************************************************** */
 
 /* ***************************************************
@@ -59,7 +59,6 @@ void c2_strchr()
     {
       x3 = 1;
       strcpy(tfield1a, lw_variable[I].lv_cname);
-      break;
     }
   }
 
@@ -70,7 +69,6 @@ void c2_strchr()
     {
       x3 = 1;
       strcpy(tfield1a, gw_variable[I].gv_cname);
-      break;
     }
   }
 
@@ -113,7 +111,6 @@ void c2_strchr()
     {
       x3 = 1;
       strcpy(tfield2a, lw_variable[I].lv_cname);
-      break;
     }
   }
 
@@ -145,13 +142,12 @@ void c2_strchr()
   p = strstr(p_string, "\'");
   if (p) 
   {
-    for (I = 0; I < char_ct; I++) 
+    for (I = 0; I < lit_ct; I++) 
     {
       if (w_charlit[I].clit_rct == rct) 
       {
         strcpy(tfield3a, w_charlit[I].clit_cname);
         x3 = w_charlit[I].clit_lgth;
-        break;
       }
     }
 
@@ -658,23 +654,23 @@ void c2_strchr_scan()
     c_wkname[s] = '\0';
     strcpy(tfield3a, c_wkname);
 
-    if (char_ct == 0) 
+    if (lit_ct == 0) 
     {
       size = 1;
       w_charlit = malloc(size * sizeof(struct charlit));
     } 
     else 
     {
-      size = char_ct + 1;
+      size = lit_ct + 1;
       w_charlit = realloc(w_charlit, size * sizeof(struct charlit));
     }
 
-    w_charlit[char_ct].clit_rct = rct;
-    strcpy(w_charlit[char_ct].clit_cname, tfield3a);
-    strcpy(w_charlit[char_ct].clit_value, tfield3);
-    w_charlit[char_ct].clit_lgth = x5;
-    w_charlit[char_ct].clit_type = 3;
-    char_ct++;
+    w_charlit[lit_ct].clit_rct = rct;
+    strcpy(w_charlit[lit_ct].clit_cname, tfield3a);
+    strcpy(w_charlit[lit_ct].clit_value, tfield3);
+    w_charlit[lit_ct].clit_lgth = x5;
+    w_charlit[lit_ct].clit_type = 3;
+    lit_ct++;
 
     convert = 1;
   }

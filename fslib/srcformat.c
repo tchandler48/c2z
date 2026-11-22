@@ -1,6 +1,5 @@
 
 
-
 void c2_fs_1(void);
 void c2_fs_2(void);
 void c2_fs_3(void);
@@ -67,11 +66,9 @@ FILE *f_out;
   int lv_ct;
   int gv_ct;
   int w_lgth = 0;
-
   int fs_map_ct = 0;
   int fs_field_ct = 0;
   int T3270_ct = 0;
-  int fsaid_ct = 0;
   int scr_loop_ct = 0;
   int goto_label_ct = 0;
 

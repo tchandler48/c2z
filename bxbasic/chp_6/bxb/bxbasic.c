@@ -1,0 +1,322 @@
+
+#define BUFSIZE             100
+#define LINE_NUM            6
+#define TOKEN_LEN           21
+#define VAR_NAME            32
+#define LLEN                33
+#define TOKEN_LEN           21
+#define MAX_VARS           255
+
+	FILE *pgm, *f_out,*f_in;
+	char *prog_name;
+	char p_string[BUFSIZE];
+       char **array1;
+	char t_holder[20];
+	char s_holder[BUFSIZE];
+	 int nrows;
+ 	 int ncolumns=BUFSIZE;
+	 int line_ndx;
+	 int s_pos;
+        int e_pos;
+
+       char xstring[BUFSIZE];
+       char **temp_prog;
+       char **temp_label;
+        int *temp_byte;
+        int *byte_array;
+       char **label_nam;
+        int token;
+ 
+        int *iv_stack;
+       char **in_stack;
+	 int imax_vars = 0;
+
+       char **sn_stack;
+       char **sv_stack;
+        int smax_vars = 0;
+
+       void pgm_parser(void);
+       void get_token(void);
+       void parser(void);
+       void xstring_array(void);
+       void go_to(void);
+
+/*	error.c 	*/
+	void a_bort(int,int);
+
+
+/*	input.c	*/
+	void line_cnt(char *argv[]);
+	void load_src(void);
+       void save_tmp(void);
+       void tmp_byte(int);
+       void loader_1(void);
+       void tmp_label(int);
+        int get_byte(int);
+       void tmp_prog(int);
+       void loader_2(void);
+	
+
+/*	output.c	*/
+	void beep(void);
+	void cls(void);
+	void get_prnstring(void);
+	void get_prnvar(void);
+       void get_strvar(void);
+       char get_vartype(void);
+
+
+/*     rdparser.c    */
+        int rdp_start(void);
+        int Expression(void);
+        int Term(void);
+        int Factor(void);
+       void _GetChar(void);
+       void Match(char);
+        int Is_White(char);
+       void SkipWhite(void);
+        int GetNum(void);
+        int IsAddop(char);
+        int IsMultop(char);
+
+
+/* 	utility.c	*/
+	 int get_upper(int,int);
+	 int get_alpha(int,int);
+	 int get_digit(int,int);
+	 int iswhite(int);
+        int clr_arrays(void);
+       void clr_str(void);
+	
+
+/*	variable.c 	*/
+	void parse_let(void);
+        int get_varvalue(void);
+       void init_int(void);
+       void init_var(void);
+       void clr_int(void);
+        int get_intndx(char *);
+       int get_varndx(char *);
+       void strng_assgn(int);
+       char *get_varname(void);
+
+
+#include "error.c"
+#include "utility.c"
+#include "output.c"
+#include "rdparser.c"
+#include "variable.c"
+#include "input.c"
+
+
+int main(int argc, char *argv[])
+{	
+  int I;
+
+  printf("BXBasic Intepreter\n");
+  line_cnt(argv);
+  pgm_parser();
+  printf(" \n");
+  for(I=0; I < 6; I++);
+  {
+    printf("in_stack = %s\n",in_stack[I]);
+  }
+
+  printf(" \n");
+  for(I=0; I < 6; I++)
+  {
+    printf("iv_stack = %d\n",iv_stack[I]);
+  }
+
+  printf(" \n");
+  for(I=0; I < 6; I++);
+  {
+    printf("sn_stack = %s\n",sn_stack[I]);
+  }
+
+  printf(" \n");
+  for(I=0; I < 6; I++);
+  {
+    printf("sv_stack = %s\n",sv_stack[I]);
+  }
+
+  exit(1);
+}
+
+
+void pgm_parser()
+{
+  line_ndx = 0;
+  while(line_ndx < nrows)
+  {
+    s_pos = 0;
+    e_pos = 0;
+    get_token();
+
+    parser();
+    line_ndx++;
+  }
+}
+ 
+
+void get_token()
+{
+  strcpy(p_string, array1[line_ndx]);
+  token = byte_array[line_ndx];
+}
+
+
+void parser()
+{
+  int ab_code=4;
+  int x=line_ndx;
+  int I;
+
+  switch(token)
+  {
+    case 0:
+      break;
+
+    case 1:
+      parse_let();
+      break;
+	
+    case 2:
+      clr_arrays();
+      break;
+    
+    case 3:
+      break;
+	
+    case 4:
+      xstring_array();
+      get_prnstring(); 
+      break;
+
+    case 5:
+      go_to();
+      break;
+	
+    case 6:
+      beep();
+      break;
+	
+    case 7:
+      cls();
+      break;
+	
+    case 8:
+      printf("End of Program\n");
+      line_ndx = nrows;
+      break;
+
+    case -1:
+      break;
+
+    default:
+      printf("parser Inside DEFAULT\n");
+      printf("p_string = %s\n",p_string);
+      a_bort(ab_code, x);
+      break;
+  }
+}
+
+
+
+
+void xstring_array()
+{
+  char ch;
+  int pi;
+  int si=0;
+  int ab_code;
+  int stlen;
+  int x=line_ndx;
+
+  pi = e_pos;
+  pi = iswhite(pi);
+  e_pos = pi;
+  ch = p_string[pi];
+
+  if(ch == ':')
+  {
+    return;
+  }
+
+  if(isalpha(ch))
+  {
+    return;
+  }
+  stlen = strlen(p_string);
+  if((ch != '\"') || (pi == stlen))
+  {
+    ab_code=9;
+    a_bort(ab_code, x);
+  }
+  else
+  {
+    ch = ' ';
+    while((ch != '\"') && (pi < stlen))
+    {
+      si++;
+      pi++;
+      ch = p_string[pi];
+    }
+    if((si <= 1) && (pi < stlen))
+    {
+      ab_code=5;
+      a_bort(ab_code, x);
+    }
+    else
+    {
+      if(pi >= stlen)
+      {
+        ab_code=6;
+        a_bort(ab_code, x);
+      }
+    }
+  }
+}
+
+
+void go_to()
+{
+  char ch;
+  char go_to_label[LLEN];
+  int pi;
+  int si=0;
+  int ab_code=8;
+  int xtest;
+  int stlen;
+  int x=line_ndx;
+
+  pi = e_pos;
+  pi = iswhite(pi);
+  ch = p_string[pi];
+  while(isalnum(ch))
+  {
+    go_to_label[si] = ch;
+    pi++;
+    si++;
+    ch = p_string[pi];
+  }
+  go_to_label[si] = '\0';
+
+  pi = -1;
+  xtest = -1;
+  while(xtest != 0)
+  {
+    pi++;
+    xtest = strcmp(label_nam[pi], go_to_label);
+    if(pi == nrows)
+    {
+       a_bort(ab_code, x);
+    }
+  }
+  pi--;
+  line_ndx = pi;
+}
+
+
+
+

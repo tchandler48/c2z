@@ -1,7 +1,7 @@
 /* ***************************************************
 *  c2Z  : c2z_debug.c :                              *
 *                                                    *
-*  Copyright TCCS (c) 2015 - 2022                    *
+*  Copyright TCCS (c) 2015 - 2020                    *
 **************************************************** */
 
 void c2_debug() 
@@ -18,6 +18,15 @@ void c2_debug()
   int s = 0;
   int v = 0;
   int ret = 0;
+
+  fprintf(c_src, "\n\n---------- GOTO -------------------\n");
+  for (I = 0; I < w_gtolabel_ct; I++) 
+  {
+    fprintf(c_src, "\nRec - %d", w_gto_label[I].gto_label_rct);
+    fprintf(c_src, "    Field Name  - %s", w_gto_label[I].gto_org_lb);
+    fprintf(c_src, "    Field Value - %s", w_gto_label[I].gto_label_1);
+  }
+
 
   fprintf(c_src, "\n\n---------- Define -------------------\n");
   for (I = 0; I < fld_ct; I++) 
@@ -194,7 +203,7 @@ void c2_debug()
   fprintf(c_src, "\n\n----------------  Character Literals  --------------\n");
   fprintf(c_src, "Rct     Cname       Value               Lgth     Type\n");
 
-  for (I = 0; I < char_ct; I++) 
+  for (I = 0; I < lit_ct; I++) 
   {
     snprintf(p_strg, sizeof(p_strg), "%d", w_charlit[I].clit_rct);
     strcpy(a_string, p_strg);
@@ -257,54 +266,6 @@ void c2_debug()
   fprintf(c_src, "\n");
 
 
-
-  fprintf(c_src, "\n\n---------- Unused Global Variables -----------\n");
-  fprintf(c_src, "Rct    ");
-  fprintf(c_src, "Name     ");
-  fprintf(c_src, "         CName    \n");
- 
-  for (I = 0; I < gv_ct; I++) 
-  {
-    if(gw_variable[I].gv_use_ct == 0)
-    {
-      snprintf(wk_strg, sizeof(wk_strg), "%d", gw_variable[I].gv_rct);
-      strcpy(a_string, wk_strg);
-      s = strlen(a_string);
-      if (s < 7) 
-      {
-        for (v = s; v < 7; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
-
-      strcat(a_string, gw_variable[I].gv_name);
-      s = strlen(a_string);
-      if (s < 25) 
-      {
-        for (v = s; v < 25; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
-
-      strcat(a_string, gw_variable[I].gv_cname);
-      s = strlen(a_string);
-      if (s < 35) 
-      {
-        for (v = s; v < 35; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
-
-      strcat(a_string, "\n");
-      fputs(a_string, c_src);
-    }
-  }
-
-
-
   fprintf(c_src, "\n\n------------------------------ Global Variables -------------------------------\n");
   fprintf(c_src, "Rec     Name                   CName         Type  Lgth  Clgth   ID   Value   Literal\n");
   fprintf(c_src, "-----  ----------------------  ------------  ----  ----  ----    --   ------  -------------\n");
@@ -334,9 +295,9 @@ void c2_debug()
 
     strcat(a_string, gw_variable[I].gv_cname);
     s = strlen(a_string);
-    if (s < 46) 
+    if (s < 47) 
     {
-      for (v = s; v < 46; v++) 
+      for (v = s; v < 47; v++) 
       {
         strcat(a_string, " ");
       }
@@ -344,9 +305,6 @@ void c2_debug()
 
     strcat(a_string, gw_variable[I].gv_type);
     s = strlen(a_string);
-    strcat(a_string, " ");
-    snprintf(p_strg, sizeof(p_strg), "%d", gw_variable[I].gv_id);
-    strcat(a_string, p_strg);
     if (s < 53) 
     {
       for (v = s; v < 53; v++) 
@@ -406,57 +364,6 @@ void c2_debug()
   fprintf(c_src, "\nTotal Global Variables = %d\n", I);
 
 
-  fprintf(c_src, "\n\n---------- Unused Local Variables -----------\n");
-  fprintf(c_src, "Rct    ");
-  fprintf(c_src, "Name     ");
-  fprintf(c_src, "         CName    ");
-  fprintf(c_src, " Function\n");
-
-  for (I = 0; I < lv_ct; I++) 
-  {
-    if(lw_variable[I].lv_use_ct == 0)
-    {
-      snprintf(wk_strg, sizeof(wk_strg), "%d", lw_variable[I].lv_rct);
-      strcpy(a_string, wk_strg);
-      s = strlen(a_string);
-      if (s < 7) 
-      {
-        for (v = s; v < 7; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
-
-      strcat(a_string, lw_variable[I].lv_name);
-      s = strlen(a_string);
-      if (s < 25) 
-      {
-        for (v = s; v < 25; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
-
-      strcat(a_string, lw_variable[I].lv_cname);
-      s = strlen(a_string);
-      if (s < 35) 
-      {
-        for (v = s; v < 35; v++) 
-        {
-          strcat(a_string, " ");
-        }
-      }
-
-      strcat(a_string, lw_variable[I].lv_func);
-      strcat(a_string, "\n");
-
-      fputs(a_string, c_src);
-    }
-  }
-
-
-
-
   fprintf(c_src, "\n\n------------------------------------ Local Variables ------------------------------------------\n");
   fprintf(c_src, "Rec     Name                   CName          Function         Type  Lgth  Clgth   ID      Value/Literal\n");
   fprintf(c_src, "-----  ----------------------  -------------  ---------------  ----  ----  -----   ---     -------------\n");
@@ -497,22 +404,19 @@ void c2_debug()
 
     strcat(a_string, lw_variable[I].lv_func);
     s = strlen(a_string);
-    if (s < 64) 
+    if (s < 65) 
     {
-      for (v = s; v < 64; v++) 
+      for (v = s; v < 65; v++) 
       {
         strcat(a_string, " ");
       }
     }
     strcat(a_string, lw_variable[I].lv_type);
-    strcat(a_string, " ");
-    snprintf(p_strg, sizeof(p_strg), "%d", lw_variable[I].lv_id);
-    strcat(a_string, p_strg);
 
     s = strlen(a_string);
-    if (s < 71) 
+    if (s < 70) 
     {
-      for (v = s; v < 71; v++) 
+      for (v = s; v < 70; v++) 
       {
         strcat(a_string, " ");
       }
@@ -531,6 +435,19 @@ void c2_debug()
     }
     snprintf(p_strg, sizeof(p_strg), "%d", lw_variable[I].lv_current_lgth);
     strcat(a_string, p_strg);
+
+    s = strlen(a_string);
+    if (s < 84) 
+    {
+      for (v = s; v < 84; v++) 
+      {
+        strcat(a_string, " ");
+      }
+    }
+    strcat(a_string, lw_variable[I].lv_func);
+
+
+
 /*
     s = strlen(a_string);
     if (s < 84) 
@@ -576,11 +493,6 @@ void c2_debug()
   {
     fprintf(c_src, "\nRec  - %d", w_include[I].include_rct);
     fprintf(c_src, "   Pgm    - %s", w_include[I].include_name);
-  }
-
-  if(I == 0)
-  {
-    fprintf(c_src, "         No Includes\n");
   }
 
   fprintf(c_src, "\n\n-------------------------------- IF table "
@@ -650,15 +562,6 @@ void c2_debug()
     fputs(a_string, c_src);
   }
 
-  fprintf(c_src, "\n\n---------- goto table  --------------\n");
-  for (I = 0; I < goto_label_ct; I++) 
-  {
-    fprintf(c_src, "Label RCT = %d", w_goto_label[I].goto_label_rct);
-    fprintf(c_src, " Org - %s", w_goto_label[I].goto_org_lb);
-    fprintf(c_src, " New - %s\n", w_goto_label[I].goto_label_1);
-  }
-
-
   fprintf(c_src, "\n\n---------- while table --------------\n");
   for (I = 0; I < wh_ct; I++) 
   {
@@ -669,97 +572,12 @@ void c2_debug()
   }
 
   fprintf(c_src, "\n\n----------   for table --------------\n");
-  fprintf(c_src, "FOR  Lvl  EOF     INCR     TWO         5b       5c   Type       CODE\n");
   for (I = 0; I < for_ct; I++) 
   {
-    s = 0;
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_rct);
-    strcpy(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 6) 
-    {
-      for (v = s; v < 6; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_level);
-    strcat(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 10) 
-    {
-      for (v = s; v < 10; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_eof1);
-    strcat(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 16) 
-    {
-      for (v = s; v < 16 ; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_for_table[I].for_rt_field);
-    s = strlen(a_string);
-    if (s < 25) 
-    {
-      for (v = s; v < 25; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_for_table[I].for_rt_field2);
-    s = strlen(a_string);
-    if (s < 35) 
-    {
-      for (v = s; v < 35; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_for_table[I].for_rt_field5b);
-    s = strlen(a_string);
-    if (s < 45) 
-    {
-      for (v = s; v < 45; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_for_table[I].for_rt_field5c);
-    s = strlen(a_string);
-    if (s < 55) 
-    {
-      for (v = s; v < 55; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_for_table[I].for_type);
-    strcat(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 61) 
-    {
-      for (v = s; v < 61 ; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_for_table[I].for_p_string);
-
-     fputs(a_string, c_src);
+    fprintf(c_src, "FOR  = %d", w_for_table[I].for_rct);
+    fprintf(c_src, " Level - %d", w_for_table[I].for_level);
+    fprintf(c_src, " EOF - %d", w_for_table[I].for_eof1);
+    fprintf(c_src, " RCT - %s", w_for_table[I].for_p_string);
   }
 
 
@@ -771,206 +589,291 @@ void c2_debug()
     fprintf(c_src, " EOF - %d", w_switch_table[I].switch_eof1);
     fprintf(c_src, " RCT - %s", w_switch_table[I].switch_p_string);
   }
- 
 
 
-  fprintf(c_src, "\n\n---------- Function Start -----------\n");
-  for (I = 0; I < fns_ct; I++) 
+  if(fns_ct > 0)
   {
-    fprintf(c_src, "\nRct = %d", w_func_start[I].fns_rct);
-    fprintf(c_src, " Name - %s", w_func_start[I].fns_name);
+    fprintf(c_src, "\n\n---------- Function Start -----------\n");
+    for (I = 0; I < fns_ct; I++) 
+    {
+      fprintf(c_src, "\nRct = %d", w_func_start[I].fns_rct);
+      fprintf(c_src, " Name - %s", w_func_start[I].fns_name);
+    }
+  }
+
+  if(m_struc_ct > 0)
+  {
+    fprintf(c_src, "\n\n--------------- Structures ---------------\n");
+    fprintf(c_src, "Rec    Name          CName              WName          "
+                   "WCName       Field Name         Field CName      Id  Type  "
+                   "Lgth  Disp\n");
+    fprintf(c_src, "-----  ------------  -----------------  ------------  "
+                   "------------  -----------------  --------------- ---- ----  "
+                   "----  ----\n");
+
+    for (I = 0; I < m_struc_ct; I++) 
+    {
+      snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_rct);
+      ret = strcmp(w_struc[I].st_id, "M");
+      if(ret == 0)
+      {
+          fprintf(c_src, "\n");
+      }
+      strcpy(a_string, wk_strg);
+
+      s = strlen(a_string);
+      if (s < 7) 
+      {
+        for (v = s; v < 7; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_name);
+      s = strlen(a_string);
+      if (s < 23) 
+      {
+        for (v = s; v < 23; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_cname);
+      s = strlen(a_string);
+      if (s < 40) 
+      {
+        for (v = s; v < 40; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_wname);
+      s = strlen(a_string);
+      if (s < 54) 
+      {
+        for (v = s; v < 54; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_cwname);
+      s = strlen(a_string);
+      if (s < 68) 
+      {
+        for (v = s; v < 68; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_field_name);
+      s = strlen(a_string);
+      if (s < 87) 
+      {
+        for (v = s; v < 87; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_field_cname);
+      s = strlen(a_string);
+      if (s < 105) 
+      {
+        for (v = s; v < 105; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_id);
+      s = strlen(a_string);
+      if (s < 110) 
+      {
+        for (v = s; v < 110; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_type);
+      s = strlen(a_string);
+      if (s < 115) 
+      {
+        for (v = s; v < 115; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_field_lgth);
+      strcat(a_string, wk_strg);
+      s = strlen(a_string);
+      if (s < 120) 
+      {
+        for (v = s; v < 120; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_disp);
+      strcat(a_string, wk_strg);
+      s = strlen(a_string);
+      if (s < 125) 
+      {
+        for (v = s; v < 125; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_struc[I].st_field_value);
+
+      strcat(a_string, "\n");
+      fputs(a_string, c_src);
+    }
+  }
+
+  if(fs_map_ct > 0)
+  {
+    fprintf(c_src, "\n\n---------- FS Map -----------\n");
+    for (I = 0; I < fs_map_ct; I++) 
+    {
+      fprintf(c_src, "\nRct  = %d", w_fs_map[I].fs_rct);
+      fprintf(c_src, " Name  - %s", w_fs_map[I].fs_name);
+      fprintf(c_src, " CName - %s", w_fs_map[I].fs_cname);
+      strcat(a_string, "\n");
+      fputs(a_string, c_src);
+
+    }
+
+  }
+/*struct fs_field
+{
+   int fs_fd_rct;
+  char fs_fd_map[VAR_LGTH];
+  char fs_fd_name[VAR_LGTH];
+  char fs_fd_cname[VAR_LGTH];
+  char fs_fd_io[2];
+  char fs_fd_type[2];
+  char fs_fd_field[VAR_LGTH];  
+   int fs_fd_row;		   
+   int fs_fd_col;
+   int fs_fd_lgth;		   
+  char fs_fd_color[VAR_LGTH];
+  char fs_fd_address[5];
+  char fs_fd_attr[3];
+  char fs_fd_func[VAR_LGTH];
+};
+struct fs_field *w_fs_field; */
+
+
+  if(fs_field_ct > 0)
+  {
+    fprintf(c_src, "\n\n---------- FS Field -----------\n");
+    for (I = 0; I < fs_field_ct; I++) 
+    {
+      snprintf(wk_strg, sizeof(wk_strg), "%d", w_fs_field[I].fs_fd_rct);
+      strcpy(a_string, wk_strg);
+      s = strlen(a_string);
+      if (s < 7) 
+      {
+        for (v = s; v < 7; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_fs_field[I].fs_fd_map);
+      s = strlen(a_string);
+      if (s < 23) 
+      {
+        for (v = s; v < 23; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+      strcat(a_string, w_fs_field[I].fs_fd_name);
+      s = strlen(a_string);
+      if (s < 40) 
+      {
+        for (v = s; v < 40; v++) 
+        {
+          strcat(a_string, " ");
+        }
+      }
+
+
+
+      strcat(a_string, "\n");
+      fputs(a_string, c_src);
+    }
   }
 
 
+  fprintf(c_src, "\n\n---------- Structure Usages -----------\n");
 
-  fprintf(c_src, "\n\n--------------- Structures ---------------\n");
-  fprintf(c_src, "Rec    Name          CName              WName          "
-                 "WCName       Field Name         Field CName      Id  Type  "
-                 "Lgth  Disp\n");
-  fprintf(c_src, "-----  ------------  -----------------  ------------  "
-                 "------------  -----------------  --------------- ---- ----  "
-                 "----  ----\n");
+  strcpy(a_string, "gw_variables         Global Variables   - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", gv_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-  for (I = 0; I < m_struc_ct; I++) 
-  {
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_rct);
-    ret = strcmp(w_struc[I].st_id, "M");
-    if(ret == 0)
-    {
-        fprintf(c_src, "\n");
-    }
-    strcpy(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 7) 
-    {
-      for (v = s; v < 7; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "lw_variables         Local Variables    - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", lv_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_name);
-    s = strlen(a_string);
-    if (s < 23) 
-    {
-      for (v = s; v < 23; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "Function Usage     - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", fn_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_cname);
-    s = strlen(a_string);
-    if (s < 40) 
-    {
-      for (v = s; v < 40; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "Structure Usage    - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", m_struc_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_wname);
-    s = strlen(a_string);
-    if (s < 54) 
-    {
-      for (v = s; v < 54; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "Constant Usage     - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", v_const);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_cwname);
-    s = strlen(a_string);
-    if (s < 68) 
-    {
-      for (v = s; v < 68; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "Character literals - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", lit_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_field_name);
-    s = strlen(a_string);
-    if (s < 87) 
-    {
-      for (v = s; v < 87; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "File Open's        - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", f_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_field_cname);
-    s = strlen(a_string);
-    if (s < 105) 
-    {
-      for (v = s; v < 105; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "fs_map             -  Map defines       - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", fs_map_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_id);
-    s = strlen(a_string);
-    if (s < 110) 
-    {
-      for (v = s; v < 110; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
+  strcpy(a_string, "fs_field           -  Field defines     - ");
+  snprintf(wk_strg, sizeof(wk_strg), "%d", fs_field_ct);
+  strcat(a_string, wk_strg);
+  strcat(a_string, "\n");
+  fputs(a_string, c_src);
 
-    strcat(a_string, w_struc[I].st_type);
-    s = strlen(a_string);
-    if (s < 115) 
-    {
-      for (v = s; v < 115; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_field_lgth);
-    strcat(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 120) 
-    {
-      for (v = s; v < 120; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_disp);
-    strcat(a_string, wk_strg);
-    s = strlen(a_string);
-    if (s < 125) 
-    {
-      for (v = s; v < 125; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_struc[I].st_field_value);
-
-    strcat(a_string, "\n");
-    fputs(a_string, c_src);
-  }
   fprintf(c_src, "\n");
-
-  fprintf(c_src, "\n\n------------ FS Fields ------------\n");
-  fprintf(c_src, "Map       Name       CName \n");
-          
-  fprintf(c_src, "-----     ---------  ----------\n");
-                
-  for (I = 0; I < T3270_ct; I++) 
-  {
-
-    strcpy(a_string, w_fs_scr_field[I].fs_scr_map);
-    s = strlen(a_string);
-    if (s < 10) 
-    {
-      for (v = s; v < 10; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_fs_scr_field[I].fs_scr_name);
-    s = strlen(a_string);
-    if (s < 20) 
-    {
-      for (v = s; v < 20; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-    strcat(a_string, w_fs_scr_field[I].fs_scr_cname);
-    s = strlen(a_string);
-    if (s < 35) 
-    {
-      for (v = s; v < 35; v++) 
-      {
-        strcat(a_string, " ");
-      }
-    }
-
-   strcat(a_string, "\n");
-   fputs(a_string, c_src);
-
-/*
-    snprintf(wk_strg, sizeof(wk_strg), "%d", w_struc[I].st_rct);
-    strcpy(w_fs_scr_field[T3270_ct].fs_scr_map, field1);
-     strcpy(w_fs_scr_field[T3270_ct].fs_scr_name, field4);
-     strcpy(field8,"T3270_");
-     snprintf(wk_strg, sizeof(wk_strg), "%d", T3270_ct);
-     strcat(field8, wk_strg);
-     strcpy(w_fs_scr_field[T3270_ct].fs_scr_cname, field8);
-*/
-
-  }
-
 
   fclose(c_src);
 }
