@@ -276,7 +276,17 @@ void c2_eoj()
     trace_rec_3();
   }
 
-  
+
+  strcpy(a_string, "         DS    0H");
+  src_line();
+  strcpy(trace_1, "c2z_eoj");
+  trace_rec_3();
+
+  strcpy(a_string, "WK_STRG  DC    CL8' '");
+  src_line();
+  strcpy(trace_1, "c2z_eoj");
+  trace_rec_3();
+
   strcpy(a_string, "* Character Literals ");
   src_line();
   strcpy(trace_1, "c2z_eoj Char Literal #1");

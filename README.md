@@ -3,15 +3,18 @@ AS OF 11/23/2026
 
 
 ********************************** NOTICE ******************
+
 c2z is being overhauled with a lot of changes/fixes/updates.
-MAYBE UNSTABLE from time to time.  Working on it daily.  TC
+MAYBE UNSTABLE from time to time.  Working on it daily. 
+
 ************************************************************
 
 
-c2z is a parser written in "C" and it parses "C" source code into "base-register free" z390.mlc
+c2z is a parser written in "C" and it parses "C" source code 
+into "base-register free" z390.mlc
 
-The z390.mlc then can be compiled/executed by the z390 emulator found at
-www.z390.org
+The z390.mlc then can be compiled/executed by the z390 emulator 
+found at www.z390.org
 
 c2z runs under Linux. Below is the command line to compile.
 
