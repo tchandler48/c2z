@@ -107,8 +107,7 @@ void c2_strcpy(void)
   /*  c2_str_8				strcpy(gw_variable[gv_ct].gv_name, "123456");	*/
   /*  c2_str_9                            strcpy(in_stack[x], gw_variable[gv_ct].gv_name);	*/
 
-
-
+  
   if((x90 == 2) && (x94 == 1) && (x91 == 0) && (x92 == 0) && (x93 == 0))
   {
     c2_str_1(str1, str14);
