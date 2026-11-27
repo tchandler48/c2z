@@ -3443,7 +3443,7 @@ void c2_printf_string()
     snprintf(wk_strg, sizeof(wk_strg), "%d", x3); 
     strcat(a_string, wk_strg);
     strcat(a_string, "(");
-
+    snprintf(wk_strg, sizeof(wk_strg), "%d", x2); 
     strcat(a_string, wk_strg);
     strcat(a_string, ",R9),0(R8)");
     src_line();

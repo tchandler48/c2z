@@ -1,5 +1,5 @@
 
-#define BUFSIZE             80
+#define BUFSIZE             78
 #define LINE_NUM            6
 #define TOKEN_LEN           21
 #define MAX_VARS            100
@@ -50,8 +50,6 @@ int main(int argc, char *argv[])
 void pgm_parser()
 {
   line_ndx = 0;
-
-printf("line_ndx = %d\n",line_ndx);
 
   while(line_ndx < nrows)
   {
@@ -136,15 +134,6 @@ void program_array()
     ii++;
   }
   fclose(f_src);
-  for(I = 0; I < 6; I++)
-  {
-    printf("array1 = %s\n",array1[I]);
-  }
-
-  for(I = 0; I < 6; I++)
-  {
-    printf("array2 = %s\n",array2[I]);
-  }
 }
 
 
@@ -158,24 +147,21 @@ void get_token()
   int x=line_ndx;
 
   strcpy(p_string, array1[line_ndx]);
-  printf("get_token p_string = %s\n",p_string);
   stlen = strlen(p_string);  
   ch = p_string[pi];
-  printf("get_token b4 isuuper ch = %s\n",ch);
-
+ 
   while((!isupper(ch)) && (pi < stlen))
   {
     pi++;
     ch = p_string[pi];
-    printf("get_token inside isupp\n");
   }
 
-  printf("get_token pi = %d\n",pi);
-  printf("get_token stlen = %d\n",stlen);
+ 
   if(pi == stlen)
   {
     a_bort(ab_code, x);
   }
+
 
   while(isupper(ch))
   {
@@ -185,7 +171,6 @@ void get_token()
     ch = p_string[pi];
   }
   token[ti] = '\0';
-  printf("get_token token = %s\n",token);
 }
 
 
@@ -325,11 +310,6 @@ void go_to()
   }
 
   ch = p_string[pi];
-  if(isdigit(ch) == 0)
-  {
-    ab_code = 7;
-    a_bort(ab_code, x);
-  }
 
   while(isdigit(ch))
   {
@@ -339,12 +319,15 @@ void go_to()
     ch = p_string[pi];
   }
   gtl_holder[lh] = '\0';
- 
-  z = atoi(gtl_holder);
+printf("goto gtl_holer = %s\n",gtl_holder);
 
+printf("goto z = %d\n",z);
   z--;
   z--;
   pi = z;
+
+printf("goto pi = %d\n",pi);
+
   line_ndx = pi;
 }
 

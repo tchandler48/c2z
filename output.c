@@ -15,17 +15,10 @@ void cls()
 void get_prnstring()
 {
   char ch;
-  char type;
   int pi;
   int si = 0;;
-  int stlen;
-  int ab_code;
-  int x=line_ndx;
-
-printf("START get_prnstring\n");
   
   pi = e_pos;
-  pi = iswhite(pi);
   ch = p_string[pi];
 
   if(ch == ':')
@@ -37,39 +30,22 @@ printf("START get_prnstring\n");
   {
     if(isalpha(ch))
     {
-      type = get_vartype();
-      if(type == '$')
-      {
-        get_strvar();
-      }
-      else
-      {
-        get_prnvar();
-      }
+      get_prnvar();
       return;
     }
   }
 
-  stlen = strlen(p_string);
-  if((ch != '\'') || (pi == stlen))
+  pi++;
+  ch = p_string[pi];
+
+  while(ch != '\"')
   {
-    ab_code = 9;
-    a_bort(ab_code, x);
-  }
-  else
-  {
+    xstring[si] = ch;
+    si++; 
     pi++;
     ch = p_string[pi];
-
-    while(ch != '\"')
-    {
-      xstring[si] = ch;
-      si++; 
-      pi++;
-      ch = p_string[pi];
-    }
-    xstring[si] = '\0';
   }
+  xstring[si] = '\0';
 
   pi++;
   pi = iswhite(pi);
@@ -83,26 +59,9 @@ printf("START get_prnstring\n");
   {
     printf)"%s\n",xstring);
   }
+
 }
 
-
-char get_vartype()
-{
-  char ch;
-  int pi;
-
-  pi = e_pos;
-  ch = p_string[pi];
-
-  while(isalnum(ch))
-  {
-    pi++;
-    ch = p_string[pi];
-  }
-  pi--;
-  ch = p_string[pi];
-  return ch;
-}
 
 
 void get_prnvar()
@@ -131,34 +90,8 @@ void get_prnvar()
   {
     printf("%d\n",ivalue);
   }
+
 }
 
-void get_strvar()
-{
-  char ch;
-  char varname[VAR_NAME];
-  int pi;
-  int ndx=0;
-  int ab_code=13;
-  int x=line_ndx;
-
-  strcpy(varname, get_varname());
-
-  while(strcmp(sn_stack[ndx], varname) != 0) 
-  {
-    ndx++;
-  }
-
-  if(ndx > MAX_VARS)
-  {
-    a_bort(ab_code, x);
-  }
-  pi = e_pos;
-  pi++;
-  pi = iswhite(pi);
-  ch = p_string[pi];
-
-  printf("%s\n",sv_stack[ndx]);
-}
 
 

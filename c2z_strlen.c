@@ -1600,6 +1600,12 @@ printf("c2z_strlen.c rct = %d tfield11 = %s\n",rct,tfield11);
     trace_rec_3();
     var_use[16]++;
 
+    strcpy(a_string, "         LHI   R2,L'");
+    strcat(a_string, tfield2a);
+    src_line();
+    strcpy(trace_1, "c2z_strlen c2_strlen #14a");
+    trace_rec_3();
+
     strcpy(a_string, "         LR    R5,R2");
     src_line();
     strcpy(trace_1, "c2z_strlen c2_strlen #15");

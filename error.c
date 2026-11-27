@@ -36,7 +36,7 @@ void a_bort(int code, int line_ndx)
      break;
 
    case 9:
-     printf("Case 9 Error\n");
+     printf("Case 9 Error Syntax error in program line: %d\n",line_ndx);
      break;
 
    case 10:
@@ -44,15 +44,15 @@ void a_bort(int code, int line_ndx)
      break;
 
    case 11:
-     printf("Case 11 Error\n");
+     printf("Case 11 Error Syntax error in program line: = %d\n",line_ndx);
      break;
 
    case 12:
-     printf("Case 12 Error\n");
+     printf("Case 12 Error Out of stack space line: = %d\n",line_ndx);
      break;
 
    case 13:
-     printf("Case 13 Error\n");
+     printf("Case 13 Error Variable not found in line: %d\n",line_ndx);
      break;
 
    default:

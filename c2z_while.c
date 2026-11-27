@@ -8787,7 +8787,7 @@ void c2_while_10()
       strcpy(trace_1, "c2z_while c2_while_10 #16");
       trace_rec_3();
 
-      strcpy(a_string, "         CLFI  R2,X'E1'");
+      strcpy(a_string, "         CLFI  R2,X'E2'");
       src_line();
       strcpy(trace_1, "c2z_while c2_while_10 #17");
       trace_rec_3();
@@ -8816,7 +8816,7 @@ void c2_while_10()
       strcpy(a_string, "         J     L");
       snprintf(wk_strg, sizeof(wk_strg), "%d", rct);
       strcat(a_string, wk_strg);
-      strcat(a_string, "E");
+      strcat(a_string, "IA");
       check_length();
       src_line();
       strcpy(trace_1, "c2z_while c2_while_10 #20a");

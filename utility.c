@@ -54,36 +54,3 @@ int iswhite(int pi)
 }
 
 
-int iswhiter(int pi)
-{   
-    char ch;
-
-    ch = p_string[pi];                   
-    while(ch == ' ')                   
-    {   
-        pi++;
-        ch = p_string[pi];
-    }
-    return pi;
-}
-
-
-
-void clr_str()
-{
-  int ndx = 0;
-
-  for(ndx=0; ndx < MAX_VARS; ndx++)
-  {
-      sv_stack[ndx] =  '\0';
-      sn_stack[ndx] =  '\0';
-  }
-}
-
-
-void clr_arrays()
-{
-
-}
-
-

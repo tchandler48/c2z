@@ -7,16 +7,13 @@ int rdp_start()
   return value;
 }
 
- 
+
 int Expression()
 {
   char ch;
-  int pi;
-  int Value;
+  int pi, Value;
 
-  pi = e_pos;
-  pi++;
-  ch = p_string[pi];
+ ch = p_string[e_pos];
 
   if(IsAddop(ch))
   {
@@ -25,54 +22,41 @@ int Expression()
   else
   {
     Value = Term();
-    pi = e_pos;
-    pi++;
-    ch = p_string[pi];
-    e_pos = pi;
+    ch = p_string[e_pos];
   }
 
-    while(IsAddop(ch))  
+  while(IsAddop(ch))  
+  {
+    switch(ch)
     {
-      e_pos = pi;
-
-      switch(ch)
-      {
-        case '+':
-          Match('+');
-          Value = Value + Term();
-          break;
-        case '-':
-          Match('-');
-          Value = Value - Term();
-          break;
-        default:
-          break;
-      }
-    
-      pi = e_pos;
-      ch = p_string[pi];
-      e_pos = pi;
+      case '+':
+        Match('+');
+        Value = Value + Term();
+        break;
+      case '-':
+        Match('-');
+        Value = Value - Term();
+        break;
+      default:
+        break;
     }
-    return Value;
+   
+    ch = p_string[e_pos];
+  }
+  return Value;
 }
 
  
 int Term()
 {
   char ch;
-  int pi;
-  int Value;
+  int pi, Value;
 
   Value = Factor();
  
-  pi = e_pos;
-  pi++;
-  ch = p_string[pi];
-
+  ch = p_string[e_pos];
   while(IsMultop(ch))
   {
-    e_pos = pi;
-
     switch(ch)
     {
       case '*':
@@ -86,8 +70,8 @@ int Term()
       default:
         break;
     }
-    pi = e_pos;
-    ch = p_string[pi];
+   
+    ch = p_string[e_pos];
   }
   return Value;
 }
@@ -97,30 +81,23 @@ int Factor()
 {
   char ch;
   int value;
-  int pi;
 
-  pi = e_pos;
-  pi++;
-  ch = p_string[pi];
-
+  ch = p_string[e_pos];
   if(ch == '(')
   {
     Match('(');
     value = Expression();
     Match(')');
   }
+  
+  if(isalpha(ch)
+  {
+    value = get_varvalue();
+    SkipWhite();
+  }
   else
   {
-    if(isalpha(ch))
-    {
-      e_pos = pi;
-      value = get_varvalue();
-      SkipWhite();
-    }
-    else
-    {
       value = GetNum();
-    }
   }
   return value;
 }
@@ -128,15 +105,10 @@ int Factor()
 
 void Match(char x)
 {
-  char ch;
-  char string[6];
-  int ab_code=12;
-  int ln=line_ndx;
-  int pi;
+  char ch, string[6];
+  int ab_code=12, ln=line_ndx;
 
-  pi = e_pos;
-  ch = p_string[pi];
-
+  ch = p_string[e_pos];
   if(ch != x)
   {
     strcpy(string, "\");
@@ -174,15 +146,12 @@ int Is_White(char ch)
 void SkipWhite()
 {
   char ch;
-  int pi;
   
-  pi = e_pos;
-  ch = p_string[pi];
+  ch = p_string[e_pos];
   while(ch == ' ')
   {
     _GetChar();
-    pi = e_pos;
-    ch = p_string[pi];
+    ch = p_string[e_pos];
   }
 }
 
@@ -190,18 +159,11 @@ void SkipWhite()
 int GetNum()
 {
   char ch;
-  int pi;
-  int Value=0;
-  int ab_code=13;
-  int ln=line_ndx;
+  int pi, Value=0, ab_code=13, ln=line_ndx;
   int si;
   char cvalue[6];
 
-  
-  pi = e_pos;
-  pi++;
-  ch = p_string[pi];
-
+  ch = p_string[e_pos];
   if(!isdigit(ch))
   {
     strcpy(t_holder, "Integer");
@@ -213,15 +175,16 @@ int GetNum()
   {
     cvalue[si] = ch;
     si++; 
-    pi++;
-    ch = p_string[pi];
+    e_pos++;
+   
+    ch = p_string[e_pos];
   }
   cvalue[si] = '\0';
   Value = atoi(cvalue);
   SkipWhite();
-  e_pos = pi;
   return Value;
 }
+
 
 
 int IsAddop(char ch)
